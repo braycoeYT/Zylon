@@ -1,0 +1,4 @@
+displayName = Zylon 
+author = braycoegamingyt
+version = 0.0.1
+logo = ZylonLogo
