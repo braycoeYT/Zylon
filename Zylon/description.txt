@@ -10,8 +10,9 @@ I really hope you try my mod!
 
 Update Log:
 
-Update V0.0.2: Logo 1 (Logo)
+Update V0.0.4: Logo 1 (Logo)
 Added Logo
+Sorry, I had to do this for the logo
 
 Update V0.0.1: Prehardmode 1 (Desert?)
 Added Slime Weapons and lots of harps.
