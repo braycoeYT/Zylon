@@ -10,9 +10,11 @@ I really hope you try my mod!
 
 Update Log:
 
+Update V0.0.2: Logo 1 (Logo)
+Added Logo
+
 Update V0.0.1: Prehardmode 1 (Desert?)
 Added Slime Weapons and lots of harps.
 Added Desert Discus for later but is just an enemy for now.
 Added Poison Notes for one of said harps.
 Added a miniboss, Grand Forest Slime. 
-Added Logo
