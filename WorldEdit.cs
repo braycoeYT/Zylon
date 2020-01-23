@@ -1,6 +1,8 @@
+using Zylon;
 using Zylon.Tiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
@@ -17,6 +19,13 @@ namespace Zylon
 {
 	public class WorldEdit : ModWorld
 	{
+		public static bool hardBossOn;
+		
+		public override void Initialize()
+		{
+			hardBossOn = false;
+		}
+		
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
 		{
 			int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
