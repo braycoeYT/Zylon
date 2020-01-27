@@ -24,6 +24,30 @@ namespace Zylon.NPCs
 			npc.aiStyle = 1;
 			animationType = NPCID.GreenSlime;
 			npc.npcSlots = 1f;
+			if (NPC.downedPlantBoss)
+			{
+				npc.damage = 297;
+				npc.lifeMax = 41000;
+				npc.defense = 28;
+				npc.value = 20000;
+				npc.aiStyle = 22;
+				npc.knockBackResist = 1f;
+				npc.buffImmune[BuffID.Poisoned] = true;
+			    npc.buffImmune[BuffID.Cursed] = true;
+			    npc.buffImmune[BuffID.OnFire] = true;
+			    npc.buffImmune[BuffID.Confused] = true;
+			    npc.buffImmune[BuffID.Slow] = true;
+			    npc.buffImmune[BuffID.Weak] = true;
+			    npc.buffImmune[BuffID.CursedInferno] = true;
+			    npc.buffImmune[BuffID.Frostburn] = true;
+			    npc.buffImmune[BuffID.Chilled] = true;
+			    npc.buffImmune[BuffID.Frozen] = true;
+			    npc.buffImmune[BuffID.Burning] = true;
+			    npc.buffImmune[BuffID.Ichor] = true;
+			    npc.buffImmune[BuffID.Venom] = true;
+				npc.noGravity = true;
+			    npc.noTileCollide = true;
+			}
         }
 		public override void SetStaticDefaults() 
 		{
@@ -35,6 +59,12 @@ namespace Zylon.NPCs
             npc.lifeMax = 402;
             npc.damage = 29;
 			npc.defense = 4;
+			if (NPC.downedPlantBoss)
+			{
+				npc.lifeMax = 52000;
+				npc.damage = 398;
+				npc.defense = 41;
+			}
         }
 		
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
@@ -45,6 +75,8 @@ namespace Zylon.NPCs
 	    public override void NPCLoot()
         {
 			Item.NewItem(npc.getRect(), ItemID.Gel, 14 + Main.rand.Next(1));
+			if (NPC.downedPlantBoss)
+			Item.NewItem(npc.getRect(), mod.ItemType("ElementamaxSludge"));
         }
 	}
 }

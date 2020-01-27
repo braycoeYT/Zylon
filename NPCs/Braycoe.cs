@@ -34,7 +34,8 @@ namespace Zylon.NPCs
 			NPCID.Sets.HatOffsetY[npc.type] = 4;
 		}
 
-		public override void SetDefaults() {
+		public override void SetDefaults()
+		{
 			npc.townNPC = true;
 			npc.friendly = true;
 			npc.width = 18;
