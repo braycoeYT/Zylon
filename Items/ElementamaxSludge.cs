@@ -3,12 +3,12 @@ using Terraria.ModLoader;
 
 namespace Zylon.Items
 {
-	public class PureSoul : ModItem
+	public class ElementamaxSludge : ModItem
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Pure Soul Shard");
-			Tooltip.SetDefault("'Raincore's creation.'");
+			DisplayName.SetDefault("Elementamax Sludge");
+			Tooltip.SetDefault("'Overloaded with elemental power'");
 		}
 
 		public override void SetDefaults() 
@@ -16,8 +16,8 @@ namespace Zylon.Items
 			item.width = 40;
 			item.height = 40;
 			item.maxStack = 999;
-			item.value = 6700;
-			item.rare = 10;
+			item.value = 3419;
+			item.rare = 7;
 		}
 	}
 }

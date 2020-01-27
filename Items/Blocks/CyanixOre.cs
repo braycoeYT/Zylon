@@ -23,7 +23,7 @@ namespace Zylon.Items.Blocks
 			item.createTile = TileType<Tiles.CyanixOre>();
 			item.width = 12;
 			item.height = 12;
-			item.value = 500;
+			item.value = 210;
 			item.rare = 2;
 		}
 	}
