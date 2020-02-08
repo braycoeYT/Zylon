@@ -1,14 +1,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
-using System.Text;
-using System.Linq;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace Zylon.Items
@@ -64,9 +58,10 @@ namespace Zylon.Items
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.Amber, 1);
-			recipe.AddIngredient(ItemID.SandBlock, 20);
-			recipe.AddIngredient(ItemID.AntlionMandible, 6);
+			recipe.AddIngredient(ItemID.SandBlock, 15);
+			recipe.AddIngredient(ItemID.AntlionMandible, 3);
 			recipe.AddIngredient(ItemID.Cactus, 5);
+			recipe.AddIngredient(mod.ItemType("BrokenDiscus"), 9);
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
