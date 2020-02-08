@@ -9,6 +9,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Zylon.Items;
+
 namespace Zylon.NPCs.Bosses
 {
 	[AutoloadBossHead]
@@ -51,7 +52,6 @@ namespace Zylon.NPCs.Bosses
 			npc.buffImmune[BuffID.Burning] = true;
 			npc.buffImmune[BuffID.Ichor] = true;
 			npc.buffImmune[BuffID.Venom] = true;
-			bossBag = ItemType<DiscusBag>();
         }
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)

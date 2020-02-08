@@ -8,12 +8,16 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+using Zylon;
 using Zylon.Items;
+
 namespace Zylon.NPCs.Bosses
 {
 	[AutoloadBossHead]
 	public class AncientDesertDiscus : ModNPC
 	{
+		public static bool hardBossOn;
+		
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Ancient Desert Discus");
@@ -23,9 +27,9 @@ namespace Zylon.NPCs.Bosses
 		{
 			npc.width = 87;
 			npc.height = 87;
-			npc.damage = 44;
+			npc.damage = 54;
 			npc.defense = 8;
-			npc.lifeMax = 1100;
+			npc.lifeMax = 2300;
 			npc.HitSound = SoundID.NPCHit7;
 			npc.DeathSound = SoundID.NPCDeath7;
 			npc.value = 2000f;
@@ -51,14 +55,20 @@ namespace Zylon.NPCs.Bosses
 			npc.buffImmune[BuffID.Burning] = true;
 			npc.buffImmune[BuffID.Ichor] = true;
 			npc.buffImmune[BuffID.Venom] = true;
-			bossBag = ItemType<DiscusBag>();
         }
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 2000;
-            npc.damage = 100;
+            npc.lifeMax = 3600;
+            npc.damage = 72;
 			npc.defense = 6;
+			if (hardBossOn)
+			{
+				npc.lifeMax = 6780;
+				npc.damage = 98;
+				npc.defense = 11;
+				npc.aiStyle = 86;
+			}
         }
 		
         public float Timer

@@ -3,21 +3,14 @@ Dev Team (by joining date): Braycoegamingyt, Kitty 7 YT
 I really hope you try my mod!
 (I need moderators and writers for zylon.fandom.com)
 
-~35 Items
-~8 Enemies
+~66 Items
+~11 Enemies
 ~2 Town NPCs
-~1 Miniboss
+~2 Minibosses
 ~2 Bosses with pretty custom AI
 ~4 Projectiles
 ~3 (Unused?) Logos
 
 Most Recent Update Log (others on zylon.fandom.com):
 
-Update V0.0.8: Fatal drill fix
-
-Update V0.0.7: 127+ Downloads special!(?)
--The 2 devs are now town npcs
--Ancient Desert Discus more finished
--Added a new unfinished boss, the Zylonian Mineral Extractor
--25 New Items
--Some new npcs
+Update V0.1.01: Accessories and other stuff

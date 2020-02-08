@@ -34,13 +34,14 @@ namespace Zylon.NPCs
 			NPCID.Sets.HatOffsetY[npc.type] = 4;
 		}
 
-		public override void SetDefaults() {
+		public override void SetDefaults()
+		{
 			npc.townNPC = true;
 			npc.friendly = true;
 			npc.width = 18;
 			npc.height = 40;
 			npc.aiStyle = 7;
-			npc.damage = 200;
+			npc.damage = 78;
 			npc.defense = 999999999;
 			npc.lifeMax = 20000000;
 			npc.HitSound = SoundID.NPCHit1;
@@ -144,7 +145,7 @@ namespace Zylon.NPCs
 
 		public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
-			damage = 200;
+			damage = 78;
 			knockback = 4f;
 		}
 

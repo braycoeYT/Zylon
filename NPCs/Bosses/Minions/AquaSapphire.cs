@@ -29,7 +29,7 @@ namespace Zylon.NPCs.Bosses.Minions
 			npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath6;
 			npc.knockBackResist = 0.8f;
-			npc.aiStyle = 96;
+			npc.aiStyle = 49;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
         }

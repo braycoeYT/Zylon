@@ -40,7 +40,7 @@ namespace Zylon.NPCs
 			npc.width = 18;
 			npc.height = 40;
 			npc.aiStyle = 7;
-			npc.damage = 290;
+			npc.damage = 101;
 			npc.defense = 89999;
 			npc.lifeMax = 2000000;
 			npc.HitSound = SoundID.NPCHit1;
@@ -73,9 +73,9 @@ namespace Zylon.NPCs
 		{
 			WeightedRandom<string> chat = new WeightedRandom<string>();
 			
-			chat.Add("Hi", 1.2);
+			chat.Add("Hi!", 1.2);
 			chat.Add("Wanna battle me?", 0.7);
-			chat.Add("Where't the television?", 0.4);
+			chat.Add("Where's the television?", 0.4);
 			return chat;
 		}
 
@@ -104,7 +104,7 @@ namespace Zylon.NPCs
 
 		public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 		{
-			damage = 290;
+			damage = 101;
 			knockback = 8f;
 		}
 

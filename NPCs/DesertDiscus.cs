@@ -36,14 +36,22 @@ namespace Zylon.NPCs
 		
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-			return SpawnCondition.OverworldDayDesert.Chance * 0.5f;
+			return SpawnCondition.OverworldDayDesert.Chance * 1f;
         }
 		
 	    public override void NPCLoot()
         {
 			Item.NewItem(npc.getRect(), mod.ItemType("BrokenDiscus"), 1 + Main.rand.Next(1));
-            if (Main.rand.Next(10) == 0)
-	            Item.NewItem(npc.getRect(), ItemID.Amber);
+            if (Main.rand.NextFloat() < .153f)
+	        Item.NewItem(npc.getRect(), ItemID.GoldenKey);
+		    if (Main.rand.NextFloat() < .04f)
+	        Item.NewItem(npc.getRect(), ItemID.BoneWand);
+		    if (Main.rand.NextFloat() < .011f)
+	        Item.NewItem(npc.getRect(), ItemID.ClothierVoodooDoll);
+		    if (Main.rand.NextFloat() < .022f)
+	        Item.NewItem(npc.getRect(), ItemID.AncientNecroHelmet);
+		    if (Main.rand.NextFloat() < .2f)
+	        Item.NewItem(npc.getRect(), 3095);
         }
 	}
 }
