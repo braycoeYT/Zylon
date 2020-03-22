@@ -1,23 +1,24 @@
-Zylon is my main mod, and it is full of story, bad sprites, and other random stuff! Someday this mod will become as good as calamity or thorium but for now:
-Dev Team (by joining date): Braycoegamingyt, Kitty 7 YT
-I really hope you try my mod!
-(I need moderators and writers for zylon.fandom.com)
+Hello you, fellow modder, scrolling through the browser. This mod is managed by one person, braycoe, but that doesn't mean it isn't awesome! Zylon adds:
+~An unfinished new damage class, contagion.
+~3 new armor sets
+~A new town npc, braycoe (aka me) who reveals more power throughout the game.
+~A few new vanilla recipes
+~A new mode, kaizo mode, which makes the game very painful.
+~And much more!!!!!
 
-~35 Items
-~8 Enemies
-~2 Town NPCs
-~1 Miniboss
-~2 Bosses with pretty custom AI
-~4 Projectiles
-~3 (Unused?) Logos
+I hope you play my mod!
 
-Most Recent Update Log (others on zylon.fandom.com):
+Some more facts:
+~128 Items
+~3 Bosses
+~2 Minibosses
+~1 Town NPC
+~14 other NPCs
+~3 Tiles
+~1 Buff
 
-Update V0.0.8: Fatal drill fix
 
-Update V0.0.7: 127+ Downloads special!(?)
--The 2 devs are now town npcs
--Ancient Desert Discus more finished
--Added a new unfinished boss, the Zylonian Mineral Extractor
--25 New Items
--Some new npcs
+Note: I have a very unfinished wiki, called zylon.fandom.com, but I don't update it that much.
+
+Update V0.1.5: THE MODERNIZING
+-Added new vanila recipes, armor sets, braycoe is a lot more helpful, kaizo mode is fixed, savable varibles (fancy stuff for coding), more sorting internally, deleted a few bad stuff, updated sprites, and so much more...

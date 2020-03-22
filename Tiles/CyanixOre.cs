@@ -12,21 +12,21 @@ namespace Zylon.Tiles
 		{
 			TileID.Sets.Ore[Type] = true;
 			Main.tileSpelunker[Type] = true;
-			Main.tileValue[Type] = 505;
+			Main.tileValue[Type] = 155;
 			Main.tileShine2[Type] = true;
-			Main.tileShine[Type] = 975;
+			Main.tileShine[Type] = 775;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileSolid[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("CyanixOre");
+			name.SetDefault("Cyanix Ore");
 			AddMapEntry(new Color(0, 255, 255), name);
 			dustType = 84;
 			drop = ItemType<Items.Blocks.CyanixOre>();
 			soundType = 21;
 			soundStyle = 1;
-			mineResist = 2f;
-			minPick = 55;
+			mineResist = 1f;
+			minPick = 42;
 		}
 	}
 }
