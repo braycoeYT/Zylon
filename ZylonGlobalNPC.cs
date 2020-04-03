@@ -115,26 +115,6 @@ namespace Zylon.NPCs
 				if (Main.rand.Next(30) == 0)
 				Item.NewItem(npc.getRect(), ItemType<Items.Accessories.EyeThemed.VileEye>());
 			}
-			if (npc.type == NPCID.FlyingFish)
-			{
-				if (Main.rand.Next(2) == 0)
-				Item.NewItem(npc.getRect(), ItemType<Items.Rain.RainShard>());
-			}
-			if (npc.type == NPCID.UmbrellaSlime)
-			{
-				if (Main.rand.Next(2) == 0)
-				Item.NewItem(npc.getRect(), ItemType<Items.Rain.RainShard>());
-			}
-			if (npc.type == NPCID.BigRainZombie)
-			{
-				if (Main.rand.Next(2) == 0)
-				Item.NewItem(npc.getRect(), ItemType<Items.Rain.RainShard>());
-			}
-			if (npc.type == NPCID.SmallRainZombie)
-			{
-				if (Main.rand.Next(3) == 0)
-				Item.NewItem(npc.getRect(), ItemType<Items.Rain.RainShard>());
-			}
 			if (npc.type == NPCID.JungleBat)
 			{
 			    if (Main.rand.Next(100) == 0)
