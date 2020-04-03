@@ -1,6 +1,8 @@
+using Zylon;
 using Zylon.Tiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
@@ -17,6 +19,83 @@ namespace Zylon
 {
 	public class WorldEdit : ModWorld
 	{
+		public static bool downedDirtball;
+		public static bool downedDiscus;
+		public static bool downedMineral;
+		public static bool generatedEctojewelo;
+		public static bool downedComVirus;
+		public static bool generatedOblivion;
+		public static bool voidDream;
+		public static bool downedMeatball;
+		
+		public static int oblivionTiles;
+		
+		public override void Initialize()
+		{
+			downedDirtball = false;
+			downedDiscus = false;
+			downedMineral = false;
+			generatedEctojewelo = false;
+			downedComVirus = false;
+			generatedOblivion = false;
+			voidDream = false;
+			downedMeatball = false;
+		}
+		
+		public override TagCompound Save()
+        {
+            return new TagCompound
+            {
+                {"downedDirtball", downedDirtball},
+                {"downedDiscus", downedDiscus},
+                {"downedMineral", downedMineral},
+				{"generatedEctojewelo", generatedEctojewelo},
+				{"downedComVirus", downedComVirus},
+				{"generatedOblivion", generatedOblivion},
+				{"voidDream", voidDream},
+				{"downedMeatball", downedMeatball}
+            };
+        }
+		
+        public override void Load(TagCompound tag)
+        {
+            downedDirtball = tag.GetBool("downedDirtball");
+			downedDiscus = tag.GetBool("downedDiscus");
+			downedMineral = tag.GetBool("downedMineral");
+			generatedEctojewelo = tag.GetBool("generatedEctojewelo");
+			downedComVirus = tag.GetBool("downedComVirus");
+			generatedOblivion = tag.GetBool("generatedOblivion");
+			voidDream = tag.GetBool("voidDream");
+			downedMeatball = tag.GetBool("downedMeatball");
+        }
+		
+		 public override void NetSend(BinaryWriter writer)
+        {
+            BitsByte flags = new BitsByte(); //restate every "7"
+            flags[0] = downedDirtball;
+            flags[1] = downedDiscus;
+            flags[2] = downedMineral;
+			flags[3] = generatedEctojewelo;
+			flags[4] = downedComVirus;
+			flags[5] = generatedOblivion;
+			flags[6] = voidDream;
+			flags[7] = downedMeatball;
+            writer.Write(flags);
+        }
+		
+		public override void NetReceive(BinaryReader reader)
+        {
+            BitsByte flags = reader.ReadByte(); //same as above
+            downedDirtball = flags[0];
+            downedDiscus = flags[1];
+            downedMineral = flags[2];
+			generatedEctojewelo = flags[3];
+			downedComVirus = flags[4];
+			generatedOblivion = flags[5];
+			voidDream = flags[6];
+			downedMeatball = flags[7];
+        }
+		
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
 		{
 			int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
@@ -26,14 +105,55 @@ namespace Zylon
 			}
 		}
 		
+		public override void PreUpdate()
+        {
+			if (!generatedEctojewelo && downedMineral)
+			{
+				for (int i = 0; i < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 0.00007); i++)
+                {
+                    WorldGen.OreRunner(
+                        WorldGen.genRand.Next(0, Main.maxTilesX),
+                        WorldGen.genRand.Next(0, Main.maxTilesY),
+                        (double)WorldGen.genRand.Next(6, 15),
+                        WorldGen.genRand.Next(6, 15),
+                        (ushort)mod.TileType("EctojeweloOre")
+                    );
+                }
+				Color messageColor = Color.LightBlue;
+					string chat = "The Zylonian Mineral Extrator has blessed your world with Ectojewelo Ore!";
+					if (Main.netMode == 2)
+					{
+						NetMessage.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);
+					}
+					else if (Main.netMode == 0)
+					{
+						Main.NewText(Language.GetTextValue(chat), messageColor);
+					}
+				generatedEctojewelo = true;
+			}
+		}
+		
 		private void ZylonOres(GenerationProgress progress)
 		{
 			progress.Message = "Sprinkling your world with Zylonian Charm...";
-			for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 0.000061); k++) {
+			for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 0.00002); k++) {
 				int x = WorldGen.genRand.Next(0, Main.maxTilesX);
-				int y = WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow, Main.maxTilesY);
-				WorldGen.TileRunner(x, y, (double)WorldGen.genRand.Next(7, 15), WorldGen.genRand.Next(13, 22), TileType<CyanixOre>(), false, 0f, 0f, false, true);
+				int y = WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow, Main.maxTilesY / 2);
+				WorldGen.TileRunner(x, y, (double)WorldGen.genRand.Next(4, 12), WorldGen.genRand.Next(6, 17), TileType<CyanixOre>(), false, 0f, 0f, false, true);
 			}
+		}
+		
+		public override void ResetNearbyTileEffects()
+		{
+			PlayerEdit modPlayer = Main.LocalPlayer.GetModPlayer<PlayerEdit>();
+			oblivionTiles = 0;
+		}
+
+		public override void TileCountsAvailable(int[] tileCounts)
+		{
+			oblivionTiles = tileCounts[TileType<ObliviousMatter>()]; //+ tileCounts[TileType<Sand>()];
+
+			//Main.sandTiles += tileCounts[TileType<ExampleSand>()];
 		}
 	}
 }

@@ -4,11 +4,11 @@ using Terraria.ID;
 
 namespace Zylon.Projectiles
 {
-	public class PoisonSound : ModProjectile
+	public class DungeonNote : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("The lure of a Poison Symphony");
+			DisplayName.SetDefault("A Bonechiller's call");
         }
 		public override void SetDefaults()
 		{
@@ -16,7 +16,7 @@ namespace Zylon.Projectiles
 			projectile.height = 27;
 			projectile.aiStyle = 21;
 			projectile.friendly = true;
-			projectile.penetrate = 25;
+			projectile.penetrate = 30;
 			projectile.magic = true;
 			projectile.timeLeft = 240;
 			projectile.ignoreWater = true;
@@ -24,7 +24,7 @@ namespace Zylon.Projectiles
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			if (Main.rand.Next(7) == 0)
-		    target.AddBuff(BuffID.Poisoned, 350, false);
+		    target.AddBuff(BuffID.Confused, 350, false);
 		}
 	}   
 }

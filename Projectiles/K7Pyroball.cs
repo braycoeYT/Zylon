@@ -20,7 +20,7 @@ namespace Zylon.Projectiles
 			projectile.magic = true;
 			projectile.damage = 19;
 			projectile.timeLeft = 800;
-			projectile.ignoreWater = true;
+			projectile.ignoreWater = false;
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{

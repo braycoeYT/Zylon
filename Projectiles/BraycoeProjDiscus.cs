@@ -4,27 +4,28 @@ using Terraria.ID;
 
 namespace Zylon.Projectiles
 {
-	public class PoisonSound : ModProjectile
+	public class BraycoeProjDiscus : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("The lure of a Poison Symphony");
+			DisplayName.SetDefault("Braycoe's Discus");
         }
 		public override void SetDefaults()
 		{
-			projectile.width = 13;
-			projectile.height = 27;
-			projectile.aiStyle = 21;
+			projectile.width = 39;
+			projectile.height = 39;
+			projectile.aiStyle = 1;
 			projectile.friendly = true;
-			projectile.penetrate = 25;
-			projectile.magic = true;
-			projectile.timeLeft = 240;
+			projectile.penetrate = -1;
+			projectile.timeLeft = 1200;
 			projectile.ignoreWater = true;
+			projectile.light = 0.5f;
+			aiType = 1;
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			if (Main.rand.Next(7) == 0)
-		    target.AddBuff(BuffID.Poisoned, 350, false);
+			if (Main.rand.Next(5) == 0)
+		    target.AddBuff(BuffID.Confused, 120, false);
 		}
 	}   
 }
