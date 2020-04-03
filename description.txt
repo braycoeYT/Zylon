@@ -3,22 +3,24 @@ Hello you, fellow modder, scrolling through the browser. This mod is managed by 
 ~3 new armor sets
 ~A new town npc, braycoe (aka me) who reveals more power throughout the game.
 ~A few new vanilla recipes
-~A new mode, kaizo mode, which makes the game very painful.
-~And much more!!!!!
+~2 new modes, Kaizo makes the game a lot harder to play but Void Dream is a bit like Revengance from Calamity.
 
 I hope you play my mod!
 
 Some more facts:
-~128 Items
-~3 Bosses
-~2 Minibosses
+~156 Items
+~3 Bosses with pretty custom AI
+~3 Minibosses
 ~1 Town NPC
-~14 other NPCs
-~3 Tiles
+~35 other NPCs
+~8 Tiles
 ~1 Buff
 
 
 Note: I have a very unfinished wiki, called zylon.fandom.com, but I don't update it that much.
 
-Update V0.1.5: THE MODERNIZING
--Added new vanila recipes, armor sets, braycoe is a lot more helpful, kaizo mode is fixed, savable varibles (fancy stuff for coding), more sorting internally, deleted a few bad stuff, updated sprites, and so much more...
+Update V0.1.7: THE MODERNIZING 2: Released near April Fools but the next update is actually April Fools
+-Removed more stuff, added 30+ enemies, added Void Dream mode, CUSTOM BOSS AI!!!, Unfinished Oblivion stuff, fixed a few grammar mistakes, fixed a few broken crafting recipes.
+
+
+SPOILER ALERT: THE SUPER LATER APRIL FOOLS UPDATE is gonna be big...
