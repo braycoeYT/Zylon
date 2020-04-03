@@ -21,14 +21,14 @@ namespace Zylon.NPCs.Bosses.Minions
         public override void SetDefaults()
 		{
 			npc.value = 0;
-			npc.width = 38;
-			npc.height = 38;
-			npc.damage = 30;
-			npc.defense = 4;
-			npc.lifeMax = 68;
-			npc.HitSound = SoundID.NPCHit3;
-			npc.DeathSound = SoundID.NPCDeath6;
-			npc.knockBackResist = 0.8f;
+			npc.width = 35;
+			npc.height = 35;
+			npc.damage = 37;
+			npc.defense = 25;
+			npc.lifeMax = 700;
+			npc.HitSound = SoundID.NPCHit4;
+			npc.DeathSound = SoundID.NPCDeath14;
+			npc.knockBackResist = 0.1f;
 			npc.aiStyle = 10;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
@@ -36,9 +36,9 @@ namespace Zylon.NPCs.Bosses.Minions
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 88;
-            npc.damage = 42;
-			npc.defense = 7;
+            npc.lifeMax = 1100;
+            npc.damage = 49;
+			npc.defense = 35;
         }
 	}
 }

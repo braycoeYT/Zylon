@@ -9,6 +9,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Zylon.Items;
+
 namespace Zylon.NPCs.Bosses
 {
 	[AutoloadBossHead]
@@ -21,11 +22,11 @@ namespace Zylon.NPCs.Bosses
 
         public override void SetDefaults()
 		{
-			npc.width = 360;
+			npc.width = 300;
 			npc.height = 480;
-			npc.damage = 640;
+			npc.damage = 190;
 			npc.defense = 67;
-			npc.lifeMax = 355000;
+			npc.lifeMax = 145000;
 			npc.HitSound = SoundID.NPCHit4;
 			npc.DeathSound = SoundID.NPCDeath1;
 			npc.value = 200000f;
@@ -51,14 +52,19 @@ namespace Zylon.NPCs.Bosses
 			npc.buffImmune[BuffID.Burning] = true;
 			npc.buffImmune[BuffID.Ichor] = true;
 			npc.buffImmune[BuffID.Venom] = true;
-			bossBag = ItemType<DiscusBag>();
         }
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 415000;
+            npc.lifeMax = 217500;
             npc.damage = 246;
 			npc.defense = 89;
+			if (WorldEdit.voidDream)
+			{
+				npc.lifeMax = 285000 + numPlayers * 21000;
+				npc.damage = 312;
+				npc.defense = 92;
+			}
         }
 		
 		public override void HitEffect(int hitDirection, double damage)
@@ -74,22 +80,75 @@ namespace Zylon.NPCs.Bosses
 	        get => npc.ai[0];
 	        set => npc.ai[0] = value;
         }
-
+		
+		bool Uber1 = true;
+		bool Chat1 = true;
+		
         public override void AI()
 		{
 	        Timer++;
-			if  (Timer % 360 == 0)
+			if (WorldEdit.voidDream)
+			{
+				if  (Timer % 300 == 0)
+				{
+					NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.AquaSapphire>(), 0, npc.whoAmI);
+					NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.FlameGarnet>(), 0, npc.whoAmI);
+					NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.SproutingEmerald>(), 0, npc.whoAmI);
+				}
+			}
+			else if  (Timer % 360 == 0)
 			{
 				NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.AquaSapphire>(), 0, npc.whoAmI);
 				NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.FlameGarnet>(), 0, npc.whoAmI);
 				NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.SproutingEmerald>(), 0, npc.whoAmI);
+			}
+			
+			if (WorldEdit.voidDream)
+			{
+				if (NPC.AnyNPCs(NPCType<Minions.Ubercabachon>()))
+				{
+					npc.dontTakeDamage = true;
+				}
+				else
+				{
+					npc.dontTakeDamage = false;
+				}
+			}
+			
+			if (npc.life < npc.lifeMax / 2)
+			{
+				if (Uber1)
+				{
+				if (Chat1)
+				{
+				Color messageColor = Color.Pink;
+					string chat = "<XYL-900>: Critical condition, releasing Ubercabachons...";
+					if (Main.netMode == 2)
+					{
+						NetMessage.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);
+					}
+					else if (Main.netMode == 0)
+					{
+						Main.NewText(Language.GetTextValue(chat), messageColor);
+					}
+				}
+				Timer++;
+				if (Timer % 6 == 1)
+				NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.Ubercabachon>(), 0, npc.whoAmI);
+				if (Timer > 90)
+				{
+					Uber1 = false;
+					Timer = 0;
+				}
+				Chat1 = false;
+				}
 			}
         }
 		
 		public override void BossLoot(ref string name, ref int potionType)
 		{
 			name = "The " + name + "'s Outer Armor";
-			potionType = ItemID.SuperHealingPotion;
+			potionType = ItemID.Amethyst;
 		}
 	}
 }

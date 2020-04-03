@@ -11,34 +11,35 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.NPCs.Bosses.Minions
 {
-	public class AquaSapphire : ModNPC
+	public class Spammer : ModNPC
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Aqua Sapphire");
+			DisplayName.SetDefault("Spammer");
 		}
 
         public override void SetDefaults()
 		{
 			npc.value = 0;
-			npc.width = 40;
-			npc.height = 40;
-			npc.damage = 155;
-			npc.defense = 77;
-			npc.lifeMax = 987;
-			npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath6;
-			npc.knockBackResist = 0.8f;
-			npc.aiStyle = 49;
+			npc.width = 43;
+			npc.height = 43;
+			npc.damage = 37;
+			npc.defense = 25;
+			npc.lifeMax = 700;
+			npc.HitSound = SoundID.NPCHit4;
+			npc.DeathSound = SoundID.NPCDeath14;
+			npc.knockBackResist = 0f;
+			npc.aiStyle = 5;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
+			aiType = NPCID.Probe;
         }
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 1876;
-            npc.damage = 243;
-			npc.defense = 98;
+            npc.lifeMax = 1000;
+            npc.damage = 59;
+			npc.defense = 35;
         }
 	}
 }

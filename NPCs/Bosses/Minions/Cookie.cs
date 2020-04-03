@@ -11,34 +11,43 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.NPCs.Bosses.Minions
 {
-	public class AquaSapphire : ModNPC
+	public class Cookie : ModNPC
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Aqua Sapphire");
+			DisplayName.SetDefault("Cookie");
 		}
 
         public override void SetDefaults()
 		{
 			npc.value = 0;
-			npc.width = 40;
-			npc.height = 40;
-			npc.damage = 155;
-			npc.defense = 77;
-			npc.lifeMax = 987;
-			npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath6;
-			npc.knockBackResist = 0.8f;
-			npc.aiStyle = 49;
+			npc.width = 20;
+			npc.height = 20;
+			npc.damage = 29;
+			npc.defense = 0;
+			npc.lifeMax = 450;
+			npc.HitSound = SoundID.NPCHit4;
+			npc.DeathSound = SoundID.NPCDeath14;
+			npc.knockBackResist = 0f;
+			npc.aiStyle = 22;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
+			aiType = NPCID.Gastropod;
         }
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 1876;
-            npc.damage = 243;
-			npc.defense = 98;
+            npc.lifeMax = 750;
+            npc.damage = 51;
+			npc.defense = 10;
+			
+			if (WorldEdit.voidDream)
+			{
+				npc.lifeMax = 1000;
+				npc.damage = 67;
+				npc.aiStyle = 22;
+				aiType = NPCID.IchorSticker;
+			}
         }
 	}
 }

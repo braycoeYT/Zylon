@@ -1,21 +1,14 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.NPCs.Bosses.Minions
+namespace Zylon.NPCs.Discus
 {
-	public class SandGrainDiscus : ModNPC
+	public class SandGrainDiscusSpawn : ModNPC
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Sandgrain Assault Discus");
+			DisplayName.SetDefault("Sandgrain Assualt Discus");
 		}
 
         public override void SetDefaults()
@@ -40,6 +33,24 @@ namespace Zylon.NPCs.Bosses.Minions
             npc.damage = 30;
 			npc.defense = 6;
 			npc.knockBackResist = 0f;
+        }
+		
+		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+			if (WorldEdit.downedDiscus)
+			{
+				if(spawnInfo.player.ZoneUndergroundDesert)
+				if(Main.expertMode)
+				return 0.1f;
+			}
+			return 0f;
+        }
+		
+	    public override void NPCLoot()
+        {
+			Item.NewItem(npc.getRect(), mod.ItemType("BrokenDiscus"), 1 + Main.rand.Next(1));
+		    if (Main.rand.NextFloat() < .03f)
+	        Item.NewItem(npc.getRect(), ItemID.Nazar);
         }
 	}
 }
