@@ -24,7 +24,7 @@ namespace Zylon.Items
 			item.value = 10000;
 			item.rare = 3;
 			item.autoReuse = true;
-			item.useTurn = true;
+			item.useTurn = false;
 			item.shoot = 504;
 			item.shootSpeed = 10f;
 			item.noMelee = true;

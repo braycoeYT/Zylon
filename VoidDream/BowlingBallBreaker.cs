@@ -1,0 +1,35 @@
+using Zylon.Tiles;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
+
+namespace Zylon.Items.VoidDream
+{
+	public class BowlingBallBreaker : ModItem
+	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Checkered Flag");
+			Tooltip.SetDefault("This signals the end of a level\nSummons a pet marble\nVoid Dream");
+		}
+
+		public override void SetDefaults()
+		{
+			item.CloneDefaults(2420);
+			item.shoot = ProjectileType<Projectiles.Pets.MarblePet>();
+			item.buffType = BuffType<Buffs.MarbleBuff>();
+			item.mana = 0;
+			item.damage = 0;
+			item.value = 20000;
+		}
+
+		public override void UseStyle(Player player)
+		{
+			if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
+			{
+				player.AddBuff(item.buffType, 600, true);
+			}
+		}
+	}
+}
