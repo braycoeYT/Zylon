@@ -1,23 +1,43 @@
-Zylon is my main mod, and it is full of story, bad sprites, and other random stuff! Someday this mod will become as good as calamity or thorium but for now:
-Dev Team (by joining date): Braycoegamingyt, Kitty 7 YT
-I really hope you try my mod!
-(I need moderators and writers for zylon.fandom.com)
+Hello you, fellow modder, scrolling through the browser. This mod is managed by two people, BraycoeYT and CrazySapling1, but that doesn't mean it isn't awesome!
+Custom coding is here!
 
-~35 Items
-~8 Enemies
-~2 Town NPCs
-~1 Miniboss
-~2 Bosses with pretty custom AI
-~4 Projectiles
-~3 (Unused?) Logos
+CREDITS:
+All of the fancy sprites are by:
+CrazySapling1
+All other sprites are by me. I'm not that good at spriting.
 
-Most Recent Update Log (others on zylon.fandom.com):
+I hope you play my mod!
 
-Update V0.0.8: Fatal drill fix
+Some more facts:
+~202 Items
+~3 Bosses with pretty custom AI
+~3 Minibosses
+~1 Town NPC
+~41 other NPCs
+~8 Tiles
+~2 Buffs
 
-Update V0.0.7: 127+ Downloads special!(?)
--The 2 devs are now town npcs
--Ancient Desert Discus more finished
--Added a new unfinished boss, the Zylonian Mineral Extractor
--25 New Items
--Some new npcs
+Note: I have a very unfinished wiki, called zylon.fandom.com, but I don't update it that much.
+
+Update V0.1.8: The Ball Update (Previously known as the Super Late April Fools Update)
+Added Meatball
+Added Mechaball
+Fixed Computer Virus Clone
+Expanded Braycoe's Void Dream Shop
+Nerfed all aspects of Void Dream mode
+Zylonian Mineral Exctractor now uses custom AI in phase 1 instead of slightly modified Plantera AI
+Fixed Silvervoid Cores not dropping
+CrazySapling1 began making cool sprites for my mod!
+Cosmogem Grandscale is no longer expert mode exclusive
+Added tons of Ore Slappys
+Buffed/Nerfed many items
+A.D.D. is invincible instead of gaining hp when leaving desert biome
+Rewrote some enemies
+Added more Cyanix Items
+Added Discus Armor
+Made Elementamax Sludge easier to get
+Added More Elemental Slimes
+Added a couple prompts to help the player
+Added Mysterious Conversation, Part 1
+A few unimportant other fixes and changes
+A new epic logo drawn by CrazySapling1
