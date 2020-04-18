@@ -6,27 +6,27 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Tiles
 {
-	public class CyanixOre : ModTile
+	public class EctojeweloOre : ModTile
 	{
 		public override void SetDefaults()
 		{
 			TileID.Sets.Ore[Type] = true;
 			Main.tileSpelunker[Type] = true;
-			Main.tileValue[Type] = 155;
+			Main.tileValue[Type] = 1001;
 			Main.tileShine2[Type] = true;
-			Main.tileShine[Type] = 775;
+			Main.tileShine[Type] = 835;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileSolid[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Cyanix Ore");
-			AddMapEntry(new Color(0, 255, 255), name);
-			dustType = 84;
-			drop = ItemType<Items.Blocks.CyanixOre>();
+			name.SetDefault("Ectojewelo Ore");
+			AddMapEntry(new Color(0, 125, 125), name);
+			dustType = 229;
+			drop = ItemType<Items.Blocks.EctojeweloOre>();
 			soundType = 21;
 			soundStyle = 1;
-			mineResist = 1f;
-			minPick = 35;
+			mineResist = 6f;
+			minPick = 230;
 		}
 	}
 }

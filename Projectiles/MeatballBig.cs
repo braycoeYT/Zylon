@@ -4,27 +4,28 @@ using Terraria.ID;
 
 namespace Zylon.Projectiles
 {
-	public class PoisonSound : ModProjectile
+	public class MeatballBig : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("The lure of a Poison Symphony");
+			DisplayName.SetDefault("Big Meatball");
         }
 		public override void SetDefaults()
 		{
-			projectile.width = 13;
-			projectile.height = 27;
-			projectile.aiStyle = 21;
+			projectile.width = 78;
+			projectile.height = 78;
+			projectile.aiStyle = 1;
 			projectile.friendly = true;
-			projectile.penetrate = 25;
-			projectile.magic = true;
-			projectile.timeLeft = 240;
+			projectile.penetrate = 10;
+			projectile.timeLeft = 2500;
 			projectile.ignoreWater = true;
+			projectile.light = 0f;
+			aiType = 1;
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			if (Main.rand.Next(7) == 0)
-		    target.AddBuff(BuffID.Poisoned, 350, false);
+			if (Main.rand.Next(5) == 0)
+		    target.AddBuff(70, 240, false);
 		}
 	}   
 }

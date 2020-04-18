@@ -12,15 +12,14 @@ namespace Zylon.Projectiles
         }
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(ProjectileID.EnchantedBoomerang);
+			projectile.CloneDefaults(52);
 			projectile.width = 15;
 			projectile.height = 15;
 			projectile.aiStyle = 3;
 			projectile.friendly = true;
-			projectile.penetrate = 9999;
+			projectile.penetrate = -1;
 			projectile.melee = true;
-			projectile.damage = 8;
-			projectile.timeLeft = 9999;
+			projectile.timeLeft = 240;
 			projectile.ignoreWater = true;
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
