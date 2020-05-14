@@ -55,4 +55,5 @@ Added Javelances
 Removed Meatball and Mechaball, they were made lazily
 Nerfed Gemstone Wings
 Added Empress Slime
+Mod is no longer stealable
 Other minor stuff
