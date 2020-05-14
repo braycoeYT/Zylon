@@ -1,23 +1,59 @@
-Zylon is my main mod, and it is full of story, bad sprites, and other random stuff! Someday this mod will become as good as calamity or thorium but for now:
-Dev Team (by joining date): Braycoegamingyt, Kitty 7 YT
-I really hope you try my mod!
-(I need moderators and writers for zylon.fandom.com)
+Hello you, fellow modder, scrolling through the browser.
+This is the best mod that starts with Z!
+This mod has Custom AI, some pretty sprites, and other stuff present in major mods
+Adds many custom recipes including a better slime crown recipe and a fair magic mirror recipe
+Support for boss checklist :D
+CREDITS:
+All of the fancy sprites are by CrazySapling1
+All other sprites are by me. I'm not that good at spriting.
 
-~35 Items
-~8 Enemies
-~2 Town NPCs
-~1 Miniboss
-~2 Bosses with pretty custom AI
-~4 Projectiles
-~3 (Unused?) Logos
+I hope you play my mod!
 
-Most Recent Update Log (others on zylon.fandom.com):
+Some more facts:
+~256 Items
+~4 Bosses with custom AI
+~2 Minibosses
+~1 Town NPC
+~56 total NPCs
+~3 Ores
+~10 Other Tiles
+~18 Buffs
 
-Update V0.0.8: Fatal drill fix
-
-Update V0.0.7: 127+ Downloads special!(?)
--The 2 devs are now town npcs
--Ancient Desert Discus more finished
--Added a new unfinished boss, the Zylonian Mineral Extractor
--25 New Items
--Some new npcs
+Update V0.1.9: Early Journeys End Update
+Fixed ADD phase 2 hitbox
+Redid Mechaball who was more of a pain than a miniboss
+Added Magentite and its enemies
+Added more items capable of fighting the Zylonian Mineral Extractor
+Mecharang actually exists now
+Redid the Broken Dirtball Copper Shortsword
+Fixed a few broken/weird recipes
+Nerfed Rocky Potion
+Fixed Potion Crafting
+Added More Potions
+Added first summon weapon
+Added Plain Noodle
+Added Braycoe's Favorite Slime Pet
+Removed many bad items
+Added Cyanix Pills
+Made Mysterious Gems easier to craft
+Added Giga Gemstone
+Removed Contagional Class, not too unique and not enough items
+Nerfed Celestial Kicks
+Void Dream Dirtball and Meatball drops moved to Expert and nerfed
+Moved ZME down on the boss checklist because it was too high on the list (It was the same rank as Providence from Calamity which is a lot harder than ZME)
+Fixed Discus Helm Crafting
+Fixed Prehardmode Treasure Bags dropping the dev vanity
+Added Xenic Acidpumper, new miniboss!
+Changed Cosmogem Grandscale
+Fixed saving in multiplayer
+A little multiplayer support
+Made the stories a lot shorter, I might post all of the bosses lore somewhere someday
+Nerfed Armarosa Hypergun, way too op
+Nerfed Ancient Amalgam Pendant
+Redid Gemstone Armor
+Added Javelances
+Removed Meatball and Mechaball, they were made lazily
+Nerfed Gemstone Wings
+Added Empress Slime
+Mod is no longer extractable
+Other minor stuff
