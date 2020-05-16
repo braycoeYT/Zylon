@@ -1,6 +1,4 @@
-Hello you, fellow modder, scrolling through the browser.
 This is the best mod that starts with Z!
-This mod has Custom AI, some pretty sprites, and other stuff present in major mods
 Adds many custom recipes including a better slime crown recipe and a fair magic mirror recipe
 Support for boss checklist :D
 CREDITS:
@@ -19,6 +17,6 @@ Some more facts:
 ~10 Other Tiles
 ~18 Buffs
 
-Update V0.1.9: Make way for Journey's End
+Update V0.1.9.1: Make way for Journey's End
 ~New Logo
 ~Removed Void Dream Mode (replacing it with Master Mode, obviously)
