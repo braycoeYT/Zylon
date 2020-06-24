@@ -1,11 +1,7 @@
-Hello you, fellow modder, scrolling through the browser.
-This is the best mod that starts with Z!
-This mod has Custom AI, some pretty sprites, and other stuff present in major mods
-Adds many custom recipes including a better slime crown recipe and a fair magic mirror recipe
-Support for boss checklist :D
-CREDITS:
-All of the fancy sprites are by CrazySapling1
-All other sprites are by me. I'm not that good at spriting.
+This is the best mod that starts with Z (I guarantee)!
+Adds rare items, crimson counterparts, and much more!
+Support for Boss Checklist
+Zylon is heavily inspired by Exxo Avalon.
 
 I hope you play my mod!
 
@@ -19,6 +15,45 @@ Some more facts:
 ~10 Other Tiles
 ~18 Buffs
 
-Update V0.1.9: Make way for Journey's End
-~New Logo
-~Removed Void Dream Mode (replacing it with Master Mode, obviously)
+Dev Team:
+Braycoe: Creator, Coder, Spriter
+CrazySapling1: Spriter (Inactive)
+Sness: Coder, Spriter
+
+Update V0.2: The Microupdate
+~Fixed flesh blocks and plain noodles being dropped pre-skeletron
+~Redid ModPlayer and ModWorld for better compatibility
+~Added the Microbiome, which is a reference to Exxo Avalon :D
+~Added Unethical Arrows, which are the crimson counterpart of Unholy Arrows
+~Nerfed and fixed Empress Bleeders
+~Magical Vaccine drops from cave bats now
+~A Xenic Acidpumper fight is quicker and easier
+~Fixed Armarosa Hypergun
+~Increased spawn rate of A Xenic Acidpumper
+~Balanced a few vanilla items
+~Final 2 pickaxes render correctly now
+~Added Rare items, many mods do that already and Zylon does too now
+~Dirtball smiles as it realizes it is a boss again
+~Some item sell value changes
+~Zylonian Mineral Exctractor rewritten to be a lot harder
+~Added many, many shields
+~Reduced Suspicious Looking Disc crafting ingredients
+~Added Darkness Chip accessories
+~Changed Eye of Prejudice
+~Added Colossal Cell
+~(Re?)Added Slime Items
+~Added Ectojewelo Bioheart/Biostar
+~Flesh block is now Meat Shard
+~Added Zenith-Tier items
+~ZME drops lots of amethyst now
+~Removed boots as they didn't fit that well
+~Removed some of Braycoe's store (too helpful)
+~Gave Dirtball some minions
+~Changed Dirtball's Sprite
+~Fixed a few things that I added a while back
+~Changed Dirtball's Expert drop
+~Fixed Electifying Scent not dropping
+~Added many new things that happens after you defeat the ZME... (microbiome-related)
+~Fixed Computer Virus causing the world to go into post-ZME
+~Changed Computer Virus's treasure bag
+~Electropierce and Mechabow are obtainable again
