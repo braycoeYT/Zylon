@@ -5,21 +5,21 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.OtherArrows
+namespace Zylon.Projectiles.OtherJavelances
 {
-	public class PoisonousArrow : ModProjectile
+	public class SlimyJavelance : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Poisonous Arrow");
+			DisplayName.SetDefault("Slimy Javelance");
         }
 		public override void SetDefaults()
 		{
-			projectile.width = 8;
-			projectile.height = 8;
+			projectile.width = 32;
+			projectile.height = 32;
 			projectile.aiStyle = 1;
 			projectile.friendly = true;
-			projectile.penetrate = 1;
+			projectile.penetrate = 4;
 			projectile.ranged = true;
 			projectile.timeLeft = 3000;
 			projectile.ignoreWater = true;
@@ -27,13 +27,16 @@ namespace Zylon.Projectiles.OtherArrows
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			if (Main.rand.Next(2) == 0)
-			target.AddBuff(BuffID.Poisoned, 200, false);
+			target.AddBuff(BuffID.Slimed, 300, false);
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit)
+		public override void PostAI()
 		{
-			if (Main.rand.Next(2) == 0)
-				target.AddBuff(BuffID.Poisoned, 200, false);
+			if (Main.rand.NextBool())
+			{
+				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 80);
+				dust.noGravity = false;
+				dust.scale = 0.8f;
+			}
 		}
 	}   
 }

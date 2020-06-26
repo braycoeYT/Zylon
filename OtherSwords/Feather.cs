@@ -5,23 +5,22 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.OtherArrows
+namespace Zylon.Projectiles.OtherSwords
 {
-	public class UnethicalArrow : ModProjectile
+	public class Feather : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Unethical Arrow");
+			DisplayName.SetDefault("Feather");
         }
 		public override void SetDefaults()
 		{
-			projectile.width = 8;
-			projectile.height = 8;
+			projectile.width = 16;
+			projectile.height = 16;
 			projectile.aiStyle = 1;
 			projectile.friendly = true;
-			projectile.penetrate = 4;
-			projectile.ranged = true;
-			projectile.damage = 14;
+			projectile.penetrate = 3;
+			projectile.damage = 10;
 			projectile.timeLeft = 3000;
 			projectile.ignoreWater = true;
 			aiType = 1;

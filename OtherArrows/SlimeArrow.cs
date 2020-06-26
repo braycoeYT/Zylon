@@ -7,11 +7,11 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Projectiles.OtherArrows
 {
-	public class UnethicalArrow : ModProjectile
+	public class SlimeArrow : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Unethical Arrow");
+			DisplayName.SetDefault("Slime Arrow");
         }
 		public override void SetDefaults()
 		{
@@ -19,12 +19,20 @@ namespace Zylon.Projectiles.OtherArrows
 			projectile.height = 8;
 			projectile.aiStyle = 1;
 			projectile.friendly = true;
-			projectile.penetrate = 4;
+			projectile.penetrate = 1;
 			projectile.ranged = true;
-			projectile.damage = 14;
+			projectile.damage = 7;
 			projectile.timeLeft = 3000;
 			projectile.ignoreWater = true;
 			aiType = 1;
+		}
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		{
+			target.AddBuff(BuffID.Slimed, 300, false);
+		}
+		public override void OnHitPlayer(Player target, int damage, bool crit)
+		{
+			target.AddBuff(BuffID.Slimed, 300, false);
 		}
 	}   
 }

@@ -1,27 +1,27 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.OtherArrows
+namespace Zylon.Projectiles.OtherJavelances
 {
-	public class UnethicalArrow : ModProjectile
+	public class TerraOrb : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Unethical Arrow");
+			DisplayName.SetDefault("Terra Orb");
         }
 		public override void SetDefaults()
 		{
-			projectile.width = 8;
-			projectile.height = 8;
+			projectile.width = 32;
+			projectile.height = 32;
 			projectile.aiStyle = 1;
 			projectile.friendly = true;
+			projectile.hostile = false;
 			projectile.penetrate = 4;
 			projectile.ranged = true;
-			projectile.damage = 14;
 			projectile.timeLeft = 3000;
 			projectile.ignoreWater = true;
 			aiType = 1;

@@ -1,39 +1,39 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.OtherArrows
+namespace Zylon.Projectiles.OtherYoyos
 {
-	public class PoisonousArrow : ModProjectile
+	public class Yolk : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Poisonous Arrow");
+			DisplayName.SetDefault("Yolk");
         }
 		public override void SetDefaults()
 		{
-			projectile.width = 8;
-			projectile.height = 8;
+			projectile.width = 24;
+			projectile.height = 24;
 			projectile.aiStyle = 1;
 			projectile.friendly = true;
-			projectile.penetrate = 1;
+			projectile.penetrate = -1;
 			projectile.ranged = true;
-			projectile.timeLeft = 3000;
+			projectile.timeLeft = 20;
 			projectile.ignoreWater = true;
 			aiType = 1;
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			if (Main.rand.Next(2) == 0)
-			target.AddBuff(BuffID.Poisoned, 200, false);
+			if (Main.rand.Next(5) == 0)
+			target.AddBuff(BuffID.Poisoned, 150, false);
 		}
 		public override void OnHitPlayer(Player target, int damage, bool crit)
 		{
-			if (Main.rand.Next(2) == 0)
-				target.AddBuff(BuffID.Poisoned, 200, false);
+			if (Main.rand.Next(5) == 0)
+			target.AddBuff(BuffID.Poisoned, 150, false);
 		}
 	}   
 }
