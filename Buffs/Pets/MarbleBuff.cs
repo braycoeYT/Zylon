@@ -17,7 +17,7 @@ namespace Zylon.Buffs.Pets
 		public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffTime[buffIndex] = 18000;
-			player.GetModPlayer<PlayerEdit>().MarblePet = true;
+			player.GetModPlayer<ZylonPlayer>().MarblePet = true;
 			bool petProjectileNotSpawned = player.ownedProjectileCounts[ProjectileType<Projectiles.Pets.MarblePet>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{

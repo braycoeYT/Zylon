@@ -3,21 +3,19 @@ using Terraria.ModLoader;
 
 namespace Zylon.Buffs
 {
-    public class Stealthy : ModBuff
+    public class CellBoost : ModBuff
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Stealthy");
-            Description.SetDefault("Increased movement speed, ranged damage, and you have a chance to dodge attacks");
+            DisplayName.SetDefault("ATP Boost");
+            Description.SetDefault("The hypercharged nucleolus increases your ATP, which increases your life regen greatly");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = false;
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
-			player.rangedDamage += 0.04f;
-			player.maxRunSpeed += 0.07f;
-			player.blackBelt = true;
+            player.lifeRegen += 1;
         }
     }
 }
