@@ -1,24 +1,40 @@
-Hello you, fellow modder, scrolling through the browser.
-This is the best mod that starts with Z!
-This mod has Custom AI, some pretty sprites, and other stuff present in major mods
-Adds many custom recipes including a better slime crown recipe and a fair magic mirror recipe
-Support for boss checklist :D
-CREDITS:
-All of the fancy sprites are by CrazySapling1
-All other sprites are by me. I'm not that good at spriting.
+This is the best mod that starts with Z (I guarantee or your money back)!
+Adds rare items, crimson counterparts, and much more!
+Support for Boss Checklist
+Zylon is heavily inspired by Exxo Avalon.
 
 I hope you play my mod!
 
 Some more facts:
-~255 Items
-~4 Bosses with custom AI
-~2 Minibosses
+~314 Items
+~6 unique, custom AI, Bosses:
+^3 Prehardmode Bosses
+^2 Hardmode Bosses
+^1 Post ML Boss
+~1 Miniboss
 ~1 Town NPC
-~57 total NPCs
-~3 Ores
-~10 Other Tiles
-~18 Buffs
+~82 total NPCs
+~4 Ores
+~15 Total Tiles
+~22 Buffs
+~1 Biome
 
-Update V0.1.9: Make way for Journey's End
-~New Logo
-~Removed Void Dream Mode (replacing it with Master Mode, obviously)
+Dev Team:
+Braycoe
+
+Spriters:
+CrazySapling1 (Inactive)
+Sness (Empress Slime minions)
+
+Update V0.2.0.2: Microupdate Expansion 1 (aka twin 0.2 update)
+~Fixed cheat where you can gain health at extreme speeds with Empress Bleeders and Target Dummies
+~Ubercabachon now spawns at night after ZME is defeated.
+~Removed Xenic Acidpumper's immunity mechanic because it was too annoying.
+~Added Morbus Rose and Mini Morbus Rose to the post-ZME microbiome
+~Made Twisted Membrane Ore more green so it can be differed from Diseased Stone
+~Removed souls of night dropping near the surface
+~Like 1.4, souls of night can no longer drop from blue and spiked slimes (in the microbiome)
+~Empress Slime now inflicts Obstructed
+~Fixed Cyanix Armor Tooltips
+~Added more Braycoe chat
+~Changed Soul of Byte sprite

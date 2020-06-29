@@ -27,40 +27,52 @@ namespace Zylon
 			Mod bossChecklist = ModLoader.GetMod("BossChecklist");
 			if (bossChecklist != null) {
 				bossChecklist.Call(
-					"AddMiniBoss",
-					0.12f,
-					new List<int> { ModContent.NPCType<NPCs.Minibosses.Dirtball>() },
+					"AddBoss",
+					0.8f,
+					new List<int> { ModContent.NPCType<NPCs.Bosses.Dirtball>() },
 					this,
 					"$Mods.Zylon.NPCName.Dirtball",
-					(Func<bool>)(() => WorldEdit.downedDirtball),
+					(Func<bool>)(() => ZylonWorld.downedDirtball),
 					ModContent.ItemType<Items.BossSummon.CreepyMud>(),
-					new List<int> { ModContent.ItemType<Items.Dirtball.StoryDirtball>() }, //collectables
+					new List<int> { ModContent.ItemType<Items.Dirtball.BrokenDirtballCopperShortsword>() }, //collectables
 					new List<int> { ModContent.ItemType<Items.Dirtball.BrokenDirtballCopperShortsword>()}, //other
-					$"Dirtball spawns rarely until it is defeated. It can be manually summoned with a [i:{ModContent.ItemType<Items.BossSummon.CreepyMud>()}], which can be crafted or rarely dropped from enemies."
+					$"Dirtball spawns rarely until it is defeated. It can also be manually summoned with a [i:{ModContent.ItemType<Items.BossSummon.CreepyMud>()}], which can be crafted or rarely dropped from enemies."
 				);
 				bossChecklist.Call(
 					"AddBoss",
-					1.65f,
+					1.95f,
 					new List<int> { ModContent.NPCType<NPCs.Bosses.AncientDesertDiscus>() },
 					this,
 					"$Mods.Zylon.NPCName.AncientDesertDiscus",
-					(Func<bool>)(() => WorldEdit.downedDiscus),
+					(Func<bool>)(() => ZylonWorld.downedDiscus),
 					ModContent.ItemType<Items.BossSummon.SuspiciousLookingDisc>(),
-					new List<int> { ModContent.ItemType<Items.Discus.StoryDiscus>() }, //collectables
-					new List<int> { ModContent.ItemType<Items.Discus.ZylonianDesertCore>(), ModContent.ItemType<Items.Discus.DiscusGuardianPendant>() }, //other
-					$"Use a [i:{ModContent.ItemType<Items.BossSummon.SuspiciousLookingDisc>()}]  to summon the discus leader in the desert night..."
+					new List<int> { ModContent.ItemType<Items.Discus.ZylonianDesertCore>() }, //collectables
+					new List<int> { ModContent.ItemType<Items.Discus.ZylonianDesertCore>() }, //other
+					$"Use a [i:{ModContent.ItemType<Items.BossSummon.SuspiciousLookingDisc>()}]  to summon the discus leader in the desert night."
 				);
 				bossChecklist.Call(
 					"AddBoss",
-					9.01f,
-					new List<int> { ModContent.NPCType<NPCs.Bosses.ComputerVirus>(), ModContent.NPCType<NPCs.Bosses.ComputerVirusPha2>() },
+					3.05f,
+					new List<int> { ModContent.NPCType<NPCs.Bosses.ColossalCell>() },
+					this,
+					"$Mods.Zylon.NPCName.ColossalCell",
+					(Func<bool>)(() => ZylonWorld.downedCell),
+					ModContent.ItemType<Items.Microbiome.RottingCelluloseCasedMushedMeat>(),
+					new List<int> { ModContent.ItemType<Items.Microbiome.Cytoplasm>() }, //collectables
+					new List<int> { ModContent.ItemType<Items.Microbiome.Cytoplasm>() }, //other
+					$"Use a [i:{ModContent.ItemType<Items.Microbiome.RottingCelluloseCasedMushedMeat>()}] in the microbiome."
+				);
+				bossChecklist.Call(
+					"AddBoss",
+					8.75f,
+					new List<int> { ModContent.NPCType<NPCs.Bosses.ComputerVirus>() },
 					this,
 					"$Mods.Zylon.NPCName.ComputerVirus",
-					(Func<bool>)(() => WorldEdit.downedComVirus),
+					(Func<bool>)(() => ZylonWorld.downedComVirus),
 					ModContent.ItemType<Items.BossSummon.MechanicalDisc>(),
-					new List<int> { ModContent.ItemType<Items.ComputerVirus.StoryComVirus>() }, //collectables
-					new List<int> { ModContent.ItemType<Items.Discus.ZylonianDesertCore>(), ModContent.ItemType<Items.Discus.DiscusGuardianPendant>() }, //other
-					$"Use a [i:{ModContent.ItemType<Items.BossSummon.MechanicalDisc>()}]  to taunt the cyber plague..."
+					new List<int> { ModContent.ItemType<Items.ComputerVirus.SoulOfByte>() }, //collectables
+					new List<int> { ModContent.ItemType<Items.ComputerVirus.SoulOfByte>() }, //other
+					$"Use a [i:{ModContent.ItemType<Items.BossSummon.MechanicalDisc>()}]  to taunt the cyber plague."
 				);
 				bossChecklist.Call(
 					"AddBoss",
@@ -68,35 +80,35 @@ namespace Zylon
 					new List<int> { ModContent.NPCType<NPCs.Bosses.EmpressSlime>()},
 					this,
 					"$Mods.Zylon.NPCName.EmpressSlime",
-					(Func<bool>)(() => WorldEdit.downedEmpress),
+					(Func<bool>)(() => ZylonWorld.downedEmpress),
 					ModContent.ItemType<Items.Empress.EmpressChalice>(),
-					new List<int> { ModContent.ItemType<Items.ComputerVirus.StoryComVirus>() }, //collectables
-					new List<int> { ModContent.ItemType<Items.Discus.ZylonianDesertCore>(), ModContent.ItemType<Items.Discus.DiscusGuardianPendant>() }, //other
+					new List<int> { ModContent.ItemType<Items.Empress.EmpressShard>() }, //collectables
+					new List<int> { ModContent.ItemType<Items.Empress.EmpressShard>() }, //other
 					$"Use a [i:{ModContent.ItemType<Items.Empress.EmpressChalice>()}]"
 				);
 				bossChecklist.Call(
 					"AddBoss",
-					14.75f,
-					new List<int> { ModContent.NPCType<NPCs.Bosses.ZylonianMineralExtractor>(), ModContent.NPCType<NPCs.Bosses.ZylonianMineralExtractorPha2>() },
+					14.5f,
+					new List<int> { ModContent.NPCType<NPCs.Bosses.ZylonianMineralExtractor>()},
 					this,
 					"$Mods.Zylon.NPCName.ZylonianMineralExtractor",
-					(Func<bool>)(() => WorldEdit.downedMineral),
+					(Func<bool>)(() => ZylonWorld.downedMineral),
 					ModContent.ItemType<Items.BossSummon.MysteriousGemPink>(),
-					new List<int> { ModContent.ItemType<Items.Mineral.StoryMineral>() }, //collectables
+					new List<int> { ModContent.ItemType<Items.Mineral.GalacticDiamondium>() }, //collectables
 					new List<int> { ModContent.ItemType<Items.Mineral.GalacticDiamondium>() }, //other
-					$"Use any version of the [i:{ModContent.ItemType<Items.BossSummon.MysteriousGemPink>()}] at night to send its scanners out of control..."
+					$"Use any version of the [i:{ModContent.ItemType<Items.BossSummon.MysteriousGemPink>()}] at night to send its scanners out of control."
 				);
 				bossChecklist.Call(
 					"AddMiniBoss",
-					14.8f,
+					14.55f,
 					new List<int> { ModContent.NPCType<NPCs.Minibosses.XenicAcidpumper>() },
 					this,
 					"$Mods.Zylon.NPCName.XenicAcidpumper",
-					(Func<bool>)(() => WorldEdit.downedXenic),
+					(Func<bool>)(() => ZylonWorld.downedXenic),
 					ModContent.ItemType<Items.BossSummon.CreepyMud>(),
-					new List<int> { ModContent.ItemType<Items.Dirtball.StoryDirtball>() }, //collectables
-					new List<int> { ModContent.ItemType<Items.Dirtball.BrokenDirtballCopperShortsword>()}, //other
-					$"A Xenic Acidpumper spawns rarely in the post-Zylonian Mineral Exctractor outer space at night."
+					new List<int> { ModContent.ItemType<Items.Xenic.XenicCore>() }, //collectables
+					new List<int> { ModContent.ItemType<Items.Xenic.XenicCore>()}, //other
+					$"Xenic Acidpumpers spawn rarely in the post-Zylonian Mineral Exctractor outer space at night."
 				);
 			}
 		}
@@ -127,6 +139,17 @@ namespace Zylon
 			ItemID.Ruby
 			});
 			RecipeGroup.RegisterGroup("Zylon:AnyGem", group);
+
+			group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Mysterious Gem", new int[]
+			{
+			ItemType("MysteriousGemBlue"),
+			ItemType("MysteriousGemGreen"),
+			ItemType("MysteriousGemPink"),
+			ItemType("MysteriousGemRed"),
+			ItemType("MysteriousGemWhite"),
+			ItemType("MysteriousGemYellow")
+			});
+			RecipeGroup.RegisterGroup("Zylon:AnyMysteriousGem", group);
 		}
 		public override void AddRecipes()
 		{
@@ -140,12 +163,12 @@ namespace Zylon
 			recipe.SetResult(ItemID.MagicMirror);
 			recipe.AddRecipe();
 			
-			recipe = new ModRecipe(this);
+			/*recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.BottledWater);
 			recipe.AddIngredient(ItemID.Stinger, 2);
 			recipe.AddIngredient(null, "ZylonianDesertCore");
 			recipe.AddIngredient(ItemID.PinkGel, 2);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.ThornsPotion);
 			recipe.AddRecipe();
 			
@@ -154,7 +177,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Daybloom);
 			recipe.AddIngredient(null, "ZylonianDesertCore");
 			recipe.AddIngredient(ItemID.PinkGel, 4);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.CalmingPotion);
 			recipe.AddRecipe();
 			
@@ -163,7 +186,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.LifeCrystal);
 			recipe.AddIngredient(null, "ZylonianDesertCore", 10);
 			recipe.AddIngredient(ItemID.PinkGel, 30);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.HeartreachPotion, 10);
 			recipe.AddRecipe();
 			
@@ -172,7 +195,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Moonglow);
 			recipe.AddIngredient(null, "ZylonianDesertCore");
 			recipe.AddIngredient(ItemID.CobaltOre);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.AmmoReservationPotion);
 			recipe.AddRecipe();
 			
@@ -181,7 +204,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Torch);
 			recipe.AddIngredient(null, "ZylonianDesertCore");
 			recipe.AddIngredient(ItemID.PalladiumOre);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.InfernoPotion);
 			recipe.AddRecipe();
 			
@@ -190,7 +213,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Fireblossom);
 			recipe.AddIngredient(null, "ZylonianDesertCore");
 			recipe.AddIngredient(ItemID.MythrilOre);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.RagePotion);
 			recipe.AddRecipe();
 			
@@ -199,7 +222,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Blinkroot);
 			recipe.AddIngredient(null, "ZylonianDesertCore");
 			recipe.AddIngredient(ItemID.OrichalcumOre);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.WrathPotion);
 			recipe.AddRecipe();
 			
@@ -208,7 +231,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.LifeCrystal);
 			recipe.AddIngredient(null, "ZylonianDesertCore", 10);
 			recipe.AddIngredient(ItemID.AdamantiteOre, 10);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.LifeforcePotion, 10);
 			recipe.AddRecipe();
 			
@@ -218,23 +241,23 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Waterleaf);
 			recipe.AddIngredient(null, "ZylonianDesertCore");
 			recipe.AddIngredient(ItemID.TitaniumOre);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.EndurancePotion);
 			recipe.AddRecipe();
 			
 			recipe = new ModRecipe(this);
-			recipe.AddIngredient(ItemID.IronBar, 12);
+			recipe.AddIngredient(ItemID.DemoniteBar, 7);
 			recipe.AddIngredient(ItemID.Cobweb, 25);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(3352);
+			recipe.SetResult(ItemID.StylistKilLaKillScissorsIWish);
 			recipe.AddRecipe();
 			
 			recipe = new ModRecipe(this);
-			recipe.AddIngredient(ItemID.LeadBar, 12);
+			recipe.AddIngredient(ItemID.CrimtaneBar, 7);
 			recipe.AddIngredient(ItemID.Cobweb, 25);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(3352);
-			recipe.AddRecipe();
+			recipe.SetResult(ItemID.StylistKilLaKillScissorsIWish);
+			recipe.AddRecipe();*/
 			
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.HallowedBar, 12);
@@ -279,11 +302,11 @@ namespace Zylon
 			recipe.AddRecipe();
 			
 			recipe = new ModRecipe(this);
-			recipe.AddIngredient(3354);
-			recipe.AddIngredient(3355);
+			recipe.AddIngredient(ItemID.MechanicalWheelPiece);
+			recipe.AddIngredient(ItemID.MechanicalWagonPiece);
 			recipe.AddIngredient(null, "MechanicalGearPiece");
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(3353);
+			recipe.SetResult(ItemID.MinecartMech);
 			recipe.AddRecipe();
 			
 			recipe = new ModRecipe(this);
@@ -332,8 +355,8 @@ namespace Zylon
 			recipe.AddRecipe();
 			
 			recipe = new ModRecipe(this);
-			recipe.AddIngredient(ItemID.GoldBar, 10);
-			recipe.AddIngredient(ItemID.Ruby);
+			recipe.AddIngredient(ItemID.GoldBar, 9);
+			recipe.AddRecipeGroup("Zylon:AnyGem");
 			recipe.AddIngredient(ItemID.Seashell);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(ItemID.Trident);
@@ -346,6 +369,79 @@ namespace Zylon
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.SetResult(ItemID.SlimeCrown);
 			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "EyeOpener");
+			recipe.AddIngredient(ItemID.Muramasa);
+			recipe.AddIngredient(ItemID.BladeofGrass);
+			recipe.AddIngredient(ItemID.FieryGreatsword);
+			recipe.AddTile(TileID.DemonAltar);
+			recipe.SetResult(ItemID.NightsEdge);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "SlimyCore", 4);
+			recipe.AddIngredient(ItemID.Hook);
+			recipe.AddTile(TileID.Solidifier);
+			recipe.SetResult(ItemID.SlimeHook);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "SlimyCore", 4);
+			recipe.AddIngredient(ItemID.Leather, 2);
+			recipe.AddTile(TileID.Solidifier);
+			recipe.SetResult(ItemID.SlimySaddle);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "SlimyCore", 3);
+			recipe.AddRecipeGroup("IronBar", 7);
+			recipe.AddTile(TileID.Solidifier);
+			recipe.SetResult(ItemID.SlimeGun);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "SlimyCore", 3);
+			recipe.AddIngredient(ItemID.Wood, 9);
+			recipe.AddTile(TileID.Solidifier);
+			recipe.SetResult(ItemID.SlimeStaff);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(ItemID.BottledWater);
+			recipe.AddIngredient(ItemID.Deathweed);
+			recipe.AddIngredient(ItemID.Cactus);
+			recipe.AddIngredient(null, "BloodySpiderLeg");
+			recipe.AddIngredient(ItemID.Stinger);
+			recipe.AddTile(TileID.Bottles);
+			recipe.SetResult(ItemID.ThornsPotion);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "NucleusShard", 5);
+			recipe.AddTile(TileID.WorkBenches);
+			recipe.SetResult(ItemID.Leather);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(ItemID.BottledWater);
+			recipe.AddIngredient(ItemID.Deathweed);
+			recipe.AddIngredient(null, "NucleusShard");
+			recipe.AddTile(TileID.Bottles);
+			recipe.SetResult(ItemID.BattlePotion);
+			recipe.AddRecipe();
+		}
+		public override void UpdateMusic(ref int music, ref MusicPriority priority)
+		{
+			if (Main.myPlayer == -1 || Main.gameMenu || !Main.LocalPlayer.active)
+			{
+				return;
+			}
+			if (Main.LocalPlayer.GetModPlayer<ZylonPlayer>().ZoneMicrobiome)
+			{
+				music = MusicID.Corruption;
+				priority = MusicPriority.BiomeHigh;
+			}
 		}
 	}
 }
