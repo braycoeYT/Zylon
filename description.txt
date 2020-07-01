@@ -26,10 +26,11 @@ Spriters:
 CrazySapling1 (Inactive)
 Sness (Empress Slime minions)
 
-Update V0.2.0.3: Fixes
+Update V0.2.0.4: Fixes
 ~Changed Dirt Slime and Royal Slimer sprites
 ~Changed Magentite Armor set bonus
 ~Made the Soul of Byte navy to avoid confusion with other souls
 ~Fixed Microbiome worldGen at spawnpoint
 ~Matched Microbiome with WorldGen
 ~I couldn't add everything I wanted to since this update is just a bug fix.
+~Also for some reason I have to skip V0.2.0.3 because tmodloader didn't let me use it.
