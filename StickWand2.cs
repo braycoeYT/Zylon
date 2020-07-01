@@ -13,7 +13,7 @@ namespace Zylon.Items
 
 		public override void SetDefaults() 
 		{
-			item.damage = 37;
+			item.damage = 29;
 			item.magic = true;
 			item.width = 33;
 			item.height = 33;
@@ -24,7 +24,7 @@ namespace Zylon.Items
 			item.value = 10000;
 			item.rare = 3;
 			item.autoReuse = true;
-			item.useTurn = true;
+			item.useTurn = false;
 			item.shoot = 504;
 			item.shootSpeed = 10f;
 			item.noMelee = true;
