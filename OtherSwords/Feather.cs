@@ -5,22 +5,22 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.OtherJavelances
+namespace Zylon.Projectiles.OtherSwords
 {
-	public class WoodenJavelance : ModProjectile
+	public class Feather : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Magentite Javelance");
+			DisplayName.SetDefault("Feather");
         }
 		public override void SetDefaults()
 		{
-			projectile.width = 32;
-			projectile.height = 32;
+			projectile.width = 16;
+			projectile.height = 16;
 			projectile.aiStyle = 1;
 			projectile.friendly = true;
 			projectile.penetrate = 3;
-			projectile.ranged = true;
+			projectile.damage = 10;
 			projectile.timeLeft = 3000;
 			projectile.ignoreWater = true;
 			aiType = 1;
