@@ -23,10 +23,14 @@ namespace Zylon.Tiles
 			AddMapEntry(new Color(0, 125, 125), name);
 			dustType = 229;
 			drop = ItemType<Items.Blocks.EctojeweloOre>();
-			soundType = 21;
+			soundType = SoundID.Tink;
 			soundStyle = 1;
 			mineResist = 6f;
 			minPick = 230;
+		}
+		public override bool CanExplode(int i, int j)
+		{
+			return false;
 		}
 	}
 }

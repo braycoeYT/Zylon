@@ -23,7 +23,7 @@ namespace Zylon.Tiles
 			AddMapEntry(new Color(0, 255, 255), name);
 			dustType = 84;
 			drop = ItemType<Items.Blocks.CyanixOre>();
-			soundType = 21;
+			soundType = SoundID.Tink;
 			soundStyle = 1;
 			mineResist = 1f;
 			minPick = 35;
