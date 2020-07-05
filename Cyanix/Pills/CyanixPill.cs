@@ -37,6 +37,9 @@ namespace Zylon.Items.Cyanix.Pills
 		public override bool UseItem(Player player)
 		{
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+			if (p.cyanixShort == true)
+			player.AddBuff(mod.BuffType("CyanixCooldown"), 2700);
+			else
 			player.AddBuff(mod.BuffType("CyanixCooldown"), 3600);
 			if (p.CyanixLong == true)
 			player.AddBuff(mod.BuffType("CyanixBoost"), 900);
