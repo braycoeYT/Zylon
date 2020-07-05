@@ -137,7 +137,6 @@ namespace Zylon
 			downedEmpress = flags2[4];
 			downedCell = flags2[5];
 		}
-		
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
 		{
 			int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));

@@ -6,7 +6,7 @@ Zylon is heavily inspired by Exxo Avalon.
 I hope you play my mod!
 
 Some more facts:
-~314 Items
+~280 Items
 ~6 unique, custom AI, Bosses:
 ^3 Prehardmode Bosses
 ^2 Hardmode Bosses
@@ -19,17 +19,43 @@ Some more facts:
 ~22 Buffs
 ~1 Biome
 
-Dev Team:
-Braycoe
+Cross-mod Content with:
+Birth of Asteri mod (1 Item)
 
-Spriters:
-CrazySapling1 (Inactive)
-Sness (Empress Slime minions)
+BraycoeYT made the mod.
 
-Update V0.2.0.3: Fixes
-~Changed Dirt Slime and Royal Slimer sprites
-~Changed Magentite Armor set bonus
-~Made the Soul of Byte navy to avoid confusion with other souls
-~Fixed Microbiome worldGen at spawnpoint
-~Matched Microbiome with WorldGen
-~I couldn't add everything I wanted to since this update is just a bug fix.
+Spriters/Other Help:
+CrazySapling1 (Inactive Spriter)
+Sness (Empress Slime Minion Spriter)
+GOA7 (Active Spriter)
+
+Update V0.2.0.5: Texture and Javelance Update
+~Added a cross-content item with Birth of Asteri, the Drakon's Grasp
+~Updated many sprites
+~By request by the spriter, Electrolight is now a crafting material. The gun was renamed to Zapfire.
+~Removed Plantera Stabbies
+~Made using more javelances at once take longer
+~Fixed a mistake in the javelance use time/animation equation
+~Removed Rocky Potion
+~Javelances now update instantly
+~Removed some unused items and projectiles
+~Removed most harps from the game
+~Removed Excalibows
+~Ancient Medieval Javelance no longer steals life
+~Fixed Shadowdance and True Shadowdance's dust color
+~Added Blood Drop Potion
+~Zylon display name is blue now
+~Added many new javelances
+~Changed many sell prices of javelances
+~Braycoe now needs King Slime to be defeated in order to move in, along with at least 3 town npcs
+~King Slime drops the Slimy Core now
+~Removed Crystalirang tooltip
+~Red Orb on a Stick now requires the Wand of Sparking in its recipe
+~Made elemental slimes a lot weaker
+~Added new slimes, some drop elementamax sludge
+~Elemental slimes drop a lot more elementamax sludge
+~Removed most slappies from the mod because they were bad
+~Removed testing items
+~Changed looks of Twisted Membrane Ore/Bar and Diseased Stone
+~Removed Bloody Cyst
+~Fixed Mecharang crafting recipe

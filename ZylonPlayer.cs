@@ -40,6 +40,8 @@ namespace Zylon
 		public bool eyeCandy;
 		public bool hyperCell;
 		public bool magentiteBonus;
+		public bool bloodJavelance;
+		public bool cyanixShort;
 		int numberShot = 0;
 		public int upgradeHearts;
 		public int upgradeStars;
@@ -64,6 +66,7 @@ namespace Zylon
 			eyeCandy = false;
 			hyperCell = false;
 			magentiteBonus = false;
+			bloodJavelance = false;
 			player.statLifeMax2 += upgradeHearts * 25;
 			player.statManaMax2 += upgradeStars * 50;
 			playerTimer = 0;
@@ -83,11 +86,6 @@ namespace Zylon
 		public override void SetupStartInventory(IList<Item> items, bool mediumcoreDeath)
 		{
 			Item item = new Item();
-			item.SetDefaults(ItemType<Items.OtherSlappys.PHOres.CopperSlappy>());
-			item.stack = 1;
-			items.Add(item);
-			
-			item = new Item();
 			item.SetDefaults(ItemType<Items.Accessories.EyeThemed.KaizoMedal>());
 			item.stack = 1;
 			items.Add(item);
