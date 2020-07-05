@@ -9,12 +9,6 @@ namespace Zylon.Items.Mineral
 {
 	public class Crystalirang : ModItem
 	{
-		
-		public override void SetStaticDefaults()
-		{
-			Tooltip.SetDefault("'Bring it on'");
-		}
-
 		public override void SetDefaults()
 		{
 			item.melee = true;
