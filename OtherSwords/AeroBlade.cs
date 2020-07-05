@@ -9,7 +9,7 @@ namespace Zylon.Items.OtherSwords
 	{
 		public override void SetStaticDefaults() 
 		{
-			Tooltip.SetDefault("Shoots a barrage of yellow stars\n30% Chance of shooting a feather\n10% Chance of shooting a giant darkstar");
+			Tooltip.SetDefault("This blade's most powerful weapon is breaking your ears\nShoots a barrage of yellow stars\n30% Chance of shooting a feather\n10% Chance of shooting a giant darkstar");
 		}
 
 		public override void SetDefaults() 
