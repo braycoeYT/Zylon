@@ -4,41 +4,41 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Zylon.Items.Magentite
+namespace Zylon.Items.Electrolight
 {
-	public class MagentiteJavelance : ModItem
+	public class Storm : ModItem
 	{
 		public override void SetStaticDefaults() 
 		{
-			Tooltip.SetDefault("Stacks up to 2\nMore javelances means more javelances thrown\nUse time is decreased with more javelances");
+			Tooltip.SetDefault("Attacks can electrocute enemies\nJavelance stack penalty is decreased by 10%\nStacks up to 4\nMore javelances means more javelances thrown\nUse time is decreased with more javelances");
 		}
 
 		public override void SetDefaults() 
 		{
-			item.damage = 9;
+			item.damage = 42;
 			item.ranged = true;
 			item.width = 33;
 			item.height = 33;
-			item.useTime = 28;
-			item.useAnimation = 28;
-			item.useStyle = 1 ;
-			item.knockBack = 3.8f;
-			item.value = 11500;
-			item.rare = 1;
+			item.useTime = 23;
+			item.useAnimation = 23;
+			item.useStyle = 1;
+			item.knockBack = 2.1f;
+			item.value = 20000;
+			item.rare = 5;
 			item.autoReuse = true;
 			item.useTurn = true;
-			item.shoot = mod.ProjectileType("MagentiteJavelance");
-			item.shootSpeed = 12f;
+			item.shoot = mod.ProjectileType("Storm");
+			item.shootSpeed = 18f;
 			item.noMelee = true;
-			item.maxStack = 2;
+			item.maxStack = 4;
 			item.UseSound = SoundID.Item1;
 			item.noUseGraphic = true;
 			item.consumable = false;
 		}
 		public override void UpdateInventory(Player player)
 		{
-			item.useTime = 28 + (item.stack * 10) - 10;
-			item.useAnimation = 28 + (item.stack * 10) - 10;
+			item.useTime = 23 + (item.stack * 9) - 9;
+			item.useAnimation = 23 + (item.stack * 9) - 9;
 		}
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
@@ -62,12 +62,14 @@ namespace Zylon.Items.Magentite
 			return true;
 		}
 
-		public override void AddRecipes()
+		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("MagentiteBar"), 9);
-			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
+			recipe.AddIngredient(mod.ItemType("ElectricDesertJavelance"), 2);
+			recipe.AddIngredient(mod.ItemType("Electrolight"), 5);
+			recipe.AddIngredient(ItemID.SoulofFlight, 4);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.SetResult(this, 4);
 			recipe.AddRecipe();
 		}
 	}

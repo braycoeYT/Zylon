@@ -17,8 +17,8 @@ namespace Zylon.Items.Meatball
 
 		public override void SetDefaults()
 		{
-			item.width = 40;
-			item.height = 40;
+			item.width = 29;
+			item.height = 15;
 			item.accessory = true;
 			item.value = 1000;
 			item.rare = 3;
