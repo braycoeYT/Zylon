@@ -17,9 +17,9 @@ namespace Zylon.NPCs.Slimes.Elemental
 		{
 			npc.width = 208;
 			npc.height = 224;
-			npc.damage = 201;
+			npc.damage = 121;
 			npc.defense = 37;
-			npc.lifeMax = 41000;
+			npc.lifeMax = 14000;
 			npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath3;
 			npc.value = 20000f;
@@ -39,8 +39,8 @@ namespace Zylon.NPCs.Slimes.Elemental
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 50000;
-            npc.damage = 339;
+            npc.lifeMax = 25000;
+            npc.damage = 199;
 			npc.defense = 49;
         }
 		
@@ -56,7 +56,7 @@ namespace Zylon.NPCs.Slimes.Elemental
 	    public override void NPCLoot()
         {
 			Item.NewItem(npc.getRect(), ItemID.Gel, 14 + Main.rand.Next(1));
-			Item.NewItem(npc.getRect(), mod.ItemType("ElementamaxSludge"), Main.rand.Next(3));
+			Item.NewItem(npc.getRect(), mod.ItemType("ElementamaxSludge"), Main.rand.Next(2, 7));
         }
 		
 		public override void HitEffect(int hitDirection, double damage)

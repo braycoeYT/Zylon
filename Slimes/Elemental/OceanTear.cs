@@ -18,7 +18,7 @@ namespace Zylon.NPCs.Slimes.Elemental
 			npc.height = 40;
 			npc.damage = 111;
 			npc.defense = 9;
-			npc.lifeMax = 5000;
+			npc.lifeMax = 918;
 			npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath3;
 			npc.value = 0f;
@@ -38,9 +38,8 @@ namespace Zylon.NPCs.Slimes.Elemental
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 7500;
+            npc.lifeMax = 1453;
             npc.damage = 157;
-			npc.defense = 19;
         }
 		
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
