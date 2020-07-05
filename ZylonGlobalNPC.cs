@@ -50,6 +50,10 @@ namespace Zylon.NPCs
 					}
 				}
 			}
+			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].ZoneSkyHeight && Main.hardMode && Main.rand.NextFloat() < .25f)
+			{
+				Item.NewItem(npc.getRect(), mod.ItemType("Electrolight"));
+			}
 			if (npc.type == NPCID.Derpling || npc.type == NPCID.GiantTortoise || npc.type == NPCID.GiantFlyingFox || npc.type == NPCID.AngryTrapper || npc.type == NPCID.Arapaima)
 			{
 				if (Main.rand.NextFloat() < .01f)
@@ -138,6 +142,10 @@ namespace Zylon.NPCs
 				Item.NewItem(npc.getRect(), ItemType<Items.Microbiome.TwistedMembraneOre>(), Main.rand.Next(30, 88));
 				if (Main.rand.NextFloat() < .03f)
 					Item.NewItem(npc.getRect(), mod.ItemType("InsomniaInsignia"));
+			}
+			if (npc.type == NPCID.KingSlime)
+			{
+				Item.NewItem(npc.getRect(), ItemType<Items.PHBoss.Slime.SlimyCore>(), Main.rand.Next(8, 12));
 			}
 			if (npc.type == NPCID.Retinazer)
 			{

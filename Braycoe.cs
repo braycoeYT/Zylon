@@ -108,10 +108,6 @@ namespace Zylon.NPCs
 
 			chat.Add("I can turn into any slime, name one and I could do it.", 1.2);
 
-			chat.Add("What's goin' on!", 2.0);
-			
-			chat.Add("Sup!", 2.0);
-			
 			chat.Add("You won the lottery! No, not really.", 0.001);
 			
 			chat.Add("I'm cool, right? Just what I thought.", 0.6);
