@@ -12,7 +12,7 @@ namespace Zylon.Items
 		
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("'Pew pew pew*'\n*Does not shoot lasers");
+			Tooltip.SetDefault("Pew pew pew*\n*Does not shoot lasers");
 		}
 
 		public override void SetDefaults()
@@ -41,7 +41,7 @@ namespace Zylon.Items
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.HallowedBar, 13);
 			recipe.AddIngredient(ItemID.SoulofMight, 3);
-			recipe.AddTile(TileID.LunarCraftingStation);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

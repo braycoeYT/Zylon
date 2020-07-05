@@ -67,7 +67,7 @@ namespace Zylon.Items.Zenith
 			recipe.AddIngredient(ItemID.ChainGun);
 			recipe.AddIngredient(ItemID.VenusMagnum);
 			recipe.AddIngredient(ItemID.Uzi);
-			recipe.AddIngredient(mod.ItemType("ShadowSplicer"));
+			recipe.AddIngredient(ItemID.ClockworkAssaultRifle);
 			recipe.AddIngredient(ItemID.PhoenixBlaster);
 			recipe.AddIngredient(mod.ItemType("DeadlockPistol"));
 			recipe.AddIngredient(mod.ItemType("DirtyPistol"));
