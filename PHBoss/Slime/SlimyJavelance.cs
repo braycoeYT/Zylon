@@ -35,7 +35,11 @@ namespace Zylon.Items.PHBoss.Slime
 			item.noUseGraphic = true;
 			item.consumable = false;
 		}
-		
+		public override void UpdateInventory(Player player)
+		{
+			item.useTime = 31 + (item.stack * 10) - 10;
+			item.useAnimation = 31 + (item.stack * 10) - 10;
+		}
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
@@ -43,11 +47,8 @@ namespace Zylon.Items.PHBoss.Slime
 			{
 				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("BleedingJavelance"), 45, 3f, player.whoAmI);
 			}
-
-			item.useTime = 31 + (item.stack * 3);
-			item.useAnimation = 31 + (item.stack * 3);
 			float numberProjectiles = item.stack;
-			float rotation = MathHelper.ToRadians(10);
+			float rotation = MathHelper.ToRadians(18);
 			if (numberProjectiles > 1)
 			{
 				position += Vector2.Normalize(new Vector2(speedX, speedY)) * 45f;

@@ -1,35 +1,37 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.Rare
+namespace Zylon.Items.Rare
 {
-	public class RainbowRose : ModProjectile
+	public class RainbowRose : ModItem
 	{
-        public override void SetStaticDefaults()
+		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Rainbow Rose");
-        }
-		public override void SetDefaults()
-		{
-			projectile.CloneDefaults(ProjectileID.EnchantedBoomerang);
-			aiType = ProjectileID.EnchantedBoomerang;
-			projectile.melee = false;
+			Tooltip.SetDefault("Throws a rainbow rose that explodes into rainbows\nRare Item");
 		}
-		public float Timer
+		
+		public override void SetDefaults() 
 		{
-			get => projectile.ai[0];
-			set => projectile.ai[0] = value;
+			item.damage = 10;
+			item.width = 33;
+			item.height = 33;
+			item.useTime = 60;
+			item.useAnimation = 60;
+			item.useStyle = 4;
+			item.knockBack = 5.9f;
+			item.value = 55050;
+			item.rare = -11;
+			item.UseSound = SoundID.Item21;
+			item.autoReuse = true;
+			item.useTurn = true;
+			item.shoot = mod.ProjectileType("RainbowRose");
+			item.shootSpeed = 10f;
+			item.noUseGraphic = true;
+			item.consumable = true;
+			item.maxStack = 999;
 		}
-		public override void AI()
-		{
-			if (Timer % 20 == 0)
-			{
-				Projectile.NewProjectile(projectile.Center, new Vector2(0, 8).RotatedByRandom(MathHelper.TwoPi), 251, projectile.damage, 2, Main.myPlayer);
-			}
-		}
-	}   
+	}
 }

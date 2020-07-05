@@ -4,42 +4,41 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Zylon.Items.Rare
+namespace Zylon.Items.Snow
 {
-	public class MagentaMagnet : ModItem
+	public class IceDippedJavelance : ModItem
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Magenta Magnet");
-			Tooltip.SetDefault("Stacks up to 3\nEach javelance can launch pink bolts towards the mouse position\nBolt speed is based on the javelance's vertical speed\nMore javelances means more javelances thrown\nUse time is decreased with more javelances\nRare item");
+			Tooltip.SetDefault("Very dippy\nStacks up to 2\nMore javelances means more javelances thrown\nUse time is decreased with more javelances");
 		}
 
 		public override void SetDefaults() 
 		{
-			item.damage = 14;
+			item.damage = 8;
 			item.ranged = true;
 			item.width = 33;
 			item.height = 33;
-			item.useTime = 31;
-			item.useAnimation = 31;
-			item.useStyle = 1 ;
-			item.knockBack = 5.1f;
-			item.value = 50000;
-			item.rare = -11;
+			item.useTime = 35;
+			item.useAnimation = 35;
+			item.useStyle = 1;
+			item.knockBack = 2.3f;
+			item.value = 2000;
+			item.rare = 1;
 			item.autoReuse = true;
 			item.useTurn = true;
-			item.shoot = mod.ProjectileType("MagentaMagnet");
+			item.shoot = mod.ProjectileType("IceDippedJavelance");
 			item.shootSpeed = 12f;
 			item.noMelee = true;
-			item.maxStack = 3;
+			item.maxStack = 2;
 			item.UseSound = SoundID.Item1;
 			item.noUseGraphic = true;
 			item.consumable = false;
 		}
 		public override void UpdateInventory(Player player)
 		{
-			item.useTime = 31 + (item.stack * 10) - 10;
-			item.useAnimation = 31 + (item.stack * 10) - 10;
+			item.useTime = 35 + (item.stack * 10) - 10;
+			item.useAnimation = 35 + (item.stack * 10) - 10;
 		}
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
@@ -61,6 +60,16 @@ namespace Zylon.Items.Rare
 			return false;
 			}
 			return true;
+		}
+		public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.SnowBlock, 8);
+			recipe.AddIngredient(ItemID.IceBlock, 8);
+			recipe.AddIngredient(mod.ItemType("CryoCrystal"), 7);
+			recipe.AddTile(TileID.Anvils);
+			recipe.SetResult(this, 2);
+			recipe.AddRecipe();
 		}
 	}
 }
