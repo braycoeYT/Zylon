@@ -7,11 +7,11 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Projectiles.OtherJavelances
 {
-	public class SlimyJavelance : ModProjectile
+	public class IceDippedJavelance : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Slimy Javelance");
+			DisplayName.SetDefault("Ice Dipped Javelance");
         }
 		public override void SetDefaults()
 		{
@@ -19,37 +19,30 @@ namespace Zylon.Projectiles.OtherJavelances
 			projectile.height = 32;
 			projectile.aiStyle = 1;
 			projectile.friendly = true;
-			projectile.penetrate = 4;
+			projectile.penetrate = 3;
 			projectile.ranged = true;
 			projectile.timeLeft = 3000;
 			projectile.ignoreWater = true;
 			aiType = 1;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
-			if (zp.bloodJavelance && Main.rand.NextFloat() < .06f && target.type != NPCID.TargetDummy) {
-				Player p = Main.player[projectile.owner];
-				p.statLife += 1;
-				p.HealEffect(1, true);
-			}
-			target.AddBuff(BuffID.Slimed, 300, false);
-		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
-			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
-			if (zp.bloodJavelance && Main.rand.NextFloat() < .06f) {
-				Player p = Main.player[projectile.owner];
-				p.statLife += 1;
-				p.HealEffect(1, true);
-			}
-			target.AddBuff(BuffID.Slimed, 300, false);
-		}
-		public override void PostAI()
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			if (Main.rand.NextBool())
+			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
+			if (zp.bloodJavelance && Main.rand.NextFloat() < .05f && target.type != NPCID.TargetDummy)
 			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 80);
-				dust.noGravity = false;
-				dust.scale = 0.8f;
+				Player p = Main.player[projectile.owner];
+				p.statLife += 1;
+				p.HealEffect(1, true);
+			}
+		}
+		public override void OnHitPlayer(Player target, int damage, bool crit)
+		{
+			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
+			if (zp.bloodJavelance && Main.rand.NextFloat() < .05f)
+			{
+				Player p = Main.player[projectile.owner];
+				p.statLife += 1;
+				p.HealEffect(1, true);
 			}
 		}
 	}   

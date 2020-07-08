@@ -1,82 +1,68 @@
 using Microsoft.Xna.Framework;
-using System;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ID;
+using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Items.OtherJavelances
+namespace Zylon.Projectiles.OtherJavelances
 {
-	public class TrueShadowdance : ModItem
+	public class TrueShadowdance : ModProjectile
 	{
-		public override void SetStaticDefaults() 
+        public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("Each Javelance spams shadowdance orbs\nStacks up to 5\nMore javelances means more javelances thrown\nUse time is decreased with more javelances");
+			DisplayName.SetDefault("True Shadowdance");
+        }
+		public override void SetDefaults()
+		{
+			projectile.width = 32;
+			projectile.height = 32;
+			projectile.aiStyle = 1;
+			projectile.friendly = true;
+			projectile.penetrate = 7;
+			projectile.ranged = true;
+			projectile.timeLeft = 3000;
+			projectile.ignoreWater = true;
+			aiType = 1;
 		}
-
-		public override void SetDefaults() 
+		int rand = Main.rand.Next(35, 91);
+		public float Timer
 		{
-			item.damage = 80;
-			item.ranged = true;
-			item.width = 33;
-			item.height = 33;
-			item.useTime = 41;
-			item.useAnimation = 41;
-			item.useStyle = 1;
-			item.knockBack = 4f;
-			item.value = 35000;
-			item.rare = 8;
-			item.autoReuse = true;
-			item.useTurn = true;
-			item.shoot = mod.ProjectileType("TrueShadowdance");
-			item.shootSpeed = 12f;
-			item.noMelee = true;
-			item.maxStack = 5;
-			item.UseSound = SoundID.Item1;
-			item.noUseGraphic = true;
-			item.consumable = false;
-		}
-		public override void UpdateInventory(Player player)
-		{
-			item.useTime = 41 + (item.stack * 10) - 10;
-			item.useAnimation = 41 + (item.stack * 10) - 10;
-		}
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-		{
-			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			if (p.redJavelance)
-			{
-				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("BleedingJavelance"), 45, 3f, player.whoAmI);
+	        get => projectile.ai[1];
+	        set => projectile.ai[1] = value;
+        }
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
+			if (zp.bloodJavelance && Main.rand.NextFloat() < .06f && target.type != NPCID.TargetDummy) {
+				Player p = Main.player[projectile.owner];
+				p.statLife += 1;
+				p.HealEffect(1, true);
 			}
-			float numberProjectiles = item.stack;
-			float rotation = MathHelper.ToRadians(18);
-			if (numberProjectiles > 1)
-			{
-				position += Vector2.Normalize(new Vector2(speedX, speedY)) * 45f;
-				for (int i = 0; i < numberProjectiles; i++)
-				{
-					Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .9f;
-					Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
-				}
-			return false;
+		}
+		public override void OnHitPlayer(Player target, int damage, bool crit) {
+			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
+			if (zp.bloodJavelance && Main.rand.NextFloat() < .06f) {
+				Player p = Main.player[projectile.owner];
+				p.statLife += 1;
+				p.HealEffect(1, true);
 			}
-			return true;
 		}
-
-		public override void AddRecipes() 
+		public override void AI()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("Shadowdance"));
-			recipe.AddIngredient(mod.ItemType("AncientMedievalJavelance"));
-			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-			
-			recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("Shadowdance"), 4);
-			recipe.AddIngredient(mod.ItemType("AncientMedievalJavelance"), 4);
-			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this, 5);
-			recipe.AddRecipe();
+			Timer++;
+			if (Timer % rand == 0)
+			{
+				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 7, mod.ProjectileType("ShadowdanceOrb"), 20, 0, Main.myPlayer);
+			}
 		}
-	}
+		public override void PostAI()
+		{
+			if (Main.rand.NextBool())
+			{
+				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 27);
+				dust.noGravity = false;
+				dust.scale = 1f;
+			}
+		}
+	}   
 }
