@@ -248,23 +248,23 @@ namespace Zylon.NPCs.Bosses
 		
 			if (Main.expertMode)
 			{
-				if  (Timer % 300 == 0)
+				if  (Timer % 400 == 0)
 				{
-					if (NPC.CountNPCS(ModContent.NPCType<Minions.AquaSapphire>()) < 13)
+					if (NPC.CountNPCS(ModContent.NPCType<Minions.AquaSapphire>()) < 8)
 						NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.AquaSapphire>(), 0, npc.whoAmI);
-					if (NPC.CountNPCS(ModContent.NPCType<Minions.FlameGarnet>()) < 13)
+					if (NPC.CountNPCS(ModContent.NPCType<Minions.FlameGarnet>()) < 8)
 						NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.FlameGarnet>(), 0, npc.whoAmI);
-					if (NPC.CountNPCS(ModContent.NPCType<Minions.SproutingEmerald>()) < 13)
+					if (NPC.CountNPCS(ModContent.NPCType<Minions.SproutingEmerald>()) < 8)
 						NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.SproutingEmerald>(), 0, npc.whoAmI);
 				}
 			}
-			else if  (Timer % 320 == 0)
+			else if  (Timer % 440 == 0)
 			{
-				if (NPC.CountNPCS(ModContent.NPCType<Minions.AquaSapphire>()) < 10)
+				if (NPC.CountNPCS(ModContent.NPCType<Minions.AquaSapphire>()) < 6)
 					NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.AquaSapphire>(), 0, npc.whoAmI);
-				if (NPC.CountNPCS(ModContent.NPCType<Minions.FlameGarnet>()) < 10)
+				if (NPC.CountNPCS(ModContent.NPCType<Minions.FlameGarnet>()) < 6)
 					NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.FlameGarnet>(), 0, npc.whoAmI);
-				if (NPC.CountNPCS(ModContent.NPCType<Minions.SproutingEmerald>()) < 10)
+				if (NPC.CountNPCS(ModContent.NPCType<Minions.SproutingEmerald>()) < 6)
 					NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.SproutingEmerald>(), 0, npc.whoAmI);
 			}
 
@@ -294,56 +294,11 @@ namespace Zylon.NPCs.Bosses
 			{
 				NPC.NewNPC((int)targetPos.X, (int)targetPos.Y, NPCType<Minions.Mineral.TargetMegaRandom>(), 0, npc.whoAmI);
 			}
-			if (Main.expertMode && 200000 > npc.life && nuke)
+			if (Main.expertMode && Timer % 1000 == 0)
 			{
-				nukeTimer++;
-				if (nukeTimer > 90)
-				{
-					Projectile.NewProjectile(target.position.X - 400, target.position.Y - 600, 0, 6, mod.ProjectileType("TacticalNukeZME"), 60, 2, Main.myPlayer);
-					Projectile.NewProjectile(target.position.X + 400, target.position.Y - 600, 0, 6, mod.ProjectileType("TacticalNukeZME"), 60, 2, Main.myPlayer);
-					nuke = false;
-				}
-				if (nukeChat)
-				{
-					nukeChat = false;
-					Color messageColor = Color.Pink;
-					string chat = "<ZYL-900> Low health detected! Releasing tactical nukes!";
-					if (Main.netMode == NetmodeID.Server)
-					{
-						NetMessage.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);
-					}
-					else if (Main.netMode == NetmodeID.SinglePlayer)
-					{
-						Main.NewText(Language.GetTextValue(chat), messageColor);
-					}
-				}
+				NPC.NewNPC((int)targetPos.X, (int)targetPos.Y, NPCType<Minions.Mineral.TargetMineralBeam>(), 0, npc.whoAmI);
 			}
-			if (Main.expertMode && 50000 > npc.life && nuke2)
-			{
-				nukeTimer2++;
-				if (nukeTimer2 > 90)
-				{
-					Projectile.NewProjectile(target.position.X - 400, target.position.Y - 600, 0, 6, mod.ProjectileType("TacticalNukeZME"), 70, 2, Main.myPlayer);
-					Projectile.NewProjectile(target.position.X + 400, target.position.Y - 600, 0, 6, mod.ProjectileType("TacticalNukeZME"), 70, 2, Main.myPlayer);
-					nuke2 = false;
-				}
-				if (nukeChat2)
-				{
-					nukeChat2 = false;
-					Color messageColor = Color.Pink;
-					string chat = "<ZYL-900> Low health detected! Releasing tactical nukes!";
-					if (Main.netMode == NetmodeID.Server)
-					{
-						NetMessage.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);
-					}
-					else if (Main.netMode == NetmodeID.SinglePlayer)
-					{
-						Main.NewText(Language.GetTextValue(chat), messageColor);
-					}
-				}
-				nuke2 = false;
-			}
-			if (Main.expertMode && 100000 > npc.life && uber)
+			if (100000 > npc.life && uber)
 			{
 				uberTimer++;
 				if (uberTimer > 90 || (uberTimer > 60 && !Main.expertMode))
