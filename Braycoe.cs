@@ -241,8 +241,8 @@ namespace Zylon.NPCs
 			}
 			if (NPC.downedMoonlord == true)
 			{
-				shop.item[nextSlot].SetDefaults(ItemType<Items.BluePotion>());
-				nextSlot++;
+				//shop.item[nextSlot].SetDefaults(ItemType<Items.BluePotion>());
+				//nextSlot++;
 				shop.item[nextSlot].SetDefaults(ItemType<Items.BossSummon.MysteryBag>());
 				nextSlot++;
 			}
