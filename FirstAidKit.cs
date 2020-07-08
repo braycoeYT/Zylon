@@ -38,7 +38,7 @@ namespace Zylon.Items.Accessories
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("LifeFruitShield"));
+			recipe.AddIngredient(mod.ItemType("FruitOfLife"));
 			recipe.AddIngredient(mod.ItemType("SunProtection"));
 			recipe.AddIngredient(ItemID.AdhesiveBandage);
 			recipe.AddIngredient(ItemID.BandofRegeneration);
