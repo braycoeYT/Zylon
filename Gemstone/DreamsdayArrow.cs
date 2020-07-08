@@ -19,7 +19,7 @@ namespace Zylon.Projectiles.Gemstone
 			projectile.height = 39;
 			projectile.aiStyle = 1;
 			projectile.friendly = true;
-			projectile.penetrate = 12;
+			projectile.penetrate = 1;
 			projectile.ranged = true;
 			projectile.timeLeft = 3000;
 			projectile.ignoreWater = true;

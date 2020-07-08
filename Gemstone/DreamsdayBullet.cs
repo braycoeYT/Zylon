@@ -21,7 +21,7 @@ namespace Zylon.Projectiles.Gemstone
 			projectile.width = 8;
 			projectile.height = 8;  
 			projectile.friendly = true;
-			projectile.penetrate = 12;
+			projectile.penetrate = 1;
 			projectile.ranged = true;
 			projectile.damage = 28;
 			projectile.timeLeft = 3000;
