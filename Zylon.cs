@@ -430,6 +430,13 @@ namespace Zylon
 			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.BattlePotion);
 			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "Electrolight", 11);
+			recipe.AddIngredient(ItemID.RainCloud, 6);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.SetResult(ItemID.NimbusRod);
+			recipe.AddRecipe();
 		}
 		public override void UpdateMusic(ref int music, ref MusicPriority priority)
 		{

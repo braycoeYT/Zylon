@@ -108,13 +108,13 @@ namespace Zylon
 			flags[7] = downedMechaball;
 			writer.Write(flags);
 			
-			BitsByte flags2 = new BitsByte();
-			flags2[0] = hasAlertSlime;
-			flags2[1] = hasAlertEvil;
-			flags2[2] = hasConversationDrop;
-			flags2[3] = downedXenic;
-			flags2[4] = downedEmpress;
-			flags2[5] = downedCell;
+			flags = new BitsByte();
+			flags[0] = hasAlertSlime;
+			flags[1] = hasAlertEvil;
+			flags[2] = hasConversationDrop;
+			flags[3] = downedXenic;
+			flags[4] = downedEmpress;
+			flags[5] = downedCell;
 		}
 		
 		public override void NetReceive(BinaryReader reader)
@@ -129,13 +129,13 @@ namespace Zylon
 			downedMeatball = flags[6];
 			downedMechaball = flags[7];
 
-			BitsByte flags2 = reader.ReadByte();
-			hasAlertSlime = flags2[0];
-			hasAlertEvil = flags2[1];
-			hasConversationDrop = flags2[2];
-			downedXenic = flags2[3];
-			downedEmpress = flags2[4];
-			downedCell = flags2[5];
+			flags = reader.ReadByte();
+			hasAlertSlime = flags[0];
+			hasAlertEvil = flags[1];
+			hasConversationDrop = flags[2];
+			downedXenic = flags[3];
+			downedEmpress = flags[4];
+			downedCell = flags[5];
 		}
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
 		{
