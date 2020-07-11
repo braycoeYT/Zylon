@@ -13,8 +13,8 @@ namespace Zylon.Items.Cyanix.Pills
 
 		public override void SetDefaults() 
 		{
-			item.width = 33;
-			item.height = 33;
+			item.width = 24;
+			item.height = 22;
 			item.useTime = 17;
 			item.useAnimation = 17;
 			item.useStyle = 1;

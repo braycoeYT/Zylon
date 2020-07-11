@@ -10,11 +10,10 @@ namespace Zylon.Items.Cyanix.Pills
 		{
 			Tooltip.SetDefault("Gives the user 'Lesser Cyanix Boost', which increases your stats\nDefense is decreased a little\nThere is a 60 second cooldown between usage\nStrength: 2");
 		}
-
 		public override void SetDefaults() 
 		{
-			item.width = 33;
-			item.height = 33;
+			item.width = 24;
+			item.height = 22;
 			item.useTime = 17;
 			item.useAnimation = 17;
 			item.useStyle = 1;
