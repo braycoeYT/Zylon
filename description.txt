@@ -30,9 +30,10 @@ Sness (Empress Slime Minion Spriter)
 GOA7 (Active Spriter)
 Koolaidlemonade (Active Spriter)
 
-Update V0.2.0.7:
+Update V0.2.0.8: Mod Browser didn't like V0.2.0.7
 ~Updated more sprites
 ~Colossal Cell spins faster
 ~Added worm enemies (thanks Mr. Raccoon)
 ~Fixed Silvervoid Cores not dropping AGAIN
 ~Would have added more stuff but the Silvervoid Core thing is important (because of internal sorting)
+~Fixed multiplayer boss checklist issues (?)
