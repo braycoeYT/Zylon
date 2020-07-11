@@ -15,8 +15,8 @@ namespace Zylon.Items.Accessories.EyeThemed
 		}
 
 		public override void SetDefaults() {
-			item.width = 40;
-			item.height = 40;
+			item.width = 58;
+			item.height = 23;
 			item.accessory = true;
 			item.value = 42000;
 			item.rare = 1;
