@@ -6,7 +6,7 @@ Zylon is heavily inspired by Exxo Avalon.
 I hope you play my mod!
 
 Some more facts:
-~279 Items
+~278 Items
 ~6 unique, custom AI, Bosses:
 ^3 Prehardmode Bosses
 ^2 Hardmode Bosses
@@ -28,21 +28,11 @@ Spriters/Other Help:
 CrazySapling1 (Inactive Spriter)
 Sness (Empress Slime Minion Spriter)
 GOA7 (Active Spriter)
+Koolaidlemonade (Active Spriter)
 
-Update V0.2.0.6: Furniture Update I
-~New sprites
-~Fixed some offsets
-~Fixed Sandgrain Pickaxe display name
-~Dreamsday ammo no longer pierces, which actually increases damage output in most situations
-~Blue Potion is no longer sold by Braycoe
-~Removed Gem Slappies
-~Removed Ore Shields
-~Replaced ZME's tactical nuke with target beams
-~ZME's Ubercabachons are no longer expert only
-~ZME Minions spawn less often
-~Added Prehardmode Vanilla Ore Chairs
-~Added Prehardmode Vanilla Ore Work Benches
-~Fixed(?) boss checklist not saving bosses
-~Removed Rainbow Rose
-~Replaced ZME's nuke with a laser beam
-~ZME is slower
+Update V0.2.0.7:
+~Updated more sprites
+~Colossal Cell spins faster
+~Added worm enemies (thanks Mr. Raccoon)
+~Fixed Silvervoid Cores not dropping AGAIN
+~Would have added more stuff but the Silvervoid Core thing is important (because of internal sorting)
