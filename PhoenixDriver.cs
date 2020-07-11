@@ -9,7 +9,6 @@ namespace Zylon.Items
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Phoenix Driver");
-			Tooltip.SetDefault("Drive it");
 		}
 		public override void SetDefaults() 
 		{

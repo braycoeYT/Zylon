@@ -16,16 +16,14 @@ namespace Zylon.NPCs.Bosses
 	[AutoloadBossHead]
 	public class ColossalCell : ModNPC
 	{
-		
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Colossal Cell");
 		}
-
         public override void SetDefaults()
 		{
-			npc.width = 115;
-			npc.height = 115;
+			npc.width = 148;
+			npc.height = 148;
 			npc.damage = 32;
 			npc.defense = 6;
 			npc.lifeMax = 1002;
@@ -262,8 +260,8 @@ namespace Zylon.NPCs.Bosses
 					}
 				}
 			}
-			if (Timer % 5 == 0)
-			npc.rotation += 0.01f;
+			if (Timer % 4 == 0)
+			npc.rotation += 0.04f;
 			if (Timer % 1000 == 0)
 			{
 				moveMode2 = 1;

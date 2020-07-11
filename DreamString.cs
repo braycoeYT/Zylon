@@ -7,7 +7,7 @@ namespace Zylon.Items
 	{
 		public override void SetStaticDefaults() 
 		{
-			Tooltip.SetDefault("'It resembles some sort of septuple helix and can grant dreams'");
+			Tooltip.SetDefault("The code of the universe");
 			ItemID.Sets.ItemIconPulse[item.type] = true;
 			ItemID.Sets.ItemNoGravity[item.type] = true;
 		}

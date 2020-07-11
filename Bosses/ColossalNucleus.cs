@@ -24,8 +24,8 @@ namespace Zylon.NPCs.Bosses
 
         public override void SetDefaults()
 		{
-			npc.width = 57;
-			npc.height = 57;
+			npc.width = 63;
+			npc.height = 63;
 			npc.damage = 21;
 			npc.defense = 9;
 			npc.lifeMax = 819;

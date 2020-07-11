@@ -204,7 +204,7 @@ namespace Zylon.NPCs.Bosses
 						if (npc.velocity.X < 0)
 							npc.velocity.X = 2;
 
-					if (Timer % 30 == 0)
+					if (Timer % 35 == 0)
 						npc.velocity.X += 1;
 				}
 				if (targetPos.X < npc.Center.X)
@@ -213,7 +213,7 @@ namespace Zylon.NPCs.Bosses
 						if (npc.velocity.X > 0)
 							npc.velocity.X = -2;
 
-					if (Timer % 30 == 0)
+					if (Timer % 35 == 0)
 						npc.velocity.X -= 1;
 				}
 				if (targetPos.Y + 300 < npc.Center.Y)
