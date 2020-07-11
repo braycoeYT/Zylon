@@ -48,7 +48,7 @@ namespace Zylon.NPCs
 		
 	    public override void NPCLoot()
         {
-	        Item.NewItem(npc.getRect(), mod.ItemType("DarkSoul"), 1 + Main.rand.Next(3));
+	        Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"), 1 + Main.rand.Next(3));
         }
 		
 		public override void HitEffect(int hitDirection, double damage)

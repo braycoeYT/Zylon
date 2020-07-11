@@ -53,7 +53,7 @@ namespace Zylon.NPCs.Slimes
 	    public override void NPCLoot()
         {
             if (Main.rand.Next(2) == 0)
-	        Item.NewItem(npc.getRect(), mod.ItemType("DarkSoul"));
+	        Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"));
         }
 	}
 }
