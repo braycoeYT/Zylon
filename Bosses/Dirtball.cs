@@ -93,6 +93,7 @@ namespace Zylon.NPCs.Bosses
 		int dirtSpawn = 0;
 		bool attackDone = true;
 		bool chat1 = !ZylonWorld.downedDirtball;
+		bool chat2 = !ZylonWorld.downedDirtball;
 		Vector2 targetPlayer;
 		public override void AI()
 		{
@@ -114,6 +115,20 @@ namespace Zylon.NPCs.Bosses
 					Main.NewText(Language.GetTextValue(chat), messageColor);
 				}
 				chat1 = false;
+			}
+			if (chat2 && Timer > 300 && ((Main.expertMode && npc.scale < 2.75f) || (!Main.expertMode && npc.scale < 2.5f)))
+			{
+				Color messageColor = Color.SaddleBrown;
+				string chat = "It seems that hitting Dirtball shakes some of its mud off.";
+				if (Main.netMode == NetmodeID.Server)
+				{
+					NetMessage.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);
+				}
+				else if (Main.netMode == NetmodeID.SinglePlayer)
+				{
+					Main.NewText(Language.GetTextValue(chat), messageColor);
+				}
+				chat2 = false;
 			}
 			npc.velocity = Vector2.Normalize(npc.Center - Main.player[npc.target].Center) * (float)(-3.75f + npc.scale);
 			

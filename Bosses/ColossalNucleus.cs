@@ -38,7 +38,7 @@ namespace Zylon.NPCs.Bosses
 			npc.noTileCollide = true;
 			npc.boss = true;
 			npc.lavaImmune = true;
-			music = MusicID.Boss4;
+			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ColossalCellTheme");
 			npc.netAlways = true;
 			npc.buffImmune[BuffID.OnFire] = true;
 			npc.buffImmune[BuffID.Confused] = true;

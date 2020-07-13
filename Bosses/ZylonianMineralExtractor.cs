@@ -86,8 +86,7 @@ namespace Zylon.NPCs.Bosses
 		bool uber = true;
 		bool uberChat = true;
 		bool playerBadChat = true;
-		Vector2 targetPos;
-		
+		bool safe = true;
         public override void AI()
 		{
 	        Timer++;
@@ -110,7 +109,7 @@ namespace Zylon.NPCs.Bosses
 				if (flee >= 100 && playerBadChat)
 				{
 					Color messageColor = Color.Pink;
-					string chat = "<ZYL-900> Beginning Mass Mineral Extraction on Terraria...";
+					string chat = "<XOM> Beginning Mass Mineral Extraction on Terraria...";
 					if (Main.netMode == NetmodeID.Server)
 					{
 						NetMessage.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);
@@ -122,13 +121,12 @@ namespace Zylon.NPCs.Bosses
 					playerBadChat = false;
 				}
             }
-			
 			if (Main.dayTime)
 			{
 				npc.life = npc.lifeMax;
 				npc.active = false;
 				Color messageColor = Color.Pink;
-				string chat = "<ZYL-900> Too hot for host's homeostasis to continue and heat guards are broken. Leaving to protect host body...";
+				string chat = "<XOM> This is a waste of time... leaving...";
 				if (Main.netMode == NetmodeID.Server)
 				{
 					NetMessage.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);
@@ -138,90 +136,31 @@ namespace Zylon.NPCs.Bosses
 					Main.NewText(Language.GetTextValue(chat), messageColor);
 				}
 			}
-			
-			targetPos = Main.player[npc.target].Center;
+			if (Timer < 100)
+			npc.TargetClosest(true);
 			Player target = Main.player[npc.target];
-			/*if (dash)
-			{
-				int dashMax;
-				targetPos = Main.player[npc.target].Center;
-				npc.velocity.X = 0;
-
-				if (npc.life < npc.lifeMax / 2)
+				if (target.position.X > npc.Center.X)
 				{
-					dashMax = 4;
-				}
-				else if (npc.life < npc.lifeMax / 3)
-				{
-					dashMax = 5;
-				}
-				else if (npc.life < npc.lifeMax / 4)
-				{
-					dashMax = 6;
-				}
-				else if (npc.life < npc.lifeMax / 5)
-				{
-					dashMax = 7;
-				}
-				else if (npc.life < 40000)
-				{
-					dashMax = 8;
-				}
-				else
-				{
-					dashMax = 3;
-				}
-
-				if (dashInt >= dashMax)
-					dash = false;
-
-				if (npc.Center.Y - 600 > targetPos.Y)
-				{
-					dashInt += 1;
-					npc.position.X = targetPos.X + (Main.player[npc.target].velocity.X * 30);
-					npc.position.Y = targetPos.Y - 1200;
-					Main.PlaySound(SoundID.ForceRoar, npc.position, 0);
-				}
-
-				if (npc.life < npc.lifeMax / 3)
-				{
-					npc.velocity.Y = 21;
-				}
-				else if (npc.life < npc.lifeMax / 4)
-				{
-					npc.velocity.Y = 24;
-				}
-				else
-				{
-					npc.velocity.Y = 18;
-				}
-			}
-			else
-			{*/
-				if (targetPos.X > npc.Center.X)
-				{
-					if (Main.expertMode)
 						if (npc.velocity.X < 0)
 							npc.velocity.X = 2;
 
-					if (Timer % 35 == 0)
+					if (Timer % 40 == 0)
 						npc.velocity.X += 1;
 				}
-				if (targetPos.X < npc.Center.X)
+				if (target.position.X < npc.Center.X)
 				{
-					if (Main.expertMode)
 						if (npc.velocity.X > 0)
 							npc.velocity.X = -2;
 
-					if (Timer % 35 == 0)
+					if (Timer % 40 == 0)
 						npc.velocity.X -= 1;
 				}
-				if (targetPos.Y + 300 < npc.Center.Y)
+				if (target.position.Y + 300 < npc.Center.Y)
 				{
 					npc.velocity.Y = -30;
 					Main.PlaySound(SoundID.Tink, npc.position, 0);
 				}
-				else if (targetPos.Y + 300 > npc.Center.Y)
+				else if (target.position.Y + 300 > npc.Center.Y)
 				{
 					if (Main.expertMode)
 					{
@@ -285,18 +224,18 @@ namespace Zylon.NPCs.Bosses
 					dashInt = 0;
 				}
 			}*/
-			//ZylonWorld.ZMETarget = targetPos;
+			//ZylonWorld.ZMETarget = target.position;
 			if ((Timer % 829 == 0 && !Main.expertMode) || (Timer % 787 == 0 && Main.expertMode))
 			{
-				NPC.NewNPC((int)targetPos.X, (int)targetPos.Y, NPCType<Minions.Mineral.TargetMegaLaser>(), 0, npc.whoAmI);
+				NPC.NewNPC((int)target.position.X, (int)target.position.Y, NPCType<Minions.Mineral.TargetMegaLaser>(), 0, npc.whoAmI);
 			}
 			if ((Timer % 480 == 95 && !Main.expertMode) || (Timer % 420 == 247 && Main.expertMode))
 			{
-				NPC.NewNPC((int)targetPos.X, (int)targetPos.Y, NPCType<Minions.Mineral.TargetMegaRandom>(), 0, npc.whoAmI);
+				NPC.NewNPC((int)target.position.X, (int)target.position.Y, NPCType<Minions.Mineral.TargetMegaRandom>(), 0, npc.whoAmI);
 			}
 			if (Main.expertMode && Timer % 1000 == 0)
 			{
-				NPC.NewNPC((int)targetPos.X, (int)targetPos.Y, NPCType<Minions.Mineral.TargetMineralBeam>(), 0, npc.whoAmI);
+				NPC.NewNPC((int)target.position.X, (int)target.position.Y, NPCType<Minions.Mineral.TargetMineralBeam>(), 0, npc.whoAmI);
 			}
 			if (100000 > npc.life && uber)
 			{
