@@ -1,37 +1,76 @@
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Items.Empress
+namespace Zylon.Projectiles.Empress
 {
-	public class EmpressShuriken : ModItem
+	public class EmpressShuriken : ModProjectile
 	{
-		public override void SetStaticDefaults() 
+        public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Empress Nuclei");
-			Tooltip.SetDefault("Each nucleus can shoot poisonballs\nNuclei shake in random directions");
-		}
-
-		public override void SetDefaults() 
+        }
+		public override void SetDefaults()
 		{
-			item.damage = 69;
-			item.ranged = true;
-			item.width = 33;
-			item.height = 33;
-			item.useTime = 25;
-			item.useAnimation = 25;
-			item.useStyle = 5;
-			item.knockBack = 6.7f;
-			item.value = 500000;
-			item.rare = 7;
-			item.autoReuse = true;
-			item.useTurn = true;
-			item.shoot = mod.ProjectileType("EmpressShuriken");
-			item.shootSpeed = 12f;
-			item.noMelee = true;
-			item.maxStack = 1;
-			item.UseSound = SoundID.Item1;
-			item.noUseGraphic = true;
-			item.consumable = false;
+			projectile.width = 36;
+			projectile.height = 36;
+			projectile.aiStyle = -1;
+			projectile.hostile = false;
+			projectile.friendly = true;
+			projectile.ignoreWater = true;
+			projectile.timeLeft = 600;
+			projectile.penetrate = -1;
+			aiType = -1;
 		}
-	}
+		public float Timer
+		{
+	        get => projectile.ai[0];
+	        set => projectile.ai[0] = value;
+        }
+		int rand = Main.rand.Next(48, 241);
+		public override void AI()
+		{
+			Timer++;
+			if (Timer % rand == 0)
+			{
+				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 6, mod.ProjectileType("EggResidue"), projectile.damage + 20, 3, Main.myPlayer);
+			}
+			if (Timer % 10 == 0)
+			{
+				if (Main.rand.NextBool())
+				{
+					projectile.velocity.X += 2;
+				}
+				else
+				{
+					projectile.velocity.X -= 2;
+				}
+			}
+			if (Timer % 10 == 0)
+			{
+				if (Main.rand.NextBool())
+				{
+					projectile.velocity.Y += 2;
+				}
+				else
+				{
+					projectile.velocity.Y -= 2;
+				}
+			}
+			projectile.rotation += 1;
+		}
+		public override void PostAI()
+		{
+			if (Main.rand.NextBool())
+			{
+				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 153);
+				dust.noGravity = true;
+				dust.scale = 1f;
+			}
+		}
+	}   
 }
