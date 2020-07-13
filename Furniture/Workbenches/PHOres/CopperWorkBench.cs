@@ -23,7 +23,7 @@ namespace Zylon.Items.Furniture.Workbenches.PHOres
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.CopperBar, 10);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddTile(TileID.HeavyWorkBench);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

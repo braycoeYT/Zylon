@@ -22,7 +22,7 @@ namespace Zylon.Items.Furniture.Chairs.PHOres
 		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.SilverBar, 4);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddTile(TileID.HeavyWorkBench);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
