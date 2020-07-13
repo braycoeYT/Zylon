@@ -19,7 +19,7 @@ namespace Zylon.NPCs.Minibosses
 		
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("A Xenic Acidpumper");
+			DisplayName.SetDefault("Xenic Acidpumper");
 			Main.npcFrameCount[npc.type] = 4;
 		}
 
