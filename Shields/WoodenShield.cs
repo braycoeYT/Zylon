@@ -12,13 +12,13 @@ namespace Zylon.Items.Accessories.Shields
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Wooden Shield");
-			Tooltip.SetDefault("You gotta start somewhere");
+			Tooltip.SetDefault("You've got to start somewhere");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 40;
-			item.height = 40;
+			item.width = 24;
+			item.height = 24;
 			item.accessory = true;
 			item.value = 5000;
 			item.rare = 0;
