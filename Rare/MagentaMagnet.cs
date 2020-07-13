@@ -1,68 +1,66 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using static Terraria.ModLoader.ModContent;
+using Terraria.ModLoader;
 
-namespace Zylon.Projectiles.Rare
+namespace Zylon.Items.Rare
 {
-	public class MagentaMagnet : ModProjectile
+	public class MagentaMagnet : ModItem
 	{
-        public override void SetStaticDefaults()
+		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Magenta Magnet");
-        }
-		public override void SetDefaults()
-		{
-			projectile.width = 32;
-			projectile.height = 32;
-			projectile.aiStyle = 1;
-			projectile.friendly = true;
-			projectile.penetrate = 6;
-			projectile.ranged = true;
-			projectile.timeLeft = 3000;
-			projectile.ignoreWater = true;
-			aiType = 1;
+			Tooltip.SetDefault("Stacks up to 3\nEach javelance can launch pink bolts towards the mouse position\nBolt speed is based on the javelance's vertical speed\nMore javelances means more javelances thrown\nUse time is decreased with more javelances\nRare item");
 		}
-		int rand = Main.rand.Next(0, 180);
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
-			if (zp.bloodJavelance && Main.rand.NextFloat() < .06f) {
-				Player p = Main.player[projectile.owner];
-				p.statLife += 1;
-				p.HealEffect(1, true);
-			}
-		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
-			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
-			if (zp.bloodJavelance && Main.rand.NextFloat() < .06f) {
-				Player p = Main.player[projectile.owner];
-				p.statLife += 1;
-				p.HealEffect(1, true);
-			}
-		}
-		public float Timer
+
+		public override void SetDefaults() 
 		{
-	        get => projectile.ai[1];
-	        set => projectile.ai[1] = value;
-        }
-		public override void AI()
+			item.damage = 14;
+			item.ranged = true;
+			item.width = 33;
+			item.height = 33;
+			item.useTime = 31;
+			item.useAnimation = 31;
+			item.useStyle = 1 ;
+			item.knockBack = 5.1f;
+			item.value = 50000;
+			item.rare = -11;
+			item.autoReuse = true;
+			item.useTurn = true;
+			item.shoot = mod.ProjectileType("MagentaMagnet");
+			item.shootSpeed = 12f;
+			item.noMelee = true;
+			item.maxStack = 3;
+			item.UseSound = SoundID.Item1;
+			item.noUseGraphic = true;
+			item.consumable = false;
+		}
+		public override void UpdateInventory(Player player)
 		{
-			Timer++;
-			if (Timer % 180 == rand)
+			item.useTime = 31 + (item.stack * 10) - 10;
+			item.useAnimation = 31 + (item.stack * 10) - 10;
+		}
+		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		{
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+			if (p.redJavelance)
 			{
-				Projectile.NewProjectile(projectile.Center, projectile.DirectionTo(Main.MouseWorld) * projectile.velocity.Y, 121, projectile.damage, projectile.knockBack, Main.myPlayer);
+				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("BleedingJavelance"), 45, 3f, player.whoAmI);
 			}
-		}
-		public override void PostAI()
-		{
-			if (Main.rand.NextBool())
+			float numberProjectiles = item.stack;
+			float rotation = MathHelper.ToRadians(18);
+			if (numberProjectiles > 1)
 			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 119);
-				dust.noGravity = false;
-				dust.scale = 1f;
+				position += Vector2.Normalize(new Vector2(speedX, speedY)) * 45f;
+				for (int i = 0; i < numberProjectiles; i++)
+				{
+					Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .9f;
+					Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+				}
+			return false;
 			}
+			return true;
 		}
-	}   
+	}
 }
