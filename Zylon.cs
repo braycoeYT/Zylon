@@ -28,7 +28,7 @@ namespace Zylon
 			if (bossChecklist != null) {
 				bossChecklist.Call(
 					"AddBoss",
-					0.8f,
+					0.85f,
 					new List<int> { ModContent.NPCType<NPCs.Bosses.Dirtball>() },
 					this,
 					"$Mods.Zylon.NPCName.Dirtball",
@@ -93,10 +93,10 @@ namespace Zylon
 					this,
 					"$Mods.Zylon.NPCName.ZylonianMineralExtractor",
 					(Func<bool>)(() => ZylonWorld.downedMineral),
-					ModContent.ItemType<Items.BossSummon.MysteriousGemPink>(),
+					ModContent.ItemType<Items.Mineral.MysteriousGemPink>(),
 					new List<int> { ModContent.ItemType<Items.Mineral.GalacticDiamondium>() }, //collectables
 					new List<int> { ModContent.ItemType<Items.Mineral.GalacticDiamondium>() }, //other
-					$"Use any version of the [i:{ModContent.ItemType<Items.BossSummon.MysteriousGemPink>()}] at night to send its scanners out of control."
+					$"Use any version of the [i:{ModContent.ItemType<Items.Mineral.MysteriousGemPink>()}] at night to send its scanners out of control."
 				);
 				bossChecklist.Call(
 					"AddMiniBoss",
@@ -108,7 +108,7 @@ namespace Zylon
 					ModContent.ItemType<Items.BossSummon.CreepyMud>(),
 					new List<int> { ModContent.ItemType<Items.Xenic.XenicCore>() }, //collectables
 					new List<int> { ModContent.ItemType<Items.Xenic.XenicCore>()}, //other
-					$"Xenic Acidpumpers spawn rarely in the post-Zylonian Mineral Exctractor outer space at night."
+					$"Xenic Acidpumpers spawn rarely in the post-Zylonian Mineral Extractor outer space at night."
 				);
 			}
 		}
@@ -437,6 +437,46 @@ namespace Zylon
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(ItemID.NimbusRod);
 			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "CopperPlatform", 2);
+			recipe.SetResult(ItemID.CopperBar);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "TinPlatform", 2);
+			recipe.SetResult(ItemID.TinBar);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "IronPlatform", 2);
+			recipe.SetResult(ItemID.IronBar);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "LeadPlatform", 2);
+			recipe.SetResult(ItemID.LeadBar);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "SilverPlatform", 2);
+			recipe.SetResult(ItemID.SilverBar);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "TungstenPlatform", 2);
+			recipe.SetResult(ItemID.TungstenBar);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "AlternateGoldPlatform", 2);
+			recipe.SetResult(ItemID.GoldBar);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "PlatinumPlatform", 2);
+			recipe.SetResult(ItemID.PlatinumBar);
+			recipe.AddRecipe();
 		}
 		public override void UpdateMusic(ref int music, ref MusicPriority priority)
 		{
@@ -446,7 +486,7 @@ namespace Zylon
 			}
 			if (Main.LocalPlayer.GetModPlayer<ZylonPlayer>().ZoneMicrobiome)
 			{
-				music = MusicID.Corruption;
+				music = GetSoundSlot(SoundType.Music, "Sounds/Music/MicrobiomeTheme");
 				priority = MusicPriority.BiomeHigh;
 			}
 		}

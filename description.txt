@@ -2,11 +2,12 @@ This is the best mod that starts with Z (I guarantee or your money back)!
 Adds rare items, crimson counterparts, and much more!
 Support for Boss Checklist
 Zylon is heavily inspired by Exxo Avalon.
+Discord Server: (homepage link is better) https://discord.gg/qv97wNV
 
 I hope you play my mod!
 
 Some more facts:
-~278 Items
+~283 Items
 ~6 unique, custom AI, Bosses:
 ^3 Prehardmode Bosses
 ^2 Hardmode Bosses
@@ -15,9 +16,10 @@ Some more facts:
 ~1 Town NPC
 ~83 total NPCs
 ~4 Ores
-~30 Total Tiles
+~38 Total Tiles
 ~23 Buffs
 ~1 Biome
+~3 Custom Songs
 
 Cross-mod Content with:
 Birth of Asteri mod (1 Item)
@@ -30,10 +32,20 @@ Sness (Empress Slime Minion Spriter)
 GOA7 (Active Spriter)
 Koolaidlemonade (Active Spriter)
 
-Update V0.2.0.8: Mod Browser didn't like V0.2.0.7
-~Updated more sprites
-~Colossal Cell spins faster
-~Added worm enemies (thanks Mr. Raccoon)
-~Fixed Silvervoid Cores not dropping AGAIN
-~Would have added more stuff but the Silvervoid Core thing is important (because of internal sorting)
-~Fixed multiplayer boss checklist issues (?)
+Update V0.2.0.9: Music Update
+~Changed more sprites
+~Changed ZME movement
+~Renamed the ZYL-900 to XOM
+~Changed Copper Furniture sprites to be prettier
+~Added music themes for Ancient Desert Discus, Microbiome, and Colossal Cell
+~Changed Eye of Prejudice
+~Ectojewelo Ore generates a lot less and only underground
+~Added another hint on how to defeat Dirtball due to me getting asked how to defeat it a lot.
+~Nerfed Ectojewelo Slime
+~Fixed Zylonian Mineral Extractor and Colossal Cell flee glitch
+~Fixed Colossal Cell getting stuck glitch
+~More internal sorting
+~Moved Dirtball slightly higher on boss checklist
+~Removed spelling error
+~Fixed Platinum Furniture dust
+~Added prehardmode ore platforms

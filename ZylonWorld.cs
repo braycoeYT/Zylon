@@ -103,19 +103,14 @@ namespace Zylon
             flags[2] = downedMineral;
 			flags[3] = generatedEctojewelo;
 			flags[4] = downedComVirus;
-			flags[5] = generatedOblivion;
-			flags[6] = downedMeatball;
-			flags[7] = downedMechaball;
-			
+			flags[5] = downedXenic;
+			flags[6] = downedEmpress;
+			flags[7] = downedCell;
+			writer.Write(flags);
 			BitsByte flags2 = new BitsByte();
 			flags2[0] = hasAlertSlime;
 			flags2[1] = hasAlertEvil;
 			flags2[2] = hasConversationDrop;
-			flags2[3] = downedXenic;
-			flags2[4] = downedEmpress;
-			flags2[5] = downedCell;
-
-			writer.Write(flags);
 			writer.Write(flags2);
 		}
 		
@@ -127,17 +122,14 @@ namespace Zylon
             downedMineral = flags[2];
 			generatedEctojewelo = flags[3];
 			downedComVirus = flags[4];
-			generatedOblivion = flags[5];
-			downedMeatball = flags[6];
-			downedMechaball = flags[7];
+			downedXenic = flags[5];
+			downedEmpress = flags[6];
+			downedCell = flags[7];
 
 			BitsByte flags2 = reader.ReadByte();
 			hasAlertSlime = flags2[0];
 			hasAlertEvil = flags2[1];
 			hasConversationDrop = flags2[2];
-			downedXenic = flags2[3];
-			downedEmpress = flags2[4];
-			downedCell = flags2[5];
 		}
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
 		{
@@ -158,16 +150,11 @@ namespace Zylon
         {
 			if (!generatedEctojewelo && downedMineral)
 			{
-				for (int i = 0; i < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 0.00012); i++)
-                {
-                    WorldGen.OreRunner(
-                        WorldGen.genRand.Next(0, Main.maxTilesX),
-                        WorldGen.genRand.Next(0, Main.maxTilesY),
-                        (double)WorldGen.genRand.Next(6, 15),
-                        WorldGen.genRand.Next(6, 15),
-                        (ushort)mod.TileType("EctojeweloOre")
-                    );
-                }
+				for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 0.00002); k++) {
+				int x = WorldGen.genRand.Next(0, Main.maxTilesX);
+				int y = WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow, Main.maxTilesY / 2);
+				WorldGen.TileRunner(x, y, (double)WorldGen.genRand.Next(2, 14), WorldGen.genRand.Next(5, 19), TileType<EctojeweloOre>(), false, 0f, 0f, false, true);
+				}
 				Color messageColor = Color.LightBlue;
 					string chat = "The Zylonian Mineral Extrator has blessed your world with Ectojewelo Ore!";
 					if (Main.netMode == NetmodeID.Server)
