@@ -28,7 +28,7 @@ namespace Zylon.Tiles.Furniture.Chairs.PHOres
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Platinum Chair");
 			AddMapEntry(new Color(128, 151, 184), name);
-			dustType = 10;
+			dustType = 84;
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.Chairs };
 		}
