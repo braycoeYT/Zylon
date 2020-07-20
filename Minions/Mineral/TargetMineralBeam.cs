@@ -13,10 +13,6 @@ namespace Zylon.NPCs.Minions.Mineral
 {
 	public class TargetMineralBeam : ModNPC
 	{
-		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("test");
-		}
-
         public override void SetDefaults() {
 			npc.width = 4;
 			npc.height = 1560;

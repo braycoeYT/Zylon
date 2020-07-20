@@ -32,9 +32,9 @@ namespace Zylon.NPCs
 		}
 		public override void NPCLoot(NPC npc)
 		{
-			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<ZylonPlayer>().ZoneMicrobiome && Main.hardMode)
+			if (ZylonWorld.microbiomeTiles > 140 && Main.hardMode)
 			{
-				if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].ZoneRockLayerHeight)
+				if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].ZoneSkyHeight)
 				{
 					if (Main.expertMode)
 					{

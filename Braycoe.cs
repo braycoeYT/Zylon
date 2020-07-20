@@ -130,6 +130,8 @@ namespace Zylon.NPCs
 
 			chat.Add("The Microbiome appears to take the looks of its surroundings. How odd.", 1.6);
 
+			chat.Add("Lemonade Tea is an excellent drink!", 0.9);
+
 			if (Main.raining)
 			chat.Add("Hey, since I generate slime a lot faster while its raining, I'll sell gel to you for a discount price! Buy some now!", 0.8);
 		    if (ZylonWorld.downedCell == true)
@@ -232,8 +234,8 @@ namespace Zylon.NPCs
 			}
 			if (Main.hardMode == true)
 			{
-				shop.item[nextSlot].SetDefaults(ItemType<Items.Accessories.EyeThemed.KaizoMedal>());
-				shop.item[nextSlot].shopCustomPrice = 100000;
+				shop.item[nextSlot].SetDefaults(ItemType<Items.LemonadeTea>());
+				shop.item[nextSlot].shopCustomPrice = 2500;
 			    nextSlot++;
 				shop.item[nextSlot].SetDefaults(ItemID.SlimeCrown);
 				shop.item[nextSlot].shopCustomPrice = 10000;

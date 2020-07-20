@@ -19,8 +19,8 @@ namespace Zylon.NPCs.OtherWorms
 		public override void SetDefaults()
 		{
 			base.SetDefaults();
-			npc.width = 18;
-			npc.height = 28;
+			npc.width = 24;
+			npc.height = 32;
 			if (Main.expertMode)
 			npc.damage = 34;
 			else

@@ -36,16 +36,9 @@ namespace Zylon.NPCs
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
             npc.lifeMax = 3945;
-            npc.damage = 289;
+            npc.damage = 219;
 			npc.defense = 41;
         }
-		
-		public float Timer
-		{
-	        get => npc.ai[1];
-	        set => npc.ai[1] = value;
-        }
-		
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			for (int i = 0; i < 10; i++)
@@ -58,40 +51,28 @@ namespace Zylon.NPCs
 				dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 			}
 		}
-		
-		/*public override void AI()
+		public override void OnHitPlayer(Player player, int damage, bool crit)
 		{
+			if (Main.rand.NextBool(3))
+			{
+				player.AddBuff(BuffID.CursedInferno, 200, true);
+			}
+		}
+		int Timer;
+		public override void AI()
+		{
+			if (Main.player[npc.target].statLife < 1)
+			{
+				npc.TargetClosest(true);
+			}
+			Player target = Main.player[npc.target];
+			Vector2 target2 = target.position;
+			target2.X += Main.rand.Next(-60, 60);
+			target2.Y += Main.rand.Next(-60, 60);
 			Timer++;
-			
-			if (Main.expertMode)
-			{
-				if (ZylonWorld.voidDream)
-				{
-					if (Timer % 100 == 0)
-					{
-						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, Main.rand.NextFloat(-1f, 1f), -5f, ProjectileType<Projectiles.NightDaggerHostile>(), 0, 0, Main.myPlayer);
-					}
-				}
-				else
-				{
-					if (Timer % 140 == 0)
-					{
-						Projectile.NewProjectile(npc.Center.X, npc.Center.Y, Main.rand.NextFloat(-1f, 1f), -5f, ProjectileType<Projectiles.NightDaggerHostile>(), 0, 0, Main.myPlayer);
-					}
-				}
-			}
-			else
-			{
-				if (Timer % 180 == 0)
-				{
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, Main.rand.NextFloat(-1f, 1f), -5f, ProjectileType<Projectiles.NightDaggerHostile>(), 0, 0, Main.myPlayer);
-				}
-			}
-			
-			if (Timer > 180)
-			Timer = 0;
-		}*/
-		
+			if (Timer % 120 == 0)
+				Projectile.NewProjectile(npc.Center, (npc.DirectionTo(target2)) * 2.5f, 290, 59, 1f, Main.myPlayer);
+		}
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
 			if (NPC.downedMoonlord)

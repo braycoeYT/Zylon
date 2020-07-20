@@ -105,8 +105,8 @@ namespace Zylon.NPCs.OtherWorms
 		public override void SetDefaults()
 		{
 			base.SetDefaults();
-			npc.width = 22;
-			npc.height = 26;
+			npc.width = 28;
+			npc.height = 22;
 			if (Main.expertMode)
 			npc.damage = 64;
 			else
@@ -176,6 +176,7 @@ namespace Zylon.NPCs.OtherWorms
 		{
 			//ConvertTiles();
 			Item.NewItem(npc.getRect(), ItemID.Vertebrae, 1 + Main.rand.Next(3));
+			Item.NewItem(npc.getRect(), mod.ItemType("BloodySpiderLeg"), 1 + Main.rand.Next(2));
 		}
 		/*private void ConvertTiles()
 		{

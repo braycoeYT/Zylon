@@ -14,8 +14,8 @@ namespace Zylon.NPCs.Minions.Cell
 
         public override void SetDefaults()
 		{
-			npc.width = 60;
-			npc.height = 60;
+			npc.width = 64;
+			npc.height = 64;
 			npc.damage = 25;
 			npc.defense = 2;
 			npc.lifeMax = 31;
