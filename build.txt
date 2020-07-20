@@ -1,6 +1,6 @@
-displayName = [c/00AEFF:Zylon] (7750+ downloads)
+displayName = [c/00AEFF:Zylon] (8860+ downloads)
 author = BraycoeYT
-version = 0.2.0.9
+version = 0.2.1
 homepage = https://forums.terraria.org/index.php?threads/zylon-mod-terraria.87521/
 hideCode = true;
 hideResources = true;

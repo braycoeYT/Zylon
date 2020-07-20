@@ -7,19 +7,19 @@ Discord Server: (homepage link is better) https://discord.gg/qv97wNV
 I hope you play my mod!
 
 Some more facts:
-~283 Items
+~286 Items
 ~6 unique, custom AI, Bosses:
 ^3 Prehardmode Bosses
 ^2 Hardmode Bosses
 ^1 Post ML Boss
 ~1 Miniboss
 ~1 Town NPC
-~83 total NPCs
+~87 total NPCs
 ~4 Ores
 ~38 Total Tiles
-~23 Buffs
+~22 Buffs
 ~1 Biome
-~3 Custom Songs
+~4 Custom Songs
 
 Cross-mod Content with:
 Birth of Asteri mod (1 Item)
@@ -32,20 +32,26 @@ Sness (Empress Slime Minion Spriter)
 GOA7 (Active Spriter)
 Koolaidlemonade (Active Spriter)
 
-Update V0.2.0.9: Music Update
-~Changed more sprites
-~Changed ZME movement
-~Renamed the ZYL-900 to XOM
-~Changed Copper Furniture sprites to be prettier
-~Added music themes for Ancient Desert Discus, Microbiome, and Colossal Cell
-~Changed Eye of Prejudice
-~Ectojewelo Ore generates a lot less and only underground
-~Added another hint on how to defeat Dirtball due to me getting asked how to defeat it a lot.
-~Nerfed Ectojewelo Slime
-~Fixed Zylonian Mineral Extractor and Colossal Cell flee glitch
-~Fixed Colossal Cell getting stuck glitch
-~More internal sorting
-~Moved Dirtball slightly higher on boss checklist
-~Removed spelling error
-~Fixed Platinum Furniture dust
-~Added prehardmode ore platforms
+Update V0.2.1: Revenge of the Microbiome (pt 1)
+~Redid Gemstone Armor
+~Dirtball now correctly drops Dirt Shield of Oblivion
+~Dirtball now can drop Dirt Rod
+~Fixed more projectile lifesteal with dummies cheats
+~Buffed Dirtball Drops
+~Gave a couple silvervoid enemies projectiles
+~Navyblight Slimothers spawn a lot less slimes
+~Fixed boss fleeing mechanics in multiplayer(?)
+~Added cell islands to the microbiome, which contain ore
+~Microbiome generation is now affected by world size
+~Fixed spelling error and renamed ubercabachons to ubercabochons
+~Multiplayer boss AI changes
+~Microbiome resprites
+~Changed underground Microbiome to the sky Microbiome!
+~Added hardmode microbiome expansion
+~Added ZME Theme
+~Nerfed Morbus Rose petal damage
+~Added Infected Blood, Cursed Flame/Ichor equivilent of the microbiome
+~Changed Blood Drop potion sprite a bit to avoid confusion with Lifeforce potion
+~Removed Kaizo Medal
+~Added Lemonade Tea!
+~Buffed Colossal Cell
