@@ -69,6 +69,9 @@ namespace Zylon.Items.Dirtball
 			}
 			else */if (Main.rand.NextFloat() < .75f)
 			player.QuickSpawnItem(mod.ItemType("DirtyMedal"));
+			player.QuickSpawnItem(mod.ItemType("DirtShieldOfOblivion"));
+			if (Main.rand.NextFloat() < .15f)
+			player.QuickSpawnItem(ItemID.DirtRod);
 		}
 		public override int BossBagNPC => NPCType<NPCs.Bosses.Dirtball>();
 	}
