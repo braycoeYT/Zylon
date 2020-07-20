@@ -105,6 +105,7 @@ namespace Zylon.NPCs.Bosses
 
         public override void AI()
 		{
+			npc.TargetClosest(true);
 			if (!Main.player[npc.target].ZoneDesert)
 			{
 				RageTimer++;
@@ -116,7 +117,7 @@ namespace Zylon.NPCs.Bosses
 			}
 			else
 				RageTimer = 0;
-				if (Main.player[npc.target].statLife < 1)
+			if (Main.player[npc.target].statLife < 1)
 			{
 				npc.TargetClosest(true);
 				if (Main.player[npc.target].statLife < 1)
@@ -125,6 +126,8 @@ namespace Zylon.NPCs.Bosses
 					flee++;
 				}
 			}
+			else
+				flee = 0;
 			if (flee >= 1)
             {
                 flee++;

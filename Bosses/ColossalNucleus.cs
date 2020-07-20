@@ -28,7 +28,7 @@ namespace Zylon.NPCs.Bosses
 			npc.height = 63;
 			npc.damage = 21;
 			npc.defense = 9;
-			npc.lifeMax = 819;
+			npc.lifeMax = 1109;
 			npc.HitSound = SoundID.NPCHit9;
 			npc.DeathSound = SoundID.NPCDeath11;
 			npc.value = 50000f;
@@ -52,7 +52,7 @@ namespace Zylon.NPCs.Bosses
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 1283 + numPlayers * 150;
+            npc.lifeMax = 1998 + numPlayers * 240;
 			npc.damage = 48;
 			npc.knockBackResist = 0.3f;
 		}
@@ -102,6 +102,7 @@ namespace Zylon.NPCs.Bosses
 		Vector2 targetPos;
 		public override void AI()
 		{
+			npc.TargetClosest(true);
 			npc.noTileCollide = true;
 			Timer++;
 			targetPos = Main.player[npc.target].Center;
@@ -126,6 +127,8 @@ namespace Zylon.NPCs.Bosses
 					if (flee == 0)
 						flee++;
 				}
+				else
+				flee = 0;
 			}
 			if (flee >= 1)
 			{

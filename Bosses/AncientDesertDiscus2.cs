@@ -85,6 +85,7 @@ namespace Zylon.NPCs.Bosses
 
         public override void AI()
 		{
+			npc.TargetClosest(true);
 			if (Main.player[npc.target].statLife < 1)
 			{
 				npc.TargetClosest(true);
@@ -93,6 +94,8 @@ namespace Zylon.NPCs.Bosses
 					if (flee == 0)
 					flee++;
 				}
+				else
+				flee = 0;
 			}
 			if (flee >= 1)
             {
@@ -179,7 +182,8 @@ namespace Zylon.NPCs.Bosses
 					Main.NewText(Language.GetTextValue(chat), messageColor);
 				}
 			}
-			
+			if (Main.rand.NextFloat() < .1f)
+			Item.NewItem(npc.getRect(), mod.ItemType("PolandballMask"));
 			if (Main.expertMode)
 			{
 				Item.NewItem(npc.getRect(), mod.ItemType("DiscusBag"));

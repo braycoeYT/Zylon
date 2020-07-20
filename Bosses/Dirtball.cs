@@ -57,7 +57,6 @@ namespace Zylon.NPCs.Bosses
         {
             npc.lifeMax = 1110;
             npc.damage = 25;
-			npc.defense = 2;
         }
 		public override void HitEffect(int hitDirection, double damage)
 		{
@@ -99,7 +98,7 @@ namespace Zylon.NPCs.Bosses
 		{
 			if (npc.scale > 0.5f)
 				npc.life = npc.lifeMax;
-
+			npc.TargetClosest(true);
 			npc.width = (int)(115 * npc.scale);
 			npc.height = (int)(120 * npc.scale);
 			if (chat1)
@@ -116,7 +115,7 @@ namespace Zylon.NPCs.Bosses
 				}
 				chat1 = false;
 			}
-			if (chat2 && Timer > 300 && ((Main.expertMode && npc.scale < 2.75f) || (!Main.expertMode && npc.scale < 2.5f)))
+			if (chat2 && Timer > 300 && ((Main.expertMode && npc.scale < 2.7f) || (!Main.expertMode && npc.scale < 2.45f)))
 			{
 				Color messageColor = Color.SaddleBrown;
 				string chat = "It seems that hitting Dirtball shakes some of its mud off.";
@@ -145,6 +144,8 @@ namespace Zylon.NPCs.Bosses
 					if (flee == 0)
 					flee++;
 				}
+				else
+				flee = 0;
 			}
 			if (flee >= 1)
             {
@@ -192,7 +193,7 @@ namespace Zylon.NPCs.Bosses
 					}
 				}
 			}*/
-			else if (Main.expertMode)
+			if (Main.expertMode)
 			{
 				if (attackDone == true)
 				{
@@ -295,6 +296,9 @@ namespace Zylon.NPCs.Bosses
 			
 			if (Main.rand.NextFloat() < .5f)
 			Item.NewItem(npc.getRect(), mod.ItemType("DirtyMedal"));
+
+			if (Main.rand.NextFloat() < .12f)
+			Item.NewItem(npc.getRect(), ItemID.DirtRod);
 			}
 			
 			ZylonWorld.downedDirtball = true;
@@ -309,14 +313,5 @@ namespace Zylon.NPCs.Bosses
 			}
 			return 0f;
         }
-		
-		/*public override void HitEffect(int hitDirection, double damage)
-		{
-			if (Main.expertMode)
-			{
-			    if (Main.rand.Next(105) == 0)
-				NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCID.RedSlime, 0, npc.whoAmI);
-			}
-		}*/
 	}
 }

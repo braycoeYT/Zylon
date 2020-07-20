@@ -60,6 +60,7 @@ namespace Zylon.NPCs.Bosses
 		Vector2 targetPos;
 		public override void AI()
 		{
+			npc.TargetClosest(true);
 			npc.direction = 1;
 			npc.rotation = 0;
 			targetPos = Main.player[npc.target].Center;
@@ -74,6 +75,8 @@ namespace Zylon.NPCs.Bosses
 					if (flee == 0)
 						flee++;
 				}
+				else
+				flee = 0;
 			}
 			if (flee >= 1)
 			{

@@ -38,7 +38,7 @@ namespace Zylon.NPCs.Bosses
 			npc.boss = true;
 			npc.scale = 1;
 			npc.lavaImmune = true;
-			music = MusicID.Boss3;
+			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ZylonianMineralExtractorTheme");
 			npc.netAlways = true;
 			for (int k = 0; k < npc.buffImmune.Length; k++) {
 				npc.buffImmune[k] = true;
@@ -89,6 +89,7 @@ namespace Zylon.NPCs.Bosses
 		bool safe = true;
         public override void AI()
 		{
+			npc.TargetClosest(true);
 	        Timer++;
 			if (Main.player[npc.target].statLife < 1)
 			{
@@ -98,6 +99,8 @@ namespace Zylon.NPCs.Bosses
 					if (flee == 0)
 					flee++;
 				}
+				else
+				flee = 0;
 			}
 			if (flee >= 1)
             {
@@ -246,13 +249,13 @@ namespace Zylon.NPCs.Bosses
 				}
 				if (uberTimer % 5 == 0)
 				{
-					NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.Ubercabachon>(), 0, npc.whoAmI);
+					NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.Ubercabochon>(), 0, npc.whoAmI);
 				}
 				if (uberChat)
 				{
 					uberChat = false;
 					Color messageColor = Color.Pink;
-					string chat = "<ZYL-900> Low health detected! Releasing ubercabachons!";
+					string chat = "<ZYL-900> Low health detected! Releasing ubercabochons!";
 					if (Main.netMode == NetmodeID.Server)
 					{
 						NetMessage.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);

@@ -97,6 +97,7 @@ namespace Zylon.NPCs.Bosses
 
 		public override void AI()
 		{
+			npc.TargetClosest(true);
 			Timer++;
 			if (npc.lifeMax / 2 > npc.life)
 			{
@@ -159,6 +160,8 @@ namespace Zylon.NPCs.Bosses
 					if (flee == 0)
 					flee++;
 				}
+				else
+				flee = 0;
 			}
 			if (flee >= 1)
             {
