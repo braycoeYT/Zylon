@@ -58,9 +58,8 @@ namespace Zylon.NPCs.Microbiome.HM
 		}
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-			if (spawnInfo.player.ZoneDirtLayerHeight || spawnInfo.player.ZoneRockLayerHeight)
 			if (Main.hardMode)
-			return spawnInfo.player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome ? 0.06f : 0f;
+			return spawnInfo.player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome && spawnInfo.player.ZoneSkyHeight ? 0.07f : 0f;
 			return 0f;
 		}
 		public override void NPCLoot()

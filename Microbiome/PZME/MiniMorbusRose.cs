@@ -59,9 +59,11 @@ namespace Zylon.NPCs.Microbiome.PZME
 		public override void NPCLoot()
 		{
 			if (Main.rand.Next(20) == 0)
-				Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"));
+				Item.NewItem(npc.getRect(), mod.ItemType("InfectedOnyx"));
 			if (Main.rand.Next(30) == 0)
 				Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"));
+			if (Main.rand.Next(40) == 0)
+				Item.NewItem(npc.getRect(), mod.ItemType("NucleusShard"));
 		}
 	}
 }

@@ -14,8 +14,8 @@ namespace Zylon.NPCs.Microbiome
 
         public override void SetDefaults()
 		{
-			npc.width = 60;
-			npc.height = 60;
+			npc.width = 64;
+			npc.height = 64;
 			npc.damage = 28;
 			npc.defense = 9;
 			npc.lifeMax = 41;

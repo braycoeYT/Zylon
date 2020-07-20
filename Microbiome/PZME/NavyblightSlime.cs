@@ -41,7 +41,6 @@ namespace Zylon.NPCs.Microbiome.PZME
             npc.lifeMax = 3496;
             npc.damage = 243;
         }
-		
 		public override void OnHitPlayer(Player player, int damage, bool crit)
 		{
 			if (Main.rand.NextBool(3))
@@ -76,7 +75,7 @@ namespace Zylon.NPCs.Microbiome.PZME
 		public override void NPCLoot()
 		{
 			if (Main.rand.Next(20) == 0)
-				Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"));
+				Item.NewItem(npc.getRect(), mod.ItemType("InfectedOnyx"));
 			if (Main.rand.Next(30) == 0)
 				Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"));
 		}

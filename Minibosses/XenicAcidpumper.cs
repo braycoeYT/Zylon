@@ -112,7 +112,7 @@ namespace Zylon.NPCs.Minibosses
 				}
 				timerUber++;
 				if (timerUber % 5 == 1)
-				NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("Ubercabachon"), 0, npc.whoAmI);
+				NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("ubercabochon"), 0, npc.whoAmI);
 				if (Main.expertMode) {
 					if (timerUber > 45)
 					{

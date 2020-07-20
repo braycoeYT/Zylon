@@ -5,32 +5,33 @@ using Terraria.ModLoader;
 
 namespace Zylon.NPCs.Microbiome.HM
 {
-	public class Ecolibacteria : ModNPC
+	public class Skyspitter : ModNPC
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Ecolibacteria");
+			DisplayName.SetDefault("Skyspitter");
 		}
 
         public override void SetDefaults()
 		{
-			npc.width = 20;
+			npc.width = 54;
 			npc.height = 54;
-			npc.damage = 71;
+			npc.damage = 67;
 			npc.defense = 20;
-			npc.lifeMax = 79;
+			npc.lifeMax = 102;
 			npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath3;
-			npc.value = 100f;
-			npc.knockBackResist = 0f;
-			npc.aiStyle = 0;
+			npc.value = 110f;
+			npc.knockBackResist = 0.1f;
+			npc.aiStyle = 5;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
+			aiType = NPCID.EaterofSouls;
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 146;
-            npc.damage = 132;
+            npc.lifeMax = 217;
+            npc.damage = 136;
         }
 		public override void OnHitPlayer(Player target, int damage, bool crit)
 		{
@@ -41,7 +42,6 @@ namespace Zylon.NPCs.Microbiome.HM
 			}
 			else
 			{
-				target.AddBuff(BuffID.Weak, 480, false);
 				target.AddBuff(mod.BuffType("Sick"), 600, false);
 			}
 		}
@@ -62,21 +62,21 @@ namespace Zylon.NPCs.Microbiome.HM
 			get => npc.ai[0];
 			set => npc.ai[0] = value;
 		}
-		int rand = Main.rand.Next(0, 600);
+		int rand = Main.rand.Next(0, 180);
 		Vector2 targetPos;
 		public override void AI()
 		{
 			Timer++;
 			targetPos = Main.player[npc.target].Center;
-			if (Timer % 600 == rand)
+			if (Timer % 180 == rand)
 			{
-				Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPos) * 4, mod.ProjectileType("Ickyspit"), 20, 1f, Main.myPlayer);
+				Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPos) * 7, mod.ProjectileType("Ickyspit"), 20, 1f, Main.myPlayer);
 			}
 		}
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			if (Main.hardMode)
-				return spawnInfo.player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome && !spawnInfo.player.ZoneSkyHeight ? 0.12f : 0f;
+				return ZylonWorld.microbiomeTiles > 140 && spawnInfo.player.ZoneSkyHeight ? 0.23f : 0f;
 			return 0f;
 		}
 		public override void NPCLoot()

@@ -10,12 +10,13 @@ namespace Zylon.NPCs.Microbiome.PZME
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Virodurum");
+			Main.npcFrameCount[npc.type] = 4;
 		}
 
         public override void SetDefaults()
 		{
-			npc.width = 88;
-			npc.height = 69;
+			npc.width = 78;
+			npc.height = 74;
 			npc.damage = 172;
 			npc.defense = 79;
 			npc.lifeMax = 13294;
@@ -26,6 +27,7 @@ namespace Zylon.NPCs.Microbiome.PZME
 			npc.aiStyle = 44;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
+			animationType = 82;
         }
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
@@ -69,9 +71,11 @@ namespace Zylon.NPCs.Microbiome.PZME
 		public override void NPCLoot()
 		{
 			if (Main.rand.Next(2) == 0)
-				Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"));
+				Item.NewItem(npc.getRect(), mod.ItemType("InfectedOnyx"));
 			if (Main.rand.Next(3) == 0)
 				Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"));
+			if (Main.rand.Next(4) == 0)
+				Item.NewItem(npc.getRect(), mod.ItemType("NucleusShard"));
 		}
 	}
 }

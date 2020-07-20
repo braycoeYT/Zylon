@@ -42,7 +42,7 @@ namespace Zylon.NPCs.Microbiome.PZME
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			if (Main.rand.NextBool(2))
-				Projectile.NewProjectile(npc.Center, new Vector2(0, 2).RotatedByRandom(MathHelper.TwoPi), mod.ProjectileType("MorbusPetal"), 91, 1f, Main.myPlayer);
+				Projectile.NewProjectile(npc.Center, new Vector2(0, 2).RotatedByRandom(MathHelper.TwoPi), mod.ProjectileType("MorbusPetal"), 41, 1f, Main.myPlayer);
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
@@ -86,9 +86,11 @@ namespace Zylon.NPCs.Microbiome.PZME
 	    public override void NPCLoot()
         {
             if (Main.rand.Next(2) == 0)
-				Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"));
+				Item.NewItem(npc.getRect(), mod.ItemType("InfectedOnyx"));
 			if (Main.rand.Next(3) == 0)
 				Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"));
+			if (Main.rand.Next(4) == 0)
+				Item.NewItem(npc.getRect(), mod.ItemType("NucleusShard"));
 		}
 	}
 }

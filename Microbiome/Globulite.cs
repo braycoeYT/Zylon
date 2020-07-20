@@ -14,8 +14,8 @@ namespace Zylon.NPCs.Microbiome
 
         public override void SetDefaults()
 		{
-			npc.width = 14;
-			npc.height = 14;
+			npc.width = 16;
+			npc.height = 16;
 			npc.damage = 7;
 			npc.defense = 12;
 			npc.lifeMax = 19;
@@ -80,7 +80,7 @@ namespace Zylon.NPCs.Microbiome
 		}
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-			return spawnInfo.player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome ? 0.12f : 0f;
+			return spawnInfo.player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome && !spawnInfo.player.ZoneSkyHeight ? 0.12f : 0f;
 		}
 		public override void NPCLoot()
         {

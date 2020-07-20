@@ -49,7 +49,7 @@ namespace Zylon.NPCs.Microbiome.PZME
 					NPC.NewNPC((int)npc.Center.X + Main.rand.Next(-50, 50), (int)npc.Center.Y + Main.rand.Next(-50, 50), mod.NPCType("NavyblightSlime"));
 				}
 			}
-			else if (Main.rand.Next(0, 5) == 0)
+			else if (Main.rand.Next(0, 20) == 0)
 			{
 				NPC.NewNPC((int)npc.Center.X + Main.rand.Next(-50, 50), (int)npc.Center.Y + Main.rand.Next(-50, 50), mod.NPCType("NavyblightSlime"));
 			}
@@ -94,9 +94,11 @@ namespace Zylon.NPCs.Microbiome.PZME
 	    public override void NPCLoot()
         {
             if (Main.rand.Next(2) == 0)
-				Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"));
+				Item.NewItem(npc.getRect(), mod.ItemType("InfectedOnyx"));
 			if (Main.rand.Next(3) == 0)
 				Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"));
+			if (Main.rand.Next(4) == 0)
+				Item.NewItem(npc.getRect(), mod.ItemType("NucleusShard"));
 		}
 	}
 }
