@@ -24,6 +24,10 @@ namespace Zylon.Projectiles
 			projectile.extraUpdates = 2;
 			aiType = 1;
 		}
+		public override void OnHitPlayer(Player target, int damage, bool crit)
+		{
+			target.AddBuff(BuffID.Electrified, 10, false);
+		}
 		public override void AI()
 		{
 			for (int i = 0; i < 4; i++)
