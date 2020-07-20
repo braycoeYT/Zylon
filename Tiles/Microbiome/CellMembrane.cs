@@ -14,7 +14,7 @@ namespace Zylon.Tiles.Microbiome
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
-			dustType = 40;
+			dustType = 80;
 			drop = ItemType<Items.Microbiome.CellMembrane>();
 			AddMapEntry(new Color(127, 127, 255));
 		}
