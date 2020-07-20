@@ -21,15 +21,15 @@ namespace Zylon.Projectiles.Gemstone
 			projectile.ignoreWater = true;
 			aiType = ProjectileID.Bullet;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
-			Player p = Main.player[projectile.owner];
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+			if (target.type != NPCID.TargetDummy) {
+				Player p = Main.player[projectile.owner];
 			int healingAmount = damage / 30;
 			p.statLife += healingAmount;
 			p.HealEffect(healingAmount, true);
+			}
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit)
-		{
+		public override void OnHitPlayer(Player target, int damage, bool crit) {
 			Player p = Main.player[projectile.owner];
 			int healingAmount = damage / 30;
 			p.statLife += healingAmount;
