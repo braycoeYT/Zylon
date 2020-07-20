@@ -10,16 +10,16 @@ namespace Zylon.Items.Mineral
 	{
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("Shiny and smooth...\n60 increased max mana\n25% increased magic damage\n17% increased magic crit\n3% increased damage reduction\nDefense is increased when health is low");
+			Tooltip.SetDefault("Shiny and smooth...\nDamage reduction is increased by 5%\nIncreases magic critical strike chance by 15%\nIncreases magic damage by 22%\nMax mana increased by 40 and mana cost is decreased by 18%\nDefense is increased when health is low");
 		}
 
 		public override void SetDefaults()
 		{
 			item.width = 18;
 			item.height = 18;
-			item.value = 100000;
+			item.value = 500000;
 			item.rare = 11;
-			item.defense = 12;
+			item.defense = 19;
 		}
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -29,22 +29,20 @@ namespace Zylon.Items.Mineral
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = "Hurting enemies summons mana crystals that leech extra mana for you\nIncreased magic damage and crit by 5%";
-			player.magicDamage += 0.05f;
-			player.magicCrit += 5;
+			player.setBonus = "Hurting enemies can summon mana crystals that leech extra mana for you";
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			p.gemstoneManaBullet = true;
 		}
 
 		public override void UpdateEquip(Player player)
 		{
-			player.magicDamage += 0.25f;
+			player.magicDamage += 0.22f;
 			player.magicCrit += 15;
-			player.manaCost -= 0.1f;
-			player.statManaMax2 += 60;
-			player.endurance += 0.03f;
+			player.manaCost -= 0.18f;
+			player.statManaMax2 += 40;
+			player.endurance += 0.05f;
 			if (player.statLife < player.statLifeMax2 / 3)
-				player.statDefense += 12;
+				player.statDefense += 15;
 		}
 
 		public override void AddRecipes()

@@ -11,16 +11,16 @@ namespace Zylon.Items.Mineral
 	{
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("Shiny and smooth...\n25% increased melee damage\n15% increased melee crit\n10% increased melee speed\n3% increased damage reduction\nMax life increased by 20\nDefense is increased when health is low");
-		}
+			Tooltip.SetDefault("Shiny and smooth...\nDamage reduction is increased by 10%\nIncreases melee critical strike chance by 25%\nIncreases melee damage by 25%\nIncreases melee speed by 17%\nDefense is increased when health is low");
+		} //Crit +4 - 5, Damage +6 - 10, Defense +15
 
 		public override void SetDefaults()
 		{
 			item.width = 18;
 			item.height = 18;
-			item.value = 100000;
+			item.value = 500000;
 			item.rare = 11;
-			item.defense = 37;
+			item.defense = 39;
 		}
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -30,9 +30,7 @@ namespace Zylon.Items.Mineral
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = "Releases several gemstone spikes when you take damage, which can venom and frostburn enemies\nIncreased melee damage and crit by 5%";
-			player.meleeDamage += 0.05f;
-			player.meleeCrit += 5;
+			player.setBonus = "Releases several gemstone spikes when you take damage, which can venom and frostburn enemies";
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			p.gemstoneSpikes = true;
 		}
@@ -40,12 +38,11 @@ namespace Zylon.Items.Mineral
 		public override void UpdateEquip(Player player)
 		{
 			player.meleeDamage += 0.25f;
-			player.meleeCrit += 15;
-			player.meleeSpeed += 0.1f;
-			player.statLifeMax2 += 20;
-			player.endurance += 0.03f;
+			player.meleeCrit += 25;
+			player.meleeSpeed += 0.17f;
+			player.endurance += 0.1f;
 			if (player.statLife < player.statLifeMax2 / 3)
-				player.statDefense += 12;
+				player.statDefense += 15;
 		}
 		
 		public override void AddRecipes() 

@@ -10,7 +10,7 @@ namespace Zylon.Items.Mineral
 	{
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("This is as heavy as 48.6 Ubercabachons!\nWingtime: 200\nHorizontal speed: 10\nHorizontal acceleration: 2.75");
+			Tooltip.SetDefault("This is as heavy as 48.6 ubercabochons!\nWingtime: 200\nHorizontal speed: 10\nHorizontal acceleration: 2.75");
 		}
 
 		public override void SetDefaults()
