@@ -15,7 +15,7 @@ namespace Zylon.Items.Dirtball
 
 		public override void SetDefaults() 
 		{
-			item.damage = 6;
+			item.damage = 10;
 			item.melee = true;
 			item.width = 33;
 			item.height = 33;
