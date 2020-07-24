@@ -40,7 +40,9 @@ namespace Zylon.NPCs.Magentite
         }
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
+			if (NPC.downedQueenBee)
 			return SpawnCondition.Cavern.Chance * 0.07f;
+			return 0f;
         }
 		
 	    public override void NPCLoot()

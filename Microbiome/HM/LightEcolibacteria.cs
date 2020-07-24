@@ -83,8 +83,8 @@ namespace Zylon.NPCs.Microbiome.HM
         {
 			if (Main.rand.Next(18) == 0)
 			Item.NewItem(npc.getRect(), mod.ItemType("NucleusShard"));
-			//if (Main.rand.NextFloat() < .4f)
-			//	Item.NewItem(npc.getRect(), mod.ItemType("Contagionite"));
+			if (Main.rand.NextFloat() < .015f)
+			Item.NewItem(npc.getRect(), mod.ItemType("InfectedBlood"));
 		}
 	}
 }

@@ -66,6 +66,8 @@ namespace Zylon.NPCs.Microbiome.HM
         {
 			if (Main.rand.NextFloat() < .01f)
 				Item.NewItem(npc.getRect(), ItemID.Nazar);
+			if (Main.rand.NextFloat() < .15f)
+			Item.NewItem(npc.getRect(), mod.ItemType("InfectedBlood"));
         }
 	}
 }
