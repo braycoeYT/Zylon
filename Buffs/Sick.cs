@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -11,6 +12,8 @@ namespace Zylon.Buffs
             Description.SetDefault("Infected with viruses, damage decreased by 20%");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = true;
+			Main.pvpBuff[Type] = true;
+			Main.buffNoSave[Type] = true;
         }
         public override void Update(Player player, ref int buffIndex)
         {
@@ -25,8 +28,7 @@ namespace Zylon.Buffs
                 dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
             }
         }
-        public override void Update(NPC npc, ref int buffIndex)
-        {
+        public override void Update(NPC npc, ref int buffIndex) {
             npc.damage /= 5;
             for (int i = 0; i < 3; i++)
             {
@@ -37,6 +39,9 @@ namespace Zylon.Buffs
                 dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
                 dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
             }
+            npc.color = Color.DarkCyan;
+            if (npc.buffTime[buffIndex] < 10)
+                npc.color = Color.Transparent;
         }
     }
 }
