@@ -7,7 +7,7 @@ Discord Server: (homepage link is better) https://discord.gg/qv97wNV
 I hope you play my mod!
 
 Some more facts:
-~286 Items
+~287 Items
 ~6 unique, custom AI, Bosses:
 ^3 Prehardmode Bosses
 ^2 Hardmode Bosses
@@ -19,7 +19,7 @@ Some more facts:
 ~38 Total Tiles
 ~22 Buffs
 ~1 Biome
-~4 Custom Songs
+~4 Custom Themes
 
 Cross-mod Content with:
 Birth of Asteri mod (1 Item)
@@ -32,26 +32,12 @@ Sness (Empress Slime Minion Spriter)
 GOA7 (Active Spriter)
 Koolaidlemonade (Active Spriter)
 
-Update V0.2.1: Revenge of the Microbiome (pt 1)
-~Redid Gemstone Armor
-~Dirtball now correctly drops Dirt Shield of Oblivion
-~Dirtball now can drop Dirt Rod
-~Fixed more projectile lifesteal with dummies cheats
-~Buffed Dirtball Drops
-~Gave a couple silvervoid enemies projectiles
-~Navyblight Slimothers spawn a lot less slimes
-~Fixed boss fleeing mechanics in multiplayer(?)
-~Added cell islands to the microbiome, which contain ore
-~Microbiome generation is now affected by world size
-~Fixed spelling error and renamed ubercabachons to ubercabochons
-~Multiplayer boss AI changes
-~Microbiome resprites
-~Changed underground Microbiome to the sky Microbiome!
-~Added hardmode microbiome expansion
-~Added ZME Theme
-~Nerfed Morbus Rose petal damage
-~Added Infected Blood, Cursed Flame/Ichor equivilent of the microbiome
-~Changed Blood Drop potion sprite a bit to avoid confusion with Lifeforce potion
-~Removed Kaizo Medal
-~Added Lemonade Tea!
-~Buffed Colossal Cell
+Update V0.2.1.1: Revenge of the Microbiome (pt. 1.1)
+~Severely decreased natural Dirtball spawnrate
+~New sprites
+~Added/Expanded hardmode microbiome
+~Sick now colors enemies dark cyan
+~Redid Colossal Cell Theme
+~Redid Wooden Javelance Sprite (will do the others soon)
+~Now some vanilla slimes drop elementamax sludge
+~Magentite Stinger is now post-Queen Bee

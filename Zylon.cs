@@ -477,6 +477,42 @@ namespace Zylon
 			recipe.AddIngredient(null, "PlatinumPlatform", 2);
 			recipe.SetResult(ItemID.PlatinumBar);
 			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(ItemID.EmptyBullet);
+			recipe.AddIngredient(null, "Electrolight");
+			recipe.SetResult(ItemID.HighVelocityBullet, 50);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(null, "GoldenShowerHidden");
+			recipe.AddTile(TileID.CrystalBall);
+			recipe.SetResult(ItemID.GoldenShower);
+			recipe.AddRecipe();
+			//conversion
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(ItemID.RottenChunk);
+			recipe.AddIngredient(ItemID.Vertebrae);
+			recipe.AddIngredient(null, "NucleusShard");
+			recipe.SetResult(ItemID.PixieDust);
+			recipe.AddTile(TileID.CrystalBall);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(ItemID.RottenChunk);
+			recipe.AddIngredient(null, "NucleusShard");
+			recipe.AddIngredient(ItemID.PixieDust);
+			recipe.AddTile(TileID.CrystalBall);
+			recipe.SetResult(ItemID.Vertebrae);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(ItemID.Vertebrae);
+			recipe.AddIngredient(null, "NucleusShard");
+			recipe.AddIngredient(ItemID.PixieDust);
+			recipe.AddTile(TileID.CrystalBall);
+			recipe.SetResult(ItemID.RottenChunk);
+			recipe.AddRecipe();
 		}
 		public override void UpdateMusic(ref int music, ref MusicPriority priority)
 		{
