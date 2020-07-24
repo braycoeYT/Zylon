@@ -107,8 +107,8 @@ namespace Zylon.NPCs.Bosses
 				else
 					npc.dontTakeDamage = false;
 			}
-			else
-				RageTimer = 0;
+			if (Main.player[npc.target].GetModPlayer<ZylonPlayer>().ZoneMicrobiome)
+			RageTimer = 0;
 			if (Main.player[npc.target].statLife < 1)
 			{
 				npc.TargetClosest(true);
@@ -274,11 +274,11 @@ namespace Zylon.NPCs.Bosses
 			}
 			if (Timer % 300 == 0)
 			{
-				npc.velocity.X -= 4;
+				npc.velocity.X -= 2;
 			}
 			if (Timer % 300 == 150)
 			{
-				npc.velocity.X += 4;
+				npc.velocity.X += 2;
 			}
 		}
 	}

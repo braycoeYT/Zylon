@@ -79,17 +79,6 @@ namespace Zylon.NPCs.Bosses
 					NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.Cell.BacteriteEgg>(), 0, npc.whoAmI);
 			}
 		}
-		
-        /*public float Timer
-		{
-	        get => npc.ai[0];
-	        set => npc.ai[0] = value;
-        }
-		public float RageTimer
-		{
-			get => npc.ai[1];
-			set => npc.ai[1] = value;
-		}*/
 		int flee = 0;
 		int attack = 0;
 		int attackMax = 0;
@@ -107,7 +96,7 @@ namespace Zylon.NPCs.Bosses
 			Timer++;
 			targetPos = Main.player[npc.target].Center;
 
-			/*if (!Main.player[npc.target].GetModPlayer<ZylonPlayer>().ZoneMicrobiome)
+			if (!Main.player[npc.target].GetModPlayer<ZylonPlayer>().ZoneMicrobiome)
 			{
 				RageTimer++;
 
@@ -117,7 +106,7 @@ namespace Zylon.NPCs.Bosses
 					npc.dontTakeDamage = false;
 			}
 			else
-			RageTimer = 0;*/
+			RageTimer = 0;
 
 			if (Main.player[npc.target].statLife < 1)
 			{

@@ -11,7 +11,7 @@ namespace Zylon.Items
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Golden Shower (Hidden)");
-			Tooltip.SetDefault("Use the golden shower without the book");
+			Tooltip.SetDefault("I gotta go\nUse the golden shower without the book");
 		}
 
 		public override void SetDefaults()
@@ -23,7 +23,6 @@ namespace Zylon.Items
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.GoldenShower);
-			recipe.AddIngredient(mod.ItemType("PlainNoodle"));
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

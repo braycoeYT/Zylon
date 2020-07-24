@@ -274,14 +274,13 @@ namespace Zylon.NPCs.Bosses
 			}
 		    else
 			{
-			int ran = Main.rand.Next(1, 8);
+			int ran = Main.rand.Next(1, 7);
 			if (ran == 1) Item.NewItem(npc.getRect(), mod.ItemType("BrokenDirtballCopperShortsword"));
 			if (ran == 2) Item.NewItem(npc.getRect(), mod.ItemType("DirtyDiscus"));
 			if (ran == 3) Item.NewItem(npc.getRect(), mod.ItemType("DirtyHarp"));
 			if (ran == 4) Item.NewItem(npc.getRect(), mod.ItemType("DirtyPistol"));
-			if (ran == 5) Item.NewItem(npc.getRect(), mod.ItemType("DirtyJar"));
-			if (ran == 6) Item.NewItem(npc.getRect(), mod.ItemType("DirtYoyo"));
-			if (ran == 7) Item.NewItem(npc.getRect(), mod.ItemType("DirtBow"));
+			if (ran == 5) Item.NewItem(npc.getRect(), mod.ItemType("DirtYoyo"));
+			if (ran == 6) Item.NewItem(npc.getRect(), mod.ItemType("DirtBow"));
 			
 			ran = Main.rand.Next(1, 4);
 			if (ran == 1) Item.NewItem(npc.getRect(), mod.ItemType("DirtballHelmet"));
@@ -309,7 +308,7 @@ namespace Zylon.NPCs.Bosses
 			if (!ZylonWorld.downedDirtball)
 			{
 				if(Main.dayTime)
-			    return 0.00075f;
+			    return 0.00015f;
 			}
 			return 0f;
         }
