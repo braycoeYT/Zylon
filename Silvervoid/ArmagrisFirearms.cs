@@ -16,8 +16,8 @@ namespace Zylon.Items.Silvervoid
 		public override void SetDefaults() {
 			item.value = 500000;
 			item.useStyle = 5;
-			item.useAnimation = 8;
-			item.useTime = 8;
+			item.useAnimation = 6;
+			item.useTime = 6;
 			item.damage = 41;
 			item.width = 60;
 			item.height = 45;

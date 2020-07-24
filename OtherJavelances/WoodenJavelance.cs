@@ -17,8 +17,8 @@ namespace Zylon.Items.OtherJavelances
 		{
 			item.damage = 6;
 			item.ranged = true;
-			item.width = 33;
-			item.height = 33;
+			item.width = 54;
+			item.height = 54;
 			item.useTime = 32;
 			item.useAnimation = 32;
 			item.useStyle = 1;
