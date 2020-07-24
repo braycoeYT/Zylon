@@ -10,7 +10,6 @@ namespace Zylon.Items.Microbiome
 			DisplayName.SetDefault("Nucleus Shard");
 			Tooltip.SetDefault("Eww, it's managing cells on my hands...");
 		}
-
 		public override void SetDefaults() 
 		{
 			item.width = 40;
@@ -18,6 +17,16 @@ namespace Zylon.Items.Microbiome
 			item.maxStack = 999;
 			item.value = 2500;
 			item.rare = 0;
+		}
+		public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.RottenChunk);
+			recipe.AddIngredient(ItemID.Vertebrae);
+			recipe.AddIngredient(ItemID.PixieDust);
+			recipe.AddTile(TileID.CrystalBall);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
 		}
 	}
 }

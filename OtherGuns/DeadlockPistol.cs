@@ -33,7 +33,6 @@ namespace Zylon.Items.OtherGuns
 			item.autoReuse = false;
 			item.rare = 1;
 		}
-
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			int numberProjectiles = 2 + Main.rand.Next(3);
@@ -44,7 +43,6 @@ namespace Zylon.Items.OtherGuns
 			}
 			return false;
 		}
-
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
