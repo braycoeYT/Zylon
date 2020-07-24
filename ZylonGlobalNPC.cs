@@ -25,7 +25,7 @@ namespace Zylon.NPCs
 		}
 		public override void SetDefaults(NPC npc)
 		{
-			if (npc.type == NPCID.SkeletronPrime || npc.type == NPCID.TheDestroyer || npc.type == NPCID.TheDestroyerBody || npc.type == NPCID.TheDestroyerTail || npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism || npc.type == NPCID.Plantera || npc.type == NPCID.Golem || npc.type == NPCID.GolemFistLeft || npc.type == NPCID.GolemFistRight || npc.type == NPCID.GolemHead || npc.type == NPCID.GolemHeadFree || npc.type == NPCID.CultistBoss || npc.type == NPCID.MoonLordCore || npc.type == NPCID.MoonLordFreeEye || npc.type == NPCID.MoonLordHand || npc.type == NPCID.MoonLordHead)
+			if (npc.type == NPCID.SkeletronPrime || npc.type == NPCID.TheDestroyer || npc.type == NPCID.TheDestroyerBody || npc.type == NPCID.TheDestroyerTail || npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism || npc.type == NPCID.Golem || npc.type == NPCID.GolemFistLeft || npc.type == NPCID.GolemFistRight || npc.type == NPCID.GolemHead || npc.type == NPCID.GolemHeadFree || npc.type == NPCID.CultistBoss || npc.type == NPCID.MoonLordCore || npc.type == NPCID.MoonLordFreeEye || npc.type == NPCID.MoonLordHand || npc.type == NPCID.MoonLordHead)
 			{
 				npc.buffImmune[mod.BuffType("Sick")] = true;
 			}
@@ -49,6 +49,15 @@ namespace Zylon.NPCs
 								Item.NewItem(npc.getRect(), ItemID.SoulofNight);
 					}
 				}
+			}
+			if (NPC.downedPlantBoss && npc.type == NPCID.IceSlime || npc.type == NPCID.SandSlime || npc.type == NPCID.JungleSlime || npc.type == NPCID.SpikedJungleSlime || npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.LavaSlime || npc.type == NPCID.DungeonSlime || npc.type == NPCID.UmbrellaSlime)
+			{
+				if (Main.rand.NextFloat() < .1f)
+					Item.NewItem(npc.getRect(), mod.ItemType("ElementamaxSludge"));
+			}
+			if (NPC.downedPlantBoss && npc.type == NPCID.RainbowSlime || npc.type == NPCID.Pinky)
+			{
+				Item.NewItem(npc.getRect(), mod.ItemType("ElementamaxSludge"), Main.rand.Next(1, 4));
 			}
 			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].ZoneSkyHeight && Main.hardMode && Main.rand.NextFloat() < .25f)
 			{
