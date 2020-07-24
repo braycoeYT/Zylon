@@ -61,7 +61,7 @@ namespace Zylon.Items.OtherSwords
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType("Astrafury"));
-			recipe.AddIngredient(mod.ItemType("SpaceScourge"));
+			recipe.AddIngredient(mod.ItemType("Electrolight"), 15);
 			recipe.AddIngredient(ItemID.FallenStar, 10);
 			recipe.AddIngredient(ItemID.SoulofFlight, 25);
 			recipe.AddIngredient(ItemID.SoulofMight);

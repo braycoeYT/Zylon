@@ -38,6 +38,7 @@ namespace Zylon.Items.OtherSwords
 			recipe.AddIngredient(ItemID.Starfury);
 			recipe.AddIngredient(mod.ItemType("FeatheredFury"));
 			recipe.AddIngredient(ItemID.FallenStar, 15);
+			recipe.AddIngredient(mod.ItemType("Electrolight"), 12);
 			recipe.AddIngredient(ItemID.MeteoriteBar, 10);
 			recipe.AddIngredient(ItemID.SoulofNight, 5);
 			recipe.AddIngredient(ItemID.BrokenHeroSword);
