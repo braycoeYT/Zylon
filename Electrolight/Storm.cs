@@ -65,9 +65,10 @@ namespace Zylon.Items.Electrolight
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("ElectricDesertJavelance"), 2);
-			recipe.AddIngredient(mod.ItemType("Electrolight"), 5);
-			recipe.AddIngredient(ItemID.SoulofFlight, 4);
+			recipe.AddIngredient(ItemID.SoulofFlight, 20);
+			recipe.AddIngredient(ItemID.Cloud, 15);
+			recipe.AddIngredient(mod.ItemType("Electrolight"), 11);
+			recipe.AddIngredient(ItemID.RainCloud, 9);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this, 4);
 			recipe.AddRecipe();
