@@ -11,7 +11,7 @@ namespace Zylon.Items.Accessories.EyeThemed
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Eye of Prejudice");
-			Tooltip.SetDefault("Using a javelance will launch a bleeding javelance which rains bleeding orbs\nIncreases ranged critical strike chance by 10");
+			Tooltip.SetDefault("Using a javelance will launch a bleeding javelance which rains blood\nIncreases ranged critical strike chance by 10");
 		}
 
 		public override void SetDefaults() {
