@@ -10,7 +10,7 @@ namespace Zylon.Items.Dirtball
 	{
 		public override void SetStaticDefaults() 
 		{
-			Tooltip.SetDefault("'Feeling it makes you feel dirty...'\nShoots a Dirty Discus");
+			Tooltip.SetDefault("Feeling it makes you feel dirty...\nShoots a Dirty Discus");
 		}
 
 		public override void SetDefaults() 
