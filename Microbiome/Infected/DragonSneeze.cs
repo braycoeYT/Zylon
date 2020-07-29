@@ -25,7 +25,7 @@ namespace Zylon.Items.Microbiome.Infected
 			item.height = 24;
 			item.knockBack = 1.8f;
 			item.shoot = mod.ProjectileType("DragonSnot");
-			item.shootSpeed = 8f;
+			item.shootSpeed = 10f;
 			item.noMelee = true;
 			item.magic = true;
 			item.autoReuse = true;
