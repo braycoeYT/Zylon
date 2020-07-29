@@ -6,39 +6,39 @@ using Terraria.ModLoader;
 
 namespace Zylon.Items.OtherJavelances
 {
-	public class AncientMedievalJavelance : ModItem
+	public class VinepowerJavelance : ModItem
 	{
 		public override void SetStaticDefaults() 
 		{
-			Tooltip.SetDefault("Not much use due to its age, but could be used for crafting something cool\nStacks up to 5\nMore javelances means more javelances thrown\nUse time is decreased with more javelances");
+			Tooltip.SetDefault("Not to be confused with a green pot\nMay poison enemies\nStacks up to 3\nMore javelances means more javelances thrown\nUse time is decreased with more javelances");
 		}
 
 		public override void SetDefaults() 
 		{
-			item.damage = 10;
+			item.damage = 16;
 			item.ranged = true;
 			item.width = 33;
 			item.height = 33;
-			item.useTime = 50;
-			item.useAnimation = 50;
+			item.useTime = 27;
+			item.useAnimation = 27;
 			item.useStyle = 1;
-			item.knockBack = 6.3f;
-			item.value = 1000000;
+			item.knockBack = 5.9f;
+			item.value = 22000;
 			item.rare = 2;
 			item.autoReuse = true;
 			item.useTurn = true;
-			item.shoot = mod.ProjectileType("AncientMedievalJavelance");
+			item.shoot = mod.ProjectileType("VinepowerJavelance");
 			item.shootSpeed = 12f;
 			item.noMelee = true;
-			item.maxStack = 5;
+			item.maxStack = 3;
 			item.UseSound = SoundID.Item1;
 			item.noUseGraphic = true;
 			item.consumable = false;
 		}
 		public override void UpdateInventory(Player player)
 		{
-			item.useTime = 50 + (item.stack * 10) - 10;
-			item.useAnimation = 50 + (item.stack * 10) - 10;
+			item.useTime = 27 + (item.stack * 10) - 10;
+			item.useAnimation = 27 + (item.stack * 10) - 10;
 		}
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
@@ -60,6 +60,17 @@ namespace Zylon.Items.OtherJavelances
 			return false;
 			}
 			return true;
+		}
+
+		public override void AddRecipes() 
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.JungleSpores, 11);
+			recipe.AddIngredient(ItemID.Stinger, 7);
+			recipe.AddIngredient(ItemID.Vine, 4);
+			recipe.AddTile(TileID.Anvils);
+			recipe.SetResult(this, 3);
+			recipe.AddRecipe();
 		}
 	}
 }
