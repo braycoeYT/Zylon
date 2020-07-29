@@ -24,8 +24,8 @@ namespace Zylon.NPCs.Bosses
 
         public override void SetDefaults()
 		{
-			npc.width = 115;
-			npc.height = 115;
+			npc.width = 78;
+			npc.height = 78;
 			npc.damage = 14;
 			npc.defense = 2;
 			npc.lifeMax = 1300;
@@ -38,7 +38,7 @@ namespace Zylon.NPCs.Bosses
 			npc.noTileCollide = true;
 			npc.boss = true;
 			npc.lavaImmune = true;
-			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/AncientDesertDiscusTheme");
+			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ADD");
 			npc.netAlways = true;
 			npc.buffImmune[BuffID.Poisoned] = true;
 			npc.buffImmune[BuffID.OnFire] = true;
@@ -75,7 +75,7 @@ namespace Zylon.NPCs.Bosses
 				if (Main.expertMode)
 				NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("ElectricalEntity"));
 				Color messageColor = Color.CornflowerBlue;
-				string chat = "I will defend Terraria with all my decaying might!";
+				string chat = "I will defend Terraria with all of my might!";
 				if (Main.netMode == NetmodeID.Server)
 				{
 					NetMessage.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);

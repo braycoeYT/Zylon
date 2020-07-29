@@ -38,7 +38,7 @@ namespace Zylon.NPCs.Bosses
 			npc.boss = true;
 			npc.scale = 1;
 			npc.lavaImmune = true;
-			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ZylonianMineralExtractorTheme");
+			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ZME");
 			npc.netAlways = true;
 			for (int k = 0; k < npc.buffImmune.Length; k++) {
 				npc.buffImmune[k] = true;

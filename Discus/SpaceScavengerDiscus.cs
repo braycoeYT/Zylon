@@ -47,13 +47,6 @@ namespace Zylon.NPCs.Discus
 	    public override void NPCLoot()
         {
 			Item.NewItem(npc.getRect(), mod.ItemType("BrokenDiscus"), 1 + Main.rand.Next(1));
-			if (Main.rand.NextFloat() < .05f)
-			{
-				if (Main.rand.NextFloat() < .1f)
-					Item.NewItem(npc.getRect(), mod.ItemType("SunScavenger"));
-				else
-					Item.NewItem(npc.getRect(), mod.ItemType("SpaceScavenger"));
-			}
         }
 	}
 }
