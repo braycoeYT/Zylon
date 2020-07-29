@@ -9,18 +9,18 @@ namespace Zylon.NPCs
 	public class ZylonGlobalNPC : GlobalNPC
 	{
 		public override bool InstancePerEntity => true;
-		public override void SetupShop(int type, Chest shop, ref int nextSlot)
-		{
-			if (type == NPCID.ArmsDealer)
-			{
-				if (NPC.downedBoss2)
-				{
-					if (Main.hardMode || !Main.dayTime)
-					{
+		public override void SetupShop(int type, Chest shop, ref int nextSlot) {
+			if (type == NPCID.ArmsDealer) {
+				if (NPC.downedBoss2) {
+					if (Main.hardMode || !Main.dayTime) {
 						shop.item[nextSlot].SetDefaults(ItemType<Items.OtherArrows.UnethicalArrow>());
 						nextSlot++;
 					}
 				}
+			}
+			if (type == NPCID.Dryad) {
+				shop.item[nextSlot].SetDefaults(ItemID.Seed);
+				nextSlot++;
 			}
 		}
 		public override void SetDefaults(NPC npc)
@@ -59,9 +59,13 @@ namespace Zylon.NPCs
 			{
 				Item.NewItem(npc.getRect(), mod.ItemType("ElementamaxSludge"), Main.rand.Next(1, 4));
 			}
-			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].ZoneSkyHeight && Main.hardMode && Main.rand.NextFloat() < .25f)
+			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].ZoneSkyHeight && Main.hardMode && Main.rand.NextFloat() < .2f)
 			{
 				Item.NewItem(npc.getRect(), mod.ItemType("Electrolight"));
+			}
+			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].ZoneBeach && NPC.downedBoss3 && !NPC.downedMechBossAny && Main.rand.NextFloat() < .01f)
+			{
+				Item.NewItem(npc.getRect(), mod.ItemType("AquaticJavelance"));
 			}
 			if (npc.type == NPCID.Derpling || npc.type == NPCID.GiantTortoise || npc.type == NPCID.GiantFlyingFox || npc.type == NPCID.AngryTrapper || npc.type == NPCID.Arapaima)
 			{
@@ -156,7 +160,7 @@ namespace Zylon.NPCs
 			{
 				Item.NewItem(npc.getRect(), ItemType<Items.PHBoss.Slime.SlimyCore>(), Main.rand.Next(8, 12));
 			}
-			if (npc.type == NPCID.Retinazer)
+			if (npc.type == NPCID.Retinazer || npc.type == NPCID.SkeletronPrime)
 			{
 				if (Main.rand.Next(2) == 0)
 				Item.NewItem(npc.getRect(), ItemType<Items.Accessories.EyeThemed.ShardOfPrejudice>());

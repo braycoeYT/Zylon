@@ -62,23 +62,20 @@ namespace Zylon.NPCs
 			npc.scale = 0.9f;
 			npc.DeathSound = SoundID.NPCDeath1;
 			animationType = NPCID.Guide;
-			if (NPC.downedMoonlord)
-			{
-			npc.damage = 90;
-			npc.defense = 999999;
-			npc.lifeMax = 75000;
+			if (NPC.downedMoonlord) {
+			npc.damage = 98;
+			npc.defense = 1000;
+			npc.lifeMax = 2500;
 			npc.knockBackResist = 0.3f;
 			}
-			else if (Main.hardMode)
-			{
+			else if (Main.hardMode) {
 			npc.damage = 44;
 			npc.defense = 55;
-			npc.lifeMax = 1250;
+			npc.lifeMax = 750;
 			npc.knockBackResist = 0.4f;
 			}
-			else
-			{
-			npc.damage = 8;
+			else {
+			npc.damage = 11;
 			npc.defense = 15;
 			npc.lifeMax = 250;
 			npc.knockBackResist = 0.5f;
@@ -145,7 +142,16 @@ namespace Zylon.NPCs
 		
 			return chat;
 		}
+		int Timer;
+		public override void AI()
+		{
+			Timer++;
+			if (NPC.downedMoonlord && Timer % 10 == 0 && npc.life < npc.lifeMax)
+				npc.life += 1;
+			if (npc.life > npc.lifeMax)
+				npc.life = npc.lifeMax;
 
+		}
 		public override void SetChatButtons(ref string button, ref string button2)
 		{
 			button = Language.GetTextValue("LegacyInterface.28");
@@ -169,7 +175,7 @@ namespace Zylon.NPCs
 				{
 					if (NPC.downedBoss1)
 					{
-						shop.item[nextSlot].SetDefaults(ItemType<Items.VoidDream.StarNova>());
+						shop.item[nextSlot].SetDefaults(ItemType<Items.Braycoe.StarNova>());
 						nextSlot++;
 					}
 				}
@@ -178,7 +184,7 @@ namespace Zylon.NPCs
 				{
 					if (NPC.downedBoss1)
 					{
-						shop.item[nextSlot].SetDefaults(ItemType<Items.VoidDream.BowlingBallBreaker>());
+						shop.item[nextSlot].SetDefaults(ItemType<Items.Braycoe.CheckeredFlag>());
 						shop.item[nextSlot].shopCustomPrice = 100000;
 						nextSlot++;
 					}
@@ -188,7 +194,7 @@ namespace Zylon.NPCs
 				{
 					if (NPC.downedBoss1)
 					{
-						shop.item[nextSlot].SetDefaults(ItemType<Items.VoidDream.OddFungus>());
+						shop.item[nextSlot].SetDefaults(ItemType<Items.Braycoe.OddFungus>());
 						shop.item[nextSlot].shopCustomPrice = 100000;
 						nextSlot++;
 					}
@@ -198,7 +204,7 @@ namespace Zylon.NPCs
 				{
 					if (NPC.downedBoss1)
 					{
-						shop.item[nextSlot].SetDefaults(ItemType<Items.VoidDream.DreamyRod>());
+						shop.item[nextSlot].SetDefaults(ItemType<Items.Braycoe.DreamyRod>());
 						nextSlot++;
 					}
 				}
@@ -234,7 +240,7 @@ namespace Zylon.NPCs
 			}
 			if (Main.hardMode == true)
 			{
-				shop.item[nextSlot].SetDefaults(ItemType<Items.LemonadeTea>());
+				shop.item[nextSlot].SetDefaults(ItemType<Items.Braycoe.LemonadeTea>());
 				shop.item[nextSlot].shopCustomPrice = 2500;
 			    nextSlot++;
 				shop.item[nextSlot].SetDefaults(ItemID.SlimeCrown);
@@ -290,33 +296,25 @@ namespace Zylon.NPCs
 
 		public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
 		{
-			if (ZylonWorld.downedMineral)
-			{
-				projType = ProjectileType<BraycoeProjMineral>();
-				attackDelay = 1;
-			}
-			else
-			{
-				projType = ProjectileType<BraycoeProjDiscus>();
-				attackDelay = 1;
-			}
+			projType = mod.ProjectileType("Slimeball");
+			attackDelay = 1;
 		}
 
 		public override void TownNPCAttackProjSpeed(ref float multiplier, ref float gravityCorrection, ref float randomOffset)
 		{
 			if (NPC.downedMoonlord)
 			{
-			multiplier = 21f;
+			multiplier = 12f;
 			randomOffset = 4f;
 			}
 			else if (Main.hardMode)
 			{
-			multiplier = 16f;
+			multiplier = 11f;
 			randomOffset = 3f;
 			}
 			else
 			{
-			multiplier = 12f;
+			multiplier = 10f;
 			randomOffset = 2f;
 			}
 		}
