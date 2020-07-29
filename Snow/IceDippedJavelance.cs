@@ -17,8 +17,8 @@ namespace Zylon.Items.Snow
 		{
 			item.damage = 8;
 			item.ranged = true;
-			item.width = 33;
-			item.height = 33;
+			item.width = 54;
+			item.height = 54;
 			item.useTime = 35;
 			item.useAnimation = 35;
 			item.useStyle = 1;
