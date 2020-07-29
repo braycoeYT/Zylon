@@ -41,16 +41,16 @@ namespace Zylon.NPCs.Magentite
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
 			if (NPC.downedQueenBee)
-			return SpawnCondition.Cavern.Chance * 0.07f;
+			return SpawnCondition.Cavern.Chance * 0.05f;
 			return 0f;
         }
 		
 	    public override void NPCLoot()
         {
 			Item.NewItem(npc.getRect(), mod.ItemType("MagentiteOre"), 1 + Main.rand.Next(3));
-			if (Main.rand.NextFloat() < .001f)
-				if (NPC.downedBoss1)
-					Item.NewItem(npc.getRect(), mod.ItemType("MagentaMagnet"), 3);
+			if (Main.rand.NextFloat() < .003f)
+				if (NPC.downedBoss2)
+					Item.NewItem(npc.getRect(), mod.ItemType("MagentaMagnet"));
 			if (Main.rand.NextFloat() < .02f)
 				Item.NewItem(npc.getRect(), mod.ItemType("EyeCandy"));
 		}
