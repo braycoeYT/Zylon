@@ -1,11 +1,13 @@
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Items.OtherArrows
+namespace Zylon.Projectiles.OtherArrows
 {
-	public class UnethicalArrow : ModItem
+	public class UnethicalArrow : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
@@ -13,28 +15,16 @@ namespace Zylon.Items.OtherArrows
         }
 		public override void SetDefaults()
 		{
-			item.damage = 13;
-			item.ranged = true;
-			item.width = 8;
-			item.height = 8;
-			item.maxStack = 999;
-			item.consumable = true;
-			item.knockBack = 2f;
-			item.value = 40;
-			item.rare = 1;
-			item.shoot = ProjectileType<Projectiles.OtherArrows.UnethicalArrow>();
-			item.shootSpeed = 2f;
-			item.ammo = AmmoID.Arrow;
-		}
-		
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.WoodenArrow, 5);
-			recipe.AddIngredient(mod.ItemType("BloodySpiderLeg"));
-			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this, 5);
-			recipe.AddRecipe();
+			projectile.width = 8;
+			projectile.height = 8;
+			projectile.aiStyle = 1;
+			projectile.friendly = true;
+			projectile.penetrate = 4;
+			projectile.ranged = true;
+			projectile.damage = 14;
+			projectile.timeLeft = 3000;
+			projectile.ignoreWater = true;
+			aiType = 1;
 		}
 	}   
 }

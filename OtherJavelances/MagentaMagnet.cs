@@ -7,11 +7,11 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Projectiles.OtherJavelances
 {
-	public class Shadowdance : ModProjectile
+	public class MagentaMagnet : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Shadowdance");
+			DisplayName.SetDefault("Magenta Magnet");
         }
 		public override void SetDefaults()
 		{
@@ -25,15 +25,10 @@ namespace Zylon.Projectiles.OtherJavelances
 			projectile.ignoreWater = true;
 			aiType = 1;
 		}
-		int rand = Main.rand.Next(0, 120);
-		public float Timer
-		{
-	        get => projectile.ai[1];
-	        set => projectile.ai[1] = value;
-        }
+		int rand = Main.rand.Next(0, 240);
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
 			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
-			if (zp.bloodJavelance && Main.rand.NextFloat() < .06f && target.type != NPCID.TargetDummy) {
+			if (zp.bloodJavelance && Main.rand.NextFloat() < .06f) {
 				Player p = Main.player[projectile.owner];
 				p.statLife += 1;
 				p.HealEffect(1, true);
@@ -47,21 +42,26 @@ namespace Zylon.Projectiles.OtherJavelances
 				p.HealEffect(1, true);
 			}
 		}
+		public float Timer
+		{
+	        get => projectile.ai[1];
+	        set => projectile.ai[1] = value;
+        }
 		public override void AI()
 		{
 			Timer++;
-			if (Timer % 120 == rand)
+			if (Timer % 240 == rand)
 			{
-				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 7, mod.ProjectileType("ShadowdanceOrb"), 20, 0, Main.myPlayer);
+				Projectile.NewProjectile(projectile.Center, projectile.DirectionTo(Main.MouseWorld) * projectile.velocity.Y, 121, projectile.damage, projectile.knockBack, Main.myPlayer);
 			}
 		}
 		public override void PostAI()
 		{
 			if (Main.rand.NextBool())
 			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 27);
+				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 119);
 				dust.noGravity = false;
-				dust.scale = 0.8f;
+				dust.scale = 1f;
 			}
 		}
 	}   

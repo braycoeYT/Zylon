@@ -21,7 +21,7 @@ namespace Zylon.Projectiles.Microbiome
 			projectile.hostile = false;
 			projectile.friendly = true;
 			projectile.ignoreWater = true;
-			projectile.timeLeft = Main.rand.Next(150, 301);
+			projectile.timeLeft = Main.rand.Next(140, 311);
 			projectile.penetrate = -1;
 			aiType = -1;
 		}
@@ -30,7 +30,7 @@ namespace Zylon.Projectiles.Microbiome
 	        get => projectile.ai[0];
 	        set => projectile.ai[0] = value;
         }
-		int rand = Main.rand.Next(90, 151);
+		int rand = Main.rand.Next(40, 156);
 		public override void AI()
 		{
 			Timer++;

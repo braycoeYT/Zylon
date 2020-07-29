@@ -25,7 +25,7 @@ namespace Zylon.Projectiles.OtherJavelances
 			projectile.ignoreWater = true;
 			aiType = 1;
 		}
-		int rand = Main.rand.Next(55, 201);
+		int rand = Main.rand.Next(0, 90);
 		public float Timer
 		{
 	        get => projectile.ai[1];
@@ -50,7 +50,7 @@ namespace Zylon.Projectiles.OtherJavelances
 		public override void AI()
 		{
 			Timer++;
-			if (Timer % rand == 0)
+			if (Timer % 90 == rand)
 			{
 				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 7, mod.ProjectileType("BleedingOrb"), 45, 0, Main.myPlayer);
 			}
