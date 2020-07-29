@@ -75,7 +75,7 @@ namespace Zylon.Items.OtherJavelances
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 
-			ModRecipe recipe = new ModRecipe(mod);
+			recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType("Archive"), 4);
 			recipe.AddIngredient(mod.ItemType("AncientMedievalJavelance"), 4);
 			recipe.AddTile(TileID.MythrilAnvil);
