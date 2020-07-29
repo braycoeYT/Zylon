@@ -150,6 +150,14 @@ namespace Zylon
 			ItemType("MysteriousGemYellow")
 			});
 			RecipeGroup.RegisterGroup("Zylon:AnyMysteriousGem", group);
+
+			group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Shadow Scale, Tissue Sample, or Cytoplasm", new int[]
+			{
+			ItemID.ShadowScale,
+			ItemID.TissueSample,
+			ItemType("Cytoplasm")
+			});
+			RecipeGroup.RegisterGroup("Zylon:AnyShadowScale", group);
 		}
 		public override void AddRecipes()
 		{
@@ -274,20 +282,23 @@ namespace Zylon
 			
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(null, "CyanixBar", 10);
-			recipe.AddIngredient(ItemID.Ruby);
+			recipe.AddIngredient(ItemID.Ruby, 5);
+			recipe.AddIngredient(null, "GlazedLens");
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(ItemID.EnchantedSword);
 			recipe.AddRecipe();
 			
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(null, "CyanixBar", 11);
-			recipe.AddIngredient(ItemID.Diamond, 2);
+			recipe.AddIngredient(ItemID.Diamond, 7);
+			recipe.AddIngredient(null, "GlazedLens");
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(ItemID.Arkhalis);
 			recipe.AddRecipe();
 			
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(null, "CyanixBar", 9);
+			recipe.AddIngredient(ItemID.GoldBar, 2);
 			recipe.AddIngredient(ItemID.Bone, 9);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(ItemID.Muramasa);
@@ -311,6 +322,7 @@ namespace Zylon
 			
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(null, "CyanixBar", 8);
+			recipe.AddIngredient(null, "GlazedLens");
 			recipe.AddIngredient(ItemID.Ruby);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(ItemID.EnchantedBoomerang);
@@ -318,7 +330,9 @@ namespace Zylon
 			
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(null, "MagentiteBar", 16);
+			recipe.AddIngredient(ItemID.Cloud, 12);
 			recipe.AddIngredient(ItemID.FallenStar, 8);
+			recipe.AddIngredient(ItemID.RainCloud, 4);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(ItemID.Starfury);
 			recipe.AddRecipe();
@@ -520,9 +534,14 @@ namespace Zylon
 			{
 				return;
 			}
-			if (Main.LocalPlayer.GetModPlayer<ZylonPlayer>().ZoneMicrobiome)
+			if (Main.LocalPlayer.GetModPlayer<ZylonPlayer>().ZoneMicrobiome && Main.LocalPlayer.ZoneRockLayerHeight)
 			{
-				music = GetSoundSlot(SoundType.Music, "Sounds/Music/MicrobiomeTheme");
+				music = GetSoundSlot(SoundType.Music, "Sounds/Music/MicroUnder");
+				priority = MusicPriority.BiomeHigh;
+			}
+			else if (Main.LocalPlayer.GetModPlayer<ZylonPlayer>().ZoneMicrobiome)
+			{
+				music = GetSoundSlot(SoundType.Music, "Sounds/Music/Micro");
 				priority = MusicPriority.BiomeHigh;
 			}
 		}
