@@ -11,12 +11,12 @@ namespace Zylon.Items.Accessories.EyeThemed
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Shard of Prejudice");
-			Tooltip.SetDefault("No, it is not a doughnut and no, you cannot eat it!\nUsing a javelance will launch a bleeding javelance which rains bleeding orbs");
+			Tooltip.SetDefault("Using a javelance will launch a bleeding javelance which rains blood");
 		}
 
 		public override void SetDefaults() {
-			item.width = 40;
-			item.height = 40;
+			item.width = 28;
+			item.height = 42;
 			item.accessory = true;
 			item.value = 21000;
 			item.rare = 6;

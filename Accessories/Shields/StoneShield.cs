@@ -17,8 +17,8 @@ namespace Zylon.Items.Accessories.Shields
 
 		public override void SetDefaults()
 		{
-			item.width = 40;
-			item.height = 40;
+			item.width = 24;
+			item.height = 24;
 			item.accessory = true;
 			item.value = 7500;
 			item.rare = 0;
