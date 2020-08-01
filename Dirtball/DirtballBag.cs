@@ -34,7 +34,7 @@ namespace Zylon.Items.Dirtball
 			int ran = Main.rand.Next(1, 7);
 			if (ran == 1) player.QuickSpawnItem(mod.ItemType("BrokenDirtballCopperShortsword"));
 			if (ran == 2) player.QuickSpawnItem(mod.ItemType("DirtyDiscus"));
-			if (ran == 3) player.QuickSpawnItem(mod.ItemType("DirtyHarp"));
+			if (ran == 3) player.QuickSpawnItem(mod.ItemType("DirtyBlowpipe"));
 			if (ran == 4) player.QuickSpawnItem(mod.ItemType("DirtyPistol"));
 			if (ran == 5) player.QuickSpawnItem(mod.ItemType("DirtYoyo"));
 			if (ran == 6) player.QuickSpawnItem(mod.ItemType("DirtBow"));
@@ -47,7 +47,7 @@ namespace Zylon.Items.Dirtball
 			ran = Main.rand.Next(1, 8);
 			if (ran == 1) player.QuickSpawnItem(mod.ItemType("BrokenDirtballCopperShortsword"));
 			if (ran == 2) player.QuickSpawnItem(mod.ItemType("DirtyDiscus"));
-			if (ran == 3) player.QuickSpawnItem(mod.ItemType("DirtyHarp"));
+			if (ran == 3) player.QuickSpawnItem(mod.ItemType("DirtyBlowpipe"));
 			if (ran == 4) player.QuickSpawnItem(mod.ItemType("DirtyPistol"));
 			if (ran == 5) player.QuickSpawnItem(mod.ItemType("DirtYoyo"));
 			if (ran == 6) player.QuickSpawnItem(mod.ItemType("DirtBow"));
