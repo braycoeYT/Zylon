@@ -7,7 +7,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Projectiles.OtherSeeds
 {
-	public class SproutedSeed : ModProjectile
+	public class SproutedSeedFall : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
@@ -17,11 +17,12 @@ namespace Zylon.Projectiles.OtherSeeds
 		{
 			projectile.CloneDefaults(ProjectileID.Seed);
 			aiType = ProjectileID.Seed;
+			projectile.penetrate = -1;
 		}
 		public override void Kill(int timeLeft)
 		{
 			Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
-			Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 6, mod.ProjectileType("SproutedSeedFall"), 0, 0, Main.myPlayer);
+			Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y - 10, 0, 0, mod.ProjectileType("SproutedSapling"), 15, 0, Main.myPlayer);
 		}
 	}   
 }

@@ -7,26 +7,16 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Projectiles.OtherSeeds
 {
-	public class Vineshot : ModProjectile
+	public class MagentiteSeedshot : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Vineshot");
+			DisplayName.SetDefault("Magentite Seedshot");
         }
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Seed);
 			aiType = ProjectileID.Seed;
-		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
-			if (Main.rand.NextFloat() < .3f)
-		    target.AddBuff(BuffID.Poisoned, 150, false);
-		}
-		public override void OnHitPlayer(Player target, int damage, bool crit)
-		{
-			if (Main.rand.NextFloat() < .3f)
-				target.AddBuff(BuffID.Poisoned, 150, false);
 		}
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{

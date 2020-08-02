@@ -1,44 +1,34 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Items.OtherSeeds
+namespace Zylon.Projectiles.OtherSeeds
 {
-	public class PinkySeedshot : ModItem
+	public class PinkySeedshot : ModProjectile
 	{
-		public override void SetStaticDefaults()
+        public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Pinky's Seedshot");
-			Tooltip.SetDefault("For use with blowpipes\nEach seedshot is slightly larger than normal\nEach seedshot has a very high chance of sliming enemies");
+			DisplayName.SetDefault("Pinky Seedshot");
         }
 		public override void SetDefaults()
 		{
-			item.damage = 5; //3
-			item.ranged = true;
-			item.width = 12;
-			item.height = 8;
-			item.maxStack = 999;
-			item.consumable = true;
-			item.knockBack = 0.5f; //0
-			item.value = 5; //0
-			item.rare = 0;
-			item.shoot = ProjectileType<Projectiles.OtherSeeds.PinkySeedshot>();
-			item.shootSpeed = 0f; //0
-			item.ammo = AmmoID.Dart;
-			item.width = 16;
-			item.height = 14;
+			projectile.CloneDefaults(ProjectileID.Seed);
+			aiType = ProjectileID.Seed;
+			projectile.width = 12;
+			projectile.height = 12;
 		}
-		
-		public override void AddRecipes()
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("SlimySeedshot"), 80);
-			recipe.AddIngredient(ItemID.PinkGel);
-			recipe.AddTile(TileID.Solidifier);
-			recipe.SetResult(this, 80);
-			recipe.AddRecipe();
+			if (Main.rand.NextFloat() < .75f)
+				target.AddBuff(BuffID.Slimed, 180, false);
 		}
-	}
+		public override void OnHitPlayer(Player target, int damage, bool crit)
+		{
+			if (Main.rand.NextFloat() < .75f)
+				target.AddBuff(BuffID.Slimed, 180, false);
+		}
+	}   
 }
