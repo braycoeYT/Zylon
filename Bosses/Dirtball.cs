@@ -27,9 +27,9 @@ namespace Zylon.NPCs.Bosses
 		{
 			npc.width = 150;
 			npc.height = 144;
-			npc.damage = 11;
+			npc.damage = 10;
 			npc.defense = 1;
-			npc.lifeMax = 850;
+			npc.lifeMax = 590;
 			npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath9;
 			npc.value = 9000f;
@@ -49,14 +49,14 @@ namespace Zylon.NPCs.Bosses
 			npc.lavaImmune = true;
 			animationType = NPCID.Drippler;
 			if (Main.expertMode)
-				npc.scale = 2.75f;
+				npc.scale = 1.75f;
 			else
-				npc.scale = 2.5f;
+				npc.scale = 1.5f;
         }
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 1110;
-            npc.damage = 25;
+            npc.lifeMax = 890;
+            npc.damage = 23;
         }
 		public override void HitEffect(int hitDirection, double damage)
 		{
@@ -67,9 +67,8 @@ namespace Zylon.NPCs.Bosses
 				npc.scale = 0.5f;
 			if (Main.rand.Next(30) == 0)
 				NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.Dirtball.DirtySlime>(), 0, npc.whoAmI);
-			if (Main.expertMode)
-				if (Main.rand.Next(30) == 0)
-					NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.Dirtball.DirtyDiscus>(), 0, npc.whoAmI);
+			if (Main.rand.Next(30) == 0)
+				NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.Dirtball.DirtyDiscus>(), 0, npc.whoAmI);
 			for (int i = 0; i < 10; i++)
 			{
 				int dustType = 0;
@@ -115,7 +114,7 @@ namespace Zylon.NPCs.Bosses
 				}
 				chat1 = false;
 			}
-			if (chat2 && Timer > 300 && ((Main.expertMode && npc.scale < 2.7f) || (!Main.expertMode && npc.scale < 2.45f)))
+			if (chat2 && Timer > 300 && ((Main.expertMode && npc.scale < 1.7f) || (!Main.expertMode && npc.scale < 1.45f)))
 			{
 				Color messageColor = Color.SaddleBrown;
 				string chat = "It seems that hitting Dirtball shakes some of its mud off.";
@@ -206,9 +205,9 @@ namespace Zylon.NPCs.Bosses
 				
 				if (attack == 1)
 				{
-					if (Timer % 75 == 0)
+					if (Timer % 100 == 0)
 					{
-						Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 3, mod.ProjectileType("DirtBall"), 5, 10, Main.myPlayer);
+						Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 3, mod.ProjectileType("DirtBall"), 4, 10, Main.myPlayer);
 						if (attackMax < attackNum + 1)
 						{
 							attackDone = true;
@@ -218,10 +217,10 @@ namespace Zylon.NPCs.Bosses
 				}
 				if (attack == 2)
 				{
-					if (Timer % 50 == 0)
+					if (Timer % 16 == 0)
 					{
-						Projectile.NewProjectile(targetPlayer.X + Main.rand.Next(-300, 301), targetPlayer.Y - 500, Main.rand.Next(-3, 4), 2.5f, mod.ProjectileType("DirtScythe"), 8, 1f, Main.myPlayer);
-						if (attackMax < attackNum + 1)
+						Projectile.NewProjectile(targetPlayer.X + Main.rand.Next(-600, 601), targetPlayer.Y - 500, 0, 6f, mod.ProjectileType("DirtTile"), 7, 1f, Main.myPlayer);
+						if (attackMax * 6 < attackNum)
 						{
 							attackDone = true;
 						}
@@ -242,9 +241,9 @@ namespace Zylon.NPCs.Bosses
 				
 				if (attack == 1)
 				{
-					if (Timer % 90 == 0)
+					if (Timer % 120 == 0)
 					{
-						Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 3, mod.ProjectileType("DirtBall"), 4, 10, Main.myPlayer);
+						Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 3, mod.ProjectileType("DirtBall"), 3, 10, Main.myPlayer);
 						if (attackMax < attackNum + 1)
 						{
 							attackDone = true;
@@ -254,10 +253,10 @@ namespace Zylon.NPCs.Bosses
 				}
 				if (attack == 2)
 				{
-					if (Timer % 100 == 0)
+					if (Timer % 20 == 0)
 					{
-						Projectile.NewProjectile(targetPlayer.X + Main.rand.Next(-280, 281), targetPlayer.Y - 500, 0, 2f, mod.ProjectileType("DirtScythe"), 8, 1f, Main.myPlayer);
-						if (attackMax < attackNum + 1)
+						Projectile.NewProjectile(targetPlayer.X + Main.rand.Next(-600, 601), targetPlayer.Y - 500, 0, 5.5f, mod.ProjectileType("DirtTile"), 6, 1f, Main.myPlayer);
+						if (attackMax * 4 < attackNum)
 						{
 							attackDone = true;
 						}
@@ -277,7 +276,7 @@ namespace Zylon.NPCs.Bosses
 			int ran = Main.rand.Next(1, 7);
 			if (ran == 1) Item.NewItem(npc.getRect(), mod.ItemType("BrokenDirtballCopperShortsword"));
 			if (ran == 2) Item.NewItem(npc.getRect(), mod.ItemType("DirtyDiscus"));
-			if (ran == 3) Item.NewItem(npc.getRect(), mod.ItemType("DirtyHarp"));
+			if (ran == 3) Item.NewItem(npc.getRect(), mod.ItemType("DirtyBlowpipw"));
 			if (ran == 4) Item.NewItem(npc.getRect(), mod.ItemType("DirtyPistol"));
 			if (ran == 5) Item.NewItem(npc.getRect(), mod.ItemType("DirtYoyo"));
 			if (ran == 6) Item.NewItem(npc.getRect(), mod.ItemType("DirtBow"));

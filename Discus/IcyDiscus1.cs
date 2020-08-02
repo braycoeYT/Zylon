@@ -13,8 +13,8 @@ namespace Zylon.NPCs.Discus
 
         public override void SetDefaults()
 		{
-			npc.width = 55;
-			npc.height = 55;
+			npc.width = 53;
+			npc.height = 53;
 			npc.damage = 39;
 			npc.defense = 10;
 			npc.lifeMax = 150;
