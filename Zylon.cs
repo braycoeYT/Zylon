@@ -12,7 +12,6 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 using static Terraria.ModLoader.ModContent;
-using Zylon.Items.BossSummon;
 
 namespace Zylon
 {
@@ -33,10 +32,10 @@ namespace Zylon
 					this,
 					"$Mods.Zylon.NPCName.Dirtball",
 					(Func<bool>)(() => ZylonWorld.downedDirtball),
-					ModContent.ItemType<Items.BossSummon.CreepyMud>(),
+					ModContent.ItemType<Items.Dirtball.CreepyMud>(),
 					new List<int> { ModContent.ItemType<Items.Dirtball.BrokenDirtballCopperShortsword>() }, //collectables
 					new List<int> { ModContent.ItemType<Items.Dirtball.BrokenDirtballCopperShortsword>()}, //other
-					$"Dirtball spawns rarely until it is defeated. It can also be manually summoned with a [i:{ModContent.ItemType<Items.BossSummon.CreepyMud>()}], which can be crafted or rarely dropped from enemies."
+					$"Dirtball spawns rarely until it is defeated. It can also be manually summoned with a [i:{ModContent.ItemType<Items.Dirtball.CreepyMud>()}], which can be crafted or rarely dropped from enemies."
 				);
 				bossChecklist.Call(
 					"AddBoss",
@@ -45,10 +44,10 @@ namespace Zylon
 					this,
 					"$Mods.Zylon.NPCName.AncientDesertDiscus",
 					(Func<bool>)(() => ZylonWorld.downedDiscus),
-					ModContent.ItemType<Items.BossSummon.SuspiciousLookingDisc>(),
+					ModContent.ItemType<Items.Discus.SuspiciousLookingDisc>(),
 					new List<int> { ModContent.ItemType<Items.Discus.ZylonianDesertCore>() }, //collectables
 					new List<int> { ModContent.ItemType<Items.Discus.ZylonianDesertCore>() }, //other
-					$"Use a [i:{ModContent.ItemType<Items.BossSummon.SuspiciousLookingDisc>()}]  to summon the discus leader in the desert night."
+					$"Use a [i:{ModContent.ItemType<Items.Discus.SuspiciousLookingDisc>()}]  to summon the discus leader in the desert night."
 				);
 				bossChecklist.Call(
 					"AddBoss",
@@ -69,10 +68,10 @@ namespace Zylon
 					this,
 					"$Mods.Zylon.NPCName.ComputerVirus",
 					(Func<bool>)(() => ZylonWorld.downedComVirus),
-					ModContent.ItemType<Items.BossSummon.MechanicalDisc>(),
+					ModContent.ItemType<Items.ComputerVirus.MechanicalDisc>(),
 					new List<int> { ModContent.ItemType<Items.ComputerVirus.SoulOfByte>() }, //collectables
 					new List<int> { ModContent.ItemType<Items.ComputerVirus.SoulOfByte>() }, //other
-					$"Use a [i:{ModContent.ItemType<Items.BossSummon.MechanicalDisc>()}]  to taunt the cyber plague."
+					$"Use a [i:{ModContent.ItemType<Items.ComputerVirus.MechanicalDisc>()}]  to taunt the cyber plague."
 				);
 				bossChecklist.Call(
 					"AddBoss",
@@ -105,7 +104,7 @@ namespace Zylon
 					this,
 					"$Mods.Zylon.NPCName.XenicAcidpumper",
 					(Func<bool>)(() => ZylonWorld.downedXenic),
-					ModContent.ItemType<Items.BossSummon.CreepyMud>(),
+					ModContent.ItemType<Items.Xenic.TimeDistortingBattery>(),
 					new List<int> { ModContent.ItemType<Items.Xenic.XenicCore>() }, //collectables
 					new List<int> { ModContent.ItemType<Items.Xenic.XenicCore>()}, //other
 					$"Xenic Acidpumpers spawn rarely in the post-Zylonian Mineral Extractor outer space at night."

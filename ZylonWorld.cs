@@ -33,8 +33,6 @@ namespace Zylon
 		public static bool downedXenic;
 		public static bool downedEmpress;
 		public static bool downedCell;
-		
-		public static int oblivionTiles;
 		public static int microbiomeTiles;
 		//public Vector2 ZMETarget;
 		
@@ -303,13 +301,11 @@ namespace Zylon
 		public override void ResetNearbyTileEffects()
 		{
 			ZylonPlayer modPlayer = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
-			oblivionTiles = 0;
 			microbiomeTiles = 0;
 		}
 
 		public override void TileCountsAvailable(int[] tileCounts)
 		{
-			oblivionTiles = tileCounts[TileType<ObliviousMatter>()]; //+ tileCounts[TileType<Sand>()];
 			microbiomeTiles = tileCounts[TileType<Tiles.Microbiome.CellMembrane>()] + tileCounts[TileType<Tiles.Microbiome.DiseasedStone>()];
 		}
 	}

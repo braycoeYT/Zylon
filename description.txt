@@ -1,5 +1,5 @@
 This is the best mod that starts with Z (I guarantee or your money back)!
-Adds crimson counterparts, cell stuff, and much more!
+Adds crimson counterparts, cell stuff, 2 complex subclasses, and much more!
 Support for Boss Checklist
 Zylon is heavily inspired by Exxo Avalon.
 Discord Server: (homepage link is better) https://discord.gg/qv97wNV
@@ -7,7 +7,7 @@ Discord Server: (homepage link is better) https://discord.gg/qv97wNV
 I hope you play my mod!
 
 Some more facts:
-~282 Items
+~292 Items
 ~6 unique, custom AI, Bosses:
 ^3 Prehardmode Bosses
 ^2 Hardmode Bosses
@@ -16,13 +16,14 @@ Some more facts:
 ~1 Town NPC
 ~86 total NPCs
 ~4 Ores
-~38 Total Tiles
-~22 Buffs
+~34 Total Tiles
+~23 Buffs
 ~1 Biome
-~4 Custom Themes
+~2 Subclasses
+~5 Custom Themes
 
 Cross-mod Content with:
-Birth of Asteri mod (1 Item)
+Asteri mod (1 Item)
 
 BraycoeYT made the mod.
 
@@ -32,35 +33,24 @@ Sness (Empress Slime Minion Spriter)
 GOA7 (Active Spriter)
 Koolaidlemonade (Active Spriter)
 
-Update V0.2.1.2: Quality/Javelance Update
-~Dreamy Rod redo
-~Made the cyanix/magentite vanilla swords harder to craft
-~New sprites
-~Replaced Colossal Cell theme with a remix of the original
-~Nerfed Braycoe's health
-~Changed Braycoe's attack to a slimeball
-~Redid Dragon Sneeze projectile sprite
-~Gemstone Armor palette/pixel match
-~Firebent Javelance dust fix
-~Changed Ancient Desert Discus looks
-~Changed Ancient Desert Discus chat
-~Renamed Jungle Javelance to Vinepower Javelance
-~Increased Firebent and Vinepower Javelance debuff rates
-~Changed some javelance projectile speeds
-~Decreased Electrolight drop rate
-~Beach enemies now can drop Aquatic Javelances post-Skeletron and pre-Mech boss
-~Aquatic Javelance now makes enemies wet
+Update V0.2.1.3: Blowpipe Update
+~New subclass: The Blowpipe! Collect blowpipes to cause enemies to drop seed shots, the weapon's ammo. There are many types of seed shots and blowpipes, so try them all out! Note: Blowpipe subclass goes until post-King Slime right now.
+~Magentite Slime spawnrate increased and stats nerfed
+~A few rarity changes
 ~More internal sorting
-~Javelance recipe changes
-~New Ancient Desert Discus sprites
-~Added Magentite blowpipe, the mod's first blowpipe
-~Magenta Magnet renamed to Magentite Magnet
-~Magentite Magnet now is post-EOW/BOC, is nerfed, and is now craftable
-~Buffed prejudice accessories
-~Eye of Prejudice pixel fix
-~True Shadowdance now drops True Shadowdance Orbs
-~Storm recipe is now independent of the Electric Desert Javelance
-~Leecher Javelance tooltip change
-~Javelance shoot speed changed for more javelance variety
-~Resprited all javelances
-~True Archive new recipe
+~Mistake fix: Terra Orb
+~Mistake fix: ADD size
+~Slight Squarge sprite change
+~Dirtball now rains dirt rod projectiles instead of Dirt Scythes
+~Changed Dirtball into more of a bullet endurance fight (normal mode is a lot more tame)
+~Decreased Dirtball invincibility and hp
+~Dirty Discus (npc) is no longer expert-only
+~Max Stack changes
+~Added a drop to the post-ZME Microbiome, the Infected Onyx
+~Added the Time Distorting Battery
+~Renamed Telomere to Eggspray
+~New sprites
+~Several dust fixes
+~Dirty Discus eye is lighter to match Dirtball
+~Replaced Dirty Harp with Dirty Blowpipe
+~Added Ancient Desert Discus Mask

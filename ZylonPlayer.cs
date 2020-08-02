@@ -85,14 +85,13 @@ namespace Zylon
 		}
 		public override void SetupStartInventory(IList<Item> items, bool mediumcoreDeath)
 		{
-			/*Item item = new Item();
-			item.SetDefaults(ItemType<Items.Accessories.EyeThemed.KaizoMedal>());
-			item.stack = 1;
-			items.Add(item);*/
+			Item item = new Item();
+			item.SetDefaults(ItemID.Seed);
+			item.stack = 500;
+			items.Add(item);
 		}
 		public override void UpdateBiomes()
 		{
-			ZoneOblivion = ZylonWorld.oblivionTiles > 200;
 			if (Main.player[(int)Player.FindClosest(player.position, player.width, player.height)].ZoneSkyHeight)
 			ZoneMicrobiome = ZylonWorld.microbiomeTiles > 140;
 			else
@@ -294,7 +293,23 @@ namespace Zylon
 					Projectile.NewProjectile(player.Center, player.DirectionTo(Main.MouseWorld) * 25, mod.ProjectileType("GemstoneHeal"), 100, 10, Main.myPlayer);
 				}
             }
+			if (player.HeldItem.type == ItemID.Blowpipe)
+			{
+				player.AddBuff(mod.BuffType("OutOfBreath"), 45, false);
+			}
+			if (player.HeldItem.type == ItemID.Blowgun)
+			{
+				player.AddBuff(mod.BuffType("OutOfBreath"), 35, false);
+			}
 			return true;
         }
+		/*public override void PreUpdate()
+		{
+			if (player.HeldItem.type == ItemID.Blowpipe || player.HeldItem.type == mod.ItemType("PinkyBlowpipe"))
+			{
+				if (player.breath > (int)(player.breathMax - 10))
+				player.breath = (int)(player.breathMax - 10);
+			}
+		}*/
 	}
 }
