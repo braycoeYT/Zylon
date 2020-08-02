@@ -15,8 +15,8 @@ namespace Zylon.Projectiles
         }
 		public override void SetDefaults()
 		{
-			projectile.width = 29;
-			projectile.height = 29;
+			projectile.width = 36;
+			projectile.height = 36;
 			projectile.aiStyle = -1;
 			projectile.hostile = false;
 			projectile.friendly = true;
