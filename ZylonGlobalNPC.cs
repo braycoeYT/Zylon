@@ -100,15 +100,7 @@ namespace Zylon.NPCs
 			if (!ZylonWorld.downedDirtball)
 			{
 				if (Main.rand.Next(100) == 1)
-				Item.NewItem(npc.getRect(), ItemType<Items.BossSummon.CreepyMud>());
-			}
-			if (npc.type == NPCID.WallofFlesh)
-			{
-				if (!ZylonWorld.hasConversationDrop)
-				{
-					Item.NewItem(npc.getRect(), ItemType<Items.OtherStory.MysteriousConversation>());
-					ZylonWorld.hasConversationDrop = true;
-				}
+				Item.NewItem(npc.getRect(), ItemType<Items.Dirtball.CreepyMud>());
 			}
 			if (npc.type == NPCID.LunarTowerSolar)
 			{
@@ -150,15 +142,13 @@ namespace Zylon.NPCs
 			if (npc.type == NPCID.EyeofCthulhu)
 			{
 				if (Main.rand.Next(2) == 0)
-				Item.NewItem(npc.getRect(), ItemType<Items.PHBoss.Stalkeye>());
-				Item.NewItem(npc.getRect(), ItemType<Items.PHBoss.GlazedLens>(), Main.rand.Next(2, 6));
+				Item.NewItem(npc.getRect(), ItemType<Items.Eye.Stalkeye>());
+				Item.NewItem(npc.getRect(), ItemType<Items.Eye.GlazedLens>(), Main.rand.Next(2, 6));
 				Item.NewItem(npc.getRect(), ItemType<Items.Microbiome.TwistedMembraneOre>(), Main.rand.Next(30, 88));
-				if (Main.rand.NextFloat() < .03f)
-					Item.NewItem(npc.getRect(), mod.ItemType("InsomniaInsignia"));
 			}
 			if (npc.type == NPCID.KingSlime)
 			{
-				Item.NewItem(npc.getRect(), ItemType<Items.PHBoss.Slime.SlimyCore>(), Main.rand.Next(8, 12));
+				Item.NewItem(npc.getRect(), ItemType<Items.Slime.SlimyCore>(), Main.rand.Next(8, 12));
 			}
 			if (npc.type == NPCID.Retinazer || npc.type == NPCID.SkeletronPrime)
 			{
@@ -238,6 +228,36 @@ namespace Zylon.NPCs
 				if (Main.rand.NextFloat() < .4f)
 					Item.NewItem(npc.getRect(), mod.ItemType("ElectrifyingScent"));
 			}
+			//blowpipes:
+			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].HasItem(mod.ItemType("FrostBlowpipe")))
+				if (npc.type == NPCID.IceSlime || npc.type == NPCID.SpikedIceSlime || npc.type == mod.NPCType("IcyDiscus")) {
+					if (Main.rand.NextFloat() < .5f)
+					Item.NewItem(npc.getRect(), mod.ItemType("IcySeedshot"), Main.rand.Next(1, 3));
+				}
+			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].HasItem(mod.ItemType("MagentiteBlowpipe")))
+				if (npc.type == mod.NPCType("MagentiteSlime") || npc.type == mod.NPCType("MagentiteDiscus") || npc.type == mod.NPCType("MagentiteStinger")) {
+					if (Main.rand.NextFloat() < .5f)
+					Item.NewItem(npc.getRect(), mod.ItemType("MagentiteSeedshot"), Main.rand.Next(1, 3));
+				}
+			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].HasItem(mod.ItemType("WoodenBlowpipe")))
+				if (npc.type == -3 || npc.type == 1) {
+					if (Main.rand.NextFloat() < .5f)
+					Item.NewItem(npc.getRect(), ItemID.Seed, Main.rand.Next(1, 3));
+				}
+			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].HasItem(mod.ItemType("PinkyBlowpipe")))
+				if (npc.type == -4) {
+					Item.NewItem(npc.getRect(), mod.ItemType("PinkySeedshot"), Main.rand.Next(30, 51));
+				}
+			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].HasItem(mod.ItemType("SlimyBlowpipe")))
+				if (npc.type == 1 || npc.type == -7 || npc.type == 535) {
+					if (Main.rand.NextFloat() < .5f)
+					Item.NewItem(npc.getRect(), mod.ItemType("SlimySeedshot"), Main.rand.Next(1, 3));
+				}
+			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].HasItem(mod.ItemType("DirtyBlowpipe")))
+				if (npc.type == mod.NPCType("DirtySlime") || npc.type == mod.NPCType("DirtyDiscus")) {
+					if (Main.rand.NextFloat() < .5f)
+					Item.NewItem(npc.getRect(), ItemID.Seed, Main.rand.Next(1, 3));
+				}
 		}
 	}
 }

@@ -251,7 +251,7 @@ namespace Zylon.NPCs
 			{
 				//shop.item[nextSlot].SetDefaults(ItemType<Items.BluePotion>());
 				//nextSlot++;
-				shop.item[nextSlot].SetDefaults(ItemType<Items.BossSummon.MysteryBag>());
+				shop.item[nextSlot].SetDefaults(ItemType<Items.MysteryBag>());
 				nextSlot++;
 			}
 		}
