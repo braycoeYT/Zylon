@@ -17,7 +17,7 @@ namespace Zylon.NPCs.Magentite
 			npc.height = 18;
 			npc.damage = 19;
 			npc.defense = 1;
-			npc.lifeMax = 59;
+			npc.lifeMax = 51;
 			npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath3;
 			npc.value = 131f;
@@ -28,14 +28,13 @@ namespace Zylon.NPCs.Magentite
         }
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 119;
+            npc.lifeMax = 109;
             npc.damage = 35;
-			npc.defense = 2;
         }
 		
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-			return SpawnCondition.Cavern.Chance * 0.07f;
+			return SpawnCondition.Cavern.Chance * 0.13f;
         }
 		
 	    public override void NPCLoot()
