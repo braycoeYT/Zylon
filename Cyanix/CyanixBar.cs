@@ -22,7 +22,6 @@ namespace Zylon.Items.Cyanix
 			item.createTile = TileType<Tiles.CyanixBar>();
 			item.placeStyle = 0;
 		}
-
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

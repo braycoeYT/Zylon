@@ -12,7 +12,7 @@ namespace Zylon.Items.Cyanix
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Dealer's Stone");
-			Tooltip.SetDefault("If they see this in your bag, play it cool... say its a family heirloom or something.\nReduces the cooldown of cyanix pills and healing potions by 25%");
+			Tooltip.SetDefault("Pretend it's a family heirloom\nReduces the cooldown of cyanix pills and healing potions by 25%");
 		}
 		public override void SetDefaults()
 		{
