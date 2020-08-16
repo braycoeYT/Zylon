@@ -12,7 +12,7 @@ namespace Zylon.Items.Accessories
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Ancient Amalgam Pendant");
-			Tooltip.SetDefault("The discus on the pendant is severely mutated\nImmune to slow\nMost discuses are friendly\nRandomly electrocutes the player for low damage\nA lot more commonly, buffs are given to the player\nIncreases max minions by one\nMovement speed increased by 15%\nMana cost is lowered by 3%\nMelee speed increased by 4%");
+			Tooltip.SetDefault("The discus on the pendant is severely mutated\nImmune to slow\nMost discuses are friendly\nRandomly electrocutes the player for low damage\nA lot more commonly, buffs are given to the player\nIncreases max minions by one\nIncreases max mana by 20 and mana regen by 1");
 		}
 
 		public override void SetDefaults()
@@ -67,9 +67,8 @@ namespace Zylon.Items.Accessories
 			player.npcTypeNoAggro[mod.NPCType("SpaceScavengerDiscus")] = true;
 			player.npcTypeNoAggro[mod.NPCType("VinefuryDiscus")] = true;
 			player.maxMinions += 1;
-			player.maxRunSpeed += 0.15f;
-			player.meleeSpeed += 0.04f;
-			player.manaCost -= 0.03f;
+			player.statManaMax2 += 20;
+			player.manaRegen += 1;
 		}
 		
 		public override void AddRecipes() 
@@ -78,7 +77,7 @@ namespace Zylon.Items.Accessories
 			recipe.AddIngredient(mod.ItemType("VoidingMotherboard"));
 			recipe.AddIngredient(mod.ItemType("HappyDiscus"));
 			recipe.AddIngredient(mod.ItemType("DiscusGuardianPendant"));
-			recipe.AddIngredient(mod.ItemType("DirtyDiscusMedal"));
+			recipe.AddIngredient(mod.ItemType("DirtyMedal"));
 			recipe.AddIngredient(mod.ItemType("AncientDiscusMedal"));
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);

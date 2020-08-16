@@ -11,7 +11,7 @@ namespace Zylon.Items.Accessories
 	{
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("I heard if you take a bit of venom wach day you can build up a resistance\nImmunity to venom");
+			Tooltip.SetDefault("I heard if you take a bit of venom each day you can build up a resistance\nImmunity to venom");
 		}
 
 		public override void SetDefaults()

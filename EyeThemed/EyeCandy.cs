@@ -11,7 +11,7 @@ namespace Zylon.Items.Accessories.EyeThemed
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Eye Candy");
-			Tooltip.SetDefault("The wrapper says: Only eyes can eat this candy.\nAfter taking damage, mana cost is halved");
+			Tooltip.SetDefault("The wrapper says that this is strawberry flavored.\nAfter taking damage, mana cost is halved");
 		}
 
 		public override void SetDefaults() {

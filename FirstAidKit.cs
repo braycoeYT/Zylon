@@ -12,7 +12,7 @@ namespace Zylon.Items.Accessories
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("First Aid Kit");
-			Tooltip.SetDefault("Immune to bleeding and weak\nIncreases life regen by 5\nIncreases max life by 50\nYou gain life every time you take damage\nWhen you have low health, you have heavily increased life regen");
+			Tooltip.SetDefault("Immune to bleeding and weak\nIncreases life regen by 4\nIncreases max life by 50\nYou gain life every time you take damage\nWhen you have low health, you have heavily increased life regen");
 		}
 
 		public override void SetDefaults()
@@ -28,11 +28,11 @@ namespace Zylon.Items.Accessories
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.statLifeMax2 += 50;
-			player.lifeRegen += 5;
+			player.lifeRegen += 4;
 			player.buffImmune[30] = true;
 			player.buffImmune[BuffID.Weak] = true;
 			if (player.statLife < player.statLifeMax2 / 4)
-				player.lifeRegen += 5;
+				player.lifeRegen += 4;
 		}
 		
 		public override void AddRecipes()
@@ -47,6 +47,7 @@ namespace Zylon.Items.Accessories
 			recipe.AddIngredient(ItemID.LifeFruit);
 			recipe.AddIngredient(mod.ItemType("PlainNoodle"));
 			recipe.AddIngredient(mod.ItemType("ElementamaxSludge"), 10);
+			recipe.AddIngredient(mod.ItemType("InfectedOnyx"));
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

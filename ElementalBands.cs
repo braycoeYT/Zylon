@@ -12,7 +12,7 @@ namespace Zylon.Items.Accessories
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Elemental Bands");
-			Tooltip.SetDefault("'It's kind of obscure to have a band with 5 smaller bands hooked to it...'\nReduces the cooldown of healing potions\nIncreases Max HP and Mana by 50 and their regen by 3\n10% increased all damage\n2% increased all crit\n+15% mining speed\n50% increased minion knockback\nYou can climb walls\nYou can do a ninja dash\n+10% chance of dodging attacks");
+			Tooltip.SetDefault("It's kind of odd to have a band with smaller bands hooked to it...\nIncreases life and mana regen by 2\nIncreases movement speed by 150%\nIncreases armor penetration by 10\nCyanix pill and healing potion cooldown are decreased\nIncreases length of invincibility after taking damage");
 		}
 
 		public override void SetDefaults()
@@ -20,46 +20,34 @@ namespace Zylon.Items.Accessories
 			item.width = 40;
 			item.height = 40;
 			item.accessory = true;
-			item.value = 286050;
+			item.value = 350000;
 			item.rare = 8;
-			item.defense = 2;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			player.pStone = true;
-			player.statLifeMax2 += 50;
-			player.statManaMax2 += 50;
-			player.lifeRegen += 3;
-			player.manaRegen += 3;
-			player.meleeSpeed += 0.1f;
-			player.meleeDamage += 0.1f;
-			player.meleeCrit += 2;
-			player.rangedDamage += 0.1f;
-			player.rangedCrit += 2;
-			player.magicDamage += 0.1f;
-			player.magicCrit += 2;
-			player.pickSpeed -= 0.15f;
-			player.minionDamage += 0.1f;
-			player.minionKB += 0.5f;
-			player.thrownDamage += 0.1f;
-			player.thrownCrit += 2;
-			player.blackBelt = true;
-			player.dash = 1;
-			player.spikedBoots = 2;
+			player.longInvince = true;
+			player.lifeRegen += 2;
+			player.manaRegen += 2;
+			player.maxRunSpeed += 1.5f;
+			player.moveSpeed += 1.5f;
+			player.armorPenetration += 10;
+			p.cyanixShort = true;
 		}
 		
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.Shackle);
-			recipe.AddIngredient(860);
-			recipe.AddIngredient(982);
-			recipe.AddIngredient(1865);
-			recipe.AddIngredient(984);
-			recipe.AddIngredient(ItemID.LunarBar, 10);
-			recipe.AddIngredient(mod.ItemType("GalacticDiamondium"), 2);
+			recipe.AddIngredient(ItemID.BandofRegeneration);
+			recipe.AddIngredient(ItemID.BandofStarpower);
+			recipe.AddIngredient(mod.ItemType("BandOfFlashspeed"));
+			recipe.AddIngredient(ItemID.SharkToothNecklace);
+			recipe.AddIngredient(ItemID.CrossNecklace);
+			recipe.AddIngredient(mod.ItemType("DealersStone"));
 			recipe.AddIngredient(mod.ItemType("ElementamaxSludge"), 15);
+			recipe.AddIngredient(ItemID.LunarBar, 10);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

@@ -12,7 +12,7 @@ namespace Zylon.Items.Accessories
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Braycoe's Boots");
-			Tooltip.SetDefault("Not very worn at all!\nHyper speed is yours now\nGet an extraordinary headstart with the shield of cthulhu and similar items\n+30 max wing time");
+			Tooltip.SetDefault("Secret bad item\nNot very worn at all!\nHyper speed is yours now\nGet an extraordinary headstart with the shield of cthulhu and similar items\n+30 max wing time");
 		}
 
 		public override void SetDefaults()
