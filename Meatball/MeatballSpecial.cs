@@ -22,7 +22,6 @@ namespace Zylon.Items.Meatball
 			item.accessory = true;
 			item.value = 45000;
 			item.rare = 3;
-			item.expert = true;
 			item.defense = 2;
 		}
 

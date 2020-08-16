@@ -24,7 +24,7 @@ namespace Zylon.Items.Magentite
 			item.knockBack = 0f; //0
 			item.value = 5; //0
 			item.rare = 0;
-			item.shoot = ProjectileType<Projectiles.OtherSeeds.MagentiteSeedshot>();
+			item.shoot = ProjectileType<Projectiles.OtherSeeds.PH.MagentiteSeedshot>();
 			item.shootSpeed = 0f; //0
 			item.ammo = AmmoID.Dart;
 			item.crit = 4; //0
