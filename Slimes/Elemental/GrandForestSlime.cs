@@ -65,11 +65,7 @@ namespace Zylon.NPCs.Slimes.Elemental
 			if (NPC.downedPlantBoss)
 			{
 				Item.NewItem(npc.getRect(), mod.ItemType("ElementamaxSludge"), Main.rand.Next(2, 7));
-				if (Main.rand.NextFloat() < .03f)
-					Item.NewItem(npc.getRect(), mod.ItemType("TrueTreeTruncheon"));
 			}
-			else if (Main.rand.NextFloat() < .03f)
-				Item.NewItem(npc.getRect(), mod.ItemType("TreeTruncheon"));
 		}
 	}
 }

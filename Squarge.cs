@@ -78,7 +78,7 @@ namespace Zylon.NPCs
 	    public override void NPCLoot()
         {
 			if (Main.rand.NextFloat() < .3f)
-	        Item.NewItem(npc.getRect(), 2766);
+	        Item.NewItem(npc.getRect(), ItemID.LunarTabletFragment);
         }
 	}
 }

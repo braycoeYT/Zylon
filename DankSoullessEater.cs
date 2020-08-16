@@ -73,15 +73,14 @@ namespace Zylon.NPCs
 			if (Timer % 120 == 0)
 				Projectile.NewProjectile(npc.Center, (npc.DirectionTo(target2)) * 2.5f, 290, 59, 1f, Main.myPlayer);
 		}
-		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+		/*public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
 			if (NPC.downedMoonlord)
 			{
 			    return SpawnCondition.Corruption.Chance * 0.1f;
 			}
 			return 0f;
-        }
-		
+        }*/
 	    public override void NPCLoot()
         {
             if (Main.rand.Next(2) == 0)

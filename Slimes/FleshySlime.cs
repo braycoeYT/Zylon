@@ -41,14 +41,14 @@ namespace Zylon.NPCs.Slimes
 			}
 		}
 		
-		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+		/*public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
 			if (NPC.downedMoonlord)
 			{
 			    return SpawnCondition.Crimson.Chance * 0.1f;
 			}
 			return 0f;
-        }
+        }*/
 		
 	    public override void NPCLoot()
         {

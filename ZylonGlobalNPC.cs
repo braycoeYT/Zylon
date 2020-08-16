@@ -9,6 +9,11 @@ namespace Zylon.NPCs
 	public class ZylonGlobalNPC : GlobalNPC
 	{
 		public override bool InstancePerEntity => true;
+
+		public bool xenicAcid;
+		public override void ResetEffects(NPC npc) {
+			xenicAcid = false;
+		}
 		public override void SetupShop(int type, Chest shop, ref int nextSlot) {
 			if (type == NPCID.ArmsDealer) {
 				if (NPC.downedBoss2) {
@@ -20,6 +25,15 @@ namespace Zylon.NPCs
 			}
 			if (type == NPCID.Dryad) {
 				shop.item[nextSlot].SetDefaults(ItemID.Seed);
+				shop.item[nextSlot].shopCustomPrice = 3;
+				nextSlot++;
+			}
+			if (type == NPCID.WitchDoctor) {
+				shop.item[nextSlot].SetDefaults(mod.ItemType("Vineshot"));
+				shop.item[nextSlot].shopCustomPrice = 8;
+				nextSlot++;
+				shop.item[nextSlot].SetDefaults(ItemID.PoisonDart);
+				shop.item[nextSlot].shopCustomPrice = 10;
 				nextSlot++;
 			}
 		}
@@ -28,6 +42,32 @@ namespace Zylon.NPCs
 			if (npc.type == NPCID.SkeletronPrime || npc.type == NPCID.TheDestroyer || npc.type == NPCID.TheDestroyerBody || npc.type == NPCID.TheDestroyerTail || npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatism || npc.type == NPCID.Golem || npc.type == NPCID.GolemFistLeft || npc.type == NPCID.GolemFistRight || npc.type == NPCID.GolemHead || npc.type == NPCID.GolemHeadFree || npc.type == NPCID.CultistBoss || npc.type == NPCID.MoonLordCore || npc.type == NPCID.MoonLordFreeEye || npc.type == NPCID.MoonLordHand || npc.type == NPCID.MoonLordHead)
 			{
 				npc.buffImmune[mod.BuffType("Sick")] = true;
+			}
+		}
+		public override void UpdateLifeRegen(NPC npc, ref int damage) {
+			if (xenicAcid) {
+				if (npc.lifeRegen > 0) {
+					npc.lifeRegen = 0;
+				}
+				npc.lifeRegen -= 50;
+				if (damage < 25) {
+					damage = 25;
+				}
+			}
+		}
+		public override void DrawEffects(NPC npc, ref Color drawColor) {
+			if (xenicAcid) {
+				if (Main.rand.Next(4) < 3) {
+					int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, 107, npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default(Color), 1.5f);
+					Main.dust[dust].noGravity = true;
+					Main.dust[dust].velocity *= 1.8f;
+					Main.dust[dust].velocity.Y -= 0.5f;
+					if (Main.rand.NextBool(4)) {
+						Main.dust[dust].noGravity = false;
+						Main.dust[dust].scale *= 0.5f;
+					}
+				}
+				Lighting.AddLight(npc.position, 0.1f, 0.2f, 0.7f);
 			}
 		}
 		public override void NPCLoot(NPC npc)
@@ -50,6 +90,10 @@ namespace Zylon.NPCs
 					}
 				}
 			}
+			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<ZylonPlayer>().mineralExpert)
+			{
+				Item.NewItem(npc.getRect(), mod.ItemType("GalacticSoul"));
+			}
 			if (NPC.downedPlantBoss && npc.type == NPCID.IceSlime || npc.type == NPCID.SandSlime || npc.type == NPCID.JungleSlime || npc.type == NPCID.SpikedJungleSlime || npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.LavaSlime || npc.type == NPCID.DungeonSlime || npc.type == NPCID.UmbrellaSlime)
 			{
 				if (Main.rand.NextFloat() < .1f)
@@ -71,31 +115,6 @@ namespace Zylon.NPCs
 			{
 				if (Main.rand.NextFloat() < .01f)
 					Item.NewItem(npc.getRect(), mod.ItemType("VenomousPill"));
-			}
-			if (npc.type == NPCID.Corruptor)
-			{
-				if (Main.rand.Next(100) == 1)
-					Item.NewItem(npc.getRect(), ItemType<Items.Accessories.Dark.DarkStarMedal>());
-			}
-			if (npc.type == NPCID.CorruptSlime)
-			{
-				if (Main.rand.Next(100) == 1)
-					Item.NewItem(npc.getRect(), ItemType<Items.Accessories.Dark.DarkStarMedal>());
-			}
-			if (npc.type == NPCID.Slimer)
-			{
-				if (Main.rand.Next(100) == 1)
-					Item.NewItem(npc.getRect(), ItemType<Items.Accessories.Dark.DarkStarMedal>());
-			}
-			if (npc.type == NPCID.Herpling)
-			{
-				if (Main.rand.Next(100) == 1)
-					Item.NewItem(npc.getRect(), ItemType<Items.Accessories.Dark.DarkStarMedal>());
-			}
-			if (npc.type == NPCID.Crimslime)
-			{
-				if (Main.rand.Next(100) == 1)
-					Item.NewItem(npc.getRect(), ItemType<Items.Accessories.Dark.DarkStarMedal>());
 			}
 			if (!ZylonWorld.downedDirtball)
 			{
@@ -141,8 +160,8 @@ namespace Zylon.NPCs
 			}
 			if (npc.type == NPCID.EyeofCthulhu)
 			{
-				if (Main.rand.Next(2) == 0)
-				Item.NewItem(npc.getRect(), ItemType<Items.Eye.Stalkeye>());
+				//if (Main.rand.Next(2) == 0)
+				//Item.NewItem(npc.getRect(), ItemType<Items.Eye.Stalkeye>());
 				Item.NewItem(npc.getRect(), ItemType<Items.Eye.GlazedLens>(), Main.rand.Next(2, 6));
 				Item.NewItem(npc.getRect(), ItemType<Items.Microbiome.TwistedMembraneOre>(), Main.rand.Next(30, 88));
 			}
@@ -188,15 +207,6 @@ namespace Zylon.NPCs
 			{
 				if (Main.rand.Next(3) == 0)
 				Item.NewItem(npc.getRect(), ItemType<Items.OtherJavelances.AncientMedievalJavelance>(), Main.rand.Next(1, 6));
-			}
-			if (npc.type == NPCID.Drippler)
-			{
-				if (NPC.downedBoss3)
-				{
-					if (Main.rand.Next(8) == 0)
-						Item.NewItem(npc.getRect(), ItemType<Items.Meatball.PlainNoodle>());
-					Item.NewItem(npc.getRect(), ItemType<Items.Meatball.MeatShard>(), Main.rand.Next(1, 9));
-				}
 			}
 			if (npc.type == NPCID.Golem)
 			{
@@ -258,6 +268,24 @@ namespace Zylon.NPCs
 					if (Main.rand.NextFloat() < .5f)
 					Item.NewItem(npc.getRect(), ItemID.Seed, Main.rand.Next(1, 3));
 				}
+			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].HasItem(mod.ItemType("EaterOfSeeds")))
+				if (npc.type == NPCID.EaterofSouls || npc.type == NPCID.LittleEater || npc.type == NPCID.BigEater || npc.type == NPCID.DevourerHead || npc.type == mod.NPCType("CorruptDiscus")) {
+					if (Main.rand.NextFloat() < .5f)
+					Item.NewItem(npc.getRect(), mod.ItemType("CorruptSeedshot"), Main.rand.Next(1, 3));
+				}
+			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].HasItem(mod.ItemType("BloodyBlowpipe")))
+				if (npc.type == NPCID.BloodCrawler || npc.type == NPCID.BloodCrawlerWall || npc.type == mod.NPCType("VeinTunnelerHead") || npc.type == NPCID.FaceMonster || npc.type == NPCID.Crimera || npc.type == NPCID.LittleCrimera || npc.type == NPCID.BigCrimera) {
+					if (Main.rand.NextFloat() < .5f)
+					Item.NewItem(npc.getRect(), mod.ItemType("CrimtaneSeedshot"), Main.rand.Next(1, 3));
+				}
+		}
+		public override void SetupTravelShop(int[] shop, ref int nextSlot)
+		{
+			if (Main.rand.Next(0, 5) == 0)
+            {
+                shop[nextSlot] = mod.ItemType("IronfistMedal");
+                nextSlot++;
+            }
 		}
 	}
 }
