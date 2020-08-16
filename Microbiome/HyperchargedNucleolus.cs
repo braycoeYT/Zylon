@@ -23,7 +23,7 @@ namespace Zylon.Items.Microbiome
 			item.rare = 3;
 			item.expert = true;
 		}
-		public int playerTimer;
+		int playerTimer;
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();

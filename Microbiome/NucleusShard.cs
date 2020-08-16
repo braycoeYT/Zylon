@@ -23,8 +23,7 @@ namespace Zylon.Items.Microbiome
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.RottenChunk);
 			recipe.AddIngredient(ItemID.Vertebrae);
-			recipe.AddIngredient(ItemID.PixieDust);
-			recipe.AddTile(TileID.CrystalBall);
+			recipe.AddTile(TileID.DemonAltar);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
