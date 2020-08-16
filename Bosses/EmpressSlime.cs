@@ -25,7 +25,7 @@ namespace Zylon.NPCs.Bosses
         public override void SetDefaults()
 		{
 			npc.width = 165;
-			npc.height = 160;
+			npc.height = 150;
 			npc.damage = 61;
 			npc.defense = 41;
 			npc.lifeMax = 35000;
@@ -40,9 +40,9 @@ namespace Zylon.NPCs.Bosses
 			npc.lavaImmune = true;
 			music = MusicID.Boss3;
 			npc.netAlways = true;
-			for (int k = 0; k < npc.buffImmune.Length; k++) {
-				npc.buffImmune[k] = true;
-			}
+			npc.buffImmune[BuffID.Venom] = true;
+			npc.buffImmune[BuffID.Confused] = true;
+			npc.buffImmune[BuffID.Poisoned] = true;
 			animationType = 1;
 			npc.alpha = 50;
 		}
@@ -143,13 +143,13 @@ namespace Zylon.NPCs.Bosses
 				if (jumpDir == 0)
 				{
 					npc.velocity.X = jumpTimer2;
-					if (npc.position.X > target.position.X - 5)
+					if (npc.position.X > target.position.X - 5 && npc.position.Y < target.position.Y)
 					jumpMode = 3;
 				}
 				if (jumpDir == 1)
 				{
 					npc.velocity.X = jumpTimer2 * -1;
-					if (npc.position.X < target.position.X + 5)
+					if (npc.position.X < target.position.X + 5 && npc.position.Y < target.position.Y)
 					jumpMode = 3;
 				}
 				if (npc.position.Y < target.position.Y - 400)

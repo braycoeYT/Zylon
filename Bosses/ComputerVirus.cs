@@ -11,6 +11,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.NPCs.Bosses
 {
+	[AutoloadBossHead]
 	public class ComputerVirus : ModNPC
 	{
 		public override void SetStaticDefaults() 
@@ -36,15 +37,12 @@ namespace Zylon.NPCs.Bosses
 			npc.boss = true;
 			npc.lavaImmune = true;
 			music = MusicID.Boss4;
-			npc.buffImmune[BuffID.ShadowFlame] = true;
-			npc.buffImmune[BuffID.Venom] = true;
-			npc.buffImmune[BuffID.CursedInferno] = true;
-			npc.buffImmune[BuffID.Confused] = true;
-			npc.buffImmune[BuffID.Poisoned] = true;
-			npc.buffImmune[BuffID.Daybreak] = true;
-			npc.buffImmune[BuffID.StardustMinionBleed] = true;
-			npc.buffImmune[BuffID.OnFire] = true;
-			npc.buffImmune[mod.BuffType("Sick")] = true;
+			for (int k = 0; k < npc.buffImmune.Length; k++) {
+				npc.buffImmune[k] = true;
+			}
+			npc.buffImmune[mod.BuffType("Sick")] = false;
+			npc.buffImmune[BuffID.Ichor] = false;
+			npc.buffImmune[BuffID.CursedInferno] = false;
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
 		{
@@ -57,6 +55,7 @@ namespace Zylon.NPCs.Bosses
 			set => npc.ai[0] = value;
 		}
 		int flee;
+		Vector2 landingPos;
 		Vector2 targetPos;
 		public override void AI()
 		{
@@ -109,50 +108,51 @@ namespace Zylon.NPCs.Bosses
 				{
 					if (Main.rand.NextBool())
 					{
-						npc.position.X = Main.player[npc.target].Center.X + Main.rand.Next(300, 450);
-						NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("MiniPopUp"));
+						landingPos.X = Main.player[npc.target].Center.X + Main.rand.Next(300, 450);
 					}
 					else
 					{
-						npc.position.X = Main.player[npc.target].Center.X + Main.rand.Next(-450, -300);
-						NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("MiniPopUp"));
+						landingPos.X = Main.player[npc.target].Center.X + Main.rand.Next(-450, -300);
 					}
 
 					if (Main.rand.NextBool())
 					{
-						npc.position.Y = Main.player[npc.target].Center.Y + Main.rand.Next(300, 450);
-						NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("MiniPopUp"));
+						landingPos.Y = Main.player[npc.target].Center.Y + Main.rand.Next(300, 450);
 					}
 					else
 					{
-						npc.position.Y = Main.player[npc.target].Center.Y + Main.rand.Next(-450, -300);
-						NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("MiniPopUp"));
+						landingPos.Y = Main.player[npc.target].Center.Y + Main.rand.Next(-450, -300);
 					}
 				}
 				else
 				{
 					if (Main.rand.NextBool())
 					{
-						npc.position.X = Main.player[npc.target].Center.X + Main.rand.Next(200, 400);
-						NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("MiniPopUp"));
+						landingPos.X = Main.player[npc.target].Center.X + Main.rand.Next(200, 400);
 					}
 					else
 					{
-						npc.position.X = Main.player[npc.target].Center.X + Main.rand.Next(-400, -200);
-						NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("MiniPopUp"));
+						landingPos.X = Main.player[npc.target].Center.X + Main.rand.Next(-400, -200);
 					}
 
 					if (Main.rand.NextBool())
 					{
-						npc.position.Y = Main.player[npc.target].Center.Y + Main.rand.Next(200, 400);
-						NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("MiniPopUp"));
+						landingPos.Y = Main.player[npc.target].Center.Y + Main.rand.Next(200, 400);
 					}
 					else
 					{
-						npc.position.Y = Main.player[npc.target].Center.Y + Main.rand.Next(-400, -200);
-						NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("MiniPopUp"));
+						landingPos.Y = Main.player[npc.target].Center.Y + Main.rand.Next(-400, -200);
 					}
 				}
+				Vector2 visionVelocity;
+				visionVelocity.X = 0;
+				visionVelocity.Y = 0;
+				Projectile.NewProjectile(landingPos, visionVelocity, mod.ProjectileType("ComputerVirusTarget"), 0, 0f, Main.myPlayer);
+			}
+			if ((Timer % 200 == 60 && !Main.expertMode) || (Timer % 200 == 45 && Main.expertMode))
+			{
+				npc.Center = landingPos;
+				NPC.NewNPC((int)npc.position.X + Main.rand.Next(-400, 401), (int)npc.position.Y + Main.rand.Next(-400, 401), mod.NPCType("MiniPopUp"));
 			}
 			if ((npc.lifeMax / 2.3f > npc.life || (Main.expertMode)) && Timer % 200 == 0)
 			{
@@ -160,7 +160,7 @@ namespace Zylon.NPCs.Bosses
 			}
 			if ((npc.lifeMax / 2 > npc.life || (Main.expertMode && npc.lifeMax / 1.5f > npc.life)) && Timer % 10 == 0)
 			{
-				Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPos) * 5, ProjectileID.EyeFire, 24, 2f, Main.myPlayer);
+				Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPos) * 6, ProjectileID.EyeFire, 24, 2f, Main.myPlayer);
 			}
 			if ((npc.lifeMax / 4 > npc.life || (Main.expertMode && npc.lifeMax / 3.2f > npc.life)) && Timer % 135 == 0)
 			{

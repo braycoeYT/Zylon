@@ -265,7 +265,43 @@ namespace Zylon.NPCs.Bosses
 				}
 			}
 		}
-	    public override void NPCLoot()
+		public override void BossLoot(ref string name, ref int potionType)
+		{
+			if(Main.expertMode)
+			{
+				Item.NewItem(npc.getRect(), mod.ItemType("DirtballBag"));
+			}
+		    else
+			{
+			int ran = Main.rand.Next(1, 7);
+			if (ran == 1) Item.NewItem(npc.getRect(), mod.ItemType("BrokenDirtballCopperShortsword"));
+			if (ran == 2) Item.NewItem(npc.getRect(), mod.ItemType("DirtyDiscus"));
+			if (ran == 3) Item.NewItem(npc.getRect(), mod.ItemType("DirtyBlowpipw"));
+			if (ran == 4) Item.NewItem(npc.getRect(), mod.ItemType("DirtyPistol"));
+			if (ran == 5) Item.NewItem(npc.getRect(), mod.ItemType("DirtYoyo"));
+			if (ran == 6) Item.NewItem(npc.getRect(), mod.ItemType("DirtBow"));
+			
+			ran = Main.rand.Next(1, 4);
+			if (ran == 1) Item.NewItem(npc.getRect(), mod.ItemType("DirtballHelmet"));
+			if (ran == 2) Item.NewItem(npc.getRect(), mod.ItemType("DirtballGuardplate"));
+			if (ran == 3) Item.NewItem(npc.getRect(), mod.ItemType("DirtballLeggings"));
+			
+			Item.NewItem(npc.getRect(), ItemID.CopperBar, 1 + Main.rand.Next(5));
+			Item.NewItem(npc.getRect(), ItemID.DirtBlock, 1 + Main.rand.Next(5));
+			Item.NewItem(npc.getRect(), ItemID.MudBlock, 1 + Main.rand.Next(5));
+			Item.NewItem(npc.getRect(), ItemID.Gel, 1 + Main.rand.Next(5));
+			Item.NewItem(npc.getRect(), ItemID.Lens, 1 + Main.rand.Next(1));
+			
+			if (Main.rand.NextFloat() < .5f)
+			Item.NewItem(npc.getRect(), mod.ItemType("DirtyMedal"));
+
+			if (Main.rand.NextFloat() < .12f)
+			Item.NewItem(npc.getRect(), ItemID.DirtRod);
+			}
+			
+			ZylonWorld.downedDirtball = true;
+		}
+		/*public override void NPCLoot()
         {
 			if(Main.expertMode)
 			{
@@ -300,8 +336,7 @@ namespace Zylon.NPCs.Bosses
 			}
 			
 			ZylonWorld.downedDirtball = true;
-        }
-		
+        }*/
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
 			if (!ZylonWorld.downedDirtball)

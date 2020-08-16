@@ -11,7 +11,7 @@ namespace Zylon.Items
 	{
 		public override void SetStaticDefaults() 
 		{
-			Tooltip.SetDefault("Spawn a vanilla creature. Which one? Nobody knows!");
+			Tooltip.SetDefault("Don't put an unconscious stick figure in here");
 			ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13;
 		}
 

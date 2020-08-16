@@ -19,18 +19,19 @@ namespace Zylon.NPCs.Bosses
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Zylonian Mineral Extractor");
+			Main.npcFrameCount[npc.type] = 4;
 		}
 
         public override void SetDefaults()
 		{
-			npc.width = 275;
+			npc.width = 322;
 			npc.height = 480;
-			npc.damage = 137;
-			npc.defense = 49;
-			npc.lifeMax = 175000;
+			npc.damage = 157;
+			npc.defense = 45;
+			npc.lifeMax = 145000;
 			npc.HitSound = SoundID.NPCHit4;
 			npc.DeathSound = SoundID.NPCDeath1;
-			npc.value = 1500000f;
+			npc.value = 400000f;
 			npc.knockBackResist = 0f;
 			npc.aiStyle = -1; //51 original
 			npc.noGravity = true;
@@ -43,13 +44,14 @@ namespace Zylon.NPCs.Bosses
 			for (int k = 0; k < npc.buffImmune.Length; k++) {
 				npc.buffImmune[k] = true;
 			}
+			animationType = 244;
         }
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 265000;
-            npc.damage = 209;
-			npc.defense = 61;
+            npc.lifeMax = 235000;
+            npc.damage = 229;
+			npc.defense = 60;
         }
         public float Timer
 		{
@@ -61,6 +63,7 @@ namespace Zylon.NPCs.Bosses
 			if (Main.expertMode)
 			{
 				target.AddBuff(mod.BuffType("Crystalizing"), 15, false);
+				target.AddBuff(mod.BuffType("XenicAcid"), 600, false);
 				target.AddBuff(BuffID.Slow, 200, false);
 				target.AddBuff(BuffID.Bleeding, 200, false);
 				target.AddBuff(BuffID.Venom, 200, false);
@@ -69,6 +72,7 @@ namespace Zylon.NPCs.Bosses
 			else
 			{
 				target.AddBuff(mod.BuffType("Crystalizing"), 10, false);
+				target.AddBuff(mod.BuffType("XenicAcid"), 480, false);
 				target.AddBuff(BuffID.Poisoned, 100, false);
 				target.AddBuff(BuffID.Frostburn, 45, false);
 			}
@@ -87,6 +91,7 @@ namespace Zylon.NPCs.Bosses
 		bool uberChat = true;
 		bool playerBadChat = true;
 		bool safe = true;
+		bool bg = true;
         public override void AI()
 		{
 			npc.TargetClosest(true);
@@ -148,6 +153,9 @@ namespace Zylon.NPCs.Bosses
 							npc.velocity.X = 2;
 
 					if (Timer % 40 == 0)
+					if (npc.life < npc.lifeMax * 0.33f && Timer % 2 == 0)
+						npc.velocity.X += 2;
+					else
 						npc.velocity.X += 1;
 				}
 				if (target.position.X < npc.Center.X)
@@ -156,6 +164,9 @@ namespace Zylon.NPCs.Bosses
 							npc.velocity.X = -2;
 
 					if (Timer % 40 == 0)
+						if (npc.life < npc.lifeMax * 0.33f && Timer % 2 == 0)
+						npc.velocity.X -= 2;
+					else
 						npc.velocity.X -= 1;
 				}
 				if (target.position.Y + 300 < npc.Center.Y)
@@ -227,7 +238,6 @@ namespace Zylon.NPCs.Bosses
 					dashInt = 0;
 				}
 			}*/
-			//ZylonWorld.ZMETarget = target.position;
 			if ((Timer % 829 == 0 && !Main.expertMode) || (Timer % 787 == 0 && Main.expertMode))
 			{
 				NPC.NewNPC((int)target.position.X, (int)target.position.Y, NPCType<Minions.Mineral.TargetMegaLaser>(), 0, npc.whoAmI);
@@ -240,7 +250,7 @@ namespace Zylon.NPCs.Bosses
 			{
 				NPC.NewNPC((int)target.position.X, (int)target.position.Y, NPCType<Minions.Mineral.TargetMineralBeam>(), 0, npc.whoAmI);
 			}
-			if (100000 > npc.life && uber)
+			if (npc.life < npc.lifeMax * 0.5f && uber)
 			{
 				uberTimer++;
 				if (uberTimer > 90 || (uberTimer > 60 && !Main.expertMode))
@@ -251,11 +261,12 @@ namespace Zylon.NPCs.Bosses
 				{
 					NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.Ubercabochon>(), 0, npc.whoAmI);
 				}
-				if (uberChat)
-				{
+			}
+			if (npc.life < npc.lifeMax * 0.33f && uberChat)
+			{
 					uberChat = false;
 					Color messageColor = Color.Pink;
-					string chat = "<ZYL-900> Low health detected! Releasing ubercabochons!";
+					string chat = "<XOM> Must...fulfill...commands...";
 					if (Main.netMode == NetmodeID.Server)
 					{
 						NetMessage.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);
@@ -264,8 +275,15 @@ namespace Zylon.NPCs.Bosses
 					{
 						Main.NewText(Language.GetTextValue(chat), messageColor);
 					}
+					uberChat = false;
+			}
+			if (npc.life < npc.lifeMax * 0.33f && Timer % 5 == 0)
+			{
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, 0, mod.ProjectileType("ZMEGhost"), 0, 0, Main.myPlayer);
+				if (Timer % 60 == 0 && Main.expertMode)
+				{
+					Projectile.NewProjectile(npc.Center, new Vector2(0, 10).RotatedByRandom(MathHelper.TwoPi), mod.ProjectileType("PinkGemblast"), 50, 2, Main.myPlayer);
 				}
-				uberChat = false;
 			}
 		}
 		public override void BossLoot(ref string name, ref int potionType)
