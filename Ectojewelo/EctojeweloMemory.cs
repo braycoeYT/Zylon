@@ -28,7 +28,7 @@ namespace Zylon.Items.Ectojewelo
 			item.useTurn = true;
 			item.pick = 235;
 			item.axe = 32;
-			item.tileBoost += 5;
+			item.tileBoost += 4;
 		}
 
 		public override void AddRecipes() 

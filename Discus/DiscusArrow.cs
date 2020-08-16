@@ -1,31 +1,41 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.Discus
+namespace Zylon.Items.Discus
 {
-	public class DiscusArrow : ModProjectile
+	public class DiscusArrow : ModItem
 	{
         public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Discus Arrow");
+			Tooltip.SetDefault("Penetrates infinitely");
         }
 		public override void SetDefaults()
 		{
-			projectile.width = 8;
-			projectile.height = 8;
-			projectile.aiStyle = 1;
-			projectile.friendly = true;
-			projectile.penetrate = -1;
-			projectile.ranged = true;
-			projectile.damage = 10;
-			projectile.timeLeft = 3000;
-			projectile.ignoreWater = true;
-			projectile.light = 0.5f;
-			aiType = 1;
+			item.damage = 10;
+			item.ranged = true;
+			item.width = 8;
+			item.height = 8;
+			item.maxStack = 999;
+			item.consumable = true;
+			item.knockBack = 2f;
+			item.value = 70;
+			item.rare = 1;
+			item.shoot = ProjectileType<Projectiles.Discus.DiscusArrow>();
+			item.shootSpeed = 6.5f;
+			item.ammo = AmmoID.Arrow;
+		}
+		
+		public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.WoodenArrow, 200);
+			recipe.AddIngredient(ItemType<ZylonianDesertCore>(), 1);
+			recipe.AddTile(TileID.Anvils);
+			recipe.SetResult(this, 200);
+			recipe.AddRecipe();
 		}
 	}   
 }

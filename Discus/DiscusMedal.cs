@@ -10,7 +10,7 @@ namespace Zylon.Items.Discus
 	public class DiscusMedal : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("+1 Minion Slot and +5% Movement speed");
+			Tooltip.SetDefault("Increases max mana by 20");
 		}
 
 		public override void SetDefaults() {
@@ -23,8 +23,7 @@ namespace Zylon.Items.Discus
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			player.maxMinions += 1;
-			player.maxRunSpeed += 0.05f;
+			player.statManaMax2 += 20;
 		}
 
 		public override void AddRecipes() {
