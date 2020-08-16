@@ -28,17 +28,13 @@ namespace Zylon.Projectiles.Gemstone
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			if (Main.rand.Next(9) == 0)
-		    target.AddBuff(BuffID.Frostburn, 350, false);
-            if (Main.rand.Next(9) == 0)
-		    target.AddBuff(BuffID.Venom, 350, false);
+			if (Main.rand.Next(2) == 0)
+		    target.AddBuff(mod.BuffType("XenicAcid"), 240, false);
 		}
 		public override void OnHitPlayer(Player target, int damage, bool crit)
 		{
-			if (Main.rand.Next(9) == 0)
-				target.AddBuff(BuffID.Frostburn, 350, false);
-			if (Main.rand.Next(9) == 0)
-				target.AddBuff(BuffID.Venom, 350, false);
+			if (Main.rand.Next(2) == 0)
+		    target.AddBuff(mod.BuffType("XenicAcid"), 240, false);
 		}
 	}   
 }

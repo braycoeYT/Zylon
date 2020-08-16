@@ -25,7 +25,7 @@ namespace Zylon.Projectiles.Mineral
 		public override void OnHitPlayer(Player target, int damage, bool crit)
 		{
 			if (Main.rand.Next(2) == 0)
-				target.AddBuff(BuffID.Bleeding, 180, false);
+				target.AddBuff(mod.BuffType("XenicAcid"), 240, false);
 		}
 		/*public override void AI()
 		{
