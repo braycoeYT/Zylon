@@ -12,7 +12,7 @@ namespace Zylon.Items.Mineral
 		public override void SetDefaults()
 		{
 			item.melee = true;
-			item.damage = 249;
+			item.damage = 197;
 			item.width = 33;
 			item.height = 33;
 			item.useTime = 20;

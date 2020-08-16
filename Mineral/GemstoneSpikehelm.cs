@@ -30,9 +30,9 @@ namespace Zylon.Items.Mineral
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = "Releases several gemstone spikes when you take damage, which can venom and frostburn enemies";
+			player.setBonus = "After taking damage, there is a 25% chance of your defense increasing by 40 for a bit";
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			p.gemstoneSpikes = true;
+			p.gemstoneMelee = true;
 		}
 		
 		public override void UpdateEquip(Player player)

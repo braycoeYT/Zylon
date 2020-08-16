@@ -29,7 +29,7 @@ namespace Zylon.Items.Mineral
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = "Every seventh attack shoots a crystal that leeches life";
+			player.setBonus = "Every fifth attack shoots a crystal that leeches life";
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			p.gemstoneHealBullet = true;
 		}

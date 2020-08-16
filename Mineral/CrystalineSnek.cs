@@ -25,7 +25,7 @@ namespace Zylon.Items.Mineral
 			item.useTime = 25;
 			item.shootSpeed = 16f;
 			item.knockBack = 2.4f;
-			item.damage = 347;
+			item.damage = 301;
 			item.rare = 11;
 			item.melee = true;
 			item.channel = true;

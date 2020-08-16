@@ -1,3 +1,4 @@
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,12 +25,10 @@ namespace Zylon.Items.Mineral
 		
 		public override void UpdateEquip(Player player)
 		{
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			if (player.velocity.Y != 0)
 			{
-				if (player.velocity.Y > 0)
-				player.statDefense -= (int)player.velocity.Y;
-				else
-				player.statDefense -= ((int)player.velocity.Y * -1);
+				player.statDefense -= (int)Math.Abs(player.velocity.Y);
 			}
 			else
 			player.statDefense += 30;

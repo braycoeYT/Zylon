@@ -32,7 +32,7 @@ namespace Zylon.Items.Mineral
 		public override void OpenBossBag(Player player)
 		{
 			player.TryGettingDevArmor();
-			player.QuickSpawnItem(mod.ItemType("GemstoneWings"));
+			player.QuickSpawnItem(mod.ItemType("EyeoftheExtractor"));
 			player.QuickSpawnItem(mod.ItemType("GalacticDiamondium"), Main.rand.Next(20, 35));
 			player.QuickSpawnItem(ItemID.Amethyst, Main.rand.Next(15, 30));
 		}

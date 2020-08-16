@@ -10,7 +10,7 @@ namespace Zylon.Items.Mineral
         public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Dreamsday Arrow");
-			Tooltip.SetDefault("An arrow of the cosmos and crystals.\nCan inflict venom and frostburn.");
+			Tooltip.SetDefault("An arrow of the cosmos and crystals\nCan inflict xenic acid on enemies");
         }
 		public override void SetDefaults()
 		{

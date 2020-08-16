@@ -26,12 +26,16 @@ namespace Zylon.Items.Mineral
 		{
 			return body.type == ItemType<GemstoneChestplate>() && legs.type == ItemType<GemstoneLeggings>();
 		}
-
+		int playerTimer;
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = "After taking damage, there is an one in seven chance chance of an eyespike bullet rain to occur above the player";
+			playerTimer++;
+			player.setBonus = "Rains eye crystals above the player";
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			p.gemstoneRain = true;
+			if (playerTimer % 10 == 0)
+			{
+				Projectile.NewProjectile(player.Center.X + Main.rand.Next(-60, 61), player.Center.Y - 600, Main.rand.Next(-3, 4), 7, mod.ProjectileType("GemstoneSpikeRain"), 75, 1f, player.whoAmI);
+			}
 		}
 		
 		public override void UpdateEquip(Player player)

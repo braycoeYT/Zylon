@@ -1,3 +1,4 @@
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,12 +25,10 @@ namespace Zylon.Items.Mineral
 		
 		public override void UpdateEquip(Player player)
 		{
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			if (player.velocity.X != 0)
 			{
-				if (player.velocity.X > 0)
-				player.allDamage -= player.velocity.X / 100f;
-				else
-				player.allDamage -= player.velocity.X / -100f;
+				player.allDamage -= Math.Abs(player.velocity.X) / 100;
 			}
 			else
 			player.allDamage += 0.4f;

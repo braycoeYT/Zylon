@@ -15,7 +15,7 @@ namespace Zylon.Items.Mineral
 		}
 		public override void SetDefaults() 
 		{
-			item.damage = 301;
+			item.damage = 179;
 			item.magic = true;
 			item.width = 33;
 			item.height = 33;
@@ -26,25 +26,13 @@ namespace Zylon.Items.Mineral
 			item.value = 850000;
 			item.autoReuse = true;
 			item.useTurn = true;
-			item.shoot = ProjectileID.StarWrath;
-			item.shootSpeed = 10f;
+			item.shoot = mod.ProjectileType("StarryOrb");
+			item.shootSpeed = 20f;
 			item.noMelee = true;
-			item.mana = 10;
+			item.mana = 9;
 			item.stack = 1;
 			item.UseSound = SoundID.Item12;
 			item.rare = 12;
-		}
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-		{
-			float numberProjectiles = 3;
-			float rotation = MathHelper.ToRadians(5);
-			position += Vector2.Normalize(new Vector2(speedX, speedY)) * 9f;
-			for (int i = 0; i < numberProjectiles; i++)
-			{
-				Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 1f;
-				Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
-			}
-			return false;
 		}
 		public override void AddRecipes() 
 		{

@@ -18,7 +18,7 @@ namespace Zylon.Items.Mineral
 			item.useStyle = 5;
 			item.useAnimation = 25;
 			item.useTime = 25;
-			item.damage = 298;
+			item.damage = 239;
 			item.width = 12;
 			item.height = 24;
 			item.knockBack = 0;

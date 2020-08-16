@@ -32,9 +32,8 @@ namespace Zylon.Items.Mineral
 		public override bool CanUseItem(Player player)
 		{
 			if(!Main.dayTime)
-				if(!NPC.AnyNPCs(mod.NPCType("ZylonianMineralExtractor")))
-					return !NPC.AnyNPCs(mod.NPCType("ZylonianMineralExtractorPha2"));
-				return false;
+				return !NPC.AnyNPCs(mod.NPCType("ZylonianMineralExtractor"));
+			return false;
 		}
 		
 		public override bool UseItem(Player player)
@@ -47,10 +46,13 @@ namespace Zylon.Items.Mineral
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddRecipeGroup("Zylon:AnyMysteriousGem", 3);
-			recipe.AddIngredient(mod.ItemType("DreamString"), 10);
-			recipe.AddIngredient(mod.ItemType("GalacticDiamondium"), 5);
-			recipe.AddIngredient(mod.ItemType("SilvervoidCore"), 3);
+			recipe.AddRecipeGroup("Zylon:AnyGem", 30);
+			recipe.AddIngredient(ItemID.LunarBar, 20);
+			recipe.AddIngredient(mod.ItemType("SilvervoidCore"), 15);
+			recipe.AddIngredient(ItemID.FragmentSolar, 5);
+			recipe.AddIngredient(ItemID.FragmentVortex, 5);
+			recipe.AddIngredient(ItemID.FragmentNebula, 5);
+			recipe.AddIngredient(ItemID.FragmentStardust, 5);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
