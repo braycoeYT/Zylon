@@ -45,5 +45,9 @@ namespace Zylon.Projectiles.OtherJavelances
 				p.HealEffect(1, true);
 			}
 		}
+		public override void Kill(int timeLeft)
+		{
+			Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
+		}
 	}   
 }

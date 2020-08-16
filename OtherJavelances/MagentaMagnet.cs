@@ -64,5 +64,9 @@ namespace Zylon.Projectiles.OtherJavelances
 				dust.scale = 1f;
 			}
 		}
+		public override void Kill(int timeLeft)
+		{
+			Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
+		}
 	}   
 }
