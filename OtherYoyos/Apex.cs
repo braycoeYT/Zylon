@@ -40,8 +40,8 @@ namespace Zylon.Projectiles.OtherYoyos
 			Timer++;
 			if (Timer % 120 == 0)
 			{
-				if (Main.rand.Next(0, 3) == 0)
-				Projectile.NewProjectile(projectile.Center, new Vector2(0, 8).RotatedByRandom(MathHelper.TwoPi), 14, (int)(projectile.damage / 3), 0f, Main.myPlayer);
+				if (Main.rand.Next(0, 2) == 0)
+				Projectile.NewProjectile(projectile.Center, new Vector2(0, 8).RotatedByRandom(MathHelper.TwoPi), 14, (int)(projectile.damage / 2.5), 0f, Main.myPlayer);
 				projectile.velocity.X = 0;
 				projectile.velocity.Y = 0;
 			}

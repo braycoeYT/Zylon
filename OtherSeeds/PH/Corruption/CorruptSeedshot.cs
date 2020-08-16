@@ -5,28 +5,24 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.OtherSeeds.PH
+namespace Zylon.Projectiles.OtherSeeds.PH.Corruption
 {
-	public class Vineshot : ModProjectile
+	public class CorruptSeedshot : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Vineshot");
+			DisplayName.SetDefault("Corrupt Seedshot");
         }
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Seed);
 			aiType = ProjectileID.Seed;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void Kill(int timeLeft)
 		{
-			if (Main.rand.NextFloat() < .3f)
-		    target.AddBuff(BuffID.Poisoned, 150, false);
-		}
-		public override void OnHitPlayer(Player target, int damage, bool crit)
-		{
-			if (Main.rand.NextFloat() < .3f)
-				target.AddBuff(BuffID.Poisoned, 150, false);
+			Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 86);
+			dust.noGravity = true;
+			dust.scale = 1.6f;
 		}
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{

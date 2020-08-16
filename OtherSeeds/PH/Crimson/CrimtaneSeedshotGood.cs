@@ -5,28 +5,33 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.OtherSeeds.PH
+namespace Zylon.Projectiles.OtherSeeds.PH.Crimson
 {
-	public class Vineshot : ModProjectile
+	public class CrimtaneSeedshotGood : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Vineshot");
+			DisplayName.SetDefault("Crimtane Seedshot");
         }
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Seed);
 			aiType = ProjectileID.Seed;
+			projectile.penetrate = 5;
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			if (Main.rand.NextFloat() < .3f)
-		    target.AddBuff(BuffID.Poisoned, 150, false);
+			Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType("CrimtaneHeart"), projectile.damage, 0, Main.myPlayer);
 		}
 		public override void OnHitPlayer(Player target, int damage, bool crit)
 		{
-			if (Main.rand.NextFloat() < .3f)
-				target.AddBuff(BuffID.Poisoned, 150, false);
+			Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 0, mod.ProjectileType("CrimtaneHeart"), projectile.damage, 0, Main.myPlayer);
+		}
+		public override void Kill(int timeLeft)
+		{
+			Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 90);
+			dust.noGravity = true;
+			dust.scale = 1.6f;
 		}
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{
