@@ -50,7 +50,7 @@ namespace Zylon.NPCs.Discus
 		
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-			return SpawnCondition.OverworldDayDesert.Chance * 2.4f;
+			return SpawnCondition.OverworldDayDesert.Chance * 3f;
         }
 		
 	    public override void NPCLoot()

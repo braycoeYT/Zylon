@@ -39,7 +39,7 @@ namespace Zylon.NPCs.Discus
 			if (ZylonWorld.downedDiscus)
 			{
 				if(spawnInfo.player.ZoneRain)
-				return 0.1f;
+				return 0.05f;
 			}
 			return 0f;
         }

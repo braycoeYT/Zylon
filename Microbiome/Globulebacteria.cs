@@ -80,7 +80,7 @@ namespace Zylon.NPCs.Microbiome
 		}
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-			return spawnInfo.player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome && !spawnInfo.player.ZoneSkyHeight ? 0.4f : 0f;
+			return spawnInfo.player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome && !spawnInfo.player.ZoneSkyHeight ? 0.7f : 0f;
 		}
 		
 	    public override void NPCLoot()
