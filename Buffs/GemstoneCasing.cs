@@ -3,19 +3,21 @@ using Terraria.ModLoader;
 
 namespace Zylon.Buffs
 {
-    public class EyeCandy : ModBuff
+    public class GemstoneCasing : ModBuff
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Eye Candy");
-            Description.SetDefault("Did you read the wrapper?\nMana cost is halved");
+            DisplayName.SetDefault("Gemstone Casing");
+            Description.SetDefault("Greatly increases life regen, defense, and attack");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = false;
         }
 
         public override void Update(Player player, ref int buffIndex)
         {
-            player.manaCost -= 0.5f;
+            player.lifeRegen += 3;
+            player.statDefense += 25;
+            player.allDamage += 0.15f;
         }
     }
 }
