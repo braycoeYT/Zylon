@@ -28,12 +28,10 @@ namespace Zylon.Items.Silvervoid
 			item.shootSpeed = 12f;
 			item.noUseGraphic = true;
 		}
-		
-		public override void AddRecipes() 
-		{
+		public override void AddRecipes()  {
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("SilvervoidCore"), 13);
-			recipe.AddIngredient(ItemID.LunarBar, 12);
+			recipe.AddIngredient(mod.ItemType("SilvervoidCore"), 11);
+			recipe.AddIngredient(ItemID.LunarBar, 9);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

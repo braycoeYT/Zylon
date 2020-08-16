@@ -32,8 +32,9 @@ namespace Zylon.Items.Xenic
 		public override void OpenBossBag(Player player)
 		{
 			player.TryGettingDevArmor();
-			player.QuickSpawnItem(mod.ItemType("GalacticDiamondium"), Main.rand.Next(6, 10));
+			player.QuickSpawnItem(mod.ItemType("GalacticDiamondium"), Main.rand.Next(6, 11));
 			player.QuickSpawnItem(mod.ItemType("XenicCore"));
+			player.QuickSpawnItem(mod.ItemType("XenonTank"));
 		}
 		public override int BossBagNPC => NPCType<NPCs.Minibosses.XenicAcidpumper>();
 	}

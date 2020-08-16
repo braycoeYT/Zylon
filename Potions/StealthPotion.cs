@@ -36,6 +36,7 @@ namespace Zylon.Items.Potions
 			recipe.AddIngredient(ItemID.Silk, 1);
 			recipe.AddIngredient(ItemID.Waterleaf, 1);
 			recipe.AddIngredient(ItemID.Deathweed, 1);
+            recipe.AddIngredient(ItemID.Bone);
 			recipe.AddTile(13);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

@@ -32,7 +32,7 @@ namespace Zylon.Items.Xenic
 		public override bool CanUseItem(Player player)
 		{
 			if(player.ZoneSkyHeight)
-				return !NPC.AnyNPCs(mod.NPCType("XenicAcidpumper"));
+				return !NPC.AnyNPCs(mod.NPCType("XenicAcidpumperGood"));
 			return false;
 		}
 		
@@ -40,13 +40,13 @@ namespace Zylon.Items.Xenic
 		{
 			int spawnRan = Main.rand.Next(0, 4);
 			if (spawnRan == 0)
-			NPC.NewNPC((int)player.position.X + Main.rand.Next(-500, -301), (int)player.position.Y + Main.rand.Next(-300, 301), mod.NPCType("XenicAcidpumper"));
+			NPC.NewNPC((int)player.position.X + Main.rand.Next(-700, -301), (int)player.position.Y + Main.rand.Next(-300, 301), mod.NPCType("XenicAcidpumperGood"));
 			else if (spawnRan == 1)
-			NPC.NewNPC((int)player.position.X + Main.rand.Next(500, 301), (int)player.position.Y + Main.rand.Next(-300, 301), mod.NPCType("XenicAcidpumper"));
+			NPC.NewNPC((int)player.position.X + Main.rand.Next(300, 701), (int)player.position.Y + Main.rand.Next(-300, 301), mod.NPCType("XenicAcidpumperGood"));
 			else if (spawnRan == 2)
-			NPC.NewNPC((int)player.position.X + Main.rand.Next(-200, 201), (int)player.position.Y + Main.rand.Next(100, 301), mod.NPCType("XenicAcidpumper"));
+			NPC.NewNPC((int)player.position.X + Main.rand.Next(-600, 601), (int)player.position.Y + Main.rand.Next(100, 301), mod.NPCType("XenicAcidpumperGood"));
 			else
-			NPC.NewNPC((int)player.position.X + Main.rand.Next(-200, 201), (int)player.position.Y + Main.rand.Next(-300, -101), mod.NPCType("XenicAcidpumper"));
+			NPC.NewNPC((int)player.position.X + Main.rand.Next(-600, 601), (int)player.position.Y + Main.rand.Next(-300, -101), mod.NPCType("XenicAcidpumperGood"));
 			Main.PlaySound(SoundID.Roar, player.position, 0);
 			return true;
 		}

@@ -15,7 +15,7 @@ namespace Zylon.Items.Slime
 		public override void SetDefaults() 
 		{
 			item.CloneDefaults(ItemID.Blowpipe);
-			item.damage = 13; //9, mod 14
+			item.damage = 12; //9, mod 14
 			item.knockBack = 3.5f; //3.5
 			item.shootSpeed = 10f; //11
 			item.useTime = 43; //45
