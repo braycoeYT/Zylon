@@ -34,6 +34,7 @@ namespace Zylon.NPCs.Minions
 			npc.noGravity = true;
 			npc.noTileCollide = true;
 			animationType = 82;
+			npc.buffImmune[mod.BuffType("XenicAcid")] = true;
         }
 		public float Timer
 		{
@@ -43,6 +44,7 @@ namespace Zylon.NPCs.Minions
 		int flee;
 		public override void AI()
 		{
+			npc.AddBuff(BuffID.Wet, 9, false);
 			Timer++;
 			npc.velocity.X = 0;
 			npc.velocity.Y = 0;

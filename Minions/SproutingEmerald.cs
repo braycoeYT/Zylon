@@ -32,6 +32,8 @@ namespace Zylon.NPCs.Minions
 			npc.aiStyle = 0;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
+			npc.buffImmune[mod.BuffType("XenicAcid")] = true;
+			npc.buffImmune[BuffID.Poisoned] = true;
         }
 		public float Timer
 		{
