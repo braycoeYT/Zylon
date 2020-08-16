@@ -1,32 +1,26 @@
-using System;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
-using static Terraria.ModLoader.ModContent;
+using Terraria.ID;
 
 namespace Zylon.Projectiles
 {
-	public class OddFungus : ModProjectile
+	public class SilvervoidPellet : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Odd Fungus");
+			DisplayName.SetDefault("Silvervoid Pellet");
         }
-		
 		public override void SetDefaults()
 		{
-			projectile.width = 33;
-			projectile.height = 33;
+			aiType = ProjectileID.Bullet;
+			projectile.width = 16;
+			projectile.height = 16;
 			projectile.aiStyle = 1;
+			projectile.hostile = false;
 			projectile.friendly = true;
-			projectile.penetrate = 15;
 			projectile.timeLeft = 600;
 			projectile.ignoreWater = true;
-		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
-		    target.AddBuff(1 + Main.rand.Next(205), 60, false);
+			projectile.tileCollide = false;
 		}
 		public override void Kill(int timeLeft)
 		{

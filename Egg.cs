@@ -33,5 +33,9 @@ namespace Zylon.Projectiles
 		{
 			target.AddBuff(BuffID.Venom, 150, false);
 		}
+		public override void Kill(int timeLeft)
+		{
+			Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
+		}
 	}   
 }
