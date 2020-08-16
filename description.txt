@@ -1,26 +1,26 @@
 This is the best mod that starts with Z (I guarantee or your money back)!
 Adds crimson counterparts, cell stuff, 2 complex subclasses, and much more!
 Support for Boss Checklist
-Zylon is heavily inspired by Exxo Avalon.
+Zylon is inspired by Exxo Avalon.
 Discord Server: (homepage link is better) https://discord.gg/qv97wNV
 
 I hope you play my mod!
 
 Some more facts:
-~292 Items
+~317 Items
+~100 total NPCs
+~40 total Tiles
+~38 Buffs
 ~6 unique, custom AI, Bosses:
 ^3 Prehardmode Bosses
 ^2 Hardmode Bosses
 ^1 Post ML Boss
 ~1 Miniboss
-~1 Town NPC
-~86 total NPCs
+~4 Town NPCs
 ~4 Ores
-~34 Total Tiles
-~23 Buffs
 ~1 Biome
 ~2 Subclasses
-~5 Custom Themes
+~5 Custom Songs
 
 Cross-mod Content with:
 Asteri mod (1 Item)
@@ -28,29 +28,86 @@ Asteri mod (1 Item)
 BraycoeYT made the mod.
 
 Spriters/Other Help:
-CrazySapling1 (Inactive Spriter)
-Sness (Empress Slime Minion Spriter)
-GOA7 (Active Spriter)
-Koolaidlemonade (Active Spriter)
+CrazySapling1 (Quit Spriter)
+GOA7 (Spriter/Songwriter)
+Koolaidlemonade (Spriter)
+HBDeus (Spriter)
 
-Update V0.2.1.3: Blowpipe Update
-~New subclass: The Blowpipe! Collect blowpipes to cause enemies to drop seed shots, the weapon's ammo. There are many types of seed shots and blowpipes, so try them all out! Note: Blowpipe subclass goes until post-King Slime right now.
-~Magentite Slime spawnrate increased and stats nerfed
-~A few rarity changes
-~More internal sorting
-~Mistake fix: Terra Orb
-~Mistake fix: ADD size
-~Slight Squarge sprite change
-~Dirtball now rains dirt rod projectiles instead of Dirt Scythes
-~Changed Dirtball into more of a bullet endurance fight (normal mode is a lot more tame)
-~Decreased Dirtball invincibility and hp
-~Dirty Discus (npc) is no longer expert-only
-~Max Stack changes
-~Added a drop to the post-ZME Microbiome, the Infected Onyx
-~Added the Time Distorting Battery
-~Renamed Telomere to Eggspray
+Minor Help:
+Sness (Two sprites)
+
+Update V0.2.1.4: Omega Update
 ~New sprites
-~Several dust fixes
-~Dirty Discus eye is lighter to match Dirtball
-~Replaced Dirty Harp with Dirty Blowpipe
-~Added Ancient Desert Discus Mask
+~Fixed seed buy price
+~Braycoe now sells Slimy Seedshots
+~Witch Doctor now sells Vineshots and Poison Darts
+~Nerfed Sprouted Sapling damage
+~Added Eater of Seeds, and Bloody Blowpipe
+~Added Corrupt Seedshot, Sprouted Corrupt Seedshot, Crimson Seedshot, and Sprouted Crimson Seedshot
+~Added Crates
+~Added Cytocell pet
+~Added several new summon weapons
+~Added Computer Virus map icon
+~Computer Virus and Mini Pop Up now foreshadow their teleporting so the boss fight is fair
+~Braycoe resprite and chat changes
+~Added Rollercoaster Enthusiast town npc
+~Added Boxer town npc
+~Added Hitman town npc
+~Braycoe town npc now spawns correctly
+~Changed Eye Candy item and buff tooltip
+~Changed Time Distorting Battery slightly
+~Decreased Xenic Acidpumper spawnrate
+~Xenic Acidpumper now can spawn at day
+~Melee contact with Zylonian Mineral Extractor now inflicts Xenic Acid
+~All gemblasts now inflict Xenic Acid
+~Xenic Acidpumper changes (main changes listed here): Xenic Acidpumper is now passive until it takes enough damage, Added a battle ring that kills the player if they exit it, rod of discord is banned during the fight, Xenic Acidpumper is now an optional boss fight instead of a miniboss, Xenic Acidpumper now acts slightly different at day and night, and Xenic Acidpumper fight is now a bullet endurance fight with 10 phases.
+~Zenith weapons are different and unobtainable
+~Zylonian Mineral Extractor stat and ai change
+~Fixed Empress Slime manipulation a bit
+~Changed Gemstone Eye Tamer set bonus
+~Slightly nerfed Hypercharged Nucleoclus
+~Removed Dark accessories because they were bad
+~Town npcs can now teleport to statues
+~Removed some swords
+~Removed Dirty Discus Medal
+~Zylonian Mineral Extractor visual changes
+~Added an unobtainable dev weapon
+~Giga Gemstone now replaces the Mysterious Gems, and it is craftable pre-ZME
+~Changed Adastra
+~Nerfed Gemstone weapons
+~Added Soulspit Staff
+~Changed Elemental Bands
+~Increased microbiome spawnrates
+~Increased Desert Discus spawn rates
+~Decreased Rainyday Discus spawn rates
+~Empress Slime resprite
+~Replaced Gemstone Wings with Eye of the Extractor as an expert drop.
+~Added Xenon Tank, Xenic Acidpumper expert drop
+~Gemstone Wings are now craftable
+~Nerfed Gemstone Wings
+~Replaced original Colossal Cell summon item with the Cellular Snack
+~Fixed Venomous Pill spelling error
+~Changed Armagris Firearms and Armarosa Hypergun
+~Added Pragmatic Shotgun
+~Changed Discus Medal, Ancient Desert Discus Medal, and Ancient Amalgam Pendant
+~Changed Gemstone melee armor set bonus
+~Gemstone crystals now inflict xenic acid instead of frostburn and venom
+~Boss debuff immunity changes
+~Added bone to stealth potion recipe
+~Tree Truncheon and True Tree Truncheon are now craftable instead of being Grand Forest Slime drops
+~Buffed Tree Truncheon and True Tree Truncheon
+~More projectiles collide with tiles correctly
+~Added hardmode ore summon staves
+~Dirty Discus fixes
+~Squarge now drops solar tablet fragment correctly
+~(Re)Added meatballs to the post-skeletron blood moon
+~Removed around 20-30 bad items
+~Decreased Ickyspit dust count
+~Meatball projectile resprites
+~Fixed having more than one Xenic Acidpumper spawn
+~Aqua Sapphire renamed to Aquatic Sapphire
+~Aquatic Sapphire now is wet
+~Added Delicious Gelatin
+~High velocity bullet alternate recipe fix
+~Mystery bag tooltip change
+~Added Earthbound, an upgrade to the BDCS

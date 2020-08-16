@@ -56,10 +56,10 @@ namespace Zylon
 					this,
 					"$Mods.Zylon.NPCName.ColossalCell",
 					(Func<bool>)(() => ZylonWorld.downedCell),
-					ModContent.ItemType<Items.Microbiome.RottingCelluloseCasedMushedMeat>(),
+					ModContent.ItemType<Items.Microbiome.CellularSnack>(),
 					new List<int> { ModContent.ItemType<Items.Microbiome.Cytoplasm>() }, //collectables
 					new List<int> { ModContent.ItemType<Items.Microbiome.Cytoplasm>() }, //other
-					$"Use a [i:{ModContent.ItemType<Items.Microbiome.RottingCelluloseCasedMushedMeat>()}] in the microbiome."
+					$"Use a [i:{ModContent.ItemType<Items.Microbiome.CellularSnack>()}] in the microbiome."
 				);
 				bossChecklist.Call(
 					"AddBoss",
@@ -92,14 +92,14 @@ namespace Zylon
 					this,
 					"$Mods.Zylon.NPCName.ZylonianMineralExtractor",
 					(Func<bool>)(() => ZylonWorld.downedMineral),
-					ModContent.ItemType<Items.Mineral.MysteriousGemPink>(),
+					ModContent.ItemType<Items.Mineral.GigaGemstone>(),
 					new List<int> { ModContent.ItemType<Items.Mineral.GalacticDiamondium>() }, //collectables
 					new List<int> { ModContent.ItemType<Items.Mineral.GalacticDiamondium>() }, //other
-					$"Use any version of the [i:{ModContent.ItemType<Items.Mineral.MysteriousGemPink>()}] at night to send its scanners out of control."
+					$"Use a [i:{ModContent.ItemType<Items.Mineral.GigaGemstone>()}] at night to send its scanners out of control."
 				);
 				bossChecklist.Call(
 					"AddMiniBoss",
-					14.55f,
+					14.75f,
 					new List<int> { ModContent.NPCType<NPCs.Minibosses.XenicAcidpumper>() },
 					this,
 					"$Mods.Zylon.NPCName.XenicAcidpumper",
@@ -107,7 +107,7 @@ namespace Zylon
 					ModContent.ItemType<Items.Xenic.TimeDistortingBattery>(),
 					new List<int> { ModContent.ItemType<Items.Xenic.XenicCore>() }, //collectables
 					new List<int> { ModContent.ItemType<Items.Xenic.XenicCore>()}, //other
-					$"Xenic Acidpumpers spawn rarely in the post-Zylonian Mineral Extractor outer space at night."
+					$"The Xenic Acidpumper can rarely spawn in space post-Zylonian Mineral Extractor or can also be summoned with a [i:{ModContent.ItemType<Items.Xenic.TimeDistortingBattery>()}]"
 				);
 			}
 		}
@@ -138,17 +138,6 @@ namespace Zylon
 			ItemID.Ruby
 			});
 			RecipeGroup.RegisterGroup("Zylon:AnyGem", group);
-
-			group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Mysterious Gem", new int[]
-			{
-			ItemType("MysteriousGemBlue"),
-			ItemType("MysteriousGemGreen"),
-			ItemType("MysteriousGemPink"),
-			ItemType("MysteriousGemRed"),
-			ItemType("MysteriousGemWhite"),
-			ItemType("MysteriousGemYellow")
-			});
-			RecipeGroup.RegisterGroup("Zylon:AnyMysteriousGem", group);
 
 			group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Shadow Scale, Tissue Sample, or Cytoplasm", new int[]
 			{
@@ -492,7 +481,7 @@ namespace Zylon
 			recipe.AddRecipe();
 
 			recipe = new ModRecipe(this);
-			recipe.AddIngredient(ItemID.EmptyBullet);
+			recipe.AddIngredient(ItemID.EmptyBullet, 50);
 			recipe.AddIngredient(null, "Electrolight");
 			recipe.SetResult(ItemID.HighVelocityBullet, 50);
 			recipe.AddRecipe();
@@ -505,26 +494,24 @@ namespace Zylon
 			//conversion
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.RottenChunk);
-			recipe.AddIngredient(ItemID.Vertebrae);
 			recipe.AddIngredient(null, "NucleusShard");
-			recipe.SetResult(ItemID.PixieDust);
-			recipe.AddTile(TileID.CrystalBall);
-			recipe.AddRecipe();
-
-			recipe = new ModRecipe(this);
-			recipe.AddIngredient(ItemID.RottenChunk);
-			recipe.AddIngredient(null, "NucleusShard");
-			recipe.AddIngredient(ItemID.PixieDust);
-			recipe.AddTile(TileID.CrystalBall);
+			recipe.AddTile(TileID.DemonAltar);
 			recipe.SetResult(ItemID.Vertebrae);
 			recipe.AddRecipe();
 
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.Vertebrae);
 			recipe.AddIngredient(null, "NucleusShard");
-			recipe.AddIngredient(ItemID.PixieDust);
-			recipe.AddTile(TileID.CrystalBall);
+			recipe.AddTile(TileID.DemonAltar);
 			recipe.SetResult(ItemID.RottenChunk);
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
+			recipe.AddIngredient(ItemID.Silk, 20);
+			recipe.AddIngredient(ItemID.SnowBlock, 12);
+			recipe.AddIngredient(null, "CryoCrystal", 9);
+			recipe.AddTile(TileID.Loom);
+			recipe.SetResult(ItemID.HandWarmer);
 			recipe.AddRecipe();
 		}
 		public override void UpdateMusic(ref int music, ref MusicPriority priority)

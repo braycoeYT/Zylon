@@ -33,6 +33,7 @@ namespace Zylon
 		public static bool downedXenic;
 		public static bool downedEmpress;
 		public static bool downedCell;
+		public static bool rollercoasterTown;
 		public static int microbiomeTiles;
 		//public Vector2 ZMETarget;
 		
@@ -52,6 +53,7 @@ namespace Zylon
 			downedXenic = false;
 			downedEmpress = false;
 			downedCell = false;
+			rollercoasterTown = false;
 		}
 		
 		public override TagCompound Save()
@@ -71,7 +73,8 @@ namespace Zylon
 				{"hasConversationDrop", hasConversationDrop},
 				{"downedXenic", downedXenic},
 				{"downedEmpress", downedEmpress},
-				{"downedCell", downedCell}
+				{"downedCell", downedCell},
+				{"rollercoasterTown", rollercoasterTown}
 			};
         }
 		
@@ -91,6 +94,7 @@ namespace Zylon
 			downedXenic = tag.GetBool("downedXenic");
 			downedEmpress = tag.GetBool("downedEmpress");
 			downedCell = tag.GetBool("downedCell");
+			rollercoasterTown = tag.GetBool("rollercoasterTown");
 		}
 		
 		 public override void NetSend(BinaryWriter writer)
@@ -109,6 +113,7 @@ namespace Zylon
 			flags2[0] = hasAlertSlime;
 			flags2[1] = hasAlertEvil;
 			flags2[2] = hasConversationDrop;
+			flags2[3] = rollercoasterTown;
 			writer.Write(flags2);
 		}
 		
@@ -128,6 +133,7 @@ namespace Zylon
 			hasAlertSlime = flags2[0];
 			hasAlertEvil = flags2[1];
 			hasConversationDrop = flags2[2];
+			rollercoasterTown = flags2[3];
 		}
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
 		{
@@ -213,7 +219,7 @@ namespace Zylon
 		
 		private void ZylonOres(GenerationProgress progress)
 		{
-			progress.Message = "Sprinkling your world with Zylonian Charm";
+			progress.Message = "Sprinkling your world with Zylonian Ores";
 			for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 0.00002); k++) {
 				int x = WorldGen.genRand.Next(0, Main.maxTilesX);
 				int y = WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow, Main.maxTilesY / 2);
