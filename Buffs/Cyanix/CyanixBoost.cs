@@ -5,16 +5,14 @@ namespace Zylon.Buffs.Cyanix
 {
     public class CyanixBoost : ModBuff
     {
-        public override void SetDefaults()
-        {
+        public override void SetDefaults() {
             DisplayName.SetDefault("Cyanix Boost");
             Description.SetDefault("Minor increases to all stats\nDefense and regen are lowered from the pill's semidangerous chemicals\nStrength: 4");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = false;
         }
 
-        public override void Update(Player player, ref int buffIndex)
-        {
+        public override void Update(Player player, ref int buffIndex) {
 			player.endurance -= 0.04f; //-0.01 x S
 			player.lifeRegen -= 2; //0.5 x S, then round down
 			player.magicCrit += 8; //2 x S
