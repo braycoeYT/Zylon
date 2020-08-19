@@ -11,12 +11,12 @@ namespace Zylon.Projectiles.OtherJavelances
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Bleeding Orb");
+			DisplayName.SetDefault("Bleeding Javelance Blood");
         }
 		public override void SetDefaults()
 		{
-			projectile.width = 32;
-			projectile.height = 32;
+			projectile.width = 24;
+			projectile.height = 24;
 			projectile.aiStyle = 1;
 			projectile.friendly = true;
 			projectile.hostile = false;
@@ -25,6 +25,10 @@ namespace Zylon.Projectiles.OtherJavelances
 			projectile.timeLeft = 3000;
 			projectile.ignoreWater = true;
 			aiType = 1;
+		}
+		public override void Kill(int timeLeft)
+		{
+			Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
 		}
 	}   
 }

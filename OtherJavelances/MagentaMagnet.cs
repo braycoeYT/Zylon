@@ -7,11 +7,11 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Projectiles.OtherJavelances
 {
-	public class Fleshleech : ModProjectile
+	public class MagentaMagnet : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fleshleech");
+			DisplayName.SetDefault("Magenta Magnet");
         }
 		public override void SetDefaults()
 		{
@@ -25,29 +25,8 @@ namespace Zylon.Projectiles.OtherJavelances
 			projectile.ignoreWater = true;
 			aiType = 1;
 		}
+		int rand = Main.rand.Next(0, 240);
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-			if (Main.rand.Next(8) == 0 && target.type != NPCID.TargetDummy)
-			{
-				Player p = Main.player[projectile.owner];
-				int healingAmount = damage/30;
-				p.statLife +=healingAmount;
-				p.HealEffect(healingAmount, true);
-			}
-			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
-			if (zp.bloodJavelance && Main.rand.NextFloat() < .06f && target.type != NPCID.TargetDummy) {
-				Player p = Main.player[projectile.owner];
-				p.statLife += 1;
-				p.HealEffect(1, true);
-			}
-		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
-			if (Main.rand.Next(8) == 0)
-			{
-				Player p = Main.player[projectile.owner];
-				int healingAmount = damage/30;
-				p.statLife +=healingAmount;
-				p.HealEffect(healingAmount, true);
-			}
 			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
 			if (zp.bloodJavelance && Main.rand.NextFloat() < .06f) {
 				Player p = Main.player[projectile.owner];
@@ -55,13 +34,34 @@ namespace Zylon.Projectiles.OtherJavelances
 				p.HealEffect(1, true);
 			}
 		}
+		public override void OnHitPlayer(Player target, int damage, bool crit) {
+			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
+			if (zp.bloodJavelance && Main.rand.NextFloat() < .06f) {
+				Player p = Main.player[projectile.owner];
+				p.statLife += 1;
+				p.HealEffect(1, true);
+			}
+		}
+		public float Timer
+		{
+	        get => projectile.ai[1];
+	        set => projectile.ai[1] = value;
+        }
+		public override void AI()
+		{
+			Timer++;
+			if (Timer % 240 == rand)
+			{
+				Projectile.NewProjectile(projectile.Center, projectile.DirectionTo(Main.MouseWorld) * projectile.velocity.Y, 121, projectile.damage, projectile.knockBack, Main.myPlayer);
+			}
+		}
 		public override void PostAI()
 		{
 			if (Main.rand.NextBool())
 			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 235);
+				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 119);
 				dust.noGravity = false;
-				dust.scale = 0.8f;
+				dust.scale = 1f;
 			}
 		}
 		public override void Kill(int timeLeft)
