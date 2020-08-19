@@ -13,8 +13,8 @@ namespace Zylon.Projectiles.Gemstone
 		public override void SetDefaults()
 		{
 			aiType = ProjectileID.Bullet;
-			projectile.width = 21;
-			projectile.height = 21;
+			projectile.width = 30;
+			projectile.height = 30;
 			projectile.aiStyle = 1;
 			projectile.hostile = false;
 			projectile.friendly = true;

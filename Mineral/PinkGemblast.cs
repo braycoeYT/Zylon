@@ -18,9 +18,9 @@ namespace Zylon.Projectiles.Mineral
 		{
 			projectile.CloneDefaults(467);
 			if (Main.expertMode)
-				projectile.damage = 170;
-			else
 				projectile.damage = 130;
+			else
+				projectile.damage = 100;
 			projectile.ignoreWater = true;
 			projectile.tileCollide = false;
 			aiType = 467;
@@ -28,7 +28,7 @@ namespace Zylon.Projectiles.Mineral
 		public override void OnHitPlayer(Player target, int damage, bool crit)
 		{
 			if (Main.rand.Next(2) == 0)
-				target.AddBuff(mod.BuffType("Crystalizing"), 30, false);
+				target.AddBuff(mod.BuffType("XenicAcid"), 300, false);
 		}
 		/*public override void AI()
 		{

@@ -19,7 +19,7 @@ namespace Zylon.Projectiles.Microbiome
 		}
 		public override void AI()
 		{
-			for (int i = 0; i < 4; i++)
+			for (int i = 0; i < 2; i++)
 			{
 				int dustType = 48;
 				int dustIndex = Dust.NewDust(projectile.position, projectile.width, projectile.height, dustType);

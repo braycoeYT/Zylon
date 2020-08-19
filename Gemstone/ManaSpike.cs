@@ -12,8 +12,8 @@ namespace Zylon.Projectiles.Gemstone
         }
 		public override void SetDefaults()
 		{
-			projectile.width = 21;
-			projectile.height = 21;
+			projectile.width = 30;
+			projectile.height = 30;
 			projectile.aiStyle = 1;
 			projectile.friendly = true;
 			projectile.penetrate = 3;
@@ -21,15 +21,15 @@ namespace Zylon.Projectiles.Gemstone
 			projectile.ignoreWater = true;
 			aiType = 1;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+			if (target.type != NPCID.TargetDummy) {
 			Player p = Main.player[projectile.owner];
 			int healingAmount = (Main.rand.Next(1, 3));
 			p.statMana += healingAmount;
 			p.ManaEffect(healingAmount);
+			}
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit)
-		{
+		public override void OnHitPlayer(Player target, int damage, bool crit) {
 			Player p = Main.player[projectile.owner];
 			int healingAmount = (Main.rand.Next(1, 3));
 			p.statMana += healingAmount;
