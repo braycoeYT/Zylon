@@ -29,7 +29,7 @@ namespace Zylon.Items.Magentite
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = "1 Defense\nIncreases magic damage by 5%\nMagentite Staff and Harp magic cost is halved";
+			player.setBonus = "1 Defense\nIncreases magic damage by 5%\nMagentite Staff magic cost is halved";
 			player.statDefense += 1;
 			player.magicDamage += 0.05f;
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();

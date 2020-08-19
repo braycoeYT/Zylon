@@ -11,7 +11,7 @@ namespace Zylon.Items.Meatball
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Bleeding Gun");
-			Tooltip.SetDefault("10% Chance to not consume ammo");
+			Tooltip.SetDefault("10% chance to not consume ammo");
 		}
 
 		public override void SetDefaults() 
@@ -21,8 +21,8 @@ namespace Zylon.Items.Meatball
 			item.useAnimation = 16;
 			item.useTime = 10;
 			item.damage = 10;
-			item.width = 12;
-			item.height = 24;
+			item.width = 30;
+			item.height = 18;
 			item.knockBack = 1.5f;
 			item.shoot = 14;
 			item.shootSpeed = 30f;
