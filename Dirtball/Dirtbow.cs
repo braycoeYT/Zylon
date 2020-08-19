@@ -16,7 +16,7 @@ namespace Zylon.Items.Dirtball
 			item.useStyle = 5;
 			item.useAnimation = 16;
 			item.useTime = 16;
-			item.damage = 9;
+			item.damage = 15;
 			item.width = 12;
 			item.height = 24;
 			item.knockBack = 1;

@@ -10,17 +10,17 @@ namespace Zylon.Items.Dirtball
 	{
 		public override void SetStaticDefaults() 
 		{
-			Tooltip.SetDefault("'Feeling it makes you feel dirty...'\nShoots a Dirty Discus");
+			Tooltip.SetDefault("Feeling it makes you feel dirty...\nRapidly throw discuses");
 		}
 
 		public override void SetDefaults() 
 		{
-			item.damage = 6;
+			item.damage = 12;
 			item.melee = true;
 			item.width = 33;
 			item.height = 33;
-			item.useTime = 9;
-			item.useAnimation = 9;
+			item.useTime = 31;
+			item.useAnimation = 31;
 			item.useStyle = 4;
 			item.knockBack = 1.5f;
 			item.value = 2000;
@@ -28,6 +28,8 @@ namespace Zylon.Items.Dirtball
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.useTurn = true;
+			item.noMelee = true;
+			item.noUseGraphic = true;
 			item.shoot = mod.ProjectileType("DirtyDiscus");
 			item.shootSpeed = 12f;
 		}

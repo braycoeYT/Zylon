@@ -13,8 +13,8 @@ namespace Zylon.Items.Cyanix.Pills
 
 		public override void SetDefaults() 
 		{
-			item.width = 33;
-			item.height = 33;
+			item.width = 24;
+			item.height = 22;
 			item.useTime = 17;
 			item.useAnimation = 17;
 			item.useStyle = 1;
@@ -37,6 +37,9 @@ namespace Zylon.Items.Cyanix.Pills
 		public override bool UseItem(Player player)
 		{
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+			if (p.cyanixShort == true)
+			player.AddBuff(mod.BuffType("CyanixCooldown"), 2700);
+			else
 			player.AddBuff(mod.BuffType("CyanixCooldown"), 3600);
 			if (p.CyanixLong == true)
 			player.AddBuff(mod.BuffType("GreaterCyanixBoost"), 900);

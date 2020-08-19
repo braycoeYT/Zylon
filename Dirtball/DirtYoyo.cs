@@ -11,7 +11,7 @@ namespace Zylon.Items.Dirtball
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Dirt Yoyo");
-			Tooltip.SetDefault("'Disgust from a long range'");
+			Tooltip.SetDefault("Disgust from a long range");
 			ItemID.Sets.Yoyo[item.type] = true;
 			ItemID.Sets.GamepadExtraRange[item.type] = 15;
 			ItemID.Sets.GamepadSmartQuickReach[item.type] = true;
