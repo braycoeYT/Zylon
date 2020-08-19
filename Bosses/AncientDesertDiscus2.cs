@@ -1,10 +1,4 @@
-using Zylon;
-using Zylon.Items;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -24,8 +18,8 @@ namespace Zylon.NPCs.Bosses
 
         public override void SetDefaults()
 		{
-			npc.width = 115;
-			npc.height = 115;
+			npc.width = 140;
+			npc.height = 140;
 			npc.damage = 21;
 			npc.defense = 0;
 			npc.lifeMax = 900;
@@ -38,7 +32,7 @@ namespace Zylon.NPCs.Bosses
 			npc.noTileCollide = true;
 			npc.boss = true;
 			npc.lavaImmune = true;
-			music = MusicID.Boss2;
+			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ADD");
 			npc.netAlways = true;
 			for (int k = 0; k < npc.buffImmune.Length; k++)
 			{
@@ -85,6 +79,7 @@ namespace Zylon.NPCs.Bosses
 
         public override void AI()
 		{
+			npc.TargetClosest(true);
 			if (Main.player[npc.target].statLife < 1)
 			{
 				npc.TargetClosest(true);
@@ -93,6 +88,8 @@ namespace Zylon.NPCs.Bosses
 					if (flee == 0)
 					flee++;
 				}
+				else
+				flee = 0;
 			}
 			if (flee >= 1)
             {
@@ -179,7 +176,10 @@ namespace Zylon.NPCs.Bosses
 					Main.NewText(Language.GetTextValue(chat), messageColor);
 				}
 			}
-			
+			if (Main.rand.NextFloat() < .1f)
+			Item.NewItem(npc.getRect(), mod.ItemType("PolandballMask"));
+			if (Main.rand.NextFloat() < .1f)
+			Item.NewItem(npc.getRect(), mod.ItemType("AncientDesertDiscusMask"));
 			if (Main.expertMode)
 			{
 				Item.NewItem(npc.getRect(), mod.ItemType("DiscusBag"));

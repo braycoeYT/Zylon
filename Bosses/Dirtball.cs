@@ -1,10 +1,4 @@
-using Zylon;
-using Zylon.Items;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -27,9 +21,9 @@ namespace Zylon.NPCs.Bosses
 		{
 			npc.width = 150;
 			npc.height = 144;
-			npc.damage = 11;
+			npc.damage = 10;
 			npc.defense = 1;
-			npc.lifeMax = 850;
+			npc.lifeMax = 590;
 			npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath9;
 			npc.value = 9000f;
@@ -49,15 +43,14 @@ namespace Zylon.NPCs.Bosses
 			npc.lavaImmune = true;
 			animationType = NPCID.Drippler;
 			if (Main.expertMode)
-				npc.scale = 2.75f;
+				npc.scale = 1.75f;
 			else
-				npc.scale = 2.5f;
+				npc.scale = 1.5f;
         }
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 1110;
-            npc.damage = 25;
-			npc.defense = 2;
+            npc.lifeMax = 890;
+            npc.damage = 23;
         }
 		public override void HitEffect(int hitDirection, double damage)
 		{
@@ -68,9 +61,8 @@ namespace Zylon.NPCs.Bosses
 				npc.scale = 0.5f;
 			if (Main.rand.Next(30) == 0)
 				NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.Dirtball.DirtySlime>(), 0, npc.whoAmI);
-			if (Main.expertMode)
-				if (Main.rand.Next(30) == 0)
-					NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.Dirtball.DirtyDiscus>(), 0, npc.whoAmI);
+			if (Main.rand.Next(30) == 0)
+				NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.Dirtball.DirtyDiscus>(), 0, npc.whoAmI);
 			for (int i = 0; i < 10; i++)
 			{
 				int dustType = 0;
@@ -93,12 +85,13 @@ namespace Zylon.NPCs.Bosses
 		int dirtSpawn = 0;
 		bool attackDone = true;
 		bool chat1 = !ZylonWorld.downedDirtball;
+		bool chat2 = !ZylonWorld.downedDirtball;
 		Vector2 targetPlayer;
 		public override void AI()
 		{
 			if (npc.scale > 0.5f)
 				npc.life = npc.lifeMax;
-
+			npc.TargetClosest(true);
 			npc.width = (int)(115 * npc.scale);
 			npc.height = (int)(120 * npc.scale);
 			if (chat1)
@@ -115,6 +108,20 @@ namespace Zylon.NPCs.Bosses
 				}
 				chat1 = false;
 			}
+			if (chat2 && Timer > 300 && ((Main.expertMode && npc.scale < 1.7f) || (!Main.expertMode && npc.scale < 1.45f)))
+			{
+				Color messageColor = Color.SaddleBrown;
+				string chat = "It seems that hitting Dirtball shakes some of its mud off.";
+				if (Main.netMode == NetmodeID.Server)
+				{
+					NetMessage.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);
+				}
+				else if (Main.netMode == NetmodeID.SinglePlayer)
+				{
+					Main.NewText(Language.GetTextValue(chat), messageColor);
+				}
+				chat2 = false;
+			}
 			npc.velocity = Vector2.Normalize(npc.Center - Main.player[npc.target].Center) * (float)(-3.75f + npc.scale);
 			
 			npc.TargetClosest(true);
@@ -130,6 +137,8 @@ namespace Zylon.NPCs.Bosses
 					if (flee == 0)
 					flee++;
 				}
+				else
+				flee = 0;
 			}
 			if (flee >= 1)
             {
@@ -177,7 +186,7 @@ namespace Zylon.NPCs.Bosses
 					}
 				}
 			}*/
-			else if (Main.expertMode)
+			if (Main.expertMode)
 			{
 				if (attackDone == true)
 				{
@@ -190,9 +199,9 @@ namespace Zylon.NPCs.Bosses
 				
 				if (attack == 1)
 				{
-					if (Timer % 75 == 0)
+					if (Timer % 100 == 0)
 					{
-						Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 3, mod.ProjectileType("DirtBall"), 5, 10, Main.myPlayer);
+						Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 3, mod.ProjectileType("DirtBall"), 4, 10, Main.myPlayer);
 						if (attackMax < attackNum + 1)
 						{
 							attackDone = true;
@@ -202,10 +211,10 @@ namespace Zylon.NPCs.Bosses
 				}
 				if (attack == 2)
 				{
-					if (Timer % 50 == 0)
+					if (Timer % 16 == 0)
 					{
-						Projectile.NewProjectile(targetPlayer.X + Main.rand.Next(-300, 301), targetPlayer.Y - 500, Main.rand.Next(-3, 4), 2.5f, mod.ProjectileType("DirtScythe"), 8, 1f, Main.myPlayer);
-						if (attackMax < attackNum + 1)
+						Projectile.NewProjectile(targetPlayer.X + Main.rand.Next(-600, 601), targetPlayer.Y - 500, 0, 6f, mod.ProjectileType("DirtTile"), 7, 1f, Main.myPlayer);
+						if (attackMax * 6 < attackNum)
 						{
 							attackDone = true;
 						}
@@ -226,9 +235,9 @@ namespace Zylon.NPCs.Bosses
 				
 				if (attack == 1)
 				{
-					if (Timer % 90 == 0)
+					if (Timer % 120 == 0)
 					{
-						Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 3, mod.ProjectileType("DirtBall"), 4, 10, Main.myPlayer);
+						Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 3, mod.ProjectileType("DirtBall"), 3, 10, Main.myPlayer);
 						if (attackMax < attackNum + 1)
 						{
 							attackDone = true;
@@ -238,10 +247,10 @@ namespace Zylon.NPCs.Bosses
 				}
 				if (attack == 2)
 				{
-					if (Timer % 100 == 0)
+					if (Timer % 20 == 0)
 					{
-						Projectile.NewProjectile(targetPlayer.X + Main.rand.Next(-280, 281), targetPlayer.Y - 500, 0, 2f, mod.ProjectileType("DirtScythe"), 8, 1f, Main.myPlayer);
-						if (attackMax < attackNum + 1)
+						Projectile.NewProjectile(targetPlayer.X + Main.rand.Next(-600, 601), targetPlayer.Y - 500, 0, 5.5f, mod.ProjectileType("DirtTile"), 6, 1f, Main.myPlayer);
+						if (attackMax * 4 < attackNum)
 						{
 							attackDone = true;
 						}
@@ -250,22 +259,21 @@ namespace Zylon.NPCs.Bosses
 				}
 			}
 		}
-	    public override void NPCLoot()
-        {
+		public override void BossLoot(ref string name, ref int potionType)
+		{
 			if(Main.expertMode)
 			{
 				Item.NewItem(npc.getRect(), mod.ItemType("DirtballBag"));
 			}
 		    else
 			{
-			int ran = Main.rand.Next(1, 8);
+			int ran = Main.rand.Next(1, 7);
 			if (ran == 1) Item.NewItem(npc.getRect(), mod.ItemType("BrokenDirtballCopperShortsword"));
 			if (ran == 2) Item.NewItem(npc.getRect(), mod.ItemType("DirtyDiscus"));
-			if (ran == 3) Item.NewItem(npc.getRect(), mod.ItemType("DirtyHarp"));
+			if (ran == 3) Item.NewItem(npc.getRect(), mod.ItemType("DirtyBlowpipw"));
 			if (ran == 4) Item.NewItem(npc.getRect(), mod.ItemType("DirtyPistol"));
-			if (ran == 5) Item.NewItem(npc.getRect(), mod.ItemType("DirtyJar"));
-			if (ran == 6) Item.NewItem(npc.getRect(), mod.ItemType("DirtYoyo"));
-			if (ran == 7) Item.NewItem(npc.getRect(), mod.ItemType("DirtBow"));
+			if (ran == 5) Item.NewItem(npc.getRect(), mod.ItemType("DirtYoyo"));
+			if (ran == 6) Item.NewItem(npc.getRect(), mod.ItemType("DirtBow"));
 			
 			ran = Main.rand.Next(1, 4);
 			if (ran == 1) Item.NewItem(npc.getRect(), mod.ItemType("DirtballHelmet"));
@@ -280,28 +288,57 @@ namespace Zylon.NPCs.Bosses
 			
 			if (Main.rand.NextFloat() < .5f)
 			Item.NewItem(npc.getRect(), mod.ItemType("DirtyMedal"));
+
+			if (Main.rand.NextFloat() < .12f)
+			Item.NewItem(npc.getRect(), ItemID.DirtRod);
 			}
 			
 			ZylonWorld.downedDirtball = true;
-        }
-		
+		}
+		/*public override void NPCLoot()
+        {
+			if(Main.expertMode)
+			{
+				Item.NewItem(npc.getRect(), mod.ItemType("DirtballBag"));
+			}
+		    else
+			{
+			int ran = Main.rand.Next(1, 7);
+			if (ran == 1) Item.NewItem(npc.getRect(), mod.ItemType("BrokenDirtballCopperShortsword"));
+			if (ran == 2) Item.NewItem(npc.getRect(), mod.ItemType("DirtyDiscus"));
+			if (ran == 3) Item.NewItem(npc.getRect(), mod.ItemType("DirtyBlowpipw"));
+			if (ran == 4) Item.NewItem(npc.getRect(), mod.ItemType("DirtyPistol"));
+			if (ran == 5) Item.NewItem(npc.getRect(), mod.ItemType("DirtYoyo"));
+			if (ran == 6) Item.NewItem(npc.getRect(), mod.ItemType("DirtBow"));
+			
+			ran = Main.rand.Next(1, 4);
+			if (ran == 1) Item.NewItem(npc.getRect(), mod.ItemType("DirtballHelmet"));
+			if (ran == 2) Item.NewItem(npc.getRect(), mod.ItemType("DirtballGuardplate"));
+			if (ran == 3) Item.NewItem(npc.getRect(), mod.ItemType("DirtballLeggings"));
+			
+			Item.NewItem(npc.getRect(), ItemID.CopperBar, 1 + Main.rand.Next(5));
+			Item.NewItem(npc.getRect(), ItemID.DirtBlock, 1 + Main.rand.Next(5));
+			Item.NewItem(npc.getRect(), ItemID.MudBlock, 1 + Main.rand.Next(5));
+			Item.NewItem(npc.getRect(), ItemID.Gel, 1 + Main.rand.Next(5));
+			Item.NewItem(npc.getRect(), ItemID.Lens, 1 + Main.rand.Next(1));
+			
+			if (Main.rand.NextFloat() < .5f)
+			Item.NewItem(npc.getRect(), mod.ItemType("DirtyMedal"));
+
+			if (Main.rand.NextFloat() < .12f)
+			Item.NewItem(npc.getRect(), ItemID.DirtRod);
+			}
+			
+			ZylonWorld.downedDirtball = true;
+        }*/
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
 			if (!ZylonWorld.downedDirtball)
 			{
 				if(Main.dayTime)
-			    return 0.00075f;
+			    return 0.00015f;
 			}
 			return 0f;
         }
-		
-		/*public override void HitEffect(int hitDirection, double damage)
-		{
-			if (Main.expertMode)
-			{
-			    if (Main.rand.Next(105) == 0)
-				NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCID.RedSlime, 0, npc.whoAmI);
-			}
-		}*/
 	}
 }

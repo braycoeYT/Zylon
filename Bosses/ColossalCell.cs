@@ -1,13 +1,6 @@
-using Zylon;
-using Zylon.Items;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
@@ -16,19 +9,17 @@ namespace Zylon.NPCs.Bosses
 	[AutoloadBossHead]
 	public class ColossalCell : ModNPC
 	{
-		
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Colossal Cell");
 		}
-
         public override void SetDefaults()
 		{
-			npc.width = 115;
-			npc.height = 115;
+			npc.width = 148;
+			npc.height = 148;
 			npc.damage = 32;
 			npc.defense = 6;
-			npc.lifeMax = 1002;
+			npc.lifeMax = 3142;
 			npc.HitSound = SoundID.NPCHit9;
 			npc.DeathSound = SoundID.NPCDeath11;
 			npc.value = 0f;
@@ -38,7 +29,7 @@ namespace Zylon.NPCs.Bosses
 			npc.noTileCollide = true;
 			npc.boss = true;
 			npc.lavaImmune = true;
-			music = MusicID.Boss5;
+			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/CCell");
 			npc.netAlways = true;
 			npc.buffImmune[BuffID.OnFire] = true;
 			npc.buffImmune[BuffID.Confused] = true;
@@ -53,7 +44,7 @@ namespace Zylon.NPCs.Bosses
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 2124 + numPlayers * 800;
+            npc.lifeMax = 4593 + numPlayers * 800;
 			npc.damage = 56;
         }
 		
@@ -96,12 +87,10 @@ namespace Zylon.NPCs.Bosses
 		int moveMode2 = 0;
 		int moveMode = 0;
 		bool attackDone = true;
-		Vector2 targetPos;
 		public override void AI()
 		{
+			Player target = Main.player[npc.target];
 			Timer++;
-
-			targetPos = Main.player[npc.target].Center;
 			if (!Main.player[npc.target].GetModPlayer<ZylonPlayer>().ZoneMicrobiome)
 			{
 				RageTimer++;
@@ -111,8 +100,8 @@ namespace Zylon.NPCs.Bosses
 				else
 					npc.dontTakeDamage = false;
 			}
-			else
-				RageTimer = 0;
+			if (Main.player[npc.target].GetModPlayer<ZylonPlayer>().ZoneMicrobiome)
+			RageTimer = 0;
 			if (Main.player[npc.target].statLife < 1)
 			{
 				npc.TargetClosest(true);
@@ -121,6 +110,8 @@ namespace Zylon.NPCs.Bosses
 					if (flee == 0)
 						flee++;
 				}
+				else
+				flee = 0;
 			}
 			if (flee >= 1)
 			{
@@ -129,9 +120,11 @@ namespace Zylon.NPCs.Bosses
 				if (flee >= 450)
 					npc.active = false;
 			}
+			if (Timer < 100)
+			npc.TargetClosest(true);
 			if (moveMode2 == 0)
 			{
-				if (npc.position.Y < targetPos.Y - 400)
+				if (npc.position.Y < target.position.Y - 400)
 				{
 					//if (Timer % 20 == 0)
 						npc.velocity.Y += 1;
@@ -139,7 +132,7 @@ namespace Zylon.NPCs.Bosses
 					//if (npc.velocity.Y < 0)
 					//	npc.velocity.Y = 3;
 				}
-				if (npc.position.Y > targetPos.Y - 400)
+				else //if (npc.position.Y > target.position.Y - 400)
 				{
 					//if (Timer % 20 == 0)
 						npc.velocity.Y -= 1;
@@ -150,7 +143,7 @@ namespace Zylon.NPCs.Bosses
 			}
 			else if (moveMode2 == 1)
 			{
-				if (npc.position.Y < targetPos.Y + 180)
+				if (npc.position.Y < target.position.Y + 180)
 				{
 					//if (Timer % 20 == 0)
 						npc.velocity.Y += 1;
@@ -158,7 +151,7 @@ namespace Zylon.NPCs.Bosses
 					//if (npc.velocity.Y < 0)
 					//	npc.velocity.Y = 3;
 				}
-				if (npc.position.Y > targetPos.Y + 180)
+				else //if (npc.position.Y > target.position.Y + 180)
 				{
 					//if (Timer % 20 == 0)
 						npc.velocity.Y -= 1;
@@ -169,7 +162,7 @@ namespace Zylon.NPCs.Bosses
 			}
 			if (moveMode == 0)
 			{
-				if (!(npc.position.X > targetPos.X - 600))
+				if (!(npc.position.X > target.position.X - 600))
 				{
 					if (Timer % 20 == 0)
 						npc.velocity.X += 1;
@@ -182,7 +175,7 @@ namespace Zylon.NPCs.Bosses
 			}
 			else if (moveMode == 1)
 			{
-				if (!(npc.position.X < targetPos.X + 600))
+				if (!(npc.position.X < target.position.X + 600))
 				{
 					if (Timer % 20 == 0)
 						npc.velocity.X -= 1;
@@ -218,7 +211,7 @@ namespace Zylon.NPCs.Bosses
 					}
 					else if (attack == 2)
 					{
-						Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPos) * 4, mod.ProjectileType("CellularResidue"), 13, 10, Main.myPlayer);
+						Projectile.NewProjectile(npc.Center, npc.DirectionTo(target.position) * 4, mod.ProjectileType("CellularResidue"), 13, 10, Main.myPlayer);
 						float numberProj = Main.rand.Next(0, 4);
 						for (int i = 0; i < numberProj; i++)
 						{
@@ -253,7 +246,7 @@ namespace Zylon.NPCs.Bosses
 					}
 					else if (attack == 2)
 					{
-						Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPos) * 4, mod.ProjectileType("CellularResidue"), 9, 10, Main.myPlayer);
+						Projectile.NewProjectile(npc.Center, npc.DirectionTo(target.position) * 4, mod.ProjectileType("CellularResidue"), 9, 10, Main.myPlayer);
 						float numberProj = Main.rand.Next(0, 3);
 						for (int i = 0; i < numberProj; i++)
 						{
@@ -262,8 +255,8 @@ namespace Zylon.NPCs.Bosses
 					}
 				}
 			}
-			if (Timer % 5 == 0)
-			npc.rotation += 0.01f;
+			if (Timer % 4 == 0)
+			npc.rotation += 0.04f;
 			if (Timer % 1000 == 0)
 			{
 				moveMode2 = 1;
@@ -271,6 +264,14 @@ namespace Zylon.NPCs.Bosses
 			if (Timer % 1000 == 150)
 			{
 				moveMode2 = 0;
+			}
+			if (Timer % 300 == 0)
+			{
+				npc.velocity.X -= 2;
+			}
+			if (Timer % 300 == 150)
+			{
+				npc.velocity.X += 2;
 			}
 		}
 	}

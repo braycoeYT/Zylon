@@ -1,14 +1,8 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using Zylon.Items;
 
 namespace Zylon.NPCs.Bosses
 {
@@ -24,7 +18,7 @@ namespace Zylon.NPCs.Bosses
         public override void SetDefaults()
 		{
 			npc.width = 165;
-			npc.height = 160;
+			npc.height = 150;
 			npc.damage = 61;
 			npc.defense = 41;
 			npc.lifeMax = 35000;
@@ -32,16 +26,16 @@ namespace Zylon.NPCs.Bosses
 			npc.DeathSound = SoundID.NPCDeath1;
 			npc.value = 150000f;
 			npc.knockBackResist = 0f;
-			npc.aiStyle = -1; //51 original
+			npc.aiStyle = 1; //51 original
 			npc.noGravity = false;
 			npc.noTileCollide = false;
 			npc.boss = true;
 			npc.lavaImmune = true;
 			music = MusicID.Boss3;
 			npc.netAlways = true;
-			for (int k = 0; k < npc.buffImmune.Length; k++) {
-				npc.buffImmune[k] = true;
-			}
+			npc.buffImmune[BuffID.Venom] = true;
+			npc.buffImmune[BuffID.Confused] = true;
+			npc.buffImmune[BuffID.Poisoned] = true;
 			animationType = 1;
 			npc.alpha = 50;
 		}
@@ -92,17 +86,120 @@ namespace Zylon.NPCs.Bosses
 		int attack = 0;
 		int attackMax = 0;
 		int attackNum = 0;
+		int jumpMode = 0;
+		int jumpTimer = 0;
+		int jumpTimer2 = 0;
+		int jumpTimer3 = 0;
+		int jumpDir;
 		bool attackDone = true;
 		Vector2 targetPos;
 
 		public override void AI()
 		{
+			npc.TargetClosest(true);
+			Player target = Main.player[npc.target];
 			Timer++;
-			if (npc.lifeMax / 2 > npc.life)
+
+			//start of jump ai
+			if (jumpMode == 0)
 			{
-				npc.aiStyle = 2;
+				npc.noGravity = false;
+				npc.noTileCollide = false;
+				if (npc.lifeMax / 2 > npc.life)
+				jumpTimer2 = 11;
+				else
+				jumpTimer2 = 9;
+				if (Main.expertMode)
+				jumpTimer2 += 2;
+				jumpTimer++;
+				if (jumpTimer > 120)
+					jumpMode = 1;
+				jumpTimer3 = 0;
+			}
+			if (jumpMode == 1)
+			{
+				npc.noGravity = false;
+				npc.noTileCollide = false;
+				if (target.position.X > npc.position.X)
+				jumpDir = 0;
+				else
+				jumpDir = 1;
+				jumpMode = 2;
+			}
+			if (jumpMode == 2)
+			{
+				jumpTimer++;
+				if (jumpTimer % 60 == 0)
+				jumpTimer2 += 1;
 				npc.noGravity = true;
 				npc.noTileCollide = true;
+				if (jumpDir == 0)
+				{
+					npc.velocity.X = jumpTimer2;
+					if (npc.position.X > target.position.X - 5 && npc.position.Y < target.position.Y)
+					jumpMode = 3;
+				}
+				if (jumpDir == 1)
+				{
+					npc.velocity.X = jumpTimer2 * -1;
+					if (npc.position.X < target.position.X + 5 && npc.position.Y < target.position.Y)
+					jumpMode = 3;
+				}
+				if (npc.position.Y < target.position.Y - 400)
+					npc.position.Y = target.position.Y - 400;
+				if (npc.lifeMax / 2 > npc.life && Main.expertMode)
+				npc.velocity.Y = -10;
+				else if (npc.lifeMax / 2 > npc.life || Main.expertMode)
+				npc.velocity.Y = -8;
+				else
+				npc.velocity.Y = -7;
+			}
+			if (jumpMode == 3)
+			{
+				npc.noGravity = false;
+				npc.noTileCollide = false;
+				npc.velocity.X = 0;
+				npc.velocity.Y = 8;
+				jumpTimer3++;
+				if (jumpTimer3 % 61 == 60)
+				jumpMode = 4;
+			}
+			if (jumpMode == 4)
+			{
+				jumpDir = 0;
+				jumpTimer = 0;
+				jumpTimer2 = 0;
+				jumpTimer3 = 0;
+				jumpMode = 0;
+				Main.PlaySound(SoundID.Item62);
+				if (Main.expertMode && npc.lifeMax / 2.5 > npc.life)
+				{
+					float numberProjectiles = Main.rand.Next(32, 49);
+					for (int i = 0; i < numberProjectiles; i++)
+					{
+						Projectile.NewProjectile(npc.Center, new Vector2(1, 4).RotatedByRandom(MathHelper.TwoPi), mod.ProjectileType("EmpressSpike"), 29, 2, Main.myPlayer);
+					}
+				}
+				else if (Main.expertMode && npc.lifeMax / 1.5 > npc.life)
+				{
+					float numberProjectiles = Main.rand.Next(25, 36);
+					for (int i = 0; i < numberProjectiles; i++)
+					{
+						Projectile.NewProjectile(npc.Center, new Vector2(1, 4).RotatedByRandom(MathHelper.TwoPi), mod.ProjectileType("EmpressSpike"), 29, 2, Main.myPlayer);
+					}
+				}
+				else if (Main.expertMode)
+				{
+					float numberProjectiles = Main.rand.Next(20, 31);
+					for (int i = 0; i < numberProjectiles; i++)
+					{
+						Projectile.NewProjectile(npc.Center, new Vector2(1, 4).RotatedByRandom(MathHelper.TwoPi), mod.ProjectileType("EmpressSpike"), 29, 2, Main.myPlayer);
+					}
+				}
+			}
+			//end of jump ai
+			if (npc.lifeMax / 2 > npc.life)
+			{
 				if (Main.expertMode)
 				{
 					int healSpeed = (int)(npc.life / 400);
@@ -134,23 +231,6 @@ namespace Zylon.NPCs.Bosses
 						npc.life += 1;
 				}
 			}
-			else
-			{
-				npc.aiStyle = 1;
-				npc.noGravity = false;
-				npc.noTileCollide = false;
-			}
-			if (npc.lifeMax / 2 < npc.life)
-			{
-				rage += 1;
-				if (rage > 600)
-				{
-					npc.position.X = Main.player[npc.target].position.X - Main.rand.Next(-500, 501);
-					npc.position.Y = Main.player[npc.target].position.Y - 600;
-					rage = 0;
-				}
-			}
-
 			if (Main.player[npc.target].statLife < 1)
 			{
 				npc.TargetClosest(true);
@@ -159,6 +239,8 @@ namespace Zylon.NPCs.Bosses
 					if (flee == 0)
 					flee++;
 				}
+				else
+				flee = 0;
 			}
 			if (flee >= 1)
             {
@@ -196,23 +278,11 @@ namespace Zylon.NPCs.Bosses
 					}
 				}
 			}
-
-			if (Timer % 600 == 0)
-			{
-				float numberProjectiles = 50;
-				int delay = 0;
-				for (int i = 0; i < numberProjectiles; i++)
-				{
-					Projectile.NewProjectile(npc.Center.X - 3750 + delay, npc.Center.Y - 750, 0, 2, mod.ProjectileType("EmpressBlob"), 26, Main.myPlayer);
-					delay += 150;
-				}
-			}
-
 			if (Main.expertMode)
 			{
 				if (attackDone)
 				{
-					attack = Main.rand.Next(1, 4);
+					attack = Main.rand.Next(1, 3);
 					attackDone = false;
 					attackMax = Main.rand.Next(3, 7);
 					attackNum = 0;
@@ -237,15 +307,6 @@ namespace Zylon.NPCs.Bosses
 							attackNum += 1;
 						}
 					}
-					if (attack == 3 && Timer % 120 == 0)
-					{
-						float numberProjectiles = Main.rand.Next(15, 26);
-						for (int i = 0; i < numberProjectiles; i++)
-						{
-							Projectile.NewProjectile(npc.Center, new Vector2(0, 4).RotatedByRandom(MathHelper.TwoPi), mod.ProjectileType("EmpressSpike"), 28, 2, Main.myPlayer);
-						}
-						attackDone = true;
-					}
 				}
 				else
 				{
@@ -266,15 +327,6 @@ namespace Zylon.NPCs.Bosses
 								attackDone = true;
 							attackNum += 1;
 						}
-					}
-					if (attack == 3 && Timer % 100 == 0)
-					{
-						float numberProjectiles = Main.rand.Next(26, 41);
-						for (int i = 0; i < numberProjectiles; i++)
-						{
-							Projectile.NewProjectile(npc.Center, new Vector2(1, 4).RotatedByRandom(MathHelper.TwoPi), mod.ProjectileType("EmpressSpike"), 29, 2, Main.myPlayer);
-						}
-						attackDone = true;
 					}
 				}
 			}
@@ -344,7 +396,7 @@ namespace Zylon.NPCs.Bosses
 				if (ran == 2) Item.NewItem(npc.getRect(), mod.ItemType("EmpressBleeders"));
 				if (ran == 3) Item.NewItem(npc.getRect(), mod.ItemType("Egg"));
 				if (ran == 4) Item.NewItem(npc.getRect(), mod.ItemType("EmpressShuriken"));
-				if (ran == 5) Item.NewItem(npc.getRect(), mod.ItemType("Telomere"));
+				if (ran == 5) Item.NewItem(npc.getRect(), mod.ItemType("Eggspray"));
 				if (ran == 6) Item.NewItem(npc.getRect(), mod.ItemType("EmpressTears"));
 
 				Item.NewItem(npc.getRect(), mod.ItemType("EmpressShard"), Main.rand.Next(9, 15));

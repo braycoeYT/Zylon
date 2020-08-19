@@ -1,13 +1,6 @@
-using Zylon;
-using Zylon.Items;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
@@ -24,11 +17,11 @@ namespace Zylon.NPCs.Bosses
 
         public override void SetDefaults()
 		{
-			npc.width = 57;
-			npc.height = 57;
+			npc.width = 63;
+			npc.height = 63;
 			npc.damage = 21;
 			npc.defense = 9;
-			npc.lifeMax = 819;
+			npc.lifeMax = 1109;
 			npc.HitSound = SoundID.NPCHit9;
 			npc.DeathSound = SoundID.NPCDeath11;
 			npc.value = 50000f;
@@ -38,7 +31,7 @@ namespace Zylon.NPCs.Bosses
 			npc.noTileCollide = true;
 			npc.boss = true;
 			npc.lavaImmune = true;
-			music = MusicID.Boss4;
+			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/CCell");
 			npc.netAlways = true;
 			npc.buffImmune[BuffID.OnFire] = true;
 			npc.buffImmune[BuffID.Confused] = true;
@@ -52,7 +45,7 @@ namespace Zylon.NPCs.Bosses
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 1283 + numPlayers * 150;
+            npc.lifeMax = 1998 + numPlayers * 240;
 			npc.damage = 48;
 			npc.knockBackResist = 0.3f;
 		}
@@ -79,17 +72,6 @@ namespace Zylon.NPCs.Bosses
 					NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.Cell.BacteriteEgg>(), 0, npc.whoAmI);
 			}
 		}
-		
-        /*public float Timer
-		{
-	        get => npc.ai[0];
-	        set => npc.ai[0] = value;
-        }
-		public float RageTimer
-		{
-			get => npc.ai[1];
-			set => npc.ai[1] = value;
-		}*/
 		int flee = 0;
 		int attack = 0;
 		int attackMax = 0;
@@ -102,11 +84,12 @@ namespace Zylon.NPCs.Bosses
 		Vector2 targetPos;
 		public override void AI()
 		{
+			npc.TargetClosest(true);
 			npc.noTileCollide = true;
 			Timer++;
 			targetPos = Main.player[npc.target].Center;
 
-			/*if (!Main.player[npc.target].GetModPlayer<ZylonPlayer>().ZoneMicrobiome)
+			if (!Main.player[npc.target].GetModPlayer<ZylonPlayer>().ZoneMicrobiome)
 			{
 				RageTimer++;
 
@@ -116,7 +99,7 @@ namespace Zylon.NPCs.Bosses
 					npc.dontTakeDamage = false;
 			}
 			else
-			RageTimer = 0;*/
+			RageTimer = 0;
 
 			if (Main.player[npc.target].statLife < 1)
 			{
@@ -126,6 +109,8 @@ namespace Zylon.NPCs.Bosses
 					if (flee == 0)
 						flee++;
 				}
+				else
+				flee = 0;
 			}
 			if (flee >= 1)
 			{

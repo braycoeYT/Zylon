@@ -1,10 +1,4 @@
-using Zylon;
-using Zylon.Items;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -24,8 +18,8 @@ namespace Zylon.NPCs.Bosses
 
         public override void SetDefaults()
 		{
-			npc.width = 115;
-			npc.height = 115;
+			npc.width = 159;
+			npc.height = 159;
 			npc.damage = 14;
 			npc.defense = 2;
 			npc.lifeMax = 1300;
@@ -38,7 +32,7 @@ namespace Zylon.NPCs.Bosses
 			npc.noTileCollide = true;
 			npc.boss = true;
 			npc.lavaImmune = true;
-			music = MusicID.Boss2;
+			music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/ADD");
 			npc.netAlways = true;
 			npc.buffImmune[BuffID.Poisoned] = true;
 			npc.buffImmune[BuffID.OnFire] = true;
@@ -75,7 +69,7 @@ namespace Zylon.NPCs.Bosses
 				if (Main.expertMode)
 				NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("ElectricalEntity"));
 				Color messageColor = Color.CornflowerBlue;
-				string chat = "I will defend Terraria with all my decaying might!";
+				string chat = "I will defend Terraria with all of my might!";
 				if (Main.netMode == NetmodeID.Server)
 				{
 					NetMessage.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);
@@ -105,6 +99,7 @@ namespace Zylon.NPCs.Bosses
 
         public override void AI()
 		{
+			npc.TargetClosest(true);
 			if (!Main.player[npc.target].ZoneDesert)
 			{
 				RageTimer++;
@@ -116,7 +111,7 @@ namespace Zylon.NPCs.Bosses
 			}
 			else
 				RageTimer = 0;
-				if (Main.player[npc.target].statLife < 1)
+			if (Main.player[npc.target].statLife < 1)
 			{
 				npc.TargetClosest(true);
 				if (Main.player[npc.target].statLife < 1)
@@ -125,6 +120,8 @@ namespace Zylon.NPCs.Bosses
 					flee++;
 				}
 			}
+			else
+				flee = 0;
 			if (flee >= 1)
             {
                 flee++;

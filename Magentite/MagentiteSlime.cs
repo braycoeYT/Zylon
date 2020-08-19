@@ -17,7 +17,7 @@ namespace Zylon.NPCs.Magentite
 			npc.height = 18;
 			npc.damage = 19;
 			npc.defense = 1;
-			npc.lifeMax = 59;
+			npc.lifeMax = 51;
 			npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath3;
 			npc.value = 131f;
@@ -28,23 +28,22 @@ namespace Zylon.NPCs.Magentite
         }
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 119;
+            npc.lifeMax = 109;
             npc.damage = 35;
-			npc.defense = 2;
         }
 		
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-			return SpawnCondition.Cavern.Chance * 0.07f;
+			return SpawnCondition.Cavern.Chance * 0.13f;
         }
 		
 	    public override void NPCLoot()
         {
 			Item.NewItem(npc.getRect(), ItemID.Gel, 1 + Main.rand.Next(2));
 			Item.NewItem(npc.getRect(), mod.ItemType("MagentiteOre"), 1 + Main.rand.Next(3));
-			if (Main.rand.NextFloat() < .001f)
-				if (NPC.downedBoss1)
-					Item.NewItem(npc.getRect(), mod.ItemType("MagentaMagnet"), 3);
+			if (Main.rand.NextFloat() < .003f)
+				if (NPC.downedBoss2)
+					Item.NewItem(npc.getRect(), mod.ItemType("MagentaMagnet"));
 			if (Main.rand.NextFloat() < .02f)
 				Item.NewItem(npc.getRect(), mod.ItemType("EyeCandy"));
 		}
