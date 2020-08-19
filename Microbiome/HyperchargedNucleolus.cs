@@ -1,9 +1,5 @@
-using System;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
-using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Items.Microbiome
 {
@@ -23,7 +19,7 @@ namespace Zylon.Items.Microbiome
 			item.rare = 3;
 			item.expert = true;
 		}
-		public int playerTimer;
+		int playerTimer;
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();

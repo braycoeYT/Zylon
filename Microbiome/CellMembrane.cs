@@ -10,7 +10,6 @@ namespace Zylon.Items.Microbiome
 		{
 			Tooltip.SetDefault("Eww, it's melting in my hands...");
 		}
-		
 		public override void SetDefaults()
 		{
 			item.useStyle = 1;
