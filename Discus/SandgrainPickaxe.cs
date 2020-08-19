@@ -7,7 +7,7 @@ namespace Zylon.Items.Discus
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Cyanix Pickaxe");
+			DisplayName.SetDefault("Sandgrain Pickaxe");
 			Tooltip.SetDefault("Can mine meteorite");
 		}
 
@@ -15,8 +15,8 @@ namespace Zylon.Items.Discus
 		{
 			item.damage = 7;
 			item.melee = true;
-			item.width = 33;
-			item.height = 33;
+			item.width = 28;
+			item.height = 28;
 			item.useTime = 24;
 			item.useAnimation = 24;
 			item.useStyle = ItemUseStyleID.SwingThrow;

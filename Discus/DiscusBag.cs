@@ -8,14 +8,11 @@ namespace Zylon.Items.Discus
 {
 	public class DiscusBag : ModItem
 	{
-		public override void SetStaticDefaults()
-		{
+		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Treasure Bag");
 			Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 		}
-
-		public override void SetDefaults()
-		{
+		public override void SetDefaults() {
 			item.maxStack = 99;
 			item.consumable = true;
 			item.width = 40;
@@ -23,14 +20,10 @@ namespace Zylon.Items.Discus
 			item.rare = 12;
 			item.expert = true;
 		}
-
-		public override bool CanRightClick()
-		{
+		public override bool CanRightClick() {
 			return true;
 		}
-
-		public override void OpenBossBag(Player player)
-		{
+		public override void OpenBossBag(Player player) {
 			player.QuickSpawnItem(ItemID.SandBlock, Main.rand.Next(5, 20));
 			player.QuickSpawnItem(ItemID.Amber, Main.rand.Next(3, 6));
 			player.QuickSpawnItem(ItemID.GoldBar, Main.rand.Next(5, 8));

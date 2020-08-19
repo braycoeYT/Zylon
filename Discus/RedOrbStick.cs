@@ -15,8 +15,8 @@ namespace Zylon.Items.Discus
 		{
 			item.damage = 10;
 			item.magic = true;
-			item.width = 33;
-			item.height = 33;
+			item.width = 29;
+			item.height = 34;
 			item.useTime = 21;
 			item.useAnimation = 21;
 			item.useStyle = 1;
@@ -35,6 +35,7 @@ namespace Zylon.Items.Discus
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.WandofSparking);
 			recipe.AddIngredient(mod.ItemType("ZylonianDesertCore"), 3);
 			recipe.AddIngredient(mod.ItemType("BrokenDiscus"), 2);
 			recipe.AddTile(TileID.Anvils);

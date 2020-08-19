@@ -37,14 +37,14 @@ namespace Zylon.Items.Empress
 			if (ran == 2) player.QuickSpawnItem(mod.ItemType("EmpressBleeders"));
 			if (ran == 3) player.QuickSpawnItem(mod.ItemType("Egg"));
 			if (ran == 4) player.QuickSpawnItem(mod.ItemType("EmpressShuriken"));
-			if (ran == 5) player.QuickSpawnItem(mod.ItemType("Telomere"));
+			if (ran == 5) player.QuickSpawnItem(mod.ItemType("Eggspray"));
 			if (ran == 6) player.QuickSpawnItem(mod.ItemType("EmpressTears"));
 			ran = Main.rand.Next(1, 7);
 			if (ran == 1) player.QuickSpawnItem(mod.ItemType("EmpressYolk"));
 			if (ran == 2) player.QuickSpawnItem(mod.ItemType("EmpressBleeders"));
 			if (ran == 3) player.QuickSpawnItem(mod.ItemType("Egg"));
 			if (ran == 4) player.QuickSpawnItem(mod.ItemType("EmpressShuriken"));
-			if (ran == 5) player.QuickSpawnItem(mod.ItemType("Telomere"));
+			if (ran == 5) player.QuickSpawnItem(mod.ItemType("Eggspray"));
 			if (ran == 6) player.QuickSpawnItem(mod.ItemType("EmpressTears"));
 			player.QuickSpawnItem(mod.ItemType("SpikySac"));
 			player.QuickSpawnItem(mod.ItemType("EmpressShard"), Main.rand.Next(11, 19));
