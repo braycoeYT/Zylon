@@ -7,7 +7,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Tiles.Furniture.Workbenches.PHOres
 {
-	public class PlatinumWorkBench : ModTile
+	public class IronWorkBench : ModTile
 	{
 		public override void SetDefaults() {
 			Main.tileSolidTop[Type] = true;
@@ -20,9 +20,9 @@ namespace Zylon.Tiles.Furniture.Workbenches.PHOres
 			TileObjectData.addTile(Type);
 			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
 			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Platinum Work Bench");
-			AddMapEntry(new Color(128, 151, 184), name);
-			dustType = 84;
+			name.SetDefault("Iron Work Bench");
+			AddMapEntry(new Color(168, 145, 130), name);
+			dustType = 8;
 			disableSmartCursor = true;
 			adjTiles = new int[] { TileID.WorkBenches };
 		}
@@ -30,7 +30,7 @@ namespace Zylon.Tiles.Furniture.Workbenches.PHOres
 			num = fail ? 1 : 3;
 		}
 		public override void KillMultiTile(int i, int j, int frameX, int frameY) {
-			Item.NewItem(i * 16, j * 16, 32, 16, ItemType<Items.Furniture.Workbenches.PHOres.PlatinumWorkBench>());
+			Item.NewItem(i * 16, j * 16, 32, 16, ItemType<Items.Furniture.Workbenches.PHOres.IronWorkBench>());
 		}
 	}
 }

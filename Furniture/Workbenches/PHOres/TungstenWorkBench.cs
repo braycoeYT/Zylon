@@ -1,30 +1,36 @@
+using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Items.Furniture.Workbenches.PHOres
+namespace Zylon.Tiles.Furniture.Workbenches.PHOres
 {
-	public class TungstenWorkBench : ModItem
+	public class TungstenWorkBench : ModTile
 	{
 		public override void SetDefaults() {
-			item.width = 28;
-			item.height = 14;
-			item.maxStack = 99;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.useStyle = 1;
-			item.consumable = true;
-			item.value = 45000;
-			item.createTile = TileType<Tiles.Furniture.Workbenches.PHOres.TungstenWorkBench>();
+			Main.tileSolidTop[Type] = true;
+			Main.tileFrameImportant[Type] = true;
+			Main.tileNoAttach[Type] = true;
+			Main.tileTable[Type] = true;
+			Main.tileLavaDeath[Type] = true;
+			TileObjectData.newTile.CopyFrom(TileObjectData.Style2x1);
+			TileObjectData.newTile.CoordinateHeights = new[] { 18 };
+			TileObjectData.addTile(Type);
+			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
+			ModTranslation name = CreateMapEntryName();
+			name.SetDefault("Tungsten Work Bench");
+			AddMapEntry(new Color(139, 175, 140), name);
+			dustType = 83;
+			disableSmartCursor = true;
+			adjTiles = new int[] { TileID.WorkBenches };
 		}
-		public override void AddRecipes() {
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.TungstenBar, 10);
-			recipe.AddTile(TileID.HeavyWorkBench);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+		public override void NumDust(int i, int j, bool fail, ref int num) {
+			num = fail ? 1 : 3;
+		}
+		public override void KillMultiTile(int i, int j, int frameX, int frameY) {
+			Item.NewItem(i * 16, j * 16, 32, 16, ItemType<Items.Furniture.Workbenches.PHOres.TungstenWorkBench>());
 		}
 	}
 }

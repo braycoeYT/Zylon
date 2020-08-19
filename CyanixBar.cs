@@ -6,13 +6,13 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Tiles.Microbiome
+namespace Zylon.Tiles
 {
-	public class TwistedMembraneBar : ModTile
+	public class CyanixBar : ModTile
 	{
 		public override void SetDefaults()
 		{
-			Main.tileShine[Type] = 1400;
+			Main.tileShine[Type] = 1100;
 			Main.tileSolid[Type] = true;
 			Main.tileSolidTop[Type] = true;
 			Main.tileFrameImportant[Type] = true;
@@ -20,7 +20,7 @@ namespace Zylon.Tiles.Microbiome
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.addTile(Type);
-			AddMapEntry(new Color(50, 50, 255), Language.GetText("MapObject.MetalBar"));
+			AddMapEntry(new Color(0, 255, 255), Language.GetText("MapObject.MetalBar"));
 		}
 
 		public override bool Drop(int i, int j)
@@ -29,7 +29,7 @@ namespace Zylon.Tiles.Microbiome
 			int style = t.frameX / 18;
 			if (style == 0)
 			{
-				Item.NewItem(i * 16, j * 16, 16, 16, ItemType<Items.Microbiome.TwistedMembraneBar>());
+				Item.NewItem(i * 16, j * 16, 16, 16, ItemType<Items.Cyanix.CyanixBar>());
 			}
 			return base.Drop(i, j);
 		}
