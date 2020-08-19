@@ -1,3 +1,4 @@
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,37 +11,36 @@ namespace Zylon.Items.Mineral
 	{
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("The eyes inside are glad you freed them...\nThe eyes are happier when you are doing something\n+3% damage reduction\nHealth and mana are increased by 20\n+5% all crit\nWhen not moving vertically, your defense is heavily increased\nWhen moving quickly vertically, your defense is slightly decreased\nThe negative effects seem worse because of the positive ones happening when you stand still");
+			Tooltip.SetDefault("The eyes inside are glad you freed them...\nThe eyes are happier when you are doing something\nDamage reduction increased by 5%\nIncreases all critical strike chance by 5% and damage by 10%\nIncreases max health and mana by 20, and increases health and mana regen by 2\nWhen not moving vertically, your defense is heavily increased\nWhen moving quickly vertically, your defense is slightly decreased\nThe negative effects seem worse because of the positive ones happening when you stand still");
 		}
 
 		public override void SetDefaults()
 		{
 			item.width = 18;
 			item.height = 18;
-			item.value = 750000;
+			item.value = 1000000;
 			item.rare = 11;
-			item.defense = 45;
+			item.defense = 44;
 		}
 		
 		public override void UpdateEquip(Player player)
 		{
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			if (player.velocity.Y != 0)
 			{
-				if (player.velocity.Y > 0)
-				player.statDefense -= (int)player.velocity.Y;
-				else
-				player.statDefense -= ((int)player.velocity.Y * -1);
+				player.statDefense -= (int)Math.Abs(player.velocity.Y);
 			}
 			else
 			player.statDefense += 30;
-		
-			player.allDamage += 0.04f;
-			player.statLifeMax2 += 20;
-			player.statManaMax2 += 20;
-			player.endurance += 0.03f;
+			player.allDamage += 0.1f;
+			player.endurance += 0.05f;
 			player.meleeCrit += 5;
 			player.rangedCrit += 5;
 			player.magicCrit += 5;
+			player.statLifeMax2 += 20;
+			player.statManaMax2 += 20;
+			player.lifeRegen += 2;
+			player.manaRegen += 2;
 		}
 		
 		public override void AddRecipes() 

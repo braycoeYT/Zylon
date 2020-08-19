@@ -10,7 +10,7 @@ namespace Zylon.Items.Mineral
         public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Dreamsday Bullet");
-			Tooltip.SetDefault("An optical illusion of power\nCan pierce 12 times, can inflict venom, and can inflict Frostburn.");
+			Tooltip.SetDefault("An optical illusion of power\nCan inflict xenic acid on enemies");
         }
 		public override void SetDefaults()
 		{

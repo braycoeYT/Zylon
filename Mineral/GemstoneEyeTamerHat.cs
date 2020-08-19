@@ -10,41 +10,42 @@ namespace Zylon.Items.Mineral
 	{
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("Shiny and smooth...\n25% increased minion damage\nMinion knockback increased by 1.5\nMax minions increased by 3\nMax life increased by 5\nDamage reduction is increased by 3%\nDefense is increased when health is low");
+			Tooltip.SetDefault("Shiny and smooth...\nDamage reduction is increased by 2.5%\nIncreases summon damage by 62%\nIncreases minion knockback by 60%\nIncreases max amount of minions by 5\nDefense is increased when health is low");
 		}
 
 		public override void SetDefaults()
 		{
 			item.width = 18;
 			item.height = 18;
-			item.value = 100000;
+			item.value = 500000;
 			item.rare = 11;
-			item.defense = 4;
+			item.defense = 9;
 		}
 
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ItemType<GemstoneChestplate>() && legs.type == ItemType<GemstoneLeggings>();
 		}
-
+		int playerTimer;
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = "After taking damage, there is an one in seven chance chance of an eyespike bullet rain to occur above the player\nMax minions increased by 1\nMinion damage increased by 5%";
-			player.maxMinions += 1;
-			player.minionDamage += 0.05f;
+			playerTimer++;
+			player.setBonus = "Rains eye crystals above the player";
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			p.gemstoneRain = true;
+			if (playerTimer % 10 == 0)
+			{
+				Projectile.NewProjectile(player.Center.X + Main.rand.Next(-60, 61), player.Center.Y - 600, Main.rand.Next(-3, 4), 7, mod.ProjectileType("GemstoneSpikeRain"), 75, 1f, player.whoAmI);
+			}
 		}
 		
 		public override void UpdateEquip(Player player)
 		{
-			player.minionDamage += 0.25f;
-			player.minionKB += 1.5f;
-			player.maxMinions += 3;
-			player.statLifeMax2 += 5;
-			player.endurance += 0.03f;
+			player.minionDamage += 0.62f;
+			player.minionKB += 0.6f;
+			player.maxMinions += 5;
+			player.endurance += 0.025f;
 			if (player.statLife < player.statLifeMax2 / 3)
-				player.statDefense += 12;
+				player.statDefense += 15;
 		}
 
 		public override void AddRecipes()

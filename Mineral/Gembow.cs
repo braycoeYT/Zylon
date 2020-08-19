@@ -2,23 +2,19 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Items.Mineral
 {
 	public class Gembow : ModItem
 	{
-		public override void SetStaticDefaults() 
-		{
+		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("Shoot two arrows instead of one\nAlso shoots a dreamsday arrow");
 		}
-
-		public override void SetDefaults() 
-		{
+		public override void SetDefaults()  {
 			item.useStyle = 5;
 			item.useAnimation = 25;
 			item.useTime = 25;
-			item.damage = 298;
+			item.damage = 196;
 			item.width = 12;
 			item.height = 24;
 			item.knockBack = 0;
@@ -32,9 +28,7 @@ namespace Zylon.Items.Mineral
 			item.value = 1000000;
 			item.rare = 10;
 		}
-		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-		{
+		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack) {
 			float numberProjectiles = 2;
 			float rotation = MathHelper.ToRadians(5);
 			position += Vector2.Normalize(new Vector2(speedX, speedY)) * 2.5f;
@@ -46,8 +40,7 @@ namespace Zylon.Items.Mineral
 			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("DreamsdayArrow"), damage, knockBack, player.whoAmI);
 			return false;
 		}
-		public override void AddRecipes()
-		{
+		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType("GalacticDiamondium"), 10);
 			recipe.AddIngredient(mod.ItemType("EctojeweloBar"), 8);

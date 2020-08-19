@@ -1,3 +1,4 @@
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,31 +11,29 @@ namespace Zylon.Items.Mineral
 	{
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("The boots are surprisingly light\n+3% Damage Reduction\n100% increased movement speed\nWhen not moving horizontally, you do a lot more damage\nIf you are moving quickly horizontally, you do slightly less damage\nThe negative effects seem worse because of the positive ones happening when you stand still");
+			Tooltip.SetDefault("The boots are surprisingly light\nDamage reduction increased by 4%\nIncreases movement speed by 5%\nWhen not moving horizontally, you do a lot more damage\nIf you are moving quickly horizontally, you do slightly less damage\nThe negative effects seem worse because of the positive ones happening when you stand still");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 18;
+			item.width = 22;
 			item.height = 18;
-			item.value = 500000;
+			item.value = 750000;
 			item.rare = 11;
-			item.defense = 32;
+			item.defense = 30;
 		}
 		
 		public override void UpdateEquip(Player player)
 		{
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			if (player.velocity.X != 0)
 			{
-				if (player.velocity.X > 0)
-				player.allDamage -= player.velocity.X / 100f;
-				else
-				player.allDamage -= player.velocity.X / -100f;
+				player.allDamage -= Math.Abs(player.velocity.X) / 100;
 			}
 			else
 			player.allDamage += 0.4f;
-			player.maxRunSpeed += 1f;
-			player.endurance += 0.03f;
+			player.maxRunSpeed += 0.05f;
+			player.endurance += 0.04f;
 		}
 		
 		public override void AddRecipes() 
