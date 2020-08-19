@@ -28,7 +28,7 @@ namespace Zylon.Projectiles
 		}
 		public override void OnHitPlayer(Player target, int damage, bool crit)
 		{
-			target.AddBuff(BuffID.Venom, 350, false);
+			target.AddBuff(BuffID.Venom, 90, false);
 		}
 		public override void AI()
 		{

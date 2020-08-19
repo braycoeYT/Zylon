@@ -15,8 +15,8 @@ namespace Zylon.Projectiles
         }
 		public override void SetDefaults()
 		{
-			projectile.width = 24;
-			projectile.height = 24;
+			projectile.width = 36;
+			projectile.height = 36;
 			projectile.aiStyle = 1;
 			projectile.friendly = true;
 			projectile.penetrate = 1;
@@ -32,6 +32,10 @@ namespace Zylon.Projectiles
 		public override void OnHitPlayer(Player target, int damage, bool crit)
 		{
 			target.AddBuff(BuffID.Venom, 150, false);
+		}
+		public override void Kill(int timeLeft)
+		{
+			Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
 		}
 	}   
 }

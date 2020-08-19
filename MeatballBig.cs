@@ -27,5 +27,9 @@ namespace Zylon.Projectiles
 			if (Main.rand.Next(5) == 0)
 		    target.AddBuff(70, 240, false);
 		}
+		public override void Kill(int timeLeft)
+		{
+			Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
+		}
 	}   
 }
