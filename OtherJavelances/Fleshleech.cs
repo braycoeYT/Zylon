@@ -1,56 +1,86 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using static Terraria.ModLoader.ModContent;
+using Terraria.ModLoader;
 
-namespace Zylon.Projectiles.OtherJavelances
+namespace Zylon.Items.OtherJavelances
 {
-	public class Fleshleech : ModProjectile
+	public class Fleshleech : ModItem
 	{
-        public override void SetStaticDefaults()
+		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Fleshleech");
-        }
-		public override void SetDefaults()
+			Tooltip.SetDefault("Slowly leeches life\nStacks up to 4\nMore javelances means more javelances thrown\nUse time is decreased with more javelances");
+		}
+
+		public override void SetDefaults() 
 		{
-			projectile.width = 32;
-			projectile.height = 32;
-			projectile.aiStyle = 1;
-			projectile.friendly = true;
-			projectile.penetrate = 6;
-			projectile.ranged = true;
-			projectile.timeLeft = 3000;
-			projectile.ignoreWater = true;
-			aiType = 1;
+			item.damage = 31;
+			item.ranged = true;
+			item.width = 52;
+			item.height = 52;
+			item.useTime = 42;
+			item.useAnimation = 42;
+			item.useStyle = 1;
+			item.knockBack = 3.8f;
+			item.value = 20000;
+			item.rare = 4;
+			item.autoReuse = true;
+			item.useTurn = true;
+			item.shoot = mod.ProjectileType("Fleshleech");
+			item.shootSpeed = 10f;
+			item.noMelee = true;
+			item.maxStack = 4;
+			item.UseSound = SoundID.Item1;
+			item.noUseGraphic = true;
+			item.consumable = false;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-			if (Main.rand.Next(8) == 0)
-			{
-				Player p = Main.player[projectile.owner];
-				int healingAmount = damage/30;
-				p.statLife +=healingAmount;
-				p.HealEffect(healingAmount, true);
-			}
-		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
-			if (Main.rand.Next(8) == 0)
-			{
-				Player p = Main.player[projectile.owner];
-				int healingAmount = damage/30;
-				p.statLife +=healingAmount;
-				p.HealEffect(healingAmount, true);
-			}
-		}
-		public override void PostAI()
+		public override void UpdateInventory(Player player)
 		{
-			if (Main.rand.NextBool())
-			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 235);
-				dust.noGravity = false;
-				dust.scale = 0.8f;
-			}
+			item.useTime = 42 + (item.stack * 10) - 10;
+			item.useAnimation = 42 + (item.stack * 10) - 10;
 		}
-	}   
+		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		{
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+			if (p.redJavelance)
+			{
+				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("BleedingJavelance"), 45, 3f, player.whoAmI);
+			}
+			float numberProjectiles = item.stack;
+			float rotation = MathHelper.ToRadians(18);
+			if (numberProjectiles > 1)
+			{
+				position += Vector2.Normalize(new Vector2(speedX, speedY)) * 45f;
+				for (int i = 0; i < numberProjectiles; i++)
+				{
+					Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .9f;
+					Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+				}
+			return false;
+			}
+			return true;
+		}
+
+		public override void AddRecipes() 
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(mod.ItemType("LeecherJavelance"));
+			recipe.AddIngredient(mod.ItemType("AquaticJavelance"));
+			recipe.AddIngredient(mod.ItemType("VinepowerJavelance"));
+			recipe.AddIngredient(mod.ItemType("FirebentJavelance"));
+			recipe.AddTile(TileID.DemonAltar);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+			
+			recipe = new ModRecipe(mod);
+			recipe.AddIngredient(mod.ItemType("LeecherJavelance"), 3);
+			recipe.AddIngredient(mod.ItemType("AquaticJavelance"), 3);
+			recipe.AddIngredient(mod.ItemType("VinepowerJavelance"), 3);
+			recipe.AddIngredient(mod.ItemType("FirebentJavelance"), 3);
+			recipe.AddTile(TileID.DemonAltar);
+			recipe.SetResult(this, 4);
+			recipe.AddRecipe();
+		}
+	}
 }

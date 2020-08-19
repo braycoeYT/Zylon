@@ -1,38 +1,74 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using static Terraria.ModLoader.ModContent;
+using Terraria.ModLoader;
 
-namespace Zylon.Projectiles.OtherJavelances
+namespace Zylon.Items.OtherJavelances
 {
-	public class LeecherJavelance : ModProjectile
+	public class LeecherJavelance : ModItem
 	{
-        public override void SetStaticDefaults()
+		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Leecher Javelance");
-        }
-		public override void SetDefaults()
-		{
-			projectile.width = 32;
-			projectile.height = 32;
-			projectile.aiStyle = 1;
-			projectile.friendly = true;
-			projectile.penetrate = 4;
-			projectile.ranged = true;
-			projectile.timeLeft = 3000;
-			projectile.ignoreWater = true;
-			aiType = 1;
+			Tooltip.SetDefault("Its only dream is to leech life one day, which it is currently incapable of.\nStacks up to 3\nMore javelances means more javelances thrown\nUse time is decreased with more javelances");
 		}
-		public override void PostAI()
+
+		public override void SetDefaults() 
 		{
-			if (Main.rand.NextBool())
+			item.damage = 12;
+			item.ranged = true;
+			item.width = 52;
+			item.height = 52;
+			item.useTime = 28;
+			item.useAnimation = 28;
+			item.useStyle = 1;
+			item.knockBack = 3.8f;
+			item.value = 7500;
+			item.rare = 1;
+			item.autoReuse = true;
+			item.useTurn = true;
+			item.shoot = mod.ProjectileType("LeecherJavelance");
+			item.shootSpeed = 11f;
+			item.noMelee = true;
+			item.maxStack = 3;
+			item.UseSound = SoundID.Item1;
+			item.noUseGraphic = true;
+			item.consumable = false;
+		}
+		public override void UpdateInventory(Player player)
+		{
+			item.useTime = 28 + (item.stack * 10) - 10;
+			item.useAnimation = 28 + (item.stack * 10) - 10;
+		}
+		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		{
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+			if (p.redJavelance)
 			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 90);
-				dust.noGravity = false;
-				dust.scale = 0.8f;
+				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("BleedingJavelance"), 45, 3f, player.whoAmI);
 			}
+			float numberProjectiles = item.stack;
+			float rotation = MathHelper.ToRadians(18);
+			if (numberProjectiles > 1)
+			{
+				position += Vector2.Normalize(new Vector2(speedX, speedY)) * 45f;
+				for (int i = 0; i < numberProjectiles; i++)
+				{
+					Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .9f;
+					Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+				}
+			return false;
+			}
+			return true;
 		}
-	}   
+
+		public override void AddRecipes() 
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.CrimtaneBar, 12);
+			recipe.AddTile(TileID.Anvils);
+			recipe.SetResult(this, 3);
+			recipe.AddRecipe();
+		}
+	}
 }

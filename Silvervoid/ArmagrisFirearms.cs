@@ -8,21 +8,19 @@ namespace Zylon.Items.Silvervoid
 {
 	public class ArmagrisFirearms : ModItem
 	{
-		public override void SetStaticDefaults() 
-		{
+		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Armagris Firearms");
-			Tooltip.SetDefault("The pink gun's little brother\nShoots 3 Bullets for the cost of one\n45% chance of not consuming ammo");
+			Tooltip.SetDefault("That pink gun's little brother\nThere is a 10% chance of a silvervoid pellet to be shot with the bullet\n10% chance to not consume ammo");
 		}
 
-		public override void SetDefaults() 
-		{
-			item.value = 500000;
+		public override void SetDefaults() {
+			item.value = 150000;
 			item.useStyle = 5;
-			item.useAnimation = 8;
-			item.useTime = 8;
-			item.damage = 41;
-			item.width = 12;
-			item.height = 24;
+			item.useAnimation = 6;
+			item.useTime = 6;
+			item.damage = 87;
+			item.width = 60;
+			item.height = 45;
 			item.knockBack = 1.1f;
 			item.shoot = 14;
 			item.shootSpeed = 10f;
@@ -34,33 +32,25 @@ namespace Zylon.Items.Silvervoid
 			item.rare = 10;
 			item.noMelee = true;
 		}
-
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-		{
-			float numberProjectiles = 3;
-			float rotation = MathHelper.ToRadians(7);
-			position += Vector2.Normalize(new Vector2(speedX, speedY)) * 75f;
-			for (int i = 0; i < numberProjectiles; i++)
-			{
-				Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 1f;
-				Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
-			}
-			return false;
+		public override Vector2? HoldoutOffset() {
+			return new Vector2(-3, 0);
 		}
-		
-		public override bool ConsumeAmmo(Player player)
-        {
-			if (Main.rand.NextFloat() < .45f)
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack) {
+			if (Main.rand.NextFloat() < .1f)
+			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("SilvervoidPellet"), damage, knockBack, player.whoAmI);
+			return true;
+		}
+		public override bool ConsumeAmmo(Player player) {
+			if (Main.rand.NextFloat() < .1f)
             return false;
 			else
 			return true;
         }
 		
-		public override void AddRecipes() 
-		{
+		public override void AddRecipes()  {
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType("SilvervoidCore"), 11);
-			recipe.AddIngredient(ItemID.SDMG);
+			recipe.AddIngredient(ItemID.LunarBar, 9);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

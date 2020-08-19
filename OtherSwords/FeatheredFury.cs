@@ -7,13 +7,11 @@ namespace Zylon.Items.OtherSwords
 {
 	public class FeatheredFury : ModItem
 	{
-		public override void SetStaticDefaults() 
-		{
+		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("Shoots feathers");
 		}
 
-		public override void SetDefaults() 
-		{
+		public override void SetDefaults() {
 			item.damage = 17;
 			item.melee = true;
 			item.width = 33;
@@ -30,9 +28,7 @@ namespace Zylon.Items.OtherSwords
 			item.shoot = mod.ProjectileType("Feather");
 			item.shootSpeed = 5f;
 		}
-
-		public override void AddRecipes() 
-		{
+		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType("Stalactite"));
 			recipe.AddIngredient(ItemID.Feather, 14);
