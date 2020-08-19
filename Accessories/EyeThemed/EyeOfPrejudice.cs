@@ -1,0 +1,38 @@
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace Zylon.Items.Accessories.EyeThemed
+{
+	public class EyeOfPrejudice : ModItem
+	{
+		public override void SetStaticDefaults() {
+			DisplayName.SetDefault("Eye of Prejudice");
+			Tooltip.SetDefault("Using a javelance will launch a bleeding javelance which rains blood\nIncreases ranged critical strike chance by 10");
+		}
+
+		public override void SetDefaults() {
+			item.width = 40;
+			item.height = 40;
+			item.accessory = true;
+			item.value = 1255;
+			item.rare = 6;
+			item.defense = 1;
+		}
+
+		public override void UpdateAccessory(Player player, bool hideVisual) {
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+			p.redJavelance = true;
+			player.rangedCrit += 10;
+		}
+		public override void AddRecipes() {
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(mod.ItemType("ShardOfPrejudice"));
+			recipe.AddIngredient(ItemID.Shackle);
+			recipe.AddIngredient(ItemID.EyeoftheGolem);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+		}
+	}
+}
