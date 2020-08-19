@@ -1,35 +1,136 @@
 This is the best mod that starts with Z (I guarantee or your money back)!
-Adds rare items, crimson counterparts, and much more!
+Adds crimson counterparts, cell stuff, 2 complex subclasses, and much more!
 Support for Boss Checklist
-Zylon is heavily inspired by Exxo Avalon.
+Zylon is inspired by Exxo Avalon.
+Discord Server: (homepage link is better) https://discord.gg/qv97wNV
 
 I hope you play my mod!
 
 Some more facts:
-~314 Items
+~316 Items
+~100 total NPCs
+~40 total Tiles
+~38 Buffs
 ~6 unique, custom AI, Bosses:
 ^3 Prehardmode Bosses
 ^2 Hardmode Bosses
 ^1 Post ML Boss
 ~1 Miniboss
-~1 Town NPC
-~82 total NPCs
+~4 Town NPCs
 ~4 Ores
-~15 Total Tiles
-~22 Buffs
 ~1 Biome
+~2 Subclasses
+~5 Custom Songs
 
-Dev Team:
-Braycoe
+Cross-mod Content with:
+Asteri mod (1 Item)
 
-Spriters:
-CrazySapling1 (Inactive)
-Sness (Empress Slime minions)
+BraycoeYT made the mod.
 
-Update V0.2.0.3: Fixes
-~Changed Dirt Slime and Royal Slimer sprites
-~Changed Magentite Armor set bonus
-~Made the Soul of Byte navy to avoid confusion with other souls
-~Fixed Microbiome worldGen at spawnpoint
-~Matched Microbiome with WorldGen
-~I couldn't add everything I wanted to since this update is just a bug fix.
+Spriters/Other Help:
+CrazySapling1 (Quit Spriter)
+GOA7 (Spriter/Songwriter)
+Koolaidlemonade (Spriter)
+HBDeus (Active Spriter)
+
+Minor Help:
+Sness (Two sprites)
+
+Update V0.2.1.4: Omega Update
+~New sprites
+~Fixed seed buy price
+~Braycoe now sells Slimy Seedshots
+~Witch Doctor now sells Vineshots and Poison Darts
+~Nerfed Sprouted Sapling damage
+~Added Eater of Seeds, and Bloody Blowpipe
+~Added Corrupt Seedshot, Sprouted Corrupt Seedshot, Crimson Seedshot, and Sprouted Crimson Seedshot
+~Added Crates
+~Added Cytocell pet
+~Added several new summon weapons
+~Added Computer Virus map icon
+~Computer Virus and Mini Pop Up now foreshadow their teleporting so the boss fight is fair
+~Braycoe resprite and chat changes
+~Added Rollercoaster Enthusiast town npc
+~Added Boxer town npc
+~Added Hitman town npc
+~Braycoe town npc now spawns correctly
+~Changed Eye Candy item and buff tooltip
+~Changed Time Distorting Battery slightly
+~Decreased Xenic Acidpumper spawnrate
+~Xenic Acidpumper now can spawn at day
+~Melee contact with Zylonian Mineral Extractor now inflicts Xenic Acid
+~All gemblasts now inflict Xenic Acid
+~Xenic Acidpumper changes (main changes listed here): Xenic Acidpumper is now passive until it takes enough damage, Added a battle ring that kills the player if they exit it, rod of discord is banned during the fight, Xenic Acidpumper is now an optional boss fight instead of a miniboss, Xenic Acidpumper now acts slightly different at day and night, and Xenic Acidpumper fight is now a bullet endurance fight with 10 phases.
+~Zenith weapons are different and unobtainable
+~Zylonian Mineral Extractor stat and ai change
+~Fixed Empress Slime manipulation a bit
+~Changed Gemstone Eye Tamer set bonus
+~Slightly nerfed Hypercharged Nucleoclus
+~Removed Dark accessories because they were bad
+~Town npcs can now teleport to statues
+~Removed some swords
+~Removed Dirty Discus Medal
+~Zylonian Mineral Extractor visual changes
+~Added an unobtainable dev weapon
+~Giga Gemstone now replaces the Mysterious Gems, and it is craftable pre-ZME
+~Changed Adastra
+~Nerfed Gemstone weapons
+~Added Soulspit Staff
+~Changed Elemental Bands
+~Increased microbiome spawnrates
+~Increased Desert Discus spawn rates
+~Decreased Rainyday Discus spawn rates
+~Empress Slime resprite
+~Replaced Gemstone Wings with Eye of the Extractor as an expert drop.
+~Added Xenon Tank, Xenic Acidpumper expert drop
+~Gemstone Wings are now craftable
+~Nerfed Gemstone Wings
+~Replaced original Colossal Cell summon item with the Cellular Snack
+~Fixed Venomous Pill spelling error
+~Changed Armagris Firearms and Armarosa Hypergun
+~Added Pragmatic Shotgun
+~Changed Discus Medal, Ancient Desert Discus Medal, and Ancient Amalgam Pendant
+~Changed Gemstone melee armor set bonus
+~Gemstone crystals now inflict xenic acid instead of frostburn and venom
+~Boss debuff immunity changes
+~Added bone to stealth potion recipe
+~Tree Truncheon and True Tree Truncheon are now craftable instead of being Grand Forest Slime drops
+~Buffed Tree Truncheon and True Tree Truncheon
+~More projectiles collide with tiles correctly
+~Added hardmode ore summon staves
+~Dirty Discus fixes
+~Squarge now drops solar tablet fragment correctly
+~(Re)Added meatballs to the post-skeletron blood moon
+~Removed around 20-30 bad items
+~Decreased Ickyspit dust count
+~Meatball projectile resprites
+~Fixed having more than one Xenic Acidpumper spawn
+~Aqua Sapphire renamed to Aquatic Sapphire
+~Aquatic Sapphire now is wet
+~Added Delicious Gelatin
+~High velocity bullet alternate recipe fix
+~Mystery bag tooltip change
+~Added Earthbound, an upgrade to the BDCS
+
+Update V0.2.1.5: Omega Update Fixes
+~Xenic Acidpumper normal mode AI fixed
+~Earthbound resprite
+
+Update V0.2.1.6: Omega Update Fixes 2
+~Squarge resprite
+~Ironfist medal resprite
+~Lots of code optimization
+~Treasure Bag Resprites
+~Polandball and Ancient Desert Discus masks now drop correctly
+~Halved Electrolight drop rate
+~Fixed Elementamax Sludge dropping pre-Plantera
+~Heavily buffed Xenic Acidpumper damage
+~Removed Dank Eye Candy and Kaizo Medal
+~Stone shield changes
+~Nerfed Band of Flashspeed and Elemental Band's movement buffs
+~Increased True Wand of Sparking value
+~Several other resprites
+~Decreased recipe cost for Band of Flashspeed
+~Changed Gemstone Leggings movement buff to a 5% increase
+~Various post-ZME balancing
+~Nerfed post-ZME microbiome enemies
