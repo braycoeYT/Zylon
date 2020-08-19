@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace Zylon.NPCs.Microbiome.HM
 {
-	public class EcolibacteriaSetup : ModNPC
+	public class LightEcolibacteriaSetup : ModNPC
 	{
 		public override void SetStaticDefaults() 
 		{
@@ -30,7 +30,7 @@ namespace Zylon.NPCs.Microbiome.HM
 		public override void AI()
 		{
 			if (Main.expertMode)
-				rand = Main.rand.Next(5, 8);
+				rand = Main.rand.Next(3, 9);
 			int posY = (int)npc.position.Y - (int)(54 * rand / 2);
 			if (!(rand < killNum))
 				for (int i = 0; i < rand; i++)
@@ -45,7 +45,7 @@ namespace Zylon.NPCs.Microbiome.HM
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			if (Main.hardMode)
-				return spawnInfo.player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome && !spawnInfo.player.ZoneSkyHeight ? 0.1f : 0f;
+				return spawnInfo.player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome && spawnInfo.player.ZoneSkyHeight ? 0.14f : 0f;
 			return 0f;
 		}
 	}

@@ -45,8 +45,11 @@ namespace Zylon.NPCs.Minions.Virus
 			set => npc.ai[0] = value;
 		}
 		int flee;
+		bool start = true;
+		Vector2 landingPos;
 		public override void AI()
 		{
+			npc.TargetClosest(true);
 			npc.direction = 1;
 			Timer++;
 			npc.velocity.X = 0;
@@ -68,28 +71,56 @@ namespace Zylon.NPCs.Minions.Virus
 				if (flee >= 450)
 					npc.active = false;
 			}
+			if (start)
+			{
+				if (Main.rand.NextBool())
+				{
+					landingPos.X = Main.player[npc.target].Center.X + Main.rand.Next(200, 400);
+				}
+				else
+				{
+					landingPos.X = Main.player[npc.target].Center.X + Main.rand.Next(-400, -200);
+				}
 
+				if (Main.rand.NextBool())
+				{
+					landingPos.Y = Main.player[npc.target].Center.Y + Main.rand.Next(200, 400);
+				}
+				else
+				{
+					landingPos.Y = Main.player[npc.target].Center.Y + Main.rand.Next(-400, -200);
+				}
+				start = false;
+			}
 			if (Timer % 90 == 0)
 				Projectile.NewProjectile(npc.Center, new Vector2(0, 4).RotatedByRandom(MathHelper.TwoPi), ProjectileID.EyeLaser, 24, 2f, Main.myPlayer);
 			if (Timer % 200 == 0)
 			{
+				npc.position = landingPos;
+			}
+			if ((Timer % 200 == 140 && !Main.expertMode) || (Timer % 200 == 155 && Main.expertMode))
+			{
 				if (Main.rand.NextBool())
 				{
-					npc.position.X = Main.player[npc.target].Center.X + Main.rand.Next(120, 500);
+					landingPos.X = Main.player[npc.target].Center.X + Main.rand.Next(200, 400);
 				}
 				else
 				{
-					npc.position.X = Main.player[npc.target].Center.X + Main.rand.Next(-500, -120);
+					landingPos.X = Main.player[npc.target].Center.X + Main.rand.Next(-400, -200);
 				}
 
 				if (Main.rand.NextBool())
 				{
-					npc.position.Y = Main.player[npc.target].Center.Y + Main.rand.Next(120, 500);
+					landingPos.Y = Main.player[npc.target].Center.Y + Main.rand.Next(200, 400);
 				}
 				else
 				{
-					npc.position.Y = Main.player[npc.target].Center.Y + Main.rand.Next(-500, -120);
+					landingPos.Y = Main.player[npc.target].Center.Y + Main.rand.Next(-400, -200);
 				}
+				Vector2 visionVelocity;
+				visionVelocity.X = 0;
+				visionVelocity.Y = 0;
+				Projectile.NewProjectile(landingPos, visionVelocity, mod.ProjectileType("MiniPopUpTarget"), 0, 0f, Main.myPlayer);
 			}
 		}
 	}

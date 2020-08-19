@@ -14,8 +14,8 @@ namespace Zylon.NPCs.Microbiome
 
         public override void SetDefaults()
 		{
-			npc.width = 60;
-			npc.height = 60;
+			npc.width = 64;
+			npc.height = 64;
 			npc.damage = 28;
 			npc.defense = 9;
 			npc.lifeMax = 41;
@@ -45,7 +45,7 @@ namespace Zylon.NPCs.Microbiome
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				int dustType = 40;
+				int dustType = 92;
 				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, dustType);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;

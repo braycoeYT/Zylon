@@ -9,6 +9,7 @@ namespace Zylon.NPCs.Microbiome
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Cyanixobacteria");
+			Main.npcFrameCount[npc.type] = 4;
 		}
 
         public override void SetDefaults()
@@ -24,6 +25,7 @@ namespace Zylon.NPCs.Microbiome
 			npc.knockBackResist = 0.2f;
 			npc.aiStyle = 44;
 			npc.noGravity = true;
+			animationType = 82;
 			npc.noTileCollide = Main.hardMode;
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
@@ -43,7 +45,7 @@ namespace Zylon.NPCs.Microbiome
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				int dustType = 40;
+				int dustType = 34;
 				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, dustType);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
@@ -53,7 +55,7 @@ namespace Zylon.NPCs.Microbiome
 		}
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-			return spawnInfo.player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome ? 0.075f : 0f;
+			return spawnInfo.player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome && !spawnInfo.player.ZoneSkyHeight ? 0.15f : 0f;
 		}
 		
 	    public override void NPCLoot()

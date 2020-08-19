@@ -13,8 +13,8 @@ namespace Zylon.NPCs.Minions.Dirtball
 		}
         public override void SetDefaults()
 		{
-			npc.width = 46;
-			npc.height = 22;
+			npc.width = 30;
+			npc.height = 24;
 			npc.damage = 19;
 			npc.defense = 1;
 			npc.lifeMax = 26;

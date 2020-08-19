@@ -18,7 +18,7 @@ namespace Zylon.NPCs.Microbiome.PZME
 			npc.height = 43; //27
 			npc.damage = 231;
 			npc.defense = 31;
-			npc.lifeMax = 23910;
+			npc.lifeMax = 15928;
 			npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath3;
 			npc.value = 1500f;
@@ -39,6 +39,11 @@ namespace Zylon.NPCs.Microbiome.PZME
 			npc.buffImmune[BuffID.Venom] = true;
 			npc.buffImmune[mod.BuffType("Sick")] = true;
 		}
+		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        {
+            npc.lifeMax = 30209;
+            npc.damage = 314;
+        }
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			if (npc.life <= 0)
@@ -49,17 +54,11 @@ namespace Zylon.NPCs.Microbiome.PZME
 					NPC.NewNPC((int)npc.Center.X + Main.rand.Next(-50, 50), (int)npc.Center.Y + Main.rand.Next(-50, 50), mod.NPCType("NavyblightSlime"));
 				}
 			}
-			else if (Main.rand.Next(0, 5) == 0)
+			else if (Main.rand.Next(0, 20) == 0)
 			{
 				NPC.NewNPC((int)npc.Center.X + Main.rand.Next(-50, 50), (int)npc.Center.Y + Main.rand.Next(-50, 50), mod.NPCType("NavyblightSlime"));
 			}
 		}
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
-        {
-            npc.lifeMax = 41857;
-            npc.damage = 314;
-        }
-		
 		public override void OnHitPlayer(Player player, int damage, bool crit)
 		{
 			if (Main.rand.NextBool(2))
@@ -94,9 +93,11 @@ namespace Zylon.NPCs.Microbiome.PZME
 	    public override void NPCLoot()
         {
             if (Main.rand.Next(2) == 0)
-				Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"));
+				Item.NewItem(npc.getRect(), mod.ItemType("InfectedOnyx"));
 			if (Main.rand.Next(3) == 0)
 				Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"));
+			if (Main.rand.Next(4) == 0)
+				Item.NewItem(npc.getRect(), mod.ItemType("NucleusShard"));
 		}
 	}
 }

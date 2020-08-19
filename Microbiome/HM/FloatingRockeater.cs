@@ -58,15 +58,16 @@ namespace Zylon.NPCs.Microbiome.HM
 		}
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-			if (spawnInfo.player.ZoneDirtLayerHeight || spawnInfo.player.ZoneRockLayerHeight)
 			if (Main.hardMode)
-			return spawnInfo.player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome ? 0.06f : 0f;
+			return spawnInfo.player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome && spawnInfo.player.ZoneSkyHeight ? 0.07f : 0f;
 			return 0f;
 		}
 		public override void NPCLoot()
         {
 			if (Main.rand.NextFloat() < .01f)
 				Item.NewItem(npc.getRect(), ItemID.Nazar);
+			if (Main.rand.NextFloat() < .15f)
+			Item.NewItem(npc.getRect(), mod.ItemType("InfectedBlood"));
         }
 	}
 }

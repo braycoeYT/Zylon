@@ -34,6 +34,8 @@ namespace Zylon.NPCs.Minions
 			npc.noGravity = true;
 			npc.noTileCollide = true;
 			animationType = 82;
+			npc.buffImmune[mod.BuffType("XenicAcid")] = true;
+			npc.buffImmune[BuffID.Burning] = true;
         }
 		public float Timer
 		{

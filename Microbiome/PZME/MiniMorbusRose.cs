@@ -18,7 +18,7 @@ namespace Zylon.NPCs.Microbiome.PZME
 			npc.height = 69;
 			npc.damage = 136;
 			npc.defense = 22;
-			npc.lifeMax = 2192;
+			npc.lifeMax = 1292;
 			npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath3;
 			npc.value = 5f;
@@ -30,8 +30,8 @@ namespace Zylon.NPCs.Microbiome.PZME
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 5298;
-            npc.damage = 200;
+            npc.lifeMax = 2485;
+            npc.damage = 218;
         }
 		public override void OnHitPlayer(Player player, int damage, bool crit)
 		{
@@ -59,9 +59,11 @@ namespace Zylon.NPCs.Microbiome.PZME
 		public override void NPCLoot()
 		{
 			if (Main.rand.Next(20) == 0)
-				Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"));
+				Item.NewItem(npc.getRect(), mod.ItemType("InfectedOnyx"));
 			if (Main.rand.Next(30) == 0)
 				Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"));
+			if (Main.rand.Next(40) == 0)
+				Item.NewItem(npc.getRect(), mod.ItemType("NucleusShard"));
 		}
 	}
 }
