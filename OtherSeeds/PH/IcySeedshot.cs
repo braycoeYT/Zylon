@@ -7,11 +7,11 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Projectiles.OtherSeeds.PH
 {
-	public class Vineshot : ModProjectile
+	public class IcySeedshot : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Vineshot");
+			DisplayName.SetDefault("Icy Seedshot");
         }
 		public override void SetDefaults()
 		{
@@ -20,13 +20,13 @@ namespace Zylon.Projectiles.OtherSeeds.PH
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			if (Main.rand.NextFloat() < .3f)
-		    target.AddBuff(BuffID.Poisoned, 150, false);
+			if (Main.rand.NextFloat() < .1f)
+		    target.AddBuff(BuffID.Frostburn, 120, false);
 		}
 		public override void OnHitPlayer(Player target, int damage, bool crit)
 		{
-			if (Main.rand.NextFloat() < .3f)
-				target.AddBuff(BuffID.Poisoned, 150, false);
+			if (Main.rand.NextFloat() < .1f)
+				target.AddBuff(BuffID.Frostburn, 120, false);
 		}
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{

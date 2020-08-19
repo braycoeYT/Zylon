@@ -5,23 +5,25 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.OtherSeeds.PH
+namespace Zylon.Projectiles.OtherSeeds.PH.Corruption
 {
-	public class SproutedSeed : ModProjectile
+	public class SproutedCorruptSeedshot : ModProjectile
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Sprouted Seed");
+			DisplayName.SetDefault("Sprouted Corrupt Seedshot");
         }
 		public override void SetDefaults()
 		{
 			projectile.CloneDefaults(ProjectileID.Seed);
 			aiType = ProjectileID.Seed;
+			projectile.width = 14;
+			projectile.height = 14;
 		}
 		public override void Kill(int timeLeft)
 		{
 			Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
-			Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 6, mod.ProjectileType("SproutedSeedFall"), 0, 0, Main.myPlayer);
+			Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 6, mod.ProjectileType("SproutedCorruptSeedshotFall"), 15, 0, Main.myPlayer);
 		}
 	}   
 }
