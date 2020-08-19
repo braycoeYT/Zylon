@@ -11,15 +11,15 @@ namespace Zylon.Items.Zenith
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Apogee");
-			Tooltip.SetDefault("Shoots three bullets forward, one bullet backwards, and rains venomous gel above the cursor");
+			Tooltip.SetDefault("Shoots three bullets forward, and an inaccurate high velocity bullet.\nPoisonous gel rains above your cursor while in use");
 		}
 
 		public override void SetDefaults() 
 		{
 			item.value = 1000000;
 			item.useStyle = 5;
-			item.useAnimation = 11;
-			item.useTime = 11;
+			item.useAnimation = 6;
+			item.useTime = 6;
 			item.damage = 65; //116
 			item.width = 12;
 			item.height = 24;
@@ -45,8 +45,12 @@ namespace Zylon.Items.Zenith
 				Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 1f;
 				Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
 			}
-			Projectile.NewProjectile(position.X, position.Y, speedX * -1, speedY * -1, type, damage, knockBack, player.whoAmI);
-			Projectile.NewProjectile(Main.MouseWorld.X, player.position.Y - 600, Main.rand.Next(-3, 3), 13, mod.ProjectileType("VenomousGel"), damage / 2, knockBack, player.whoAmI);
+			Vector2 mouseOffset;
+			mouseOffset.X = Main.MouseWorld.X + Main.rand.Next(-100, 101);
+			mouseOffset.Y = Main.MouseWorld.Y + Main.rand.Next(-100, 101);
+			Vector2 offset = Vector2.Normalize(player.Center - mouseOffset) * -item.shootSpeed;
+			Projectile.NewProjectile(position.X, position.Y, offset.X, offset.Y, ProjectileID.BulletHighVelocity, damage, knockBack, player.whoAmI);
+			Projectile.NewProjectile(Main.MouseWorld.X, player.position.Y - 600, Main.rand.Next(-3, 3), 25, mod.ProjectileType("VenomousGel"), damage / 2, knockBack, player.whoAmI);
 			return false;
 		}
 		
@@ -58,7 +62,7 @@ namespace Zylon.Items.Zenith
 			return true;
         }
 
-		public override void AddRecipes()
+		/*public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.SDMG);
@@ -67,13 +71,13 @@ namespace Zylon.Items.Zenith
 			recipe.AddIngredient(ItemID.ChainGun);
 			recipe.AddIngredient(ItemID.VenusMagnum);
 			recipe.AddIngredient(ItemID.Uzi);
-			recipe.AddIngredient(mod.ItemType("ShadowSplicer"));
+			recipe.AddIngredient(ItemID.ClockworkAssaultRifle);
 			recipe.AddIngredient(ItemID.PhoenixBlaster);
 			recipe.AddIngredient(mod.ItemType("DeadlockPistol"));
 			recipe.AddIngredient(mod.ItemType("DirtyPistol"));
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-		}
+		}*/
 	}
 }

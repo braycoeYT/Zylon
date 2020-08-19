@@ -1,4 +1,3 @@
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Zylon.Items
@@ -8,7 +7,7 @@ namespace Zylon.Items
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Elementamax Sludge");
-			Tooltip.SetDefault("'Overloaded with elemental power'");
+			Tooltip.SetDefault("Overloaded with elemental power");
 		}
 
 		public override void SetDefaults() 

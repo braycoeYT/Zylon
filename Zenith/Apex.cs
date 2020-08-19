@@ -43,7 +43,7 @@ namespace Zylon.Items.Zenith
 			Projectile.NewProjectile(position.X, position.Y, speedX, speedY * -1, type, damage, knockBack, player.whoAmI);
 			return false;
 		}
-		public override void AddRecipes()
+		/*public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.Terrarian);
@@ -56,9 +56,10 @@ namespace Zylon.Items.Zenith
 			recipe.AddIngredient(ItemID.JungleYoyo);
 			recipe.AddIngredient(ItemID.Rally);
 			recipe.AddIngredient(ItemID.WoodYoyo);
+			recipe.AddIngredient(mod.ItemType("XenicCore"));
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-		}
+		}*/
 	}
 }

@@ -13,8 +13,8 @@ namespace Zylon.Items
 
 		public override void SetDefaults() 
 		{
-			item.width = 30;
-			item.height = 30;
+			item.width = 32;
+			item.height = 32;
 			item.maxStack = 999;
 			item.value = 100;
 			item.rare = 0;

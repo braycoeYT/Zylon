@@ -23,6 +23,8 @@ namespace Zylon.Items
 			item.damage = 0;
 			item.value = 40000;
 			item.rare = 7;
+			item.width = 56;
+			item.height = 28;
 		}
 
 		public override void UseStyle(Player player)

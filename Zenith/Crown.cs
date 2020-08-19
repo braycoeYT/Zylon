@@ -47,7 +47,7 @@ namespace Zylon.Items.Zenith
 			Projectile.NewProjectile(player.Center, new Vector2(speedX, speedY).RotatedByRandom(MathHelper.TwoPi), 280, damage, knockBack, Main.myPlayer);
 			return false;
 		}
-		public override void AddRecipes()
+		/*public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.Phantasm);
@@ -62,6 +62,6 @@ namespace Zylon.Items.Zenith
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-		}
+		}*/
 	}
 }

@@ -21,7 +21,7 @@ namespace Zylon.Items
 			item.useAnimation = 19;
 			item.useStyle = 5;
 			item.knockBack = 0;
-			item.value = 10000;
+			item.value = 50000;
 			item.rare = 3;
 			item.autoReuse = true;
 			item.useTurn = false;

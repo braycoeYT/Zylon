@@ -9,13 +9,12 @@ namespace Zylon.Items.Snow
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Ice Staff");
-			Tooltip.SetDefault("'The oppisite of the Amber Staff, cold and frosty.'");
+			Tooltip.SetDefault("Cold and frosty");
 			Item.staff[item.type] = true;
 		}
-
 		public override void SetDefaults() 
 		{
-			item.damage = 17;
+			item.damage = 9;
 			item.magic = true;
 			item.width = 33;
 			item.height = 33;
@@ -24,7 +23,7 @@ namespace Zylon.Items.Snow
 			item.useStyle = 5;
 			item.knockBack = 4.5f;
 			item.value = 1200;
-			item.rare = 1;
+			item.rare = 0;
 			item.autoReuse = true;
 			item.useTurn = true;
 			item.shoot = 118;
@@ -35,7 +34,6 @@ namespace Zylon.Items.Snow
 			item.UseSound = SoundID.Item8;
 			item.crit = 7;
 		}
-
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
