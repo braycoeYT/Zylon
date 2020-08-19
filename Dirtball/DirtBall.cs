@@ -24,8 +24,11 @@ namespace Zylon.Projectiles.Dirtball
 			projectile.extraUpdates = 2;
 			projectile.tileCollide = false;
 		}
+		int dirtRan = Main.rand.Next(0, 120);
+		int Timer;
 		public override void AI()
 		{
+			Timer++;
 			if (++projectile.frameCounter >= 6)
 			{
 				projectile.frameCounter = 0;
@@ -34,6 +37,10 @@ namespace Zylon.Projectiles.Dirtball
 					projectile.frame = 0;
 				}
 			}
+			if (Main.expertMode && Timer % 120 == dirtRan)
+			Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, -6, mod.ProjectileType("DirtTile"), 9, 0, Main.myPlayer);
+			if (Main.expertMode && Timer % 120 == dirtRan)
+			Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 6, mod.ProjectileType("DirtTile"), 9, 0, Main.myPlayer);
 		}
 	}   
 }

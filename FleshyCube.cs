@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,19 +37,40 @@ namespace Zylon.NPCs
             npc.damage = 339;
 			npc.defense = 55;
         }
-		
-		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+		public override void OnHitPlayer(Player player, int damage, bool crit)
+		{
+			if (Main.rand.NextBool(3))
+			{
+				player.AddBuff(BuffID.Ichor, 300, true);
+			}
+		}
+		int Timer;
+		public override void AI()
+		{
+			if (Main.player[npc.target].statLife < 1)
+			{
+				npc.TargetClosest(true);
+			}
+			Player target = Main.player[npc.target];
+			Vector2 target2 = target.position;
+			target2.X += Main.rand.Next(-60, 60);
+			target2.Y += Main.rand.Next(-60, 60);
+			Timer++;
+			if (Timer % 120 == 0)
+				Projectile.NewProjectile(npc.Center, (npc.DirectionTo(target2)) * 8, 288, 59, 1f, Main.myPlayer);
+		}
+		/*public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
 			if (NPC.downedMoonlord)
 			{
 			    return SpawnCondition.Crimson.Chance * 0.04f;
 			}
 			return 0f;
-        }
+        }*/
 		
 	    public override void NPCLoot()
         {
-	        Item.NewItem(npc.getRect(), mod.ItemType("DarkSoul"), 1 + Main.rand.Next(3));
+	        Item.NewItem(npc.getRect(), mod.ItemType("SilvervoidCore"), 1 + Main.rand.Next(3));
         }
 		
 		public override void HitEffect(int hitDirection, double damage)

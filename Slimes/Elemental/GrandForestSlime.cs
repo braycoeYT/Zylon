@@ -29,8 +29,8 @@ namespace Zylon.NPCs.Slimes.Elemental
 			npc.alpha = 50;
 			if (NPC.downedPlantBoss)
 			{
-				npc.damage = 297;
-				npc.lifeMax = 41000;
+				npc.damage = 137;
+				npc.lifeMax = 12000;
 				npc.defense = 28;
 				npc.value = 20000f;
 				npc.aiStyle = 22;
@@ -49,8 +49,8 @@ namespace Zylon.NPCs.Slimes.Elemental
             npc.damage = 29;
 			if (NPC.downedPlantBoss)
 			{
-				npc.lifeMax = 52000;
-				npc.damage = 398;
+				npc.lifeMax = 21000;
+				npc.damage = 212;
 			}
         }
 		
@@ -64,12 +64,8 @@ namespace Zylon.NPCs.Slimes.Elemental
 			Item.NewItem(npc.getRect(), ItemID.Gel, 14 + Main.rand.Next(1));
 			if (NPC.downedPlantBoss)
 			{
-				Item.NewItem(npc.getRect(), mod.ItemType("ElementamaxSludge"), Main.rand.Next(3));
-				if (Main.rand.NextFloat() < .03f)
-					Item.NewItem(npc.getRect(), mod.ItemType("TrueTreeTruncheon"));
+				Item.NewItem(npc.getRect(), mod.ItemType("ElementamaxSludge"), Main.rand.Next(2, 7));
 			}
-			else if (Main.rand.NextFloat() < .03f)
-				Item.NewItem(npc.getRect(), mod.ItemType("TreeTruncheon"));
 		}
 	}
 }

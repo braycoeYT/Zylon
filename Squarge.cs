@@ -14,13 +14,13 @@ namespace Zylon.NPCs
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Squarge");
-			Main.npcFrameCount[npc.type] = 2;
+			Main.npcFrameCount[npc.type] = 3;
 		}
 		
         public override void SetDefaults()
 		{
-			npc.width = 40;
-			npc.height = 40;
+			npc.width = 46;
+			npc.height = 48;
 			npc.damage = 69;
 			npc.defense = 25;
 			npc.lifeMax = 2100;
@@ -29,7 +29,6 @@ namespace Zylon.NPCs
 			npc.value = 568f;
 			npc.aiStyle = 2;
 			npc.knockBackResist = 0f;
-			animationType = 1;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
         }
@@ -40,14 +39,18 @@ namespace Zylon.NPCs
             npc.damage = 138;
 			npc.defense = 35;
         }
-		public float Timer
-		{
-	        get => npc.ai[1];
-	        set => npc.ai[1] = value;
-        }
+		int Timer;
+		int animationTimer;
 		public override void AI()
 		{
 			Timer++;
+			if (Timer % 3 == 0)
+			{
+				animationTimer++;
+			}
+			if (animationTimer > 2)
+			animationTimer = 0;
+			npc.frame.Y = animationTimer * 48;
 			if (Main.expertMode)
 			{
 				if (Timer % 120 == 0)
@@ -78,7 +81,7 @@ namespace Zylon.NPCs
 	    public override void NPCLoot()
         {
 			if (Main.rand.NextFloat() < .3f)
-	        Item.NewItem(npc.getRect(), 2766);
+	        Item.NewItem(npc.getRect(), ItemID.LunarTabletFragment);
         }
 	}
 }
