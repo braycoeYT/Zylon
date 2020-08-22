@@ -125,17 +125,6 @@ namespace Zylon.NPCs.Bosses
 				npc.noTileCollide = true;
                 npc.velocity.Y = 8f;
 			}
-			else if (!Main.player[npc.target].ZoneDesert)
-			{
-				RageTimer++;
-
-				if (RageTimer > 299)
-					npc.dontTakeDamage = true;
-				else
-					npc.dontTakeDamage = false;
-			}
-			else
-				RageTimer = 0;
 			Timer++;
 			if (Main.expertMode)
 			{
