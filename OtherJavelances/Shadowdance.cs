@@ -1,86 +1,72 @@
 using Microsoft.Xna.Framework;
-using System;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ID;
+using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Items.OtherJavelances
+namespace Zylon.Projectiles.OtherJavelances
 {
-	public class Shadowdance : ModItem
+	public class Shadowdance : ModProjectile
 	{
-		public override void SetStaticDefaults() 
+        public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("Each Javelance rains shadowdance orbs\nStacks up to 4\nMore javelances means more javelances thrown\nUse time is decreased with more javelances");
+			DisplayName.SetDefault("Shadowdance");
+        }
+		public override void SetDefaults()
+		{
+			projectile.width = 32;
+			projectile.height = 32;
+			projectile.aiStyle = 1;
+			projectile.friendly = true;
+			projectile.penetrate = 6;
+			projectile.ranged = true;
+			projectile.timeLeft = 3000;
+			projectile.ignoreWater = true;
+			aiType = 1;
 		}
-
-		public override void SetDefaults() 
+		int rand = Main.rand.Next(0, 120);
+		public float Timer
 		{
-			item.damage = 30;
-			item.ranged = true;
-			item.width = 52;
-			item.height = 52;
-			item.useTime = 39;
-			item.useAnimation = 39;
-			item.useStyle = 1;
-			item.knockBack = 3.8f;
-			item.value = 15000;
-			item.rare = 4;
-			item.autoReuse = true;
-			item.useTurn = true;
-			item.shoot = mod.ProjectileType("Shadowdance");
-			item.shootSpeed = 12f;
-			item.noMelee = true;
-			item.maxStack = 4;
-			item.UseSound = SoundID.Item1;
-			item.noUseGraphic = true;
-			item.consumable = false;
-		}
-		public override void UpdateInventory(Player player)
-		{
-			item.useTime = 39 + (item.stack * 10) - 10;
-			item.useAnimation = 39 + (item.stack * 10) - 10;
-		}
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-		{
-			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			if (p.redJavelance)
-			{
-				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("BleedingJavelance"), 45, 3f, player.whoAmI);
+	        get => projectile.ai[1];
+	        set => projectile.ai[1] = value;
+        }
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
+			if (zp.bloodJavelance && Main.rand.NextFloat() < .06f && target.type != NPCID.TargetDummy) {
+				Player p = Main.player[projectile.owner];
+				p.statLife += 1;
+				p.HealEffect(1, true);
 			}
-			float numberProjectiles = item.stack;
-			float rotation = MathHelper.ToRadians(18);
-			if (numberProjectiles > 1)
-			{
-				position += Vector2.Normalize(new Vector2(speedX, speedY)) * 45f;
-				for (int i = 0; i < numberProjectiles; i++)
-				{
-					Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .9f;
-					Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
-				}
-			return false;
+		}
+		public override void OnHitPlayer(Player target, int damage, bool crit) {
+			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
+			if (zp.bloodJavelance && Main.rand.NextFloat() < .06f) {
+				Player p = Main.player[projectile.owner];
+				p.statLife += 1;
+				p.HealEffect(1, true);
 			}
-			return true;
 		}
-
-		public override void AddRecipes() 
+		public override void AI()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("RoyalCorruptJavelance"));
-			recipe.AddIngredient(mod.ItemType("AquaticJavelance"));
-			recipe.AddIngredient(mod.ItemType("VinepowerJavelance"));
-			recipe.AddIngredient(mod.ItemType("FirebentJavelance"));
-			recipe.AddTile(TileID.DemonAltar);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-			
-			recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("RoyalCorruptJavelance"), 3);
-			recipe.AddIngredient(mod.ItemType("AquaticJavelance"), 3);
-			recipe.AddIngredient(mod.ItemType("VinepowerJavelance"), 3);
-			recipe.AddIngredient(mod.ItemType("FirebentJavelance"), 3);
-			recipe.AddTile(TileID.DemonAltar);
-			recipe.SetResult(this, 4);
-			recipe.AddRecipe();
+			Timer++;
+			if (Timer % 120 == rand)
+			{
+				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, 0, 7, mod.ProjectileType("ShadowdanceOrb"), 20, 0, Main.myPlayer);
+			}
 		}
-	}
+		public override void PostAI()
+		{
+			if (Main.rand.NextBool())
+			{
+				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 27);
+				dust.noGravity = false;
+				dust.scale = 0.8f;
+			}
+		}
+		public override void Kill(int timeLeft)
+		{
+			Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
+		}
+	}   
 }
