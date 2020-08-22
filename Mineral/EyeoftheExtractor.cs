@@ -12,7 +12,7 @@ namespace Zylon.Items.Mineral
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Eye of the Extractor");
-			Tooltip.SetDefault("Increases jump speed by 500%\nDecreases Xenic Acid debuff damage by 25%\nKilling enemies causes them to drop galactic souls, which give you a powerful buff\nCancels negative effects of gemstone armor");
+			Tooltip.SetDefault("After equiping this, those gems are starting to look edible...\nIncreases jump speed by 500%\nDecreases Xenic Acid debuff damage by 25%\nKilling enemies causes them to drop galactic souls, which give you a powerful buff\nCancels negative effects of gemstone armor");
 		}
 
 		public override void SetDefaults()
