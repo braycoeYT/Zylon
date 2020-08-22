@@ -54,10 +54,10 @@ namespace Zylon.NPCs.Slimes.Elemental
 			}
         }
 		
-		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+		/*public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
 			return SpawnCondition.OverworldDaySlime.Chance * 0.01f;
-        }
+        }*/
 		
 	    public override void NPCLoot()
         {

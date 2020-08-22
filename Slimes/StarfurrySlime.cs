@@ -6,14 +6,11 @@ namespace Zylon.NPCs.Slimes
 {
 	public class StarfurrySlime : ModNPC
 	{
-		public override void SetStaticDefaults() 
-		{
+		public override void SetStaticDefaults()  {
 			DisplayName.SetDefault("Starfurry Slime");
 			Main.npcFrameCount[npc.type] = 2;
 		}
-		
-        public override void SetDefaults()
-		{
+        public override void SetDefaults() {
 			npc.width = 40;
 			npc.height = 40;
 			npc.damage = 31;
@@ -27,25 +24,21 @@ namespace Zylon.NPCs.Slimes
 			animationType = 1;
 			npc.noGravity = true;
         }
-		
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
-        {
+		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
             npc.lifeMax = 197;
             npc.damage = 71;
 			npc.defense = 12;
 			npc.noTileCollide = true;
 			npc.knockBackResist = 0.2f;
         }
-		
-		public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
+		public override float SpawnChance(NPCSpawnInfo spawnInfo) {
 			return SpawnCondition.Sky.Chance * 0.1f;
         }
-		
-	    public override void NPCLoot()
-        {
-            if (Main.rand.Next(50) == 0)
+	    public override void NPCLoot() {
+            if (Main.rand.Next(100) == 0)
 	            Item.NewItem(npc.getRect(), ItemID.Starfury);
+			if (Main.rand.Next(100) == 0)
+	            Item.NewItem(npc.getRect(), mod.ItemType("Starfrenzy"));
         }
 	}
 }

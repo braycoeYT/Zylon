@@ -66,7 +66,7 @@ namespace Zylon.NPCs.Slimes
 
 		public override void NPCLoot()
 		{
-			if (Main.rand.Next(10) == 0)
+			if (Main.rand.Next(10) == 0 && NPC.downedPlantBoss)
 				Item.NewItem(npc.getRect(), mod.ItemType("ElementamaxSludge"));
 		}
 	}

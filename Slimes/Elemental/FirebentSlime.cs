@@ -43,14 +43,14 @@ namespace Zylon.NPCs.Slimes.Elemental
 			npc.defense = 39;
         }
 		
-		public override float SpawnChance(NPCSpawnInfo spawnInfo)
+		/*public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
 			if (NPC.downedPlantBoss)
 			{
 			    return SpawnCondition.Underworld.Chance * 0.017f;
 			}
 		    return 0f;
-        }
+        }*/
 		
 	    public override void NPCLoot()
         {

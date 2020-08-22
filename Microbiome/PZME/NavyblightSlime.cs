@@ -51,10 +51,7 @@ namespace Zylon.NPCs.Microbiome.PZME
 		int Timer;
 		public override void AI()
 		{
-			if (Main.player[npc.target].statLife < 1)
-			{
-				npc.TargetClosest(true);
-			}
+			npc.TargetClosest(true);
 			Player target = Main.player[npc.target];
 			Vector2 target2 = target.position;
 			target2.X += Main.rand.Next(-60, 60);
