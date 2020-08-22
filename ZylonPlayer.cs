@@ -107,7 +107,7 @@ namespace Zylon
 				else
 				player.lifeRegen -= 16;
 
-				if (xenicExpert && badRegenTimer % 3 == 0)
+				if (xenicExpert && badRegenTimer % 10 == 0)
 				{
 					player.statLife += 1;
 					player.HealEffect(1, true);
@@ -355,10 +355,6 @@ namespace Zylon
 				}
 			}
 		}
-		/*public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource)
-		{
-
-		}*/
 		public override void OnHitAnything(float x, float y, Entity victim)
 		{
 			if (gemstoneManaBullet)

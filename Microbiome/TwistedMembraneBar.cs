@@ -1,35 +1,37 @@
+using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Items.Microbiome
+namespace Zylon.Tiles.Microbiome
 {
-	public class TwistedMembraneBar : ModItem
+	public class TwistedMembraneBar : ModTile
 	{
 		public override void SetDefaults()
 		{
-			item.rare = 1;
-			item.width = 20;
-			item.height = 20;
-			item.maxStack = 999;
-			item.value = 20000;
-			item.useStyle = 1;
-			item.useTurn = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.autoReuse = true;
-			item.consumable = true;
-			item.createTile = TileType<Tiles.Microbiome.TwistedMembraneBar>();
-			item.placeStyle = 0;
+			Main.tileShine[Type] = 1400;
+			Main.tileSolid[Type] = true;
+			Main.tileSolidTop[Type] = true;
+			Main.tileFrameImportant[Type] = true;
+			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
+			TileObjectData.newTile.StyleHorizontal = true;
+			TileObjectData.newTile.LavaDeath = false;
+			TileObjectData.addTile(Type);
+			AddMapEntry(new Color(50, 50, 255), Language.GetText("MapObject.MetalBar"));
 		}
 
-		public override void AddRecipes()
+		public override bool Drop(int i, int j)
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemType<TwistedMembraneOre>(), 3);
-			recipe.AddTile(17);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			Tile t = Main.tile[i, j];
+			int style = t.frameX / 18;
+			if (style == 0)
+			{
+				Item.NewItem(i * 16, j * 16, 16, 16, ItemType<Items.Microbiome.TwistedMembraneBar>());
+			}
+			return base.Drop(i, j);
 		}
 	}
 }

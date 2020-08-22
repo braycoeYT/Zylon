@@ -303,7 +303,22 @@ namespace Zylon
 				WorldGen.TileRunner(cellX, cellY, WorldGen.genRand.Next(4, 9), WorldGen.genRand.Next(4, 9), TileType<Tiles.Microbiome.TwistedMembraneOre>(), true, 0f, 0.4f, true, true);
 			}
 		}
-
+		public override void PostWorldGen() {
+			int[] itemsToPlaceInSkywareChests = { ItemType<Items.OtherSwords.Starfrenzy>() };
+			int itemsToPlaceInSkywareChestsChoice = 0;
+			for (int chestIndex = 0; chestIndex < 1000; chestIndex++) {
+				Chest chest = Main.chest[chestIndex];
+				if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers && Main.tile[chest.x, chest.y].frameX == 13 * 36 && WorldGen.genRand.Next(3) == 0) {
+					for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++) {
+						if (chest.item[inventoryIndex].type == ItemID.None) {
+							chest.item[inventoryIndex].SetDefaults(itemsToPlaceInSkywareChests[itemsToPlaceInSkywareChestsChoice]);
+							itemsToPlaceInSkywareChestsChoice = (itemsToPlaceInSkywareChestsChoice + 1) % itemsToPlaceInSkywareChests.Length;
+							break;
+						}
+					}
+				}
+			}
+		}
 		public override void ResetNearbyTileEffects()
 		{
 			ZylonPlayer modPlayer = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
