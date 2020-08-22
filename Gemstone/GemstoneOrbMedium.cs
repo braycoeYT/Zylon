@@ -22,6 +22,7 @@ namespace Zylon.Projectiles.Gemstone
 			projectile.tileCollide = false;
 			aiType = ProjectileID.Bullet;
 			projectile.light = 0f;
+			projectile.melee = true;
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
