@@ -10,15 +10,15 @@ namespace Zylon.Items.Meatball
 	{
 		public override void SetStaticDefaults() 
 		{
-			Tooltip.SetDefault("Shoots a meatball\nMeatballs may or may not be poisoned...\nThe Butcher would like this");
+			Tooltip.SetDefault("Launches meatballs\nMeatballs may or may not be poisoned...");
 		}
 
 		public override void SetDefaults() 
 		{
 			item.damage = 18;
 			item.melee = true;
-			item.width = 33;
-			item.height = 33;
+			item.width = 40;
+			item.height = 40;
 			item.useTime = 17;
 			item.useAnimation = 17;
 			item.useStyle = 1;

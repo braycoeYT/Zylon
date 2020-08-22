@@ -1,28 +1,23 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Items.Meatball
 {
 	public class BleedingGun : ModItem
 	{
-		public override void SetStaticDefaults() 
-		{
+		public override void SetStaticDefaults()  {
 			DisplayName.SetDefault("Bleeding Gun");
 			Tooltip.SetDefault("10% chance to not consume ammo");
 		}
-
-		public override void SetDefaults() 
-		{
+		public override void SetDefaults() {
 			item.value = 500;
 			item.useStyle = 5;
-			item.useAnimation = 16;
-			item.useTime = 10;
-			item.damage = 10;
-			item.width = 30;
-			item.height = 18;
+			item.useAnimation = 19;
+			item.useTime = 19;
+			item.damage = 13;
+			item.width = 60;
+			item.height = 36;
 			item.knockBack = 1.5f;
 			item.shoot = 14;
 			item.shootSpeed = 30f;
@@ -32,16 +27,12 @@ namespace Zylon.Items.Meatball
 			item.UseSound = SoundID.Item11;
 			item.autoReuse = true;
 		}
-		
-		public override bool ConsumeAmmo(Player player)
-        {
+		public override bool ConsumeAmmo(Player player) {
 			if (Main.rand.NextFloat() < .1f)
             return false;
-			else
 			return true;
         }
-		public override void AddRecipes() 
-		{
+		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType("MeatShard"), 20);
 			recipe.AddIngredient(mod.ItemType("PlainNoodle"));

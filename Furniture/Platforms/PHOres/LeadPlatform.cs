@@ -1,46 +1,30 @@
-using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Tiles.Furniture.Platforms.PHOres
+namespace Zylon.Items.Furniture.Platforms.PHOres
 {
-	public class LeadPlatform : ModTile
+	public class LeadPlatform : ModItem
 	{
 		public override void SetDefaults() {
-			Main.tileLighted[Type] = true;
-			Main.tileFrameImportant[Type] = true;
-			Main.tileSolidTop[Type] = true;
-			Main.tileSolid[Type] = true;
-			Main.tileNoAttach[Type] = true;
-			Main.tileTable[Type] = true;
-			Main.tileLavaDeath[Type] = true;
-			TileID.Sets.Platforms[Type] = true;
-			TileObjectData.newTile.CoordinateHeights = new[] { 16 };
-			TileObjectData.newTile.CoordinateWidth = 16;
-			TileObjectData.newTile.CoordinatePadding = 2;
-			TileObjectData.newTile.StyleHorizontal = true;
-			TileObjectData.newTile.StyleMultiplier = 27;
-			TileObjectData.newTile.StyleWrapLimit = 27;
-			TileObjectData.newTile.UsesCustomCanPlace = false;
-			TileObjectData.newTile.LavaDeath = true;
-			TileObjectData.addTile(Type);
-			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
-			AddMapEntry(new Color(62, 82, 114));
-			dustType = 82;
-			drop = ItemType<Items.Furniture.Platforms.PHOres.LeadPlatform>();
-			disableSmartCursor = true;
-			adjTiles = new int[] { TileID.Platforms };
+			item.width = 12;
+			item.height = 30;
+			item.maxStack = 999;
+			item.useTurn = true;
+			item.autoReuse = true;
+			item.useAnimation = 15;
+			item.useTime = 10;
+			item.useStyle = ItemUseStyleID.SwingThrow;
+			item.consumable = true;
+			item.value = 1125;
+			item.createTile = TileType<Tiles.Furniture.Platforms.PHOres.LeadPlatform>();
 		}
-
-		public override void PostSetDefaults() {
-			Main.tileNoSunLight[Type] = false;
-		}
-
-		public override void NumDust(int i, int j, bool fail, ref int num) {
-			num = fail ? 1 : 3;
+		public override void AddRecipes() 
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.LeadBar, 1);
+			recipe.SetResult(this, 2);
+			recipe.AddRecipe();
 		}
 	}
 }

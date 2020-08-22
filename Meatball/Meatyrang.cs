@@ -8,13 +8,10 @@ namespace Zylon.Items.Meatball
 {
 	public class Meatyrang : ModItem
 	{
-		public override void SetStaticDefaults() 
-		{
-			Tooltip.SetDefault("Toss some meatyrangs\nMeatyrangs are definitely poisoned");
+		public override void SetStaticDefaults() {
+			Tooltip.SetDefault("Meatyrangs are definitely poisoned");
 		}
-
-		public override void SetDefaults() 
-		{
+		public override void SetDefaults() {
 			item.damage = 27;
 			item.melee = true;
 			item.width = 33;
@@ -32,8 +29,15 @@ namespace Zylon.Items.Meatball
 			item.shootSpeed = 12f;
 			item.noUseGraphic = true;
 		}
-		public override void AddRecipes() 
-		{
+		public override bool CanUseItem(Player player) {
+            for (int i = 0; i < 1000; ++i) {
+                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == item.shoot) {
+                    return false;
+                }
+            }
+            return true;
+        }
+		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType("MeatShard"), 20);
 			recipe.AddIngredient(mod.ItemType("PlainNoodle"));
