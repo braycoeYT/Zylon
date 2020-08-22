@@ -62,12 +62,7 @@ namespace Zylon.Items.Dirtball
 			player.QuickSpawnItem(ItemID.MudBlock, 1 + Main.rand.Next(5));
 			player.QuickSpawnItem(ItemID.Gel, 1 + Main.rand.Next(5));
 			player.QuickSpawnItem(ItemID.Lens, 1 + Main.rand.Next(1));
-			/*if (ZylonWorld.voidDream)
-			{
-				player.QuickSpawnItem(mod.ItemType("DirtyMedal"));
-				player.QuickSpawnItem(mod.ItemType("DirtShieldOfOblivion"));
-			}
-			else */if (Main.rand.NextFloat() < .75f)
+			if (Main.rand.NextFloat() < .75f)
 			player.QuickSpawnItem(mod.ItemType("DirtyMedal"));
 			player.QuickSpawnItem(mod.ItemType("DirtShieldOfOblivion"));
 			if (Main.rand.NextFloat() < .15f)
