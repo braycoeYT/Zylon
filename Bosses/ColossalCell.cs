@@ -52,7 +52,7 @@ namespace Zylon.NPCs.Bosses
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				int dustType = 40;
+				int dustType = 80;
 				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, dustType);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;

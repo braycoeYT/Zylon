@@ -57,6 +57,18 @@ namespace Zylon.NPCs.Bosses
 			if (npc.scale > 0.5f)
 				npc.life = npc.lifeMax;
 			npc.scale -= 0.01f;
+			if (damage > 10)
+			npc.scale -= 0.01f;
+			if (damage > 20)
+			npc.scale -= 0.01f;
+			if (damage > 40)
+			npc.scale -= 0.01f;
+			if (damage > 60)
+			npc.scale -= 0.01f;
+			if (damage > 100)
+			npc.scale -= 0.01f;
+			if (damage > 160)
+			npc.scale -= 0.01f;
 			if (npc.scale < 0.5f)
 				npc.scale = 0.5f;
 			if (Main.rand.Next(30) == 0)
@@ -148,44 +160,6 @@ namespace Zylon.NPCs.Bosses
                 if (flee >= 450)
                     npc.active = false;
             }
-			
-			/*if (ZylonWorld.voidDream)
-			{
-				if (attackDone == true)
-				{
-					attack = Main.rand.Next(1, 3);
-					attackDone = false;
-					attackMax = 3;
-					attackNum = 0;
-					dirtSpawn = Main.rand.Next(1, 3);
-				}
-				
-				if (attack == 1)
-				{
-					if (Timer % 60 == 0)
-					{
-						Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 3, mod.ProjectileType("DirtBall"), 6, 10, Main.myPlayer);
-						if (attackMax < attackNum + 1)
-						{
-							attackDone = true;
-						}
-						attackNum += 1;
-					}
-				}
-				else if (attack == 2)
-				{
-					if (Timer % 150 == 0)
-					{
-						float numberProjectiles = Main.rand.Next(2, 7);
-						for (int i = 0; i < numberProjectiles; i++)
-						{
-							Projectile.NewProjectile(npc.Center.X, npc.Center.Y - 200, Main.rand.Next(-7, 7), -3, mod.ProjectileType("DirtBall2"), 5, Main.myPlayer);
-						}
-						attackDone = true;
-						attackNum += 1;
-					}
-				}
-			}*/
 			if (Main.expertMode)
 			{
 				if (attackDone == true)
@@ -199,7 +173,7 @@ namespace Zylon.NPCs.Bosses
 				
 				if (attack == 1)
 				{
-					if (Timer % 100 == 0)
+					if (Timer % 120 == 0)
 					{
 						Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 3, mod.ProjectileType("DirtBall"), 4, 10, Main.myPlayer);
 						if (attackMax < attackNum + 1)
@@ -211,7 +185,7 @@ namespace Zylon.NPCs.Bosses
 				}
 				if (attack == 2)
 				{
-					if (Timer % 16 == 0)
+					if (Timer % 24 == 0)
 					{
 						Projectile.NewProjectile(targetPlayer.X + Main.rand.Next(-600, 601), targetPlayer.Y - 500, 0, 6f, mod.ProjectileType("DirtTile"), 7, 1f, Main.myPlayer);
 						if (attackMax * 6 < attackNum)
@@ -235,7 +209,7 @@ namespace Zylon.NPCs.Bosses
 				
 				if (attack == 1)
 				{
-					if (Timer % 120 == 0)
+					if (Timer % 150 == 0)
 					{
 						Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 3, mod.ProjectileType("DirtBall"), 3, 10, Main.myPlayer);
 						if (attackMax < attackNum + 1)
@@ -247,7 +221,7 @@ namespace Zylon.NPCs.Bosses
 				}
 				if (attack == 2)
 				{
-					if (Timer % 20 == 0)
+					if (Timer % 30 == 0)
 					{
 						Projectile.NewProjectile(targetPlayer.X + Main.rand.Next(-600, 601), targetPlayer.Y - 500, 0, 5.5f, mod.ProjectileType("DirtTile"), 6, 1f, Main.myPlayer);
 						if (attackMax * 4 < attackNum)
