@@ -8,8 +8,8 @@ I hope you play my mod!
 
 Some more facts:
 ~324 Items
-~101 total NPCs
-~40 total Tiles
+~104 total NPCs
+~41 total Tiles
 ~38 Buffs
 ~6 unique, custom AI, Bosses:
 ^3 Prehardmode Bosses
@@ -36,33 +36,5 @@ Very Minor Help/Quit:
 CrazySapling1 (Quit Spriter)
 Sness (Two sprites)
 
-Update V0.2.1.7: Fixing Update
-~Dirtball now shrinks faster based on damage
-~Decreased Dirtball attack speed
-~Meatball items resprites
-~Meatball items balancing
-~Fixed and improved boomerangs
-~More code optimization
-~Added Icy Greatsword and Starfrenzy
-~Set a few projectiles to certain classes
-~Navycell debris resprite
-~Increased Crystalathan Wonder damage
-~Decreased drop rate of Starfury from Starfurry Slime but it can now drop Starfrenzy
-~Resprited Starfurry Slime
-~Mechanical Slime no longer drops Elementamax Sludge pre-plantera
-~Squarge now shoots venom spit instead of cursed flames
-~Added Sqaurge Spit Staff
-~Deleted elemental slimes spawn rate
-~Squarge now drops Venomous Pill and Vitamins
-~Added Optic Blowpipe
-~Mecharang, Silver Slayer, and Crystalarang now shoot projectiles
-~Increased Mecharang recipe requirement
-~Nerfed Xenon Tank
-~Changed Time Distorting Battery Tooltip
-~Resprited Dirt Yoyo
-~Resprited Dream String
-~Changed Eye of the Extractor tooltip
-~Made Crystalathan Wonder cleaner
-~Added four new Wall of Flesh drops
-~Fixed Colossal Cell dust
-~Bacterites now lay Bacterite Eggs
+Update V0.2.1.8: Important Fix
+~Fixed boss invincibility
