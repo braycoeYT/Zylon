@@ -26,7 +26,7 @@ namespace Zylon.NPCs
 			npc.lifeMax = 2100;
 			npc.HitSound = SoundID.NPCHit1;
 			npc.DeathSound = SoundID.NPCDeath3;
-			npc.value = 568f;
+			npc.value = 250f;
 			npc.aiStyle = 2;
 			npc.knockBackResist = 0f;
 			npc.noGravity = true;
@@ -51,13 +51,17 @@ namespace Zylon.NPCs
 			if (animationTimer > 2)
 			animationTimer = 0;
 			npc.frame.Y = animationTimer * 48;
+			npc.TargetClosest(true);
+			Player target = Main.player[npc.target];
+			Vector2 target2 = target.position;
+			target2.X += Main.rand.Next(-60, 60);
+			target2.Y += Main.rand.Next(-60, 60);
 			if (Main.expertMode)
 			{
 				if (Timer % 120 == 0)
 				{
 					Main.PlaySound(SoundID.Item12);
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, 6, 96, 30, Main.myPlayer);
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -6, 96, 25, Main.myPlayer);
+					Projectile.NewProjectile(npc.Center, (npc.DirectionTo(target2)) * 12, mod.ProjectileType("SquargeSpitHostile"), 30, 1f, Main.myPlayer);
 				}
 			}
 			else
@@ -65,8 +69,7 @@ namespace Zylon.NPCs
 				if (Timer % 150 == 0)
 				{
 					Main.PlaySound(SoundID.Item12);
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, 6, 96, 25, Main.myPlayer);
-					Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0, -6, 96, 25, Main.myPlayer);
+					Projectile.NewProjectile(npc.Center, (npc.DirectionTo(target2)) * 10, mod.ProjectileType("SquargeSpitHostile"), 30, 1f, Main.myPlayer);
 				}
 			}
 		}
@@ -82,6 +85,12 @@ namespace Zylon.NPCs
         {
 			if (Main.rand.NextFloat() < .3f)
 	        Item.NewItem(npc.getRect(), ItemID.LunarTabletFragment);
+			if (Main.rand.NextFloat() < .01f)
+	        Item.NewItem(npc.getRect(), mod.ItemType("SquargeSpitStaff"));
+			if (Main.rand.NextFloat() < .005f)
+	        Item.NewItem(npc.getRect(), mod.ItemType("VenomousPill"));
+			if (Main.rand.NextFloat() < .005f)
+	        Item.NewItem(npc.getRect(), ItemID.Vitamins);
         }
 	}
 }
