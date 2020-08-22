@@ -1,30 +1,44 @@
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ObjectData;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Items.Furniture.Chairs.PHOres
+namespace Zylon.Tiles.Furniture.Chairs.PHOres
 {
-	public class LeadChair : ModItem
+	public class LeadChair : ModTile
 	{
 		public override void SetDefaults() {
-			item.width = 12;
-			item.height = 30;
-			item.maxStack = 99;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 10;
-			item.useStyle = ItemUseStyleID.SwingThrow;
-			item.consumable = true;
-			item.value = 9000;
-			item.createTile = TileType<Tiles.Furniture.Chairs.PHOres.LeadChair>();
+			Main.tileFrameImportant[Type] = true;
+			Main.tileNoAttach[Type] = true;
+			Main.tileLavaDeath[Type] = true;
+			TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2);
+			TileObjectData.newTile.CoordinateHeights = new[] { 16, 18 };
+			TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
+			TileObjectData.newTile.StyleWrapLimit = 2;
+			TileObjectData.newTile.StyleMultiplier = 2;
+			TileObjectData.newTile.StyleHorizontal = true;
+			TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
+			TileObjectData.newAlternate.Direction = TileObjectDirection.PlaceRight;
+			TileObjectData.addAlternate(1);
+			TileObjectData.addTile(Type);
+			AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
+			ModTranslation name = CreateMapEntryName();
+			name.SetDefault("Lead Chair");
+			AddMapEntry(new Color(62, 82, 114), name);
+			dustType = 82;
+			disableSmartCursor = true;
+			adjTiles = new int[] { TileID.Chairs };
 		}
-		public override void AddRecipes() {
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.LeadBar, 4);
-			recipe.AddTile(TileID.HeavyWorkBench);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+
+		public override void NumDust(int i, int j, bool fail, ref int num) {
+			num = fail ? 1 : 3;
+		}
+
+		public override void KillMultiTile(int i, int j, int frameX, int frameY) {
+			Item.NewItem(i * 16, j * 16, 16, 32, ItemType<Items.Furniture.Chairs.PHOres.LeadChair>());
 		}
 	}
 }

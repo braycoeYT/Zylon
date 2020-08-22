@@ -24,12 +24,13 @@ namespace Zylon.Projectiles
 			projectile.tileCollide = false;
 			projectile.light = 1f;
 			aiType = ProjectileID.Bullet;
+			projectile.melee = true;
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			target.AddBuff(BuffID.Slimed, 300, false);
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit)
+		public override void OnHitPvp(Player target, int damage, bool crit)
 		{
 			target.AddBuff(BuffID.Slimed, 300, false);
 		}
