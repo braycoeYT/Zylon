@@ -12,7 +12,7 @@ namespace Zylon.Items.Xenic
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Time Distorting Battery");
-			Tooltip.SetDefault("Causes a Xenic Acidpumper's mind control to wear off for a second, causing one to enter the atmosphere nearby...\nOnly usable in space");
+			Tooltip.SetDefault("Attracts Xenic Acidpumpers, causing one to enter the atmosphere nearby...\nOnly usable in space");
 			ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13;
 		}
 

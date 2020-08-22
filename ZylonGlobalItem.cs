@@ -17,5 +17,11 @@ namespace Zylon.Tiles
 			if (item.type == ItemID.Blowgun)
 				item.damage = 34;
 		}
+		public override void RightClick(Item item, Player player) {
+			if (item.type == ItemID.FloatingIslandFishingCrate) {
+				if (Main.rand.NextFloat() < .25f)
+				player.QuickSpawnItem(mod.ItemType("Starfrenzy"));
+			}
+		}
 	}
 }

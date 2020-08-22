@@ -1,9 +1,6 @@
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
-using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Items.Silvervoid
 {
@@ -28,6 +25,14 @@ namespace Zylon.Items.Silvervoid
 			item.shootSpeed = 12f;
 			item.noUseGraphic = true;
 		}
+		public override bool CanUseItem(Player player) {
+            for (int i = 0; i < 1000; ++i) {
+                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == item.shoot) {
+                    return false;
+                }
+            }
+            return true;
+        }
 		public override void AddRecipes()  {
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType("SilvervoidCore"), 11);
