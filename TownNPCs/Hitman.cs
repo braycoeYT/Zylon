@@ -135,6 +135,9 @@ namespace Zylon.NPCs.TownNPCs
 			shop.item[nextSlot].SetDefaults(ItemID.Uzi);
 			shop.item[nextSlot].shopCustomPrice = 280000;
 			nextSlot++;
+			shop.item[nextSlot].SetDefaults(mod.ItemType("HitmansBlowscope"));
+			shop.item[nextSlot].shopCustomPrice = 325000;
+			nextSlot++;
 			shop.item[nextSlot].SetDefaults(ItemID.DartPistol);
 			shop.item[nextSlot].shopCustomPrice = 400000;
 			nextSlot++;
