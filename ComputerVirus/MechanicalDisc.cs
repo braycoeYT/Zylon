@@ -19,7 +19,7 @@ namespace Zylon.Items.ComputerVirus
 		{
 			item.width = 40;
 			item.height = 40;
-			item.maxStack = 9999;
+			item.maxStack = 20;
 			item.value = 0;
 			item.rare = 3;
 			item.useAnimation = 45;
