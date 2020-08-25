@@ -41,7 +41,7 @@ namespace Zylon.Items.Books
 		}
 		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.Book);
+			recipe.AddIngredient(ItemID.SpellTome);
 			recipe.AddIngredient(ItemID.FragmentSolar, 8);
 			recipe.AddIngredient(ItemID.FallenStar);
 			recipe.AddTile(TileID.Bookcases);

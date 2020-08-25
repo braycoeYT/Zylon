@@ -1,3 +1,5 @@
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,13 +8,10 @@ namespace Zylon.Items.Braycoe
 {
 	public class Slimebender : ModItem
 	{
-		public override void SetStaticDefaults() 
-		{
+		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("Developer Item\nShoots a large slimeblast that explodes into smaller slimeblasts");
 		}
-
-		public override void SetDefaults() 
-		{
+		public override void SetDefaults() {
 			item.damage = 917;
 			item.melee = true;
 			item.width = 33;
@@ -29,8 +28,16 @@ namespace Zylon.Items.Braycoe
 			item.shoot = mod.ProjectileType("SlimeblastLarge");
 			item.shootSpeed = 20f;
 		}
-		public override void PostUpdate()
-		{
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(116, 179, 237);
+                }
+            }
+        }
+		public override void PostUpdate() {
 			if (Main.rand.NextBool())
 			{
 				Dust dust = Dust.NewDustDirect(item.position, item.width, item.height, 80);

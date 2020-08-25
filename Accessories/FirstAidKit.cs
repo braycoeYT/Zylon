@@ -8,7 +8,7 @@ namespace Zylon.Items.Accessories
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("First Aid Kit");
-			Tooltip.SetDefault("Immune to bleeding and weak\nIncreases life regen by 4\nIncreases max life by 50\nYou gain life every time you take damage\nWhen you have low health, you have heavily increased life regen");
+			Tooltip.SetDefault("Immune to bleeding and weak\nIncreases life regen by 3\nIncreases max life by 20\nYou gain life every time you take damage\nWhen you have low health, you have heavily increased life regen");
 		}
 		public override void SetDefaults() {
 			item.width = 40;
@@ -19,8 +19,8 @@ namespace Zylon.Items.Accessories
 			item.defense = 2;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
-			player.statLifeMax2 += 50;
-			player.lifeRegen += 4;
+			player.statLifeMax2 += 20;
+			player.lifeRegen += 3;
 			player.buffImmune[30] = true;
 			player.buffImmune[BuffID.Weak] = true;
 			if (player.statLife < player.statLifeMax2 / 4)
