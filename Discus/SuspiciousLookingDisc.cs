@@ -19,7 +19,7 @@ namespace Zylon.Items.Discus
 		{
 			item.width = 40;
 			item.height = 40;
-			item.maxStack = 99;
+			item.maxStack = 20;
 			item.value = 0;
 			item.rare = 2;
 			item.useAnimation = 45;

@@ -1,3 +1,5 @@
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -5,14 +7,10 @@ namespace Zylon.Items.Ectojewelo
 {
 	public class EctojeweloMemory : ModItem
 	{
-		public override void SetStaticDefaults() 
-		{
-			DisplayName.SetDefault("Ectojewelo Memory");
+		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("It seems to wish you luck on your future endeavors");
 		}
-
-		public override void SetDefaults() 
-		{
+		public override void SetDefaults() {
 			item.damage = 41;
 			item.melee = true;
 			item.width = 33;
@@ -30,7 +28,15 @@ namespace Zylon.Items.Ectojewelo
 			item.axe = 32;
 			item.tileBoost += 4;
 		}
-
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);

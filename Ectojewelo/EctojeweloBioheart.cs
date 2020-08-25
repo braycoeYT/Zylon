@@ -1,3 +1,5 @@
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,10 +10,8 @@ namespace Zylon.Items.Ectojewelo
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Ectojewelo Bioheart");
 			Tooltip.SetDefault("Use this to increase max health by 25\nOne time use\nFighters of the Calamity need not apply\nAwakeners of the Elements need not apply");
 		}
-
 		public override void SetDefaults() 
 		{
 			item.width = 40;
@@ -24,7 +24,15 @@ namespace Zylon.Items.Ectojewelo
 			item.useStyle = ItemUseStyleID.HoldingUp;
 			item.consumable = true;
 		}
-
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override bool CanUseItem(Player player)
 		{
 			Mod CalamityMod = ModLoader.GetMod("CalamityMod");

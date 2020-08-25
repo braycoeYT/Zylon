@@ -20,7 +20,7 @@ namespace Zylon.Items.Empress
 		{
 			item.width = 40;
 			item.height = 40;
-			item.maxStack = 9999;
+			item.maxStack = 20;
 			item.value = 500000;
 			item.rare = 7;
 			item.useAnimation = 45;
