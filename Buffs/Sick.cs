@@ -20,24 +20,24 @@ namespace Zylon.Buffs
             player.allDamage -= 0.2f;
             for (int i = 0; i < 3; i++)
             {
-                int dustType = 80;
+                int dustType = mod.DustType("MicrobiomeDust");
                 int dustIndex = Dust.NewDust(player.position, player.width, player.height, dustType);
                 Dust dust = Main.dust[dustIndex];
                 dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
                 dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
-                dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
+                dust.scale *= 0.5f + Main.rand.Next(-30, 31) * 0.01f;
             }
         }
         public override void Update(NPC npc, ref int buffIndex) {
             npc.damage /= 5;
             for (int i = 0; i < 3; i++)
             {
-                int dustType = 80;
+                int dustType = mod.DustType("MicrobiomeDust");
                 int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, dustType);
                 Dust dust = Main.dust[dustIndex];
                 dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
                 dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
-                dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
+                dust.scale *= 0.5f + Main.rand.Next(-30, 31) * 0.01f;
             }
             npc.color = Color.DarkCyan;
             if (npc.buffTime[buffIndex] < 10)
