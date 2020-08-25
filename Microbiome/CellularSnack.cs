@@ -16,7 +16,7 @@ namespace Zylon.Items.Microbiome
 		{
 			item.width = 40;
 			item.height = 40;
-			item.maxStack = 99;
+			item.maxStack = 20;
 			item.value = 0;
 			item.rare = 0;
 			item.useAnimation = 45;
