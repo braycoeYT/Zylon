@@ -1,4 +1,5 @@
-using Terraria;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -9,7 +10,6 @@ namespace Zylon.Items.Mineral
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dreamsday Arrow");
 			Tooltip.SetDefault("An arrow of the cosmos and crystals\nCan inflict xenic acid on enemies");
         }
 		public override void SetDefaults()
@@ -27,7 +27,15 @@ namespace Zylon.Items.Mineral
 			item.shootSpeed = 6f;
 			item.ammo = AmmoID.Arrow;
 		}
-		
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

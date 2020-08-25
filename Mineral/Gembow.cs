@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -28,6 +29,15 @@ namespace Zylon.Items.Mineral
 			item.value = 1000000;
 			item.rare = 10;
 		}
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack) {
 			float numberProjectiles = 2;
 			float rotation = MathHelper.ToRadians(5);

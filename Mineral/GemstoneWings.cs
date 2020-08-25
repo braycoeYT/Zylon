@@ -3,14 +3,15 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 
 namespace Zylon.Items.Mineral
 {
 	[AutoloadEquip(EquipType.Wings)]
 	public class GemstoneWings : ModItem
 	{
-		public override void SetStaticDefaults()
-		{
+		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("How do these even let you fly?!");
 		}
 		public override void SetDefaults()
@@ -20,9 +21,17 @@ namespace Zylon.Items.Mineral
 			item.value = 400000;
 			item.rare = 11;
 			item.accessory = true;
-			item.expert = true;
 			item.defense = 10;
 		}
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.wingTimeMax = 180;

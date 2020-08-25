@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,7 +12,6 @@ namespace Zylon.Items.Mineral
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Adastra");
 			Tooltip.SetDefault("To the stars");
 		}
 		public override void SetDefaults() 
@@ -34,13 +35,22 @@ namespace Zylon.Items.Mineral
 			item.UseSound = SoundID.Item12;
 			item.rare = 12;
 		}
+		public override void ModifyTooltips(List<TooltipLine> list)
+        {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.SpaceGun);
 			recipe.AddIngredient(mod.ItemType("PhoenixDriver"));
 			recipe.AddIngredient(ItemID.FallenStar, 20);
-			recipe.AddIngredient(mod.ItemType("DreamString"), 10);
 			recipe.AddIngredient(mod.ItemType("GalacticDiamondium"), 10);
 			recipe.AddIngredient(mod.ItemType("EctojeweloBar"), 8);
 			recipe.AddTile(TileID.Anvils);

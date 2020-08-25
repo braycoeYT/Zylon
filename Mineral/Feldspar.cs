@@ -1,3 +1,5 @@
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,6 +28,15 @@ namespace Zylon.Items.Mineral
 			item.shoot = mod.ProjectileType("GemstoneOrbLarge");
 			item.shootSpeed = 14f;
 		}
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override bool UseItem(Player player) {
 			if (Main.rand.NextBool()) {
 				Dust dust = Dust.NewDustDirect(item.position, item.width, item.height, 58);

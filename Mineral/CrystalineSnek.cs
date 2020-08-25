@@ -1,5 +1,5 @@
 using Microsoft.Xna.Framework;
-using Terraria;
+using System.Collections.Generic;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -8,14 +8,12 @@ namespace Zylon.Items.Mineral
 {
 	public class CrystalineSnek : ModItem
 	{
-		public override void SetStaticDefaults() 
-		{
+		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("Like your original snek, but now with a gemstone coating!\nInflicts poison and venom on enemies");
 			ItemID.Sets.Yoyo[item.type] = true;
 			ItemID.Sets.GamepadExtraRange[item.type] = 27;
 			ItemID.Sets.GamepadSmartQuickReach[item.type] = true;
 		}
-
 		public override void SetDefaults()
 		{
 			item.useStyle = 5;
@@ -35,7 +33,15 @@ namespace Zylon.Items.Mineral
 			item.value = 1000000;
 			item.shoot = ProjectileType<Projectiles.OtherYoyos.CrystalineSnek>();
 		}
-		
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);

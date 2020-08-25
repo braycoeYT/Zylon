@@ -1,3 +1,5 @@
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,20 +10,25 @@ namespace Zylon.Items.Mineral
 	[AutoloadEquip(EquipType.Head)]
 	public class GemstoneHeadgear : ModItem
 	{
-		public override void SetStaticDefaults()
-		{
+		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("Shiny and smooth...\nDamage reduction is increased by 5%\nIncreases magic critical strike chance by 15%\nIncreases magic damage by 22%\nMax mana increased by 40 and mana cost is decreased by 18%\nDefense is increased when health is low");
 		}
-
-		public override void SetDefaults()
-		{
+		public override void SetDefaults() {
 			item.width = 18;
 			item.height = 18;
 			item.value = 500000;
 			item.rare = 11;
 			item.defense = 19;
 		}
-
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override bool IsArmorSet(Item head, Item body, Item legs)
 		{
 			return body.type == ItemType<GemstoneChestplate>() && legs.type == ItemType<GemstoneLeggings>();

@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,10 +9,8 @@ namespace Zylon.Items.OtherGuns
 	public class PragmaticShotgun : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Pragmatic Shotgun");
 			Tooltip.SetDefault("Every shot fires a volley of bullets and an onyx blast");
 		}
-
 		public override void SetDefaults()  {
 			item.value = 650000;
 			item.useStyle = 5;
@@ -31,6 +30,15 @@ namespace Zylon.Items.OtherGuns
 			item.rare = 11;
 			item.noMelee = true;
 		}
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override Vector2? HoldoutOffset() {
 			return new Vector2(-10, -6);
 		}

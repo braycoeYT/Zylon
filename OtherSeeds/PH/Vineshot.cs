@@ -1,42 +1,43 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.OtherSeeds.PH
+namespace Zylon.Items.OtherSeeds.PH
 {
-	public class Vineshot : ModProjectile
+	public class Vineshot : ModItem
 	{
-        public override void SetStaticDefaults()
+		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Vineshot");
+			Tooltip.SetDefault("For use with blowpipes\nEach seedshot has a chance of poisoning enemies");
         }
 		public override void SetDefaults()
 		{
-			projectile.CloneDefaults(ProjectileID.Seed);
-			aiType = ProjectileID.Seed;
+			item.damage = 8; //3
+			item.ranged = true;
+			item.width = 12;
+			item.height = 8;
+			item.maxStack = 999;
+			item.consumable = true;
+			item.knockBack = 0f; //0
+			item.value = 10; //0
+			item.rare = 0;
+			item.shoot = ProjectileType<Projectiles.OtherSeeds.PH.Vineshot>();
+			item.shootSpeed = 0f; //0
+			item.ammo = AmmoID.Dart;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		
+		public override void AddRecipes()
 		{
-			if (Main.rand.NextFloat() < .3f)
-		    target.AddBuff(BuffID.Poisoned, 150, false);
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.Seed, 225);
+			recipe.AddIngredient(ItemID.Vine);
+			recipe.AddIngredient(ItemID.JungleSpores);
+			recipe.AddTile(TileID.WorkBenches);
+			recipe.SetResult(this, 225);
+			recipe.AddRecipe();
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit)
-		{
-			if (Main.rand.NextFloat() < .3f)
-				target.AddBuff(BuffID.Poisoned, 150, false);
-		}
-		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
-		{
-			Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
-			for (int k = 0; k < projectile.oldPos.Length; k++) {
-				Vector2 drawPos = projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, projectile.gfxOffY);
-				Color color = projectile.GetAlpha(lightColor) * ((float)(projectile.oldPos.Length - k) / (float)projectile.oldPos.Length);
-				spriteBatch.Draw(Main.projectileTexture[projectile.type], drawPos, null, color, projectile.rotation, drawOrigin, projectile.scale, SpriteEffects.None, 0f);
-			}
-			return true;
-		}
-	}   
+	}
 }

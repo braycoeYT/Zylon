@@ -1,4 +1,6 @@
+using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,20 +11,25 @@ namespace Zylon.Items.Mineral
 	[AutoloadEquip(EquipType.Body)]
 	public class GemstoneChestplate : ModItem
 	{
-		public override void SetStaticDefaults()
-		{
+		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("The eyes inside are glad you freed them...\nThe eyes are happier when you are doing something\nDamage reduction increased by 5%\nIncreases all critical strike chance by 5% and damage by 10%\nIncreases max health and mana by 20, and increases health and mana regen by 2\nWhen not moving vertically, your defense is heavily increased\nWhen moving quickly vertically, your defense is slightly decreased\nThe negative effects seem worse because of the positive ones happening when you stand still");
 		}
-
-		public override void SetDefaults()
-		{
+		public override void SetDefaults() {
 			item.width = 18;
 			item.height = 18;
 			item.value = 1000000;
 			item.rare = 11;
 			item.defense = 44;
 		}
-		
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override void UpdateEquip(Player player)
 		{
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();

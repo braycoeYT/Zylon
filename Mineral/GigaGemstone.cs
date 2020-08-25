@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,26 +8,31 @@ namespace Zylon.Items.Mineral
 {
 	public class GigaGemstone : ModItem
 	{
-		public override void SetStaticDefaults() 
-		{
+		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Giga Gemstone");
 			Tooltip.SetDefault("One of the most valuable gems ever\nSummons the mineral extractor of countless worlds at night...\nNot Consumable");
 			ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13;
 		}
-
-		public override void SetDefaults() 
-		{
+		public override void SetDefaults() {
 			item.width = 40;
 			item.height = 40;
 			item.maxStack = 1;
 			item.value = 5000000;
-			item.rare = 10;
+			item.rare = 11;
 			item.useAnimation = 30;
 			item.useTime = 30;
 			item.useStyle = 4;
 			item.consumable = false;
 		}
-		
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override bool CanUseItem(Player player)
 		{
 			if(!Main.dayTime)

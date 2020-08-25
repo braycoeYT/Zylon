@@ -1,4 +1,6 @@
+using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,7 +16,6 @@ namespace Zylon.Items.Mineral
 			DisplayName.SetDefault("Eye of the Extractor");
 			Tooltip.SetDefault("After equiping this, those gems are starting to look edible...\nIncreases jump speed by 500%\nDecreases Xenic Acid debuff damage by 25%\nKilling enemies causes them to drop galactic souls, which give you a powerful buff\nCancels negative effects of gemstone armor");
 		}
-
 		public override void SetDefaults()
 		{
 			item.width = 40;
@@ -25,6 +26,15 @@ namespace Zylon.Items.Mineral
 			item.expert = true;
 			item.defense = 2;
 		}
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();

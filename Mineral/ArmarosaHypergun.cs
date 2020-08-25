@@ -1,15 +1,14 @@
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Items.Mineral
 {
 	public class ArmarosaHypergun : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Armarosa Hypergun");
 			Tooltip.SetDefault("En...en...enchanted...\nThere is a 25% chance of a crystal to be shot with the bullet\n20% chance to not consume ammo");
 		}
 
@@ -32,6 +31,16 @@ namespace Zylon.Items.Mineral
 			item.rare = 11;
 			item.noMelee = true;
 		}
+		public override void ModifyTooltips(List<TooltipLine> list)
+        {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override Vector2? HoldoutOffset() {
 			return new Vector2(-3, 0);
 		}

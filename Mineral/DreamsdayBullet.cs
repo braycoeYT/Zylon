@@ -1,3 +1,5 @@
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,7 +11,6 @@ namespace Zylon.Items.Mineral
 	{
         public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Dreamsday Bullet");
 			Tooltip.SetDefault("An optical illusion of power\nCan inflict xenic acid on enemies");
         }
 		public override void SetDefaults()
@@ -28,7 +29,15 @@ namespace Zylon.Items.Mineral
 			item.ammo = AmmoID.Bullet;
 			item.crit = 10;
 		}
-		
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
