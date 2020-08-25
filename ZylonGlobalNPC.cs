@@ -107,18 +107,6 @@ namespace Zylon.NPCs
 				if (Main.rand.Next(100) == 1)
 				Item.NewItem(npc.getRect(), ItemType<Items.Dirtball.CreepyMud>());
 			}
-			if (npc.type == NPCID.LunarTowerSolar) {
-				Item.NewItem(npc.getRect(), ItemType<Items.DreamString>(), Main.rand.Next(2, 6));
-			}
-			if (npc.type == NPCID.LunarTowerVortex) {
-				Item.NewItem(npc.getRect(), ItemType<Items.DreamString>(), Main.rand.Next(2, 6));
-			}
-			if (npc.type == NPCID.LunarTowerNebula) {
-				Item.NewItem(npc.getRect(), ItemType<Items.DreamString>(), Main.rand.Next(4, 6));
-			}
-			if (npc.type == NPCID.LunarTowerStardust) {
-				Item.NewItem(npc.getRect(), ItemType<Items.DreamString>(), Main.rand.Next(4, 6));
-			}
 			if (npc.type == NPCID.IceSlime || npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.SnowFlinx || npc.type == NPCID.IceBat) {
 				if (Main.rand.Next(3) == 0)
 				Item.NewItem(npc.getRect(), ItemType<Items.Snow.CryoCrystal>());
@@ -154,7 +142,7 @@ namespace Zylon.NPCs
 					Item.NewItem(npc.getRect(), ItemType<Items.Accessories.SunProtection>());
 			}
 			if (npc.type == NPCID.WallofFlesh) {
-				int rand = Main.rand.Next(0, 4);
+				int rand = Main.rand.Next(0, 5);
 				if (rand == 0)
 					Item.NewItem(npc.getRect(), mod.ItemType("FleshCutter"));
 				if (rand == 1)
@@ -163,6 +151,8 @@ namespace Zylon.NPCs
 					Item.NewItem(npc.getRect(), mod.ItemType("Fleshbow"));
 				if (rand == 3)
 					Item.NewItem(npc.getRect(), mod.ItemType("Fleshclump"));
+				if (rand == 4)
+					Item.NewItem(npc.getRect(), mod.ItemType("FleshBlowpipe"));
 			}
 			if (npc.type == NPCID.BloodCrawler || npc.type == NPCID.BloodCrawlerWall) {
 				if (Main.rand.NextFloat() < .12f)
@@ -214,6 +204,21 @@ namespace Zylon.NPCs
 				}
 			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].HasItem(mod.ItemType("OpticBlowpipe")))
 				if (npc.type == NPCID.CataractEye || npc.type == NPCID.CataractEye2 || npc.type == NPCID.DemonEye || npc.type == NPCID.DemonEye2 || npc.type == NPCID.DemonEyeOwl || npc.type == NPCID.DemonEyeSpaceship || npc.type == NPCID.DialatedEye || npc.type == NPCID.DialatedEye2 || npc.type == NPCID.GreenEye || npc.type == NPCID.GreenEye2 || npc.type == NPCID.PurpleEye || npc.type == NPCID.PurpleEye2 || npc.type == NPCID.SleepyEye || npc.type == NPCID.SleepyEye2) {
+					if (Main.rand.NextFloat() < .5f)
+					Item.NewItem(npc.getRect(), ItemID.Seed, Main.rand.Next(1, 3));
+				}
+			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].HasItem(mod.ItemType("FleshBlowtube")))
+				if (npc.type == NPCID.Demon || npc.type == NPCID.FireImp || npc.type == NPCID.LavaSlime) {
+					if (Main.rand.NextFloat() < .5f)
+					Item.NewItem(npc.getRect(), mod.ItemType("FleshSeedshot"), Main.rand.Next(1, 3));
+				}
+			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].HasItem(mod.ItemType("HitmansBlowscope")))
+				if (npc.type == mod.NPCType("MechanicalSlime")) {
+					if (Main.rand.NextFloat() < .5f)
+					Item.NewItem(npc.getRect(), ItemID.Seed, Main.rand.Next(1, 3));
+				}
+			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].HasItem(mod.ItemType("MeatCannon")))
+				if (npc.type == mod.NPCType("Meatball1") || npc.type == mod.NPCType("Meatball2") || npc.type == mod.NPCType("Meatball3") || npc.type == mod.NPCType("Meatball4") || npc.type == mod.NPCType("Meatball5")) {
 					if (Main.rand.NextFloat() < .5f)
 					Item.NewItem(npc.getRect(), ItemID.Seed, Main.rand.Next(1, 3));
 				}
