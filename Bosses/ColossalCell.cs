@@ -9,12 +9,10 @@ namespace Zylon.NPCs.Bosses
 	[AutoloadBossHead]
 	public class ColossalCell : ModNPC
 	{
-		public override void SetStaticDefaults() 
-		{
+		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Colossal Cell");
 		}
-        public override void SetDefaults()
-		{
+        public override void SetDefaults() {
 			npc.width = 148;
 			npc.height = 148;
 			npc.damage = 32;
@@ -41,18 +39,15 @@ namespace Zylon.NPCs.Bosses
 			npc.buffImmune[BuffID.Ichor] = true;
 			npc.buffImmune[mod.BuffType("Sick")] = true;
 		}
-		
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
-        {
+		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
             npc.lifeMax = 4593 + numPlayers * 800;
 			npc.damage = 56;
         }
-		
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				int dustType = 80;
+				int dustType = mod.DustType("MicrobiomeDust");
 				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, dustType);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
@@ -72,16 +67,7 @@ namespace Zylon.NPCs.Bosses
 				NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, NPCType<Minions.Cell.Bacterite>(), 0, npc.whoAmI);
 		}
 		
-        public float Timer
-		{
-	        get => npc.ai[0];
-	        set => npc.ai[0] = value;
-        }
-		public float RageTimer
-		{
-			get => npc.ai[1];
-			set => npc.ai[1] = value;
-		}
+        int Timer;
 		int flee = 0;
 		int attack = 0;
 		int moveMode2 = 0;
@@ -91,17 +77,7 @@ namespace Zylon.NPCs.Bosses
 		{
 			Player target = Main.player[npc.target];
 			Timer++;
-			if (!Main.player[npc.target].GetModPlayer<ZylonPlayer>().ZoneMicrobiome)
-			{
-				RageTimer++;
-
-				if (RageTimer > 299)
-					npc.dontTakeDamage = true;
-				else
-					npc.dontTakeDamage = false;
-			}
-			if (Main.player[npc.target].GetModPlayer<ZylonPlayer>().ZoneMicrobiome)
-			RageTimer = 0;
+			npc.dontTakeDamage = !Main.player[npc.target].GetModPlayer<ZylonPlayer>().ZoneMicrobiome;
 			if (Main.player[npc.target].statLife < 1)
 			{
 				npc.TargetClosest(true);

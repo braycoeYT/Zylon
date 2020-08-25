@@ -54,7 +54,7 @@ namespace Zylon.NPCs.Bosses
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				int dustType = 80;
+				int dustType = mod.DustType("MicrobiomeDust");
 				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, dustType);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
@@ -78,7 +78,6 @@ namespace Zylon.NPCs.Bosses
 		int attackNum = 0;
 		int moveMode = 0;
 		int Timer = 0;
-		int RageTimer = 0;
 		bool spawnStalkers = true;
 		bool attackDone = true;
 		Vector2 targetPos;
@@ -88,19 +87,7 @@ namespace Zylon.NPCs.Bosses
 			npc.noTileCollide = true;
 			Timer++;
 			targetPos = Main.player[npc.target].Center;
-
-			if (!Main.player[npc.target].GetModPlayer<ZylonPlayer>().ZoneMicrobiome)
-			{
-				RageTimer++;
-
-				if (RageTimer > 299)
-					npc.dontTakeDamage = true;
-				else
-					npc.dontTakeDamage = false;
-			}
-			else
-			RageTimer = 0;
-
+			npc.dontTakeDamage = !Main.player[npc.target].GetModPlayer<ZylonPlayer>().ZoneMicrobiome;
 			if (Main.player[npc.target].statLife < 1)
 			{
 				npc.TargetClosest(true);

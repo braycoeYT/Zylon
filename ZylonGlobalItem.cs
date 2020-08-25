@@ -17,6 +17,19 @@ namespace Zylon.Tiles
 			if (item.type == ItemID.Blowgun)
 				item.damage = 34;
 		}
+		public override void UpdateAccessory(Item item, Player player, bool hideVisual)
+		{
+			if (item.type == ItemID.RoyalGel || item.type == mod.ItemType("MonarchalGel"))
+			{
+				player.npcTypeNoAggro[mod.NPCType("BoneSlime")] = true;
+				player.npcTypeNoAggro[mod.NPCType("EctojeweloSlime")] = true;
+				player.npcTypeNoAggro[mod.NPCType("FleshySlime")] = true;
+				player.npcTypeNoAggro[mod.NPCType("MechanicalSlime")] = true;
+				player.npcTypeNoAggro[mod.NPCType("SilvervoidSlime")] = true;
+				player.npcTypeNoAggro[mod.NPCType("StarfurrySlime")] = true;
+				player.npcTypeNoAggro[mod.NPCType("VilespitSlime")] = true;
+			}
+		}
 		public override void RightClick(Item item, Player player) {
 			if (item.type == ItemID.FloatingIslandFishingCrate) {
 				if (Main.rand.NextFloat() < .25f)

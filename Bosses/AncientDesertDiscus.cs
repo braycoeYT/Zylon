@@ -80,37 +80,15 @@ namespace Zylon.NPCs.Bosses
 				}
 			}
 		}
-		
-        public float Timer
-		{
-	        get => npc.ai[0];
-	        set => npc.ai[0] = value;
-        }
-		public float RageTimer
-		{
-			get => npc.ai[1];
-			set => npc.ai[1] = value;
-		}
-
+        int Timer;
 		bool chat0 = true;
 		bool chat1 = true;
 		bool chat2 = true;
 		int flee = 0;
-
         public override void AI()
 		{
 			npc.TargetClosest(true);
-			if (!Main.player[npc.target].ZoneDesert)
-			{
-				RageTimer++;
-
-				if (RageTimer > 299)
-					npc.dontTakeDamage = true;
-				else
-					npc.dontTakeDamage = false;
-			}
-			else
-				RageTimer = 0;
+			npc.dontTakeDamage = !Main.player[npc.target].ZoneDesert;
 			if (Main.player[npc.target].statLife < 1)
 			{
 				npc.TargetClosest(true);
