@@ -43,6 +43,12 @@ namespace Zylon.NPCs.Microbiome.PZME
 		{
 			if (Main.rand.NextBool(2))
 				Projectile.NewProjectile(npc.Center, new Vector2(0, 2).RotatedByRandom(MathHelper.TwoPi), mod.ProjectileType("MorbusPetal"), 41, 1f, Main.myPlayer);
+			int dustType = mod.DustType("MicrobiomeDust");
+				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, dustType);
+				Dust dust = Main.dust[dustIndex];
+				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
+				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
+				dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {

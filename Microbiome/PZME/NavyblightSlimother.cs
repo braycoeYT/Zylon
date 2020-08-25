@@ -58,6 +58,15 @@ namespace Zylon.NPCs.Microbiome.PZME
 			{
 				NPC.NewNPC((int)npc.Center.X + Main.rand.Next(-50, 50), (int)npc.Center.Y + Main.rand.Next(-50, 50), mod.NPCType("NavyblightSlime"));
 			}
+			for (int i = 0; i < 10; i++)
+			{
+				int dustType = mod.DustType("MicrobiomeDust");
+				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, dustType);
+				Dust dust = Main.dust[dustIndex];
+				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
+				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
+				dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
+			}
 		}
 		public override void OnHitPlayer(Player player, int damage, bool crit)
 		{

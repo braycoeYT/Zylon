@@ -364,12 +364,6 @@ namespace Zylon.NPCs.Minibosses
 			}
 			ZylonWorld.downedXenic = true;
         }
-		
-		public override float SpawnChance(NPCSpawnInfo spawnInfo)
-        {
-			return 0f;
-        }
-		
 		public override void HitEffect(int hitDirection, double damage)
 		{
 			for (int i = 0; i < 10; i++)

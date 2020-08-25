@@ -36,6 +36,18 @@ namespace Zylon.NPCs.Microbiome.PZME
 				player.AddBuff(mod.BuffType("Sick"), 700, true);
 			}
 		}
+		public override void HitEffect(int hitDirection, double damage)
+		{
+			for (int i = 0; i < 10; i++)
+			{
+				int dustType = mod.DustType("MicrobiomeDust");
+				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, dustType);
+				Dust dust = Main.dust[dustIndex];
+				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
+				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
+				dust.scale *= 0.5f + Main.rand.Next(-30, 31) * 0.01f;
+			}
+		}
 		int Timer;
 		public override void AI()
 		{

@@ -45,7 +45,7 @@ namespace Zylon.NPCs.Microbiome
 		{
 			for (int i = 0; i < 10; i++)
 			{
-				int dustType = 34;
+				int dustType = 92;
 				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, dustType);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
