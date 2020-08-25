@@ -18,14 +18,14 @@ namespace Zylon.Items.Silvervoid
 		{
 			item.damage = 143;
 			item.magic = true;
-			item.width = 33;
-			item.height = 33;
+			item.width = 92;
+			item.height = 116;
 			item.useTime = 17;
 			item.useAnimation = 17;
 			item.useStyle = 5;
 			item.knockBack = 1;
 			item.value = 250000;
-			item.rare = 10;
+			item.rare = 11;
 			item.autoReuse = true;
 			item.useTurn = false;
 			item.shoot = 297;

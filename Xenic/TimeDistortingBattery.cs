@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,15 +8,11 @@ namespace Zylon.Items.Xenic
 {
 	public class TimeDistortingBattery : ModItem
 	{
-		public override void SetStaticDefaults() 
-		{
-			DisplayName.SetDefault("Time Distorting Battery");
+		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("Attracts Xenic Acidpumpers, causing one to enter the atmosphere nearby...\nOnly usable in space");
 			ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13;
 		}
-
-		public override void SetDefaults() 
-		{
+		public override void SetDefaults() {
 			item.width = 40;
 			item.height = 40;
 			item.maxStack = 20;
@@ -28,10 +23,18 @@ namespace Zylon.Items.Xenic
 			item.useStyle = 4;
 			item.consumable = true;
 		}
-		
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list)
+            {
+                if (tooltipLine.mod == "Terraria" && tooltipLine.Name == "ItemName")
+                {
+                    tooltipLine.overrideColor = new Color(255, 0, 255);
+                }
+            }
+        }
 		public override bool CanUseItem(Player player)
 		{
-			if(player.ZoneSkyHeight)
+			if(player.ZoneSkyHeight && !NPC.AnyNPCs(mod.NPCType("XenicAcidpumper")))
 				return !NPC.AnyNPCs(mod.NPCType("XenicAcidpumperGood"));
 			return false;
 		}

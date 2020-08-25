@@ -38,6 +38,16 @@ namespace Zylon.Items.Potions
 			recipe.AddTile(13);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
+
+            Mod xtraarmory = ModLoader.GetMod("Xtraarmory");
+			if (xtraarmory != null)
+			{
+                recipe = new ModRecipe(mod);
+			    recipe.AddIngredient(mod.ItemType("ThrowableFloatingPotion"), 150);
+			    recipe.AddTile(13);
+			    recipe.SetResult(this);
+			    recipe.AddRecipe();
+            }
 		}
     }
 }
