@@ -5,11 +5,6 @@ namespace Zylon.Items.Microbiome
 {
 	public class EyeOpener : ModItem
 	{
-		public override void SetStaticDefaults() 
-		{
-			Tooltip.SetDefault("Speed is what we need");
-		}
-
 		public override void SetDefaults() 
 		{
 			item.damage = 19;

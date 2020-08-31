@@ -33,7 +33,7 @@ namespace Zylon.Items.MushroomGlow
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("GlowingMushroomMusher"));
+			recipe.AddIngredient(mod.ItemType("MushroomMusher"));
 			recipe.AddIngredient(mod.ItemType("GlazedLens"));
 			recipe.AddIngredient(ItemID.GlowingMushroom, 18);
 			recipe.AddTile(TileID.WorkBenches);
