@@ -16,7 +16,7 @@ namespace Zylon.Items.Mineral
 		public override void SetDefaults() {
 			item.width = 18;
 			item.height = 18;
-			item.value = 500000;
+			item.value = Item.sellPrice(0, 10, 0, 0);
 			item.rare = 11;
 			item.defense = 9;
 		}
@@ -36,12 +36,10 @@ namespace Zylon.Items.Mineral
 		public override void UpdateArmorSet(Player player)
 		{
 			playerTimer++;
-			player.setBonus = "Rains eye crystals above the player";
+			player.setBonus = "Summons an indecisive Ubercabochon to fight for you";
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			if (playerTimer % 10 == 0)
-			{
-				Projectile.NewProjectile(player.Center.X + Main.rand.Next(-60, 61), player.Center.Y - 600, Main.rand.Next(-3, 4), 7, mod.ProjectileType("GemstoneSpikeRain"), 75, 1f, player.whoAmI);
-			}
+			p.gemstoneSummon = true;
+			player.AddBuff(mod.BuffType("Ubercabochon"), 2);
 		}
 		
 		public override void UpdateEquip(Player player)

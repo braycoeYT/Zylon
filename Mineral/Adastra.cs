@@ -24,7 +24,7 @@ namespace Zylon.Items.Mineral
 			item.useAnimation = 21;
 			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.knockBack = 4.3f;
-			item.value = 850000;
+			item.value = Item.sellPrice(0, 12, 0, 0);
 			item.autoReuse = true;
 			item.useTurn = true;
 			item.shoot = mod.ProjectileType("StarryOrb");

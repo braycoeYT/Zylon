@@ -12,7 +12,7 @@ namespace Zylon.Items.OtherGuns
 			Tooltip.SetDefault("Every shot fires a volley of bullets and an onyx blast");
 		}
 		public override void SetDefaults()  {
-			item.value = 650000;
+			item.value = Item.sellPrice(0, 13, 0, 0);
 			item.useStyle = 5;
 			item.useAnimation = 54;
 			item.useTime = 54;
@@ -40,7 +40,7 @@ namespace Zylon.Items.OtherGuns
             }
         }
 		public override Vector2? HoldoutOffset() {
-			return new Vector2(-10, -6);
+			return new Vector2(-11, 0);
 		}
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack) {
 			float numberProjectiles = 3;

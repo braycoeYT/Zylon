@@ -26,7 +26,7 @@ namespace Zylon.Items.Mineral
 			item.useAmmo = AmmoID.Arrow;
 			item.UseSound = SoundID.Item5;
 			item.autoReuse = true;
-			item.value = 1000000;
+			item.value = Item.sellPrice(0, 12, 0, 0);
 			item.rare = 10;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {
@@ -52,6 +52,7 @@ namespace Zylon.Items.Mineral
 		}
 		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(mod.ItemType("AmethystBow"));
 			recipe.AddIngredient(mod.ItemType("GalacticDiamondium"), 10);
 			recipe.AddIngredient(mod.ItemType("EctojeweloBar"), 8);
 			recipe.AddTile(TileID.MythrilAnvil);

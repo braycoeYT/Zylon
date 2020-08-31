@@ -16,7 +16,7 @@ namespace Zylon.Items.Mineral
 		public override void SetDefaults() {
 			item.width = 18;
 			item.height = 18;
-			item.value = 500000;
+			item.value = Item.sellPrice(0, 10, 0, 0);
 			item.rare = 11;
 			item.defense = 29;
 		}
@@ -36,9 +36,9 @@ namespace Zylon.Items.Mineral
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = "Every fifth attack shoots a crystal that leeches life";
+			player.setBonus = "Every fifth ranged attack shoots a crystal that leeches life";
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			p.gemstoneHealBullet = true;
+			p.gemstoneRanged = true;
 		}
 
 		public override void UpdateEquip(Player player)

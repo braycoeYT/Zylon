@@ -16,7 +16,7 @@ namespace Zylon.Items.Mineral
 		public override void SetDefaults() {
 			item.width = 18;
 			item.height = 18;
-			item.value = 500000;
+			item.value = Item.sellPrice(0, 10, 0, 0);
 			item.rare = 11;
 			item.defense = 19;
 		}
@@ -36,9 +36,9 @@ namespace Zylon.Items.Mineral
 
 		public override void UpdateArmorSet(Player player)
 		{
-			player.setBonus = "Hurting enemies can summon mana crystals that leech extra mana for you";
+			player.setBonus = "Having low hp will cause all magic weapons to cost 75% less";
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			p.gemstoneManaBullet = true;
+			p.gemstoneMagic = true;
 		}
 
 		public override void UpdateEquip(Player player)

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,7 +15,7 @@ namespace Zylon.Items.Mineral
 			item.width = 40;
 			item.height = 40;
 			item.maxStack = 9999;
-			item.value = 70000;
+			item.value = Item.sellPrice(0, 0, 90, 0);
 			item.rare = 11;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {

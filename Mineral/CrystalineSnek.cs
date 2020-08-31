@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -30,7 +31,7 @@ namespace Zylon.Items.Mineral
 			item.noMelee = true;
 			item.noUseGraphic = true;
 			item.UseSound = SoundID.Item1;
-			item.value = 1000000;
+			item.value = Item.sellPrice(0, 12, 0, 0);
 			item.shoot = ProjectileType<Projectiles.OtherYoyos.CrystalineSnek>();
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {

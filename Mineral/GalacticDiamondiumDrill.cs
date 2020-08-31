@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -23,7 +24,7 @@ namespace Zylon.Items.Mineral
 			item.useAnimation = 19;
 			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 5;
-			item.value = 132000;
+			item.value = Item.sellPrice(0, 12, 0, 0);
 			item.rare = ItemRarityID.Purple;
 			item.UseSound = SoundID.Item11;
 			item.autoReuse = true;

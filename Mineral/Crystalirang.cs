@@ -17,7 +17,7 @@ namespace Zylon.Items.Mineral
 			item.useAnimation = 20;
 			item.useStyle = 1;
 			item.knockBack = 3.5f;
-			item.value = 162000;
+			item.value = Item.sellPrice(0, 12, 0, 0);
 			item.rare = 11;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;

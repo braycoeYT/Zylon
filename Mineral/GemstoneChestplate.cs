@@ -17,7 +17,7 @@ namespace Zylon.Items.Mineral
 		public override void SetDefaults() {
 			item.width = 18;
 			item.height = 18;
-			item.value = 1000000;
+			item.value = Item.sellPrice(0, 15, 0, 0);
 			item.rare = 11;
 			item.defense = 44;
 		}

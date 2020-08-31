@@ -12,7 +12,7 @@ namespace Zylon.Items.Mineral
 			Tooltip.SetDefault("Rains pink stars");
 		}
 		public override void SetDefaults() {
-			item.value = 550000;
+			item.value = Item.sellPrice(0, 12, 0, 0);
 			item.useStyle = 5;
 			item.useAnimation = 5;
 			item.useTime = 5;

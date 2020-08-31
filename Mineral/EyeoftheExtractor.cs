@@ -21,7 +21,7 @@ namespace Zylon.Items.Mineral
 			item.width = 40;
 			item.height = 40;
 			item.accessory = true;
-			item.value = 750000;
+			item.value = item.value = Item.sellPrice(0, 12, 0, 0);
 			item.rare = 11;
 			item.expert = true;
 			item.defense = 2;

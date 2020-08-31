@@ -9,15 +9,15 @@ namespace Zylon.Items.Mineral
 	public class ArmarosaHypergun : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("En...en...enchanted...\nThere is a 25% chance of a crystal to be shot with the bullet\n20% chance to not consume ammo");
+			Tooltip.SetDefault("En...en...enchanted...\nShoots a crystal every four shots\n20% chance to not consume ammo");
 		}
 
 		public override void SetDefaults()  {
-			item.value = 300000;
+			item.value = Item.sellPrice(0, 12, 0, 0);
 			item.useStyle = 5;
 			item.useAnimation = 5;
 			item.useTime = 5;
-			item.damage = 98;
+			item.damage = 89;
 			item.width = 12;
 			item.height = 24;
 			item.knockBack = 2.2f;
@@ -44,8 +44,10 @@ namespace Zylon.Items.Mineral
 		public override Vector2? HoldoutOffset() {
 			return new Vector2(-3, 0);
 		}
+		int swingCount;
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack) {
-			if (Main.rand.NextFloat() < .25f)
+			swingCount++;
+			if (swingCount % 4 == 0)
 			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("GemstoneSpike"), damage, knockBack, player.whoAmI);
 			return true;
 		}
