@@ -16,6 +16,8 @@ namespace Zylon.Tiles
 				item.damage = 10;
 			if (item.type == ItemID.Blowgun)
 				item.damage = 34;
+			if (item.type == ItemID.BoneArrow)
+				item.damage = 10;
 		}
 		public override void UpdateAccessory(Item item, Player player, bool hideVisual)
 		{

@@ -20,7 +20,7 @@ namespace Zylon.Items
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.GoldenShower);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddTile(TileID.CrystalBall);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
