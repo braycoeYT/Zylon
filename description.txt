@@ -1,14 +1,8 @@
-This is the best mod that starts with Z (I guarantee or your money back)!
-Zylon is also one of the fastest growing Terraria mods (according to populatity rankings)
-Adds crimson counterparts, cell stuff, two complex subclasses, and much more!
-Support for Boss Checklist
-Zylon is inspired by Exxo Avalon.
+Hey, remember all those silly messages I put up here? Some dire changes are happening soon, including this description. Please leave support/suggestions on the discord server or dm Braycoe#3181.
 Discord Server: (homepage link is better) https://discord.gg/qv97wNV
 
-I hope you play my mod!
-
 Stats:
-~331 Items
+~332 Items
 ~104 total NPCs
 ~41 total Tiles
 ~38 Buffs
@@ -24,11 +18,7 @@ Stats:
 ~5 Custom Songs
 ~2 Custom Rarities
 
-Cross-mod Content with:
-Asteri Mod (1 Item (1 in Zylon))
-Havoc Mod (1 Item (1 in Zylon))
-
-BraycoeYT made the mod.
+Cross-mod Content with Asteri and Havoc Mod.
 
 Spriters/Other Help:
 GOA7 (Spriter/Songwriter)
@@ -39,24 +29,22 @@ Very Minor Help/Quit:
 CrazySapling1 (Quit Spriter)
 Sness (Two sprites)
 
-Update V0.2.1.9: Preparations Update
-~Added a custom rarity, Hot Pink. It can be found on post-Zylonian Mineral Extractor items. (Also added a sky blue rarity for secret items)
-~Added Fatal Error
-~Fixed Gemstone Wings being considered an expert mode item
-~Fixed Time Distorting Battery
-~Added first cross-content item with Havoc Mod, Throwable Floater Potion
-~Added Bone Seedshot, Flesh Seedshot, Infected Dart
-~Added Flesh Blowpipe, Hitman's Blowscope, Meat Cannon
-~Internal Sorting
-~Decreased Sick debuff dust
-~Created a universal microbiome dust
-~Slight logo changes
-~Updated Drakon's Claw tooltip
-~Changed recipes of Crystalathan Wonder and Sunblaze
-~Decreased Ectojewelo Slime spawn rate
-~Resprited Soulspit Staff
-~Fixed Boss Summon max stack
-~Removed Dream String
-~Nerfed First Aid Kit
-~Royal Gel and Monarchal Gel now work with Zylon slimes
-~Recolored Diseased Stone sprite to match the tile
+Update V0.2.2: Dawn Update
+~Buffed Zylonian Mineral Extractor
+~Changed some sell prices
+~Rewrote Xenic Acidpumper AI to be fair
+~Throwable Floater Potion no longer launches the friendly Xenic Acidpumper into the air
+~Made Xenic Acidpumper arena larger
+~Gemstone Armor changes
+~Renamed Mechanical Disc to Floppy Disc
+~Fixed Pragmatic Shotgun
+~Hitman no longer sells Megashark
+~Nerfed Armarosa Hypergun
+~Fixed Glowing Mushroom Musher recipe
+~Buffed Bone Arrows
+~Doubled microbiome spawn rates and quadrupled microbiome sky spawn rates
+~Both Ecolibacteria no longer count towards the npc count
+~Fixed Ickyspit Dust
+~Changed Ickyspit debuff time
+~Code optimazation
+~Internal sorting

@@ -1,20 +1,12 @@
-using Zylon;
-using Zylon.Items;
-using Zylon.Tiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.GameContent.Generation;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using Terraria.World.Generation;
-using static Terraria.ModLoader.ModContent;
 
 namespace Zylon
 {
@@ -29,7 +21,6 @@ namespace Zylon
 		public bool BraycoeSlimePet;
 		public bool CyanixLong;
 		public bool gemstoneSpikes;
-		public bool gemstoneHealBullet;
 		public bool gemstoneManaBullet;
 		public bool gemstoneRain;
 		public bool empressSpikes;
@@ -51,6 +42,7 @@ namespace Zylon
 		public bool gemstoneMagic;
 		public bool gemstoneSummon;
 		public bool trueMelee35;
+		public bool microDelusion;
 		int numberShot = 0;
 		public int upgradeHearts;
 		public int upgradeStars;
@@ -64,7 +56,7 @@ namespace Zylon
 			BraycoeSlimePet = false;
 			CyanixLong = false;
 			gemstoneSpikes = false;
-			gemstoneHealBullet = false;
+			gemstoneRanged = false;
 			gemstoneManaBullet = false;
 			gemstoneRain = false;
 			empressSpikes = false;
@@ -81,10 +73,10 @@ namespace Zylon
 			xenicAcid = false;
 			xenicExpert = false;
 			gemstoneMelee = false;
-			gemstoneRanged = false;
 			gemstoneMagic = false;
 			gemstoneSummon = false;
 			trueMelee35 = false;
+			microDelusion = false;
 			player.statLifeMax2 += upgradeHearts * 25;
 			player.statManaMax2 += upgradeStars * 50;
 			playerTimer = 0;
@@ -92,6 +84,7 @@ namespace Zylon
 		}
 		public override void UpdateDead() {
 			xenicAcid = false;
+			microDelusion = false;
 		}
 		int badRegenTimer;
 		public override void UpdateBadLifeRegen() {
@@ -112,6 +105,13 @@ namespace Zylon
 					player.statLife += 1;
 					player.HealEffect(1, true);
 				}
+			}
+			if (microDelusion) {
+				if (player.lifeRegen > 0 && !xenicExpert) {
+					player.lifeRegen = 0;
+				}
+				player.lifeRegenTime = 0;
+				player.lifeRegen -= 6;
 			}
 			if (healHurt > 0) {
 				if (player.lifeRegen > 0) {
@@ -161,6 +161,10 @@ namespace Zylon
 			ZoneMicrobiome = ZylonWorld.microbiomeTiles > 140;
 			else
 			ZoneMicrobiome = ZylonWorld.microbiomeTiles > 200;
+			if (ZoneMicrobiome)
+			{
+				player.AddBuff(mod.BuffType(""), 5, true);
+			}
 		}
 		
 		public override bool CustomBiomesMatch(Player other) 
@@ -425,7 +429,7 @@ namespace Zylon
 		public override bool Shoot(Item item, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
 			numberShot += 1;
-			if (gemstoneHealBullet)
+			if (gemstoneRanged && item.ranged == true)
             {
 				if (numberShot % 5 == 0)
                 {
@@ -456,10 +460,18 @@ namespace Zylon
 		{
 			if (player.HasBuff(BuffID.ChaosState) && NPC.CountNPCS(ModContent.NPCType<NPCs.Minibosses.XenicAcidpumper>()) > 0)
 			player.KillMe(PlayerDeathReason.ByCustomReason(player.name + "'s mind melted."), 9999, 0, false);
+			if (gemstoneMagic)
+			{
+				if (player.statLife / 4 < player.statLifeMax2)
+					player.manaCost -= 0.75f;
+			}
 		}
-		public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource)
+		public override void PreUpdateBuffs()
 		{
-
+			if (gemstoneSummon)
+			{
+				player.AddBuff(mod.BuffType("Ubercabochon"), 2);
+			}
 		}
 		public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit) {	
 			if (trueMelee35)
