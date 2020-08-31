@@ -1,37 +1,25 @@
-using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
+using Terraria.ID;
 
-namespace Zylon.Items.Dirtball
+namespace Zylon.Projectiles.Dirtball
 {
-	public class DirtyDiscus : ModItem
+	public class DirtyDiscus : ModProjectile
 	{
-		public override void SetStaticDefaults() 
+        public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("Feeling it makes you feel dirty...\nRapidly throw discuses");
-		}
-
-		public override void SetDefaults() 
+			DisplayName.SetDefault("Dirty Discus");
+        }
+		public override void SetDefaults()
 		{
-			item.damage = 12;
-			item.melee = true;
-			item.width = 33;
-			item.height = 33;
-			item.useTime = 31;
-			item.useAnimation = 31;
-			item.useStyle = 4;
-			item.knockBack = 1.5f;
-			item.value = 2000;
-			item.rare = -1;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-			item.useTurn = true;
-			item.noMelee = true;
-			item.noUseGraphic = true;
-			item.shoot = mod.ProjectileType("DirtyDiscus");
-			item.shootSpeed = 12f;
+			projectile.width = 25;
+			projectile.height = 25;
+			projectile.aiStyle = 3;
+			projectile.friendly = true;
+			projectile.penetrate = 8;
+			projectile.melee = true;
+			projectile.timeLeft = 360;
+			projectile.ignoreWater = false;
 		}
-	}
+	}   
 }
