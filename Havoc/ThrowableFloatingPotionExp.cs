@@ -25,7 +25,7 @@ namespace Zylon.Projectiles.Havoc
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			if (target.boss == false && target.type != NPCID.TargetDummy)
+			if (target.boss == false && target.type != NPCID.TargetDummy && target.type != mod.NPCType("XenicAcidpumperGood"))
 			target.velocity.Y -= 10;
 		}
 		public override void OnHitPvp(Player target, int damage, bool crit)
