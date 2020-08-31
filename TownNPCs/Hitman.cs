@@ -144,12 +144,6 @@ namespace Zylon.NPCs.TownNPCs
 			shop.item[nextSlot].SetDefaults(ItemID.DartRifle);
 			shop.item[nextSlot].shopCustomPrice = 400000;
 			nextSlot++;
-			if (NPC.downedMechBoss1)
-			{
-				shop.item[nextSlot].SetDefaults(ItemID.Megashark);
-				shop.item[nextSlot].shopCustomPrice = 350000;
-				nextSlot++;
-			}
 			if (NPC.downedPlantBoss)
 			{
 				shop.item[nextSlot].SetDefaults(ItemID.GrenadeLauncher);

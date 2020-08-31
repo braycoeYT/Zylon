@@ -58,13 +58,13 @@ namespace Zylon.NPCs.Slimes
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
 			if(spawnInfo.player.ZoneRockLayerHeight && ZylonWorld.downedMineral)
-			return 0.1f;
+			return 0.07f;
 			return 0f;
         }
 		
 	    public override void NPCLoot()
         {
-			Item.NewItem(npc.getRect(), mod.ItemType("EctojeweloOre"), 0 + Main.rand.Next(4));
+			Item.NewItem(npc.getRect(), mod.ItemType("EctojeweloOre"), Main.rand.Next(4));
         }
 	}
 }

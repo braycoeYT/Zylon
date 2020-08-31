@@ -14,6 +14,16 @@ namespace Zylon.NPCs
 		public override void ResetEffects(NPC npc) {
 			xenicAcid = false;
 		}
+		public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns) {
+			if (player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome && player.ZoneSkyHeight) {
+				spawnRate = (int)((double)spawnRate * 0.25);
+				maxSpawns = (int)((float)maxSpawns * 2f);
+			}
+			if (player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome) {
+				spawnRate = (int)((double)spawnRate * 0.5);
+				maxSpawns = (int)((float)maxSpawns * 2f);
+			}
+		}
 		public override void SetupShop(int type, Chest shop, ref int nextSlot) {
 			if (type == NPCID.ArmsDealer) {
 				if (NPC.downedBoss2) {
