@@ -29,7 +29,7 @@ namespace Zylon.Tiles
 			int style = t.frameX / 18;
 			if (style == 0)
 			{
-				Item.NewItem(i * 16, j * 16, 16, 16, ItemType<Items.Blocks.CyanixBar>());
+				Item.NewItem(i * 16, j * 16, 16, 16, ItemType<Items.Cyanix.CyanixBar>());
 			}
 			return base.Drop(i, j);
 		}

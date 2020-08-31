@@ -1,18 +1,15 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Tiles
 {
-	public class EctojeweloBar : ModTile
+	public class ContagionexAlloy : ModTile
 	{
-		public override void SetDefaults()
-		{
-			Main.tileShine[Type] = 1200;
+		public override void SetDefaults() {
+			Main.tileShine[Type] = 600;
 			Main.tileSolid[Type] = true;
 			Main.tileSolidTop[Type] = true;
 			Main.tileFrameImportant[Type] = true;
@@ -20,16 +17,14 @@ namespace Zylon.Tiles
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.addTile(Type);
-			AddMapEntry(new Color(0, 125, 125), Language.GetText("MapObject.MetalBar"));
+			AddMapEntry(new Color(22, 104, 108), Language.GetText("MapObject.MetalBar"));
 		}
-
-		public override bool Drop(int i, int j)
-		{
+		public override bool Drop(int i, int j) {
 			Tile t = Main.tile[i, j];
 			int style = t.frameX / 18;
 			if (style == 0)
 			{
-				Item.NewItem(i * 16, j * 16, 16, 16, ItemType<Items.Ectojewelo.EctojeweloBar>());
+				Item.NewItem(i * 16, j * 16, 16, 16, ModContent.ItemType<Items.ContagionexTools.ContagionexAlloy>());
 			}
 			return base.Drop(i, j);
 		}

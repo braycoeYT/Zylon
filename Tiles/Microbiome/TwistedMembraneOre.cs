@@ -21,7 +21,7 @@ namespace Zylon.Tiles.Microbiome
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Twisted Membrane Ore");
 			AddMapEntry(new Color(0, 0, 180), name);
-			dustType = 84;
+			dustType = 40;
 			drop = ItemType<Items.Microbiome.TwistedMembraneOre>();
 			soundType = 21;
 			soundStyle = 1;

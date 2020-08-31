@@ -22,7 +22,7 @@ namespace Zylon.Tiles
 			name.SetDefault("Ectojewelo Ore");
 			AddMapEntry(new Color(0, 125, 125), name);
 			dustType = 229;
-			drop = ItemType<Items.Blocks.EctojeweloOre>();
+			drop = ItemType<Items.Ectojewelo.EctojeweloOre>();
 			soundType = SoundID.Tink;
 			soundStyle = 1;
 			mineResist = 6f;

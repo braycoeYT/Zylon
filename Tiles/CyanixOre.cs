@@ -21,8 +21,8 @@ namespace Zylon.Tiles
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Cyanix Ore");
 			AddMapEntry(new Color(0, 255, 255), name);
-			dustType = 84;
-			drop = ItemType<Items.Blocks.CyanixOre>();
+			dustType = 34;
+			drop = ItemType<Items.Cyanix.CyanixOre>();
 			soundType = SoundID.Tink;
 			soundStyle = 1;
 			mineResist = 1f;

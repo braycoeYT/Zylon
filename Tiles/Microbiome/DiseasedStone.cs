@@ -14,7 +14,7 @@ namespace Zylon.Tiles.Microbiome
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
-			dustType = 40;
+			dustType = mod.DustType("MicrobiomeDust");
 			drop = ItemType<Items.Microbiome.DiseasedStone>();
 			AddMapEntry(new Color(0, 0, 127));
 			mineResist = 2f;
