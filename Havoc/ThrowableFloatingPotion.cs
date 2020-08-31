@@ -1,37 +1,49 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.Havoc
+namespace Zylon.Items.Havoc
 {
-	public class ThrowableFloatingPotion : ModProjectile
+	public class ThrowableFloatingPotion : ModItem
 	{
-        public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Throwable Floating Potion");
-        }
-		public override void SetDefaults() {
-			projectile.width = 23;
-			projectile.height = 23;
-			projectile.aiStyle = 1;
-			projectile.friendly = true;
-			projectile.penetrate = 1;
-			projectile.magic = true;
-			projectile.timeLeft = 9999;
-			projectile.ignoreWater = true;
-			aiType = 1;
-		}
-		public override void AI()
+		public override void SetStaticDefaults() 
 		{
-			projectile.rotation += (float)(Math.PI / 180);
+			Tooltip.SetDefault("Mod Crossover Item: Havoc Mod\nEach potion can launch enemies into the air");
+			Item.staff[item.type] = true;
 		}
-		public override void Kill(int timeLeft) {
-			Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
-			Projectile.NewProjectile(projectile.Center, new Vector2(0, 0), mod.ProjectileType("ThrowableFloatingPotionExp"), projectile.damage, projectile.knockBack, Main.myPlayer);
-			Main.PlaySound(SoundID.Shatter);
+		public override void SetDefaults() 
+		{
+			item.damage = 30;
+			item.magic = true;
+			item.width = 20;
+			item.height = 26;
+			item.useTime = 20;
+			item.useAnimation = 20;
+			item.useStyle = 5;
+			item.knockBack = 4.5f;
+			item.value = 1200;
+			item.rare = 1;
+			item.autoReuse = true;
+			item.useTurn = true;
+			item.shoot = mod.ProjectileType("ThrowableFloatingPotion");
+			item.shootSpeed = 8f;
+			item.noUseGraphic = true;
+			item.noMelee = true;
+			item.maxStack = 999;
+			item.UseSound = SoundID.Item1;
+			item.consumable = true;
 		}
-	}   
+		public override void AddRecipes() 
+		{
+			Mod xtraarmory = ModLoader.GetMod("Xtraarmory");
+			if (xtraarmory != null)
+			{
+				ModRecipe recipe = new ModRecipe(mod);
+				recipe.AddIngredient(mod.ItemType("FloaterPotion"));
+				recipe.AddTile(13);
+				recipe.SetResult(this, 150);
+				recipe.AddRecipe();
+			}
+		}
+	}
 }
