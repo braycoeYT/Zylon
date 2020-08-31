@@ -76,14 +76,14 @@ namespace Zylon.NPCs.Microbiome.HM
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			if (Main.hardMode)
-				return ZylonWorld.microbiomeTiles > 140 && spawnInfo.player.ZoneSkyHeight ? 0.23f : 0f;
+				return ZylonWorld.microbiomeTiles > 140 && spawnInfo.player.ZoneSkyHeight ? 0.46f : 0f;
 			return 0f;
 		}
 		public override void NPCLoot()
         {
 			if (Main.rand.Next(18) == 0)
 			Item.NewItem(npc.getRect(), mod.ItemType("NucleusShard"));
-			if (Main.rand.NextFloat() < .15f)
+			if (Main.rand.NextFloat() < .25f)
 			Item.NewItem(npc.getRect(), mod.ItemType("InfectedBlood"));
 		}
 	}

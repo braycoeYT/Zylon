@@ -26,6 +26,7 @@ namespace Zylon.NPCs.Microbiome.HM
 			npc.aiStyle = 0;
 			npc.noGravity = true;
 			npc.noTileCollide = true;
+			npc.dontCountMe = true;
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
@@ -76,14 +77,14 @@ namespace Zylon.NPCs.Microbiome.HM
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
 			if (Main.hardMode)
-				return spawnInfo.player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome && !spawnInfo.player.ZoneSkyHeight ? 0.18f : 0f;
+				return spawnInfo.player.GetModPlayer<ZylonPlayer>().ZoneMicrobiome && !spawnInfo.player.ZoneSkyHeight ? 0.36f : 0f;
 			return 0f;
 		}
 		public override void NPCLoot()
         {
 			if (Main.rand.Next(18) == 0)
 			Item.NewItem(npc.getRect(), mod.ItemType("NucleusShard"));
-			if (Main.rand.NextFloat() < .015f)
+			if (Main.rand.NextFloat() < .025f)
 			Item.NewItem(npc.getRect(), mod.ItemType("InfectedBlood"));
 		}
 	}

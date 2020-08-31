@@ -20,7 +20,7 @@ namespace Zylon.NPCs.Minibosses
 		{
 			npc.width = 84;
 			npc.height = 136;
-			npc.damage = 250;
+			npc.damage = 286;
 			npc.defense = 50;
 			npc.lifeMax = 200000;
 			npc.HitSound = SoundID.NPCHit1;
@@ -43,7 +43,7 @@ namespace Zylon.NPCs.Minibosses
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
             npc.lifeMax = 300000;
-            npc.damage = 360;
+            npc.damage = 367;
         }
 		public float Timer
 		{
@@ -102,107 +102,138 @@ namespace Zylon.NPCs.Minibosses
 			{
 				if (npc.life > (int)(npc.lifeMax * 0.9f))
 				{
-					if (Timer % 60 == 0)
+					if (Timer % 90 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("XenicCrystal"), 60, 10, Main.myPlayer);
 				}
 				else if (npc.life > (int)(npc.lifeMax * 0.8f))
 				{
-					if (Timer % 60 == 0)
+					if (Timer % 90 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("XenicCrystal"), 60, 10, Main.myPlayer);
-					if (Timer % 60 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 60 == 45)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
+					if (Timer % 300 == 150)
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
 				}
 				else if (npc.life > (int)(npc.lifeMax * 0.7f))
 				{
-					if (Timer % 60 == 0)
+					if (Timer % 90 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("XenicCrystal"), 60, 10, Main.myPlayer);
-					if (Timer % 60 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 60 == 45)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
+					if (Timer % 200 == 100)
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
 				}
 				else if (npc.life > (int)(npc.lifeMax * 0.6f))
 				{
-					if (Timer % 60 == 0)
+					if (Timer % 90 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("ChargedXenicCrystal"), 60, 10, Main.myPlayer);
-					if (Timer % 60 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 60 == 45)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
+					if (Timer % 200 == 100)
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
+					if (Timer % 120 == 0) {
+						Projectile.NewProjectile(target.position + new Vector2(0, 500).RotatedByRandom(MathHelper.TwoPi), new Vector2(0, 0), mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
+					}
+					
 				}
 				else if (npc.life > (int)(npc.lifeMax * 0.5f))
 				{
-					if (Timer % 120 == 0)
+					if (Timer % 90 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("ChargedXenicCrystal"), 60, 10, Main.myPlayer);
-					if (Timer % 45 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 45 == 27)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
+					if (Timer % 180 == 90)
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
+					if (Timer % 120 == 0) {
+						Projectile.NewProjectile(target.position + new Vector2(0, 500).RotatedByRandom(MathHelper.TwoPi), new Vector2(0, 0), mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
+					}
 				}
 				else if (npc.life > (int)(npc.lifeMax * 0.4f))
 				{
-					if (Timer % 120 == 0)
+					if (Timer % 80 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("ChargedXenicCrystal"), 60, 10, Main.myPlayer);
-					if (Timer % 120 == 60)
-					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
-					if (Timer % 45 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 45 == 27)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
+					if (Timer % 180 == 90)
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
+					if (Timer % 110 == 0) {
+						Projectile.NewProjectile(target.position + new Vector2(0, 500).RotatedByRandom(MathHelper.TwoPi), new Vector2(0, 0), mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
+					}
 				}
 				else if (npc.life > (int)(npc.lifeMax * 0.3f))
 				{
-					if (Timer % 120 == 0)
+					if (Timer % 80 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("SuperchargedXenicCrystal"), 60, 10, Main.myPlayer);
-					if (Timer % 120 == 60)
-					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
-					if (Timer % 45 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 45 == 27)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
+					if (Timer % 150 == 75)
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
+					if (Timer % 110 == 0) {
+						Projectile.NewProjectile(target.position + new Vector2(0, 500).RotatedByRandom(MathHelper.TwoPi), new Vector2(0, 0), mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
+					}
 				}
 				else if (npc.life > (int)(npc.lifeMax * 0.2f))
 				{
-					if (Timer % 120 == 0)
+					if (Timer % 60 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("SuperchargedXenicCrystal"), 60, 10, Main.myPlayer);
-					if (Timer % 120 == 60)
-					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
-					if (Timer % 30 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 30 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
+					if (Timer % 150 == 75)
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
+					if (Timer % 100 == 0) {
+						Projectile.NewProjectile(target.position + new Vector2(0, 500).RotatedByRandom(MathHelper.TwoPi), new Vector2(0, 0), mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
+					}
 				}
 				else if (npc.life > (int)(npc.lifeMax * 0.1f))
 				{
-					if (Timer % 120 == 0)
+					if (Timer % 60 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("SuperchargedXenicCrystal"), 60, 10, Main.myPlayer);
-					if (Timer % 120 == 60)
-					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
-					if (Timer % 30 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 30 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 30 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("XenicAcidspit"), 30, 10, Main.myPlayer);
-					if (Timer % 30 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("XenicAcidspit"), 30, 10, Main.myPlayer);
+					if (Timer % 150 == 75)
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
+					if (Timer % 100 == 0) {
+						Projectile.NewProjectile(target.position + new Vector2(0, 500).RotatedByRandom(MathHelper.TwoPi), new Vector2(0, 0), mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
+					}
 				}
 				else
 				{
-					if (Timer % 90 == 0)
+					if (Timer % 75 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("SuperchargedXenicCrystal"), 60, 10, Main.myPlayer);
-					if (Timer % 90 == 45)
-					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
-					if (Timer % 30 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 30 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 30 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("XenicAcidspit"), 30, 10, Main.myPlayer);
-					if (Timer % 30 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("XenicAcidspit"), 30, 10, Main.myPlayer);
+					if (Timer % 150 == 75)
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
+					if (Timer % 90 == 0) {
+						Projectile.NewProjectile(target.position + new Vector2(0, 500).RotatedByRandom(MathHelper.TwoPi), new Vector2(0, 0), mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
+					}
 				}
 			}
 			else
@@ -216,100 +247,130 @@ namespace Zylon.NPCs.Minibosses
 				{
 					if (Timer % 90 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("XenicCrystal"), 60, 10, Main.myPlayer);
-					if (Timer % 60 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 60 == 45)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
+					if (Timer % 300 == 150)
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
 				}
 				else if (npc.life > (int)(npc.lifeMax * 0.7f))
 				{
 					if (Timer % 90 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("XenicCrystal"), 60, 10, Main.myPlayer);
-					if (Timer % 60 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 60 == 45)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
+					if (Timer % 200 == 100)
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
 				}
 				else if (npc.life > (int)(npc.lifeMax * 0.6f))
 				{
 					if (Timer % 90 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("ChargedXenicCrystal"), 60, 10, Main.myPlayer);
-					if (Timer % 60 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 60 == 45)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
+					if (Timer % 200 == 100)
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
+					if (Timer % 120 == 0) {
+						Projectile.NewProjectile(target.position + new Vector2(0, 500).RotatedByRandom(MathHelper.TwoPi), new Vector2(0, 0), mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
+					}
 				}
 				else if (npc.life > (int)(npc.lifeMax * 0.5f))
 				{
-					if (Timer % 150 == 0)
+					if (Timer % 90 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("ChargedXenicCrystal"), 60, 10, Main.myPlayer);
-					if (Timer % 45 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 45 == 27)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
+					if (Timer % 180 == 90)
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
+					if (Timer % 120 == 0) {
+						Projectile.NewProjectile(target.position + new Vector2(0, 500).RotatedByRandom(MathHelper.TwoPi), new Vector2(0, 0), mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
+					}
 				}
 				else if (npc.life > (int)(npc.lifeMax * 0.4f))
 				{
-					if (Timer % 150 == 0)
+					if (Timer % 80 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("ChargedXenicCrystal"), 60, 10, Main.myPlayer);
-					if (Timer % 150 == 75)
-					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
-					if (Timer % 45 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 45 == 27)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
+					if (Timer % 180 == 90)
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
+					if (Timer % 120 == 0) {
+						Projectile.NewProjectile(target.position + new Vector2(0, 500).RotatedByRandom(MathHelper.TwoPi), new Vector2(0, 0), mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
+					}
 				}
 				else if (npc.life > (int)(npc.lifeMax * 0.3f))
 				{
-					if (Timer % 150 == 0)
+					if (Timer % 80 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("SuperchargedXenicCrystal"), 60, 10, Main.myPlayer);
 					if (Timer % 150 == 75)
-					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
-					if (Timer % 45 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 45 == 27)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
+					if (Timer % 120 == 0) {
+						Projectile.NewProjectile(target.position + new Vector2(0, 500).RotatedByRandom(MathHelper.TwoPi), new Vector2(0, 0), mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
+					}
 				}
 				else if (npc.life > (int)(npc.lifeMax * 0.2f))
 				{
-					if (Timer % 150 == 0)
+					if (Timer % 60 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("SuperchargedXenicCrystal"), 60, 10, Main.myPlayer);
 					if (Timer % 150 == 75)
-					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
-					if (Timer % 30 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 30 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
+					if (Timer % 120 == 0) {
+						Projectile.NewProjectile(target.position + new Vector2(0, 500).RotatedByRandom(MathHelper.TwoPi), new Vector2(0, 0), mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
+					}
 				}
 				else if (npc.life > (int)(npc.lifeMax * 0.1f))
 				{
-					if (Timer % 150 == 0)
+					if (Timer % 60 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("SuperchargedXenicCrystal"), 60, 10, Main.myPlayer);
 					if (Timer % 150 == 75)
-					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
-					if (Timer % 30 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 30 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 30 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("XenicAcidspit"), 30, 10, Main.myPlayer);
-					if (Timer % 30 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("XenicAcidspit"), 30, 10, Main.myPlayer);
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
+					if (Timer % 120 == 0) {
+						Projectile.NewProjectile(target.position + new Vector2(0, 500).RotatedByRandom(MathHelper.TwoPi), new Vector2(0, 0), mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
+					}
 				}
 				else
 				{
-					if (Timer % 120 == 0)
+					if (Timer % 75 == 0)
 					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("SuperchargedXenicCrystal"), 60, 10, Main.myPlayer);
-					if (Timer % 120 == 60)
-					Projectile.NewProjectile(npc.Center, npc.DirectionTo(targetPlayer) * 10, mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
-					if (Timer % 30 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 30 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 30, 10, Main.myPlayer);
-					if (Timer % 30 == 0)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y - 1000, 0, 5, mod.ProjectileType("XenicAcidspit"), 30, 10, Main.myPlayer);
-					if (Timer % 30 == 15)
-					Projectile.NewProjectile(npc.Center.X + Main.rand.Next(-800, 801), npc.Center.Y + 1000, 0, -5, mod.ProjectileType("XenicAcidspit"), 30, 10, Main.myPlayer);
+					if (Timer % 150 == 75)
+					{
+						Projectile.NewProjectile(target.position.X - 800, target.position.Y, 5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X + 800, target.position.Y, -5, 0, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y - 800, 0, 5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+						Projectile.NewProjectile(target.position.X, target.position.Y + 800, 0, -5, mod.ProjectileType("ThinXenicCrystal"), 45, 10, Main.myPlayer);
+					}
+					if (Timer % 120 == 0) {
+						Projectile.NewProjectile(target.position + new Vector2(0, 500).RotatedByRandom(MathHelper.TwoPi), new Vector2(0, 0), mod.ProjectileType("XenicNucleus"), 60, 10, Main.myPlayer);
+					}
 				}
 			}
 			//you can't hide
@@ -318,7 +379,7 @@ namespace Zylon.NPCs.Minibosses
 			int playerCount;
 			for (playerCount = 0; playerCount < 255; playerCount++) {
 			if (Main.player[playerCount].active) {
-				if (Vector2.Distance(npc.Center, Main.player[playerCount].Center) > 800 && Vector2.Distance(npc.Center, Main.player[playerCount].Center) < 1600)
+				if (Vector2.Distance(npc.Center, Main.player[playerCount].Center) > 1200 && Vector2.Distance(npc.Center, Main.player[playerCount].Center) < 1800)
 					{
 						Main.player[playerCount].KillMe(PlayerDeathReason.ByCustomReason(Main.player[playerCount].name + "'s mind melted."), 9999, 0, false);
 					}
