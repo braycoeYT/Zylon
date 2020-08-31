@@ -33,7 +33,7 @@ namespace Zylon.Items.Cyanix
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType("CyanixBar"), 13);
-			recipe.AddTile(TileID.LunarCraftingStation);
+			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -19,7 +20,7 @@ namespace Zylon.Items.Ectojewelo
 			item.useAnimation = 17;
 			item.useStyle = 1;
 			item.knockBack = 5;
-			item.value = 250000;
+			item.value = Item.sellPrice(0, 15, 0, 0);
 			item.rare = 11;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;

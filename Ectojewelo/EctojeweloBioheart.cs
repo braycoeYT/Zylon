@@ -17,7 +17,7 @@ namespace Zylon.Items.Ectojewelo
 			item.width = 40;
 			item.height = 40;
 			item.maxStack = 1;
-			item.value = 6500000;
+			item.value = Item.sellPrice(0, 25, 0, 0);
 			item.rare = ItemRarityID.Purple;
 			item.useAnimation = 45;
 			item.useTime = 45;

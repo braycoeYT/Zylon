@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
@@ -21,7 +22,7 @@ namespace Zylon.Items.Ectojewelo
 			item.createTile = TileType<Tiles.EctojeweloOre>();
 			item.width = 12;
 			item.height = 12;
-			item.value = 10000;
+			item.value = Item.sellPrice(0, 0, 20, 0);
 			item.rare = 11;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {

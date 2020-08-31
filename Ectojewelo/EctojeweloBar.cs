@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -13,7 +14,7 @@ namespace Zylon.Items.Ectojewelo
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 9999;
-			item.value = 50000;
+			item.value = Item.sellPrice(0, 1, 30, 0);
 			item.useStyle = 1;
 			item.useTurn = true;
 			item.useAnimation = 15;

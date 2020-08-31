@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,7 +13,7 @@ namespace Zylon.Items.Dirtball
 
 		public override void SetDefaults() 
 		{
-			item.value = 20;
+			item.value = Item.sellPrice(0, 0, 5, 0);
 			item.useStyle = 5;
 			item.useAnimation = 16;
 			item.useTime = 16;
@@ -24,9 +25,9 @@ namespace Zylon.Items.Dirtball
 			item.shootSpeed = 6.1f;
 			item.noMelee = true;
 			item.ranged = true;
-			item.crit = 1;
 			item.useAmmo = AmmoID.Arrow;
 			item.UseSound = SoundID.Item5;
+			item.rare = -1;
 		}
 	}
 }
