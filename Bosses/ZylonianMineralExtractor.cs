@@ -22,7 +22,7 @@ namespace Zylon.NPCs.Bosses
 			npc.height = 480;
 			npc.damage = 157;
 			npc.defense = 45;
-			npc.lifeMax = 145000;
+			npc.lifeMax = 198000;
 			npc.HitSound = SoundID.NPCHit4;
 			npc.DeathSound = SoundID.NPCDeath1;
 			npc.value = 400000f;
@@ -43,7 +43,7 @@ namespace Zylon.NPCs.Bosses
 		
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
-            npc.lifeMax = 235000;
+            npc.lifeMax = 311000;
             npc.damage = 229;
 			npc.defense = 60;
         }

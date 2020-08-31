@@ -400,6 +400,7 @@ namespace Zylon.NPCs.Bosses
 				if (ran == 6) Item.NewItem(npc.getRect(), mod.ItemType("EmpressTears"));
 
 				Item.NewItem(npc.getRect(), mod.ItemType("EmpressShard"), Main.rand.Next(9, 15));
+				Item.NewItem(npc.getRect(), mod.ItemType("ElementamaxSludge"), Main.rand.Next(6, 11));
 			}
 			ZylonWorld.downedEmpress = true;
 		}

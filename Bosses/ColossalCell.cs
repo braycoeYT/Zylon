@@ -96,9 +96,10 @@ namespace Zylon.NPCs.Bosses
 				if (flee >= 450)
 					npc.active = false;
 			}
-			if (Timer < 100)
 			npc.TargetClosest(true);
-			if (moveMode2 == 0)
+			if (Timer % 660 < 480)
+			{
+				if (moveMode2 == 0)
 			{
 				if (npc.position.Y < target.position.Y - 400)
 				{
@@ -248,6 +249,12 @@ namespace Zylon.NPCs.Bosses
 			if (Timer % 300 == 150)
 			{
 				npc.velocity.X += 2;
+			}
+			}
+			else
+			{
+				npc.velocity.X = 0;
+				npc.velocity.Y = 0;
 			}
 		}
 	}
