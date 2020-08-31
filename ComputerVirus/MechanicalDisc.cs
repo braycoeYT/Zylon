@@ -11,6 +11,7 @@ namespace Zylon.Items.ComputerVirus
 	{
 		public override void SetStaticDefaults() 
 		{
+			DisplayName.SetDefault("Floppy Disc");
 			Tooltip.SetDefault("It wants to be plugged into your computer\nSummons Computer Virus");
 			ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13;
 		}

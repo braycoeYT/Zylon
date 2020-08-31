@@ -21,8 +21,8 @@ namespace Zylon.Items.Cave
 			item.damage = 17;
 			item.knockBack = 3f;
 			item.mana = 10;
-			item.width = 38;
-			item.height = 38;
+			item.width = 56;
+			item.height = 64;
 			item.useTime = 36;
 			item.useAnimation = 36;
 			item.useStyle = 1;
