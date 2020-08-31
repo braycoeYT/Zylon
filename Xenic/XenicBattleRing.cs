@@ -13,8 +13,8 @@ namespace Zylon.Projectiles.Xenic
 		public override void SetDefaults()
 		{
 			aiType = ProjectileID.Bullet;
-			projectile.width = 1600;
-			projectile.height = 1600;
+			projectile.width = 2400;
+			projectile.height = 2400;
 			projectile.aiStyle = 0;
 			projectile.hostile = false;
 			projectile.friendly = false;

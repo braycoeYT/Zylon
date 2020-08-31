@@ -30,10 +30,10 @@ namespace Zylon.Projectiles.Xenic
 		int xenicRan = Main.rand.Next(2, 5);
 		public override void Kill(int timeLeft)
 		{
-			for (int i = 0; i < xenicRan; i++)
-			{
-				Projectile.NewProjectile(projectile.Center, new Vector2(0, 8).RotatedByRandom(MathHelper.TwoPi), mod.ProjectileType("ChargedXenicCrystal"), projectile.damage, 6, Main.myPlayer);
-			}
+			Projectile.NewProjectile(projectile.Center, new Vector2(0, 6), mod.ProjectileType("ChargedXenicCrystal"), projectile.damage, 6, Main.myPlayer);
+			Projectile.NewProjectile(projectile.Center, new Vector2(0, -6), mod.ProjectileType("ChargedXenicCrystal"), projectile.damage, 6, Main.myPlayer);
+			Projectile.NewProjectile(projectile.Center, new Vector2(6, 0), mod.ProjectileType("ChargedXenicCrystal"), projectile.damage, 6, Main.myPlayer);
+			Projectile.NewProjectile(projectile.Center, new Vector2(-6, 0), mod.ProjectileType("ChargedXenicCrystal"), projectile.damage, 6, Main.myPlayer);
 		}
 		public override void PostAI()
 		{

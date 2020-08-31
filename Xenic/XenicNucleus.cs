@@ -16,10 +16,10 @@ namespace Zylon.Projectiles.Xenic
 			aiType = ProjectileID.Bullet;
 			projectile.width = 36;
 			projectile.height = 36;
-			projectile.aiStyle = 1;
+			projectile.aiStyle = -1;
 			projectile.hostile = true;
 			projectile.friendly = false;
-			projectile.timeLeft = 300;
+			projectile.timeLeft = 9999;
 			projectile.ignoreWater = true;
 			projectile.tileCollide = false;
 		}
@@ -27,14 +27,18 @@ namespace Zylon.Projectiles.Xenic
 		{
 			target.AddBuff(mod.BuffType("XenicAcid"), 90, false);
 		}
-		int xenicRan = Main.rand.Next(3, 7);
-		int Timer;
 		public override void AI()
 		{
-			Timer++;
-			if (Timer % 30 == 0)
+			projectile.owner = mod.NPCType("XenicAcidpumper");
+			projectile.velocity = Vector2.Normalize(projectile.Center - Main.npc[projectile.owner].Center) * (float)(-5f);
+			if (projectile.Center == Main.npc[projectile.owner].Center)
 			{
-				Projectile.NewProjectile(projectile.Center, new Vector2(0, 8).RotatedByRandom(MathHelper.TwoPi), mod.ProjectileType("XenicAcidspit"), projectile.damage, 6, Main.myPlayer);
+				if (Main.npc[projectile.owner].life + 250 > Main.npc[projectile.owner].lifeMax)
+				Main.npc[projectile.owner].life += 250;
+				else
+				Main.npc[projectile.owner].life = Main.npc[projectile.owner].lifeMax;
+				Main.npc[projectile.owner].HealEffect(250, true);
+				projectile.timeLeft = 0;
 			}
 		}
 		public override void PostAI()
