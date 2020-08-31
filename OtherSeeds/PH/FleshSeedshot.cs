@@ -1,36 +1,29 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.OtherSeeds.PH
+namespace Zylon.Items.OtherSeeds.PH
 {
-	public class FleshSeedshot : ModProjectile
+	public class FleshSeedshot : ModItem
 	{
-        public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Flesh Seedshot");
+		public override void SetStaticDefaults() {
+			Tooltip.SetDefault("For use with blowpipes\nEach seedshot shoots a flesh clump in the oppisite after breaking");
         }
-		public override void SetDefaults()
-		{
-			projectile.CloneDefaults(ProjectileID.Seed);
-			aiType = ProjectileID.Seed;
+		public override void SetDefaults() {
+			item.damage = 10; //3
+			item.ranged = true;
+			item.width = 12;
+			item.height = 8;
+			item.maxStack = 999;
+			item.consumable = true;
+			item.knockBack = 0f; //0
+			item.value = 15; //0
+			item.rare = 3;
+			item.shoot = ProjectileType<Projectiles.OtherSeeds.PH.FleshSeedshot>();
+			item.shootSpeed = 0f; //0
+			item.ammo = AmmoID.Dart;
 		}
-		public override void Kill(int timeLeft)
-		{
-			Projectile.NewProjectile(projectile.Center - projectile.velocity, new Vector2(-projectile.velocity.X, -projectile.velocity.Y), mod.ProjectileType("FleshClump"), projectile.damage, projectile.knockBack, Main.myPlayer);
-		}
-		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
-		{
-			Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
-			for (int k = 0; k < projectile.oldPos.Length; k++) {
-				Vector2 drawPos = projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, projectile.gfxOffY);
-				Color color = projectile.GetAlpha(lightColor) * ((float)(projectile.oldPos.Length - k) / (float)projectile.oldPos.Length);
-				spriteBatch.Draw(Main.projectileTexture[projectile.type], drawPos, null, color, projectile.rotation, drawOrigin, projectile.scale, SpriteEffects.None, 0f);
-			}
-			return true;
-		}
-	}   
+	}
 }
