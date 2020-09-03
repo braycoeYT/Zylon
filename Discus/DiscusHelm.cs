@@ -19,7 +19,7 @@ namespace Zylon.Items.Discus
 			item.width = 18;
 			item.height = 18;
 			item.value = 25000;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.defense = 3;
 		}
 
@@ -46,7 +46,7 @@ namespace Zylon.Items.Discus
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("ZylonianDesertCore"), 7);
+			recipe.AddIngredient(mod.ItemType("DriedEssence"), 7);
 			recipe.AddIngredient(mod.ItemType("BrokenDiscus"), 6);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);

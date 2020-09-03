@@ -21,7 +21,7 @@ namespace Zylon.Items.Empress
 			item.height = 40;
 			item.accessory = true;
 			item.value = 1000000;
-			item.rare = 7;
+			item.rare = ItemRarityID.Lime;
 			item.expert = true;
 			item.defense = 1;
 		}

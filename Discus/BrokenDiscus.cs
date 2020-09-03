@@ -13,7 +13,7 @@ namespace Zylon.Items.Discus
 		public override void SetDefaults() 
 		{
 			item.value = 250;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.maxStack = 9999;
 		}
 	}

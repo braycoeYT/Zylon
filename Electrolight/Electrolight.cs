@@ -17,7 +17,7 @@ namespace Zylon.Items.Electrolight
 			item.height = 30;
 			item.maxStack = 999;
 			item.value = 15000;
-			item.rare = 4;
+			item.rare = ItemRarityID.LightRed;
 		}
 	}
 }

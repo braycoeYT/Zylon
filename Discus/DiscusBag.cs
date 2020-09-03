@@ -27,7 +27,7 @@ namespace Zylon.Items.Discus
 			player.QuickSpawnItem(ItemID.SandBlock, Main.rand.Next(5, 20));
 			player.QuickSpawnItem(ItemID.Amber, Main.rand.Next(3, 6));
 			player.QuickSpawnItem(ItemID.GoldBar, Main.rand.Next(5, 8));
-			player.QuickSpawnItem(mod.ItemType("ZylonianDesertCore"), Main.rand.Next(8, 11));
+			player.QuickSpawnItem(mod.ItemType("DriedEssence"), Main.rand.Next(8, 11));
 			player.QuickSpawnItem(mod.ItemType("BrokenDiscus"), Main.rand.Next(10, 15));
 			if (Main.rand.NextFloat() < .5f)
 				player.QuickSpawnItem(mod.ItemType("HappyDiscus"));

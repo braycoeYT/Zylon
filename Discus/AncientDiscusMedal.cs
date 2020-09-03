@@ -18,7 +18,7 @@ namespace Zylon.Items.Discus
 			item.height = 40;
 			item.accessory = true;
 			item.value = 6000;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
@@ -30,7 +30,7 @@ namespace Zylon.Items.Discus
 		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType("DiscusMedal"));
-			recipe.AddIngredient(mod.ItemType("ZylonianDesertCore"), 4);
+			recipe.AddIngredient(mod.ItemType("DriedEssence"), 4);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

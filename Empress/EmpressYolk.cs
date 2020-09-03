@@ -19,7 +19,7 @@ namespace Zylon.Items.Empress
 
 		public override void SetDefaults()
 		{
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.width = 24;
 			item.height = 24;
 			item.useAnimation = 25;
@@ -27,7 +27,7 @@ namespace Zylon.Items.Empress
 			item.shootSpeed = 16f;
 			item.knockBack = 4f;
 			item.damage = 90;
-			item.rare = 7;
+			item.rare = ItemRarityID.Lime;
 			item.melee = true;
 			item.channel = true;
 			item.noMelee = true;

@@ -21,7 +21,7 @@ namespace Zylon.Items.Discus
 			item.height = 40;
 			item.accessory = true;
 			item.value = 50000;
-			item.rare = 3;
+			item.rare = ItemRarityID.Orange;
 			item.expert = true;
 		}
 

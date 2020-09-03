@@ -19,10 +19,10 @@ namespace Zylon.Items.Discus
 			item.height = 34;
 			item.useTime = 21;
 			item.useAnimation = 21;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 4.1f;
 			item.value = 25000;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.autoReuse = true;
 			item.useTurn = true;
 			item.shoot = mod.ProjectileType("RedOrb");
@@ -36,7 +36,7 @@ namespace Zylon.Items.Discus
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.WandofSparking);
-			recipe.AddIngredient(mod.ItemType("ZylonianDesertCore"), 3);
+			recipe.AddIngredient(mod.ItemType("DriedEssence"), 3);
 			recipe.AddIngredient(mod.ItemType("BrokenDiscus"), 2);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);

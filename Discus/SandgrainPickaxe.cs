@@ -32,7 +32,7 @@ namespace Zylon.Items.Discus
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("ZylonianDesertCore"), 4);
+			recipe.AddIngredient(mod.ItemType("DriedEssence"), 4);
 			recipe.AddIngredient(mod.ItemType("BrokenDiscus"), 3);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);

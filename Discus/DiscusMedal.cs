@@ -18,7 +18,7 @@ namespace Zylon.Items.Discus
 			item.height = 40;
 			item.accessory = true;
 			item.value = 600;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)

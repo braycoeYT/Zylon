@@ -1,66 +1,37 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using static Terraria.ModLoader.ModContent;
+using Terraria.ModLoader;
 
-namespace Zylon.Projectiles.Empress
+namespace Zylon.Items.Empress
 {
-	public class EmpressBleeders : ModProjectile
+	public class EmpressBleeders : ModItem
 	{
-        public override void SetStaticDefaults()
+		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Empress Bleeders");
-        }
-		public override void SetDefaults()
-		{
-			projectile.width = 12;
-			projectile.height = 12;
-			projectile.aiStyle = 1;
-			projectile.friendly = true;
-			projectile.penetrate = 1;
-			projectile.ranged = true;
-			projectile.timeLeft = 3000;
-			projectile.ignoreWater = true;
-			aiType = 1;
+			Tooltip.SetDefault("Each bleeder can steal life\nHitting an enemy will ricochet in the oppisite direction for less damage\nThis can continue until the bleeder does less than 1 damage");
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+
+		public override void SetDefaults() 
 		{
-			Player p = Main.player[projectile.owner];
-			if (damage / 45 > 0 && target.type != NPCID.TargetDummy)
-			{
-				int healingAmount = damage / 45;
-				if (healingAmount > 2)
-					healingAmount = 2;
-				p.statLife += healingAmount;
-				p.HealEffect(healingAmount, true);
-			}
-			if (projectile.damage > 15)
-				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X * -1, projectile.velocity.Y * -1, mod.ProjectileType("EmpressBleeders"), projectile.damage - 15, 3, Main.myPlayer);
+			item.damage = 54;
+			item.melee = true;
+			item.width = 33;
+			item.height = 33;
+			item.useTime = 16;
+			item.useAnimation = 16;
+			item.useStyle = ItemUseStyleID.HoldingOut;
+			item.knockBack = 2.4f;
+			item.value = 500000;
+			item.rare = ItemRarityID.Lime;
+			item.autoReuse = true;
+			item.useTurn = true;
+			item.shoot = mod.ProjectileType("EmpressBleeders");
+			item.shootSpeed = 8f;
+			item.noMelee = true;
+			item.maxStack = 1;
+			item.UseSound = SoundID.Item1;
+			item.noUseGraphic = true;
+			item.consumable = false;
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit)
-		{
-			Player p = Main.player[projectile.owner];
-			if (damage / 45 > 0)
-			{
-				int healingAmount = damage / 45;
-				if (healingAmount > 2)
-					healingAmount = 2;
-				p.statLife += healingAmount;
-				p.HealEffect(healingAmount, true);
-			}
-			if (projectile.damage > 15)
-				Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y, projectile.velocity.X * -1, projectile.velocity.Y * -1, mod.ProjectileType("EmpressBleeders"), projectile.damage - 15, 3, Main.myPlayer);
-		}
-		public override void PostAI()
-		{
-			if (Main.rand.NextBool())
-			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 90);
-				dust.noGravity = false;
-				dust.scale = 0.8f;
-			}
-		}
-	}   
+	}
 }

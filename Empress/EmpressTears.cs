@@ -21,10 +21,10 @@ namespace Zylon.Items.Empress
 			item.height = 33;
 			item.useTime = 26;
 			item.useAnimation = 26;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.knockBack = 1.9f;
 			item.value = 500000;
-			item.rare = 7;
+			item.rare = ItemRarityID.Lime;
 			item.autoReuse = true;
 			item.useTurn = true;
 			item.shoot = mod.ProjectileType("EmpressTear");

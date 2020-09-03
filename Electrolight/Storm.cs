@@ -21,10 +21,10 @@ namespace Zylon.Items.Electrolight
 			item.height = 33;
 			item.useTime = 23;
 			item.useAnimation = 23;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 2.1f;
 			item.value = 20000;
-			item.rare = 5;
+			item.rare = ItemRarityID.Pink;
 			item.autoReuse = true;
 			item.useTurn = true;
 			item.shoot = mod.ProjectileType("Storm");

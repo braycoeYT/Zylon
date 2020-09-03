@@ -21,14 +21,13 @@ namespace Zylon.Items.Discus
 			item.height = 55;
 			item.useTime = 21;
 			item.useAnimation = 21;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 6.3f;
 			item.value = 25000;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = false;
 			item.useTurn = true;
-			item.crit = 5;
 		}
 
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
@@ -39,7 +38,7 @@ namespace Zylon.Items.Discus
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("ZylonianDesertCore"), 3);
+			recipe.AddIngredient(mod.ItemType("DriedEssence"), 3);
 			recipe.AddIngredient(mod.ItemType("BrokenDiscus"), 2);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);

@@ -21,10 +21,10 @@ namespace Zylon.Items.Empress
 			item.height = 33;
 			item.useTime = 31;
 			item.useAnimation = 31;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.knockBack = 2.5f;
 			item.value = 500000;
-			item.rare = 7;
+			item.rare = ItemRarityID.Lime;
 			item.autoReuse = true;
 			item.useTurn = true;
 			item.shoot = mod.ProjectileType("TelomireEgg");

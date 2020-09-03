@@ -22,10 +22,10 @@ namespace Zylon.Items.Empress
 			item.height = 40;
 			item.maxStack = 20;
 			item.value = 500000;
-			item.rare = 7;
+			item.rare = ItemRarityID.Lime;
 			item.useAnimation = 45;
 			item.useTime = 45;
-			item.useStyle = 4;
+			item.useStyle = ItemUseStyleID.HoldingUp;
 			item.consumable = true;
 		}
 		
