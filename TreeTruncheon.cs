@@ -23,13 +23,13 @@ namespace Zylon.Items
 			item.height = 33;
 			item.useTime = 11;
 			item.useAnimation = 11;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.knockBack = 4.5f;
 			item.value = 68000;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.autoReuse = true;
 			item.useTurn = true;
-			item.shoot = 206;
+			item.shoot = ProjectileID.Leaf;
 			item.shootSpeed = 9f;
 			item.noMelee = true;
 			item.mana = 0;

@@ -1,4 +1,5 @@
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace Zylon.Items
 {
@@ -16,7 +17,7 @@ namespace Zylon.Items
 			item.height = 30;
 			item.maxStack = 999;
 			item.value = 10000;
-			item.rare = 7;
+			item.rare = ItemRarityID.Lime;
 		}
 	}
 }

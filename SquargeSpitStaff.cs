@@ -20,10 +20,10 @@ namespace Zylon.Items
 			item.height = 40;
 			item.useTime = 17;
 			item.useAnimation = 17;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.knockBack = 4.5f;
-			item.value = 1200;
-			item.rare = 7;
+			item.value = Item.sellPrice(0, 1, 0, 0);
+			item.rare = ItemRarityID.Lime;
 			item.autoReuse = true;
 			item.useTurn = true;
 			item.shoot = mod.ProjectileType("SquargeSpitPassive");

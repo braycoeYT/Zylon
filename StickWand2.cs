@@ -19,13 +19,13 @@ namespace Zylon.Items
 			item.height = 33;
 			item.useTime = 19;
 			item.useAnimation = 19;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.knockBack = 0;
 			item.value = 50000;
-			item.rare = 3;
+			item.rare = ItemRarityID.Orange;
 			item.autoReuse = true;
 			item.useTurn = false;
-			item.shoot = 504;
+			item.shoot = ProjectileID.Spark;
 			item.shootSpeed = 10f;
 			item.noMelee = true;
 			item.mana = 9;
@@ -37,7 +37,7 @@ namespace Zylon.Items
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(3069);
+			recipe.AddIngredient(ItemID.WandofSparking);
 			recipe.AddIngredient(ItemID.Obsidian, 12);
 			recipe.AddIngredient(ItemID.Bone, 20);
 			recipe.AddIngredient(ItemID.MeteoriteBar, 7);

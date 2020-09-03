@@ -250,9 +250,9 @@ namespace Zylon.NPCs.Bosses
 			if (ran == 6) Item.NewItem(npc.getRect(), mod.ItemType("DirtBow"));
 			
 			ran = Main.rand.Next(1, 4);
-			if (ran == 1) Item.NewItem(npc.getRect(), mod.ItemType("DirtballHelmet"));
-			if (ran == 2) Item.NewItem(npc.getRect(), mod.ItemType("DirtballGuardplate"));
-			if (ran == 3) Item.NewItem(npc.getRect(), mod.ItemType("DirtballLeggings"));
+			if (ran == 1) Item.NewItem(npc.getRect(), mod.ItemType("EarthmightHelm"));
+			if (ran == 2) Item.NewItem(npc.getRect(), mod.ItemType("EarthmightBreastplate"));
+			if (ran == 3) Item.NewItem(npc.getRect(), mod.ItemType("EarthmightLeggings"));
 			
 			Item.NewItem(npc.getRect(), ItemID.CopperBar, 1 + Main.rand.Next(5));
 			Item.NewItem(npc.getRect(), ItemID.DirtBlock, 1 + Main.rand.Next(5));

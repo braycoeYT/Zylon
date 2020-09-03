@@ -14,7 +14,7 @@ namespace Zylon.Items
 		{
 			item.maxStack = 9999;
 			item.value = 500;
-			item.rare = 6;
+			item.rare = ItemRarityID.LightPurple;
 		}
 	}
 }

@@ -72,21 +72,11 @@ namespace Zylon.NPCs.Bosses
 			}
 		}
 		int flee = 0;
-		int dashInt = 0;
-		int nukeTimer = 0;
-		int nukeTimer2 = 0;
 		int uberTimer = 0;
-		bool dash = false;
-		bool nuke = true;
-		bool nukeChat = true;
-		bool nuke2 = true;
-		bool nukeChat2 = true;
 		bool uber = true;
 		bool uberChat = true;
 		bool playerBadChat = true;
-		bool safe = true;
-		bool bg = true;
-        public override void AI()
+		public override void AI()
 		{
 			npc.TargetClosest(true);
 	        Timer++;

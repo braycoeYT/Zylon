@@ -61,13 +61,9 @@ namespace Zylon.NPCs.Bosses.ContagionexTools
 				//NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, mod.NPCType("AncientDesertDiscus2"));
 			}
 		}
-		bool attackDone = true;
 		bool playerBadChat = true;
 		int Timer;
 		int flee;
-		int attack;
-		int attackMode;
-		int attackMode2;
         public override void AI() {
 			Timer++;
 			Player target = Main.player[npc.target];

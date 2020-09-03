@@ -72,7 +72,6 @@ namespace Zylon.NPCs.Bosses
 		int attack = 0;
 		int moveMode2 = 0;
 		int moveMode = 0;
-		bool attackDone = true;
 		public override void AI()
 		{
 			Player target = Main.player[npc.target];

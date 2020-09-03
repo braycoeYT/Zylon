@@ -58,8 +58,8 @@ namespace Zylon.NPCs.Bosses
 				int dustType = 216;
 				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, dustType);
 				Dust dust = Main.dust[dustIndex];
-				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
-				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
+				dust.velocity.X += Main.rand.Next(-50, 51) * 0.01f;
+				dust.velocity.Y += Main.rand.Next(-50, 51) * 0.01f;
 				dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 			}
 			if (npc.life <= 0)
@@ -81,8 +81,6 @@ namespace Zylon.NPCs.Bosses
 			}
 		}
         int Timer;
-		bool chat0 = true;
-		bool chat1 = true;
 		bool chat2 = true;
 		int flee = 0;
         public override void AI()

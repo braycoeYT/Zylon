@@ -63,8 +63,6 @@ namespace Zylon.NPCs.Bosses
 			target.AddBuff(BuffID.Electrified, 60, false);
 		}
 		int Timer;
-		bool chat0 = true;
-		bool chat1 = true;
 		bool chat2 = true;
 		int flee = 0;
 
@@ -170,7 +168,7 @@ namespace Zylon.NPCs.Bosses
 			    Item.NewItem(npc.getRect(), mod.ItemType("BrokenDiscus"), 9 + Main.rand.Next(2));
 	            Item.NewItem(npc.getRect(), ItemID.Amber, 2 + Main.rand.Next(3));
 			    Item.NewItem(npc.getRect(), ItemID.GoldBar, 4 + Main.rand.Next(3));
-				Item.NewItem(npc.getRect(), mod.ItemType("ZylonianDesertCore"), Main.rand.Next(5, 9));
+				Item.NewItem(npc.getRect(), mod.ItemType("DriedEssence"), Main.rand.Next(5, 9));
 			}
 			ZylonWorld.downedDiscus = true;
         }

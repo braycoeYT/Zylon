@@ -23,7 +23,7 @@ namespace Zylon.Items
             item.UseSound = SoundID.Item2;
             item.maxStack = 30;
             item.consumable = true;
-            item.rare = 1;
+            item.rare = ItemRarityID.Blue;
             item.value = 250;
             item.buffType = BuffID.WellFed;
             item.buffTime = 216000;

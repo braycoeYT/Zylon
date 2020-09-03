@@ -21,10 +21,10 @@ namespace Zylon.Items
 			item.height = 40;
 			item.maxStack = 9999;
 			item.value = 500;
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 			item.useAnimation = 45;
 			item.useTime = 45;
-			item.useStyle = 4;
+			item.useStyle = ItemUseStyleID.HoldingUp;
 			item.consumable = true;
 		}
 		

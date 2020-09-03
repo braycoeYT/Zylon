@@ -17,7 +17,7 @@ namespace Zylon.Items
 			item.height = 32;
 			item.maxStack = 999;
 			item.value = 100;
-			item.rare = 0;
+			item.rare = ItemRarityID.White;
 		}
 	}
 }

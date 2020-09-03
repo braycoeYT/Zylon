@@ -82,7 +82,6 @@ namespace Zylon.NPCs.Bosses
         }
 		
 		int flee = 0;
-		int rage = 0;
 		int attack = 0;
 		int attackMax = 0;
 		int attackNum = 0;

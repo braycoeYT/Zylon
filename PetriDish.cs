@@ -16,13 +16,13 @@ namespace Zylon.Items
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(2420);
+			item.CloneDefaults(ItemID.ZephyrFish);
 			item.shoot = ProjectileType<Projectiles.Pets.BraycoeSlime>();
 			item.buffType = BuffType<Buffs.Pets.BraycoeSlimeBuff>();
 			item.mana = 0;
 			item.damage = 0;
 			item.value = 40000;
-			item.rare = 7;
+			item.rare = ItemRarityID.Lime;
 			item.width = 56;
 			item.height = 28;
 		}

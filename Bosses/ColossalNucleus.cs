@@ -73,13 +73,7 @@ namespace Zylon.NPCs.Bosses
 			}
 		}
 		int flee = 0;
-		int attack = 0;
-		int attackMax = 0;
-		int attackNum = 0;
-		int moveMode = 0;
 		int Timer = 0;
-		bool spawnStalkers = true;
-		bool attackDone = true;
 		Vector2 targetPos;
 		public override void AI()
 		{
