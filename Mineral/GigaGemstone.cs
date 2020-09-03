@@ -18,10 +18,10 @@ namespace Zylon.Items.Mineral
 			item.height = 40;
 			item.maxStack = 1;
 			item.value = Item.sellPrice(0, 25, 0, 0);
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 			item.useAnimation = 30;
 			item.useTime = 30;
-			item.useStyle = 4;
+			item.useStyle = ItemUseStyleID.HoldingUp;
 			item.consumable = false;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {

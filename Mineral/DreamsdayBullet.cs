@@ -23,7 +23,7 @@ namespace Zylon.Items.Mineral
 			item.consumable = true;
 			item.knockBack = 3.75f;
 			item.value = 1000;
-			item.rare = 9;
+			item.rare = ItemRarityID.Cyan;
 			item.shoot = ProjectileType<Projectiles.Gemstone.DreamsdayBullet>();
 			item.shootSpeed = 6f;
 			item.ammo = AmmoID.Bullet;

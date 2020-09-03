@@ -17,7 +17,7 @@ namespace Zylon.Items.Mineral
 		}
 		public override void SetDefaults()
 		{
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.width = 96;
 			item.height = 96;
 			item.useAnimation = 25;
@@ -25,7 +25,7 @@ namespace Zylon.Items.Mineral
 			item.shootSpeed = 16f;
 			item.knockBack = 2.4f;
 			item.damage = 301;
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 			item.melee = true;
 			item.channel = true;
 			item.noMelee = true;

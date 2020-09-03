@@ -18,7 +18,7 @@ namespace Zylon.Items.Mineral
 			item.width = 22;
 			item.height = 18;
 			item.value = Item.sellPrice(0, 12, 50, 0);
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 			item.defense = 30;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {

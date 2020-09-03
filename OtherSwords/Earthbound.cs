@@ -15,10 +15,10 @@ namespace Zylon.Items.OtherSwords
 			item.height = 33;
 			item.useTime = 24;
 			item.useAnimation = 24;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 4.2f;
 			item.value = 900000;
-			item.rare = 8;
+			item.rare = ItemRarityID.Yellow;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.useTurn = true;

@@ -12,14 +12,14 @@ namespace Zylon.Items.Mineral
 			Tooltip.SetDefault("Shoot two arrows instead of one\nAlso shoots a dreamsday arrow");
 		}
 		public override void SetDefaults()  {
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 25;
 			item.useTime = 25;
 			item.damage = 196;
 			item.width = 12;
 			item.height = 24;
 			item.knockBack = 0;
-			item.shoot = 1;
+			item.shoot = ProjectileID.WoodenArrowFriendly;
 			item.shootSpeed = 20f;
 			item.noMelee = true;
 			item.ranged = true;
@@ -27,7 +27,7 @@ namespace Zylon.Items.Mineral
 			item.UseSound = SoundID.Item5;
 			item.autoReuse = true;
 			item.value = Item.sellPrice(0, 12, 0, 0);
-			item.rare = 10;
+			item.rare = ItemRarityID.Red;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {
             foreach (TooltipLine tooltipLine in list)

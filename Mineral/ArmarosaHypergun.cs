@@ -14,21 +14,21 @@ namespace Zylon.Items.Mineral
 
 		public override void SetDefaults()  {
 			item.value = Item.sellPrice(0, 12, 0, 0);
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 5;
 			item.useTime = 5;
 			item.damage = 89;
 			item.width = 12;
 			item.height = 24;
 			item.knockBack = 2.2f;
-			item.shoot = 14;
+			item.shoot = ProjectileID.Bullet;
 			item.shootSpeed = 10f;
 			item.noMelee = true;
 			item.ranged = true;
 			item.useAmmo = AmmoID.Bullet;
 			item.UseSound = SoundID.Item11;
 			item.autoReuse = true;
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 			item.noMelee = true;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list)

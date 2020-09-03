@@ -17,21 +17,21 @@ namespace Zylon.Items.OtherBows
 		public override void SetDefaults() 
 		{
 			item.value = 119565;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 11;
 			item.useTime = 11;
 			item.damage = 69;
 			item.width = 12;
 			item.height = 24;
 			item.knockBack = 2f;
-			item.shoot = 1;
+			item.shoot = ProjectileID.WoodenArrowFriendly;
 			item.shootSpeed = 9f;
 			item.noMelee = true;
 			item.ranged = true;
 			item.useAmmo = AmmoID.Arrow;
 			item.UseSound = SoundID.Item5;
 			item.autoReuse = true;
-			item.rare = 6;
+			item.rare = ItemRarityID.LightPurple;
 		}
 		
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

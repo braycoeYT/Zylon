@@ -13,7 +13,7 @@ namespace Zylon.Items.Mineral
 		}
 		public override void SetDefaults() {
 			item.value = Item.sellPrice(0, 12, 0, 0);
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 5;
 			item.useTime = 5;
 			item.damage = 276;
@@ -25,7 +25,7 @@ namespace Zylon.Items.Mineral
 			item.noMelee = true;
 			item.magic = true;
 			item.autoReuse = true;
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 			item.mana = 7;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {

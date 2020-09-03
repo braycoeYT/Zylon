@@ -18,11 +18,11 @@ namespace Zylon.Items.Mineral
 			item.height = 33;
 			item.useTime = 44;
 			item.useAnimation = 44;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 4.4f;
 			item.value = Item.sellPrice(0, 12, 0, 0);
-			item.rare = 11;
-			item.UseSound = SoundID.Item1;
+			item.rare = ItemRarityID.Purple;
+			item.UseSound = SoundID.Item18;
 			item.autoReuse = true;
 			item.useTurn = true;
 			item.shoot = mod.ProjectileType("GemstoneOrbLarge");

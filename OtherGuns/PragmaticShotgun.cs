@@ -13,21 +13,21 @@ namespace Zylon.Items.OtherGuns
 		}
 		public override void SetDefaults()  {
 			item.value = Item.sellPrice(0, 13, 0, 0);
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 54;
 			item.useTime = 54;
 			item.damage = 294;
 			item.width = 12;
 			item.height = 24;
 			item.knockBack = 0.1f;
-			item.shoot = 14;
+			item.shoot = ProjectileID.Bullet;
 			item.shootSpeed = 10f;
 			item.noMelee = true;
 			item.ranged = true;
 			item.useAmmo = AmmoID.Bullet;
 			item.UseSound = SoundID.Item36;
 			item.autoReuse = true;
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 			item.noMelee = true;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {
@@ -50,7 +50,7 @@ namespace Zylon.Items.OtherGuns
 				Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * 1f;
 				Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
 			}
-			Projectile.NewProjectile(player.Center.X, player.Center.Y, (int)(speedX * 0.9), (int)(speedY * 0.9), 661, damage, knockBack, Main.myPlayer);
+			Projectile.NewProjectile(player.Center.X, player.Center.Y, (int)(speedX * 0.9), (int)(speedY * 0.9), ProjectileID.BlackBolt, damage, knockBack, Main.myPlayer);
 			return false;
 		}
 		

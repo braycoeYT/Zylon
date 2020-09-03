@@ -19,10 +19,10 @@ namespace Zylon.Items.OtherStory
 			item.height = 40;
 			item.maxStack = 1;
 			item.value = 0;
-			item.rare = 5;
+			item.rare = ItemRarityID.Pink;
 			item.useAnimation = 45;
 			item.useTime = 45;
-			item.useStyle = 4;
+			item.useStyle = ItemUseStyleID.HoldingUp;
 		}
 	}
 }

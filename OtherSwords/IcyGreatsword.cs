@@ -19,14 +19,14 @@ namespace Zylon.Items.OtherSwords
 			item.height = 54;
 			item.useTime = 41;
 			item.useAnimation = 41;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 5.3f;
 			item.value = 120000;
-			item.rare = 5;
+			item.rare = ItemRarityID.Pink;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.useTurn = true;
-			item.shoot = 118;
+			item.shoot = ProjectileID.IceBolt;
 			item.shootSpeed = 11f;
 		}
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {

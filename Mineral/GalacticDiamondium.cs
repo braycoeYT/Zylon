@@ -16,7 +16,7 @@ namespace Zylon.Items.Mineral
 			item.height = 40;
 			item.maxStack = 9999;
 			item.value = Item.sellPrice(0, 0, 90, 0);
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {
             foreach (TooltipLine tooltipLine in list)

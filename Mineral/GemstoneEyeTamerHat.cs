@@ -17,7 +17,7 @@ namespace Zylon.Items.Mineral
 			item.width = 18;
 			item.height = 18;
 			item.value = Item.sellPrice(0, 10, 0, 0);
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 			item.defense = 9;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {
@@ -32,10 +32,8 @@ namespace Zylon.Items.Mineral
 		public override bool IsArmorSet(Item head, Item body, Item legs) {
 			return body.type == ItemType<GemstoneChestplate>() && legs.type == ItemType<GemstoneLeggings>();
 		}
-		int playerTimer;
 		public override void UpdateArmorSet(Player player)
 		{
-			playerTimer++;
 			player.setBonus = "Summons an indecisive Ubercabochon to fight for you";
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			p.gemstoneSummon = true;

@@ -16,21 +16,21 @@ namespace Zylon.Items.OtherGuns
 		public override void SetDefaults() 
 		{
 			item.value = 360000;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 34;
 			item.useTime = 34;
 			item.damage = 7;
 			item.width = 58;
 			item.height = 28;
 			item.knockBack = 0.2f;
-			item.shoot = 14;
+			item.shoot = ProjectileID.Bullet;
 			item.shootSpeed = 5.2f;
 			item.noMelee = true;
 			item.ranged = true;
 			item.useAmmo = AmmoID.Bullet;
 			item.UseSound = SoundID.Item41;
 			item.autoReuse = false;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 		}
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{

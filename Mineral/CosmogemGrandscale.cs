@@ -16,7 +16,7 @@ namespace Zylon.Items.Mineral
 			item.height = 40;
 			item.accessory = true;
 			item.value = Item.sellPrice(0, 15, 0, 0);
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 			item.defense = 5;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list)
@@ -55,11 +55,11 @@ namespace Zylon.Items.Mineral
 		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.AnkhShield);
-			recipe.AddIngredient(1921);
-			recipe.AddIngredient(3781);
+			recipe.AddIngredient(ItemID.HandWarmer);
+			recipe.AddIngredient(ItemID.PocketMirror);
 			recipe.AddIngredient(mod.ItemType("MagicalVaccine"));
 			recipe.AddIngredient(mod.ItemType("ElectrifyingScent"));
-			recipe.AddIngredient(1323);
+			recipe.AddIngredient(ItemID.ObsidianRose);
 			recipe.AddIngredient(ItemID.LunarBar, 10);
 			recipe.AddIngredient(ItemID.FragmentSolar, 10);
 			recipe.AddIngredient(mod.ItemType("GalacticDiamondium"), 5);
