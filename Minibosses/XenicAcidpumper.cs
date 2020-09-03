@@ -51,14 +51,7 @@ namespace Zylon.NPCs.Minibosses
 	        set => npc.ai[0] = value;
         }
 		int flee = 0;
-		int attack = 0;
-		int timerUber = 0;
-		int attackMax = 0;
-		int attackNum = 0;
 		int animationTimer;
-		bool Chat1 = true;
-		bool Uber1 = true;
-		bool attackDone = true;
 		Vector2 targetPlayer;
 		public override void AI()
 		{
@@ -432,8 +425,8 @@ namespace Zylon.NPCs.Minibosses
 				int dustType = 163;
 				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, dustType);
 				Dust dust = Main.dust[dustIndex];
-				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
-				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
+				dust.velocity.X += Main.rand.Next(-50, 51) * 0.01f;
+				dust.velocity.Y += Main.rand.Next(-50, 51) * 0.01f;
 				dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 			}
 		}

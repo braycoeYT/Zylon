@@ -73,7 +73,7 @@ namespace Zylon.NPCs.Microbiome.PZME
 			if (Timer % 120 == 0)
 			{
 				if (Main.rand.Next(0, 2) == 0 || (NPC.CountNPCS(ModContent.NPCType<NPCs.Microbiome.PZME.MiniMorbusRose>()) > 6))
-					Projectile.NewProjectile(npc.Center, (npc.DirectionTo(target.position)) * 4, 83, 59, 1f, Main.myPlayer);
+					Projectile.NewProjectile(npc.Center, (npc.DirectionTo(target.position)) * 4, ProjectileID.EyeLaser, 59, 1f, Main.myPlayer);
 				else
 					NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("MiniMorbusRose"));
 			}

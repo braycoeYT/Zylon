@@ -70,7 +70,7 @@ namespace Zylon.NPCs.Microbiome.PZME
 			target2.Y += Main.rand.Next(-60, 60);
 			Timer++;
 			if (Timer % 120 == 0)
-				Projectile.NewProjectile(npc.Center, (npc.DirectionTo(target2)) * 4, 83, 59, 1f, Main.myPlayer);
+				Projectile.NewProjectile(npc.Center, (npc.DirectionTo(target2)) * 4, ProjectileID.EyeLaser, 59, 1f, Main.myPlayer);
 		}
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
