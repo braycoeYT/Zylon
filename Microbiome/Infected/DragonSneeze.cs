@@ -17,7 +17,7 @@ namespace Zylon.Items.Microbiome.Infected
 		public override void SetDefaults() 
 		{
 			item.value = 200000;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 23;
 			item.useTime = 23;
 			item.damage = 18;
@@ -29,7 +29,7 @@ namespace Zylon.Items.Microbiome.Infected
 			item.noMelee = true;
 			item.magic = true;
 			item.autoReuse = true;
-			item.rare = 4;
+			item.rare = ItemRarityID.LightRed;
 			item.mana = 8;
 			item.UseSound = SoundID.Item116;
 		}

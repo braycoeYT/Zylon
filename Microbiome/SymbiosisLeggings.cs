@@ -18,7 +18,7 @@ namespace Zylon.Items.Microbiome
 			item.width = 18;
 			item.height = 18;
 			item.value = 30000;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.defense = 6;
 		}
 

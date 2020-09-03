@@ -11,14 +11,14 @@ namespace Zylon.Items.Mushroom
 		public override void SetDefaults() 
 		{
 			item.value = 50000;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 24;
 			item.useTime = 24;
 			item.damage = 9;
 			item.width = 12;
 			item.height = 24;
 			item.knockBack = 0;
-			item.shoot = 1;
+			item.shoot = ProjectileID.WoodenArrowFriendly;
 			item.shootSpeed = 10f;
 			item.noMelee = true;
 			item.ranged = true;

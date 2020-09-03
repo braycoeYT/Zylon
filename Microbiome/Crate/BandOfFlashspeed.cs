@@ -15,7 +15,7 @@ namespace Zylon.Items.Microbiome.Crate
 			item.height = 40;
 			item.accessory = true;
 			item.value = 75000;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
 			player.maxRunSpeed += 0.5f;

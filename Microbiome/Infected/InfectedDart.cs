@@ -20,7 +20,7 @@ namespace Zylon.Items.Microbiome.Infected
 			item.consumable = true;
 			item.knockBack = 3.5f; //0
 			item.value = 30; //0
-			item.rare = 3;
+			item.rare = ItemRarityID.Orange;
 			item.shoot = ProjectileType<Projectiles.Microbiome.InfectedDart>();
 			item.shootSpeed = 0f; //0
 			item.ammo = AmmoID.Dart;

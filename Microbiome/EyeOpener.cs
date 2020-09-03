@@ -13,10 +13,10 @@ namespace Zylon.Items.Microbiome
 			item.height = 29;
 			item.useTime = 11;
 			item.useAnimation = 11;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 2.1f;
 			item.value = 13500;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = false;
 			item.useTurn = true;

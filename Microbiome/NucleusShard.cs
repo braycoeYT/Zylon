@@ -16,7 +16,7 @@ namespace Zylon.Items.Microbiome
 			item.height = 38;
 			item.maxStack = 999;
 			item.value = 2500;
-			item.rare = 0;
+			item.rare = ItemRarityID.White;
 		}
 		public override void AddRecipes()
 		{

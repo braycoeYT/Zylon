@@ -15,13 +15,13 @@ namespace Zylon.Items.Microbiome.Crate
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(2420);
+			item.CloneDefaults(ItemID.ZephyrFish);
 			item.shoot = ProjectileType<Projectiles.Microbiome.Cytocell>();
 			item.buffType = BuffType<Buffs.Pets.CytocellBuff>();
 			item.mana = 0;
 			item.damage = 0;
 			item.value = 75000;
-			item.rare = 2;
+			item.rare = ItemRarityID.Green;
 			item.width = 28;
 			item.height = 40;
 		}

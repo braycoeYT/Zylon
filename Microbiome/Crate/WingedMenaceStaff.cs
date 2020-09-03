@@ -25,9 +25,9 @@ namespace Zylon.Items.Microbiome.Crate
 			item.height = 44;
 			item.useTime = 36;
 			item.useAnimation = 36;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.value = 75000;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.UseSound = SoundID.Item44;
 
 			item.noMelee = true;

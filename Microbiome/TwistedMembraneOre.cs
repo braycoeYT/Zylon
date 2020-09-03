@@ -13,7 +13,7 @@ namespace Zylon.Items.Microbiome
 		
 		public override void SetDefaults()
 		{
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.useTurn = true;
 			item.useAnimation = 15;
 			item.useTime = 10;
@@ -24,7 +24,7 @@ namespace Zylon.Items.Microbiome
 			item.width = 12;
 			item.height = 12;
 			item.value = 210;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 		}
 	}
 }

@@ -20,10 +20,10 @@ namespace Zylon.Items.MushroomGlow
 			item.height = 40;
 			item.useTime = 30;
 			item.useAnimation = 30;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 4.2f;
 			item.value = 50000;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = false;
 			item.useTurn = false;

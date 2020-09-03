@@ -17,7 +17,7 @@ namespace Zylon.Items.Microbiome
 			item.width = 18;
 			item.height = 18;
 			item.value = 50000;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.defense = 6;
 		}
 		public override bool IsArmorSet(Item head, Item body, Item legs)

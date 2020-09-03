@@ -22,8 +22,8 @@ namespace Zylon.Items.Mushroom
             item.placeStyle = 0;
             item.useAnimation = 10;
             item.useTime = 10;
-			item.useStyle = 1;
-			item.rare = 2;
+			item.useStyle = ItemUseStyleID.SwingThrow;
+			item.rare = ItemRarityID.Green;
 			item.autoReuse = true;
 			item.consumable = true;
 			item.createTile = mod.TileType("MushroomCrate");

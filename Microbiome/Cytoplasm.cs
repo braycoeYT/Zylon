@@ -17,7 +17,7 @@ namespace Zylon.Items.Microbiome
 			item.height = 30;
 			item.maxStack = 999;
 			item.value = 750;
-			item.rare = 0;
+			item.rare = ItemRarityID.White;
 		}
 	}
 }

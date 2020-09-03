@@ -16,7 +16,7 @@ namespace Zylon.Items.Microbiome.Infected
 			item.height = 40;
 			item.maxStack = 999;
 			item.value = 4500;
-			item.rare = 3;
+			item.rare = ItemRarityID.Orange;
 		}
 	}
 }

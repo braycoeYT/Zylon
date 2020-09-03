@@ -21,7 +21,7 @@ namespace Zylon.Items.Microbiome.Infected
 			item.consumable = true;
 			item.knockBack = 4f;
 			item.value = 30;
-			item.rare = 3;
+			item.rare = ItemRarityID.Orange;
 			item.shoot = ProjectileType<Projectiles.Microbiome.InfectedBullet>();
 			item.shootSpeed = 5.25f;
 			item.ammo = AmmoID.Bullet;

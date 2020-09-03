@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace Zylon.Items.Microbiome
 {
@@ -16,7 +17,7 @@ namespace Zylon.Items.Microbiome
 			item.height = 40;
 			item.accessory = true;
 			item.value = 100000;
-			item.rare = 3;
+			item.rare = ItemRarityID.Orange;
 			item.expert = true;
 		}
 		int playerTimer;

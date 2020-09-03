@@ -16,7 +16,7 @@ namespace Zylon.Items.MushroomGlow
 		public override void SetDefaults() 
 		{
 			item.value = 50000;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 10;
 			item.useTime = 10;
 			item.damage = 11;
@@ -28,7 +28,7 @@ namespace Zylon.Items.MushroomGlow
 			item.noMelee = true;
 			item.magic = true;
 			item.autoReuse = true;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.mana = 3;
 			item.UseSound = SoundID.Item43;
 		}

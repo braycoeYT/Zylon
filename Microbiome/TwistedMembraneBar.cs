@@ -8,12 +8,12 @@ namespace Zylon.Items.Microbiome
 	{
 		public override void SetDefaults()
 		{
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 999;
 			item.value = 20000;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.useTurn = true;
 			item.useAnimation = 15;
 			item.useTime = 10;
@@ -27,7 +27,7 @@ namespace Zylon.Items.Microbiome
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemType<TwistedMembraneOre>(), 3);
-			recipe.AddTile(17);
+			recipe.AddTile(TileID.Furnaces);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
