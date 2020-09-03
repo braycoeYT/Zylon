@@ -45,8 +45,8 @@ namespace Zylon
 					"$Mods.Zylon.NPCName.AncientDesertDiscus",
 					(Func<bool>)(() => ZylonWorld.downedDiscus),
 					ModContent.ItemType<Items.Discus.SuspiciousLookingDisc>(),
-					new List<int> { ModContent.ItemType<Items.Discus.ZylonianDesertCore>() }, //collectables
-					new List<int> { ModContent.ItemType<Items.Discus.ZylonianDesertCore>() }, //other
+					new List<int> { ModContent.ItemType<Items.Discus.DriedEssence>() }, //collectables
+					new List<int> { ModContent.ItemType<Items.Discus.DriedEssence>() }, //other
 					$"Use a [i:{ModContent.ItemType<Items.Discus.SuspiciousLookingDisc>()}]  to summon the discus leader in the desert night."
 				);
 				bossChecklist.Call(
@@ -162,7 +162,7 @@ namespace Zylon
 			/*recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.BottledWater);
 			recipe.AddIngredient(ItemID.Stinger, 2);
-			recipe.AddIngredient(null, "ZylonianDesertCore");
+			recipe.AddIngredient(null, "DriedEssence");
 			recipe.AddIngredient(ItemID.PinkGel, 2);
 			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.ThornsPotion);
@@ -171,7 +171,7 @@ namespace Zylon
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.BottledWater);
 			recipe.AddIngredient(ItemID.Daybloom);
-			recipe.AddIngredient(null, "ZylonianDesertCore");
+			recipe.AddIngredient(null, "DriedEssence");
 			recipe.AddIngredient(ItemID.PinkGel, 4);
 			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.CalmingPotion);
@@ -180,7 +180,7 @@ namespace Zylon
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.BottledWater, 10);
 			recipe.AddIngredient(ItemID.LifeCrystal);
-			recipe.AddIngredient(null, "ZylonianDesertCore", 10);
+			recipe.AddIngredient(null, "DriedEssence", 10);
 			recipe.AddIngredient(ItemID.PinkGel, 30);
 			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.HeartreachPotion, 10);
@@ -189,7 +189,7 @@ namespace Zylon
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.BottledWater);
 			recipe.AddIngredient(ItemID.Moonglow);
-			recipe.AddIngredient(null, "ZylonianDesertCore");
+			recipe.AddIngredient(null, "DriedEssence");
 			recipe.AddIngredient(ItemID.CobaltOre);
 			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.AmmoReservationPotion);
@@ -198,7 +198,7 @@ namespace Zylon
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.BottledWater);
 			recipe.AddIngredient(ItemID.Torch);
-			recipe.AddIngredient(null, "ZylonianDesertCore");
+			recipe.AddIngredient(null, "DriedEssence");
 			recipe.AddIngredient(ItemID.PalladiumOre);
 			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.InfernoPotion);
@@ -207,7 +207,7 @@ namespace Zylon
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.BottledWater);
 			recipe.AddIngredient(ItemID.Fireblossom);
-			recipe.AddIngredient(null, "ZylonianDesertCore");
+			recipe.AddIngredient(null, "DriedEssence");
 			recipe.AddIngredient(ItemID.MythrilOre);
 			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.RagePotion);
@@ -216,7 +216,7 @@ namespace Zylon
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.BottledWater);
 			recipe.AddIngredient(ItemID.Blinkroot);
-			recipe.AddIngredient(null, "ZylonianDesertCore");
+			recipe.AddIngredient(null, "DriedEssence");
 			recipe.AddIngredient(ItemID.OrichalcumOre);
 			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.WrathPotion);
@@ -225,7 +225,7 @@ namespace Zylon
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.BottledWater, 10);
 			recipe.AddIngredient(ItemID.LifeCrystal);
-			recipe.AddIngredient(null, "ZylonianDesertCore", 10);
+			recipe.AddIngredient(null, "DriedEssence", 10);
 			recipe.AddIngredient(ItemID.AdamantiteOre, 10);
 			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.LifeforcePotion, 10);
@@ -235,7 +235,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.BottledWater);
 			recipe.AddIngredient(ItemID.Blinkroot);
 			recipe.AddIngredient(ItemID.Waterleaf);
-			recipe.AddIngredient(null, "ZylonianDesertCore");
+			recipe.AddIngredient(null, "DriedEssence");
 			recipe.AddIngredient(ItemID.TitaniumOre);
 			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(ItemID.EndurancePotion);
@@ -268,7 +268,7 @@ namespace Zylon
 			recipe.SetResult(ItemID.Pwnhammer);
 			recipe.AddRecipe();
 			
-			recipe = new ModRecipe(this);
+			/*recipe = new ModRecipe(this);
 			recipe.AddIngredient(null, "CyanixBar", 10);
 			recipe.AddIngredient(ItemID.Ruby, 5);
 			recipe.AddIngredient(null, "GlazedLens");
@@ -290,7 +290,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Bone, 9);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(ItemID.Muramasa);
-			recipe.AddRecipe();
+			recipe.AddRecipe();*/
 			
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.MarbleBlock, 25);
@@ -308,7 +308,7 @@ namespace Zylon
 			recipe.SetResult(ItemID.MinecartMech);
 			recipe.AddRecipe();
 			
-			recipe = new ModRecipe(this);
+			/*recipe = new ModRecipe(this);
 			recipe.AddIngredient(null, "CyanixBar", 8);
 			recipe.AddIngredient(null, "GlazedLens");
 			recipe.AddIngredient(ItemID.Ruby);
@@ -323,7 +323,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.RainCloud, 4);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(ItemID.Starfury);
-			recipe.AddRecipe();
+			recipe.AddRecipe();*/
 			
 			recipe = new ModRecipe(this);
 			recipe.AddRecipeGroup("IronBar", 5);

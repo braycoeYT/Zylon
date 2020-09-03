@@ -1,12 +1,8 @@
-using Zylon;
 using Zylon.Tiles;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.GameContent.Generation;
 using Terraria.ID;
 using Terraria.Localization;
@@ -137,11 +133,11 @@ namespace Zylon
 		}
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
 		{
-			int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
+			/*int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
 			if (ShiniesIndex != -1)
 			{
 		    tasks.Insert(ShiniesIndex + 1, new PassLegacy("Zylonian Ores", ZylonOres));
-			}
+			}*/
 
 			int Underworld = tasks.FindIndex(genpass => genpass.Name.Equals("Underworld"));
 			if (Underworld != -1)
@@ -157,7 +153,7 @@ namespace Zylon
 				for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 0.00002); k++) {
 				int x = WorldGen.genRand.Next(0, Main.maxTilesX);
 				int y = WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow, Main.maxTilesY / 2);
-				WorldGen.TileRunner(x, y, (double)WorldGen.genRand.Next(2, 14), WorldGen.genRand.Next(5, 19), TileType<EctojeweloOre>(), false, 0f, 0f, false, true);
+				WorldGen.TileRunner(x, y, (double)WorldGen.genRand.Next(2, 14), WorldGen.genRand.Next(5, 19), TileType<Tiles.Ectojewelo.EctojeweloOre>(), false, 0f, 0f, false, true);
 				}
 				Color messageColor = Color.LightBlue;
 					string chat = "The Zylonian Mineral Extrator has blessed your world with Ectojewelo Ore!";
@@ -185,21 +181,41 @@ namespace Zylon
 			if (!hasAlertSlime && NPC.downedPlantBoss)
 			{
 				Color messageColor = Color.Green;
-					string chat = "The Elemental Slimes have been unleashed!";
-					if (Main.netMode == NetmodeID.Server)
-					{
-						NetMessage.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);
+				string chat = "Slimes have begun oozing a shiny green substance...";
+				if (Main.netMode == NetmodeID.Server)
+				{
+					NetMessage.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);
+				}
+				else if (Main.netMode == NetmodeID.SinglePlayer)
+				{
+					Main.NewText(Language.GetTextValue(chat), messageColor);
+				}
+				messageColor = Color.Red;
+				chat = "The deep jungle shines a bright red.";
+				if (Main.netMode == NetmodeID.Server)
+				{
+					NetMessage.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);
+				}
+				else if (Main.netMode == NetmodeID.SinglePlayer)
+				{
+					Main.NewText(Language.GetTextValue(chat), messageColor);
+				}
+				for (int k = 0; k < (int)((Main.maxTilesX * Main.maxTilesY) * 0.00024); k++) {
+					int x = WorldGen.genRand.Next(0, Main.maxTilesX);
+					int y = WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow, Main.maxTilesY - 200);
+					Tile tile = Framing.GetTileSafely(x, y);
+					if (tile.active() && tile.type == TileID.Mud) {
+						WorldGen.TileRunner(x, y, WorldGen.genRand.Next(1, 11), WorldGen.genRand.Next(1, 11), TileType<Tiles.Carnallite.CarnalliteOre>());
 					}
-					else if (Main.netMode == NetmodeID.SinglePlayer)
-					{
-						Main.NewText(Language.GetTextValue(chat), messageColor);
-					}
+				}
+				
+
 				hasAlertSlime = true;
 			}
 			
 			if (!hasAlertEvil && NPC.downedMoonlord)
 			{
-				Color messageColor = Color.White;
+				Color messageColor;
 				if (WorldGen.crimson)
 				messageColor = Color.Red;
 				else
@@ -217,7 +233,7 @@ namespace Zylon
 			}
 		}
 		
-		private void ZylonOres(GenerationProgress progress)
+		/*private void ZylonOres(GenerationProgress progress)
 		{
 			progress.Message = "Sprinkling your world with Zylonian Ores";
 			for (int k = 0; k < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 0.00002); k++) {
@@ -225,7 +241,7 @@ namespace Zylon
 				int y = WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow, Main.maxTilesY / 2);
 				WorldGen.TileRunner(x, y, (double)WorldGen.genRand.Next(4, 12), WorldGen.genRand.Next(6, 17), TileType<CyanixOre>(), false, 0f, 0f, false, true);
 			}
-		}
+		}*/
 		int sizeBonus;
 		int sizeBonus2;
 		private void Microbiome(GenerationProgress progress)
@@ -248,7 +264,7 @@ namespace Zylon
 				else
 					microSpawnX = (Main.maxTilesX / 2) + 1200;
 			}
-			int microSpawnY = (int)Main.worldSurface - 50;
+			//int microSpawnY = (int)Main.worldSurface - 50;
 			for (int k = 0; k < 0; k++)
 			{
 				for (int l = 0; l < (int)Main.worldSurface; l += 5)
@@ -321,7 +337,6 @@ namespace Zylon
 		}
 		public override void ResetNearbyTileEffects()
 		{
-			ZylonPlayer modPlayer = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
 			microbiomeTiles = 0;
 		}
 
