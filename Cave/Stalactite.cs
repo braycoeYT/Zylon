@@ -13,10 +13,10 @@ namespace Zylon.Items.Cave
 			item.height = 33;
 			item.useTime = 26;
 			item.useAnimation = 26;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 5f;
 			item.value = 25000;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = false;
 			item.useTurn = true;

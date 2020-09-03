@@ -18,10 +18,10 @@ namespace Zylon.Items.Ectojewelo
 			item.height = 33;
 			item.useTime = 17;
 			item.useAnimation = 17;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 5;
 			item.value = Item.sellPrice(0, 15, 0, 0);
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.useTurn = true;

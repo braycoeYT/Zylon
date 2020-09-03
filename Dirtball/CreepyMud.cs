@@ -24,7 +24,7 @@ namespace Zylon.Items.Dirtball
 			item.rare = -1;
 			item.useAnimation = 45;
 			item.useTime = 45;
-			item.useStyle = 4;
+			item.useStyle = ItemUseStyleID.HoldingUp;
 			item.consumable = true;
 		}
 		

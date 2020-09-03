@@ -21,7 +21,7 @@ namespace Zylon.Items.Dirtball
 			item.height = 33;
 			item.useTime = 22;
 			item.useAnimation = 22;
-			item.useStyle = 3;
+			item.useStyle = ItemUseStyleID.Stabbing;
 			item.knockBack = 9.5f;
 			item.value = 2000;
 			item.rare = -1;

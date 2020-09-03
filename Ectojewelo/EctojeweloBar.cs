@@ -10,18 +10,18 @@ namespace Zylon.Items.Ectojewelo
 	public class EctojeweloBar : ModItem
 	{
 		public override void SetDefaults() {
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 			item.width = 20;
 			item.height = 20;
 			item.maxStack = 9999;
 			item.value = Item.sellPrice(0, 1, 30, 0);
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.useTurn = true;
 			item.useAnimation = 15;
 			item.useTime = 10;
 			item.autoReuse = true;
 			item.consumable = true;
-			item.createTile = TileType<Tiles.EctojeweloBar>();
+			item.createTile = TileType<Tiles.Ectojewelo.EctojeweloBar>();
 			item.placeStyle = 0;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {

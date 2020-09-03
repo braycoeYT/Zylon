@@ -21,7 +21,7 @@ namespace Zylon.Items.Cave
 			item.height = 40;
 			item.accessory = true;
 			item.value = 250000;
-			item.rare = 3;
+			item.rare = ItemRarityID.Orange;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{

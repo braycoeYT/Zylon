@@ -22,10 +22,10 @@ namespace Zylon.Items.ComputerVirus
 			item.height = 40;
 			item.maxStack = 20;
 			item.value = 0;
-			item.rare = 3;
+			item.rare = ItemRarityID.Orange;
 			item.useAnimation = 45;
 			item.useTime = 45;
-			item.useStyle = 4;
+			item.useStyle = ItemUseStyleID.HoldingUp;
 			item.consumable = true;
 		}
 		
@@ -51,16 +51,7 @@ namespace Zylon.Items.ComputerVirus
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.ItemType("BrokenDiscus"), 4);
-			recipe.AddIngredient(ItemID.IronBar, 5);
-			recipe.AddIngredient(ItemID.SoulofNight, 3);
-			recipe.AddIngredient(ItemID.SoulofFlight, 3);
-			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-			
-			recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("BrokenDiscus"), 4);
-			recipe.AddIngredient(ItemID.LeadBar, 5);
+			recipe.AddRecipeGroup("IronBar", 5);
 			recipe.AddIngredient(ItemID.SoulofNight, 3);
 			recipe.AddIngredient(ItemID.SoulofFlight, 3);
 			recipe.AddTile(TileID.MythrilAnvil);

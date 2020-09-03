@@ -15,7 +15,7 @@ namespace Zylon.Items.ContagionexTools
 			item.height = 30;
 			item.maxStack = 999;
 			item.value = 7500;
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {
             foreach (TooltipLine tooltipLine in list)

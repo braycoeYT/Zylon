@@ -21,7 +21,7 @@ namespace Zylon.Items.ComputerVirus
 			item.height = 40;
 			item.maxStack = 1;
 			item.value = 10000;
-			item.rare = 5;
+			item.rare = ItemRarityID.Pink;
 			item.expert = true;
 		}
 	}

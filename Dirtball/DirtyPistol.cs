@@ -2,21 +2,16 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Items.Dirtball
 {
 	public class DirtyPistol : ModItem
 	{
-		public override void SetStaticDefaults() 
-		{
+		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Paydirt Pistol");
-			Tooltip.SetDefault("Please don't pluck the flower.\nShoots 2 Bullets");
 		}
-
-		public override void SetDefaults() 
-		{
-			item.value = 500;
+		public override void SetDefaults() {
+			item.value = Item.sellPrice(0, 1, 0, 0);
 			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 17;
 			item.useTime = 17;
@@ -33,9 +28,7 @@ namespace Zylon.Items.Dirtball
 			item.autoReuse = true;
 			item.rare = -1;
 		}
-
-        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-		{
+        public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack) {
 			float numberProjectiles = 2;
 			float rotation = MathHelper.ToRadians(5);
 			position += Vector2.Normalize(new Vector2(speedX, speedY)) * 45f;

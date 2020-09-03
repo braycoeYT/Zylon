@@ -17,8 +17,8 @@ namespace Zylon.Items.Dirtball
 
 		public override void SetDefaults()
 		{
-			item.width = 40;
-			item.height = 40;
+			item.width = 52;
+			item.height = 68;
 			item.accessory = true;
 			item.value = 50000;
 			item.rare = -1;

@@ -23,10 +23,10 @@ namespace Zylon.Items.Cave
 			item.height = 60;
 			item.useTime = 23;
 			item.useAnimation = 23;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.knockBack = 5.1f;
 			item.value = 50000;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.autoReuse = true;
 			item.useTurn = true;
 			item.shoot = mod.ProjectileType("Pebble");

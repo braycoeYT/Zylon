@@ -40,22 +40,9 @@ namespace Zylon.Items.Dirtball
 			if (ran == 6) player.QuickSpawnItem(mod.ItemType("DirtBow"));
 			
 			ran = Main.rand.Next(1, 4);
-			if (ran == 1) player.QuickSpawnItem(mod.ItemType("DirtballHelmet"));
-			if (ran == 2) player.QuickSpawnItem(mod.ItemType("DirtballGuardplate"));
-			if (ran == 3) player.QuickSpawnItem(mod.ItemType("DirtballLeggings"));
-			
-			ran = Main.rand.Next(1, 8);
-			if (ran == 1) player.QuickSpawnItem(mod.ItemType("BrokenDirtballCopperShortsword"));
-			if (ran == 2) player.QuickSpawnItem(mod.ItemType("DirtyDiscus"));
-			if (ran == 3) player.QuickSpawnItem(mod.ItemType("DirtyBlowpipe"));
-			if (ran == 4) player.QuickSpawnItem(mod.ItemType("DirtyPistol"));
-			if (ran == 5) player.QuickSpawnItem(mod.ItemType("DirtYoyo"));
-			if (ran == 6) player.QuickSpawnItem(mod.ItemType("DirtBow"));
-			
-			ran = Main.rand.Next(1, 4);
-			if (ran == 1) player.QuickSpawnItem(mod.ItemType("DirtballHelmet"));
-			if (ran == 2) player.QuickSpawnItem(mod.ItemType("DirtballGuardplate"));
-			if (ran == 3) player.QuickSpawnItem(mod.ItemType("DirtballLeggings"));
+			if (ran == 1) player.QuickSpawnItem(mod.ItemType("EarthmightHelm"));
+			if (ran == 2) player.QuickSpawnItem(mod.ItemType("EarthmightBreastplate"));
+			if (ran == 3) player.QuickSpawnItem(mod.ItemType("EarthmightLeggings"));
 			
 			player.QuickSpawnItem(ItemID.CopperBar, 1 + Main.rand.Next(5));
 			player.QuickSpawnItem(ItemID.DirtBlock, 1 + Main.rand.Next(5));
