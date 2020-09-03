@@ -19,7 +19,7 @@ namespace Zylon.Tiles.Microbiome
 			AddMapEntry(new Color(0, 0, 127));
 			mineResist = 2f;
 			minPick = 65;
-			soundType = 21;
+			soundType = SoundID.Tink;
 			soundStyle = 1;
 		}
 

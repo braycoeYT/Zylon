@@ -4,35 +4,33 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Tiles.Microbiome
+namespace Zylon.Tiles.Ectojewelo
 {
-	public class TwistedMembraneOre : ModTile
+	public class EctojeweloOre : ModTile
 	{
 		public override void SetDefaults()
 		{
 			TileID.Sets.Ore[Type] = true;
 			Main.tileSpelunker[Type] = true;
-			Main.tileValue[Type] = 330;
+			Main.tileValue[Type] = 1001;
 			Main.tileShine2[Type] = true;
-			Main.tileShine[Type] = 1535;
+			Main.tileShine[Type] = 835;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileSolid[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Twisted Membrane Ore");
-			AddMapEntry(new Color(0, 0, 180), name);
-			dustType = 40;
-			drop = ItemType<Items.Microbiome.TwistedMembraneOre>();
+			name.SetDefault("Ectojewelo Ore");
+			AddMapEntry(new Color(0, 125, 125), name);
+			dustType = 229;
+			drop = ItemType<Items.Ectojewelo.EctojeweloOre>();
 			soundType = SoundID.Tink;
 			soundStyle = 1;
-			mineResist = 1f;
-			minPick = 55;
+			mineResist = 6f;
+			minPick = 230;
 		}
-		public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+		public override bool CanExplode(int i, int j)
 		{
-			r = 0f;
-			g = 0f;
-			b = 0.9f;
+			return false;
 		}
 	}
 }
