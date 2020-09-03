@@ -14,7 +14,6 @@ namespace Zylon.Buffs
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = true;
         }
-        int hpHurt;
         public override void Update(Player player, ref int buffIndex) {
 			player.GetModPlayer<ZylonPlayer>().xenicAcid = true;
 		}

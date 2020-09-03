@@ -8,7 +8,6 @@ namespace Zylon.Backgrounds
 		public override bool ChooseBgStyle() {
 			return Main.LocalPlayer.GetModPlayer<ZylonPlayer>().ZoneMicrobiome;
 		}
-
 		public override void FillTextureArray(int[] textureSlots) {
 			textureSlots[0] = mod.GetBackgroundSlot("Backgrounds/MicrobiomeUG0");
 			textureSlots[1] = mod.GetBackgroundSlot("Backgrounds/MicrobiomeUG1");

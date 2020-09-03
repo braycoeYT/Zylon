@@ -27,8 +27,6 @@ namespace Zylon.Backgrounds
 		public override int ChooseFarTexture() {
 			return mod.GetBackgroundSlot("Backgrounds/MicrobiomeSurfaceFar");
 		}
-		private static int SurfaceFrameCounter;
-		private static int SurfaceFrame;
 		public override int ChooseMiddleTexture() {
 			return mod.GetBackgroundSlot("Backgrounds/MicrobiomeSurfaceMid0");
 		}
