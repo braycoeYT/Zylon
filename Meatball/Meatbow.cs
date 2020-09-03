@@ -16,14 +16,14 @@ namespace Zylon.Items.Meatball
 		public override void SetDefaults() 
 		{
 			item.value = 32500;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 14;
 			item.useTime = 14;
 			item.damage = 19;
 			item.width = 12;
 			item.height = 24;
 			item.knockBack = 1.2f;
-			item.shoot = 1;
+			item.shoot = ProjectileID.WoodenArrowFriendly;
 			item.shootSpeed = 6.1f;
 			item.noMelee = true;
 			item.ranged = true;
@@ -31,7 +31,7 @@ namespace Zylon.Items.Meatball
 			item.UseSound = SoundID.Item5;
 			item.autoReuse = true;
 			item.useTurn = true;
-			item.rare = 4;
+			item.rare = ItemRarityID.LightRed;
 		}
 		
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)

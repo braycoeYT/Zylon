@@ -20,7 +20,7 @@ namespace Zylon.Items.Meatball
 			item.width = 40;
 			item.height = 40;
 			item.value = 500;
-			item.rare = 0;
+			item.rare = ItemRarityID.White;
 			item.maxStack = 999;
 		}
 	}

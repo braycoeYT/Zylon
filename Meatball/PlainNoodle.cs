@@ -21,7 +21,7 @@ namespace Zylon.Items.Meatball
 			item.height = 15;
 			item.accessory = true;
 			item.value = 1000;
-			item.rare = 3;
+			item.rare = ItemRarityID.Orange;
 			item.maxStack = 99;
 		}
 

@@ -21,10 +21,10 @@ namespace Zylon.Items.Meatball
 			item.height = 40;
 			item.useTime = 17;
 			item.useAnimation = 17;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 2f;
 			item.value = 32500;
-			item.rare = 3;
+			item.rare = ItemRarityID.Orange;
 			item.UseSound = SoundID.Item17;
 			item.autoReuse = true;
 			item.useTurn = true;

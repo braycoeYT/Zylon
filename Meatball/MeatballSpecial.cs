@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace Zylon.Items.Meatball
 {
@@ -14,7 +15,7 @@ namespace Zylon.Items.Meatball
 			item.height = 60;
 			item.accessory = true;
 			item.value = 45000;
-			item.rare = 3;
+			item.rare = ItemRarityID.Orange;
 			item.defense = 1;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {

@@ -14,7 +14,7 @@ namespace Zylon.Items.Furniture.Workbenches.PHOres
 			item.autoReuse = true;
 			item.useAnimation = 15;
 			item.useTime = 10;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.consumable = true;
 			item.value = 11250;
 			item.createTile = TileType<Tiles.Furniture.Workbenches.PHOres.TinWorkBench>();

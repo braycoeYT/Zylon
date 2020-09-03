@@ -19,7 +19,7 @@ namespace Zylon.Items.Meatball
 
 		public override void SetDefaults()
 		{
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.width = 24;
 			item.height = 24;
 			item.useAnimation = 25;
@@ -27,7 +27,7 @@ namespace Zylon.Items.Meatball
 			item.shootSpeed = 16f;
 			item.knockBack = 1f;
 			item.damage = 24;
-			item.rare = 3;
+			item.rare = ItemRarityID.Orange;
 			item.melee = true;
 			item.channel = true;
 			item.noMelee = true;

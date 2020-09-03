@@ -12,14 +12,14 @@ namespace Zylon.Items.Meatball
 		}
 		public override void SetDefaults() {
 			item.value = 500;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 19;
 			item.useTime = 19;
 			item.damage = 13;
 			item.width = 60;
 			item.height = 36;
 			item.knockBack = 1.5f;
-			item.shoot = 14;
+			item.shoot = ProjectileID.Bullet;
 			item.shootSpeed = 30f;
 			item.noMelee = true;
 			item.ranged = true;
