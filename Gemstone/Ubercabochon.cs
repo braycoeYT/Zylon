@@ -196,7 +196,7 @@ namespace Zylon.Projectiles.Gemstone
 			if (mode == 0 && Timer % 30 == 0 && foundTarget)
 			{
 				Main.PlaySound(SoundID.Item10, projectile.position);
-				Projectile.NewProjectile(projectile.Center, projDir, 20, projectile.damage, projectile.knockBack, Main.myPlayer);
+				Projectile.NewProjectile(projectile.Center, projDir, ProjectileID.GreenLaser, projectile.damage, projectile.knockBack, Main.myPlayer);
 			}
 
 			#endregion
