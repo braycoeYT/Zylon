@@ -15,21 +15,21 @@ namespace Zylon.Items.Silvervoid
 
 		public override void SetDefaults() {
 			item.value = 150000;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 6;
 			item.useTime = 6;
 			item.damage = 87;
 			item.width = 60;
 			item.height = 45;
 			item.knockBack = 1.1f;
-			item.shoot = 14;
+			item.shoot = ProjectileID.Bullet;
 			item.shootSpeed = 10f;
 			item.noMelee = true;
 			item.ranged = true;
 			item.useAmmo = AmmoID.Bullet;
 			item.UseSound = SoundID.Item11;
 			item.autoReuse = true;
-			item.rare = 10;
+			item.rare = ItemRarityID.Red;
 			item.noMelee = true;
 		}
 		public override Vector2? HoldoutOffset() {

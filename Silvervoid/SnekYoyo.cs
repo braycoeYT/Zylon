@@ -19,7 +19,7 @@ namespace Zylon.Items.Silvervoid
 
 		public override void SetDefaults()
 		{
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.width = 96;
 			item.height = 96;
 			item.useAnimation = 25;
@@ -27,7 +27,7 @@ namespace Zylon.Items.Silvervoid
 			item.shootSpeed = 16f;
 			item.knockBack = 3.1f;
 			item.damage = 256;
-			item.rare = 10;
+			item.rare = ItemRarityID.Red;
 			item.melee = true;
 			item.channel = true;
 			item.noMelee = true;

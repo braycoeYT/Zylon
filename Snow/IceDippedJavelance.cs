@@ -21,10 +21,10 @@ namespace Zylon.Items.Snow
 			item.height = 54;
 			item.useTime = 35;
 			item.useAnimation = 35;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 2.3f;
 			item.value = 2000;
-			item.rare = 0;
+			item.rare = ItemRarityID.White;
 			item.autoReuse = true;
 			item.useTurn = true;
 			item.shoot = mod.ProjectileType("IceDippedJavelance");

@@ -15,14 +15,14 @@ namespace Zylon.Items.Zenith
 
 		public override void SetDefaults() 
 		{
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 8;
 			item.useTime = 8;
 			item.damage = 31; //118
 			item.width = 12;
 			item.height = 24;
 			item.knockBack = 0;
-			item.shoot = 1;
+			item.shoot = ProjectileID.WoodenArrowFriendly;
 			item.shootSpeed = 20f;
 			item.noMelee = true;
 			item.ranged = true;
@@ -30,7 +30,7 @@ namespace Zylon.Items.Zenith
 			item.UseSound = SoundID.Item5;
 			item.autoReuse = true;
 			item.value = 1000000;
-			item.rare = 10;
+			item.rare = ItemRarityID.Red;
 		}
 		
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
@@ -43,8 +43,8 @@ namespace Zylon.Items.Zenith
 				Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1)));
 				Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
 			}
-			Projectile.NewProjectile(player.Center, new Vector2(speedX, speedY).RotatedByRandom(MathHelper.TwoPi), 280, damage, knockBack, Main.myPlayer);
-			Projectile.NewProjectile(player.Center, new Vector2(speedX, speedY).RotatedByRandom(MathHelper.TwoPi), 280, damage, knockBack, Main.myPlayer);
+			Projectile.NewProjectile(player.Center, new Vector2(speedX, speedY).RotatedByRandom(MathHelper.TwoPi), ProjectileID.GoldenShowerFriendly, damage, knockBack, Main.myPlayer);
+			Projectile.NewProjectile(player.Center, new Vector2(speedX, speedY).RotatedByRandom(MathHelper.TwoPi), ProjectileID.GoldenShowerFriendly, damage, knockBack, Main.myPlayer);
 			return false;
 		}
 		/*public override void AddRecipes()

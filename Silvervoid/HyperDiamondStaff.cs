@@ -22,13 +22,13 @@ namespace Zylon.Items.Silvervoid
 			item.height = 33;
 			item.useTime = 9;
 			item.useAnimation = 9;
-			item.useStyle = 4;
+			item.useStyle = ItemUseStyleID.HoldingUp;
 			item.knockBack = 1;
 			item.value = 250000;
-			item.rare = 10;
+			item.rare = ItemRarityID.Red;
 			item.autoReuse = true;
 			item.useTurn = true;
-			item.shoot = 126;
+			item.shoot = ProjectileID.DiamondBolt;
 			item.shootSpeed = 6f;
 			item.noMelee = true;
 			item.mana = 12;

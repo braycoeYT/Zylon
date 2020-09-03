@@ -11,14 +11,14 @@ namespace Zylon.Items.Snow
 		public override void SetDefaults() 
 		{
 			item.value = 20000;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 21;
 			item.useTime = 21;
 			item.damage = 9;
 			item.width = 12;
 			item.height = 24;
 			item.knockBack = 0.5f;
-			item.shoot = 1;
+			item.shoot = ProjectileID.WoodenArrowFriendly;
 			item.shootSpeed = 44f;
 			item.noMelee = true;
 			item.ranged = true;

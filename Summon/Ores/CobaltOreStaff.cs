@@ -25,9 +25,9 @@ namespace Zylon.Items.Summon.Ores
 			item.height = 38;
 			item.useTime = 36;
 			item.useAnimation = 36;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.value = 59000;
-			item.rare = 4;
+			item.rare = ItemRarityID.LightRed;
 			item.UseSound = SoundID.Item44;
 			item.autoReuse = true;
 			item.noMelee = true;

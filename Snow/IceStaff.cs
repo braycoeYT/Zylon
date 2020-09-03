@@ -20,13 +20,13 @@ namespace Zylon.Items.Snow
 			item.height = 33;
 			item.useTime = 30;
 			item.useAnimation = 30;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.knockBack = 4.5f;
 			item.value = 1200;
-			item.rare = 0;
+			item.rare = ItemRarityID.White;
 			item.autoReuse = true;
 			item.useTurn = true;
-			item.shoot = 118;
+			item.shoot = ProjectileID.IceBolt;
 			item.shootSpeed = 11.5f;
 			item.noMelee = true;
 			item.mana = 6;

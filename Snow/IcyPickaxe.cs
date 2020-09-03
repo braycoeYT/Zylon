@@ -20,7 +20,7 @@ namespace Zylon.Items.Snow
 			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 1.65f;
 			item.value = 10000;
-			item.rare = 0;
+			item.rare = ItemRarityID.White;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.useTurn = true;

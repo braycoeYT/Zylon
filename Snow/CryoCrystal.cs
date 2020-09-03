@@ -17,8 +17,8 @@ namespace Zylon.Items.Snow
 			item.height = 40;
 			item.maxStack = 99;
 			item.value = 200;
-			item.rare = 0;
-			item.useStyle = 4;
+			item.rare = ItemRarityID.White;
+			item.useStyle = ItemUseStyleID.HoldingUp;
 		}
 	}
 }

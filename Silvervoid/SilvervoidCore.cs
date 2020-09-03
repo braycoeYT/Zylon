@@ -17,7 +17,7 @@ namespace Zylon.Items.Silvervoid
 			item.height = 40;
 			item.maxStack = 999;
 			item.value = 75000;
-			item.rare = 10;
+			item.rare = ItemRarityID.Red;
 		}
 	}
 }

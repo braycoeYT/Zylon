@@ -18,7 +18,7 @@ namespace Zylon.Items.Xenic
 		public override void SetDefaults() {
 			item.maxStack = 999;
 			item.value = 75000;
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {
             foreach (TooltipLine tooltipLine in list)

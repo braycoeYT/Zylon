@@ -22,7 +22,7 @@ namespace Zylon.Items.Slime
 			item.consumable = true;
 			item.knockBack = 2.5f;
 			item.value = 45;
-			item.rare = 0;
+			item.rare = ItemRarityID.White;
 			item.shoot = ProjectileType<Projectiles.OtherArrows.SlimeArrow>();
 			item.shootSpeed = 4.5f;
 			item.ammo = AmmoID.Arrow;

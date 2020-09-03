@@ -23,7 +23,7 @@ namespace Zylon.Items.Xenic
 			item.height = 40;
 			item.accessory = true;
 			item.value = 750000;
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 			item.expert = true;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual)

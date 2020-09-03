@@ -21,10 +21,10 @@ namespace Zylon.Items.Slime
 			item.height = 33;
 			item.useTime = 31;
 			item.useAnimation = 31;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 3.8f;
 			item.value = 6000;
-			item.rare = 0;
+			item.rare = ItemRarityID.White;
 			item.autoReuse = true;
 			item.useTurn = true;
 			item.shoot = mod.ProjectileType("SlimyJavelance");

@@ -17,10 +17,10 @@ namespace Zylon.Items.Xenic
 			item.height = 40;
 			item.maxStack = 20;
 			item.value = 250000;
-			item.rare = 9;
+			item.rare = ItemRarityID.Cyan;
 			item.useAnimation = 45;
 			item.useTime = 45;
-			item.useStyle = 4;
+			item.useStyle = ItemUseStyleID.HoldingUp;
 			item.consumable = true;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {

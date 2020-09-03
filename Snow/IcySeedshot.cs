@@ -23,7 +23,7 @@ namespace Zylon.Items.Snow
 			item.consumable = true;
 			item.knockBack = 0f; //0
 			item.value = 5; //0
-			item.rare = 0;
+			item.rare = ItemRarityID.White;
 			item.shoot = ProjectileType<Projectiles.OtherSeeds.PH.IcySeedshot>();
 			item.shootSpeed = 0f; //0
 			item.ammo = AmmoID.Dart;

@@ -16,14 +16,14 @@ namespace Zylon.Items.Slime
 		public override void SetDefaults() 
 		{
 			item.value = 18000;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 24;
 			item.useTime = 24;
 			item.damage = 9;
 			item.width = 12;
 			item.height = 24;
 			item.knockBack = 3.1f;
-			item.shoot = 1;
+			item.shoot = ProjectileID.WoodenArrowFriendly;
 			item.shootSpeed = 6.1f;
 			item.noMelee = true;
 			item.ranged = true;
