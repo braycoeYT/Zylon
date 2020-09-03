@@ -57,7 +57,7 @@ namespace Zylon.NPCs
 			target2.Y += Main.rand.Next(-60, 60);
 			Timer++;
 			if (Timer % 120 == 0)
-				Projectile.NewProjectile(npc.Center, (npc.DirectionTo(target2)) * 8, 288, 59, 1f, Main.myPlayer);
+				Projectile.NewProjectile(npc.Center, (npc.DirectionTo(target2)) * 8, ProjectileID.GoldenShowerHostile, 59, 1f, Main.myPlayer);
 		}
 		/*public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

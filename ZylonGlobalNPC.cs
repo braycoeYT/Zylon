@@ -38,6 +38,11 @@ namespace Zylon.NPCs
 				shop.item[nextSlot].shopCustomPrice = 3;
 				nextSlot++;
 			}
+			if (type == NPCID.Merchant) {
+				shop.item[nextSlot].SetDefaults(mod.ItemType("BasicBowMold"));
+				shop.item[nextSlot].shopCustomPrice = 5000;
+				nextSlot++;
+			}
 			if (type == NPCID.WitchDoctor) {
 				shop.item[nextSlot].SetDefaults(mod.ItemType("Vineshot"));
 				shop.item[nextSlot].shopCustomPrice = 8;
@@ -184,7 +189,7 @@ namespace Zylon.NPCs
 					Item.NewItem(npc.getRect(), mod.ItemType("MagentiteSeedshot"), Main.rand.Next(1, 3));
 				}
 			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].HasItem(mod.ItemType("WoodenBlowpipe")))
-				if (npc.type == -3 || npc.type == 1) {
+				if (npc.type == -3 || npc.type == NPCID.BlueSlime) {
 					if (Main.rand.NextFloat() < .5f)
 					Item.NewItem(npc.getRect(), ItemID.Seed, Main.rand.Next(1, 3));
 				}
@@ -193,7 +198,7 @@ namespace Zylon.NPCs
 					Item.NewItem(npc.getRect(), mod.ItemType("PinkySeedshot"), Main.rand.Next(30, 51));
 				}
 			if (Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].HasItem(mod.ItemType("SlimyBlowpipe")))
-				if (npc.type == 1 || npc.type == -7 || npc.type == 535) {
+				if (npc.type == NPCID.BlueSlime || npc.type == -7 || npc.type == NPCID.SlimeSpiked) {
 					if (Main.rand.NextFloat() < .5f)
 					Item.NewItem(npc.getRect(), mod.ItemType("SlimySeedshot"), Main.rand.Next(1, 3));
 				}
