@@ -53,7 +53,7 @@ namespace Zylon.NPCs.Slimes
 			target2.Y += Main.rand.Next(-60, 60);
 			Timer++;
 			if (Timer % 180 == 0)
-				Projectile.NewProjectile(npc.Center, (npc.DirectionTo(target2)) * 4, 84, 34, 1f, Main.myPlayer);
+				Projectile.NewProjectile(npc.Center, (npc.DirectionTo(target2)) * 4, ProjectileID.PinkLaser, 34, 1f, Main.myPlayer);
 		}
 		public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

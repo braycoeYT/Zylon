@@ -44,7 +44,6 @@ namespace Zylon.NPCs.Minions.Discus
 			get => npc.ai[0];
 			set => npc.ai[0] = value;
 		}
-		int flee;
 		Vector2 targetPlayer;
 		public override void AI()
 		{
@@ -56,7 +55,7 @@ namespace Zylon.NPCs.Minions.Discus
 			if (Timer % 200 == 60)
 			{
 				Main.PlaySound(SoundID.Item12);
-				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, -2, 0, 466, 20, 10, Main.myPlayer);
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, -2, 0, ProjectileID.CultistBossLightningOrbArc, 20, 10, Main.myPlayer);
 			}
 			if (!NPC.AnyNPCs(NPCType<NPCs.Bosses.AncientDesertDiscus2>()))
 				npc.life = 0;
@@ -66,8 +65,8 @@ namespace Zylon.NPCs.Minions.Discus
 				int dustType = 226;
 				int dustIndex = Dust.NewDust(npc.position, npc.width, npc.height, dustType);
 				Dust dust = Main.dust[dustIndex];
-				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
-				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
+				dust.velocity.X += Main.rand.Next(-50, 51) * 0.01f;
+				dust.velocity.Y += Main.rand.Next(-50, 51) * 0.01f;
 				dust.scale *= 2f + Main.rand.Next(-30, 31) * 0.01f;
 			}
 		}

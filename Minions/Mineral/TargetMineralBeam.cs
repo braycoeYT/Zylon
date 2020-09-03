@@ -31,7 +31,6 @@ namespace Zylon.NPCs.Minions.Mineral
 		int flee;
 		int Timer;
 		bool Laser = true;
-		Vector2 targetPos;
 		public override void AI() {
 			Player target = Main.player[npc.target];
 			Timer++;
