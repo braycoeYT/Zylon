@@ -52,7 +52,7 @@ namespace Zylon.Projectiles.OtherJavelances
 			Timer++;
 			if (Timer % 240 == rand)
 			{
-				Projectile.NewProjectile(projectile.Center, projectile.DirectionTo(Main.MouseWorld) * projectile.velocity.Y, 121, projectile.damage, projectile.knockBack, Main.myPlayer);
+				Projectile.NewProjectile(projectile.Center, projectile.DirectionTo(Main.MouseWorld) * projectile.velocity.Y, ProjectileID.AmethystBolt, projectile.damage, projectile.knockBack, Main.myPlayer);
 			}
 		}
 		public override void PostAI()
