@@ -20,7 +20,7 @@ namespace Zylon.Items.OtherSeeds
 			item.consumable = false;
 			item.knockBack = 0f; //0
 			item.value = 10000; //0
-			item.rare = 2;
+			item.rare = ItemRarityID.Green;
 			item.shoot = ProjectileID.Seed;
 			item.shootSpeed = 0f; //0
 			item.ammo = AmmoID.Dart;

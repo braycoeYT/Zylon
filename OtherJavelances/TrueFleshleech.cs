@@ -1,72 +1,82 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using static Terraria.ModLoader.ModContent;
+using Terraria.ModLoader;
 
-namespace Zylon.Projectiles.OtherJavelances
+namespace Zylon.Items.OtherJavelances
 {
-	public class TrueFleshleech : ModProjectile
+	public class TrueFleshleech : ModItem
 	{
-        public override void SetStaticDefaults()
+		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("True Fleshleech");
-        }
-		public override void SetDefaults()
-		{
-			projectile.width = 32;
-			projectile.height = 32;
-			projectile.aiStyle = 1;
-			projectile.friendly = true;
-			projectile.penetrate = 7;
-			projectile.ranged = true;
-			projectile.timeLeft = 3000;
-			projectile.ignoreWater = true;
-			aiType = 1;
+			Tooltip.SetDefault("Leeches life\nStacks up to 5\nMore javelances means more javelances thrown\nUse time is decreased with more javelances");
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-			if (Main.rand.Next(4) == 0 && target.type != NPCID.TargetDummy)
+
+		public override void SetDefaults() 
+		{
+			item.damage = 87;
+			item.ranged = true;
+			item.width = 33;
+			item.height = 33;
+			item.useTime = 36;
+			item.useAnimation = 36;
+			item.useStyle = ItemUseStyleID.SwingThrow;
+			item.knockBack = 3.1f;
+			item.value = 35000;
+			item.rare = ItemRarityID.Yellow;
+			item.autoReuse = true;
+			item.useTurn = true;
+			item.shoot = mod.ProjectileType("TrueFleshleech");
+			item.shootSpeed = 9f;
+			item.noMelee = true;
+			item.maxStack = 5;
+			item.UseSound = SoundID.Item1;
+			item.noUseGraphic = true;
+			item.consumable = false;
+		}
+		public override void UpdateInventory(Player player)
+		{
+			item.useTime = 36 + (item.stack * 10) - 10;
+			item.useAnimation = 36 + (item.stack * 10) - 10;
+		}
+		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		{
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+			if (p.redJavelance)
 			{
-				Player p = Main.player[projectile.owner];
-				int healingAmount = damage/30;
-				p.statLife +=healingAmount;
-				p.HealEffect(healingAmount, true);
+				Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("BleedingJavelance"), 45, 3f, player.whoAmI);
 			}
-			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
-			if (zp.bloodJavelance && Main.rand.NextFloat() < .06f && target.type != NPCID.TargetDummy) {
-				Player p = Main.player[projectile.owner];
-				p.statLife += 1;
-				p.HealEffect(1, true);
-			}
-		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
-			if (Main.rand.Next(4) == 0)
+			float numberProjectiles = item.stack;
+			float rotation = MathHelper.ToRadians(18);
+			if (numberProjectiles > 1)
 			{
-				Player p = Main.player[projectile.owner];
-				int healingAmount = damage/30;
-				p.statLife +=healingAmount;
-				p.HealEffect(healingAmount, true);
+				position += Vector2.Normalize(new Vector2(speedX, speedY)) * 45f;
+				for (int i = 0; i < numberProjectiles; i++)
+				{
+					Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .9f;
+					Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+				}
+			return false;
 			}
-			ZylonPlayer zp = Main.player[projectile.owner].GetModPlayer<ZylonPlayer>();
-			if (zp.bloodJavelance && Main.rand.NextFloat() < .06f) {
-				Player p = Main.player[projectile.owner];
-				p.statLife += 1;
-				p.HealEffect(1, true);
-			}
+			return true;
 		}
-		public override void PostAI()
+
+		public override void AddRecipes() 
 		{
-			if (Main.rand.NextBool())
-			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 235);
-				dust.noGravity = false;
-				dust.scale = 1f;
-			}
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(mod.ItemType("Fleshleech"));
+			recipe.AddIngredient(mod.ItemType("AncientMedievalJavelance"));
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
+			
+			recipe = new ModRecipe(mod);
+			recipe.AddIngredient(mod.ItemType("Fleshleech"), 4);
+			recipe.AddIngredient(mod.ItemType("AncientMedievalJavelance"), 4);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.SetResult(this, 5);
+			recipe.AddRecipe();
 		}
-		public override void Kill(int timeLeft)
-		{
-			Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
-		}
-	}   
+	}
 }

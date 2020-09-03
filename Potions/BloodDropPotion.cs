@@ -23,7 +23,7 @@ namespace Zylon.Items.Potions
             item.UseSound = SoundID.Item3;
             item.maxStack = 30;
             item.consumable = true;
-            item.rare = 1;
+            item.rare = ItemRarityID.Blue;
             item.value = 300;
             item.buffType = mod.BuffType("BloodDrop");
             item.buffTime = 25200;
@@ -36,7 +36,7 @@ namespace Zylon.Items.Potions
 			recipe.AddIngredient(mod.ItemType("MeatShard"));
 			recipe.AddIngredient(ItemID.Moonglow);
             recipe.AddIngredient(ItemID.Fireblossom);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

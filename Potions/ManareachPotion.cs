@@ -23,7 +23,7 @@ namespace Zylon.Items.Potions
             item.UseSound = SoundID.Item3;
             item.maxStack = 30;
             item.consumable = true;
-            item.rare = 1;
+            item.rare = ItemRarityID.Blue;
             item.value = 200;
             item.buffType = mod.BuffType("Manareach");
             item.buffTime = 28800;
@@ -35,7 +35,7 @@ namespace Zylon.Items.Potions
 			recipe.AddIngredient(ItemID.BottledWater);
 			recipe.AddIngredient(ItemID.FallenStar, 1);
 			recipe.AddIngredient(ItemID.Moonglow, 1);
-			recipe.AddTile(13);
+			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

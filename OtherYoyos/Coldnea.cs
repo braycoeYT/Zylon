@@ -1,41 +1,49 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.OtherYoyos
+namespace Zylon.Items.OtherYoyos
 {
-	public class Coldnea : ModProjectile
+	public class Coldnea : ModItem
 	{
-		public override void SetStaticDefaults()
+		public override void SetStaticDefaults() 
 		{
-			//3-16 Vanilla, -1 = Infinite
-			ProjectileID.Sets.YoyosLifeTimeMultiplier[projectile.type] = 15f;
-			//130-400 Vanilla
-			ProjectileID.Sets.YoyosMaximumRange[projectile.type] = 290f;
-			//9-17.5 Vanilla, for future reference
-			ProjectileID.Sets.YoyosTopSpeed[projectile.type] = 15.1f;
+			DisplayName.SetDefault("Coldnea");
+			Tooltip.SetDefault("I despise the heat");
+			ItemID.Sets.Yoyo[item.type] = true;
+			ItemID.Sets.GamepadExtraRange[item.type] = 15;
+			ItemID.Sets.GamepadSmartQuickReach[item.type] = true;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
-			target.AddBuff(BuffID.Frostburn, 240, false);
-		}
-		public override void OnHitPlayer(Player target, int damage, bool crit)
-		{
-			target.AddBuff(BuffID.Frostburn, 240, false);
-		}
+
 		public override void SetDefaults()
 		{
-			projectile.extraUpdates = 0;
-			projectile.width = 16;
-			projectile.height = 16;
-			projectile.aiStyle = 99;
-			projectile.friendly = true;
-			projectile.penetrate = -1;
-			projectile.melee = true;
-			projectile.scale = 1f;
+			item.useStyle = ItemUseStyleID.HoldingOut;
+			item.width = 24;
+			item.height = 24;
+			item.useAnimation = 25;
+			item.useTime = 25;
+			item.shootSpeed = 16f;
+			item.knockBack = 4.3f;
+			item.damage = 94;
+			item.rare = ItemRarityID.Cyan;
+			item.melee = true;
+			item.channel = true;
+			item.noMelee = true;
+			item.noUseGraphic = true;
+			item.UseSound = SoundID.Item1;
+			item.value = 770000;
+			item.shoot = ProjectileType<Projectiles.OtherYoyos.Coldnea>();
+		}
+		public override void AddRecipes()
+		{
+			ModRecipe recipe = new ModRecipe(mod);
+			recipe.AddIngredient(ItemID.Amarok);
+			recipe.AddIngredient(mod.ItemType("ElementamaxSludge"), 7);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.SetResult(this);
+			recipe.AddRecipe();
 		}
 	}
 }

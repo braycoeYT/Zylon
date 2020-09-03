@@ -23,7 +23,7 @@ namespace Zylon.Items.OtherSeeds.PH
 			item.consumable = true;
 			item.knockBack = 0.5f; //0
 			item.value = 5; //0
-			item.rare = 0;
+			item.rare = ItemRarityID.White;
 			item.shoot = ProjectileType<Projectiles.OtherSeeds.PH.Slime.PinkySeedshot>();
 			item.shootSpeed = 0f; //0
 			item.ammo = AmmoID.Dart;
