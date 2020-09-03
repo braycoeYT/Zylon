@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+using Terraria.ID;
 
 namespace Zylon.Items.Braycoe
 {
@@ -14,7 +15,7 @@ namespace Zylon.Items.Braycoe
 
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(2420);
+			item.CloneDefaults(ItemID.ZephyrFish);
 			item.shoot = ProjectileType<Projectiles.Pets.MarblePet>();
 			item.buffType = BuffType<Buffs.Pets.MarbleBuff>();
 			item.mana = 0;

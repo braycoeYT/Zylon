@@ -15,9 +15,9 @@ namespace Zylon.Items.Braycoe
 			item.height = 22;
 			item.useTime = 17;
 			item.useAnimation = 17;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.value = 7500;
-			item.rare = 3;
+			item.rare = ItemRarityID.Orange;
 			item.autoReuse = true;
 			item.useTurn = true;
 			item.noMelee = true;

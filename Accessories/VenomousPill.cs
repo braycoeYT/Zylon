@@ -14,7 +14,7 @@ namespace Zylon.Items.Accessories
 			item.height = 19;
 			item.accessory = true;
 			item.value = 50000;
-			item.rare = 5;
+			item.rare = ItemRarityID.Pink;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
 			player.buffImmune[BuffID.Venom] = true;

@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace Zylon.Items.Accessories
 {
@@ -13,7 +14,7 @@ namespace Zylon.Items.Accessories
 			item.height = 40;
 			item.accessory = true;
 			item.value = 600;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
 			player.maxMinions += 1;

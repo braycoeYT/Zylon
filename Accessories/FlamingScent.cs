@@ -15,7 +15,7 @@ namespace Zylon.Items.Accessories
 			item.height = 40;
 			item.accessory = true;
 			item.value = 110000;
-			item.rare = 6;
+			item.rare = ItemRarityID.LightPurple;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
 			player.aggro -= 400;
@@ -28,10 +28,10 @@ namespace Zylon.Items.Accessories
 		}
 		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(3015);
-			recipe.AddIngredient(1322);
+			recipe.AddIngredient(ItemID.PutridScent);
+			recipe.AddIngredient(ItemID.MagmaStone);
 			recipe.AddIngredient(ItemID.SoulofFright, 8);
-			recipe.AddTile(114);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

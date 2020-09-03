@@ -12,7 +12,7 @@ namespace Zylon.Items.Books
 		}
 		public override void SetDefaults() {
 			item.value = 200000;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 29;
 			item.useTime = 29;
 			item.damage = 101;
@@ -24,7 +24,7 @@ namespace Zylon.Items.Books
 			item.noMelee = true;
 			item.magic = true;
 			item.autoReuse = true;
-			item.rare = 4;
+			item.rare = ItemRarityID.LightRed;
 			item.mana = 11;
 			item.UseSound = SoundID.Item116;
 		}

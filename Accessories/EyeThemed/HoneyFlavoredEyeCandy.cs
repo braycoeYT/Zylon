@@ -19,7 +19,7 @@ namespace Zylon.Items.Accessories.EyeThemed
 			item.height = 40;
 			item.accessory = true;
 			item.value = 84000;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)

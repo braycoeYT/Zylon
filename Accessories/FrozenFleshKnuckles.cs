@@ -15,7 +15,7 @@ namespace Zylon.Items.Accessories
 			item.height = 40;
 			item.accessory = true;
 			item.value = 110000;
-			item.rare = 6;
+			item.rare = ItemRarityID.LightPurple;
 			item.defense = 8;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
@@ -25,10 +25,10 @@ namespace Zylon.Items.Accessories
 		}
 		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(3016);
-			recipe.AddIngredient(1253);
+			recipe.AddIngredient(ItemID.FleshKnuckles);
+			recipe.AddIngredient(ItemID.FrozenTurtleShell);
 			recipe.AddIngredient(ItemID.SoulofMight, 8);
-			recipe.AddTile(114);
+			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

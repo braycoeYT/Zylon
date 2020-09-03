@@ -13,19 +13,19 @@ namespace Zylon.Items.Books
 		}
 		public override void SetDefaults() {
 			item.value = 580000;
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 29;
 			item.useTime = 29;
 			item.damage = 109;
 			item.width = 12;
 			item.height = 24;
 			item.knockBack = 2.9f;
-			item.shoot = 85;
+			item.shoot = ProjectileID.Flames;
 			item.shootSpeed = 12f;
 			item.noMelee = true;
 			item.magic = true;
 			item.autoReuse = true;
-			item.rare = 10;
+			item.rare = ItemRarityID.Red;
 			item.mana = 11;
 			item.UseSound = SoundID.Item116;
 		}

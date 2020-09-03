@@ -21,7 +21,7 @@ namespace Zylon.Items.Blowpipes.PH
 			item.shootSpeed = 11.5f; //11
 			item.useTime = 21; //45
 			item.useAnimation = 21; //45
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 		}
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{

@@ -15,7 +15,7 @@ namespace Zylon.Items.Accessories.Shields
 			item.height = 24;
 			item.accessory = true;
 			item.value = 7500;
-			item.rare = 0;
+			item.rare = ItemRarityID.White;
 			item.defense = 1;
 		}
 		public override void AddRecipes() {

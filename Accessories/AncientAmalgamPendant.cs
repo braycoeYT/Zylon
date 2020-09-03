@@ -15,7 +15,7 @@ namespace Zylon.Items.Accessories
 			item.height = 40;
 			item.accessory = true;
 			item.value = 35000;
-			item.rare = 8;
+			item.rare = ItemRarityID.Yellow;
 			item.expert = true;
 			item.defense = 2;
 		}

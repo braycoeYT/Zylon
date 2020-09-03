@@ -15,7 +15,7 @@ namespace Zylon.Items.Accessories
 			item.height = 40;
 			item.accessory = true;
 			item.value = 215748;
-			item.rare = 11;
+			item.rare = ItemRarityID.Purple;
 			item.expert = true;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
@@ -31,7 +31,7 @@ namespace Zylon.Items.Accessories
 			recipe.AddIngredient(ItemID.SporeSac);
 			recipe.AddIngredient(ItemID.ShinyStone);
 			recipe.AddIngredient(ItemID.HoneyComb);
-			recipe.AddIngredient(3333);
+			recipe.AddIngredient(ItemID.HiveBackpack);
 			recipe.AddIngredient(ItemID.LunarBar, 10);
 			recipe.AddIngredient(ItemID.LifeCrystal, 2);
 			recipe.AddIngredient(ItemID.LifeFruit, 3);

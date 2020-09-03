@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace Zylon.Items.Accessories.EyeThemed
 {
@@ -15,7 +16,7 @@ namespace Zylon.Items.Accessories.EyeThemed
 			item.height = 42;
 			item.accessory = true;
 			item.value = 21000;
-			item.rare = 6;
+			item.rare = ItemRarityID.LightPurple;
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual) {

@@ -16,7 +16,7 @@ namespace Zylon.Items.Braycoe
 
 		public override void SetDefaults()
 		{
-			item.useStyle = 5;
+			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.width = 24;
 			item.height = 24;
 			item.useAnimation = 25;
@@ -24,7 +24,7 @@ namespace Zylon.Items.Braycoe
 			item.shootSpeed = 16f;
 			item.knockBack = 3f;
 			item.damage = 19;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.melee = true;
 			item.channel = true;
 			item.noMelee = true;

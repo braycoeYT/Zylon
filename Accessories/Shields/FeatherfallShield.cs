@@ -16,7 +16,7 @@ namespace Zylon.Items.Accessories.Shields
 			item.height = 28;
 			item.accessory = true;
 			item.value = 7500;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.defense = 1;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {

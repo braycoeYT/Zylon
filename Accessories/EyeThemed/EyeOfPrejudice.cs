@@ -16,7 +16,7 @@ namespace Zylon.Items.Accessories.EyeThemed
 			item.height = 40;
 			item.accessory = true;
 			item.value = 1255;
-			item.rare = 6;
+			item.rare = ItemRarityID.LightPurple;
 			item.defense = 1;
 		}
 

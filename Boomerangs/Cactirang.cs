@@ -16,10 +16,10 @@ namespace Zylon.Items.Boomerangs
 			item.height = 30;
 			item.useTime = 72;
 			item.useAnimation = 72;
-			item.useStyle = 4;
+			item.useStyle = ItemUseStyleID.HoldingUp;
 			item.knockBack = 4.5f;
 			item.value = 500;
-			item.rare = 0;
+			item.rare = ItemRarityID.White;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
 			item.useTurn = true;

@@ -20,13 +20,13 @@ namespace Zylon.Items.Braycoe
 			item.height = 33;
 			item.useTime = 14;
 			item.useAnimation = 14;
-			item.useStyle = 4;
+			item.useStyle = ItemUseStyleID.HoldingUp;
 			item.knockBack = 1;
 			item.value = 40000;
-			item.rare = 1;
+			item.rare = ItemRarityID.Blue;
 			item.autoReuse = true;
 			item.useTurn = true;
-			item.shoot = 12;
+			item.shoot = ProjectileID.FallingStar;
 			item.shootSpeed = 8f;
 			item.noMelee = true;
 			item.mana = 8;
