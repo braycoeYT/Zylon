@@ -23,6 +23,8 @@ namespace Zylon.Projectiles
 			projectile.light = 0.5f;
 			projectile.melee = true;
 			aiType = ProjectileID.Bullet;
+			projectile.usesLocalNPCImmunity = true;
+			projectile.localNPCHitCooldown = 10;
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
