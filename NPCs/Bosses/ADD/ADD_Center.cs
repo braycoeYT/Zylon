@@ -71,6 +71,7 @@ namespace Zylon.NPCs.Bosses.ADD
 				finalAtk = true;
 				NPC.dontTakeDamage = true;
 			}
+			else if (NPC.life < 0) Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-1, 1), 0), ModContent.GoreType<Gores.Bosses.ADD.ADDCenterDeath>());
 		}
 		int preTimer;
 		int Timer;
@@ -387,6 +388,9 @@ namespace Zylon.NPCs.Bosses.ADD
 				new FlavorTextBestiaryInfoElement("An ancient machine made from technology that is obviously not from this planet.")
 			});
 		}
+		public override void BossLoot(ref string name, ref int potionType) {
+			ZylonWorldCheckSystem.downedADD = true;
+        }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
 			if (Main.expertMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.DiskiteBag>(), 1));
 			else {
