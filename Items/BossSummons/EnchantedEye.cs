@@ -1,0 +1,50 @@
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace Zylon.Items.BossSummons
+{
+	public class EnchantedEye : ModItem
+	{
+		public override void SetStaticDefaults() {
+			Tooltip.SetDefault("Summons the Ancient Diskite Director\nCan only be used in the desert at night");
+		}
+		public override void SetDefaults()  {
+			Item.width = 28;
+			Item.height = 28;
+			Item.maxStack = 20;
+			Item.value = 0;
+			Item.rare = ItemRarityID.Blue;
+			Item.useAnimation = 45;
+			Item.useTime = 45;
+			Item.useStyle = ItemUseStyleID.HoldUp;
+			Item.consumable = true;
+		}
+        public override bool CanUseItem(Player player) {
+            return !Main.dayTime && player.ZoneDesert && !NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.ADD.ADD_Center>());
+        }
+        public override bool? UseItem(Player player) {
+			NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<NPCs.Bosses.ADD.ADD_Setup>());
+			SoundEngine.PlaySound(SoundID.Roar, player.position);
+            return true;
+        }
+        public override void AddRecipes() { //diskite drop mod
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.Glass, 5);
+			recipe.AddIngredient(ItemID.DemoniteBar, 3);
+			recipe.AddIngredient(ModContent.ItemType<Materials.DiskiteCrumbles>(), 12);
+			recipe.AddIngredient(ItemID.FallenStar, 3);
+			recipe.AddTile(TileID.DemonAltar);
+			recipe.Register();
+
+			recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.Glass, 5);
+			recipe.AddIngredient(ItemID.CrimtaneBar, 3);
+			recipe.AddIngredient(ModContent.ItemType<Materials.DiskiteCrumbles>(), 12);
+			recipe.AddIngredient(ItemID.FallenStar, 3);
+			recipe.AddTile(TileID.DemonAltar);
+			recipe.Register();
+		}
+	}
+}

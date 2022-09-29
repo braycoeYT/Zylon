@@ -1,0 +1,18 @@
+using Terraria;
+using Terraria.ModLoader;
+
+namespace Zylon.Buffs.Potions
+{
+    public class Feral : ModBuff
+    {
+        public override void SetStaticDefaults() {
+            DisplayName.SetDefault("Feral");
+            Description.SetDefault("Melee speed increased by 10%");
+            Main.buffNoTimeDisplay[Type] = false;
+            Main.debuff[Type] = false;
+        }
+        public override void Update(Player player, ref int buffIndex) {
+			player.GetAttackSpeed(DamageClass.Melee) += 0.1f;
+        }
+    }
+}
