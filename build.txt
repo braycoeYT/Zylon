@@ -1,6 +1,7 @@
 displayName = [c/0000FF:Zy][c/00C6FF:lo][c/00FFA6:n] (Azercadmium 1.4)
 author = BraycoeYT and the Devs
-version = 0.0.0.1
+version = 0.0.0.2
 hideCode = true
 hideResources = true
 includeSource = false
+homepage = https://discord.gg/GTvAZceY8B

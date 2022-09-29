@@ -34,6 +34,8 @@ A: I can't read minds. People can rejoin if they want to. As of writing this, mo
 V0.0.0.1: First Update
 ~Added everything. What were you expecting?
 
+V0.0.0.2: 1.4 beta publishing?
+
 Credits:
 Owner:
 BraycoeYT
