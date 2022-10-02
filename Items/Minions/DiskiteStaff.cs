@@ -32,6 +32,10 @@ namespace Zylon.Items.Minions
 			Item.buffType = BuffType<Buffs.Minions.DiskiteMinion>();
 			Item.shoot = ProjectileType<Projectiles.Minions.DiskiteMinion_Center>();
 		}
+        public override bool CanUseItem(Player player) {
+			if (player.numMinions + 1 > player.maxMinions) return false;// && !(player.altFunctionUse == 2)) return false;
+            return true;
+        }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             player.AddBuff(Item.buffType, 2);
 			position = Main.MouseWorld;

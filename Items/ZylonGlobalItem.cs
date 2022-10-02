@@ -115,6 +115,23 @@ namespace Zylon.Items
 				}
             }
 		}
+		public override string IsArmorSet(Item head, Item body, Item legs) {
+			if (head.type == ItemID.MagicHat && body.type == ItemType<Armor.JadeRobe>())
+				return "JadeRobe1";
+			if (head.type == ItemID.WizardHat && body.type == ItemType<Armor.JadeRobe>())
+				return "JadeRobe2";
+			return "";
+		}
+		public override void UpdateArmorSet(Player player, string set) {
+			if (set == "JadeRobe1") {
+				player.setBonus = "Increases max mana by 60";
+				player.statManaMax2 += 60;		
+			}
+			if (set == "JadeRobe2") {
+				player.setBonus = "10% increased magic critical strike chance";
+				player.GetCritChance(DamageClass.Magic) += 10;
+            }
+		}
 		int shootCount;
         public override bool Shoot(Item item, Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
 			shootCount++;

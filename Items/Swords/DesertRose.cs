@@ -48,15 +48,7 @@ namespace Zylon.Items.Swords
         }
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.DemoniteBar, 9);
-			recipe.AddIngredient(ItemID.PinkPricklyPear);
-			recipe.AddIngredient(ItemID.HardenedSand, 25);
-			recipe.AddIngredient(ItemID.FossilOre, 6);
-			recipe.AddTile(TileID.Anvils);
-			recipe.Register();
-
-			recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.CrimtaneBar, 9);
+			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 9);
 			recipe.AddIngredient(ItemID.PinkPricklyPear);
 			recipe.AddIngredient(ItemID.HardenedSand, 25);
 			recipe.AddIngredient(ItemID.FossilOre, 6);

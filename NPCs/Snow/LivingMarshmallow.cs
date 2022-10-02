@@ -49,7 +49,7 @@ namespace Zylon.NPCs.Snow
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
 			npcLoot.Add(new CommonDrop(ItemID.Gel, 1, 1, 3));
-			npcLoot.Add(new CommonDrop(ItemID.Marshmallow, 3, 1, 1, 4).OnFailedRoll(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Food.CocoaBeans>(), ModContent.ItemType<Items.Food.GrahamCracker>())));
+			npcLoot.Add(new CommonDrop(ItemID.Marshmallow, 4, 1, 1, 3)).OnFailedRoll(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Food.CocoaBeans>(), ModContent.ItemType<Items.Food.GrahamCracker>()));
 		}
 	}
 }

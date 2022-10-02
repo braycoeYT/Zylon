@@ -8,7 +8,7 @@ namespace Zylon.Items.BossSummons
 	public class EldritchBell : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons the Eldritch Jellyfish");
+			Tooltip.SetDefault("'It calls for the ocean...'\nSummons the Eldritch Jellyfish");
 			ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 3;
 		}
 		public override void SetDefaults() {

@@ -87,6 +87,7 @@ namespace Zylon.NPCs.Bosses.ADD
 		bool phase;
 		bool finalAtk;
 		bool finalAtk2;
+		bool catchUp;
 		Vector2 atkVector;
 		Vector2 prePos;
 		Player target;
@@ -109,9 +110,10 @@ namespace Zylon.NPCs.Bosses.ADD
 				preTimer++;
 				if (preTimer < 59) NPC.velocity /= 2;
 				if (preTimer < 59 && !finalAtk2) NPC.life = 1;
-				else if (!finalAtk2) NPC.life += 1;
-				if (NPC.life == NPC.lifeMax) {
+				else if (!finalAtk2) NPC.life += 3;
+				if (NPC.life >= NPC.lifeMax) {
 					finalAtk2 = true;
+					NPC.life = NPC.lifeMax;
                 }
 				if (preTimer == 1) CombatText.NewText(NPC.getRect(), Color.Red, "SELF-DESTRUCT ACTIVATED!", true);
 				if (preTimer < 59)
@@ -380,12 +382,24 @@ namespace Zylon.NPCs.Bosses.ADD
                 if (flee >= 450)
                     NPC.active = false;
             }
+			if (Vector2.Distance(NPC.Center, target.Center) > 1200) {
+				Vector2 speed2 = NPC.Center - target.Center;
+				speed2.Normalize();
+				NPC.velocity = speed2 * -30f;
+				catchUp = true;
+			}
+			if (Vector2.Distance(NPC.Center, target.Center) <= 1200 && catchUp)
+				NPC.velocity /= 2;
+			if (!(attack == 99 && attackDone == false) && Timer < 180)
+				catchUp = false;
+			if ((attack == 4 && Timer > 180 && attackTimer % 70 <= 30) || attack == 5)
+				catchUp = false;
         }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Times.NightTime,
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
-				new FlavorTextBestiaryInfoElement("An ancient machine made from technology that is obviously not from this planet.")
+				new FlavorTextBestiaryInfoElement("An ancient drone-like machine made from technology that is obviously not from this planet.")
 			});
 		}
 		public override void BossLoot(ref string name, ref int potionType) {

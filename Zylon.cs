@@ -60,7 +60,8 @@ namespace Zylon
 			ItemID.Emerald,
 			ItemID.Amber,
 			ItemID.Diamond,
-			ItemID.Ruby
+			ItemID.Ruby,
+			ModContent.ItemType<Items.Materials.Jade>()
 			});
 			RecipeGroup.RegisterGroup("Zylon:AnyGem", group);
 
@@ -71,11 +72,13 @@ namespace Zylon
 			});
 			RecipeGroup.RegisterGroup("Zylon:AnyShadowScale", group);
 
-			/*if (RecipeGroup.recipeGroupIDs.ContainsKey("IronBar")) {
-				int index = RecipeGroup.recipeGroupIDs["IronBar"];
-				group = RecipeGroup.recipeGroups[index];
-				group.ValidItems.Add(ItemType("ZincBar"));
-			}*/
+			group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Demonite Bar", new int[]
+			{
+			ItemID.DemoniteBar,
+			ItemID.CrimtaneBar,
+			});
+			RecipeGroup.RegisterGroup("Zylon:AnyDemoniteBar", group);
+
 			if (RecipeGroup.recipeGroupIDs.ContainsKey("IronBar")) {
 				int index = RecipeGroup.recipeGroupIDs["IronBar"];
 				group = RecipeGroup.recipeGroups[index];
@@ -326,6 +329,12 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.FossilOre, 8);
 			recipe.AddIngredient(ItemID.Lens, 3);
 			recipe.AddIngredient(ItemID.FallenStar);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.BookofSkulls);
+			recipe.AddIngredient(ItemID.Book);
+			recipe.AddIngredient(ItemID.Bone, 40);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
         }

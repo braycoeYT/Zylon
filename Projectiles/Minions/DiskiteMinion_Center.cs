@@ -26,6 +26,7 @@ namespace Zylon.Projectiles.Minions
 			Projectile.minion = true;
 			Projectile.minionSlots = 1f;
 			Projectile.penetrate = -1;
+			Projectile.timeLeft = 240;
 		}
 		public override bool? CanCutTiles() {
 			return true;

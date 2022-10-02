@@ -25,12 +25,22 @@ namespace Zylon.Projectiles.Minions
 			Projectile.friendly = true;
 			Projectile.penetrate = -1;
 		}
+		bool init;
 		public override void AI() {
+			if (!init) {
+				if (Main.player[Projectile.owner].ownedProjectileCounts[Projectile.type] > Main.player[Projectile.owner].ownedProjectileCounts[ModContent.ProjectileType<DiskiteMinion_Center>()]) {
+					Projectile.active = false;
+					Projectile.timeLeft = 0;
+					return;
+                }
+				init = true;
+            }
 			Projectile main = Main.projectile[(int)Projectile.ai[0]];
 			Projectile.timeLeft = 60;
 			Projectile.active = main.active;
 			Projectile.Center = main.Center;
 			Projectile.rotation += 0.05f;
+			//if (main.timeLeft >= 240) Projectile.active = false;
 		}
 	}
 }
