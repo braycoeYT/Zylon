@@ -131,6 +131,7 @@ namespace Zylon
 				else if (Main.rand.NextBool(2)) Player.AddBuff(BuffType<Buffs.DiskiteDefense>(), 60);
 				else Player.AddBuff(BuffType<Buffs.DiskiteAgility>(), 60);
             }
+			if (Player.HeldItem.type == ItemType<Items.Guns.GraveBuster>()) Player.AddBuff(BuffType<Buffs.GravelyPowers>(), 90);
 		}
         public override void OnHitPvp(Item item, Player target, int damage, bool crit) {
             if (bloodVial && Main.rand.NextFloat() < .08f) {
@@ -157,11 +158,21 @@ namespace Zylon
 				else if (Main.rand.NextBool(2)) Player.AddBuff(BuffType<Buffs.DiskiteDefense>(), 60);
 				else Player.AddBuff(BuffType<Buffs.DiskiteAgility>(), 60);
             }
+			if (Player.HeldItem.type == ItemType<Items.Guns.GraveBuster>()) Player.AddBuff(BuffType<Buffs.GravelyPowers>(), 90);
 		}
         public override void OnHitByNPC(NPC npc, int damage, bool crit) {
             if ((npc.type == NPCType<NPCs.Bosses.ADD.ADD_SpikeRing>() || npc.type == NPCType<NPCs.Bosses.ADD.ADD_Center>()) && !Player.noKnockback) {
 				Vector2 vector1;
 				vector1 = npc.Center - Player.Center;
+				vector1.Normalize();
+				Player.velocity = vector1*-12f;
+            }
+        }
+        public override void OnHitByProjectile(Projectile proj, int damage, bool crit)
+        {
+            if ((proj.type == ProjectileType<Projectiles.Bosses.ADD.ADD_SpikeRingFriendly>()) && !Player.noKnockback) {
+				Vector2 vector1;
+				vector1 = proj.Center - Player.Center;
 				vector1.Normalize();
 				Player.velocity = vector1*-12f;
             }

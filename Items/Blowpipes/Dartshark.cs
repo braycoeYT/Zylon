@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -11,6 +12,10 @@ namespace Zylon.Items.Blowpipes
 	{
 		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("Maximum blowpipe charge: " + maxCharge + "\nBlowpipe charge speed: " + (chargeRate * 30) + "/s\nRight click to change modes.\nThe longer you inhale, the more speed, knockback, and damage the seed/dart deals, though you don't have to inhale to shoot.\nTake breaks from shooting to get your breath back.\nYou can inhale while in breath recovery.\nUses seeds as ammo\n33% chance to not consume ammo\n'Minishark's cousin'\nAt max charge, spawns several mini jellies to attack foes");
+			if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1) {
+				DisplayName.SetDefault("Dartshart");
+				Tooltip.SetDefault("Barrages enemies with taco bell\nUses seeds as ammo (symbolizes the seeds of intestinal damage sown by the taco bell)");
+            }
 		}
 		float maxCharge = 95;
 		float charge;
@@ -32,6 +37,9 @@ namespace Zylon.Items.Blowpipes
 			Item.UseSound = SoundID.Item64;
 			Item.value = Item.sellPrice(0, 2);
 			Item.autoReuse = true;
+			if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1) {
+				Item.damage = 1;
+			}
 			origDamage = Item.damage;
 			origKnockback = Item.knockBack;
 			origShootSpeed = Item.shootSpeed;
@@ -93,7 +101,12 @@ namespace Zylon.Items.Blowpipes
             return true;
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-            ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
+            if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1) {
+				Projectile.NewProjectile(Item.GetSource_FromThis(), position, velocity, ModContent.ProjectileType<Projectiles.Blowpipes.PoopFriendly>(), damage, knockback, Main.myPlayer);
+				return false;
+			}
+			
+			ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
 			if (!modeCharge) {
 				player.AddBuff(ModContent.BuffType<Buffs.OutofBreath>(), Item.useTime + 1, false);
 				if (charge == maxCharge + p.blowpipeMaxInc) {

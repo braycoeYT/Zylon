@@ -77,6 +77,9 @@ namespace Zylon.Tiles.Banners
 				case 14:
 					item = ModContent.ItemType<DustbowlGigaslimeBanner>();
 					break;
+				case 15:
+					item = ModContent.ItemType<LiveObeliskBanner>();
+					break;
 				default:
 					return;
 			}
@@ -132,6 +135,9 @@ namespace Zylon.Tiles.Banners
 						break;
 					case 14:
 						npcType = ModContent.NPCType<NPCs.Desert.DustbowlGigaslime>();
+						break;
+					case 15:
+						npcType = ModContent.NPCType<NPCs.Jungle.LiveObelisk>();
 						break;
 					default:
 						return;

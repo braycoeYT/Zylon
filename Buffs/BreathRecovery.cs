@@ -16,8 +16,10 @@ namespace Zylon.Buffs
 				player.buffTime[buffIndex] = 0;
             else
                 player.buffTime[buffIndex] = 60;
+            int loss = 2;
+            if (Main.GameUpdateCount % 3 == 0) loss = 3;
             if (!player.wet)
-            player.breath -= 2;
+            player.breath -= loss;
         }
     }
 }

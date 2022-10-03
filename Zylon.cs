@@ -337,6 +337,73 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Bone, 40);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
+
+			recipe = Recipe.Create(321);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 15);
+			recipe.AddTile(TileID.HeavyWorkBench);
+			recipe.Register();
+
+			recipe = Recipe.Create(1173);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 15);
+			recipe.AddTile(TileID.HeavyWorkBench);
+			recipe.Register();
+
+			recipe = Recipe.Create(1174);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 15);
+			recipe.AddTile(TileID.HeavyWorkBench);
+			recipe.Register();
+
+			recipe = Recipe.Create(1175);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 15);
+			recipe.AddTile(TileID.HeavyWorkBench);
+			recipe.Register();
+
+			recipe = Recipe.Create(1176);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 15);
+			recipe.AddTile(TileID.HeavyWorkBench);
+			recipe.Register();
+
+			recipe = Recipe.Create(1177);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 15);
+			recipe.AddTile(TileID.HeavyWorkBench);
+			recipe.Register();
+
+			recipe = Recipe.Create(3229);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 15);
+			recipe.AddIngredient(ItemID.GoldCoin);
+			recipe.AddTile(TileID.HeavyWorkBench);
+			recipe.Register();
+
+			recipe = Recipe.Create(3230);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 15);
+			recipe.AddIngredient(ItemID.GoldCoin);
+			recipe.AddTile(TileID.HeavyWorkBench);
+			recipe.Register();
+
+			recipe = Recipe.Create(3231);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 15);
+			recipe.AddIngredient(ItemID.GoldCoin);
+			recipe.AddTile(TileID.HeavyWorkBench);
+			recipe.Register();
+
+			recipe = Recipe.Create(3232);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 15);
+			recipe.AddIngredient(ItemID.GoldCoin);
+			recipe.AddTile(TileID.HeavyWorkBench);
+			recipe.Register();
+
+			recipe = Recipe.Create(3233);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 15);
+			recipe.AddIngredient(ItemID.GoldCoin);
+			recipe.AddTile(TileID.HeavyWorkBench);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.TragicUmbrella);
+			recipe.AddIngredient(ItemID.Umbrella);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 20);
+			recipe.AddTile(TileID.Anvils);
+			recipe.AddCondition(Recipe.Condition.InGraveyardBiome);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
             for (int i = 0; i < Recipe.numRecipes; i++) {
@@ -344,6 +411,9 @@ namespace Zylon
 
 				if (recipe.HasResult(ItemID.TerraBlade))
 					recipe.AddIngredient(ModContent.ItemType<Items.Materials.ElementalGoop>(), 15);
+
+				if (recipe.HasResult(ItemID.GravediggerShovel))
+					recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 20);
 			}
         }
     }

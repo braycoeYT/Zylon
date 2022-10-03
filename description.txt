@@ -3,32 +3,30 @@ The best mod that starts with Z (I guarantee or your money back)!
 (DESPERATELY) LOOKING FOR SPRITERS - ANYONE INTERESTED CAN JOIN THE DISCORD SERVER LINKED BELOW.
 
 Stats:
-~229 Items
+~235 Items
 ~2 Bosses: (0 worm bosses! I'm not THAT lazy!)
 ~~~2 Prehardmode Bosses
 ~~~An unobtainable joke boss (best boss ever made)
 ^The only two statistics anyone ever cares about: items and bosses. Here's more anyway:
-~37 NPCS
-~29 Buffs
+~38 NPCS
+~30 Buffs
 ~7 Tiles
 ~A complete reworking and expansion of blowpipes!
 ~Many new vanilla recipes and changes to help balance the game out (including an easier Slime Crown recipe).
 ~Several new prefixes!
 
-V0.0.0.3: Update
-~Added Heavy Metal Hammer.
-~Made ADD get closer to the player if they get too far away.
-~Made ADD phase 3 transition faster.
-~Resprited Littoral Gigaslime.
-~Added Starbringer.
-~Added Bamboo Sharpshooter.
-~Resprited Magnificent Orb and several projectiles and buffs.
-~Expanded Eldritch Bell tooltip.
-~Added Determination Breaker.
-~Added Any Demonite Bar recipe group.
-~Fixed Living Marshmellows and Roasted Living Marshmellows not dropping their respective 'mallows. What a tragedy.
-~Added Cold Crusher.
-~Added Jade, a new gem! Also added associated gem items for Jade.
+V0.0.0.4: Update
+~Added Live Obelisk.
+~Added Obelisk Shard, Death Cleaver, Grave Buster, and Mana Siphon.
+~Added Lead Balloon.
+~Fixed Eye of Cthulhu (the unobtainable modded joke item, not the yoyo or the boss) display name.
+~Resprited several buff sprites.
+~Buffed Stone and Zinc Shortswords.
+~All Zylonian shortswords now can switch between legacy and modern modes.
+~Dartshark now has a special change on april fool's day.
+~Made blowpipe breath recovery take 33% longer.
+~Heart of Prisms now has proper knockback towards other players.
+~Added gore for Desert Diskite.
 
 Q&A:
 
@@ -47,7 +45,7 @@ A: I can't read minds. People can rejoin if they want to. As of writing this, mo
 Q: Where is the discord server?
 A: It should appear as the mod homepage.
 
-Credits:
+Credits (from the previous mod versions and now):
 Owner:
 BraycoeYT
 
@@ -56,9 +54,15 @@ Skymanisbtman
 Tome Man
 Mjoon
 Slimelad
-Mr.Gerd26
 Pufferfisher77
-Ebon
-Juice/Slayer
 HBDeus
 Funk.It
+CrazySapling1
+Koolaidlemonade
+ULTIMATEDQVID
+
+Minor Help:
+Jabon
+Ebon
+Juice/Slayer
+Mr.Gerd26
