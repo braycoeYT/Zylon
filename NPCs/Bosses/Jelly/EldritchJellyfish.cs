@@ -326,11 +326,13 @@ namespace Zylon.NPCs.Bosses.Jelly
 					
 			}
 		}
-		private void LookToPlayer() {
+        public override void PostAI() {
+            NPC.dontTakeDamage = Main.player[NPC.target].ZoneBeach;
+        }
+        private void LookToPlayer() {
 			Vector2 look = Main.player[NPC.target].Center - NPC.Center;
 			LookInDirection(look);
 		}
-
 		private void LookInDirection(Vector2 look) {
 			float angle = 0.5f * (float)Math.PI;
 			if (look.X != 0f) {

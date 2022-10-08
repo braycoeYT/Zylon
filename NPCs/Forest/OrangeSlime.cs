@@ -56,6 +56,7 @@ namespace Zylon.NPCs.Forest
 			npcLoot.Add(new CommonDrop(ItemID.Gel, 1, 2, 5, 1));
 			npcLoot.Add(ItemDropRule.NormalvsExpert(ItemID.SlimeStaff, 7500, 5000));
 			npcLoot.Add(new CommonDrop(ItemID.BloodOrange, 100, 1, 1, 3));
+			npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ModContent.ItemType<Items.Accessories.SlimePendant>(), 125), new CommonDrop(ModContent.ItemType<Items.Accessories.SlimePendant>(), 100)));
 		}
     }
 }

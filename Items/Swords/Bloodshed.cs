@@ -12,7 +12,7 @@ namespace Zylon.Items.Swords
 			Tooltip.SetDefault("'There will be'\nStruck enemies release rapid blood orbs");
 		}
 		public override void SetDefaults() {
-			Item.damage = 31;
+			Item.damage = 39;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 42;
 			Item.height = 42;

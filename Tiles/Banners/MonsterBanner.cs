@@ -80,6 +80,9 @@ namespace Zylon.Tiles.Banners
 				case 15:
 					item = ModContent.ItemType<LiveObeliskBanner>();
 					break;
+				case 16:
+					item = ModContent.ItemType<WindElementalBanner>();
+					break;
 				default:
 					return;
 			}
@@ -138,6 +141,9 @@ namespace Zylon.Tiles.Banners
 						break;
 					case 15:
 						npcType = ModContent.NPCType<NPCs.Jungle.LiveObelisk>();
+						break;
+					case 16:
+						npcType = ModContent.NPCType<NPCs.WindyDay.WindElemental>();
 						break;
 					default:
 						return;

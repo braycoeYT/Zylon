@@ -12,7 +12,7 @@ using Terraria.ModLoader;
 
 namespace Zylon.NPCs.Bosses.ADD
 {
-	[AutoloadBossHead] //NPC IMMUNE PLZ
+	[AutoloadBossHead]
     public class ADD_Center : ModNPC
 	{
         public override void SetStaticDefaults() {
@@ -31,7 +31,7 @@ namespace Zylon.NPCs.Bosses.ADD
         public override void SetDefaults() {
             NPC.width = 88;
 			NPC.height = 88;
-			NPC.damage = 27;
+			NPC.damage = 26;
 			NPC.defense = 10;
 			NPC.lifeMax = 1800;
 			NPC.HitSound = SoundID.NPCHit4;
@@ -45,16 +45,17 @@ namespace Zylon.NPCs.Bosses.ADD
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
             NPC.lifeMax = 2600 + ((numPlayers - 1) * 1200);
-			NPC.damage = 44;
+			NPC.damage = 43;
 			NPC.value = 80000;
         }
         public override bool? CanBeHitByItem(Player player, Item item) {
-            return !(finalAtk && !finalAtk2);
+			if (finalAtk && !finalAtk2) return false;
+            return null;
         }
-        public override bool? CanBeHitByProjectile(Projectile projectile)
-        {
-            return !(finalAtk && !finalAtk2);
-        }
+        public override bool? CanBeHitByProjectile(Projectile projectile) {
+            if (finalAtk && !finalAtk2) return false;
+            return null;
+		}
         public override void HitEffect(int hitDirection, double damage) {
 			if (NPC.life > 0) {
 				for (int i = 0; i < 3; i++) {
@@ -207,7 +208,7 @@ namespace Zylon.NPCs.Bosses.ADD
 			NPC.TargetClosest();
 			target = Main.player[NPC.target];
             ZylonGlobalNPC.diskiteBoss = NPC.whoAmI;
-			if (NPC.CountNPCS(ModContent.NPCType<ADD_SideTop>()) > 0 || NPC.CountNPCS(ModContent.NPCType<ADD_SideBottom>()) > 0) { 
+			/*if (NPC.CountNPCS(ModContent.NPCType<ADD_SideTop>()) > 0 || NPC.CountNPCS(ModContent.NPCType<ADD_SideBottom>()) > 0) { 
 				NPC.dontTakeDamage = true;
 				phase = false;
 			}
@@ -215,8 +216,9 @@ namespace Zylon.NPCs.Bosses.ADD
 				NPC.dontTakeDamage = false;
 				phase = true;
             }
-			if (!target.ZoneDesert && !target.ZoneUndergroundDesert)
+			if (!target.ZoneDesert && !target.ZoneUndergroundDesert) {
 				NPC.dontTakeDamage = true;
+			}*/
 
 			if (Main.player[NPC.target].statLife < 1 || Main.dayTime)
 			{
@@ -243,7 +245,7 @@ namespace Zylon.NPCs.Bosses.ADD
 				NPC.velocity += speed;
 				NPC.velocity /= 2;
             }
-			if ((attack == 4 && Timer > 180 && attackTimer % 70 <= 30) || attack == 5) { //add atk5 and make the laser ring reverse in phase 2
+			if ((attack == 4 && Timer > 180 && attackTimer % 70 <= 30) || ((attack == 5 || attack == 6) && Timer > 180)) { //add atk5 and make the laser ring reverse in phase 2
 				Vector2 speed = NPC.Center - target.Center; //atk6 = aim at player
 				speed.Normalize();
 				if (Main.expertMode) speed *= -4.5f;
@@ -258,19 +260,20 @@ namespace Zylon.NPCs.Bosses.ADD
 				NPC.ai[1] = 0;
 				if (Timer == 180) {
 					attackTimer = 0;
-					attackMax = 5;
-					//if (phase) attackMax = 6;
+					attackMax = 6;
+					if (phase) attackMax = 7;
 					while (attack == attackPrev)
 						attack = Main.rand.Next(1, attackMax);
 					attackTimer = 0;
 					attackDone = false;
 					attackInt = 0;
-					//if (attack == 5 && NPC.CountNPCS(ModContent.NPCType<Desert.DesertDiskite_Center>()) > 3)
-					//	while (attack == 5 || attack == attackPrev)
-					//		attack = Main.rand.Next(1, attackMax);
+					if (attack == 6 && NPC.CountNPCS(ModContent.NPCType<SupportDiskite>()) > 0)
+						while (attack == 6 || attack == attackPrev)
+							attack = Main.rand.Next(1, attackMax);
 					attackPrev = attack;
+					//attack = 6;
                 }
-				if (phase && Timer < 120 + (int)(60*NPC.life/NPC.lifeMax) - 1) Timer = 120 + (int)(60*NPC.life/NPC.lifeMax) - 1;
+				if (phase && Timer < 100 + (int)(80*NPC.life/NPC.lifeMax) - 1) Timer = 100 + (int)(80*NPC.life/NPC.lifeMax) - 1;
             }
 			else {
 				/*if (attack == 1) {
@@ -348,9 +351,18 @@ namespace Zylon.NPCs.Bosses.ADD
                 }
 				else if (attack == 5) {
 					attackTimer++;
-					if (attackTimer % (15 + (15*NPC.life/NPC.lifeMax)) == 0)
-						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, Vector2.Normalize(NPC.Center - Main.player[NPC.target].Center) * -12f, ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser2>(), (int)(NPC.damage * (0.4f - (0.1f*NPC.life/NPC.lifeMax))), 0f);
-                }
+					if (attackTimer % (45 + (int)(30*NPC.life/NPC.lifeMax)) == 0) {
+						SoundEngine.PlaySound(SoundID.Item93);
+						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, new Vector2(0, -8), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDZapChase>(), (int)(NPC.damage * (0.4f - (0.1f*NPC.life/NPC.lifeMax))), 0f);
+					}
+				}
+				else if (attack == 6) {
+					attackTimer++;
+					if (attackTimer % 90 == 1) {
+						SoundEngine.PlaySound(SoundID.Item92);
+						NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<SupportDiskite>());
+					}
+				}
 				else if (attack == 99) {
 					attackTimer++;
 					if (attackTimer < 30)
@@ -392,8 +404,22 @@ namespace Zylon.NPCs.Bosses.ADD
 				NPC.velocity /= 2;
 			if (!(attack == 99 && attackDone == false) && Timer < 180)
 				catchUp = false;
-			if ((attack == 4 && Timer > 180 && attackTimer % 70 <= 30) || attack == 5)
+			if ((attack == 4 && Timer > 180 && attackTimer % 70 <= 30))
 				catchUp = false;
+        }
+        public override void PostAI() {
+            NPC.dontTakeDamage = true;
+			if (NPC.CountNPCS(ModContent.NPCType<ADD_SideTop>()) > 0 || NPC.CountNPCS(ModContent.NPCType<ADD_SideBottom>()) > 0) { 
+				NPC.dontTakeDamage = true;
+				phase = false;
+			}
+			else {
+				NPC.dontTakeDamage = false;
+				phase = true;
+            }
+			if (!target.ZoneDesert && !target.ZoneUndergroundDesert) {
+				NPC.dontTakeDamage = true;
+			}
         }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {

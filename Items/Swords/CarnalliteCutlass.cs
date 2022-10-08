@@ -13,8 +13,7 @@ namespace Zylon.Items.Swords
 			Tooltip.SetDefault("Every fourth swing shoots a pile of leaves");
 		}
 
-		public override void SetDefaults()
-		{
+		public override void SetDefaults() {
 			Item.damage = 29;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 42;

@@ -22,7 +22,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 			Projectile.timeLeft = 480;
 		}
         public override void AI() {
-			Lighting.AddLight(Projectile.Center, 0.6f, 0.1f, 0.1f);
+			Lighting.AddLight(Projectile.Center, 0.7f, 0.125f, 0.125f);
             Projectile.rotation += 0.05f;
         }
         public override void PostAI() {

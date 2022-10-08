@@ -29,9 +29,11 @@ namespace Zylon.Projectiles.Wands
 			}
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-			int healingAmount = Main.rand.Next(5, 8);
-			Main.player[Projectile.owner].statMana += healingAmount;
-			Main.player[Projectile.owner].ManaEffect(healingAmount);
+			if (target.type != NPCID.TargetDummy) {
+				int healingAmount = Main.rand.Next(5, 8);
+				Main.player[Projectile.owner].statMana += healingAmount;
+				Main.player[Projectile.owner].ManaEffect(healingAmount);
+			}
         }
         public override void OnHitPvp(Player target, int damage, bool crit) {
             int healingAmount = Main.rand.Next(5, 8);

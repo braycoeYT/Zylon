@@ -10,7 +10,7 @@ namespace Zylon.Items.Blowpipes
 	public class RoxinBlowgun : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("\nMaximum blowpipe charge: " + maxCharge + "\nBlowpipe charge speed: " + (chargeRate * 30) + "/s\nCharge loss speed: " + chargeLossRate + "\nRight click to change modes.\nThe longer you inhale, the more speed, knockback, and damage the seed/dart deals, though you don't have to inhale to shoot.\nTake breaks from shooting to get your breath back.\nYou can inhale while in breath recovery.\nUses seeds as ammo\n50% chance not to conusme ammo\n'Enjoy every second of your nonexistance'\nEvery shot spawns a homing Sigil of Nobodyism near the player\nAt max charge, shoots incredibly faster");
+			Tooltip.SetDefault("\nMaximum blowpipe charge: " + maxCharge + "\nBlowpipe charge speed: " + (chargeRate * 30) + "/s\nCharge loss speed: " + chargeLossRate + "\nRight click to change modes.\nThe longer you inhale, the more speed, knockback, and damage the seed/dart deals, though you don't have to inhale to shoot.\nTake breaks from shooting to get your breath back.\nYou can inhale while in breath recovery.\nUses seeds as ammo\n50% chance not to conusme ammo\n'Who else will I have ice cream with?'\nEvery shot spawns a homing Sigil of Nobodyism near the player\nAt max charge, shoots incredibly faster");
 		}
 		float maxCharge = 200;
 		float charge;

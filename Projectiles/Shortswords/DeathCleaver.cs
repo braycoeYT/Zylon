@@ -10,7 +10,7 @@ namespace Zylon.Projectiles.Shortswords
 		public const int FadeInDuration = 2; //7
 		public const int FadeOutDuration = 2; //4
 
-		public const int TotalDuration = 10; //16
+		public const int TotalDuration = 9; //16
 
 		// The "width" of the blade
 		public float CollisionWidth => 10f * Projectile.scale;

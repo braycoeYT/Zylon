@@ -25,6 +25,8 @@ namespace Zylon
 		public bool jellyExpert;
 		public bool ADDExpert;
 		public bool diskbringerSet;
+		public bool slimePendant;
+		public bool glazedLens;
 
 		public int blowpipeMaxInc;
 		public float blowpipeChargeInc;
@@ -51,6 +53,8 @@ namespace Zylon
 			jellyExpert = false;
 			ADDExpert = false;
 			diskbringerSet = false;
+			slimePendant = false;
+			glazedLens = false;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeDamage = 0;
@@ -99,6 +103,16 @@ namespace Zylon
 					Player.moveSpeed += 0.15f;
                 }
             }
+			if (Player.npcTypeNoAggro[NPCID.MotherSlime]) {
+				Player.npcTypeNoAggro[NPCType<NPCs.Dungeon.BoneSlime>()] = true;
+				Player.npcTypeNoAggro[NPCType<NPCs.Forest.DirtSlime>()] = true;
+				Player.npcTypeNoAggro[NPCType<NPCs.Forest.MechanicalSlime>()] = true;
+				Player.npcTypeNoAggro[NPCType<NPCs.Forest.OrangeSlime>()] = true;
+				Player.npcTypeNoAggro[NPCType<NPCs.Ocean.CyanSlime>()] = true;
+				Player.npcTypeNoAggro[NPCType<NPCs.Sky.StarpackSlime>()] = true;
+				Player.npcTypeNoAggro[NPCType<NPCs.Snow.LivingMarshmallow>()] = true;
+				Player.npcTypeNoAggro[NPCType<NPCs.Snow.RoastedLivingMarshmallow>()] = true;
+            }
         }
 		public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit) {	
 			if (trueMelee15) damage += (int)(damage * .15f);
@@ -118,6 +132,9 @@ namespace Zylon
 				else if (Main.rand.NextBool(2)) Player.AddBuff(BuffType<Buffs.DiskiteDefense>(), 90);
 				else Player.AddBuff(BuffType<Buffs.DiskiteAgility>(), 90);
             }
+			if (glazedLens && crit && target.type != NPCID.TargetDummy) {
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
+            }
 		}
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit) {
             if (bloodVial && Main.rand.NextFloat() < .08f && target.type != NPCID.TargetDummy) {
@@ -132,6 +149,9 @@ namespace Zylon
 				else Player.AddBuff(BuffType<Buffs.DiskiteAgility>(), 60);
             }
 			if (Player.HeldItem.type == ItemType<Items.Guns.GraveBuster>()) Player.AddBuff(BuffType<Buffs.GravelyPowers>(), 90);
+			if (glazedLens && crit && target.type != NPCID.TargetDummy) {
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, proj.CritChance);
+            }
 		}
         public override void OnHitPvp(Item item, Player target, int damage, bool crit) {
             if (bloodVial && Main.rand.NextFloat() < .08f) {
@@ -139,11 +159,14 @@ namespace Zylon
 				Player.HealEffect(1, true);
 			}
 			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer);
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
 			if (diskbringerSet) {
 				if (Main.rand.NextBool(3)) Player.AddBuff(BuffType<Buffs.DiskiteOffense>(), 90);
 				else if (Main.rand.NextBool(2)) Player.AddBuff(BuffType<Buffs.DiskiteDefense>(), 90);
 				else Player.AddBuff(BuffType<Buffs.DiskiteAgility>(), 90);
+            }
+			if (glazedLens && crit) {
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer);
             }
 		}
         public override void OnHitPvpWithProj(Projectile proj, Player target, int damage, bool crit) {
@@ -159,6 +182,9 @@ namespace Zylon
 				else Player.AddBuff(BuffType<Buffs.DiskiteAgility>(), 60);
             }
 			if (Player.HeldItem.type == ItemType<Items.Guns.GraveBuster>()) Player.AddBuff(BuffType<Buffs.GravelyPowers>(), 90);
+			if (glazedLens && crit) {
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, proj.CritChance);
+            }
 		}
         public override void OnHitByNPC(NPC npc, int damage, bool crit) {
             if ((npc.type == NPCType<NPCs.Bosses.ADD.ADD_SpikeRing>() || npc.type == NPCType<NPCs.Bosses.ADD.ADD_Center>()) && !Player.noKnockback) {
@@ -168,8 +194,7 @@ namespace Zylon
 				Player.velocity = vector1*-12f;
             }
         }
-        public override void OnHitByProjectile(Projectile proj, int damage, bool crit)
-        {
+        public override void OnHitByProjectile(Projectile proj, int damage, bool crit) {
             if ((proj.type == ProjectileType<Projectiles.Bosses.ADD.ADD_SpikeRingFriendly>()) && !Player.noKnockback) {
 				Vector2 vector1;
 				vector1 = proj.Center - Player.Center;
@@ -183,6 +208,12 @@ namespace Zylon
 				Player.NinjaDodge();
 				return false;
 			}
+			if (slimePendant) {
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(-4.5f, -3), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(-1.5f, -5), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(1.5f, -5), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(4.5f, -3), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
+            }
 			return true;
         }
         public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition) {

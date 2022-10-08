@@ -20,7 +20,7 @@ namespace Zylon.Items.Flails
 			Item.useAnimation = 45;
 			Item.useTime = 45;
 			Item.knockBack = 6.1f;
-			Item.damage = 31;
+			Item.damage = 26;
 			Item.noUseGraphic = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Flails.DiskiteonaLeash>();
 			Item.shootSpeed = 12f;

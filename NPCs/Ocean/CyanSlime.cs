@@ -53,6 +53,7 @@ namespace Zylon.NPCs.Ocean
 			npcLoot.Add(new CommonDrop(ItemID.Gel, 1, 2, 5, 1));
 			npcLoot.Add(ItemDropRule.NormalvsExpert(ItemID.SlimeStaff, 10000, 7500));
 			npcLoot.Add(new CommonDrop(ItemID.Coconut, 50, 1, 1, 1).OnFailedRoll(new CommonDrop(ItemID.Banana, 50, 1, 1, 1)).OnFailedRoll(ItemDropRule.OneFromOptionsNotScalingWithLuck(2, ItemID.Coral, ItemID.Starfish, ItemID.Seashell)));
+			npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ModContent.ItemType<Items.Accessories.SlimePendant>(), 125), new CommonDrop(ModContent.ItemType<Items.Accessories.SlimePendant>(), 100)));
 		}
     }
 }

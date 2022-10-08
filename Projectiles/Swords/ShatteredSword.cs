@@ -28,6 +28,11 @@ namespace Zylon.Projectiles.Swords
 			}
 		}
 		public override void Kill(int timeLeft) {
+			for (int i = 0; i < 10; i++) {
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 64);
+				dust.noGravity = true;
+				dust.scale = 1f;
+            }
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   
