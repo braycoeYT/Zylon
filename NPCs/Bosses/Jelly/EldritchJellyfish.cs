@@ -126,7 +126,6 @@ namespace Zylon.NPCs.Bosses.Jelly
 			if (NPC.life < NPC.lifeMax * 0.2f) attackBoost = 4;
 			if (NPC.life < NPC.lifeMax * 0.08f) attackBoost = 5;
 			NPC.damage = NPC.defDamage + (attackBoost * 4);
-			NPC.dontTakeDamage = target.ZoneBeach ? false : true;
 			if (movement) {
 				movementTimer++;
 				NPC.localAI[2] = 1f;
@@ -327,7 +326,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 			}
 		}
         public override void PostAI() {
-            NPC.dontTakeDamage = Main.player[NPC.target].ZoneBeach;
+            NPC.dontTakeDamage = !Main.player[NPC.target].ZoneBeach;
         }
         private void LookToPlayer() {
 			Vector2 look = Main.player[NPC.target].Center - NPC.Center;

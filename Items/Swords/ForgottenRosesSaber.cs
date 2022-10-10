@@ -11,7 +11,7 @@ namespace Zylon.Items.Swords
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Forgotten Rose's Saber");
-			Tooltip.SetDefault("Shoots a seed and several circling leaves with each swing\nEvery third swing's seed is replaced with a blossomed rose\nBlossomed roses release several spore clouds");
+			Tooltip.SetDefault("Shoots a seed and several circling mini roses with each swing\nEvery third swing's seed is replaced with a blossomed rose\nBlossomed roses release several spore clouds");
 		}
 		public override void SetDefaults() {
 			Item.damage = 96;

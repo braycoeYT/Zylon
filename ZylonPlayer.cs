@@ -27,6 +27,7 @@ namespace Zylon
 		public bool diskbringerSet;
 		public bool slimePendant;
 		public bool glazedLens;
+		public bool deadlyToxins;
 
 		public int blowpipeMaxInc;
 		public float blowpipeChargeInc;
@@ -55,6 +56,7 @@ namespace Zylon
 			diskbringerSet = false;
 			slimePendant = false;
 			glazedLens = false;
+			deadlyToxins = false;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeDamage = 0;
@@ -85,6 +87,12 @@ namespace Zylon
 					Player.lifeRegen = 0;
 				Player.lifeRegenTime = 0;
 				Player.lifeRegen -= 4;
+			}
+			if (deadlyToxins) {
+				if (Player.lifeRegen > 0)
+					Player.lifeRegen = 0;
+				Player.lifeRegenTime = 0;
+				Player.lifeRegen -= 20;
 			}
 		}
         public override void UpdateEquips() {

@@ -1,0 +1,22 @@
+Mods: {
+	Zylon: {
+		TownNPCMood: {
+			WeaponsMaster: {
+				Content: I feel ready for the next quest and/or plot point!
+				NoHome: I am in need of a place of refuge! I'm sure you would understand.
+				LoveSpace: All this empty space just means more room for training!
+				FarFromHome: I need to get to an inn soon! I NEED TO SAVE!!
+				DislikeCrowded: I keep mistaking all of these people here for monsters!
+				HateCrowded: There are way too many quests for me here to handle at once!
+				LikeBiome: "Hmm... {BiomeName} is a nice training ground."
+				LoveBiome: "Wow, {BiomeName} is full of farmable enemies! I'm going to get so much XP!"
+				DislikeBiome: "I think {BiomeName} is too underleveled for me to train properly."
+				HateBiome: "{BiomeName} has the most annoying enemies imaginable!"
+				LikeNPC: "I like {NPCName}'s guts!"
+				LoveNPC: "{NPCName}'s violent tendencies would make them a great party member!"
+				DislikeNPC: "{NPCName} is too pacifist-like!"
+				HateNPC: "I think {NPCName} is the antagonist of this adventure!"
+				}
+			}
+		}
+	}

@@ -15,11 +15,13 @@ namespace Zylon.NPCs
 
 		public bool severeBleeding;
 		public bool shroomed;
+		public bool deadlyToxins;
 		public static int diskiteBoss = -1;
 		public static int diskiteEyeControl = 0;
 		public override void ResetEffects(NPC npc) {
 			severeBleeding = false;
 			shroomed = false;
+			deadlyToxins = false;
 		}
 		public override void UpdateLifeRegen(NPC npc, ref int damage) {
 			if (severeBleeding) {
@@ -38,6 +40,15 @@ namespace Zylon.NPCs
 					npc.lifeRegen = 0;
 				}
 				npc.lifeRegen -= 4;
+				if (damage < 1) {
+					damage = 1;
+				}
+			}
+			if (deadlyToxins) {
+				if (npc.lifeRegen > 0) {
+					npc.lifeRegen = 0;
+				}
+				npc.lifeRegen -= 20;
 				if (damage < 1) {
 					damage = 1;
 				}

@@ -1,34 +1,24 @@
-The best mod that starts with Z (I guarantee or your money back)! Zylon is a (currently) small terraria mod full of slimes, blowpipes, and much much more!
+The best mod that starts with Z (I guarantee or your money back)! Zylon is a small terraria mod full of slimes, blowpipes, and much much more!
 
 Stats:
-~241 Items
+~248 Items
 ~2 Bosses: (0 worm bosses! I'm not THAT lazy!)
 ~~~2 Prehardmode Bosses
 ~~~An unobtainable joke boss (best boss ever made)
-~40 NPCS
-~30 Buffs
+~41 NPCs
+~1 Town NPC
+~31 Buffs
 ~7 Tiles
 ~A complete reworking and expansion of blowpipes!
 ~Many new vanilla recipes and changes to help balance the game out (including an easier Slime Crown recipe).
 ~Several new prefixes!
 
-V0.0.0.5: Update
-~Added Slime Pendant and Enlarged Lens.
-~Heavily increased Cocoa Bean drop rate from hornets. Not sure what I was thinking.
-~Royal Gel now works with modded slimes.
-~Resprited Obelisk Shard, Grave Buster, and Mana Siphon.
-~Slightly nerfed Diskite on a Leash.
-~Buffed Bloodshed.
-~Added Wind Elemental.
-~Wind Essence now only drops from Windy Day enemies.
-~Added Stalactite and Stalagmite.
-~Made ADD's Diskite Shrapnel slightly brighter.
-~Added Forgotten Rose's Saber.
-~Changed Roxin Blowpipe tooltip.
-~Added two new ADD attacks (it asked nicely).
-~ADD invincibility fixes.
-~Eldritch Jellyfish now becomes invincible when the player leaves the ocean biome.
-~Made ADD easier to beat.
+V0.0.0.6: Update
+~Added Weapons Master, a new Town NPC that trades boss trophies for rare weapons (finished prehardmode vanilla so far)!
+~Added Kivasana, Journey Starter, Flamecougher, Surgeon's Knife, Revel, and Spare Leg.
+~Added Midpoint.
+~Fixed Forgotten Rose's Saber's tooltip.
+~Fixed Eldritch Jellyfish invincibility bug.
 
 Q&A:
 
