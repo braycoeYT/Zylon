@@ -1,24 +1,26 @@
 The best mod that starts with Z (I guarantee or your money back)! Zylon is a small terraria mod full of slimes, blowpipes, and much much more!
 
+This mod is in severe need of spriters. If you are a fan of the mod and want to sprite, feel free to join the discord server!
+
 Stats:
-~248 Items
+~251 Items
 ~2 Bosses: (0 worm bosses! I'm not THAT lazy!)
 ~~~2 Prehardmode Bosses
 ~~~An unobtainable joke boss (best boss ever made)
 ~41 NPCs
 ~1 Town NPC
-~31 Buffs
-~7 Tiles
+~32 Buffs
+~8 Tiles
 ~A complete reworking and expansion of blowpipes!
 ~Many new vanilla recipes and changes to help balance the game out (including an easier Slime Crown recipe).
 ~Several new prefixes!
 
-V0.0.0.6: Update
-~Added Weapons Master, a new Town NPC that trades boss trophies for rare weapons (finished prehardmode vanilla so far)!
-~Added Kivasana, Journey Starter, Flamecougher, Surgeon's Knife, Revel, and Spare Leg.
-~Added Midpoint.
-~Fixed Forgotten Rose's Saber's tooltip.
-~Fixed Eldritch Jellyfish invincibility bug.
+V0.0.0.7: Update
+~Fixed Wind Elemental spawning outside of the Windy Day event.
+~Various item balances and reworks.
+~Added ADD and Jelly relics and master mode pets.
+~Increased Eldritch Jellyfish money drops.
+~Fixed Diskite Staff bug (I thought it was going to take way longer to fix but I did it!).
 
 Q&A:
 

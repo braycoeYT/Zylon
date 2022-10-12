@@ -16,7 +16,7 @@ namespace Zylon.Projectiles.Misc
 			Projectile.height = 20;
 			Projectile.aiStyle = 1;
 			Projectile.friendly = true;
-			Projectile.penetrate = 8;
+			Projectile.penetrate = 5;
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.timeLeft = 9999;
 		}

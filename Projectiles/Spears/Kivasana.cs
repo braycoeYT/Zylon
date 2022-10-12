@@ -32,6 +32,11 @@ namespace Zylon.Projectiles.Spears
 		}
 		public override void AI() {
 			Player projOwner = Main.player[Projectile.owner];
+			if (projOwner.itemAnimation == projOwner.itemAnimationMax / 3 && Projectile.ai[1] == 0f) {
+				Vector2 vel = Projectile.velocity;
+				vel.Normalize();
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + (vel*15f), vel*6f, ModContent.ProjectileType<KivasanaProj>(), (int)(Projectile.damage*0.7f), Projectile.knockBack/2, Main.myPlayer);
+            }
 			Vector2 ownerMountedCenter = projOwner.RotatedRelativePoint(projOwner.MountedCenter, true);
 			Projectile.direction = projOwner.direction;
 			projOwner.heldProj = Projectile.whoAmI;

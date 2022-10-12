@@ -14,9 +14,9 @@ namespace Zylon.Items.Misc
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 2);
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.useAnimation = 21;
-			Item.useTime = 21;
-			Item.damage = 16;
+			Item.useAnimation = 27;
+			Item.useTime = 27;
+			Item.damage = 12;
 			Item.width = 36;
 			Item.height = 22;
 			Item.knockBack = 0.1f;
@@ -27,7 +27,7 @@ namespace Zylon.Items.Misc
 			Item.useAmmo = AmmoID.Gel;
 			Item.UseSound = SoundID.Item95;
 			Item.autoReuse = false;
-			Item.rare = ItemRarityID.Quest;
+			Item.rare = ItemRarityID.Blue;
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer, 1f);

@@ -432,6 +432,9 @@ namespace Zylon.NPCs.Bosses.ADD
 			ZylonWorldCheckSystem.downedADD = true;
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
+			if (Main.masterMode) {
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.ADDRelic>(), 1));
+            }
 			if (Main.expertMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.DiskiteBag>(), 1));
 			else {
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.DiskiteCrumbles>(), 1, 10, 20));

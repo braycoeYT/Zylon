@@ -77,7 +77,7 @@ namespace Zylon.NPCs.WindyDay
 			}
 		}
 		public override float SpawnChance(NPCSpawnInfo spawnInfo) {
-			if (Math.Abs(Main.windCounter) >= 20) return SpawnCondition.OverworldDay.Chance * 0.15f;
+			if (Math.Abs(Main.windSpeedCurrent) > 20) return SpawnCondition.OverworldDay.Chance * 0.15f;
 			return 0f;
         }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {

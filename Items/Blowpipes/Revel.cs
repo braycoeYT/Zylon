@@ -23,9 +23,9 @@ namespace Zylon.Items.Blowpipes
 		int origItemSpeed;
 		public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);
-			Item.damage = 16;
+			Item.damage = 19;
 			Item.knockBack = 2f;
-			Item.shootSpeed = 9.5f;
+			Item.shootSpeed = 12f;
 			Item.useTime = 30;
 			Item.useAnimation = 30;
 			Item.value = Item.sellPrice(0, 2, 50);

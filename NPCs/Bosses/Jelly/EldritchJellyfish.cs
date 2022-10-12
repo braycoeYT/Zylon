@@ -37,7 +37,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPC.defense = 20;
 			NPC.HitSound = SoundID.NPCHit25;
 			NPC.DeathSound = SoundID.NPCDeath28;
-			NPC.value = Item.buyPrice(0, 4, 0, 0);
+			NPC.value = 60000;
 			NPC.knockBackResist = 0f;
 			NPC.aiStyle = -1;
 			NPC.noGravity = true;
@@ -50,6 +50,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
             NPC.lifeMax = 11500 + ((numPlayers - 1) * 3500);
             NPC.damage = 80;
+			NPC.value = 13750;
         }
 		public override void HitEffect(int hitDirection, double damage) {
 			for (int i = 0; i < 4; i++) {
@@ -366,6 +367,9 @@ namespace Zylon.NPCs.Bosses.Jelly
 			});
 		}
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
+			if (Main.masterMode) {
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.ADDRelic>(), 1));
+            }
 			if (Main.expertMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.JellyBag>(), 1));
 			else {
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.EerieBell>(), 1, 30, 45));
