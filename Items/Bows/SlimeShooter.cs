@@ -13,7 +13,7 @@ namespace Zylon.Items.Bows
 			Tooltip.SetDefault("Turns regular arrows into slime arrows");
 		}
 		public override void SetDefaults() {
-			Item.value = Item.sellPrice(0, 0, 10, 0);
+			Item.value = Item.sellPrice(0, 0, 30, 0);
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 26;
 			Item.useTime = 26;
@@ -27,6 +27,7 @@ namespace Zylon.Items.Bows
 			Item.DamageType = DamageClass.Ranged;
 			Item.useAmmo = AmmoID.Arrow;
 			Item.UseSound = SoundID.Item5;
+			Item.rare = ItemRarityID.Blue;
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             if (type == ProjectileID.WoodenArrowFriendly) type = ProjectileType<Projectiles.Ammo.SlimeArrow>();

@@ -29,7 +29,7 @@ namespace Zylon.Items.Blowpipes
 			Item.shootSpeed = 7f;
 			Item.useTime = 33;
 			Item.useAnimation = 33;
-			Item.value = Item.sellPrice(0, 0, 40, 5);
+			Item.value = Item.sellPrice(0, 0, 30);
 			Item.autoReuse = true;
 			origDamage = Item.damage;
 			origKnockback = Item.knockBack;
@@ -113,8 +113,9 @@ namespace Zylon.Items.Blowpipes
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.CrimtaneBar, 9);
-			recipe.AddTile(TileID.WorkBenches);
+			recipe.AddRecipeGroup("Zylon:AnySilverBar", 8);
+			recipe.AddIngredient(ModContent.ItemType<Materials.SlimyCore>(), 5);
+			recipe.AddTile(TileID.Solidifier);
 			recipe.Register();
 		}
 	}

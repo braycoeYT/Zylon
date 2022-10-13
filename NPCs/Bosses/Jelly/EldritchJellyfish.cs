@@ -368,7 +368,8 @@ namespace Zylon.NPCs.Bosses.Jelly
 		}
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
 			if (Main.masterMode) {
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.ADDRelic>(), 1));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.JellyRelic>(), 1));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.EldritchGland>(), 4));
             }
 			if (Main.expertMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.JellyBag>(), 1));
 			else {

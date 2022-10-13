@@ -117,6 +117,12 @@ namespace Zylon.NPCs.TownNPCs
 			chat.Add(Language.GetTextValue("If you aren't dealing 9999 damage with each hit, you're doing something wrong."));
 			chat.Add(Language.GetTextValue("What?! There's no leveling system here?!"));
 			chat.Add(Language.GetTextValue("I've heard this world allows you to deal over 4 digits of damage, but that just feels wrong."));
+			if (NPC.life < NPC.lifeMax / 3) {
+				chat.Add(Language.GetTextValue("My health is critically low, but I don’t hear any obnoxious beeping... must be a glitch."), 5);
+				chat.Add(Language.GetTextValue("Quick! Somebody cast Healaga on me!"), 5);
+            }
+			if (Main.bloodMoon)
+				chat.Add(Language.GetTextValue("It seems that every step I take, I encounter another enemy! Reminds me of my olden days."), 3);
 			return chat;
 		}
 		public override void SetChatButtons(ref string button, ref string button2) {

@@ -53,7 +53,7 @@ namespace Zylon.Items.Shortswords
                 }
                 else {
                     Item.shoot = ProjectileType<Projectiles.Shortswords.DeathCleaver>();
-					Item.damage = 18;
+					Item.damage = 21;
 					Item.useTime = 8;
 					Item.useAnimation = 8;
 					Item.knockBack = 3.4f;

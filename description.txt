@@ -3,24 +3,34 @@ The best mod that starts with Z (I guarantee or your money back)! Zylon is a sma
 This mod is in severe need of spriters. If you are a fan of the mod and want to sprite, feel free to join the discord server!
 
 Stats:
-~251 Items
+~257 Items
 ~2 Bosses: (0 worm bosses! I'm not THAT lazy!)
 ~~~2 Prehardmode Bosses
 ~~~An unobtainable joke boss (best boss ever made)
-~41 NPCs
+~42 total NPCs
 ~1 Town NPC
-~32 Buffs
+~33 Buffs
 ~8 Tiles
 ~A complete reworking and expansion of blowpipes!
 ~Many new vanilla recipes and changes to help balance the game out (including an easier Slime Crown recipe).
 ~Several new prefixes!
 
-V0.0.0.7: Update
-~Fixed Wind Elemental spawning outside of the Windy Day event.
-~Various item balances and reworks.
-~Added ADD and Jelly relics and master mode pets.
-~Increased Eldritch Jellyfish money drops.
-~Fixed Diskite Staff bug (I thought it was going to take way longer to fix but I did it!).
+V0.0.0.8: Update
+~Added new Weapons Master names and dialogue.
+~Added Wooden Dart.
+~Added Jelly master mode pet because I totally didn't miss it last time.
+~Updated Diskite Drive tooltip.
+~Added Tree Whacker.
+~Bloodnautilus now drops Blood Droplets.
+~Added Big Drip.
+~Made Gigaslimes immune to lava damage.
+~Decreased Giant Gel Cluster's recipe requirements.
+~Increased Slimy Core weapons' values and rarities.
+~Changed Slimy Core rarity from white to blue.
+~Fixed Slimeballer recipe. Embarrassing!
+~Added Slimecaster.
+~Minor Death Cleaver fix.
+~Added Emerald Falcon.
 
 Q&A:
 

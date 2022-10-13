@@ -23,7 +23,7 @@ namespace Zylon.Items.Ammo
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Gel, 999);
+			recipe.AddIngredient(ItemID.Gel, 500);
 			recipe.AddIngredient(ItemID.PinkGel, 25);
 			recipe.AddIngredient(ModContent.ItemType<Materials.SlimyCore>(), 10);
 			recipe.AddTile(TileID.CrystalBall);

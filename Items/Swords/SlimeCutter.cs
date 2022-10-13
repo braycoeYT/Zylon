@@ -18,8 +18,8 @@ namespace Zylon.Items.Swords
 			Item.useAnimation = 31;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3.6f;
-			Item.value = Item.sellPrice(0, 0, 10, 0);
-			Item.rare = ItemRarityID.White;
+			Item.value = Item.sellPrice(0, 0, 30, 0);
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 			Item.useTurn = true;

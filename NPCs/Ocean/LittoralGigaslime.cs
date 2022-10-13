@@ -16,8 +16,7 @@ namespace Zylon.NPCs.Ocean
             Main.npcFrameCount[NPC.type] = 2;
 
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
-				ImmuneToAllBuffsThatAreNotWhips = true,
-				ImmuneToWhips = true
+				ImmuneToAllBuffsThatAreNotWhips = true
 			};
 			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
         }
@@ -34,6 +33,7 @@ namespace Zylon.NPCs.Ocean
 			NPC.knockBackResist = 0f;
 			AnimationType = 1;
 			NPC.alpha = 50;
+			NPC.lavaImmune = true;
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.LittoralGigaslimeBanner>();
         }

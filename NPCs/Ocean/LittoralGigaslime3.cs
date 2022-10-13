@@ -15,8 +15,7 @@ namespace Zylon.NPCs.Ocean
             Main.npcFrameCount[NPC.type] = 2;
 			DisplayName.SetDefault("Littoral Gigaslime");
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
-				ImmuneToAllBuffsThatAreNotWhips = true,
-				ImmuneToWhips = true
+				ImmuneToAllBuffsThatAreNotWhips = true
 			};
 			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
@@ -37,6 +36,7 @@ namespace Zylon.NPCs.Ocean
 			NPC.knockBackResist = 0f;
 			AnimationType = 1;
 			NPC.alpha = 50;
+			NPC.lavaImmune = true;
 			Banner = Item.NPCtoBanner(ModContent.NPCType<LittoralGigaslime>());
 			BannerItem = Item.BannerToItem(Banner);
         }

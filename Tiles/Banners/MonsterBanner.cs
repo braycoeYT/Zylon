@@ -83,6 +83,9 @@ namespace Zylon.Tiles.Banners
 				case 16:
 					item = ModContent.ItemType<WindElementalBanner>();
 					break;
+				case 17:
+					item = ModContent.ItemType<BigDripBanner>();
+					break;
 				default:
 					return;
 			}
@@ -144,6 +147,9 @@ namespace Zylon.Tiles.Banners
 						break;
 					case 16:
 						npcType = ModContent.NPCType<NPCs.WindyDay.WindElemental>();
+						break;
+					case 17:
+						npcType = ModContent.NPCType<NPCs.BloodMoon.BigDrip>();
 						break;
 					default:
 						return;

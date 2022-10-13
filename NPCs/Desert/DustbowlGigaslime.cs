@@ -17,8 +17,7 @@ namespace Zylon.NPCs.Desert
             Main.npcFrameCount[NPC.type] = 2;
 
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
-				ImmuneToAllBuffsThatAreNotWhips = true,
-				ImmuneToWhips = true
+				ImmuneToAllBuffsThatAreNotWhips = true
 			};
 			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
         }
@@ -36,9 +35,7 @@ namespace Zylon.NPCs.Desert
 			AnimationType = 1;
 			NPC.alpha = 50;
 			NPC.scale = 1.25f;
-			for (int k = 0; k < NPC.buffImmune.Length; k++) {
-				NPC.buffImmune[k] = true;
-			}
+			NPC.lavaImmune = true;
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.DustbowlGigaslimeBanner>();
         }

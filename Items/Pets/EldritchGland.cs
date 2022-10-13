@@ -8,16 +8,16 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Items.Pets
 {
-	public class DiskiteDrive : ModItem
+	public class EldritchGland : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons a mini diskling to follow you");
+			Tooltip.SetDefault("'It's covered in a thin coat of some sticky substance, but looks useless.'\nSummons a spooky jellyfish to follow you");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 		public override void SetDefaults() {
-			Item.DefaultToVanitypet(ProjectileType<Projectiles.Pets.MiniDiskling>(), BuffType<Buffs.Pets.MiniDiskling>());
-			Item.width = 28;
-			Item.height = 20;
+			Item.DefaultToVanitypet(ProjectileType<Projectiles.Pets.SpookyJellyfish>(), BuffType<Buffs.Pets.SpookyJellyfish>());
+			Item.width = 38;
+			Item.height = 50;
 			Item.rare = ItemRarityID.Master;
 			Item.master = true;
 			Item.value = Item.sellPrice(0, 5);

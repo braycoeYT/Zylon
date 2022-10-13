@@ -80,7 +80,8 @@ namespace Zylon.NPCs
             }
 			if (npc.type == NPCID.BloodNautilus) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Swords.Dreadclawtilus>(), 5), new CommonDrop(ItemType<Items.Swords.Dreadclawtilus>(), 4)));
-            }
+				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.BloodDroplet>(), 1, 3, 6));
+			}
 			if (npc.type == NPCID.Golem)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Spears.LihzahrdLance>(), 4), new CommonDrop(ItemType<Items.Spears.LihzahrdLance>(), 3)));
 			if (npc.type == NPCID.MoonLordCore) {
@@ -138,6 +139,12 @@ namespace Zylon.NPCs
 						shop.item[nextSlot].SetDefaults(ItemType<Items.Ammo.BloodiedArrow>());
 						nextSlot++;
 					}
+				}
+			}
+			if (type == NPCID.Merchant) { //DB downed
+				if (Main.dayTime) {
+					shop.item[nextSlot].SetDefaults(ItemType<Items.Tools.TreeWhacker>());
+					nextSlot++;
 				}
 			}
         }

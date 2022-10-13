@@ -434,6 +434,7 @@ namespace Zylon.NPCs.Bosses.ADD
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
 			if (Main.masterMode) {
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.ADDRelic>(), 1));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.DiskiteDrive>(), 4));
             }
 			if (Main.expertMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.DiskiteBag>(), 1));
 			else {

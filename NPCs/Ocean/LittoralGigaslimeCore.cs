@@ -23,6 +23,7 @@ namespace Zylon.NPCs.Ocean
 			NPC.aiStyle = -1;
 			NPC.knockBackResist = 0f;
 			NPC.alpha = 50;
+			NPC.lavaImmune = true;
 			NPC.noGravity = true;
 			Banner = Item.NPCtoBanner(ModContent.NPCType<LittoralGigaslime>());
 			BannerItem = Item.BannerToItem(Banner);

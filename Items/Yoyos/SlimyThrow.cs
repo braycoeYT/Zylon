@@ -22,13 +22,13 @@ namespace Zylon.Items.Yoyos
 			Item.shootSpeed = 16f;
 			Item.knockBack = 1f;
 			Item.damage = 13;
-			Item.rare = ItemRarityID.White;
+			Item.rare = ItemRarityID.Blue;
 			Item.DamageType = DamageClass.Melee;
 			Item.channel = true;
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
 			Item.UseSound = SoundID.Item1;
-			Item.value = 1000;
+			Item.value = Item.sellPrice(0, 0, 30);
 			Item.shoot = ProjectileType<Projectiles.Yoyos.SlimyThrow>();
 		}
 		public override void AddRecipes() {
