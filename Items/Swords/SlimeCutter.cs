@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace Zylon.Items.Swords
 {
-	public class SlimeCutter : ModItem
+	public class Slimecutter : ModItem
 	{
 		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("Struck enemies are slimed");

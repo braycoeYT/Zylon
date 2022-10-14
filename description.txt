@@ -1,36 +1,28 @@
 The best mod that starts with Z (I guarantee or your money back)! Zylon is a small terraria mod full of slimes, blowpipes, and much much more!
 
-This mod is in severe need of spriters. If you are a fan of the mod and want to sprite, feel free to join the discord server!
+THIS MOD IS IN SEVERE NEED OF SPRITERS. If you are a fan of the mod and want to sprite, feel free to join the discord server!
 
 Stats:
-~257 Items
+~258 Items
 ~2 Bosses: (0 worm bosses! I'm not THAT lazy!)
 ~~~2 Prehardmode Bosses
 ~~~An unobtainable joke boss (best boss ever made)
 ~42 total NPCs
 ~1 Town NPC
-~33 Buffs
+~34 Buffs
 ~8 Tiles
 ~A complete reworking and expansion of blowpipes!
 ~Many new vanilla recipes and changes to help balance the game out (including an easier Slime Crown recipe).
 ~Several new prefixes!
 
-V0.0.0.8: Update
-~Added new Weapons Master names and dialogue.
-~Added Wooden Dart.
-~Added Jelly master mode pet because I totally didn't miss it last time.
-~Updated Diskite Drive tooltip.
-~Added Tree Whacker.
-~Bloodnautilus now drops Blood Droplets.
-~Added Big Drip.
-~Made Gigaslimes immune to lava damage.
-~Decreased Giant Gel Cluster's recipe requirements.
-~Increased Slimy Core weapons' values and rarities.
-~Changed Slimy Core rarity from white to blue.
-~Fixed Slimeballer recipe. Embarrassing!
-~Added Slimecaster.
-~Minor Death Cleaver fix.
-~Added Emerald Falcon.
+V0.0.0.9: Update
+~Renamed some Slimy Core items (for literary parallelism!).
+~Fixed Emerald Wave being affected by gravity, and increased Emerald Wave's homing range.
+~Emerald Falcon now shoots projectiles less often.
+~Changed Advent's Day tooltip.
+~Fixed Slimeshooter not converting wooden arrows to slime arrows.
+~Added Slimewhipper, the mod's first whip!
+~Made ADD immune to much fewer debuffs.
 
 Q&A:
 

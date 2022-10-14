@@ -40,7 +40,7 @@ namespace Zylon.Projectiles.Shortswords
 				}
 				float num167 = Projectile.position.X;
 				float num168 = Projectile.position.Y;
-				float num169 = 250f;
+				float num169 = 275f;
 				bool flag4 = false;
 				int num170 = 0;
 				if (Projectile.ai[1] == 0f)

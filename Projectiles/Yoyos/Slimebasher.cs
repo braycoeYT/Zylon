@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace Zylon.Projectiles.Yoyos
 {
-	public class SlimyThrow : ModProjectile
+	public class Slimebasher : ModProjectile
 	{
 		public override void SetStaticDefaults() {
 			//3-16 Vanilla, -1 = Infinite

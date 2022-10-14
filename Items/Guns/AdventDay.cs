@@ -10,7 +10,7 @@ namespace Zylon.Items.Guns
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Advent's Day");
-			Tooltip.SetDefault("'Sounds like an action movie'\nConverts regular bullets to nano bullets");
+			Tooltip.SetDefault("'Guns and violence are all I need'\nConverts regular bullets to nano bullets");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 5);

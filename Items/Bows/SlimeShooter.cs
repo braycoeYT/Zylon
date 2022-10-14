@@ -7,7 +7,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Items.Bows
 {
-	public class SlimeShooter : ModItem
+	public class Slimeshooter : ModItem
 	{
 		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("Turns regular arrows into slime arrows");
@@ -29,15 +29,9 @@ namespace Zylon.Items.Bows
 			Item.UseSound = SoundID.Item5;
 			Item.rare = ItemRarityID.Blue;
 		}
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
+		public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
             if (type == ProjectileID.WoodenArrowFriendly) type = ProjectileType<Projectiles.Ammo.SlimeArrow>();
-			return true;
         }
-        /*public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack) {
-			if (type == ProjectileID.WoodenArrowFriendly)
-				type = mod.ProjectileType("SlimeArrow");
-			return true;
-		}*/
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddRecipeGroup("Zylon:AnySilverBar", 8);

@@ -40,7 +40,7 @@ namespace Zylon.Projectiles.Shortswords
 		public override void AI() {
 			Player player = Main.player[Projectile.owner];
 
-			if (Timer == 3 && Projectile.ai[1] % 3 == 0) {
+			if (Timer == 3 && Projectile.ai[1] % 5 == 0) {
 				Vector2 speed = Projectile.velocity;
 				speed.Normalize();
 				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed*12f, ModContent.ProjectileType<EmeraldWave>(), Projectile.damage/2, Projectile.knockBack/2, Main.myPlayer);

@@ -11,7 +11,7 @@ namespace Zylon.Items.Shortswords
 	public class EmeraldFalcon : ModItem
 	{
         public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Better than the diamond sword!'\nRight click to switch between legacy and modern modes\nFires an emerald wave on every third stab\nIn legacy mode, emerald waves chase enemies");
+			Tooltip.SetDefault("'Better than the diamond sword!'\nRight click to switch between legacy and modern modes\nFires an emerald wave on every fifth stab\nIn legacy mode, emerald waves chase enemies");
         }
         public override void SetDefaults() {
 			Item.damage = 30;
@@ -71,7 +71,7 @@ namespace Zylon.Items.Shortswords
 		int shootCount;
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             shootCount++;
-			if (legacy && shootCount % 3 == 0) Projectile.NewProjectile(source, position, new Vector2(12*player.direction, 0), type, damage/2, knockback/2, Main.myPlayer);
+			if (legacy && shootCount % 5 == 0) Projectile.NewProjectile(source, position, new Vector2(12*player.direction, 0), type, damage/2, knockback/2, Main.myPlayer);
 			if (!legacy) Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer, 0f, shootCount);
 			return false;
         }

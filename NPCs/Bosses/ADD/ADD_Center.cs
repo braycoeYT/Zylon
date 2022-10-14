@@ -23,8 +23,16 @@ namespace Zylon.NPCs.Bosses.ADD
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
-				ImmuneToAllBuffsThatAreNotWhips = true,
-				ImmuneToWhips = true
+				SpecificallyImmuneTo = new int[] {
+					BuffID.Poisoned,
+					BuffID.Confused,
+					BuffID.OnFire,
+					BuffID.Chilled,
+					BuffID.Frozen,
+					BuffID.Burning,
+					BuffID.Frostburn,
+					BuffID.CursedInferno
+				}
 			};
 			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
         }

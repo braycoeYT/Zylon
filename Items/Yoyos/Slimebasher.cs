@@ -5,7 +5,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Items.Yoyos
 {
-	public class SlimyThrow : ModItem
+	public class Slimebasher : ModItem
 	{
 		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("Has a long reach");
@@ -29,7 +29,7 @@ namespace Zylon.Items.Yoyos
 			Item.noUseGraphic = true;
 			Item.UseSound = SoundID.Item1;
 			Item.value = Item.sellPrice(0, 0, 30);
-			Item.shoot = ProjectileType<Projectiles.Yoyos.SlimyThrow>();
+			Item.shoot = ProjectileType<Projectiles.Yoyos.Slimebasher>();
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
