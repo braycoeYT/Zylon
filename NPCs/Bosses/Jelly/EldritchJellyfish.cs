@@ -350,16 +350,6 @@ namespace Zylon.NPCs.Bosses.Jelly
             potionType = ItemID.HealingPotion;
 			ZylonWorldCheckSystem.downedJelly = true;
         }
-        /*public override void BossLoot(ref string name, ref int potionType) {
-			AzercadmiumWorld.downedJelly = true;
-			potionType = ItemID.HealingPotion;
-			if (Main.expertMode)
-				Item.NewItem(NPC.getRect(), ModContent.ItemType<JellyBag>());
-			else {
-				Item.NewItem(NPC.getRect(), ModContent.ItemType<EerieBell>(), Main.rand.Next(30, 46));
-				Item.NewItem(NPC.getRect(), ModContent.ItemType<OtherworldlyFang>(), Main.rand.Next(35, 51));
-			}
-		}*/
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Ocean,
@@ -375,7 +365,9 @@ namespace Zylon.NPCs.Bosses.Jelly
 			else {
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.EerieBell>(), 1, 30, 45));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.OtherworldlyFang>(), 1, 35, 50));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.JellyMask>(), 7));
             }
+			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.JellyTrophy>(), 10));
 		}
     }
 }

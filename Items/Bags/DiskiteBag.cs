@@ -37,7 +37,7 @@ namespace Zylon.Items.Bags
 			itemLoot.Add(ItemDropRule.Common(ItemType<Materials.DiskiteCrumbles>(), 1, 15, 25));
 			itemLoot.Add(ItemDropRule.Common(ItemType<Materials.RustedTech>(), 1, 30, 35));
 			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(NPCType<NPCs.Bosses.ADD.ADD_Center>()));
-			itemLoot.Add(ItemDropRule.Common(ItemType<Vanity.PolandballMask>(), 10));
+			itemLoot.Add(new CommonDrop(ItemType<Items.Vanity.ADDMask>(), 7)).OnFailedRoll(itemLoot.Add(new CommonDrop(ItemType<Items.Vanity.PolandballMask>(), 10)));
 		}
 		public override Color? GetAlpha(Color lightColor) {
 			return Color.Lerp(lightColor, Color.White, 0.4f);

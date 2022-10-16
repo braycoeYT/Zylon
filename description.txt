@@ -3,26 +3,24 @@ The best mod that starts with Z (I guarantee or your money back)! Zylon is a sma
 THIS MOD IS IN SEVERE NEED OF SPRITERS. If you are a fan of the mod and want to sprite, feel free to join the discord server!
 
 Stats:
-~258 Items
+~268 Items
 ~2 Bosses: (0 worm bosses! I'm not THAT lazy!)
 ~~~2 Prehardmode Bosses
 ~~~An unobtainable joke boss (best boss ever made)
 ~42 total NPCs
 ~1 Town NPC
-~34 Buffs
-~8 Tiles
+~35 Buffs
+~10 Tiles
 ~A complete reworking and expansion of blowpipes!
 ~Many new vanilla recipes and changes to help balance the game out (including an easier Slime Crown recipe).
 ~Several new prefixes!
 
-V0.0.0.9: Update
-~Renamed some Slimy Core items (for literary parallelism!).
-~Fixed Emerald Wave being affected by gravity, and increased Emerald Wave's homing range.
-~Emerald Falcon now shoots projectiles less often.
-~Changed Advent's Day tooltip.
-~Fixed Slimeshooter not converting wooden arrows to slime arrows.
-~Added Slimewhipper, the mod's first whip!
-~Made ADD immune to much fewer debuffs.
+V0.0.1: Update
+~Added Sparkly Slimecutter, Sparkly Slimeshooter, Sparkly Slimeballer, Sparkly Slimewhipper, Sparkly Slimebasher, and Sparkly Slimecaster. Try saying that five times fast!
+~Fixed Slimebasher not inflicting Slimed on other players.
+~Fixed spelling error in Determination Breaker's tooltip.
+~Added masks and trophies for ADD and Jelly.
+~Boss checklist now displays trophies, masks, and master mode drops.
 
 Q&A:
 

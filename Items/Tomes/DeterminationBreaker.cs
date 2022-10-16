@@ -10,7 +10,7 @@ namespace Zylon.Items.Tomes
 	public class DeterminationBreaker : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Does not give you a blue eye on use'\nBegins spining and firing skulls after striking a foe");
+			Tooltip.SetDefault("'Does not give you a blue eye on use'\nBegins spinning and firing skulls after striking a foe");
 		}
 		public override void SetDefaults() {
 			Item.damage = 65;

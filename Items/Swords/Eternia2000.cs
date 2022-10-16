@@ -11,7 +11,7 @@ namespace Zylon.Items.Swords
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Eternia 2000");
-			Tooltip.SetDefault("UNOBTAINABLE - Will probably be obtainable when I make PML content.\n'Not to be confused with the Eternia 995'\nReleases Vinyl Discs, LP Rockets, and World-Ending Meteors\nDamaging enemies has a chance to inflict Broken Karta (a shatter sound plays and '!!!' appear above the enemy each time this happens)\nPure melee has a much higher chance of inflicting Broken Karta than projectiles.\nInflicting Broken Karta three times will replace the debuff with Severe Bleeding.\nThis debuff lasts until you don't damage the enemy for a bit.\nSevere Bleeding has lower effect on bosses"); //I yiiked my pants creating this weapon
+			Tooltip.SetDefault("UNOBTAINABLE: Will probably be obtainable when I make PML content.\n'Not to be confused with the Eternia 995'\nReleases Vinyl Discs, LP Rockets, and World-Ending Meteors\nDamaging enemies has a chance to inflict Broken Karta (a shatter sound plays and '!!!' appear above the enemy each time this happens)\nPure melee has a much higher chance of inflicting Broken Karta than projectiles.\nInflicting Broken Karta three times will replace the debuff with Severe Bleeding.\nThis debuff lasts until you don't damage the enemy for a bit.\nSevere Bleeding has lower effect on bosses"); //I yiiked my pants creating this weapon
 		}
 		public override void SetDefaults()
 		{

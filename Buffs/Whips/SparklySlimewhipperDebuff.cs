@@ -4,16 +4,16 @@ using Terraria.ModLoader;
 
 namespace Zylon.Buffs.Whips
 {
-	public class SlimewhipperDebuff : ModBuff
+	public class SparklySlimewhipperDebuff : ModBuff
 	{
 		public override void SetStaticDefaults() {
 			BuffID.Sets.IsAnNPCWhipDebuff[Type] = true;
 		}
 		public override void Update(NPC npc, ref int buffIndex) {
-			npc.GetGlobalNPC<SlimewhipperDebuffNPC>().markedByThisWhip = true;
+			npc.GetGlobalNPC<SparklySlimewhipperDebuffNPC>().markedByThisWhip = true;
 		}
 	}
-	public class SlimewhipperDebuffNPC : GlobalNPC
+	public class SparklySlimewhipperDebuffNPC : GlobalNPC
 	{
 		public override bool InstancePerEntity => true;
 		public bool markedByThisWhip;
@@ -22,7 +22,7 @@ namespace Zylon.Buffs.Whips
 		}
 		public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) {
 			if (markedByThisWhip && !projectile.npcProj && !projectile.trap && (projectile.minion || ProjectileID.Sets.MinionShot[projectile.type])) {
-				damage += 5;
+				damage += 8;
 			}
 		}
 	}

@@ -53,10 +53,10 @@ namespace Zylon
 			// "collectibles" like relic, trophy, mask, pet
 			List<int> collection = new List<int>()
 			{
-				/*ModContent.ItemType<Content.Items.Placeable.Furniture.MinionBossRelic>(),
-				ModContent.ItemType<Content.Pets.MinionBossPet.MinionBossPetItem>(),
-				ModContent.ItemType<Content.Items.Placeable.Furniture.MinionBossTrophy>(),
-				ModContent.ItemType<Content.Items.Armor.Vanity.MinionBossMask>()*/
+				ModContent.ItemType<Items.Placeables.Relics.JellyRelic>(),
+				ModContent.ItemType<Items.Pets.EldritchGland>(),
+				ModContent.ItemType<Items.Placeables.Trophies.JellyTrophy>(),
+				ModContent.ItemType<Items.Vanity.JellyMask>()
 			};
 
 			// The item used to summon the boss with (if available)
@@ -96,10 +96,11 @@ namespace Zylon
 			available = () => true;
 			collection = new List<int>()
 			{
-				/*ModContent.ItemType<Content.Items.Placeable.Furniture.MinionBossRelic>(),
-				ModContent.ItemType<Content.Pets.MinionBossPet.MinionBossPetItem>(),
-				ModContent.ItemType<Content.Items.Placeable.Furniture.MinionBossTrophy>(),
-				ModContent.ItemType<Content.Items.Armor.Vanity.MinionBossMask>()*/
+				ModContent.ItemType<Items.Placeables.Relics.ADDRelic>(),
+				ModContent.ItemType<Items.Pets.DiskiteDrive>(),
+				ModContent.ItemType<Items.Placeables.Trophies.ADDTrophy>(),
+				ModContent.ItemType<Items.Vanity.ADDMask>(),
+				ModContent.ItemType<Items.Vanity.PolandballMask>()
 			};
 			summonItem = ModContent.ItemType<Items.BossSummons.EnchantedEye>();
 			spawnInfo = $"Use a [i:{summonItem}]";
