@@ -15,7 +15,7 @@ namespace Zylon.Items.Armor
 			Item.width = 18;
 			Item.height = 18;
 			Item.value = Item.sellPrice(0, 0, 30, 0);
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.defense = 4;
 		}
 		public override bool IsArmorSet(Item head, Item body, Item legs) {

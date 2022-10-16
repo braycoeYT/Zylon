@@ -22,12 +22,12 @@ namespace Zylon.Items.Wands
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3f;
 			Item.value = 200;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = true;
-			Item.useTurn = true;
+			Item.noMelee = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.StoneBall>();
-			Item.shootSpeed = 5.75f;
+			Item.shootSpeed = 12.75f;
 			Item.mana = 3;
 		}
         public override void AddRecipes()

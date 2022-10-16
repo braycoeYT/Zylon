@@ -9,7 +9,7 @@ namespace Zylon.Items.Swords
 	public class RainyDays : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Don't we all?'\nShoots rain erratically"); //Haha get it this is the first item added and my existance is sad
+			Tooltip.SetDefault("'Don't we all?'\nShoots rain erratically"); //Haha get it this is the first item added and my existance is sad | Tome Man: Nah Braycoe, your existence is great.
 		}
 
 		public override void SetDefaults()
