@@ -16,7 +16,7 @@ namespace Zylon.Items.BossSummons
 			Item.height = 32;
 			Item.maxStack = 20;
 			Item.value = 0;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.useAnimation = 45;
 			Item.useTime = 45;
 			Item.useStyle = ItemUseStyleID.HoldUp;

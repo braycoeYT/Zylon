@@ -19,7 +19,7 @@ namespace Zylon.Items.Bows
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 0f;
 			Item.value = 150;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.UseSound = SoundID.Item5;
 			Item.autoReuse = true;
 			Item.useTurn = true;

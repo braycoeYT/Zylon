@@ -1,7 +1,16 @@
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using Terraria;
+using Terraria.Graphics.Effects;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Terraria.UI;
+using Terraria.UI.Chat;
 
 namespace Zylon
 {
@@ -80,7 +89,7 @@ namespace Zylon
             Recipe recipe = Recipe.Create(ItemID.MagicMirror);
 			recipe.AddIngredient(ItemID.StoneBlock, 15);
 			recipe.AddIngredient(ItemID.Glass, 15);
-			recipe.AddIngredient(ItemID.RecallPotion, 10);
+			recipe.AddIngredient(ItemID.RecallPotion, 30);
 			recipe.AddIngredient(ItemID.FallenStar, 20);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
