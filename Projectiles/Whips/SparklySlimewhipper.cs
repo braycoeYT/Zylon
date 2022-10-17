@@ -78,9 +78,11 @@ namespace Zylon.Projectiles.Whips
 			target.AddBuff(ModContent.BuffType<Buffs.Whips.SparklySlimewhipperDebuff>(), 240);
 			Main.player[Projectile.owner].MinionAttackTargetNPC = target.whoAmI;
 			target.AddBuff(320, 300);
+			Projectile.damage = (int)(Projectile.damage*0.75f);
 		}
         public override void OnHitPvp(Player target, int damage, bool crit) {
             target.AddBuff(320, 300);
+			Projectile.damage = (int)(Projectile.damage*0.75f);
         }
         private void DrawLine(List<Vector2> list) {
 			Texture2D texture = TextureAssets.FishingLine.Value;

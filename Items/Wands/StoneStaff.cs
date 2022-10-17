@@ -11,8 +11,7 @@ namespace Zylon.Items.Wands
         public override void SetStaticDefaults() {
             Item.staff[Item.type] = true;
         }
-        public override void SetDefaults()
-		{
+        public override void SetDefaults() {
 			Item.damage = 10;
 			Item.DamageType = DamageClass.Magic;
 			Item.width = 40;
@@ -27,11 +26,10 @@ namespace Zylon.Items.Wands
 			Item.autoReuse = true;
 			Item.useTurn = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.StoneBall>();
-			Item.shootSpeed = 5.75f;
+			Item.shootSpeed = 12.75f;
 			Item.mana = 3;
 		}
-        public override void AddRecipes()
-		{
+        public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.StoneBlock, 10);
 			recipe.AddIngredient(ItemID.Gel, 8);

@@ -34,8 +34,8 @@ namespace Zylon.Projectiles.Swords
         }
         public override void AI() {
 			if (Projectile.ai[0] % 5 == 1) Projectile.velocity *= 1.035f;
-			if (Projectile.ai[0] % 5 == 2) {		
-				Projectile.penetrate = 9999;
+			if (Projectile.ai[0] % 5 == 2 && Projectile.timeLeft == 9998) {		
+				Projectile.penetrate = -1;
 				Projectile.width = 20;
 				Projectile.height = 20;
 			}

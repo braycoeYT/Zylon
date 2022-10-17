@@ -14,6 +14,7 @@ namespace Zylon.Items.Ammo
             Item.CloneDefaults(ItemID.Stake);
             Item.damage = 11;
             Item.crit = 9;
+            Item.rare = ItemRarityID.Orange;
             Item.shoot = ModContent.ProjectileType<Projectiles.Ammo.SharpenedFang>();
         }
         public override void AddRecipes() {

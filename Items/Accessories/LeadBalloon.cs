@@ -15,8 +15,7 @@ namespace Zylon.Items.Accessories
 			Item.accessory = true;
 			Item.value = Item.sellPrice(0, 2, 50);
 			Item.rare = ItemRarityID.Blue;
-			Item.defense = 1;
-			Item.channel = true;
+			Item.defense = 2;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
 			player.maxFallSpeed += 6f;
@@ -28,6 +27,7 @@ namespace Zylon.Items.Accessories
 			recipe.AddIngredient(ItemID.ShinyRedBalloon);
 			recipe.AddIngredient(ItemID.Shackle);
 			recipe.AddIngredient(ItemID.LuckyHorseshoe);
+			recipe.AddRecipeGroup("IronBar", 10);
 			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 		}

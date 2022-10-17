@@ -15,7 +15,7 @@ namespace Zylon.Projectiles.Swords
 			Projectile.height = 8;
 			Projectile.aiStyle = -1;
 			Projectile.friendly = true;
-			Projectile.penetrate = 1;
+			Projectile.penetrate = 9999;
 			Projectile.timeLeft = 9999;
 			Projectile.DamageType = DamageClass.Melee;
 			Projectile.alpha = 255;
@@ -29,7 +29,7 @@ namespace Zylon.Projectiles.Swords
         }
         public override void AI() {
 			if (Projectile.ai[0] % 3 == 1) Projectile.velocity *= 1.025f;
-			if (Projectile.ai[0] % 3 == 2) Projectile.penetrate = 9999;
+			if (Projectile.ai[0] % 3 == 2 && Projectile.timeLeft == 9998) Projectile.penetrate = -1;
 			int whatDust = 6; //orange
 			if (Projectile.ai[0] % 3 == 1) whatDust = 75; //green
 			if (Projectile.ai[0] % 3 == 2) whatDust = 135; //cyan

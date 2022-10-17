@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace Zylon.Projectiles.Whips
 {
-	public class Slimewhipper : ModProjectile
+	public class WindyWhip : ModProjectile
 	{
         public override void SetStaticDefaults() {
 			ProjectileID.Sets.IsAWhip[Type] = true;
@@ -24,7 +24,7 @@ namespace Zylon.Projectiles.Whips
 			Projectile.extraUpdates = 1;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = -1;
-			Projectile.WhipSettings.Segments = 10;
+			Projectile.WhipSettings.Segments = 12;
 			Projectile.WhipSettings.RangeMultiplier = 1f;
 		}
 		private float Timer {
@@ -52,6 +52,7 @@ namespace Zylon.Projectiles.Whips
 				Projectile.Kill();
 				return;
 			}
+			if (Timer % 25 == 0) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity*2f, ModContent.ProjectileType<WindGust>(), (int)(Projectile.damage*0.5f), Projectile.knockBack/2, Main.myPlayer);
 
 			owner.heldProj = Projectile.whoAmI;
 			owner.itemAnimation = owner.itemAnimationMax - (int)(Timer / Projectile.MaxUpdates);
@@ -74,14 +75,12 @@ namespace Zylon.Projectiles.Whips
 			return false;
 		}*/
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-			target.AddBuff(ModContent.BuffType<Buffs.Whips.SlimewhipperDebuff>(), 240);
+			target.AddBuff(ModContent.BuffType<Buffs.Whips.WindyWhipDebuff>(), 240);
 			Main.player[Projectile.owner].MinionAttackTargetNPC = target.whoAmI;
-			target.AddBuff(BuffID.Slimed, 300);
-			Projectile.damage = (int)(Projectile.damage*0.65f);
+			Projectile.damage = (int)(Projectile.damage*0.6f);
 		}
         public override void OnHitPvp(Player target, int damage, bool crit) {
-            target.AddBuff(BuffID.Slimed, 300);
-			Projectile.damage = (int)(Projectile.damage*0.65f);
+			Projectile.damage = (int)(Projectile.damage*0.6f);
         }
         private void DrawLine(List<Vector2> list) {
 			Texture2D texture = TextureAssets.FishingLine.Value;
@@ -145,7 +144,7 @@ namespace Zylon.Projectiles.Whips
 				}
 				Vector2 element = list[i];
 				Vector2 diff = list[i + 1] - element;
-				float rotation = diff.ToRotation() - MathHelper.PiOver2; // This projectile's sprite faces down, so PiOver2 is used to correct rotation.
+				float rotation = diff.ToRotation() - MathHelper.PiOver2;
 				Color color = Lighting.GetColor(element.ToTileCoordinates());
 				Main.EntitySpriteDraw(texture, pos - Main.screenPosition, frame, color, rotation, origin, scale, flip, 0);
 				pos += diff;
