@@ -4,14 +4,15 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Zylon.Items.Wands
+namespace Zylon.Items.Stone
 {
-	public class StoneStaff : ModItem
+    public class StoneStaff : ModItem
 	{
         public override void SetStaticDefaults() {
             Item.staff[Item.type] = true;
         }
-        public override void SetDefaults() {
+        public override void SetDefaults()
+		{
 			Item.damage = 10;
 			Item.DamageType = DamageClass.Magic;
 			Item.width = 40;
@@ -25,11 +26,12 @@ namespace Zylon.Items.Wands
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = true;
 			Item.noMelee = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.StoneBall>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.Stone.StoneBall>();
 			Item.shootSpeed = 12.75f;
-			Item.mana = 3;
+			Item.mana = 5;
 		}
-        public override void AddRecipes() {
+        public override void AddRecipes()
+		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.StoneBlock, 10);
 			recipe.AddIngredient(ItemID.Gel, 8);
