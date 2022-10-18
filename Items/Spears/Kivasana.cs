@@ -11,7 +11,7 @@ namespace Zylon.Items.Spears
 	public class Kivasana : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("Enemies struck with the spear drop more money");
+            Tooltip.SetDefault("Enemies struck with the spear drop more money\nWeapons Master reward");
         }
         public override void SetDefaults() {
 			Item.damage = 16;
@@ -31,6 +31,13 @@ namespace Zylon.Items.Spears
 			Item.UseSound = SoundID.Item1;
 			Item.shoot = ProjectileType<Projectiles.Spears.Kivasana>();
 		}
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list) {
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName") {
+                    tooltipLine.OverrideColor = new Color(100, 60, 0);
+                }
+            }
+        }
 		int shootCount;
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             shootCount++;

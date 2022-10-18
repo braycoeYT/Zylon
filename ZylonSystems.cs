@@ -1,16 +1,7 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using Terraria;
-using Terraria.Graphics.Effects;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.UI;
-using Terraria.UI.Chat;
 
 namespace Zylon
 {
@@ -79,6 +70,27 @@ namespace Zylon
 			});
 			RecipeGroup.RegisterGroup("Zylon:AnyDemoniteBar", group);
 
+			group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Cobalt Bar", new int[]
+			{
+			ItemID.CobaltBar,
+			ItemID.PalladiumBar,
+			});
+			RecipeGroup.RegisterGroup("Zylon:AnyCobaltBar", group);
+
+			group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Mythril Bar", new int[]
+			{
+			ItemID.MythrilBar,
+			ItemID.OrichalcumBar,
+			});
+			RecipeGroup.RegisterGroup("Zylon:AnyMythrilBar", group);
+
+			group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Adamantite Bar", new int[]
+			{
+			ItemID.AdamantiteBar,
+			ItemID.TitaniumBar,
+			});
+			RecipeGroup.RegisterGroup("Zylon:AnyAdamantiteBar", group);
+
 			if (RecipeGroup.recipeGroupIDs.ContainsKey("IronBar")) {
 				int index = RecipeGroup.recipeGroupIDs["IronBar"];
 				group = RecipeGroup.recipeGroups[index];
@@ -89,7 +101,7 @@ namespace Zylon
             Recipe recipe = Recipe.Create(ItemID.MagicMirror);
 			recipe.AddIngredient(ItemID.StoneBlock, 15);
 			recipe.AddIngredient(ItemID.Glass, 15);
-			recipe.AddIngredient(ItemID.RecallPotion, 30);
+			recipe.AddIngredient(ItemID.RecallPotion, 10);
 			recipe.AddIngredient(ItemID.FallenStar, 20);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();

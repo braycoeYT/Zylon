@@ -17,7 +17,6 @@ namespace Zylon.Projectiles.Swords
 			Projectile.hostile = false;
 			Projectile.friendly = true;
 			Projectile.timeLeft = 9999;
-			Projectile.ignoreWater = true;
 			Projectile.alpha = 255;
 		}
 		public override void PostAI() {

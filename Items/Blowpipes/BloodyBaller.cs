@@ -35,7 +35,7 @@ namespace Zylon.Items.Blowpipes
 			origKnockback = Item.knockBack;
 			origShootSpeed = Item.shootSpeed;
 			origItemSpeed = Item.useAnimation;
-			Item.rare = ItemRarityID.Blue;
+			Item.rare = 1;
 		}
 		public override bool AltFunctionUse(Player player) {
 			return true;

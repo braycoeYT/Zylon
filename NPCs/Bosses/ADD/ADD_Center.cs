@@ -448,7 +448,6 @@ namespace Zylon.NPCs.Bosses.ADD
 			else {
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.DiskiteCrumbles>(), 1, 10, 20));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.RustedTech>(), 1, 25, 30));
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.PolandballMask>(), 10));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.ADDMask>(), 7)).OnFailedRoll(npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.PolandballMask>(), 10)));
             }
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.ADDTrophy>(), 10));

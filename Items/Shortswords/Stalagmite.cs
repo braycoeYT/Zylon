@@ -40,7 +40,7 @@ namespace Zylon.Items.Shortswords
 				legacy = !legacy;
 				SoundEngine.PlaySound(SoundID.MaxMana, player.position);
 				if (legacy) {
-					Item.shoot = ProjectileID.None;
+					Item.shoot = 0;
 					Item.damage = 41;
 					Item.useTime = 18;
 					Item.useAnimation = 18;

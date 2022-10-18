@@ -21,7 +21,7 @@ namespace Zylon.Projectiles.Whips
 			Projectile.penetrate = -1;
 			Projectile.tileCollide = false;
 			Projectile.ownerHitCheck = true;
-			Projectile.extraUpdates = 1;
+			//Projectile.extraUpdates = 1;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = -1;
 			Projectile.WhipSettings.Segments = 12;
@@ -31,20 +31,13 @@ namespace Zylon.Projectiles.Whips
 			get => Projectile.ai[0];
 			set => Projectile.ai[0] = value;
 		}
-		private float ChargeTime {
-			get => Projectile.ai[1];
-			set => Projectile.ai[1] = value;
-		}
-
 		public override void AI() {
 			Player owner = Main.player[Projectile.owner];
 			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
 			Projectile.Center = Main.GetPlayerArmPosition(Projectile) + Projectile.velocity * Timer;
 			Projectile.spriteDirection = Projectile.velocity.X >= 0f ? 1 : -1;
 
-			//if (Charge(owner.channel)) { //keep if charge
-				Timer++; //keep this
-			//}
+			Timer++;
 
 			float swingTime = owner.itemAnimationMax * Projectile.MaxUpdates;
 
@@ -52,7 +45,7 @@ namespace Zylon.Projectiles.Whips
 				Projectile.Kill();
 				return;
 			}
-			if (Timer % 15 == 0) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity, ModContent.ProjectileType<SparklyGelFriendly>(), (int)(Projectile.damage*0.75f), Projectile.knockBack/2, Main.myPlayer, 3f);
+			if (Timer % 10 == 0) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity, ModContent.ProjectileType<SparklyGelFriendly>(), (int)(Projectile.damage*0.75f), Projectile.knockBack/2, Main.myPlayer, 3f);
 
 			owner.heldProj = Projectile.whoAmI;
 			owner.itemAnimation = owner.itemAnimationMax - (int)(Timer / Projectile.MaxUpdates);

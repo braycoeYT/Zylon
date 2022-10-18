@@ -94,7 +94,9 @@ namespace Zylon.NPCs.TownNPCs
 				"Au Ron",
 				"Gigamax",
 				"Seth I. Roth",
-				"Zak"
+				"Zak",
+				"Ruki",
+				"Hero"
 			};
 		}
 		public override void FindFrame(int frameHeight) {
@@ -166,6 +168,12 @@ namespace Zylon.NPCs.TownNPCs
 					var entitySource = NPC.GetSource_GiftOrReward();
 					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
 					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Wands.SpareLeg>());
+				}
+				else if (Main.LocalPlayer.HasItem(ItemID.SpazmatismTrophy)) {
+					int wantedItemIndex = Main.LocalPlayer.FindItem(ItemID.SpazmatismTrophy);
+					var entitySource = NPC.GetSource_GiftOrReward();
+					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
+					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Minions.SpazmaticScythe>());
 				}
 				else Main.npcChatText = $"I'm afraid you don't have any trophies with you, son!";
 			}

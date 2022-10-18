@@ -21,7 +21,7 @@ namespace Zylon.Items.Wands
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3.25f;
 			Item.value = Item.sellPrice(0, 0, 18);
-			Item.rare = ItemRarityID.Blue;
+			Item.rare = 1;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = true;
 			Item.useTurn = true;

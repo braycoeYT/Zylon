@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -9,7 +10,7 @@ namespace Zylon.Items.Swords
 	public class JourneyStarter : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("'Only the start of the endless road to infinity'\nAlternates between firing different types of bolts");
+            Tooltip.SetDefault("'Only the start of the endless road to infinity'\nAlternates between firing different types of bolts\nWeapons Master reward");
         }
         public override void SetDefaults() {
 			Item.damage = 18;
@@ -28,6 +29,13 @@ namespace Zylon.Items.Swords
 			Item.shoot = ModContent.ProjectileType<Projectiles.Swords.JourneyStarterBolt>();
 			Item.shootSpeed = 11f;
 		}
+		public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list) {
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName") {
+                    tooltipLine.OverrideColor = new Color(100, 60, 0);
+                }
+            }
+        }
         public override void UseStyle(Player player, Rectangle heldItemFrame) {
             Lighting.AddLight((int)(player.Center.X / 16f), (int)(player.Center.Y / 16f), 0.1f, 0.2f, 0.75f);
         }
