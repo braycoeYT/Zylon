@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.Enums;
 using Terraria.ModLoader;
 
-namespace Zylon.Projectiles.Shortswords
+namespace Zylon.Projectiles.Stone
 {
 	public class StoneShortsword : ModProjectile
 	{

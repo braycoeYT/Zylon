@@ -28,7 +28,7 @@ namespace Zylon.Items.Stone
 			Item.useTurn = false;
 			Item.noUseGraphic = true;
 			Item.noMelee = true;
-			Item.shoot = ProjectileType<Projectiles.Shortswords.StoneShortsword>();
+			Item.shoot = ProjectileType<Projectiles.Stone.StoneShortsword>();
 			Item.shootSpeed = 4.3f;
 		}
 		bool legacy;
@@ -52,7 +52,7 @@ namespace Zylon.Items.Stone
 					CombatText.NewText(player.getRect(), Color.Gray, "LEGACY");
                 }
                 else {
-                    Item.shoot = ProjectileType<Projectiles.Shortswords.StoneShortsword>();
+                    Item.shoot = ProjectileType<Projectiles.Stone.StoneShortsword>();
 					Item.damage = 7;
 					Item.useTime = 12;
 					Item.useAnimation = 12;
