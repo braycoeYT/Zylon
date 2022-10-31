@@ -17,7 +17,7 @@ namespace Zylon.NPCs
 		public bool shroomed;
 		public bool deadlyToxins;
 		public static int diskiteBoss = -1;
-		public static int diskiteEyeControl = 0;
+		public static int dirtballBoss = -1;
 		public override void ResetEffects(NPC npc) {
 			severeBleeding = false;
 			shroomed = false;

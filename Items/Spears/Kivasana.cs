@@ -11,7 +11,7 @@ namespace Zylon.Items.Spears
 	public class Kivasana : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("Enemies struck with the spear drop more money\nWeapons Master reward");
+            Tooltip.SetDefault("Enemies struck with the spear drop more money\nWeapons Master reward (King Slime)");
         }
         public override void SetDefaults() {
 			Item.damage = 16;

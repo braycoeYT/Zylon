@@ -51,8 +51,8 @@ namespace Zylon.NPCs.Forest
 				NPC.TargetClosest(true);
 			Player target = Main.player[NPC.target];
 			Vector2 target2 = target.position;
-			target2.X += Main.rand.Next(-60, 60);
-			target2.Y += Main.rand.Next(-60, 60);
+			target2.X += Main.rand.Next(-60, 61);
+			target2.Y += Main.rand.Next(-60, 61);
 			Timer++;
 			if (Timer % 180 == 0)
 				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, (NPC.DirectionTo(target2)) * 8, ProjectileID.PinkLaser, (int)(NPC.damage * 0.3f), 0f, Main.myPlayer);

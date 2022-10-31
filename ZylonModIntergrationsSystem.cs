@@ -63,7 +63,7 @@ namespace Zylon
 			int summonItem = ModContent.ItemType<Items.BossSummons.EldritchBell>();
 
 			// Information for the player so he knows how to encounter the boss
-			string spawnInfo = $"Use a [i:{summonItem}]";
+			string spawnInfo = $"Use a [i:{summonItem}] in the ocean";
 
 			// The boss does not have a custom despawn message, so we omit it
 			string despawnInfo = null;
@@ -103,10 +103,44 @@ namespace Zylon
 				ModContent.ItemType<Items.Vanity.PolandballMask>()
 			};
 			summonItem = ModContent.ItemType<Items.BossSummons.EnchantedEye>();
-			spawnInfo = $"Use a [i:{summonItem}]";
+			spawnInfo = $"Use a [i:{summonItem}] in the desert";
 			despawnInfo = null;
 			customBossPortrait = (SpriteBatch sb, Rectangle rect, Color color) => {
 				Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/ADD/ADD_Bestiary").Value;
+				Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
+				sb.Draw(texture, centered, color);
+			};
+			bossChecklistMod.Call(
+				"AddBoss",
+				Mod,
+				bossName,
+				bossType,
+				weight,
+				downed,
+				available,
+				collection,
+				summonItem,
+				spawnInfo,
+				despawnInfo,
+				customBossPortrait
+			);
+			bossName = "Dirtball";
+			bossType = ModContent.NPCType<NPCs.Bosses.Dirtball.Dirtball>();
+			weight = 0.75f;
+			downed = () => ZylonWorldCheckSystem.downedDirtball;
+			available = () => true;
+			collection = new List<int>()
+			{
+				ModContent.ItemType<Items.Placeables.Relics.DirtballRelic>(),
+				ModContent.ItemType<Items.Pets.DS_91Controller>(),
+				ModContent.ItemType<Items.Placeables.Trophies.DirtballTrophy>(),
+				ModContent.ItemType<Items.Vanity.DirtballMask>(),
+			};
+			summonItem = ModContent.ItemType<Items.BossSummons.CreepyMud>();
+			spawnInfo = $"Use a [i:{summonItem}]";
+			despawnInfo = null;
+			customBossPortrait = (SpriteBatch sb, Rectangle rect, Color color) => {
+				Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Dirtball/Dirtball").Value;
 				Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
 				sb.Draw(texture, centered, color);
 			};

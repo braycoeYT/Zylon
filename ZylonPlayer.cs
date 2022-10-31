@@ -29,6 +29,7 @@ namespace Zylon
 		public bool glazedLens;
 		public bool deadlyToxins;
 		public bool trueMelee10;
+		public bool dirtballExpert;
 
 		public int blowpipeMaxInc;
 		public float blowpipeChargeInc;
@@ -59,6 +60,7 @@ namespace Zylon
 			glazedLens = false;
 			deadlyToxins = false;
 			trueMelee10 = false;
+			dirtballExpert = false;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeDamage = 0;
