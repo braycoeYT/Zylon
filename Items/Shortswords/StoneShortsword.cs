@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Items.Stone
+namespace Zylon.Items.Shortswords
 {
 	public class StoneShortsword : ModItem
 	{

@@ -16,15 +16,18 @@ namespace Zylon
 		public static bool carnallItemessage = false;
 		public static bool downedJelly = false;
 		public static bool downedADD = false;
+		public static bool downedDirtball = false;
 		public override void OnWorldLoad() {
 			carnallItemessage = false;
 			downedJelly = false;
 			downedADD = false;
+			downedDirtball = false;
 		}
 		public override void OnWorldUnload() {
 			carnallItemessage = false;
 			downedJelly = false;
 			downedADD = false;
+			downedDirtball = false;
 		}
 		public override void SaveWorldData(TagCompound tag) {
 			if (carnallItemessage) {
@@ -36,17 +39,22 @@ namespace Zylon
 			if (downedADD) {
 				tag["downedADD"] = true;
 			}
+			if (downedDirtball) {
+				tag["downedDirtball"] = true;
+			}
 		}
 		public override void LoadWorldData(TagCompound tag) {
 			carnallItemessage = tag.ContainsKey("carnallItemessage");
 			downedJelly = tag.ContainsKey("downedJelly");
 			downedADD = tag.ContainsKey("downedADD");
+			downedDirtball = tag.ContainsKey("downedDirtball");
 		}
 		public override void NetSend(BinaryWriter writer) {
 			bool[] flags = new bool[] {
 				carnallItemessage,
 				downedJelly,
-				downedADD
+				downedADD,
+				downedDirtball
 			};
 			BitArray bitArray = new BitArray(flags);
 			byte[] bytes = new byte[(bitArray.Length - 1) / 8 + 1];
@@ -61,6 +69,7 @@ namespace Zylon
 			carnallItemessage = bitArray[0];
 			downedJelly = bitArray[1];
 			downedADD = bitArray[2];
+			downedDirtball = bitArray[3];
 		}
         public override void PostUpdateNPCs() {
             if (NPC.downedBoss3 && !carnallItemessage) {

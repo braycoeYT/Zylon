@@ -11,7 +11,7 @@ namespace Zylon.Items.Minions
 	public class SpazmaticScythe : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons five spazscythes to rotate around you\nSpazscythes do not take up any minion slots\nSpazscythes dissipate after 5 hits\nSpazscythes cannot be resummoned until all of them are dissipated\nWeapons Master reward");
+			Tooltip.SetDefault("Summons five spazscythes to rotate around you\nSpazscythes do not take up any minion slots\nSpazscythes dissipate after 5 hits\nSpazscythes cannot be resummoned until all of them are dissipated\nWeapons Master reward (Spazmatism)");
 		}
 		public override void SetDefaults() {
 			Item.damage = 63;

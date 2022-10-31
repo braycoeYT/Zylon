@@ -10,7 +10,7 @@ namespace Zylon.Items.Wands
 	public class SpareLeg : ModItem
 	{
         public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons a big bone from above that unleashes a torrent of bones\nWeapons Master reward");
+			Tooltip.SetDefault("Summons a big bone from above that unleashes a torrent of bones\nWeapons Master reward (Skeletron)");
             Item.staff[Item.type] = true;
         }
         public override void SetDefaults() {

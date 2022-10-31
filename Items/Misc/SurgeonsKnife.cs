@@ -11,7 +11,7 @@ namespace Zylon.Items.Misc
 	{
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Surgeon's Knife");
-			Tooltip.SetDefault("'110% surgery approved, though not approved for culinary use'\nBounces four times before dissipating\nWeapons master reward");
+			Tooltip.SetDefault("'110% surgery approved, though not approved for culinary use'\nBounces four times before dissipating\nWeapons master reward (Brain of Cthulhu)");
         }
         public override void SetDefaults()
         {
