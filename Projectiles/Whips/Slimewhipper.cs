@@ -40,11 +40,7 @@ namespace Zylon.Projectiles.Whips
 			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
 			Projectile.Center = Main.GetPlayerArmPosition(Projectile) + Projectile.velocity * Timer;
 			Projectile.spriteDirection = Projectile.velocity.X >= 0f ? 1 : -1;
-
-			//if (Charge(owner.channel)) { //keep if charge
-				Timer++; //keep this
-			//}
-
+			Timer++;
 			float swingTime = owner.itemAnimationMax * Projectile.MaxUpdates;
 
 			if (Timer >= swingTime || owner.itemAnimation <= 0) {
