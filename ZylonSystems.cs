@@ -420,12 +420,12 @@ namespace Zylon
         public override void PostAddRecipes() {
             for (int i = 0; i < Recipe.numRecipes; i++) {
 				Recipe recipe = Main.recipe[i];
-
 				if (recipe.HasResult(ItemID.TerraBlade))
 					recipe.AddIngredient(ModContent.ItemType<Items.Materials.ElementalGoop>(), 15);
-
 				if (recipe.HasResult(ItemID.GravediggerShovel))
 					recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 20);
+				if (recipe.HasResult(ItemID.Sandgun))
+					recipe.AddIngredient(ModContent.ItemType<Items.Materials.RustedTech>(), 15);
 			}
         }
     }

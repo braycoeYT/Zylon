@@ -37,9 +37,14 @@ namespace Zylon.Items.Bags
 			itemLoot.Add(ItemDropRule.Common(ItemType<Accessories.EnchantedDirtClump>(), 1));
 			itemLoot.Add(new CommonDrop(ItemID.DirtBlock, 1, 30, 60));
 			itemLoot.Add(new CommonDrop(ItemID.MudBlock, 1, 20, 40));
+			itemLoot.Add(new CommonDrop(ItemID.IronBar, 1, 1, 4));
+			itemLoot.Add(new CommonDrop(ItemID.LeadBar, 1, 1, 4));
+			itemLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bars.ZincBar>(), 1, 1, 4));
 			itemLoot.Add(new CommonDrop(ItemID.DirtRod, 4));
+			itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.MuddyGreatsword>(), ModContent.ItemType<Items.Yoyos.Dirtglob>(), ModContent.ItemType<Items.Bows.Dirty3String>(), ModContent.ItemType<Items.Blowpipes.DirtFunnel>(), ModContent.ItemType<Items.Wands.ScepterofDirt>(), ModContent.ItemType<Items.Accessories.DirtRegalia>()));
 			itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()));
 			itemLoot.Add(new CommonDrop(ItemType<Vanity.DirtballMask>(), 7));
+			itemLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.CreepyBlob>(), 8));
 		}
 		public override Color? GetAlpha(Color lightColor) {
 			return Color.Lerp(lightColor, Color.White, 0.4f);

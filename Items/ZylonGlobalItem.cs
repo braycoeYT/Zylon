@@ -70,6 +70,13 @@ namespace Zylon.Items
 				if (item.type == ItemID.Flare || item.type == ItemID.BlueFlare)
 					item.damage = 7;
 			}
+			if (!GetInstance<ZylonConfig>().dirtAmmoFix) {
+				if (item.type == ItemID.DirtBlock) {
+					item.consumable = true;
+					item.ammo = ItemType<Misc.Dirtthrower>();
+					item.notAmmo = false;
+                }
+            }
 		}
         /* public override void UpdateInventory(Item item, Player player) {
              if (item.type == ItemID.Minishark) {
