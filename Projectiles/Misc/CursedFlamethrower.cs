@@ -28,7 +28,7 @@ namespace Zylon.Projectiles.Misc
 		}
         public override void PostAI() {
             for (int i = 0; i < 4; i++) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 75);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.CursedTorch);
 				dust.noGravity = true;
 				dust.scale = 3f;
 			}

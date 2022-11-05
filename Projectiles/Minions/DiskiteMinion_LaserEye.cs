@@ -25,16 +25,7 @@ namespace Zylon.Projectiles.Minions
 			Projectile.friendly = true;
 			Projectile.penetrate = -1;
 		}
-		Vector2 target;
-		float degrees;
-		float targetRot;
-		float degTemp;
-		float targTemp;
-		float count1;
-		float count2;
-		float degSpeed;
-		bool whatDir;
-		Player owner;
+		
 		public override void AI() {
 			Projectile main = Main.projectile[(int)Projectile.ai[0]];
 			Projectile.timeLeft = 60;

@@ -4,7 +4,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Zylon.Items.Wands
+namespace Zylon.Items.Stone
 {
 	public class StoneStaff : ModItem
 	{
@@ -21,11 +21,11 @@ namespace Zylon.Items.Wands
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3f;
 			Item.value = 200;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = true;
 			Item.useTurn = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.StoneBall>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.Stone.StoneBall>();
 			Item.shootSpeed = 12.75f;
 			Item.mana = 5;
 		}

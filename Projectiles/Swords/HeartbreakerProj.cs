@@ -30,7 +30,7 @@ namespace Zylon.Projectiles.Swords
 		}
 		public override void PostAI() {
 			if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 12);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.HeartCrystal);
 				dust.noGravity = true;
 				dust.scale = 1f;
 			}
@@ -39,7 +39,7 @@ namespace Zylon.Projectiles.Swords
 			SoundEngine.PlaySound(SoundID.Shatter, Projectile.Center);
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 0; i < 4; i++) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 12);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.HeartCrystal);
 				dust.noGravity = true;
 				dust.scale = 1f;
 			}

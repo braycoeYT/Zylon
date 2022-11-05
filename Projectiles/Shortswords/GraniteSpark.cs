@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Zylon.Projectiles.Shortswords
@@ -18,14 +19,14 @@ namespace Zylon.Projectiles.Shortswords
         public override void AI() {
 			if (Main.GameUpdateCount % 5 == 0) Projectile.velocity.Y += 1;
             for (int i = 0; i < 2; i++) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 226);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Electric);
 				dust.noGravity = true;
 				dust.scale = 1f;
 			}
         }
         public override void Kill(int timeLeft) {
 			for (int i = 0; i < 4; i++) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 226);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Electric);
 				dust.noGravity = true;
 				dust.scale = 1f;
 			}
