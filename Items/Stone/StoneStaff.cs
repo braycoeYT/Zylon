@@ -24,7 +24,6 @@ namespace Zylon.Items.Stone
 			Item.rare = ItemRarityID.White;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = true;
-			Item.useTurn = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Stone.StoneBall>();
 			Item.shootSpeed = 12.75f;
 			Item.mana = 5;
