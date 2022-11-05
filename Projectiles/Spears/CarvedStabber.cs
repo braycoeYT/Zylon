@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Zylon.Projectiles.Spears
@@ -61,7 +62,7 @@ namespace Zylon.Projectiles.Spears
 		}
 		public override void PostAI() {
 			if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 7);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.WoodFurniture);
 				dust.noGravity = true;
 				dust.scale = 1f;
 			}

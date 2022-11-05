@@ -55,7 +55,7 @@ namespace Zylon.Projectiles.Yoyos
 		}
 		public override void PostAI() {
 			if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 116);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Skyware);
 				dust.noGravity = true;
 				dust.scale = 1f;
 			}
