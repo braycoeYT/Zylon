@@ -14,7 +14,7 @@ namespace Zylon.Items.Spears
 			Item.width = 60;
 			Item.height = 60;
 			Item.damage = 39;
-			Item.useStyle = ItemUseStyleID.Shoot;
+			Item.useStyle = 5;
 			Item.useAnimation = 31;
 			Item.useTime = 31;
 			Item.knockBack = 6f;

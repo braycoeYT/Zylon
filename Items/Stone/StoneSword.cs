@@ -8,9 +8,7 @@ namespace Zylon.Items.Stone
 {
 	public class StoneSword : ModItem
 	{
-
 		bool SwingSide = false;
-
 		public override void SetDefaults()
 		{
 			Item.damage = 8;
@@ -30,23 +28,22 @@ namespace Zylon.Items.Stone
 			Item.noUseGraphic = true;
 			Item.noMelee = true;
 		}
-
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-        {
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+		{
 			if (SwingSide == true)
-            {
+			{
 				Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<Projectiles.Stone.StoneSwordProj>(), damage, knockback, player.whoAmI, 0, 0);
-			} else
-            {
+			}
+			else
+			{
 				Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<Projectiles.Stone.StoneSwordProj>(), damage, knockback, player.whoAmI, 0, 1);
 			}
 
 			SwingSide = !SwingSide;
 
 			return false;
-        }
-
-        public override void AddRecipes()
+		}
+		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.StoneBlock, 12);

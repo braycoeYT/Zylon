@@ -1,3 +1,5 @@
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,25 +11,33 @@ namespace Zylon.Items.Misc
 	{
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Surgeon's Knife");
-			Tooltip.SetDefault("'110% surgery approved, though not approved for culinary use'\nBounces four times before dissipating");
+			Tooltip.SetDefault("'110% surgery approved, though not approved for culinary use'\nBounces four times before dissipating\nWeapons master reward (Brain of Cthulhu)");
         }
-        public override void SetDefaults() {
-			Item.width = 20;
-			Item.height = 42;
-			Item.damage = 17;
-			Item.useStyle = ItemUseStyleID.Swing;
-			Item.useAnimation = 12;
-			Item.useTime = 12;
-			Item.knockBack = 3.1f;
-			Item.rare = ItemRarityID.Blue;
-			Item.value = Item.sellPrice(0, 2);
-			Item.DamageType = DamageClass.Ranged;
-			Item.noMelee = true;
-			Item.noUseGraphic = true;
-			Item.autoReuse = true;
-			Item.UseSound = SoundID.Item1;
-			Item.shoot = ProjectileType<Projectiles.Misc.SurgeonsKnife>();
-			Item.shootSpeed = 12f;
-		}
-	}
+        public override void SetDefaults()
+        {
+            Item.width = 20;
+            Item.height = 42;
+            Item.damage = 17;
+            Item.useStyle = ItemUseStyleID.Swing;
+            Item.useAnimation = 12;
+            Item.useTime = 12;
+            Item.knockBack = 3.1f;
+            Item.rare = ItemRarityID.Blue;
+            Item.value = Item.sellPrice(0, 2);
+            Item.DamageType = DamageClass.Ranged;
+            Item.noMelee = true;
+            Item.noUseGraphic = true;
+            Item.autoReuse = true;
+            Item.UseSound = SoundID.Item1;
+            Item.shoot = ProjectileType<Projectiles.Misc.SurgeonsKnife>();
+            Item.shootSpeed = 12f;
+        }
+        public override void ModifyTooltips(List<TooltipLine> list) {
+            foreach (TooltipLine tooltipLine in list) {
+                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName") {
+                    tooltipLine.OverrideColor = new Color(100, 60, 0);
+                }
+            }
+        }
+    }
 }

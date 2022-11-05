@@ -3,28 +3,26 @@ The best mod that starts with Z (I guarantee or your money back)! Zylon is a sma
 THIS MOD IS IN SEVERE NEED OF SPRITERS. If you are a fan of the mod and want to sprite, feel free to join the discord server!
 
 Stats:
-~270 Items
-~2 Bosses: (0 worm bosses! I'm not THAT lazy!)
-~~~2 Prehardmode Bosses
+~295 Items
+~3 Bosses: (0 worm bosses! I'm not THAT lazy!)
+~~~3 Prehardmode Bosses
 ~~~An unobtainable joke boss (best boss ever made)
-~42 total NPCs
+~46 total NPCs
 ~1 Town NPC
-~36 Buffs
-~10 Tiles
+~39 Buffs
+~11 Tiles
 ~A complete reworking and expansion of blowpipes!
 ~Many new vanilla recipes and changes to help balance the game out (including an easier Slime Crown recipe).
 ~Several new prefixes!
 
-V0.0.1.1: Update
-~Modified Stone Staff.
-~Added workshop icon (at least I hope).
-~Zylon whips now lose a percentage of damage after each hit, like in vanilla.
-~Fixed Sharpened Fang rarity.
-~Changed Lead Balloon recipe and increased its defense.
-~Added Windy Whip.
-~Various internal optimizations.
-~Decreased Magic Mirror recipe's Recall Potion requirement.
-~Fixed Journey Starter and Midpoint's cyan bolts dealing wayyy too much damage!
+V0.0.1.4: Update
+~Dirtball now drops Iron, Lead, and Zinc bars.
+~Ported the remaining Dirtball weapons, and also ported Dirtboi pet item... HOW COULD I FORGET?! I'm a monster.
+~Updated credits.
+~Added the Dirtthrower! Now you can spray dirt blocks to your heart's content!
+~Sandgun is now post-ADD. Take that, nonexistant problematic no-hitters who use overpowered weapons!
+~Added Ore Tour.
+~Fixed Sparkly Slimecaster recipe because I am a mega genius.
 
 Q&A:
 
@@ -54,10 +52,13 @@ Mjoon
 Slimelad
 Pufferfisher77
 HBDeus
-Funk.It
+
+Quit:
 CrazySapling1
 Koolaidlemonade
 ULTIMATEDQVID
+Anonymous Coder
+Funk.It
 
 Minor Help:
 Jabon

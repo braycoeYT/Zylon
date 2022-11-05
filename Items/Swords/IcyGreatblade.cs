@@ -47,7 +47,7 @@ namespace Zylon.Items.Swords
 		}
         public override void PostUpdate() {
 			if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Item.position, Item.width, Item.height, DustID.Ice);
+				Dust dust = Dust.NewDustDirect(Item.position, Item.width, Item.height, 80);
 				dust.noGravity = true;
 				dust.scale = 1.5f;
 			}

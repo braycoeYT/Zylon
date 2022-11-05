@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.Localization;
 using Terraria.Chat;
+using Terraria.ID;
 
 namespace Zylon.Projectiles
 {
@@ -34,7 +35,7 @@ namespace Zylon.Projectiles
 			if (Timer >= 360 && Timer % 5 == 0)
 				Projectile.velocity.Y -= 1;
 			if (Timer == 480) {
-				if (Main.netMode == 2) {
+				if (Main.netMode == NetmodeID.Server) {
 				    ChatHelper.BroadcastChatMessage(NetworkText.FromLiteral("Slimes around the world begin to fuse!"), new Color(18, 222, 123));
 				}
 				else {

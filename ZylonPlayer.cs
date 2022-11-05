@@ -28,6 +28,9 @@ namespace Zylon
 		public bool slimePendant;
 		public bool glazedLens;
 		public bool deadlyToxins;
+		public bool trueMelee10;
+		public bool dirtballExpert;
+		public bool dirtRegalia;
 
 		public int blowpipeMaxInc;
 		public float blowpipeChargeInc;
@@ -57,6 +60,9 @@ namespace Zylon
 			slimePendant = false;
 			glazedLens = false;
 			deadlyToxins = false;
+			trueMelee10 = false;
+			dirtballExpert = false;
+			dirtRegalia = false;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeDamage = 0;
@@ -122,11 +128,18 @@ namespace Zylon
 				Player.npcTypeNoAggro[NPCType<NPCs.Snow.RoastedLivingMarshmallow>()] = true;
             }
         }
-		public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit) {	
-			if (trueMelee15) damage += (int)(damage * .15f);
+		float trueMeleeBoost;
+		public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit) {
+			trueMeleeBoost = 1f;
+			if (trueMelee10) trueMeleeBoost += 0.1f;
+			if (trueMelee15) trueMeleeBoost += 0.15f;
+			damage += (int)(damage * trueMeleeBoost);
 		}
         public override void ModifyHitPvp(Item item, Player target, ref int damage, ref bool crit) {
-            if (trueMelee15) damage += (int)(damage * .15f);
+            trueMeleeBoost = 1f;
+			if (trueMelee10) trueMeleeBoost += 0.1f;
+			if (trueMelee15) trueMeleeBoost += 0.15f;
+			damage += (int)(damage * trueMeleeBoost);
         }
         public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit) {
             if (bloodVial && Main.rand.NextFloat() < .08f && target.type != NPCID.TargetDummy) {

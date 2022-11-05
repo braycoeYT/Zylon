@@ -17,6 +17,9 @@ namespace Zylon.Projectiles.Whips
 			Projectile.DamageType = DamageClass.MeleeNoSpeed;
 			AIType = ProjectileID.Bullet;
 		}
+        public override void PostAI() {
+            Projectile.spriteDirection = Projectile.direction;
+        }
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}

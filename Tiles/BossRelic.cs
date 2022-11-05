@@ -17,18 +17,16 @@ namespace Zylon.Tiles
 		public const int FrameWidth = 18 * 3;
 		public const int FrameHeight = 18 * 4;
 		public const int HorizontalFrames = 1;
-		public const int VerticalFrames = 2;
+		public const int VerticalFrames = 3;
 		public Asset<Texture2D> RelicTexture;
 		public virtual string RelicTextureName => "Zylon/Tiles/BossRelic";
 		public override string Texture => "Zylon/Tiles/RelicPedestal";
 		public override void Load() {
 			if (!Main.dedServ) {
-				// Cache the extra texture displayed on the pedestal
 				RelicTexture = ModContent.Request<Texture2D>(RelicTextureName);
 			}
 		}
 		public override void Unload() {
-			// Unload the extra texture displayed on the pedestal
 			RelicTexture = null;
 		}
 		public override void SetStaticDefaults() {
@@ -42,7 +40,6 @@ namespace Zylon.Tiles
 			TileObjectData.newTile.Direction = TileObjectDirection.PlaceLeft;
 			TileObjectData.newTile.StyleHorizontal = false;
 
-			// Optional: If you decide to make your tile utilize different styles through Item.placeStyle, you need these, aswell as the code in SetDrawPositions
 			TileObjectData.newTile.StyleWrapLimitVisualOverride = 2;
 			TileObjectData.newTile.StyleMultiplier = 2;
 			TileObjectData.newTile.StyleWrapLimit = 2;
@@ -64,6 +61,9 @@ namespace Zylon.Tiles
 					break;
 				case 1:
 					itemType = ModContent.ItemType<Items.Placeables.Relics.JellyRelic>();
+					break;
+				case 2:
+					itemType = ModContent.ItemType<Items.Placeables.Relics.DirtballRelic>();
 					break;
 			}
 			if (itemType > 0) {

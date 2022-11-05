@@ -36,7 +36,7 @@ namespace Zylon.Items.Wands
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<SparklySlimecaster>());
+			recipe.AddIngredient(ModContent.ItemType<Slimecaster>());
 			recipe.AddIngredient(ItemID.GelBalloon, 30);
 			recipe.AddIngredient(ItemID.SoulofLight, 3);
 			recipe.AddTile(TileID.MythrilAnvil);

@@ -27,10 +27,10 @@ namespace Zylon.Items.Swords
 			Item.useTurn = true;
 		}
         public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
-			Projectile.NewProjectile(player.GetSource_OnHit(target), target.Center, new Vector2(0, -10).RotatedByRandom(MathHelper.ToRadians(360)), ModContent.ProjectileType<Projectiles.Swords.BloodOrb>(), Item.damage, Item.knockBack / 2, Main.myPlayer);
+			Projectile.NewProjectile(new EntitySource_TileBreak((int)target.position.X, (int)target.position.Y), target.Center, new Vector2(0, -10).RotatedByRandom(MathHelper.ToRadians(360)), ModContent.ProjectileType<Projectiles.Swords.BloodOrb>(), Item.damage, Item.knockBack / 2, Main.myPlayer);
         }
         public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
-			Projectile.NewProjectile(player.GetSource_OnHit(target), target.Center, new Vector2(0, -10).RotatedByRandom(MathHelper.ToRadians(360)), ModContent.ProjectileType<Projectiles.Swords.BloodOrb>(), Item.damage, Item.knockBack / 2, Main.myPlayer);
+			Projectile.NewProjectile(new EntitySource_TileBreak((int)target.position.X, (int)target.position.Y), target.Center, new Vector2(0, -10).RotatedByRandom(MathHelper.ToRadians(360)), ModContent.ProjectileType<Projectiles.Swords.BloodOrb>(), Item.damage, Item.knockBack / 2, Main.myPlayer);
 		}
 		public override void AddRecipes() { //finish
 			Recipe recipe = CreateRecipe();

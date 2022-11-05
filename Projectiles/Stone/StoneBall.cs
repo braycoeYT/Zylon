@@ -17,7 +17,6 @@ namespace Zylon.Projectiles.Stone
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
         }
-
         public override void SetDefaults()
         {
             Projectile.width = 32;
@@ -32,9 +31,6 @@ namespace Zylon.Projectiles.Stone
             Projectile.tileCollide = true;
             Projectile.usesLocalNPCImmunity = true;
         }
-
-
-
         private readonly float GravityWait = 16f;
         public override void AI()
         {
@@ -42,7 +38,8 @@ namespace Zylon.Projectiles.Stone
             if (Projectile.velocity.Length() >= 6f)
             {
                 Projectile.rotation += 0.1f;
-            } else
+            }
+            else
             {
                 Projectile.rotation += (Projectile.velocity.Length() / 90f);
             }
@@ -53,12 +50,12 @@ namespace Zylon.Projectiles.Stone
                     Projectile.velocity.Y += 0.55f;
                 if (Projectile.velocity.Y >= 16f)
                     Projectile.velocity.Y = 16f;
-            } else
+            }
+            else
             {
                 Projectile.velocity.Y += 0.07f;
             }
         }
-
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
             Projectile.ai[1]++;
@@ -85,7 +82,8 @@ namespace Zylon.Projectiles.Stone
             if (oldVelocity.Length() <= 0.25f)
             {
                 Projectile.friendly = false;
-            } else
+            }
+            else
             {
                 Projectile.friendly = true;
             }
@@ -106,7 +104,6 @@ namespace Zylon.Projectiles.Stone
             Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
             SoundEngine.PlaySound(SoundID.Item127, Projectile.position);
         }
-
         public override bool PreDraw(ref Color lightColor)
         {
             Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;
@@ -120,7 +117,7 @@ namespace Zylon.Projectiles.Stone
             {
                 Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
                 Color colorAfterEffect = new Color(190, 190, 255) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.5f;
-                float AfterAffectScale = ((Projectile.scale - k / (float)Projectile.oldPos.Length / 3) * (k/8f)) + Projectile.scale;
+                float AfterAffectScale = ((Projectile.scale - k / (float)Projectile.oldPos.Length / 3) * (k / 8f)) + Projectile.scale;
                 Main.spriteBatch.Draw(projectileTexture, drawPosEffect, null, colorAfterEffect, Projectile.rotation, drawOrigin, AfterAffectScale, SpriteEffects.None, 0);
                 Main.spriteBatch.Draw(overlay, drawPosEffect, null, colorAfterEffect * (1f - (Projectile.ai[0] / (GravityWait * 1.5f))), Projectile.rotation, drawOrigin, AfterAffectScale, SpriteEffects.None, 0);
             }

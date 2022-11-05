@@ -51,7 +51,7 @@ namespace Zylon.Projectiles.Whips
 				Projectile.Kill();
 				return;
 			}
-			if (Timer % 25 == 0) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity*2f, ModContent.ProjectileType<WindGust>(), (int)(Projectile.damage*0.5f), Projectile.knockBack/2, Main.myPlayer);
+			if (Timer % 15 == 0) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity*2f, ModContent.ProjectileType<WindGust>(), (int)(Projectile.damage*0.5f), Projectile.knockBack/2, Main.myPlayer);
 
 			owner.heldProj = Projectile.whoAmI;
 			owner.itemAnimation = owner.itemAnimationMax - (int)(Timer / Projectile.MaxUpdates);

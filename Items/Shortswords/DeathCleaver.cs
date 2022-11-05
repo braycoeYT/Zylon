@@ -22,7 +22,7 @@ namespace Zylon.Items.Shortswords
 			Item.useStyle = ItemUseStyleID.Rapier;
 			Item.knockBack = 3.4f;
 			Item.value = Item.sellPrice(0, 1);
-			Item.rare = ItemRarityID.Blue;
+			Item.rare = 1;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 			Item.useTurn = false;
@@ -40,7 +40,7 @@ namespace Zylon.Items.Shortswords
 				legacy = !legacy;
 				SoundEngine.PlaySound(SoundID.MaxMana, player.position);
 				if (legacy) {
-					Item.shoot = ProjectileID.None;
+					Item.shoot = 0;
 					Item.damage = 31;
 					Item.useTime = 19;
 					Item.useAnimation = 19;

@@ -23,5 +23,9 @@ namespace Zylon
 		[Label("Band Buffs")]
 		[Tooltip("Bands (such as the Band of Regeneration) now buff certain potions.")]
 		public bool bandBuffs;
+
+		[Label("Dirt Ammo Compatibility Fixer")]
+		[Tooltip("Keep this disabled unless a mod uses dirt blocks as ammo and is having major issues. Enabling this will disable the Dirtthrower.")]
+		public bool dirtAmmoFix;
 	}
 }

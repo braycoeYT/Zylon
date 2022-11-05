@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -17,7 +16,6 @@ namespace Zylon.Projectiles.Stone
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
         }
-
         public override void SetDefaults()
         {
             Projectile.width = 14;
@@ -30,9 +28,6 @@ namespace Zylon.Projectiles.Stone
             Projectile.ignoreWater = false;
             Projectile.tileCollide = true;
         }
-
-
-
         readonly float GravityWait = 16f;
         public override void AI()
         {
@@ -64,8 +59,6 @@ namespace Zylon.Projectiles.Stone
             Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
             SoundEngine.PlaySound(SoundID.Item127, Projectile.position);
         }
-
-
         public override bool PreDraw(ref Color lightColor)
         {
             SpriteEffects spriteEffects = SpriteEffects.None;
@@ -83,7 +76,7 @@ namespace Zylon.Projectiles.Stone
             {
                 Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
                 Color colorAfterEffect = color * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.5f;
-                float AfterAffectScale = ((Projectile.scale - k / (float)Projectile.oldPos.Length / 3) * (k/8f)) + Projectile.scale;
+                float AfterAffectScale = ((Projectile.scale - k / (float)Projectile.oldPos.Length / 3) * (k / 8f)) + Projectile.scale;
                 Main.spriteBatch.Draw(projectileTexture, drawPosEffect, null, colorAfterEffect, Projectile.rotation, drawOrigin, AfterAffectScale, spriteEffects, 0);
                 Main.spriteBatch.Draw(overlay, drawPosEffect, null, colorAfterEffect * (1f - (Projectile.ai[0] / (GravityWait * 1.5f))), Projectile.rotation, drawOrigin, AfterAffectScale, spriteEffects, 0);
             }

@@ -22,6 +22,7 @@ namespace Zylon.Items.Whips
 			Item.useTime = 30;
 			Item.useAnimation = 30;
 			Item.UseSound = SoundID.Item152;
+			Item.channel = true;
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
 			Item.autoReuse = true;

@@ -94,7 +94,9 @@ namespace Zylon.NPCs.TownNPCs
 				"Au Ron",
 				"Gigamax",
 				"Seth I. Roth",
-				"Zak"
+				"Zak",
+				"Ruki",
+				"Hero"
 			};
 		}
 		public override void FindFrame(int frameHeight) {
@@ -131,7 +133,13 @@ namespace Zylon.NPCs.TownNPCs
 		public override void OnChatButtonClicked(bool firstButton, ref bool shop) {
 			if (firstButton) {
 				Main.npcChatText = $"It's dangerous to go alone, take this gift of my gratitude.";
-				if (Main.LocalPlayer.HasItem(ItemID.KingSlimeTrophy)) {
+				if (Main.LocalPlayer.HasItem(ModContent.ItemType<Items.Placeables.Trophies.DirtballTrophy>())) {
+					int wantedItemIndex = Main.LocalPlayer.FindItem(ModContent.ItemType<Items.Placeables.Trophies.DirtballTrophy>());
+					var entitySource = NPC.GetSource_GiftOrReward();
+					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
+					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Misc.Dirtthrower>());
+				}
+				else if (Main.LocalPlayer.HasItem(ItemID.KingSlimeTrophy)) {
 					int wantedItemIndex = Main.LocalPlayer.FindItem(ItemID.KingSlimeTrophy);
 					var entitySource = NPC.GetSource_GiftOrReward();
 					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
@@ -166,6 +174,12 @@ namespace Zylon.NPCs.TownNPCs
 					var entitySource = NPC.GetSource_GiftOrReward();
 					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
 					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Wands.SpareLeg>());
+				}
+				else if (Main.LocalPlayer.HasItem(ItemID.SpazmatismTrophy)) {
+					int wantedItemIndex = Main.LocalPlayer.FindItem(ItemID.SpazmatismTrophy);
+					var entitySource = NPC.GetSource_GiftOrReward();
+					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
+					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Minions.SpazmaticScythe>());
 				}
 				else Main.npcChatText = $"I'm afraid you don't have any trophies with you, son!";
 			}

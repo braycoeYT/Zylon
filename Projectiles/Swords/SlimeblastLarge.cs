@@ -43,7 +43,7 @@ namespace Zylon.Projectiles.Swords
 		}
 		public override void PostAI() {
 			if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 80);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Ice);
 				dust.noGravity = true;
 				dust.scale = 1f;
 			}
