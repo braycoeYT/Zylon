@@ -21,7 +21,7 @@ namespace Zylon.Items.Stone
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3f;
 			Item.value = 200;
-			Item.rare = 0;
+			Item.rare = ItemRarityID.White;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = true;
 			Item.useTurn = true;
