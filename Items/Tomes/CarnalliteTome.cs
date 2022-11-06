@@ -23,8 +23,8 @@ namespace Zylon.Items.Tomes
 			Item.width = 44;
 			Item.height = 42;
 			Item.DamageType = DamageClass.Magic;
-			Item.useTime = 35;
-			Item.useAnimation = 35;
+			Item.useTime = 15;
+			Item.useAnimation = 15;
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3.6f;
 			Item.value = Item.sellPrice(0, 0, 56, 0);
@@ -53,7 +53,10 @@ namespace Zylon.Items.Tomes
 				Item.mana = 0;
 				Item.useStyle = ItemUseStyleID.HiddenAnimation;
 				Item.noUseGraphic = true;
-				if (ModContent.GetInstance<CarnalliteUISystem>().VisualActive == false)
+				Item.useTime = 3;
+				Item.useAnimation = 3;
+				// The code right below this technically allows for slight animation canacels, but I value the viability over anything else.
+				if (ModContent.GetInstance<CarnalliteUISystem>().VisualActive == false || (ModContent.GetInstance<CarnalliteUISystem>().TimeActive/17f) > 1)
                 {
 					return true;
 				}
@@ -64,6 +67,8 @@ namespace Zylon.Items.Tomes
 				Item.mana = 56;
 				Item.useStyle = ItemUseStyleID.Shoot;
 				Item.noUseGraphic = false;
+				Item.useTime = 15;
+				Item.useAnimation = 15;
 				// For the love of christ i hate this code but I have no idea how to fix it.
 				for (int i = 0; i < player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Tomes.Carnallite.DefenseSeed>()]; i++)
 				{
