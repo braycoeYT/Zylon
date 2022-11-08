@@ -20,10 +20,9 @@ namespace Zylon.Items.Wands
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 1f;
 			Item.value = Item.sellPrice(0, 1);
-			Item.rare = 1;
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = true;
-			Item.useTurn = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Wands.ManaSiphonBolt>();
 			Item.shootSpeed = 11f;
 		}
