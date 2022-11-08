@@ -61,14 +61,6 @@ namespace Zylon.NPCs.Bosses.ADD
         }
 		NPC main;
 		int Timer;
-		float degrees;
-		float targetRot;
-		float degTemp;
-		float targTemp;
-		float count1;
-		float count2;
-		float degSpeed;
-		bool whatDir;
 		Vector2 target;
         public override void AI() {
 			Timer++;

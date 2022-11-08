@@ -107,17 +107,17 @@ namespace Zylon.NPCs
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Materials.WindEssence>(), 3), new CommonDrop(ItemType<Items.Materials.WindEssence>(), 2)));
 			if ((npc.type == 2) || (npc.type >= -43 && npc.type <= -38) || (npc.type >= 190 && npc.type <= 194) || (npc.type == 317) || (npc.type == 318))
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.GlazedLens>(), 100), new CommonDrop(ItemType<Items.Accessories.GlazedLens>(), 90)));
+			if (npc.type == NPCID.UndeadMiner || npc.type == NPCID.GiantWormHead)
+				npcLoot.Add(new CommonDrop(ItemType<Items.Accessories.ExtraShinyOreNugget>(), 30));
+			if (npc.type == NPCID.CaveBat || npc.type == NPCID.BlackSlime)
+				npcLoot.Add(new CommonDrop(ItemType<Items.Accessories.ExtraShinyOreNugget>(), 250));
+			if (npc.type == NPCID.WindyBalloon || npc.type == NPCID.Dandelion)
+				npcLoot.Add(new CommonDrop(ItemType<Items.Food.CottonCandy>(), 100));
 		}
         public override void ModifyGlobalLoot(GlobalLoot globalLoot) {
             //globalLoot.Add(ItemDropRule.ByCondition(new Conditions.WindyEnoughForKiteDrops(), ItemType<Items.Materials.WindEssence>(), 5));
 			globalLoot.Add(ItemDropRule.ByCondition(new Conditions.IsBloodMoonAndNotFromStatue(), ItemType<Items.Materials.BloodDroplet>(), 6));
 		}
-        /*public override void NPCLoot (NPC npc) {
-			if (npc.type == NPCID.Golem) {
-				if (Main.rand.NextFloat() < .2f)
-					Item.NewItem(npc.getRect(), ModContent.ItemType<Items.LihzahrdLance>());
-			}
-		}*/
         public override void SetupShop(int type, Chest shop, ref int nextSlot) {
             if (type == NPCID.Dryad) {
 				shop.item[nextSlot].SetDefaults(ItemID.Seed);

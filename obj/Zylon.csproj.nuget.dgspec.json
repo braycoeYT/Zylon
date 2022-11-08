@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\horns\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Zylon\\Zylon.csproj": {}
+    "C:\\Users\\Brayc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Zylon\\Zylon.csproj": {}
   },
   "projects": {
-    "C:\\Users\\horns\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Zylon\\Zylon.csproj": {
+    "C:\\Users\\Brayc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Zylon\\Zylon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\horns\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Zylon\\Zylon.csproj",
+        "projectUniqueName": "C:\\Users\\Brayc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Zylon\\Zylon.csproj",
         "projectName": "Zylon",
-        "projectPath": "C:\\Users\\horns\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Zylon\\Zylon.csproj",
-        "packagesPath": "C:\\Users\\horns\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\horns\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Zylon\\obj\\",
+        "projectPath": "C:\\Users\\Brayc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Zylon\\Zylon.csproj",
+        "packagesPath": "C:\\Users\\Brayc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Brayc\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\Zylon\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\horns\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Brayc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Items",
+    "\\Items\\Accessories",
+    "\\NPCs",
+    "\\Projectiles",
+    "\\Projectiles\\Bosses",
+    "\\Projectiles\\Bosses\\ADD"
   ],
+  "SelectedNode": "\\NPCs\\ZylonGlobalNPC.cs",
   "PreviewInSolutionExplorer": false
 }
