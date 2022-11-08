@@ -86,6 +86,9 @@ namespace Zylon.Tiles.Banners
 				case 17:
 					item = ModContent.ItemType<BigDripBanner>();
 					break;
+				case 18:
+					item = ModContent.ItemType<ElemSlimeBanner>();
+					break;
 				default:
 					return;
 			}
@@ -150,6 +153,9 @@ namespace Zylon.Tiles.Banners
 						break;
 					case 17:
 						npcType = ModContent.NPCType<NPCs.BloodMoon.BigDrip>();
+						break;
+					case 18:
+						npcType = ModContent.NPCType<NPCs.ElemSlime>();
 						break;
 					default:
 						return;

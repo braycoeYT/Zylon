@@ -3,26 +3,24 @@ The best mod that starts with Z (I guarantee or your money back)! Zylon is a sma
 THIS MOD IS IN SEVERE NEED OF SPRITERS. If you are a fan of the mod and want to sprite, feel free to join the discord server!
 
 Stats:
-~295 Items
+~299 Items
 ~3 Bosses: (0 worm bosses! I'm not THAT lazy!)
 ~~~3 Prehardmode Bosses
 ~~~An unobtainable joke boss (best boss ever made)
-~46 total NPCs
+~47 total NPCs
 ~1 Town NPC
-~39 Buffs
+~40 Buffs
 ~11 Tiles
 ~A complete reworking and expansion of blowpipes!
 ~Many new vanilla recipes and changes to help balance the game out (including an easier Slime Crown recipe).
 ~Several new prefixes!
 
-V0.0.1.4: Update
-~Dirtball now drops Iron, Lead, and Zinc bars.
-~Ported the remaining Dirtball weapons, and also ported Dirtboi pet item... HOW COULD I FORGET?! I'm a monster.
-~Updated credits.
-~Added the Dirtthrower! Now you can spray dirt blocks to your heart's content!
-~Sandgun is now post-ADD. Take that, nonexistant problematic no-hitters who use overpowered weapons!
-~Added Ore Tour.
-~Fixed Sparkly Slimecaster recipe because I am a mega genius.
+V0.0.1.5: Update
+~Github shenanigans (sorry Tome Man).
+~Reworked Carnallite Tome (thanks Tome Man).
+~Added Extra Shiny Ore Nugget.
+~Added Elem Slime.
+~Added Galactic Brownie and Cotton Candy.
 
 Q&A:
 
@@ -46,12 +44,12 @@ Owner:
 BraycoeYT
 
 Ideas, Sprites, Music, and General Support:
-Skymanisbtman
-Tome Man
-Mjoon
-Slimelad
-Pufferfisher77
-HBDeus
+Skymanisbtman (Composer)
+Tome Man (Coder and Spriter)
+Mjoon (Spriter)
+Slimelad (General Support and Ideas)
+Pufferfisher77 (General Support and Ideas)
+HBDeus (Spriter and Composer)
 
 Quit:
 CrazySapling1

@@ -88,6 +88,7 @@ namespace Zylon.NPCs.WindyDay
 		}
 		public override void ModifyNPCLoot(NPCLoot NPCLoot) {
 			NPCLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ModContent.ItemType<Items.Materials.WindEssence>(), 3), new CommonDrop(ModContent.ItemType<Items.Materials.WindEssence>(), 2)));
+			NPCLoot.Add(new CommonDrop(ModContent.ItemType<Items.Food.CottonCandy>(), 100));
 		}
     }
 }
