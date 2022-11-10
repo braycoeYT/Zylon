@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using System;
 using static Terraria.ModLoader.ModContent;
 
 namespace Zylon
@@ -141,72 +142,103 @@ namespace Zylon
 			if (trueMelee15) trueMeleeBoost += 0.15f;
 			damage += (int)(damage * trueMeleeBoost);
         }
+
         public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit) {
-            if (bloodVial && Main.rand.NextFloat() < .08f && target.type != NPCID.TargetDummy) {
-				Player.statLife += 1;
-				Player.HealEffect(1, true);
-			}
-			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer);
-			if (diskbringerSet && target.type != NPCID.TargetDummy) {
-				if (Main.rand.NextBool(3)) Player.AddBuff(BuffType<Buffs.DiskiteOffense>(), 90);
-				else if (Main.rand.NextBool(2)) Player.AddBuff(BuffType<Buffs.DiskiteDefense>(), 90);
-				else Player.AddBuff(BuffType<Buffs.DiskiteAgility>(), 90);
-            }
-			if (glazedLens && crit && target.type != NPCID.TargetDummy) {
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
-            }
+			OnHitNPCGlobal(item, null, target, damage, knockback, crit, target.type == NPCID.TargetDummy, true);
 		}
+
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit) {
-            if (bloodVial && Main.rand.NextFloat() < .08f && target.type != NPCID.TargetDummy) {
-				Player.statLife += 1;
-				Player.HealEffect(1, true);
-			}
-			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer);
-			if (diskbringerSet && target.type != NPCID.TargetDummy) {
-				if (Main.rand.NextBool(3)) Player.AddBuff(BuffType<Buffs.DiskiteOffense>(), 60);
-				else if (Main.rand.NextBool(2)) Player.AddBuff(BuffType<Buffs.DiskiteDefense>(), 60);
-				else Player.AddBuff(BuffType<Buffs.DiskiteAgility>(), 60);
-            }
-			if (Player.HeldItem.type == ItemType<Items.Guns.GraveBuster>()) Player.AddBuff(BuffType<Buffs.GravelyPowers>(), 90);
-			if (glazedLens && crit && target.type != NPCID.TargetDummy) {
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, proj.CritChance);
-            }
+			OnHitNPCGlobal(null, proj, target, damage, knockback, crit, target.type == NPCID.TargetDummy, false);
 		}
+
         public override void OnHitPvp(Item item, Player target, int damage, bool crit) {
-            if (bloodVial && Main.rand.NextFloat() < .08f) {
-				Player.statLife += 1;
-				Player.HealEffect(1, true);
-			}
-			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
-			if (diskbringerSet) {
-				if (Main.rand.NextBool(3)) Player.AddBuff(BuffType<Buffs.DiskiteOffense>(), 90);
-				else if (Main.rand.NextBool(2)) Player.AddBuff(BuffType<Buffs.DiskiteDefense>(), 90);
-				else Player.AddBuff(BuffType<Buffs.DiskiteAgility>(), 90);
-            }
-			if (glazedLens && crit) {
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer);
-            }
+			OnHitPVPGlobal(item, null, target, damage, crit, true);
 		}
         public override void OnHitPvpWithProj(Projectile proj, Player target, int damage, bool crit) {
-            if (bloodVial && Main.rand.NextFloat() < .08f) {
-				Player.statLife += 1;
-				Player.HealEffect(1, true);
+			OnHitPVPGlobal(null, proj, target, damage, crit, false);
+		}
+
+		public void OnHitNPCGlobal(Item item, Projectile proj, NPC target, int damage, float knockback, bool crit, bool isDummy, bool TrueMelee)
+        {
+			if (!isDummy)
+            {
+				if (TrueMelee)
+                {
+					if (diskbringerSet)
+						DiskiteBuffs(90);
+
+					if (glazedLens && crit)
+						Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
+
+				} else {
+					// To encourage more true melee play, this only has a 75% chance of applying instead of 100
+					if (diskbringerSet)
+						DiskiteBuffs(60, 75);
+
+					if (glazedLens && crit)
+						Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, proj.CritChance);
+
+				}
+				if (bloodVial && Main.rand.NextFloat() < .08f)
+					Player.Heal(1);
+
 			}
 			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
 				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer);
-			if (diskbringerSet) {
-				if (Main.rand.NextBool(3)) Player.AddBuff(BuffType<Buffs.DiskiteOffense>(), 60);
-				else if (Main.rand.NextBool(2)) Player.AddBuff(BuffType<Buffs.DiskiteDefense>(), 60);
-				else Player.AddBuff(BuffType<Buffs.DiskiteAgility>(), 60);
-            }
-			if (Player.HeldItem.type == ItemType<Items.Guns.GraveBuster>()) Player.AddBuff(BuffType<Buffs.GravelyPowers>(), 90);
-			if (glazedLens && crit) {
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, proj.CritChance);
+
+		}
+
+		public void OnHitPVPGlobal(Item item, Projectile proj, Player target, int damage, bool crit, bool TrueMelee)
+		{
+			if (TrueMelee)
+			{
+				if (diskbringerSet)
+					DiskiteBuffs(90);
+
+				if (glazedLens && crit)
+					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
+
+			} else {
+				// To encourage more true melee play, this only has a 75% chance of applying instead of 100
+				if (diskbringerSet)
+					DiskiteBuffs(60, 75);
+
+				if (glazedLens && crit)
+					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, proj.CritChance);
+
+			}
+			if (bloodVial && Main.rand.NextFloat() < .08f)
+				Player.Heal(1);
+
+			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer);
+		}
+
+		public void DiskiteBuffs(int Bufftime)
+		{
+			switch (Main.rand.Next(3))
+            {
+				case 0:
+					Player.AddBuff(BuffType<Buffs.DiskiteOffense>(), Bufftime);
+					return;
+				case 1:
+					Player.AddBuff(BuffType<Buffs.DiskiteDefense>(), Bufftime);
+					return;
+				case 2:
+					Player.AddBuff(BuffType<Buffs.DiskiteAgility>(), Bufftime);
+					return;
             }
 		}
+		public void DiskiteBuffs(int Bufftime, int PercentChance)
+        {
+			if (Main.rand.Next(1, 100) <= PercentChance)
+            {
+				DiskiteBuffs(Bufftime);
+            }
+        }
+
+
+
         public override void OnHitByNPC(NPC npc, int damage, bool crit) {
             if ((npc.type == NPCType<NPCs.Bosses.ADD.ADD_SpikeRing>() || npc.type == NPCType<NPCs.Bosses.ADD.ADD_Center>()) && !Player.noKnockback) {
 				Vector2 vector1;

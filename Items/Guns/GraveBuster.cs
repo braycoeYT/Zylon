@@ -37,7 +37,7 @@ namespace Zylon.Items.Guns
         {
 			for (int i = 0; i < 4; i++)
             {
-				Projectile.NewProjectile(source, position, velocity.RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-12, 12))), type, (int)(damage * 0.58f), knockback, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(source, position, velocity.RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-12, 12))), ModContent.ProjectileType<Projectiles.Guns.SpiritBullet>(), (int)(damage * 0.58f), knockback, player.whoAmI, 0f, 0f);
 			}
 			Gore.NewGore(source, position, (-velocity * 0.23f) + new Vector2(0f, -4f), ModContent.GoreType<Gores.Effects.Specialized.GraveBusterBulletGore>());
 
