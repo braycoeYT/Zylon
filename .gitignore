@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/obj/Debug/net6.0
+/.vs/Zylon/FileContentIndex/merges
+/obj
