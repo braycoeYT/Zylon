@@ -108,7 +108,7 @@ namespace Zylon
 				if (Player.lifeRegen > 0)
 					Player.lifeRegen = 0;
 				Player.lifeRegenTime = 0;
-				Player.lifeRegen -= 32;
+				Player.lifeRegen -= 16;
 			}
 		}
         public override void UpdateEquips() {

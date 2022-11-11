@@ -19,6 +19,9 @@ namespace Zylon.Projectiles.Enemies
 			Projectile.timeLeft = 9999;
 			Projectile.frame = Main.rand.Next(2);
 		}
+		public override void OnHitPlayer(Player target, int damage, bool crit) {
+            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ElementalDegeneration>(), 60*Main.rand.Next(3, 7));
+        }
         public override void PostAI() {
 			if (Main.rand.NextBool()) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ElemDust>());

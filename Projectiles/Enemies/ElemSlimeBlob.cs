@@ -21,6 +21,9 @@ namespace Zylon.Projectiles.Enemies
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = false;
 		}
+		public override void OnHitPlayer(Player target, int damage, bool crit) {
+            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ElementalDegeneration>(), 60*Main.rand.Next(3, 7));
+        }
 		int Timer;
 		public override void AI() {
 			Timer++;

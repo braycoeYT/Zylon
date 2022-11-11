@@ -21,6 +21,9 @@ namespace Zylon.Projectiles.Enemies
 			Projectile.tileCollide = false;
 			Projectile.frame = Main.rand.Next(2);
 		}
+		public override void OnHitPlayer(Player target, int damage, bool crit) {
+            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ElementalDegeneration>(), 60*Main.rand.Next(3, 7));
+        }
         public override void AI() {
             Projectile.velocity *= 0.97f;
         }
@@ -31,12 +34,6 @@ namespace Zylon.Projectiles.Enemies
 				dust.scale = 1f;
 			}
 		}
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-            if (Main.rand.NextFloat() < .5f) target.AddBuff(BuffID.Poisoned, Main.rand.Next(10, 21)*60);
-        }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			if (Main.rand.NextFloat() < .5f) target.AddBuff(BuffID.Poisoned, Main.rand.Next(10, 21)*60);
-        }
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}

@@ -54,7 +54,7 @@ namespace Zylon.NPCs
 			}
 		}
 		public override void OnHitPlayer(Player target, int damage, bool crit) {
-            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ElementalDegeneration>(), 60*Main.rand.Next(7, 15));
+            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ElementalDegeneration>(), 60*Main.rand.Next(5, 11));
         }
 		int Timer;
 		int animationTimer;
@@ -79,22 +79,15 @@ namespace Zylon.NPCs
             }
 			if (attack == 0) {
 				attackTimer++;
-				if (attackTimer < 180) return;
+				if (attackTimer < 120) return;
 				Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 				speed.Normalize();
-				if (Timer % 180 == 0) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-8.5f, ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeBlob>(), (int)(NPC.damage*0.3f), 0f);
-				if (Timer > 299) attackDone = true;
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-8.5f, ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeBlob>(), (int)(NPC.damage*0.3f), 0f);
+				attackDone = true;
 			}
 			else if (attack == 1) {
 				attackTimer++;
-				if (attackTimer == 180) {
-					NPC.velocity.Y = -12;
-                }
-				if (attackTimer > 240) {
-					if (attackTimer % 6 == 0) NPC.velocity.Y += 1;
-					NPC.velocity.X *= 0.98f;
-                }
-				if (NPC.collideY) {
+				if (attackTimer == 120) {
 					for (int i = 0; i < 6; i++)
 						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-9, -5)), ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeSpike>(), (int)(NPC.damage*0.2f), 0f);
 					attackDone = true;
@@ -102,7 +95,7 @@ namespace Zylon.NPCs
             }
 			else if (attack == 2) {
 				attackTimer++;
-				if (attackTimer < 180) return;
+				if (attackTimer < 120) return;
 				Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 				speed.Normalize();
 				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-12f, ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeOrb>(), (int)(NPC.damage*0.3f), 0f);
