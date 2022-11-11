@@ -8,7 +8,7 @@ namespace Zylon.Items.Food
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("S'more");
-			Tooltip.SetDefault("Medium improvements to all stats\n'I'd get s'more puns, but there are none left...'");
+			Tooltip.SetDefault("Medium improvements to all stats\n'I'd get s'more puns, but there are none left...'"); //Still the best smore pun
 		}
 		public override void SetDefaults() {
 			Item.width = 32;
@@ -27,7 +27,6 @@ namespace Zylon.Items.Food
 			Item.consumable = true;
 			Item.buffType = BuffID.WellFed2;
             Item.buffTime = 46800;
-			Item.potion = true;
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

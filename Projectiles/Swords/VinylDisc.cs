@@ -11,7 +11,6 @@ namespace Zylon.Projectiles.Swords
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Vinyl Disc");
 		}
-
 		public override void SetDefaults() {
 			Projectile.width = 16;
 			Projectile.height = 16;
@@ -28,37 +27,37 @@ namespace Zylon.Projectiles.Swords
 		}
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-			if (target.HasBuff(ModContent.BuffType<Buffs.SevereBleeding>()))
+			if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>()))
 			{
-				target.AddBuff(ModContent.BuffType<Buffs.SevereBleeding>(), 20);
+				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>(), 20);
 			}
 			else if (Main.rand.NextBool(25))
 			{
 				SoundEngine.PlaySound(SoundID.Shatter, target.position);
-				if (target.HasBuff(ModContent.BuffType<Buffs.BrokenKarta2>()))
-					target.AddBuff(ModContent.BuffType<Buffs.SevereBleeding>(), 120);
-				else if (target.HasBuff(ModContent.BuffType<Buffs.BrokenKarta1>()))
-					target.AddBuff(ModContent.BuffType<Buffs.BrokenKarta2>(), 3600);
+				if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta2>()))
+					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>(), 120);
+				else if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta1>()))
+					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta2>(), 3600);
 				else
-					target.AddBuff(ModContent.BuffType<Buffs.BrokenKarta1>(), 3600);
+					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta1>(), 3600);
 				CombatText.NewText(target.getRect(), Color.Crimson, "!!!");
 			}
 		}
 		public override void OnHitPvp(Player target, int damage, bool crit)
 		{
-			if (target.HasBuff(ModContent.BuffType<Buffs.SevereBleeding>()))
+			if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>()))
 			{
-				target.AddBuff(ModContent.BuffType<Buffs.SevereBleeding>(), 20);
+				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>(), 20);
 			}
 			else if (Main.rand.NextBool(25))
 			{
 				SoundEngine.PlaySound(SoundID.Shatter, target.position);
-				if (target.HasBuff(ModContent.BuffType<Buffs.BrokenKarta2>()))
-					target.AddBuff(ModContent.BuffType<Buffs.SevereBleeding>(), 120);
-				else if (target.HasBuff(ModContent.BuffType<Buffs.BrokenKarta1>()))
-					target.AddBuff(ModContent.BuffType<Buffs.BrokenKarta2>(), 3600);
+				if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta2>()))
+					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>(), 120);
+				else if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta1>()))
+					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta2>(), 3600);
 				else
-					target.AddBuff(ModContent.BuffType<Buffs.BrokenKarta1>(), 3600);
+					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta1>(), 3600);
 				CombatText.NewText(target.getRect(), Color.Crimson, "!!!");
 			}
 		}

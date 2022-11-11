@@ -15,10 +15,10 @@ namespace Zylon.Projectiles.Ammo
 			AIType = ProjectileID.Seed;
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-            if (Main.rand.NextFloat() < .5f) target.AddBuff(ModContent.BuffType<Buffs.Shroomed>(), Main.rand.Next(5, 11) * 60, false);
+            if (Main.rand.NextFloat() < .5f) target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Shroomed>(), Main.rand.Next(5, 11) * 60, false);
         }
         public override void OnHitPvp(Player target, int damage, bool crit) {
-			if (Main.rand.NextFloat() < .5f) target.AddBuff(ModContent.BuffType<Buffs.Shroomed>(), Main.rand.Next(5, 11) * 60, false);
+			if (Main.rand.NextFloat() < .5f) target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Shroomed>(), Main.rand.Next(5, 11) * 60, false);
         }
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);

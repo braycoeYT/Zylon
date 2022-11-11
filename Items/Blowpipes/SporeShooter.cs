@@ -91,7 +91,7 @@ namespace Zylon.Items.Blowpipes
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             if (!modeCharge) {
 				ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
-				player.AddBuff(ModContent.BuffType<Buffs.OutofBreath>(), Item.useTime + 1, false);
+				player.AddBuff(ModContent.BuffType<Buffs.Debuffs.OutofBreath>(), Item.useTime + 1, false);
 				if (charge >= 23) Projectile.NewProjectile(source, position, velocity.RotatedByRandom(MathHelper.ToRadians(20)), ModContent.ProjectileType<Projectiles.JungleSporeRanged>(), damage, knockback, player.whoAmI);
 				if (charge >= 46) Projectile.NewProjectile(source, position, velocity.RotatedByRandom(MathHelper.ToRadians(20)), ModContent.ProjectileType<Projectiles.JungleSporeRanged>(), damage, knockback, player.whoAmI);
 				if (charge >= 70) Projectile.NewProjectile(source, position, velocity.RotatedByRandom(MathHelper.ToRadians(20)), ModContent.ProjectileType<Projectiles.JungleSporeRanged>(), damage, knockback, player.whoAmI);

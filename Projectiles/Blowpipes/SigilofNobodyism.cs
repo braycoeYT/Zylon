@@ -13,8 +13,8 @@ namespace Zylon.Projectiles.Blowpipes
 			Main.projFrames[Projectile.type] = 2;
         }
 		public override void SetDefaults() {
-			Projectile.width = 64;
-			Projectile.height = 64;
+			Projectile.width = 72;
+			Projectile.height = 72;
 			Projectile.aiStyle = -1;
 			Projectile.friendly = true;
 			Projectile.penetrate = 9999;

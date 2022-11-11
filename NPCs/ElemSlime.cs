@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
@@ -22,7 +23,7 @@ namespace Zylon.NPCs
 			NPC.height = 26;
 			NPC.damage = 45;
 			NPC.defense = 20;
-			NPC.lifeMax = 519;
+			NPC.lifeMax = 723;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = 750;
@@ -35,9 +36,9 @@ namespace Zylon.NPCs
             BannerItem = ModContent.ItemType<Items.Banners.ElemSlimeBanner>();
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.lifeMax = 1038;
+            NPC.lifeMax = 1446;
 			NPC.damage = 90;
-			NPC.value = 1000;
+			NPC.value = 1300;
 			NPC.defense = 20;
         }
 		public override void HitEffect(int hitDirection, double damage) {
@@ -52,16 +53,63 @@ namespace Zylon.NPCs
 				dust.noGravity = true;
 			}
 		}
+		public override void OnHitPlayer(Player target, int damage, bool crit) {
+            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ElementalDegeneration>(), 60*Main.rand.Next(7, 15));
+        }
 		int Timer;
 		int animationTimer;
+		int attack;
+		int attackTimer;
+		bool attackDone = true;
         public override void AI() {
             Timer++;
+			NPC.TargetClosest(true);
+
 			if (Timer % 10 == 0)
 				animationTimer++;
 			if (animationTimer > 1)
 				animationTimer = 0;
 			NPC.frame.Y = animationTimer * 26;
 			NPC.spriteDirection = NPC.direction;
+
+			if (attackDone == true) {
+				attack = Main.rand.Next(3);
+				attackTimer = 0;
+				attackDone = false;
+            }
+			if (attack == 0) {
+				attackTimer++;
+				if (attackTimer < 180) return;
+				Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
+				speed.Normalize();
+				if (Timer % 180 == 0) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-8.5f, ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeBlob>(), (int)(NPC.damage*0.3f), 0f);
+				if (Timer > 299) attackDone = true;
+			}
+			else if (attack == 1) {
+				attackTimer++;
+				if (attackTimer == 180) {
+					NPC.velocity.Y = -12;
+                }
+				if (attackTimer > 240) {
+					if (attackTimer % 6 == 0) NPC.velocity.Y += 1;
+					NPC.velocity.X *= 0.98f;
+                }
+				if (NPC.collideY) {
+					for (int i = 0; i < 6; i++)
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-9, -5)), ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeSpike>(), (int)(NPC.damage*0.2f), 0f);
+					attackDone = true;
+                }
+            }
+			else if (attack == 2) {
+				attackTimer++;
+				if (attackTimer < 180) return;
+				Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
+				speed.Normalize();
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-12f, ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeOrb>(), (int)(NPC.damage*0.3f), 0f);
+				for (int i = 0; i < 4; i++)
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 12).RotatedBy(Main.rand.NextFloat(MathHelper.TwoPi)), ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeOrb>(), (int)(NPC.damage*0.3f), 0f);
+				attackDone = true;
+			}
         }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {

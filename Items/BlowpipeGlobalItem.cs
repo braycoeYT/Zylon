@@ -161,7 +161,7 @@ namespace Zylon.Items
 					    if (p.wadofSpores)
 					    	Projectile.NewProjectile(source, position, Vector2.Normalize(velocity) * 9, ModContent.ProjectileType<Projectiles.WadofSpores>(), damage, knockback, player.whoAmI);
                     }
-                    if (item.type == ItemID.Blowpipe || item.type == ItemID.Blowgun) player.AddBuff(BuffType<Buffs.OutofBreath>(), item.useTime + 1, false);
+                    if (item.type == ItemID.Blowpipe || item.type == ItemID.Blowgun) player.AddBuff(BuffType<Buffs.Debuffs.OutofBreath>(), item.useTime + 1, false);
                 }
 			    return !modeCharge;
             }

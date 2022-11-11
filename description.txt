@@ -15,12 +15,13 @@ Stats:
 ~Many new vanilla recipes and changes to help balance the game out (including an easier Slime Crown recipe).
 ~Several new prefixes!
 
-V0.0.1.5: Update
-~Github shenanigans (sorry Tome Man).
-~Reworked Carnallite Tome (thanks Tome Man).
-~Added Extra Shiny Ore Nugget.
-~Added Elem Slime.
-~Added Galactic Brownie and Cotton Candy.
+V0.0.1.6: Update
+~Gave Elem Slime cooler AI (TM).
+~Roxin Blowgun minor fix.
+~Fixed foods giving potion sickness.
+~Cotton Candy now gives the correct buff.
+~ADD now inflicts Weak in expert mode.
+~Added Elemental Degeneration, a debuff for all things elemental and gooey.
 
 Q&A:
 

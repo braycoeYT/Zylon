@@ -31,6 +31,7 @@ namespace Zylon
 		public bool trueMelee10;
 		public bool dirtballExpert;
 		public bool dirtRegalia;
+		public bool elemDegen;
 
 		public int blowpipeMaxInc;
 		public float blowpipeChargeInc;
@@ -63,6 +64,7 @@ namespace Zylon
 			trueMelee10 = false;
 			dirtballExpert = false;
 			dirtRegalia = false;
+			elemDegen = false;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeDamage = 0;
@@ -73,6 +75,7 @@ namespace Zylon
 			severeBleeding = false;
 			outofBreath = false;
 			shroomed = false;
+			elemDegen = false;
 		}
 		public override void UpdateBadLifeRegen() {
 			if (severeBleeding) {
@@ -99,6 +102,12 @@ namespace Zylon
 					Player.lifeRegen = 0;
 				Player.lifeRegenTime = 0;
 				Player.lifeRegen -= 20;
+			}
+			if (elemDegen) {
+				if (Player.lifeRegen > 0)
+					Player.lifeRegen = 0;
+				Player.lifeRegenTime = 0;
+				Player.lifeRegen -= 32;
 			}
 		}
         public override void UpdateEquips() {

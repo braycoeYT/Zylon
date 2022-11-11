@@ -32,32 +32,32 @@ namespace Zylon.Items.Swords
 			Item.shootSpeed = 22f;
 		}
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit) {
-			if (target.HasBuff(ModContent.BuffType<Buffs.SevereBleeding>())) {
-				target.AddBuff(ModContent.BuffType<Buffs.SevereBleeding>(), 90);
+			if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>())) {
+				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>(), 90);
 			}
 			else if (Main.rand.NextBool(5)) {
 				SoundEngine.PlaySound(SoundID.Shatter, target.position);
-				if (target.HasBuff(ModContent.BuffType<Buffs.BrokenKarta2>()))
-					target.AddBuff(ModContent.BuffType<Buffs.SevereBleeding>(), 120);
-				else if (target.HasBuff(ModContent.BuffType<Buffs.BrokenKarta1>()))
-					target.AddBuff(ModContent.BuffType<Buffs.BrokenKarta2>(), 3600);
+				if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta2>()))
+					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>(), 120);
+				else if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta1>()))
+					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta2>(), 3600);
 				else
-					target.AddBuff(ModContent.BuffType<Buffs.BrokenKarta1>(), 3600);
+					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta1>(), 3600);
 				CombatText.NewText(target.getRect(), Color.Crimson, "!!!");
 			}
 		}
         public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
-			if (target.HasBuff(ModContent.BuffType<Buffs.SevereBleeding>())) {
-				target.AddBuff(ModContent.BuffType<Buffs.SevereBleeding>(), 90);
+			if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>())) {
+				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>(), 90);
 			}
 			else if (Main.rand.NextBool(5)) {
 				SoundEngine.PlaySound(SoundID.Shatter, target.position);
-				if (target.HasBuff(ModContent.BuffType<Buffs.BrokenKarta2>()))
-					target.AddBuff(ModContent.BuffType<Buffs.SevereBleeding>(), 120);
-				else if (target.HasBuff(ModContent.BuffType<Buffs.BrokenKarta1>()))
-					target.AddBuff(ModContent.BuffType<Buffs.BrokenKarta2>(), 3600);
+				if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta2>()))
+					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>(), 120);
+				else if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta1>()))
+					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta2>(), 3600);
 				else
-					target.AddBuff(ModContent.BuffType<Buffs.BrokenKarta1>(), 3600);
+					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta1>(), 3600);
 				CombatText.NewText(target.getRect(), Color.Crimson, "!!!");
 			}
 		}
