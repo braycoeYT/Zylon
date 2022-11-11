@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Zylon.Buffs
+namespace Zylon.Buffs.Debuffs
 {
 	public class BrokenKarta2 : ModBuff
 	{
@@ -16,12 +16,12 @@ namespace Zylon.Buffs
 		}
 		public override void Update(Player player, ref int buffIndex)
 		{
-			if (player.HasBuff(ModContent.BuffType<Buffs.SevereBleeding>()))
+			if (player.HasBuff(ModContent.BuffType<SevereBleeding>()))
 				player.buffTime[buffIndex] = 0;
 		}
 		public override void Update(NPC npc, ref int buffIndex)
 		{
-			if (npc.HasBuff(ModContent.BuffType<Buffs.SevereBleeding>()))
+			if (npc.HasBuff(ModContent.BuffType<SevereBleeding>()))
 				npc.buffTime[buffIndex] = 0;
 		}
 	}

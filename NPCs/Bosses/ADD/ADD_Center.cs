@@ -82,6 +82,9 @@ namespace Zylon.NPCs.Bosses.ADD
 			}
 			else if (NPC.life < 0) Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-1, 1), 0), ModContent.GoreType<Gores.Bosses.ADD.ADDCenterDeath>());
 		}
+		public override void OnHitPlayer(Player target, int damage, bool crit) {
+            if (Main.expertMode) target.AddBuff(BuffID.Weak, 60*Main.rand.Next(10, 21));
+        }
 		int preTimer;
 		int Timer;
 		int attack;

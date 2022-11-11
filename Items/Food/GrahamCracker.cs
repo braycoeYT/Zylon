@@ -20,7 +20,6 @@ namespace Zylon.Items.Food
 			Item.consumable = true;
 			Item.buffType = BuffID.WellFed;
             Item.buffTime = 18000;
-			Item.potion = true;
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

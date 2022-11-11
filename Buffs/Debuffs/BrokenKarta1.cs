@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Zylon.Buffs
+namespace Zylon.Buffs.Debuffs
 {
 	public class BrokenKarta1 : ModBuff
 	{
@@ -15,11 +15,11 @@ namespace Zylon.Buffs
 			BuffID.Sets.LongerExpertDebuff[Type] = false;
 		}
 		public override void Update(Player player, ref int buffIndex) {
-			if (player.HasBuff(ModContent.BuffType<Buffs.BrokenKarta2>()))
+			if (player.HasBuff(ModContent.BuffType<BrokenKarta2>()))
 				player.buffTime[buffIndex] = 0;
 		}
 		public override void Update(NPC npc, ref int buffIndex) {
-			if (npc.HasBuff(ModContent.BuffType<Buffs.BrokenKarta2>()))
+			if (npc.HasBuff(ModContent.BuffType<BrokenKarta2>()))
 				npc.buffTime[buffIndex] = 0;
 		}
     }

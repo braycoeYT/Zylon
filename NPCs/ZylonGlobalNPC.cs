@@ -16,12 +16,14 @@ namespace Zylon.NPCs
 		public bool severeBleeding;
 		public bool shroomed;
 		public bool deadlyToxins;
+		public bool elemDegen;
 		public static int diskiteBoss = -1;
 		public static int dirtballBoss = -1;
 		public override void ResetEffects(NPC npc) {
 			severeBleeding = false;
 			shroomed = false;
 			deadlyToxins = false;
+			elemDegen = false;
 		}
 		public override void UpdateLifeRegen(NPC npc, ref int damage) {
 			if (severeBleeding) {
@@ -53,10 +55,19 @@ namespace Zylon.NPCs
 					damage = 1;
 				}
 			}
+			if (elemDegen) {
+				if (npc.lifeRegen > 0) {
+					npc.lifeRegen = 0;
+				}
+				npc.lifeRegen -= 48;
+				if (damage < 1) {
+					damage = 1;
+				}
+			}
 		}
         public override void HitEffect(NPC npc, int hitDirection, double damage) {
             if (npc.type == NPCID.Plantera && npc.life < 1 && !NPC.downedPlantBoss)
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)npc.Center.X, (int)npc.Center.Y), npc.Center, new Vector2(0, 0), ProjectileType<Projectiles.PlanteraElementalGel>(), 0, 0, Main.myPlayer);
+				Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, new Vector2(0, 0), ProjectileType<Projectiles.PlanteraElementalGel>(), 0, 0, Main.myPlayer);
         }
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot) {
 			if (npc.type == NPCID.Harpy)

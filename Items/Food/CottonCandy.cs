@@ -24,9 +24,8 @@ namespace Zylon.Items.Food
 			Item.UseSound = SoundID.Item2;
 			Item.noUseGraphic = true;
 			Item.consumable = true;
-			Item.buffType = BuffID.WellFed2;
+			Item.buffType = BuffID.WellFed;
             Item.buffTime = 43200;
-			Item.potion = true;
 		}
 	}
 }

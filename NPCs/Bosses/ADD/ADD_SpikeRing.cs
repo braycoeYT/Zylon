@@ -34,6 +34,9 @@ namespace Zylon.NPCs.Bosses.ADD
             NPC.lifeMax = 69;
 			NPC.damage = 0;
         }
+		public override void OnHitPlayer(Player target, int damage, bool crit) {
+            if (Main.expertMode) target.AddBuff(BuffID.Weak, 60*Main.rand.Next(10, 21));
+        }
         NPC main;
 		int Timer;
         public override void AI() {

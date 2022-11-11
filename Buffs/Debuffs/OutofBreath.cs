@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace Zylon.Buffs
+namespace Zylon.Buffs.Debuffs
 {
     public class OutofBreath : ModBuff
     {

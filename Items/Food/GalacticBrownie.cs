@@ -26,7 +26,6 @@ namespace Zylon.Items.Food
 			Item.consumable = true;
 			Item.buffType = BuffID.WellFed2;
             Item.buffTime = 28800;
-			Item.potion = true;
 		}
 	}
 }

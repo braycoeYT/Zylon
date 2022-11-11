@@ -17,10 +17,10 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.DamageType = DamageClass.Ranged;
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-            target.AddBuff(ModContent.BuffType<Buffs.DeadlyToxins>(), Main.rand.Next(8, 16)*60);
+            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.DeadlyToxins>(), Main.rand.Next(8, 16)*60);
         }
         public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(ModContent.BuffType<Buffs.DeadlyToxins>(), Main.rand.Next(8, 16)*60);
+			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.DeadlyToxins>(), Main.rand.Next(8, 16)*60);
         }
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);

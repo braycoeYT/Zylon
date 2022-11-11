@@ -115,7 +115,7 @@ namespace Zylon.Items.Blowpipes
 					if (p.wadofSpores)
 						Projectile.NewProjectile(source, position, Vector2.Normalize(velocity) * 9, ModContent.ProjectileType<Projectiles.WadofSpores>(), damage, knockback, player.whoAmI);
                 }
-				player.AddBuff(ModContent.BuffType<Buffs.OutofBreath>(), Item.useTime + 1, false);
+				player.AddBuff(ModContent.BuffType<Buffs.Debuffs.OutofBreath>(), Item.useTime + 1, false);
 				charge = 0;
 				chargeCount = 0;
 			}
