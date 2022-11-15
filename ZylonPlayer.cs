@@ -279,8 +279,11 @@ namespace Zylon
 			return true;
         }
         public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition) {
-            if (Main.player[(int)Player.FindClosest(Player.position, Player.width, Player.height)].ZoneRockLayerHeight && Main.rand.NextFloat() < .04f)
-				itemDrop = ItemType<Items.Materials.LabyrinthFish>();
+            Player owner = Main.player[(int)Player.FindClosest(Player.position, Player.width, Player.height)];
+			if ((owner.ZoneDirtLayerHeight || owner.ZoneRockLayerHeight) && Main.rand.NextFloat() < .04f)
+				itemDrop = ItemType<Items.Materials.Fish.LabyrinthFish>();
+			if (owner.ZoneRockLayerHeight && Main.rand.NextFloat() < .07f && Player.HasBuff(BuffID.Hunter))
+				itemDrop = ItemType<Items.Materials.Fish.PaintedGlassTetra>();
         }
     }
 }

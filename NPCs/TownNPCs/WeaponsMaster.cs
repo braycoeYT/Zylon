@@ -77,9 +77,9 @@ namespace Zylon.NPCs.TownNPCs
 				new FlavorTextBestiaryInfoElement("Back in the '90s, the Weapons Master used to be the protagonist of his own game. Nowadays, he gives the weapons he's found over time away in trade for the rarest trophies."),
 			});
 		}
-		public override bool CanTownNPCSpawn(int numTownNPCs, int money) { // Requirements for the town NPC to spawn.
+		/*public override bool CanTownNPCSpawn(int numTownNPCs, int money) { // Requirements for the town NPC to spawn.
 			return (NPC.downedSlimeKing || NPC.downedBoss1 || NPC.downedBoss2 || NPC.downedBoss3 || Main.hardMode);
-		}
+		}*/ //look here!
 		public override ITownNPCProfile TownNPCProfile() {
 			return new WeaponsMasterProfile();
 		}
