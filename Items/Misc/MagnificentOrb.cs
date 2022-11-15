@@ -10,7 +10,7 @@ namespace Zylon.Items.Misc
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Magnificent Orb");
-			Tooltip.SetDefault("'Looks like a rubber ball, but does something important, I think.'");
+			Tooltip.SetDefault("'Warning: May cause spatial anomalies.'");
 		}
 		public override void SetDefaults() {
 			Item.damage = 23;
@@ -25,26 +25,17 @@ namespace Zylon.Items.Misc
 			Item.rare = ItemRarityID.LightRed;
 			Item.autoReuse = true;
 			Item.useTurn = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.Misc.MagnificentOrbProj>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.Misc.MagnificentOrbPortal>();
 			Item.shootSpeed = 20f;
 			Item.noMelee = true;
 			Item.mana = 11;
 			Item.stack = 1;
 			Item.UseSound = SoundID.Item8;
+			Item.noUseGraphic = true;
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-        	for (int i = 0; i < 5; i++) {
-				Vector2 spawn = new Vector2(Main.MouseWorld.X + (i-2)*80, player.position.Y - 400);
-				Vector2 target = spawn - Main.MouseWorld;
-				target.Normalize();
-				Projectile.NewProjectile(Item.GetSource_FromThis(), spawn, target*-20f, type, damage, knockback, Main.myPlayer);
-			}
-			for (int i = 0; i < 5; i++) {
-				Vector2 spawn = new Vector2(Main.MouseWorld.X + (i-2)*80, player.position.Y + 400);
-				Vector2 target = spawn - Main.MouseWorld;
-				target.Normalize();
-				Projectile.NewProjectile(Item.GetSource_FromThis(), spawn, target*-20f, type, damage, knockback, Main.myPlayer);
-			}
+
+			Projectile.NewProjectile(source, position + (velocity * 4.5f), velocity.RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-1, 1))), type, damage, knockback, player.whoAmI, 0f, 0f);
 			return false;
 		}
 	}

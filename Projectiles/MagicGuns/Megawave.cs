@@ -57,7 +57,7 @@ namespace Zylon.Projectiles.MagicGuns
 		}
 		public override void PostAI() {
 			if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 16);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Cloud);
 				dust.noGravity = true;
 				dust.scale = 1f;
 			}
