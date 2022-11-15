@@ -36,6 +36,8 @@ namespace Zylon.NPCs.Bosses.Dirtball
             int day = DateTime.Now.Day;
             if (month == 12 && day > 14)
                 num = 1;
+            if ((month == 1 && day == 4) || (month == 9 && day == 28))
+                num = 2;
         }
         public override void PostAI() {
 			if (NPC.CountNPCS(ModContent.NPCType<Dirtball>()) > 0) 
@@ -50,8 +52,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
         int val;
         public override void FindFrame(int frameHeight) {
             val = 0;
-            switch (num) 
-            {
+            switch (num) {
                 case 1:
                     val = 1;
                     NPC.frame.Y = 1 * frameHeight;
@@ -105,6 +106,10 @@ namespace Zylon.NPCs.Bosses.Dirtball
                             return;
                         case 1:
                             Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, new Vector2(Main.rand.Next(-2, 3), Main.rand.Next(-5, -3)), ModContent.GoreType<Gores.Bosses.Dirtball.DirtboiDieChristmas>());
+                            return;
+                        case 2:
+                            Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, new Vector2(Main.rand.Next(-2, 3), Main.rand.Next(-5, -3)), ModContent.GoreType<Gores.Bosses.Dirtball.DirtboiDie>());
+                            Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, new Vector2(Main.rand.Next(-2, 3), Main.rand.Next(-5, -3)), GoreID.PartyHatBlue);
                             return;
                     }
                 }

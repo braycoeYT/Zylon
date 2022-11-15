@@ -27,7 +27,7 @@ namespace Zylon.Items.Potions
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.BottledWater);
-			recipe.AddIngredient(ModContent.ItemType<Materials.LabyrinthFish>());
+			recipe.AddIngredient(ModContent.ItemType<Materials.Fish.LabyrinthFish>());
 			recipe.AddIngredient(ItemID.Deathweed);
             recipe.AddIngredient(ItemID.Fireblossom);
 			recipe.AddIngredient(ItemID.Moonglow);

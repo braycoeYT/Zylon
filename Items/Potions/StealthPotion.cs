@@ -28,6 +28,7 @@ namespace Zylon.Items.Potions
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.BottledWater);
 			recipe.AddIngredient(ItemID.Silk, 1);
+            recipe.AddIngredient(ModContent.ItemType<Materials.Fish.PaintedGlassTetra>());
 			recipe.AddIngredient(ItemID.Waterleaf, 1);
 			recipe.AddIngredient(ItemID.Deathweed, 1);
             recipe.AddIngredient(ItemID.Bone);

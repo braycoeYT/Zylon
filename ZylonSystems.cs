@@ -416,6 +416,11 @@ namespace Zylon
 			recipe.AddTile(TileID.Anvils);
 			recipe.AddCondition(Recipe.Condition.InGraveyardBiome);
 			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.GoldenDelight);
+			recipe.AddIngredient(ItemID.GoldenCarp);
+			recipe.AddTile(TileID.CookingPots);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
             for (int i = 0; i < Recipe.numRecipes; i++) {
