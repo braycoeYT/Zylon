@@ -144,15 +144,15 @@ namespace Zylon.NPCs.Bosses.ADD
 			SoundEngine.PlaySound(SoundID.Item14, prePos);
 			// Smoke Dust spawn
 			for (int i = 0; i < 50; i++) {
-				int dustIndex = Dust.NewDust(new Vector2(prePos.X, prePos.Y), NPC.width, NPC.height, 31, 0f, 0f, 100, default(Color), 2f);
+				int dustIndex = Dust.NewDust(new Vector2(prePos.X, prePos.Y), NPC.width, NPC.height, DustID.Smoke, 0f, 0f, 100, default(Color), 2f);
 				Main.dust[dustIndex].velocity *= 1.4f;
 			}
 			// Fire Dust spawn
 			for (int i = 0; i < 80; i++) {
-				int dustIndex = Dust.NewDust(new Vector2(prePos.X, prePos.Y), NPC.width, NPC.height, 6, 0f, 0f, 100, default(Color), 3f);
+				int dustIndex = Dust.NewDust(new Vector2(prePos.X, prePos.Y), NPC.width, NPC.height, DustID.Torch, 0f, 0f, 100, default(Color), 3f);
 				Main.dust[dustIndex].noGravity = true;
 				Main.dust[dustIndex].velocity *= 5f;
-				dustIndex = Dust.NewDust(new Vector2(prePos.X, prePos.Y), NPC.width, NPC.height, 6, 0f, 0f, 100, default(Color), 2f);
+				dustIndex = Dust.NewDust(new Vector2(prePos.X, prePos.Y), NPC.width, NPC.height, DustID.Torch, 0f, 0f, 100, default(Color), 2f);
 				Main.dust[dustIndex].velocity *= 3f;
 			}
 			// Large Smoke Gore spawn

@@ -30,6 +30,7 @@ namespace Zylon.Items.Stone
 			Item.shootSpeed = 12.7f;
 			Item.useAmmo = AmmoID.Arrow;
 			Item.consumeAmmoOnLastShotOnly = true;
+			Item.noMelee = true;
 		}
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

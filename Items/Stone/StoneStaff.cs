@@ -27,6 +27,7 @@ namespace Zylon.Items.Stone
 			Item.shoot = ModContent.ProjectileType<Projectiles.Stone.StoneBall>();
 			Item.shootSpeed = 12.75f;
 			Item.mana = 5;
+			Item.noMelee = true;
 		}
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

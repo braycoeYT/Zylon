@@ -88,13 +88,20 @@ namespace Zylon.Projectiles.Misc
 			Color color = Projectile.GetAlpha(lightColor);
 			Vector2 drawPos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
 
-			Main.spriteBatch.Draw(projectileTexture, drawPos, sourceRectangle, color * 0.02f, Projectile.rotation, drawOrigin, Projectile.scale * 1.9f, spriteEffects, 0f);
-			Main.spriteBatch.Draw(projectileTexture, drawPos, sourceRectangle, color * 0.05f, Projectile.rotation, drawOrigin, Projectile.scale * 1.6f, spriteEffects, 0f);
-			Main.spriteBatch.Draw(projectileTexture, drawPos, sourceRectangle, color * 0.1f, Projectile.rotation, drawOrigin, Projectile.scale * 1.3f, spriteEffects, 0f);
-			Main.spriteBatch.Draw(projectileTexture, drawPos, sourceRectangle, color * 0.2f, Projectile.rotation, drawOrigin, Projectile.scale * 1.2f, spriteEffects, 0f);
-			Main.spriteBatch.Draw(projectileTexture, drawPos, sourceRectangle, color * 0.3f, Projectile.rotation, drawOrigin, Projectile.scale * 1.1f, spriteEffects, 0f);
-			Main.spriteBatch.Draw(projectileTexture, drawPos, sourceRectangle, color, Projectile.rotation, drawOrigin, Projectile.scale, spriteEffects, 0f);
-			Main.spriteBatch.Draw(glow, drawPos, sourceRectangle, Color.White * (1f - (Projectile.alpha/255f)), Projectile.rotation, drawOrigin, Projectile.scale, spriteEffects, 0f);
+			float FakeScaleMulti = (1f - (Projectile.alpha / 255f)) + 0.2f;
+
+			if (FakeScaleMulti >= 1f)
+            {
+				FakeScaleMulti = 1f;
+            }
+
+			Main.spriteBatch.Draw(projectileTexture, drawPos, sourceRectangle, color * 0.02f, Projectile.rotation, drawOrigin, (Projectile.scale * 1.9f) * FakeScaleMulti, spriteEffects, 0f);
+			Main.spriteBatch.Draw(projectileTexture, drawPos, sourceRectangle, color * 0.05f, Projectile.rotation, drawOrigin, (Projectile.scale * 1.6f) * FakeScaleMulti, spriteEffects, 0f);
+			Main.spriteBatch.Draw(projectileTexture, drawPos, sourceRectangle, color * 0.1f, Projectile.rotation, drawOrigin, (Projectile.scale * 1.3f) * FakeScaleMulti, spriteEffects, 0f);
+			Main.spriteBatch.Draw(projectileTexture, drawPos, sourceRectangle, color * 0.2f, Projectile.rotation, drawOrigin, (Projectile.scale * 1.2f) * FakeScaleMulti, spriteEffects, 0f);
+			Main.spriteBatch.Draw(projectileTexture, drawPos, sourceRectangle, color * 0.3f, Projectile.rotation, drawOrigin, (Projectile.scale * 1.1f) * FakeScaleMulti, spriteEffects, 0f);
+			Main.spriteBatch.Draw(projectileTexture, drawPos, sourceRectangle, color, Projectile.rotation, drawOrigin, (Projectile.scale) * FakeScaleMulti, spriteEffects, 0f);
+			Main.spriteBatch.Draw(glow, drawPos, sourceRectangle, Color.White * (1f - (Projectile.alpha/255f)), Projectile.rotation, drawOrigin, (Projectile.scale) * FakeScaleMulti, spriteEffects, 0f);
 
 
 			return false;

@@ -45,7 +45,7 @@ namespace Zylon.Projectiles
 		}
 		public override void PostAI() {
 			for (int i = 0; i < 1; i++) {
-				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 0);
+				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Dirt);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
 				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;

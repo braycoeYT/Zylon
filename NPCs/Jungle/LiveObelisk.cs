@@ -44,12 +44,12 @@ namespace Zylon.NPCs.Jungle
 		public override void HitEffect(int hitDirection, double damage) {
 			if (NPC.life > 0) {
 				for (int i = 0; i < 5; i++) {
-					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, 1, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2), 0, default, 2f);
+					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.Stone, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2), 0, default, 2f);
 					dust.noGravity = true;
 				}
 			}
 			else for (int i = 0; i < 18; i++) {
-				Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, 1, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2), 0, default, 2f);
+				Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.Stone, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2), 0, default, 2f);
 				dust.noGravity = true;
 			}
 		}

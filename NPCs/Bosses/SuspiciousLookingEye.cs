@@ -1032,20 +1032,20 @@ namespace Zylon.NPCs.Bosses
 									{
 										NPC.rotation = num378;
 									}
-									if (Main.rand.Next(5) == 0)
+									if (Main.rand.NextBool(5))
 									{
-										int num380 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y + (float)NPC.height * 0.25f), NPC.width, (int)((float)NPC.height * 0.5f), 5, NPC.velocity.X, 2f, 0, default(Color), 1f);
+										int num380 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y + (float)NPC.height * 0.25f), NPC.width, (int)((float)NPC.height * 0.5f), DustID.Blood, NPC.velocity.X, 2f, 0, default(Color), 1f);
 										Dust var_9_131D1_cp_0_cp_0 = Main.dust[num380];
 										var_9_131D1_cp_0_cp_0.velocity.X = var_9_131D1_cp_0_cp_0.velocity.X * 0.5f;
 										Dust var_9_131F5_cp_0_cp_0 = Main.dust[num380];
 										var_9_131F5_cp_0_cp_0.velocity.Y = var_9_131F5_cp_0_cp_0.velocity.Y * 0.1f;
 									}
-									if (Main.netMode != 1 && !Main.dayTime && !dead2 && NPC.timeLeft < 10)
+									if (Main.netMode != NetmodeID.MultiplayerClient && !Main.dayTime && !dead2 && NPC.timeLeft < 10)
 									{
 										int num;
 										for (int num381 = 0; num381 < 200; num381 = num + 1)
 										{
-											if (num381 != NPC.whoAmI && Main.npc[num381].active && (Main.npc[num381].type == 125 || Main.npc[num381].type == 126) && Main.npc[num381].timeLeft - 1 > NPC.timeLeft)
+											if (num381 != NPC.whoAmI && Main.npc[num381].active && (Main.npc[num381].type == NPCID.Retinazer || Main.npc[num381].type == NPCID.Spazmatism) && Main.npc[num381].timeLeft - 1 > NPC.timeLeft)
 											{
 												NPC.timeLeft = Main.npc[num381].timeLeft - 1;
 											}
@@ -1256,13 +1256,13 @@ namespace Zylon.NPCs.Bosses
 												}
 												for (int num398 = 0; num398 < 20; num398 = num + 1)
 												{
-													Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, (float)Main.rand.Next(-30, 31) * 0.2f, (float)Main.rand.Next(-30, 31) * 0.2f, 0, default(Color), 1f);
+													Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, (float)Main.rand.Next(-30, 31) * 0.2f, (float)Main.rand.Next(-30, 31) * 0.2f, 0, default(Color), 1f);
 													num = num398;
 												}
 												SoundEngine.PlaySound(SoundID.Item16, NPC.position);
 											}
 										}
-										Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, (float)Main.rand.Next(-30, 31) * 0.2f, (float)Main.rand.Next(-30, 31) * 0.2f, 0, default(Color), 1f);
+										Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, (float)Main.rand.Next(-30, 31) * 0.2f, (float)Main.rand.Next(-30, 31) * 0.2f, 0, default(Color), 1f);
 										NPC.velocity.X = NPC.velocity.X * 0.98f;
 										NPC.velocity.Y = NPC.velocity.Y * 0.98f;
 										if ((double)NPC.velocity.X > -0.1 && (double)NPC.velocity.X < 0.1)
@@ -1341,7 +1341,7 @@ namespace Zylon.NPCs.Bosses
 											num401 = Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2) - vector42.X;
 											num402 = Main.player[NPC.target].position.Y + (float)(Main.player[NPC.target].height / 2) - vector42.Y;
 											NPC.rotation = (float)Math.Atan2((double)num402, (double)num401) - 1.57f;
-											if (Main.netMode != 1)
+											if (Main.netMode != NetmodeID.MultiplayerClient)
 											{
 												NPC.localAI[1] += 1f;
 												if ((double)NPC.life < (double)NPC.lifeMax * 0.75)
@@ -1439,7 +1439,7 @@ namespace Zylon.NPCs.Bosses
 											num411 = Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2) - vector43.X;
 											num412 = Main.player[NPC.target].position.Y + (float)(Main.player[NPC.target].height / 2) - vector43.Y;
 											NPC.rotation = (float)Math.Atan2((double)num412, (double)num411) - 1.57f;
-											if (Main.netMode != 1)
+											if (Main.netMode != NetmodeID.MultiplayerClient)
 											{
 												NPC.localAI[1] += 1f;
 												if ((double)NPC.life < (double)NPC.lifeMax * 0.75)
@@ -1548,20 +1548,20 @@ namespace Zylon.NPCs.Bosses
 									{
 										NPC.rotation = num420;
 									}
-									if (Main.rand.Next(5) == 0)
+									if (Main.rand.NextBool(5))
 									{
-										int num422 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y + (float)NPC.height * 0.25f), NPC.width, (int)((float)NPC.height * 0.5f), 5, NPC.velocity.X, 2f, 0, default(Color), 1f);
+										int num422 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y + (float)NPC.height * 0.25f), NPC.width, (int)((float)NPC.height * 0.5f), DustID.Blood, NPC.velocity.X, 2f, 0, default(Color), 1f);
 										Dust var_9_15364_cp_0_cp_0 = Main.dust[num422];
 										var_9_15364_cp_0_cp_0.velocity.X = var_9_15364_cp_0_cp_0.velocity.X * 0.5f;
 										Dust var_9_15388_cp_0_cp_0 = Main.dust[num422];
 										var_9_15388_cp_0_cp_0.velocity.Y = var_9_15388_cp_0_cp_0.velocity.Y * 0.1f;
 									}
-									if (Main.netMode != 1 && !Main.dayTime && !dead3 && NPC.timeLeft < 10)
+									if (Main.netMode != NetmodeID.MultiplayerClient && !Main.dayTime && !dead3 && NPC.timeLeft < 10)
 									{
 										int num;
 										for (int num423 = 0; num423 < 200; num423 = num + 1)
 										{
-											if (num423 != NPC.whoAmI && Main.npc[num423].active && (Main.npc[num423].type == 125 || Main.npc[num423].type == 126) && Main.npc[num423].timeLeft - 1 > NPC.timeLeft)
+											if (num423 != NPC.whoAmI && Main.npc[num423].active && (Main.npc[num423].type == NPCID.Retinazer || Main.npc[num423].type == NPCID.Spazmatism) && Main.npc[num423].timeLeft - 1 > NPC.timeLeft)
 											{
 												NPC.timeLeft = Main.npc[num423].timeLeft - 1;
 											}
@@ -1773,13 +1773,13 @@ namespace Zylon.NPCs.Bosses
 												}
 												for (int num439 = 0; num439 < 20; num439 = num + 1)
 												{
-													Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, (float)Main.rand.Next(-30, 31) * 0.2f, (float)Main.rand.Next(-30, 31) * 0.2f, 0, default(Color), 1f);
+													Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, (float)Main.rand.Next(-30, 31) * 0.2f, (float)Main.rand.Next(-30, 31) * 0.2f, 0, default(Color), 1f);
 													num = num439;
 												}
 												SoundEngine.PlaySound(SoundID.Item16, NPC.position);
 											}
 										}
-										Dust.NewDust(NPC.position, NPC.width, NPC.height, 5, (float)Main.rand.Next(-30, 31) * 0.2f, (float)Main.rand.Next(-30, 31) * 0.2f, 0, default(Color), 1f);
+										Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Blood, (float)Main.rand.Next(-30, 31) * 0.2f, (float)Main.rand.Next(-30, 31) * 0.2f, 0, default(Color), 1f);
 										NPC.velocity.X = NPC.velocity.X * 0.98f;
 										NPC.velocity.Y = NPC.velocity.Y * 0.98f;
 										if ((double)NPC.velocity.X > -0.1 && (double)NPC.velocity.X < 0.1)
@@ -1889,7 +1889,7 @@ namespace Zylon.NPCs.Bosses
 													NPC.localAI[2] = 0f;
 													SoundEngine.PlaySound(SoundID.Item34, NPC.position);
 												}
-												if (Main.netMode != 1)
+												if (Main.netMode != NetmodeID.MultiplayerClient)
 												{
 													NPC.localAI[1] += 1f;
 													if ((double)NPC.life < (double)NPC.lifeMax * 0.75)
@@ -2028,7 +2028,7 @@ namespace Zylon.NPCs.Bosses
 													Vector2 vector44 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
 													float num427 = Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2) - vector44.X;
 													float num428 = Main.player[NPC.target].position.Y + (float)(Main.player[NPC.target].height / 2) - vector44.Y;
-													if (Main.netMode != 1)
+													if (Main.netMode != NetmodeID.MultiplayerClient)
 													{
 														float num430 = 8f;
 														int num431 = 50; //25

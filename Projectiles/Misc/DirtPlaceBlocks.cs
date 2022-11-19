@@ -1,5 +1,6 @@
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Zylon.Projectiles.Misc
@@ -45,14 +46,14 @@ namespace Zylon.Projectiles.Misc
 								if (Main.tile[num833, num834 + 1].IsHalfBlock || Main.tile[num833, num834 + 1].Slope != 0)
 								{
 									WorldGen.SlopeTile(num833, num834 + 1, 0);
-									if (Main.netMode == 2)
+									if (Main.netMode == NetmodeID.Server)
 									{
-										NetMessage.SendData(17, -1, -1, null, 14, (float)num833, (float)(num834 + 1), 0f, 0, 0, 0);
+										NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 14, (float)num833, (float)(num834 + 1), 0f, 0, 0, 0);
 									}
 								}
-								if (Main.netMode != 0)
+								if (Main.netMode != NetmodeID.SinglePlayer)
 								{
-									NetMessage.SendData(17, -1, -1, null, 1, (float)num833, (float)num834, (float)num835, 0, 0, 0);
+									NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 1, (float)num833, (float)num834, (float)num835, 0, 0, 0);
 								}
 							}
 							else if (num836 > 0)

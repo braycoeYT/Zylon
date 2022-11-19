@@ -316,7 +316,7 @@ namespace Zylon.Projectiles.Flails
 				dustRate = 1;
 
 			if (Main.rand.NextBool(dustRate))
-				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 1);
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Stone);
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity) {

@@ -21,5 +21,8 @@ namespace Zylon.Items.Accessories
         public override void Update(ref float gravity, ref float maxFallSpeed) {
             Lighting.AddLight(Item.Center, 0.25f, 0.25f, 0f);
         }
+
+
+
     }
 }

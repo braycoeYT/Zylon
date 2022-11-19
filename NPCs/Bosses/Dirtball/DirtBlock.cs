@@ -60,7 +60,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 													NPC.velocity.Y = NPC.velocity.Y * 1.05f;
 													NPC.velocity.X = NPC.velocity.X * 1.05f;
 												}
-												if (Main.netMode != 1 && ((Main.expertMode && Main.rand.Next(100) == 0) || Main.rand.Next(200) == 0))
+												if (Main.netMode != NetmodeID.MultiplayerClient && ((Main.expertMode && Main.rand.NextBool(100)) || Main.rand.NextBool(200)))
 												{
 													NPC.TargetClosest(true);
 													vector100 = new Vector2(NPC.Center.X, NPC.Center.Y);

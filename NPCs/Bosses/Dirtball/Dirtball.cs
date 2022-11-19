@@ -56,7 +56,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 		bool bool2;
 		public override void HitEffect(int hitDirection, double damage) {
 			for (int i = 0; i < (3-phase)*4; i++) {
-				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, 0);
+				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Dirt);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
 				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
@@ -87,7 +87,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 		}
 		public override void PostAI() {
 			for (int i = 0; i < (3-phase); i++) {
-				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, 0);
+				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Dirt);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
 				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
@@ -310,7 +310,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 					NPC.velocity *= 0.95f;
 					NPC.rotation += 0.1f;
 					for (int i = 0; i < 3 - phase; i++) {
-						int dustIndex = Dust.NewDust(NPC.Center - new Vector2(4, 0), 1, 1, 0);
+						int dustIndex = Dust.NewDust(NPC.Center - new Vector2(4, 0), 1, 1, DustID.Dirt);
 						Dust dust = Main.dust[dustIndex];
 						dust.velocity = new Vector2(0, 6).RotatedByRandom(2*Math.PI);
 						if (dust.velocity.Y > 0 && phase == 2) dust.velocity.Y *= -1;
@@ -344,7 +344,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 						dust.scale *= 1.25f + Main.rand.Next(-30, 31) * 0.01f;
 					}
 					if (phase == 2) for (int i = 0; i < 1; i++) {
-						int dustIndex = Dust.NewDust(NPC.Center - new Vector2(4, 0), 1, 1, 0);
+						int dustIndex = Dust.NewDust(NPC.Center - new Vector2(4, 0), 1, 1, DustID.Dirt);
 						Dust dust = Main.dust[dustIndex];
 						dust.velocity = new Vector2(0, 6).RotatedByRandom(2*Math.PI);
 						if (dust.velocity.Y > 0) dust.velocity.Y *= -1;

@@ -72,14 +72,14 @@ namespace Zylon.NPCs.Forest
 			if (NPC.velocity.Y < 0 || (NPC.Center.Y < Main.player[NPC.target].Center.Y - 20)) NPC.noTileCollide = true;
 			else NPC.noTileCollide = false;
 
-            if (NPC.type == 1 && (NPC.ai[1] == 1f || NPC.ai[1] == 2f || NPC.ai[1] == 3f))
+            if (NPC.type == NPCID.BlueSlime && (NPC.ai[1] == 1f || NPC.ai[1] == 2f || NPC.ai[1] == 3f))
 			{
 				NPC.ai[1] = -1f;
 			}
-			if (NPC.type == 1 && NPC.ai[1] == 0f && Main.netMode != 1 && NPC.value > 0f)
+			if (NPC.type == NPCID.BlueSlime && NPC.ai[1] == 0f && Main.netMode != NetmodeID.MultiplayerClient && NPC.value > 0f)
 			{
 				NPC.ai[1] = -1f;
-				if (Main.rand.Next(20) == 0)
+				if (Main.rand.NextBool(20))
 				{
 					int num = Main.rand.Next(4);
 					if (num == 0)
@@ -101,7 +101,7 @@ namespace Zylon.NPCs.Forest
 						{
 							num = 2322;
 						}
-						else if (Main.netMode != 0 && Main.rand.Next(2) == 0)
+						else if (Main.netMode != NetmodeID.SinglePlayer && Main.rand.NextBool(2))
 						{
 							num = 2997;
 						}
@@ -132,7 +132,7 @@ namespace Zylon.NPCs.Forest
 					}
 					else if (num == 2)
 					{
-						if (Main.rand.Next(2) == 0)
+						if (Main.rand.NextBool(2))
 						{
 							num = Main.rand.Next(11, 15);
 						}

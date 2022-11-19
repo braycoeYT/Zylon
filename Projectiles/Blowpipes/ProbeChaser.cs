@@ -118,7 +118,7 @@ namespace Zylon.Projectiles.Blowpipes
 		}
 		public override void PostAI() {
 			if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 80);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Ice);
 				dust.noGravity = true;
 				dust.scale = 0.5f;
 			}
@@ -126,14 +126,14 @@ namespace Zylon.Projectiles.Blowpipes
 		public override void Kill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
 			for (int i = 0; i < 30; i++) { //50
-				int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 31, 0f, 0f, 100, default(Color), 2f);
+				int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Smoke, 0f, 0f, 100, default(Color), 2f);
 				Main.dust[dustIndex].velocity *= 1.4f;
 			}
 			for (int i = 0; i < 40; i++) { //80
-				int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 3f);
+				int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default(Color), 3f);
 				Main.dust[dustIndex].noGravity = true;
 				Main.dust[dustIndex].velocity *= 5f;
-				dustIndex = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 2f);
+				dustIndex = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default(Color), 2f);
 				Main.dust[dustIndex].velocity *= 3f;
 			}
 			for (int g = 0; g < 2; g++) { //2

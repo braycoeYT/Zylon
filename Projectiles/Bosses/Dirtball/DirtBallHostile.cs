@@ -19,7 +19,7 @@ namespace Zylon.Projectiles.Bosses.Dirtball
 		}
         public override void PostAI() {
 			if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 0);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Dirt);
 				dust.noGravity = true;
 				dust.scale = 1f;
 			}

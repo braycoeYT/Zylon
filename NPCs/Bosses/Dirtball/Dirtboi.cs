@@ -42,7 +42,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
         public override void PostAI() {
 			if (NPC.CountNPCS(ModContent.NPCType<Dirtball>()) > 0) 
                 for (int i = 0; i < 1; i++) {
-			    	int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, 0);
+			    	int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Dirt);
 			    	Dust dust = Main.dust[dustIndex];
 			    	dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
 			    	dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;

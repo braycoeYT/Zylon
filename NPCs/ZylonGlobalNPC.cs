@@ -110,13 +110,13 @@ namespace Zylon.NPCs
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Tomes.ChaosCaster>(), 20), new CommonDrop(ItemType<Items.Tomes.ChaosCaster>(), 18)));
 			if (npc.type == NPCID.IceBat || npc.type == NPCID.SnowFlinx || npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.UndeadViking)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Tomes.Snowfall>(), 100), new CommonDrop(ItemType<Items.Tomes.Snowfall>(), 90)));
-			if ((npc.type == 42) || (npc.type >= 231 && npc.type <= 235) || (npc.type >= -56 && npc.type <= -65) || (npc.type == -16) || (npc.type == -17))
+			if ((npc.type == NPCID.Hornet) || (npc.type >= NPCID.HornetFatty && npc.type <= NPCID.HornetStingy) || (npc.type >= -56 && npc.type <= -65) || (npc.type == -16) || (npc.type == -17))
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Food.CocoaBeans>(), 30), new CommonDrop(ItemType<Items.Food.CocoaBeans>(), 25)));
 			if (npc.type == NPCID.GreenSlime || npc.type == NPCID.BlueSlime || npc.type == NPCID.RedSlime || npc.type == NPCID.YellowSlime || npc.type == NPCID.BlackSlime || npc.type == NPCID.MotherSlime)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SlimePendant>(), 150), new CommonDrop(ItemType<Items.Accessories.SlimePendant>(), 125)));
 			if (npc.type == NPCID.WindyBalloon || npc.type == NPCID.Dandelion)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Materials.WindEssence>(), 3), new CommonDrop(ItemType<Items.Materials.WindEssence>(), 2)));
-			if ((npc.type == 2) || (npc.type >= -43 && npc.type <= -38) || (npc.type >= 190 && npc.type <= 194) || (npc.type == 317) || (npc.type == 318))
+			if ((npc.type == NPCID.DemonEye) || (npc.type >= -43 && npc.type <= -38) || (npc.type >= NPCID.CataractEye && npc.type <= NPCID.PurpleEye) || (npc.type == NPCID.DemonEyeOwl) || (npc.type == NPCID.DemonEyeSpaceship))
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.GlazedLens>(), 100), new CommonDrop(ItemType<Items.Accessories.GlazedLens>(), 90)));
 			if (npc.type == NPCID.UndeadMiner || npc.type == NPCID.GiantWormHead)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Accessories.ExtraShinyOreNugget>(), 30));
