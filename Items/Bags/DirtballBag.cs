@@ -41,6 +41,7 @@ namespace Zylon.Items.Bags
 			itemLoot.Add(new CommonDrop(ItemID.LeadBar, 1, 1, 4));
 			itemLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bars.ZincBar>(), 1, 1, 4));
 			itemLoot.Add(new CommonDrop(ItemID.DirtRod, 4));
+			itemLoot.Add(new CommonDrop(ModContent.ItemType<Items.Misc.Dirtthrower>(), 20));
 			itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.MuddyGreatsword>(), ModContent.ItemType<Items.Yoyos.Dirtglob>(), ModContent.ItemType<Items.Bows.Dirty3String>(), ModContent.ItemType<Items.Blowpipes.DirtFunnel>(), ModContent.ItemType<Items.Wands.ScepterofDirt>(), ModContent.ItemType<Items.Accessories.DirtRegalia>()));
 			itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()));
 			itemLoot.Add(new CommonDrop(ItemType<Vanity.DirtballMask>(), 7));

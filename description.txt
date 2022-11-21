@@ -3,25 +3,24 @@ The best mod that starts with Z (I guarantee or your money back)! Zylon is a sma
 THIS MOD IS IN SEVERE NEED OF SPRITERS. If you are a fan of the mod and want to sprite, feel free to join the discord server!
 
 Stats:
-~301 Items
+~304 Items
 ~3 Bosses:
 ~~~3 Prehardmode Bosses
-~47 total NPCs
+~48 total NPCs
 ~41 Buffs
 ~11 Tiles
 ~A complete reworking and expansion of blowpipes!
 ~Many new vanilla recipes and changes to help balance the game out (including an easier Slime Crown recipe).
 ~Several new prefixes!
 
-V0.0.1.7: Update
-~Dirtboi now wears a birthday hat on the 1.3 and 1.4 release days of the mod (January 4th and September 28th).
-~Made Weapons Master unobtainable. He will become obtainable once again after major reworks.
-~Added Lobster Bisque.
-~Elemental Degeneration now decreases defense by 20%.
-~Golden Delight is now craftable with the Golden Carp.
-~Resprited Diskalibur.
-~Added Painted Glass Tetra, a new fish for the Stealth Potion.
-Sorry for taking a while for this update, I ran into some TML issues while making it.
+V0.0.1.8: Update
+~Added Meteor Tail.
+~Made most of the previous Weapons Master items obtainable normally.
+~Added Nightmare Catcher.
+~Increased Venomous Pills sell price.
+~Moss Hornet has an increased Vine drop rate.
+~Venomous Pills now drop from Black Recluses, Jungle Creepers, and Sand Poachers.
+New boss coming soon!
 
 Q&A:
 

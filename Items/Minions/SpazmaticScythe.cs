@@ -11,7 +11,7 @@ namespace Zylon.Items.Minions
 	public class SpazmaticScythe : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons five spazscythes to rotate around you\nSpazscythes do not take up any minion slots\nSpazscythes dissipate after 5 hits\nSpazscythes cannot be resummoned until all of them are dissipated\nWeapons Master reward (Spazmatism)");
+			Tooltip.SetDefault("Summons five spazscythes to rotate around you\nSpazscythes do not take up any minion slots\nSpazscythes dissipate after 5 hits\nSpazscythes cannot be resummoned until all of them are dissipated");
 		}
 		public override void SetDefaults() {
 			Item.damage = 63;
@@ -30,13 +30,6 @@ namespace Zylon.Items.Minions
 			Item.DamageType = DamageClass.Summon;
 			Item.shoot = ProjectileType<Projectiles.Minions.Spazsickle>();
 		}
-		public override void ModifyTooltips(List<TooltipLine> list) {
-            foreach (TooltipLine tooltipLine in list) {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName") {
-                    tooltipLine.OverrideColor = new Color(100, 60, 0);
-                }
-            }
-        }
 		public override bool CanUseItem(Player player) {
             for (int i = 0; i < 1000; ++i) {
                 if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == Item.shoot) {

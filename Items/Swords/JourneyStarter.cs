@@ -10,7 +10,7 @@ namespace Zylon.Items.Swords
 	public class JourneyStarter : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("'Only the start of the endless road to infinity'\nAlternates between firing different types of bolts\nWeapons Master reward (Eye of Cthulhu)");
+            Tooltip.SetDefault("'Only the start of the endless road to infinity'\nAlternates between firing different types of bolts");
         }
         public override void SetDefaults() {
 			Item.damage = 18;
@@ -29,13 +29,6 @@ namespace Zylon.Items.Swords
 			Item.shoot = ModContent.ProjectileType<Projectiles.Swords.JourneyStarterBolt>();
 			Item.shootSpeed = 11f;
 		}
-		public override void ModifyTooltips(List<TooltipLine> list) {
-            foreach (TooltipLine tooltipLine in list) {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName") {
-                    tooltipLine.OverrideColor = new Color(100, 60, 0);
-                }
-            }
-        }
         public override void UseStyle(Player player, Rectangle heldItemFrame) {
             Lighting.AddLight((int)(player.Center.X / 16f), (int)(player.Center.Y / 16f), 0.1f, 0.2f, 0.75f);
         }
@@ -45,5 +38,24 @@ namespace Zylon.Items.Swords
 			Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer, shootCount);
 			return false;
         }
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 8);
+			recipe.AddIngredient(ItemID.Glass, 20);
+			recipe.AddIngredient(ItemID.Ruby);
+			recipe.AddIngredient(ItemID.Emerald);
+			recipe.AddIngredient(ItemID.Sapphire);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = CreateRecipe();
+			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 8);
+			recipe.AddIngredient(ItemID.Glass, 20);
+			recipe.AddIngredient(ItemID.Ruby);
+			recipe.AddIngredient(ModContent.ItemType<Materials.Jade>());
+			recipe.AddIngredient(ItemID.Sapphire);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+		}
     }
 }

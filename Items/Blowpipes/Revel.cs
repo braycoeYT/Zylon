@@ -11,7 +11,7 @@ namespace Zylon.Items.Blowpipes
 	public class Revel : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Maximum blowpipe charge: " + maxCharge + "\nBlowpipe charge speed: " + (chargeRate * 30) + "/s\nRight click to change modes.\nThe longer you inhale, the more speed, knockback, and damage the seed/dart deals, though you don't have to inhale to shoot.\nTake breaks from shooting to get your breath back.\nYou can inhale while in breath recovery.\nUses seeds as ammo\nShoots two seeds instead of one\nAt max charge, replaces ammo with deadly toxin darts\nWeapons Master reward (Queen Bee)");
+			Tooltip.SetDefault("Maximum blowpipe charge: " + maxCharge + "\nBlowpipe charge speed: " + (chargeRate * 30) + "/s\nRight click to change modes.\nThe longer you inhale, the more speed, knockback, and damage the seed/dart deals, though you don't have to inhale to shoot.\nTake breaks from shooting to get your breath back.\nYou can inhale while in breath recovery.\nUses seeds as ammo\nShoots two seeds instead of one\nAt max charge, replaces ammo with deadly toxin darts");
 		}
 		float maxCharge = 85;
 		float charge;
@@ -37,13 +37,6 @@ namespace Zylon.Items.Blowpipes
 			origItemSpeed = Item.useAnimation;
 			Item.rare = ItemRarityID.Quest;
 		}
-		public override void ModifyTooltips(List<TooltipLine> list) {
-            foreach (TooltipLine tooltipLine in list) {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName") {
-                    tooltipLine.OverrideColor = new Color(100, 60, 0);
-                }
-            }
-        }
 		public override bool AltFunctionUse(Player player) {
 			return true;
 		}
