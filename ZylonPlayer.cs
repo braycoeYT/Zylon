@@ -33,6 +33,7 @@ namespace Zylon
 		public bool dirtballExpert;
 		public bool dirtRegalia;
 		public bool elemDegen;
+		public bool nightmareCatcher;
 
 		public int blowpipeMaxInc;
 		public float blowpipeChargeInc;
@@ -66,6 +67,7 @@ namespace Zylon
 			dirtballExpert = false;
 			dirtRegalia = false;
 			elemDegen = false;
+			nightmareCatcher = false;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeDamage = 0;
@@ -151,59 +153,46 @@ namespace Zylon
 			if (trueMelee15) trueMeleeBoost += 0.15f;
 			damage += (int)(damage * trueMeleeBoost);
         }
-
         public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit) {
 			OnHitNPCGlobal(item, null, target, damage, knockback, crit, target.type == NPCID.TargetDummy, true);
 		}
-
         public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit) {
 			OnHitNPCGlobal(null, proj, target, damage, knockback, crit, target.type == NPCID.TargetDummy, false);
 		}
-
         public override void OnHitPvp(Item item, Player target, int damage, bool crit) {
 			OnHitPVPGlobal(item, null, target, damage, crit, true);
 		}
         public override void OnHitPvpWithProj(Projectile proj, Player target, int damage, bool crit) {
 			OnHitPVPGlobal(null, proj, target, damage, crit, false);
 		}
-
-		public void OnHitNPCGlobal(Item item, Projectile proj, NPC target, int damage, float knockback, bool crit, bool isDummy, bool TrueMelee)
-        {
-			if (!isDummy)
-            {
-				if (TrueMelee)
-                {
+		public void OnHitNPCGlobal(Item item, Projectile proj, NPC target, int damage, float knockback, bool crit, bool isDummy, bool TrueMelee) {
+			if (!isDummy) {
+				if (TrueMelee) {
 					if (diskbringerSet)
 						DiskiteBuffs(90);
-
 					if (glazedLens && crit)
 						Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
-
+					if (nightmareCatcher && Main.rand.NextFloat() < .2f)
+						Item.NewItem(target.GetSource_FromThis(), target.getRect(), ModContent.ItemType<Items.Misc.LostNightmare>());
 				} else {
 					// To encourage more true melee play, this only has a 75% chance of applying instead of 100
 					if (diskbringerSet)
 						DiskiteBuffs(60, 75);
-
 					if (glazedLens && crit)
 						Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, proj.CritChance);
-
+					if (nightmareCatcher && Main.rand.NextFloat() < .07f)
+						Item.NewItem(target.GetSource_FromThis(), target.getRect(), ModContent.ItemType<Items.Misc.LostNightmare>());
 				}
 				if (bloodVial && Main.rand.NextFloat() < .08f)
 					Player.Heal(1);
-
 			}
 			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
 				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer);
-
 		}
-
-		public void OnHitPVPGlobal(Item item, Projectile proj, Player target, int damage, bool crit, bool TrueMelee)
-		{
-			if (TrueMelee)
-			{
+		public void OnHitPVPGlobal(Item item, Projectile proj, Player target, int damage, bool crit, bool TrueMelee) {
+			if (TrueMelee) {
 				if (diskbringerSet)
 					DiskiteBuffs(90);
-
 				if (glazedLens && crit)
 					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
 
@@ -211,22 +200,16 @@ namespace Zylon
 				// To encourage more true melee play, this only has a 75% chance of applying instead of 100
 				if (diskbringerSet)
 					DiskiteBuffs(60, 75);
-
 				if (glazedLens && crit)
 					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, proj.CritChance);
-
 			}
 			if (bloodVial && Main.rand.NextFloat() < .08f)
 				Player.Heal(1);
-
 			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
 				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer);
 		}
-
-		public void DiskiteBuffs(int Bufftime)
-		{
-			switch (Main.rand.Next(3))
-            {
+		public void DiskiteBuffs(int Bufftime) {
+			switch (Main.rand.Next(3)) {
 				case 0:
 					Player.AddBuff(BuffType<Buffs.DiskiteOffense>(), Bufftime);
 					return;
@@ -238,16 +221,10 @@ namespace Zylon
 					return;
             }
 		}
-		public void DiskiteBuffs(int Bufftime, int PercentChance)
-        {
+		public void DiskiteBuffs(int Bufftime, int PercentChance) {
 			if (Main.rand.Next(1, 100) <= PercentChance)
-            {
 				DiskiteBuffs(Bufftime);
-            }
         }
-
-
-
         public override void OnHitByNPC(NPC npc, int damage, bool crit) {
             if ((npc.type == NPCType<NPCs.Bosses.ADD.ADD_SpikeRing>() || npc.type == NPCType<NPCs.Bosses.ADD.ADD_Center>()) && !Player.noKnockback) {
 				Vector2 vector1;

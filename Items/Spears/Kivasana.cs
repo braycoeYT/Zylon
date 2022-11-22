@@ -11,7 +11,7 @@ namespace Zylon.Items.Spears
 	public class Kivasana : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("Enemies struck with the spear drop more money\nWeapons Master reward (King Slime)");
+            Tooltip.SetDefault("Enemies struck with the spear drop more money");
         }
         public override void SetDefaults() {
 			Item.damage = 16;
@@ -31,28 +31,22 @@ namespace Zylon.Items.Spears
 			Item.UseSound = SoundID.Item1;
 			Item.shoot = ProjectileType<Projectiles.Spears.Kivasana>();
 		}
-		public override void ModifyTooltips(List<TooltipLine> list) {
-            foreach (TooltipLine tooltipLine in list) {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName") {
-                    tooltipLine.OverrideColor = new Color(100, 60, 0);
-                }
-            }
-        }
 		int shootCount;
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             shootCount++;
 			Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer, 0f, shootCount%3);
 			return false;
         }
-        /*public override void ModifyTooltips(List<TooltipLine> list) {
-            foreach (TooltipLine tooltipLine in list) {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName") {
-                    tooltipLine.OverrideColor = new Color(0, 0, 0);
-                }
-            }
-        }*/
         public override bool CanUseItem(Player player) {
 			return player.ownedProjectileCounts[Item.shoot] < 1;
+		}
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 15);
+			recipe.AddRecipeGroup("Zylon:AnyGem", 8);
+			recipe.AddIngredient(ItemID.JungleSpores, 10);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
 		}
 	}
 }

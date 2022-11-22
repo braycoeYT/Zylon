@@ -10,7 +10,7 @@ namespace Zylon.Items.Wands
 	public class SpareLeg : ModItem
 	{
         public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons a big bone from above that unleashes a torrent of bones\nWeapons Master reward (Skeletron)");
+			Tooltip.SetDefault("Summons a big bone from above that unleashes a torrent of bones");
             Item.staff[Item.type] = true;
         }
         public override void SetDefaults() {
@@ -31,13 +31,6 @@ namespace Zylon.Items.Wands
 			Item.shootSpeed = 13f;
 			Item.mana = 21;
 		}
-		public override void ModifyTooltips(List<TooltipLine> list) {
-            foreach (TooltipLine tooltipLine in list) {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName") {
-                    tooltipLine.OverrideColor = new Color(100, 60, 0);
-                }
-            }
-        }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             Projectile.NewProjectile(source, new Vector2(Main.MouseWorld.X, player.Center.Y - 400), new Vector2(0, 20), type, damage, knockback, Main.myPlayer);
 			return false;

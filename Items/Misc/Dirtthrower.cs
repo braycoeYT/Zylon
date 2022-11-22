@@ -10,7 +10,7 @@ namespace Zylon.Items.Misc
 	public class Dirtthrower : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Talk about terraforming!'\nUses dirt blocks as ammo\nWeapons Master reward (Dirtball)");
+			Tooltip.SetDefault("'Talk about terraforming!'\nUses dirt blocks as ammo");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 1);
@@ -30,13 +30,6 @@ namespace Zylon.Items.Misc
 			Item.autoReuse = true;
 			Item.rare = ItemRarityID.Blue;
 		}
-		public override void ModifyTooltips(List<TooltipLine> list) {
-            foreach (TooltipLine tooltipLine in list) {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName") {
-                    tooltipLine.OverrideColor = new Color(100, 60, 0);
-                }
-            }
-        }
         public override Vector2? HoldoutOffset() {
 			return new Vector2(-4, 0);
 		}

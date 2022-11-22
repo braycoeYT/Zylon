@@ -11,10 +11,9 @@ namespace Zylon.Items.Misc
 	{
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Surgeon's Knife");
-			Tooltip.SetDefault("'110% surgery approved, though not approved for culinary use'\nBounces four times before dissipating\nWeapons master reward (Brain of Cthulhu)");
+			Tooltip.SetDefault("'110% surgery approved, though too dirty to be approved for culinary use'\nBounces four times before dissipating");
         }
-        public override void SetDefaults()
-        {
+        public override void SetDefaults() {
             Item.width = 20;
             Item.height = 42;
             Item.damage = 17;
@@ -32,12 +31,13 @@ namespace Zylon.Items.Misc
             Item.shoot = ProjectileType<Projectiles.Misc.SurgeonsKnife>();
             Item.shootSpeed = 12f;
         }
-        public override void ModifyTooltips(List<TooltipLine> list) {
-            foreach (TooltipLine tooltipLine in list) {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName") {
-                    tooltipLine.OverrideColor = new Color(100, 60, 0);
-                }
-            }
-        }
+        public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(ItemID.ThrowingKnife, 500);
+            recipe.AddIngredient(ItemType<Materials.BloodDroplet>(), 20);
+			recipe.AddRecipeGroup("Zylon:AnyShadowScale", 10);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+		}
     }
 }

@@ -10,7 +10,7 @@ namespace Zylon.Items.Misc
 	public class Flamecougher : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Coughs up a ball of cursed flames on use\nUses gel as ammo\nWeapons Master reward (Eater of Worlds)");
+			Tooltip.SetDefault("UNOBTAINABLE\nCoughs up a ball of cursed flames on use\nUses gel as ammo");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 2);
@@ -30,13 +30,6 @@ namespace Zylon.Items.Misc
 			Item.autoReuse = false;
 			Item.rare = ItemRarityID.Blue;
 		}
-		public override void ModifyTooltips(List<TooltipLine> list) {
-            foreach (TooltipLine tooltipLine in list) {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName") {
-                    tooltipLine.OverrideColor = new Color(100, 60, 0);
-                }
-            }
-        }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer, 1f);
 			return false;

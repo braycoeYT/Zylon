@@ -524,6 +524,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				npcLoot.Add(new CommonDrop(ItemID.LeadBar, 1, 1, 3));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bars.ZincBar>(), 1, 1, 3));
 				npcLoot.Add(new CommonDrop(ItemID.DirtRod, 5));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Misc.Dirtthrower>(), 25));
 				npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.MuddyGreatsword>(), ModContent.ItemType<Items.Yoyos.Dirtglob>(), ModContent.ItemType<Items.Bows.Dirty3String>(), ModContent.ItemType<Items.Blowpipes.DirtFunnel>(), ModContent.ItemType<Items.Wands.ScepterofDirt>(), ModContent.ItemType<Items.Accessories.DirtRegalia>()));
 				npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.DirtballMask>(), 7));
