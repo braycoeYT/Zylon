@@ -27,5 +27,16 @@ namespace Zylon
 		[Label("Dirt Ammo Compatibility Fixer")]
 		[Tooltip("Keep this disabled unless a mod uses dirt blocks as ammo and is having major issues. Enabling this will disable the Dirtthrower.")]
 		public bool dirtAmmoFix;
+
+		[Label("Infinite Boss Summons")]
+		[Tooltip("Makes the mod's boss summons infinite.")]
+		public bool infBossSum;
+
+		[Range(1f, 10f)]
+		[DefaultValue(1f)]
+		[Slider]
+		[Label("Boss HP Multiplier")]
+		[Tooltip("Allows you to multiply the health of the mod's bosses for increased difficulty. To be used with the similar config from Calamity.")]
+		public float bossHpMult;
 	}
 }

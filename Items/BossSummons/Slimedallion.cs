@@ -8,7 +8,9 @@ namespace Zylon.Items.BossSummons
 	public class Slimedallion : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons a different gigaslime depending on the biome\nCan only be used after the elemental goop has been unleashed");
+			string extra = "";
+			if (ModContent.GetInstance<ZylonConfig>().infBossSum) extra = "\nNot Consumable";
+			Tooltip.SetDefault("Summons a different gigaslime depending on the biome\nCan only be used after the elemental goop has been unleashed"+extra);
 		}
 		public override void SetDefaults()  {
 			Item.width = 28;
@@ -19,7 +21,7 @@ namespace Zylon.Items.BossSummons
 			Item.useAnimation = 45;
 			Item.useTime = 45;
 			Item.useStyle = ItemUseStyleID.HoldUp;
-			Item.consumable = true;
+			Item.consumable = !ModContent.GetInstance<ZylonConfig>().infBossSum;
 		}
         public override bool CanUseItem(Player player) {
             return NPC.downedPlantBoss;

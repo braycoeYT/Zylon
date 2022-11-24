@@ -8,7 +8,9 @@ namespace Zylon.Items.BossSummons
 	public class EnchantedEye : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons the Ancient Diskite Director\nCan only be used in the desert at night");
+			string extra = "";
+			if (ModContent.GetInstance<ZylonConfig>().infBossSum) extra = "\nNot Consumable";
+			Tooltip.SetDefault("Summons the Ancient Diskite Director\nCan only be used in the desert at night"+extra);
 		}
 		public override void SetDefaults()  {
 			Item.width = 28;
@@ -19,7 +21,7 @@ namespace Zylon.Items.BossSummons
 			Item.useAnimation = 45;
 			Item.useTime = 45;
 			Item.useStyle = ItemUseStyleID.HoldUp;
-			Item.consumable = true;
+			Item.consumable = !ModContent.GetInstance<ZylonConfig>().infBossSum;
 		}
         public override bool CanUseItem(Player player) {
             return !Main.dayTime && player.ZoneDesert && !NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.ADD.ADD_Center>());

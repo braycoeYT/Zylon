@@ -33,7 +33,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPC.width = 200;
 			NPC.height = 220;
 			NPC.damage = 40;
-			NPC.lifeMax = 7500;
+			NPC.lifeMax = (int)(7500*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.defense = 20;
 			NPC.HitSound = SoundID.NPCHit25;
 			NPC.DeathSound = SoundID.NPCDeath28;
@@ -48,7 +48,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/JellyTheme");
         }
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.lifeMax = 11500 + ((numPlayers - 1) * 3500);
+            NPC.lifeMax = (int)((11500 + ((numPlayers - 1) * 3500))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
             NPC.damage = 80;
 			NPC.value = 13750;
         }

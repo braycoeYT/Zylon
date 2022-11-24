@@ -74,16 +74,26 @@ namespace Zylon.NPCs
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Yoyos.GlazingStar>(), 75), new CommonDrop(ItemType<Items.Yoyos.GlazingStar>(), 65)));
 			if (npc.type == NPCID.BloodCrawler || npc.type == NPCID.BloodCrawlerWall)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Materials.BloodySpiderLeg>(), 8), new CommonDrop(ItemType<Items.Materials.BloodySpiderLeg>(), 6)));
-			if (npc.type == NPCID.KingSlime)
+			if (npc.type == NPCID.KingSlime) {
+				npcLoot.Add(new CommonDrop(ItemID.GoldCrown, 3));
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Materials.SlimyCore>(), 1, 8, 12), new CommonDrop(ItemType<Items.Materials.SlimyCore>(), 1, 10, 15)));
+			}
 			if (npc.type == NPCID.EyeofCthulhu) {
 				npcLoot.Add(new CommonDrop(ItemType<Items.Yoyos.Insomnia>(), 3));
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Lens, 1, 3, 5), new CommonDrop(ItemID.Lens, 1, 4, 6)));
 				if (WorldGen.crimson)
 					npcLoot.Add(new CommonDrop(ItemType<Items.Ammo.BloodiedArrow>(), 1, 20, 50, 1));
             }
-			if (npc.type == NPCID.QueenBee)
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Blowpipes.Revel>(), 12), new CommonDrop(ItemType<Items.Blowpipes.Revel>(), 10)));
+			if (npc.type == NPCID.EaterofWorldsHead) {
+				npcLoot.Add(new CommonDrop(ItemID.WormTooth, 3, 1, 2, 2));
+            }
+			if (npc.type == NPCID.Creeper) {
+				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.BloodySpiderLeg>(), 6));
+            }
+			if (npc.type == NPCID.QueenBee) {
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Stinger, 1, 3, 6), new CommonDrop(ItemID.Stinger, 1, 4, 7)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Blowpipes.Revel>(), 8), new CommonDrop(ItemType<Items.Blowpipes.Revel>(), 6)));
+			}
 			if (npc.type == NPCID.SkeletronHead)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Bone, 1, 20, 30), new CommonDrop(ItemID.Bone, 1, 30, 40)));
 			/*if (NPC.downedBoss3 && (npc.type == NPCID.Skeleton || npc.type == NPCID.SkeletonAlien || npc.type == NPCID.SkeletonArcher || npc.type == NPCID.SkeletonAstonaut || npc.type == NPCID.SkeletonSniper || npc.type == NPCID.ArmoredSkeleton || npc.type == NPCID.BigHeadacheSkeleton || npc.type == NPCID.BigMisassembledSkeleton || npc.type == NPCID.BigPantlessSkeleton || npc.type == NPCID.BigSkeleton || npc.type == NPCID.HeadacheSkeleton || npc.type == NPCID.HeadacheSkeleton|| npc.type == NPCID.MisassembledSkeleton || npc.type == NPCID.PantlessSkeleton || npc.type == NPCID.SmallHeadacheSkeleton || npc.type == NPCID.SmallMisassembledSkeleton || npc.type == NPCID.SmallPantlessSkeleton|| npc.type == NPCID.SmallSkeleton || npc.type == NPCID.SporeSkeleton))
@@ -96,7 +106,11 @@ namespace Zylon.NPCs
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.BloodDroplet>(), 1, 3, 6));
 			}
 			if (npc.type == NPCID.Spazmatism)
-				ItemDropRule.ByCondition(new Conditions.MissingTwin(), ItemType<Items.Minions.SpazmaticScythe>(), 4); 
+				ItemDropRule.ByCondition(new Conditions.MissingTwin(), ItemType<Items.Minions.SpazmaticScythe>(), 4);
+			if (npc.type == NPCID.Plantera) {
+				npcLoot.Add(new CommonDrop(ItemID.JungleRose, 4));
+				npcLoot.Add(new CommonDrop(ItemID.NaturesGift, 4));
+			}
 			if (npc.type == NPCID.Golem)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Spears.LihzahrdLance>(), 4), new CommonDrop(ItemType<Items.Spears.LihzahrdLance>(), 3)));
 			if (npc.type == NPCID.MoonLordCore) {
@@ -134,6 +148,8 @@ namespace Zylon.NPCs
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.NightmareCatcher>(), 150), new CommonDrop(ItemType<Items.Accessories.NightmareCatcher>(), 125)));
 			if (npc.type == NPCID.BlackRecluse || npc.type == NPCID.BlackRecluseWall || npc.type == NPCID.JungleCreeper || npc.type == NPCID.JungleCreeperWall || npc.type == NPCID.DesertScorpionWalk || npc.type == NPCID.DesertScorpionWall)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.VenomousPills>(), 50), new CommonDrop(ItemType<Items.Accessories.VenomousPills>(), 40)));
+			if (npc.type == NPCID.WyvernHead)
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Bows.WyvernsCall>(), 10), new CommonDrop(ItemType<Items.Bows.WyvernsCall>(), 9)));
 		}
         public override void ModifyGlobalLoot(GlobalLoot globalLoot) {
             //globalLoot.Add(ItemDropRule.ByCondition(new Conditions.WindyEnoughForKiteDrops(), ItemType<Items.Materials.WindEssence>(), 5));
