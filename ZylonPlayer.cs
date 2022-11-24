@@ -183,7 +183,7 @@ namespace Zylon
 					if (nightmareCatcher && Main.rand.NextFloat() < .07f)
 						Item.NewItem(target.GetSource_FromThis(), target.getRect(), ModContent.ItemType<Items.Misc.LostNightmare>());
 				}
-				if (bloodVial && Main.rand.NextFloat() < .08f)
+				if (bloodVial && Main.rand.NextFloat() < .1f)
 					Player.Heal(1);
 			}
 			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
@@ -203,7 +203,7 @@ namespace Zylon
 				if (glazedLens && crit)
 					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, proj.CritChance);
 			}
-			if (bloodVial && Main.rand.NextFloat() < .08f)
+			if (bloodVial && Main.rand.NextFloat() < .1f)
 				Player.Heal(1);
 			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
 				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer);

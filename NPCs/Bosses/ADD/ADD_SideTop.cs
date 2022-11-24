@@ -24,7 +24,7 @@ namespace Zylon.NPCs.Bosses.ADD
 			NPC.height = 70;
 			NPC.damage = 30;
 			NPC.defense = 14;
-			NPC.lifeMax = 800;
+			NPC.lifeMax = (int)(800*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.HitSound = SoundID.NPCHit4;
 			NPC.DeathSound = SoundID.NPCDeath14;
 			NPC.aiStyle = -1;
@@ -34,7 +34,7 @@ namespace Zylon.NPCs.Bosses.ADD
 			NPC.dontCountMe = true;
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.lifeMax = 950 + ((numPlayers - 1) * 400);
+            NPC.lifeMax = (int)((950 + ((numPlayers - 1) * 400))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 43;
 		}
 		NPC main;

@@ -36,7 +36,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPC.height = 70;
 			NPC.damage = 31;
 			NPC.defense = 10;
-			NPC.lifeMax = 1500;
+			NPC.lifeMax = (int)(1500*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath6;
 			NPC.value = 7500;
@@ -48,7 +48,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPC.netAlways = true;
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.lifeMax = 2100 + ((numPlayers - 1) * 900);
+            NPC.lifeMax = (int)((2100 + ((numPlayers - 1) * 900))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 46;
 			NPC.value = 20000;
         }

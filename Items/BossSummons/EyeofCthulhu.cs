@@ -8,8 +8,10 @@ namespace Zylon.Items.BossSummons
 	public class EyeofCthulhu : ModItem
 	{
 		public override void SetStaticDefaults() {
+			string extra = "";
+			if (ModContent.GetInstance<ZylonConfig>().infBossSum) extra = "\nNot Consumable";
 			DisplayName.SetDefault("Eye of Cthulhu");
-			Tooltip.SetDefault("'A suspicious looking eye summons the eye of cthulhu, but what does the eye of cthulhu summon?'");
+			Tooltip.SetDefault("'A suspicious looking eye summons the eye of cthulhu, but what does the eye of cthulhu summon?'"+extra);
 		}
 		public override void SetDefaults()  {
 			Item.width = 152;
@@ -20,7 +22,7 @@ namespace Zylon.Items.BossSummons
 			Item.useAnimation = 45;
 			Item.useTime = 45;
 			Item.useStyle = ItemUseStyleID.HoldUp;
-			Item.consumable = true;
+			Item.consumable = !ModContent.GetInstance<ZylonConfig>().infBossSum;
 		}
         public override bool CanUseItem(Player player) {
             return !NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.SuspiciousLookingEye>());

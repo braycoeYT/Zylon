@@ -421,6 +421,48 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.GoldenCarp);
 			recipe.AddTile(TileID.CookingPots);
 			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.ObsidianSwordfish);
+			recipe.AddIngredient(ItemID.Swordfish);
+			recipe.AddIngredient(ItemID.Obsidian, 20);
+			recipe.AddIngredient(ItemID.SoulofLight, 3);
+			recipe.AddIngredient(ItemID.SoulofNight, 3);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.ShadowKey);
+			recipe.AddIngredient(ItemID.GoldenKey);
+			recipe.AddIngredient(ItemID.Obsidian, 20);
+			recipe.AddIngredient(ItemID.Bone, 20);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.IceSkates);
+			recipe.AddIngredient(ItemID.Silk, 15);
+			recipe.AddIngredient(ItemID.SnowBlock, 20);
+			recipe.AddIngredient(ItemID.IceBlock, 20);
+			recipe.AddTile(TileID.IceMachine);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.AnkletoftheWind);
+			recipe.AddIngredient(ItemID.Vine, 3);
+			recipe.AddIngredient(ItemID.JungleSpores, 12);
+			recipe.AddIngredient(ItemID.PinkGel, 10);
+			recipe.AddTile(TileID.Loom);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.Aglet);
+			recipe.AddRecipeGroup("IronBar", 12);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.HermesBoots);
+			recipe.AddIngredient(ItemID.Silk, 15);
+			recipe.AddIngredient(ItemID.SwiftnessPotion, 3);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 12);
+			recipe.AddTile(TileID.Loom);
+			recipe.Register();
+
         }
         public override void PostAddRecipes() {
             for (int i = 0; i < Recipe.numRecipes; i++) {

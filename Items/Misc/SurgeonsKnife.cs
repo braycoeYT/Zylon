@@ -33,7 +33,7 @@ namespace Zylon.Items.Misc
         }
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-            recipe.AddIngredient(ItemID.ThrowingKnife, 500);
+            recipe.AddIngredient(ItemID.ThrowingKnife, 300);
             recipe.AddIngredient(ItemType<Materials.BloodDroplet>(), 20);
 			recipe.AddRecipeGroup("Zylon:AnyShadowScale", 10);
 			recipe.AddTile(TileID.Anvils);

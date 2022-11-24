@@ -11,10 +11,10 @@ namespace Zylon.Items.Swords
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Forgotten Rose's Saber");
-			Tooltip.SetDefault("Shoots a seed and several circling mini roses with each swing\nEvery third swing's seed is replaced with a blossomed rose\nBlossomed roses release several spore clouds");
+			Tooltip.SetDefault("'The forgotten rose's bloom will be others' doom!'\nSwings release a blossomed rose\nBlossomed roses release spore clouds after stopping\nEvery third swing also releases a ring of roses");
 		}
 		public override void SetDefaults() {
-			Item.damage = 96;
+			Item.damage = 65;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 42;
 			Item.height = 42;
@@ -27,34 +27,25 @@ namespace Zylon.Items.Swords
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 			Item.useTurn = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.Swords.MiniRose>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.Swords.MegaRose>();
 			Item.shootSpeed = 12f;
 		}
 		int shootCount;
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
 			shootCount++;
-			int projType;
-			if (shootCount % 3 == 0) projType = ModContent.ProjectileType<Projectiles.Swords.MegaRose>();
-			else projType = ProjectileID.SeedlerNut;
-			Projectile.NewProjectile(source, position, velocity, projType, damage, knockback, Main.myPlayer);
+			int jimbo;
+			if (shootCount % 3 == 0) jimbo = 1;
+			else jimbo = 0;
+			Projectile.NewProjectile(source, position, velocity, type, (int)(damage*0.75f), knockback, Main.myPlayer, jimbo);
 			SoundEngine.PlaySound(SoundID.Item69, position);
-			for (int i = 0; i < 2; i++) {
-				Vector2 perturbedSpeed = new Vector2(velocity.X * Main.rand.NextFloat(0.8f, 1.2f), velocity.Y * Main.rand.NextFloat(0.8f, 1.2f)).RotatedByRandom(MathHelper.ToRadians(14));
-				Projectile.NewProjectile(source, position, perturbedSpeed, type, (int)(damage * 0.5f), knockback * 0.5f, player.whoAmI, -3f);
-			}
-			for (int i = 0; i < 2; i++) {
-				Vector2 perturbedSpeed = new Vector2(velocity.X * Main.rand.NextFloat(0.8f, 1.2f), velocity.Y * Main.rand.NextFloat(0.8f, 1.2f)).RotatedByRandom(MathHelper.ToRadians(14));
-				Projectile.NewProjectile(source, position, perturbedSpeed, type, (int)(damage * 0.5f), knockback * 0.5f, player.whoAmI, 3f);
-			}
-			return false;
+			return true;
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<CarnalliteCutlass>());
-			recipe.AddIngredient(ItemID.ChlorophyteClaymore);
 			recipe.AddIngredient(ItemID.ChlorophyteSaber);
-			recipe.AddIngredient(ItemID.Seedler);
 			recipe.AddIngredient(ItemID.JungleRose);
+			recipe.AddIngredient(ItemID.ChlorophyteBar, 12);
 			recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 20);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
