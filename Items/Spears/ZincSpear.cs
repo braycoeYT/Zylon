@@ -21,7 +21,7 @@ namespace Zylon.Items.Spears
 			Item.DamageType = DamageClass.Melee;
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
-			Item.autoReuse = false;
+			Item.autoReuse = true;
 			Item.UseSound = SoundID.Item1;
 			Item.shoot = ProjectileType<Projectiles.Spears.ZincSpear>();
 		}

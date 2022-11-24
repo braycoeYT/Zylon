@@ -1,0 +1,314 @@
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace Zylon.Projectiles.Spears
+{
+	public abstract class SpearProj : ModProjectile
+	{
+        private bool Setup;
+        private int CurrentFreezeFrames;
+        public int SwingNumber;
+
+        private int FreezeFrames;
+        private int Duration;
+        private float StartPoint;
+
+        private float RadianSwingRotation;
+        private float RadianSwingReach;
+        private int RadianSwingFrames;
+
+        private int ThrustFrames;
+        private float ThrustReach;
+        private float ThrustLaunch;
+        private float ThrustDamageScaling;
+
+        private bool HasImpactExtra;
+        private bool HasGlowmask;
+        private bool HasThrustEffect;
+
+        public SpearProj(float StartPoint_input, int RadianSwingFrames_input, float RadianSwingRotation_input, float RadianSwingReach_input, int FreezeFrames_input, int ThrustFrames_input, float ThrustReach_input, float ThrustLaunch_input, float ThrustDamageScaling_input)
+        {
+            StartPoint = StartPoint_input;
+
+            RadianSwingFrames = RadianSwingFrames_input;
+            RadianSwingRotation = RadianSwingRotation_input;
+            RadianSwingReach = RadianSwingReach_input;
+
+            FreezeFrames = FreezeFrames_input;
+
+            ThrustFrames = ThrustFrames_input;
+            ThrustReach = ThrustReach_input;
+            ThrustLaunch = ThrustLaunch_input;
+            ThrustDamageScaling = ThrustDamageScaling_input;
+        }
+
+        public override void SetDefaults()
+        {
+            Projectile.width = 54;
+            Projectile.height = 54;
+            Projectile.penetrate = -1;
+            Projectile.scale = 1.3f;
+            Projectile.alpha = 0;
+            Projectile.ownerHitCheck = true;
+            Projectile.DamageType = DamageClass.Melee;
+            Projectile.tileCollide = false;
+            Projectile.friendly = true;
+            Projectile.timeLeft = 200;
+            Projectile.usesLocalNPCImmunity = true;
+            Projectile.localNPCHitCooldown = 40;
+            Projectile.netImportant = true;
+            SpearDefaultsSafe();
+        }
+
+        public override void AI()
+        {
+            SpearAISafe();
+
+            Player ProjectileOwner = Main.player[Projectile.owner];
+            var ZylonSpearPlayer = ProjectileOwner.GetModPlayer<SpearPlayer>();
+
+            if (!Setup && Main.myPlayer == Projectile.owner)
+            {
+                SwingNumber = ZylonSpearPlayer.SpearCombo;
+                ZylonSpearPlayer.SpearCombo++;
+                Projectile.netUpdate = true;
+                Setup = true;
+            }
+
+
+            Projectile.velocity = Vector2.Normalize(Projectile.velocity);
+            Vector2 center = ProjectileOwner.RotatedRelativePoint(ProjectileOwner.MountedCenter);
+            Projectile.Center = center;
+            Projectile.position += Projectile.velocity * ((Projectile.height * 0.075f) + (Projectile.width * 0.075f));
+            ProjectileOwner.heldProj = Projectile.whoAmI;
+
+            if (CurrentFreezeFrames < 1)
+            {
+                Projectile.rotation = Projectile.velocity.ToRotation();
+                Projectile.spriteDirection = Projectile.direction;
+
+                if (Projectile.spriteDirection == -1)
+                {
+                    Projectile.rotation += MathHelper.ToRadians(-315f);
+                }
+                else
+                {
+                    Projectile.rotation += MathHelper.ToRadians(-225f);
+                }
+
+                Duration++;
+
+                if (SwingNumber >= 0 && SwingNumber <= 1)
+                {
+                    float RadianSwingRotationPerFrame = MathHelper.ToRadians(RadianSwingRotation) / (float)RadianSwingFrames;
+                    if (SwingNumber == 1)
+                        RadianSwingRotationPerFrame *= -1;
+
+                    Projectile.rotation += MathHelper.SmoothStep(-1 * (RadianSwingRotationPerFrame * (RadianSwingFrames/2)), (RadianSwingRotationPerFrame * (RadianSwingFrames / 2)), Duration/(float)RadianSwingFrames);
+
+                    float VectorValue = MathExtras.TensionStep(StartPoint, StartPoint, Duration / (float)RadianSwingFrames, 0.5f, RadianSwingReach);
+
+                    Projectile.Center += new Vector2(VectorValue, 0f).RotatedBy(Projectile.velocity.ToRotation());
+
+                    if (Duration > RadianSwingFrames)
+                    {
+                        Projectile.Kill();
+                    }
+
+                } else if (SwingNumber == 2) {
+
+                    if (Duration == 1)
+                    {
+                        ProjectileOwner.velocity += new Vector2(ThrustLaunch, 0f).RotatedBy(Projectile.velocity.ToRotation());
+                    }
+
+                    float VectorValue = MathExtras.TensionStep(StartPoint, StartPoint, Duration / (float)ThrustFrames, 0.5f, ThrustReach);
+                    Projectile.Center += new Vector2(VectorValue, 0f).RotatedBy(Projectile.velocity.ToRotation());
+
+                    if (Duration > ThrustFrames)
+                    {
+                        Projectile.Kill();
+                    }
+                }
+
+
+            } else
+            {
+                Projectile.position += -Projectile.velocity;
+                CurrentFreezeFrames--;
+
+                if (SwingNumber >= 0 && SwingNumber <= 1)
+                {
+                    float VectorValue = MathExtras.TensionStep(StartPoint, StartPoint, Duration / (float)RadianSwingFrames, 0.5f, RadianSwingReach);
+                    Projectile.Center += new Vector2(VectorValue, 0f).RotatedBy(Projectile.velocity.ToRotation());
+                }
+                if (SwingNumber == 3)
+                {
+                    float VectorValue = MathExtras.TensionStep(StartPoint, StartPoint, Duration / (float)ThrustFrames, 0.5f, ThrustReach);
+                    Projectile.Center += new Vector2(VectorValue, 0f).RotatedBy(Projectile.velocity.ToRotation());
+                }
+            }
+            
+
+        }
+
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            SpearOnHitNPC(target, damage, knockback, crit);
+
+            TriggerFreezeFrames();
+            base.OnHitNPC(target, damage, knockback, crit);
+        }
+        public override void OnHitPvp(Player target, int damage, bool crit)
+        {
+            SpearOnHitPVP(target, damage, crit);
+
+            TriggerFreezeFrames();
+            base.OnHitPvp(target, damage, crit);
+        }
+
+        public override bool? CanHitNPC(NPC target)
+        {
+            if (SwingNumber >= 0 && SwingNumber <= 1)
+            {
+                return (Duration / (float)RadianSwingFrames) > 0.1f && (Duration / (float)RadianSwingFrames) < 0.9f && CurrentFreezeFrames < 1;
+            } else
+            {
+                return (Duration / (float)ThrustFrames) > 0.1f && (Duration / (float)ThrustFrames) < 0.9f && CurrentFreezeFrames < 1;
+            }
+        }
+
+        public override bool CanHitPvp(Player target)
+        {
+            if (SwingNumber >= 0 && SwingNumber <= 1)
+            {
+                return (Duration / (float)RadianSwingFrames) > 0.1f && (Duration / (float)RadianSwingFrames) < 0.9f && CurrentFreezeFrames < 1;
+            }
+            else
+            {
+                return (Duration / (float)ThrustFrames) > 0.1f && (Duration / (float)ThrustFrames) < 0.9f && CurrentFreezeFrames < 1;
+            }
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;
+
+            int AmountOfExtras = 1;
+
+            if (HasGlowmask)
+                AmountOfExtras++;
+            if (HasThrustEffect)
+                AmountOfExtras++;
+            if (HasImpactExtra)
+                AmountOfExtras++;
+
+            Vector2 drawOrigin = new Vector2(projectileTexture.Width * 0.5f, (projectileTexture.Height/AmountOfExtras) * 0.5f);
+            Vector2 drawPos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
+            Color color = Projectile.GetAlpha(lightColor);
+
+            float FakeRotation = Projectile.rotation;
+            if (Projectile.spriteDirection == -1)
+            {
+                FakeRotation += MathHelper.PiOver2;
+            }
+            Main.spriteBatch.Draw(projectileTexture, drawPos, new Rectangle(0, 0, (int)(Projectile.width / Projectile.scale), ((int)(Projectile.height / Projectile.scale))/ AmountOfExtras), color, FakeRotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
+            if (HasGlowmask)
+            {
+                Main.spriteBatch.Draw(projectileTexture, drawPos, new Rectangle(0, ((projectileTexture.Height/AmountOfExtras)*1), (int)(Projectile.width / Projectile.scale), ((int)(Projectile.height / Projectile.scale)) / AmountOfExtras), Projectile.GetAlpha(Color.White), FakeRotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
+            }
+            SpearDraw(Main.spriteBatch, lightColor, projectileTexture, drawOrigin, drawPos, FakeRotation, AmountOfExtras);
+            if (HasThrustEffect && Duration < (ThrustFrames * 0.5f))
+            {
+                float ColorMulti = MathExtras.TensionStep(0.6f, 0f, ((Duration / (float)ThrustFrames)*2f), 0.2f, 0.7f);
+                Main.spriteBatch.Draw(projectileTexture, drawPos, new Rectangle(0, ((projectileTexture.Height / AmountOfExtras) * 2), (int)(Projectile.width / Projectile.scale), ((int)(Projectile.height / Projectile.scale)) / AmountOfExtras), Projectile.GetAlpha(Color.White) * ColorMulti, FakeRotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
+            }
+
+
+
+            return false;
+        }
+
+        public override void ModifyDamageScaling(ref float damageScale)
+        {
+            if (SwingNumber == 2)
+            {
+                damageScale *= ThrustDamageScaling;
+            }
+        }
+
+        private void TriggerFreezeFrames()
+        {
+            CurrentFreezeFrames = FreezeFrames;
+            if (Main.myPlayer == Projectile.owner)
+            {
+                Projectile.netUpdate = true;
+            }
+            FreezeFramesExtraEffect();
+        }
+
+        public virtual void FreezeFramesExtraEffect()
+        {
+        }
+        public virtual void SpearAISafe()
+        {
+        }
+        public virtual void SpearDefaultsSafe()
+        {
+        }
+        public virtual void SpearOnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+        }
+        public virtual void SpearOnHitPVP(Player target, int damage, bool crit)
+        {
+        }
+        public virtual void SpearDraw(SpriteBatch spriteBatch, Color lightColor, Texture2D projectileTexture, Vector2 drawOrigin, Vector2 drawPosition, float drawRotation, int amountOfExtras)
+        {
+
+        }
+
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            writer.Write(Duration);
+            if (FreezeFrames > 0)
+            {
+                writer.Write(CurrentFreezeFrames);
+            }
+            writer.Write(SwingNumber);
+        }
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            Duration = reader.ReadInt32();
+            if (FreezeFrames > 0)
+            {
+                CurrentFreezeFrames = reader.ReadInt32();
+            }
+            SwingNumber = reader.ReadInt32();
+        }
+
+    }
+
+
+
+    // Keep all this white space, I want it to be obvious that the ModPlayer below is a seperate class.
+
+    public class SpearPlayer : ModPlayer
+    {
+        public int SpearCombo;
+        public override void ResetEffects()
+        {
+            if (SpearCombo >= 3)
+            {
+                SpearCombo = 0;
+            }
+            base.ResetEffects();
+        }
+    }
+
+}
