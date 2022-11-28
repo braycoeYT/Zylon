@@ -28,9 +28,9 @@ namespace Zylon.Items.Armor
         public override void UpdateArmorSet(Player player) {
 			player.setBonus = "When at max health, increases your defense by 10 and damage by 12%\nWhen below 25% health, increases your life regen by 3";
 			if (player.statLife == player.statLifeMax2)
-				player.AddBuff(ModContent.BuffType<Buffs.LeafShield>(), 60);
+				player.AddBuff(ModContent.BuffType<Buffs.Armor.LeafShield>(), 60);
 			if (player.statLife <= player.statLifeMax2 / 4)
-				player.AddBuff(ModContent.BuffType<Buffs.NaturesPrayer>(), 60);
+				player.AddBuff(ModContent.BuffType<Buffs.Armor.NaturesPrayer>(), 60);
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

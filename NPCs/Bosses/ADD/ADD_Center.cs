@@ -55,6 +55,10 @@ namespace Zylon.NPCs.Bosses.ADD
             NPC.lifeMax = (int)((2600 + ((numPlayers - 1) * 1200))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 43;
 			NPC.value = 80000;
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)((3400 + ((numPlayers - 1) * 1500))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+				NPC.damage = 60;
+            }
         }
         public override bool? CanBeHitByItem(Player player, Item item) {
 			if (finalAtk && !finalAtk2) return false;
@@ -447,7 +451,7 @@ namespace Zylon.NPCs.Bosses.ADD
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.ADDRelic>(), 1));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.DiskiteDrive>(), 4));
             }
-			if (Main.expertMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.DiskiteBag>(), 1));
+			if (Main.expertMode || Main.masterMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.DiskiteBag>(), 1));
 			else {
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.DiskiteCrumbles>(), 1, 10, 20));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.RustedTech>(), 1, 25, 30));

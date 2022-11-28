@@ -1,22 +1,23 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace Zylon.Buffs
+namespace Zylon.Buffs.Armor
 {
-    public class NaturesPrayer : ModBuff
+    public class LeafShield : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Nature's Prayer");
-            Description.SetDefault("'Nature cares for all'");
+            DisplayName.SetDefault("Leaf Shield");
+            Description.SetDefault("'The leaves are empowering you'");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = true;
         }
         public override void Update(Player player, ref int buffIndex) {
-            if (player.statLife > player.statLifeMax2 / 4)
+            if (player.statLife != player.statLifeMax)
 				player.buffTime[buffIndex] = 0;
             else
                 player.buffTime[buffIndex] = 60;
-            player.lifeRegen += 3;
+            player.statDefense += 10;
+            player.GetDamage(DamageClass.Generic) += 0.12f;
         }
     }
 }

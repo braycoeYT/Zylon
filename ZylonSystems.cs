@@ -119,7 +119,7 @@ namespace Zylon
 
 			recipe = Recipe.Create(ItemID.PocketMirror);
 			recipe.AddIngredient(ItemID.MarbleBlock, 25);
-			recipe.AddIngredient(ItemID.GoldBar, 5);
+			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 5);
 			recipe.AddIngredient(ItemID.Glass, 12);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
@@ -156,15 +156,15 @@ namespace Zylon
 
 			recipe = Recipe.Create(ItemID.TruffleWorm);
 			recipe.AddIngredient(ItemID.Worm);
-			recipe.AddIngredient(ItemID.ShroomiteBar, 15);
+			recipe.AddIngredient(ItemID.ShroomiteBar, 5);
 			recipe.AddIngredient(ItemID.Ectoplasm, 10);
 			recipe.AddTile(TileID.Autohammer);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.LihzahrdPowerCell);
-			recipe.AddIngredient(ItemID.LunarTabletFragment, 15);
-			recipe.AddIngredient(ItemID.Glass, 5);
-			recipe.AddIngredient(ItemID.FallenStar, 5);
+			recipe.AddIngredient(ItemID.LunarTabletFragment, 10);
+			recipe.AddIngredient(ItemID.Glass, 3);
+			recipe.AddIngredient(ItemID.FallenStar, 3);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 
@@ -461,6 +461,11 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.SwiftnessPotion, 3);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 12);
 			recipe.AddTile(TileID.Loom);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.CobaltShield);
+			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 12);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
         }

@@ -36,7 +36,7 @@ namespace Zylon.Projectiles.Swords
                 Vector2 spawn = new Vector2(target.Center.X + Main.rand.Next(-320, 321), Main.player[Projectile.owner].position.Y - 400);
 			    Vector2 target2 = spawn - target.Center;
 			    Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawn, target2*Main.rand.NextFloat(-8f, -5f), ModContent.ProjectileType<LoberaTropicalOrb>(), damage/2, Projectile.knockBack/2, Main.myPlayer);
-                if (target.boss == false) target.AddBuff(ModContent.BuffType<Buffs.LoberaSoulslash>(), 60 * Main.rand.Next(3, 7), false);
+                if (target.boss == false) target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60 * Main.rand.Next(3, 7), false);
             }
         }
         public override void OnHitPvp(Player target, int damage, bool crit) {
@@ -44,7 +44,7 @@ namespace Zylon.Projectiles.Swords
                 Vector2 spawn = new Vector2(target.Center.X + Main.rand.Next(-320, 321), Main.player[Projectile.owner].position.Y - 400);
 			    Vector2 target2 = spawn - target.Center;
 			    Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawn, target2*Main.rand.NextFloat(-8f, -5f), ModContent.ProjectileType<LoberaTropicalOrb>(), damage/2, Projectile.knockBack/2, Main.myPlayer);
-                target.AddBuff(ModContent.BuffType<Buffs.LoberaSoulslash>(), 60 * Main.rand.Next(3, 7), false);
+                target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60 * Main.rand.Next(3, 7), false);
             }
         }
         float progress2;

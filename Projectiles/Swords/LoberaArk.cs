@@ -24,10 +24,10 @@ namespace Zylon.Projectiles.Swords
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
 			if (target.boss == false)
-		    target.AddBuff(ModContent.BuffType<Buffs.LoberaSoulslash>(), 60 * Main.rand.Next(2, 8), false);
+		    target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60 * Main.rand.Next(2, 8), false);
 		}
 		public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(ModContent.BuffType<Buffs.LoberaSoulslash>(), 60 * Main.rand.Next(2, 8), false);
+			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60 * Main.rand.Next(2, 8), false);
 		}
     }   
 }

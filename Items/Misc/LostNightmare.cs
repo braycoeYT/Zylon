@@ -5,6 +5,8 @@ using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
+using Microsoft.Xna.Framework;
 
 namespace Zylon.Items.Misc
 {
@@ -21,7 +23,7 @@ namespace Zylon.Items.Misc
 			Item.width = 14;
 			Item.height = 30;
 			Item.maxStack = 1;
-			Item.value = Item.sellPrice(69, 69, 4, 20);
+			Item.value = Item.sellPrice(0, 0, 0, 69);
 			Item.rare = ItemRarityID.LightPurple;
 		}
 		int Timer;
@@ -30,9 +32,16 @@ namespace Zylon.Items.Misc
 			if (Timer > 2400) Item.active = false;
 		}
         public override bool OnPickup(Player player) {
-			int rand = Main.rand.Next(1, 3);
+			int rand = Main.rand.Next(1, 4);
 			player.statLife += rand;
 			player.HealEffect(rand);
+			for (int i = 0; i < 36; i++) {
+				Dust dust = Dust.NewDustDirect(player.position, player.width, player.height, DustID.PurpleTorch);
+				dust.noGravity = true;
+				dust.velocity = new Vector2(0, 4).RotatedBy(MathHelper.ToRadians(i*10));
+				dust.scale = 3f;
+            }
+			SoundEngine.PlaySound(SoundID.NPCHit44, player.position);
             return false;
         }
 

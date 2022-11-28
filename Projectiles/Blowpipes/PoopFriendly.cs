@@ -32,7 +32,7 @@ namespace Zylon.Projectiles.Blowpipes
 			target.AddBuff(BuffID.ShadowFlame, 69);
 			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrainFreeze>(), 69);
 			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Shroomed>(), 69);
-			target.AddBuff(ModContent.BuffType<Buffs.LoberaSoulslash>(), 69);
+			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 69);
         }
         public override void OnHitPvp(Player target, int damage, bool crit) {
 			target.AddBuff(BuffID.Poisoned, 69);
@@ -45,7 +45,7 @@ namespace Zylon.Projectiles.Blowpipes
 			target.AddBuff(BuffID.ShadowFlame, 69);
 			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrainFreeze>(), 69);
 			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Shroomed>(), 69);
-			target.AddBuff(ModContent.BuffType<Buffs.LoberaSoulslash>(), 69);
+			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 69);
         }
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);

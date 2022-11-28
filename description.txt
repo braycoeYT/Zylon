@@ -3,30 +3,30 @@ The best mod that starts with Z (I guarantee or your money back)! Zylon is a sma
 THIS MOD IS IN SEVERE NEED OF SPRITERS. If you are a fan of the mod and want to sprite, feel free to join the discord server!
 
 Stats:
-~306 Items
+~314 Items
 ~3 Bosses:
 ~~~3 Prehardmode Bosses
 ~51 total NPCs
-~41 Buffs
+~45 Buffs
 ~11 Tiles
 ~A complete reworking and expansion of blowpipes!
 ~Many new vanilla recipes and changes to help balance the game out (including an easier Slime Crown recipe).
 ~Several new prefixes!
 
-V0.0.1.9: Thankful Update
-~Changed Surgeon's Knife's recipe.
-~Reworked Forgetten Rose's Saber to be much cooler.
-~Fixed frame issues with dirtboi.
-~Added several new vanilla recipes.
-~Increased Revel drop chance.
-~Added Infinite Boss Summons config.
-~Added some more vanilla npc item drops.
-~Elemental Degeneration now only confuses the player if they are not immune to confusion.
-~Buffed Bloody Vial.
-~Added Sturgeon's Knife.
-~Added Wyvern's Call.
-~Added Boss Health Multiplier config (a la Calamity).
-New boss: 1% complete
+V0.0.2: Update
+~Added Taboo Essence.
+~Most non-dungeon skeletons now drop Obelisk Shards.
+~Modified and added Zylon vanilla recipes.
+~Added Tattered and Shadowstitched Armor.
+~Fixed Zylon bosses' master stats.
+~Boss summons now state which bosses enrage outside of their respective biomes.
+~Fixed Forgotten Rose's Saber's rarity.
+~Weapons Master is no longer included in the bestiary due to being unused.
+~Fixed bosses dropping normal mode loot in master mode.
+~Buffed Nightmare Catcher and made it a lot cooler.
+~Improved Dirtball hit sounds.
+~Improved Roxin Blowgun projectile.
+New boss: 10% complete
 
 Q&A:
 

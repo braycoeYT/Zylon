@@ -34,6 +34,7 @@ namespace Zylon
 		public bool dirtRegalia;
 		public bool elemDegen;
 		public bool nightmareCatcher;
+		public bool shadowflameMagic;
 
 		public int blowpipeMaxInc;
 		public float blowpipeChargeInc;
@@ -68,6 +69,7 @@ namespace Zylon
 			dirtRegalia = false;
 			elemDegen = false;
 			nightmareCatcher = false;
+			shadowflameMagic = false;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeDamage = 0;
@@ -188,6 +190,14 @@ namespace Zylon
 			}
 			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
 				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer);
+			if (shadowflameMagic) {
+				if (item != null)
+					if (item.DamageType == DamageClass.Magic)
+						target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(5, 11)*60);
+				if (proj != null)
+					if (proj.DamageType == DamageClass.Magic)
+						target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(5, 11)*60);
+            }
 		}
 		public void OnHitPVPGlobal(Item item, Projectile proj, Player target, int damage, bool crit, bool TrueMelee) {
 			if (TrueMelee) {
@@ -211,13 +221,13 @@ namespace Zylon
 		public void DiskiteBuffs(int Bufftime) {
 			switch (Main.rand.Next(3)) {
 				case 0:
-					Player.AddBuff(BuffType<Buffs.DiskiteOffense>(), Bufftime);
+					Player.AddBuff(BuffType<Buffs.Armor.DiskiteOffense>(), Bufftime);
 					return;
 				case 1:
-					Player.AddBuff(BuffType<Buffs.DiskiteDefense>(), Bufftime);
+					Player.AddBuff(BuffType<Buffs.Armor.DiskiteDefense>(), Bufftime);
 					return;
 				case 2:
-					Player.AddBuff(BuffType<Buffs.DiskiteAgility>(), Bufftime);
+					Player.AddBuff(BuffType<Buffs.Armor.DiskiteAgility>(), Bufftime);
 					return;
             }
 		}
