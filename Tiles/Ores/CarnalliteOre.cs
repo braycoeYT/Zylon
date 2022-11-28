@@ -25,7 +25,7 @@ namespace Zylon.Tiles.Ores
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Carnallite Ore");
 			AddMapEntry(new Color(103, 217, 69), name); //110, 150, 98
-			DustType = DustType<Dusts.CarnalliteDust>();
+			DustType = DustType<Dusts.CarnalliteOreDust>();
 			ItemDrop = ItemType<Items.Ores.CarnalliteOre>();
 			HitSound = SoundID.Tink;
 			MineResist = 1f;

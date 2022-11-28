@@ -10,8 +10,8 @@ namespace Zylon.Items.Spears
 		public override void SetDefaults() {
 			Item.damage = 6;
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.useAnimation = 18;
-			Item.useTime = 24;
+			Item.useAnimation = 30;
+			Item.useTime = 30;
 			Item.shootSpeed = 2.5f;
 			Item.knockBack = 6.5f;
 			Item.width = 32;
@@ -21,7 +21,7 @@ namespace Zylon.Items.Spears
 			Item.DamageType = DamageClass.Melee;
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
-			Item.autoReuse = false;
+			Item.autoReuse = true;
 			Item.UseSound = SoundID.Item1;
 			Item.shoot = ProjectileType<Projectiles.Spears.CarvedStabber>();
 		}

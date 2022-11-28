@@ -14,8 +14,8 @@ namespace Zylon.Items.Spears
 		public override void SetDefaults() {
 			Item.damage = 49;
 			Item.useStyle = ItemUseStyleID.Thrust;
-			Item.useAnimation = 10;
-			Item.useTime = 10;
+			Item.useAnimation = 8;
+			Item.useTime = 8;
 			Item.shootSpeed = 7f;
 			Item.knockBack = 5.4f;
 			Item.width = 32;
@@ -29,8 +29,8 @@ namespace Zylon.Items.Spears
 			Item.UseSound = SoundID.Item1;
 			Item.shoot = ProjectileType<Projectiles.Spears.EyeoftheSandstorm>();
 		}
-		/*public override bool CanUseItem(Player player) {
-			return player.ownedProjectileCounts[Item.shoot] < 3;
-		}*/
+		public override bool CanUseItem(Player player) {
+			return player.ownedProjectileCounts[Item.shoot] < 1;
+		}
 	}
 }

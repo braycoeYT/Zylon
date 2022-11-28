@@ -10,8 +10,8 @@ namespace Zylon.Items.Accessories
 			Tooltip.SetDefault("'Not sure how it stays together, but it does!'\nSummons a small army of dirt blocks to protect you\nDirt blocks are affected by the Dirt Regalia");
 		}
 		public override void SetDefaults() {
-			Item.width = 34;
-			Item.height = 38;
+			Item.width = 28;
+			Item.height = 28;
 			Item.accessory = true;
 			Item.value = Item.sellPrice(0, 2);
 			Item.rare = ItemRarityID.Gray;

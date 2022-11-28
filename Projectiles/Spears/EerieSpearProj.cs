@@ -13,6 +13,7 @@ namespace Zylon.Projectiles.Spears
 			Projectile.height = 14;
 			Projectile.aiStyle = 1;
 			Projectile.friendly = true;
+			Projectile.hostile = false;
 			Projectile.penetrate = 1;
 			Projectile.DamageType = DamageClass.Melee;
 			Projectile.timeLeft = 9999;

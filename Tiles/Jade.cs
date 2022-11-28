@@ -22,7 +22,7 @@ namespace Zylon.Tiles
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Jade");
 			AddMapEntry(new Color(123, 209, 88), name);
-			DustType = DustType<Dusts.JadeDust>();
+			DustType = DustType<Dusts.JadeOreDust>();
 			ItemDrop = ItemType<Items.Materials.Jade>();
 			HitSound = SoundID.Tink;
 			MineResist = 1f;
