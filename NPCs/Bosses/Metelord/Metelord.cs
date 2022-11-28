@@ -56,12 +56,15 @@ namespace Zylon.NPCs.Bosses.Metelord
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
 			NPC.lifeMax = (int)((4200 + ((numPlayers - 1) * 1600))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 64;
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)((5600 + ((numPlayers - 1) * 2100))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+				NPC.damage = 92;
+            }
 		}
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.TheCrimson,
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.UndergroundCrimson,
-				new FlavorTextBestiaryInfoElement("The fusion of many meteor heads and tails leads to the birth of a powerful defender of the meteorite.")
+				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Meteor,
+				new FlavorTextBestiaryInfoElement("While most meteor spawn are very small in size, some can be formed from a chain of meteor chunks, leading to them forming a worm-like being.")
 			});
 		}
 		public override void Init() {
@@ -81,8 +84,130 @@ namespace Zylon.NPCs.Bosses.Metelord
 		public override void ReceiveExtraAI(BinaryReader reader) {
 			attackCounter = reader.ReadInt32();
 		}
+        public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit) {
+            if (target.ZoneMeteor) NPC.ai[0] = 1;
+        }
+        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit) {
+            if (target.ZoneMeteor) NPC.ai[0] = 1;
+        }
+        Player target;
         public override void AI() {
-            NPC.active = false;
+			NPC.active = false;
+			NPC.TargetClosest();
+			target = Main.player[NPC.target];
+			ZylonGlobalNPC.metelordBoss = NPC.whoAmI;
+        }
+		int attack;
+		int attackTimer;
+		int attackTimer2;
+		int attackInt;
+		int prevAttack;
+		int attackMax = 2;
+		int runBoost = 180;
+		bool attackDone = true;
+		Vector2 newVel;
+        public override void PostAI() {
+			if (attackDone) {
+				attackTimer2++;
+				if (attackTimer2 > (int)(30+(150*NPC.life/NPC.lifeMax)+runBoost)) {
+					attack = Main.rand.Next(attackMax);
+					while (attack == prevAttack) attack = Main.rand.Next(attackMax);
+					prevAttack = attack;
+					attackDone = false;
+					attackTimer = 0;
+					attackTimer2 = 0;
+					runBoost = 0;
+					newVel = new Vector2();
+					attackInt = 0; //Fun story: I forgot to put this in and as I was testing the boss, I thought to myself: "It's almost like attackInt isn't reset-OHHHH!"
+
+					//attack = 0;
+                }
+            }
+			else if (attack == 0) {
+				runBoost = 30;
+				if (attackTimer <= 0) {
+					if (attackInt >= (int)(6-(4*NPC.life/NPC.lifeMax))) attackDone = true;
+					else {
+						attackTimer = (int)(60+(30*NPC.life/NPC.lifeMax));
+						Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
+						speed.Normalize();
+						newVel = speed*(int)(-18f+(5f*NPC.life/NPC.lifeMax));
+						attackInt++;
+					}
+                }
+				else {
+					newVel *= (0.994f-(0.002f*NPC.life/NPC.lifeMax));
+					attackTimer--;
+					if (attackTimer % 10 == 0) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireTrail>(), (int)(NPC.damage*0.3f), 0f);
+                }
+				NPC.velocity = newVel;
+            }
+			else if (attack == 1) {
+				/*if (attackInt == 0) {
+					newVel = new Vector2(0, -9);
+					if (NPC.Center.Y < (target.Center.Y-300))
+						attackInt = 1;
+                }
+				if (attackInt == 1) {
+					if (attackTimer == 0) newVel.Y /= 2;*/
+					attackTimer++;
+					if (NPC.Center.X < target.Center.X && attackTimer % 3 == 0)
+						newVel.X += 1;
+					else if (attackTimer % 3 == 0)
+						newVel.X -= 1;
+					if (newVel.X > 10) newVel.X = 10;
+					if (newVel.X < -10) newVel.X = -10;
+					if (NPC.Center.Y < (target.Center.Y-300) && attackTimer % 3 == 0)
+						newVel.Y += 1;
+					else if (attackTimer % 3 == 0)
+						newVel.Y -= 1;
+					if (newVel.Y > 10) newVel.Y = 10;
+					if (newVel.Y < -10) newVel.Y = -10;
+					if (attackTimer % 12 == 0) {
+						int projType;
+						if (Main.rand.NextBool(3)) projType = ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireDrop1>();
+						else if (Main.rand.NextBool(2)) projType = ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireDrop2>();
+						else projType = ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireDrop3>();
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-6, 3)), projType, (int)(NPC.damage*0.3f), 0f);
+                    }
+					if (attackTimer > 359) attackDone = true;
+                //}
+				NPC.velocity = newVel;
+            }
+            if (!target.ZoneMeteor) {
+				NPC.damage = 74;
+				if (Main.expertMode) NPC.damage = 128;
+				if (Main.masterMode) NPC.damage = 184;
+				NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
+				NPC.defense = 18;
+				for (int i = 0; i < 2; i++) {
+					int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
+					Dust dust = Main.dust[dustIndex];
+					//dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
+					//dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
+					//dust.velocity = NPC.velocity;
+					dust.scale *= 2f + Main.rand.Next(-30, 31) * 0.01f;
+				}
+            }
+			else {
+				NPC.damage = 36;
+				if (Main.expertMode) NPC.damage = 64;
+				if (Main.masterMode) NPC.damage = 92;
+				NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
+				NPC.defense = 6;
+				if (Main.rand.NextBool()) {
+					int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
+					Dust dust = Main.dust[dustIndex];
+					//dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
+					//dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
+					dust.velocity = NPC.velocity;
+					dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
+				}
+            }
+			if (NPC.rotation > MathHelper.Pi) { 
+				NPC.spriteDirection = 0;
+				NPC.rotation -= MathHelper.Pi;
+			}
         }
         /*public override void AI() {
 			if (Main.netMode != NetmodeID.MultiplayerClient) {
@@ -139,17 +264,68 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.CloneDefaults(NPCID.DiggerBody);
 			NPC.aiStyle = -1;
 			NPC.damage = 32;
-			NPC.defense = 57;
+			NPC.defense = 32;
 			NPC.width = 38;
 			NPC.height = 38;
 			NPC.noGravity = true;
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
 			NPC.damage = 60;
+			if (Main.masterMode) {
+				NPC.damage = 88;
+            }
 		}
-		public override void Init() {
+        public override void Init() {
 			MetelordHead.CommonWormInit(this);
 		}
+		public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit) {
+            if (target.ZoneMeteor) head.ai[0] = 1;
+        }
+        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit) {
+            if (target.ZoneMeteor) head.ai[0] = 1;
+			projectile.damage /= 2; //noooo! you can't just stop me from piercing the worm boss to death!
+        }
+		Player target;
+		NPC head;
+        public override void AI() {
+			head = Main.npc[ZylonGlobalNPC.metelordBoss];
+            target = Main.player[head.target];
+        }
+		public override void PostAI() {
+            if (!target.ZoneMeteor) {
+				NPC.damage = 64;
+				if (Main.expertMode) NPC.damage = 120;
+				if (Main.masterMode) NPC.damage = 176;
+				NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
+				NPC.defense = 96;
+				for (int i = 0; i < 2; i++) {
+					int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
+					Dust dust = Main.dust[dustIndex];
+					//dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
+					//dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
+					//dust.velocity = NPC.velocity;
+					dust.scale *= 2f + Main.rand.Next(-30, 31) * 0.01f;
+				}
+            }
+			else {
+				NPC.damage = 32;
+				if (Main.expertMode) NPC.damage = 60;
+				if (Main.masterMode) NPC.damage = 88;
+				NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
+				NPC.defense = 32;
+				if (Main.rand.NextBool()) {
+					int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
+					Dust dust = Main.dust[dustIndex];
+					//dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
+					//dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
+					dust.velocity = NPC.velocity;
+					dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
+				}
+            }
+        }
+		public override void OnHitPlayer(Player target, int damage, bool crit) {
+            target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(3, 5));
+        }
 	}
 
 	internal class MetelordTail : WormTail
@@ -187,9 +363,59 @@ namespace Zylon.NPCs.Bosses.Metelord
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
 			NPC.damage = 40;
+			if (Main.masterMode) {
+				NPC.damage = 60;
+            }
 		}
 		public override void Init() {
 			MetelordHead.CommonWormInit(this);
 		}
+		public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit) {
+            if (target.ZoneMeteor) head.ai[0] = 1;
+        }
+        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit) {
+            if (target.ZoneMeteor) head.ai[0] = 1;
+        }
+		Player target;
+		NPC head;
+        public override void AI() {
+			head = Main.npc[ZylonGlobalNPC.metelordBoss];
+            target = Main.player[head.target];
+        }
+		public override void PostAI() {
+            if (!target.ZoneMeteor) {
+				NPC.damage = 40;
+				if (Main.expertMode) NPC.damage = 80;
+				if (Main.masterMode) NPC.damage = 120;
+				NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
+				NPC.defense = 396;
+				for (int i = 0; i < 2; i++) {
+					int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
+					Dust dust = Main.dust[dustIndex];
+					//dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
+					//dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
+					//dust.velocity = NPC.velocity;
+					dust.scale *= 2f + Main.rand.Next(-30, 31) * 0.01f;
+				}
+            }
+			else {
+				NPC.damage = 20;
+				if (Main.expertMode) NPC.damage = 40;
+				if (Main.masterMode) NPC.damage = 60;
+				NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
+				NPC.defense = 198;
+				if (Main.rand.NextBool()) {
+					int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
+					Dust dust = Main.dust[dustIndex];
+					//dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
+					//dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
+					dust.velocity = NPC.velocity;
+					dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
+				}
+            }
+        }
+		public override void OnHitPlayer(Player target, int damage, bool crit) {
+            target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(3, 5));
+        }
 	}
 }

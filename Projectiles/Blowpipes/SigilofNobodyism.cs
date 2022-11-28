@@ -31,7 +31,8 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.alpha = 255;
 		}
         public override void AI() {
-			if (Projectile.alpha > 0) Projectile.alpha -= 3;
+			if (Projectile.alpha > 0 && Projectile.timeLeft > 18) Projectile.alpha -= 3;
+			if (Projectile.timeLeft <= 18) Projectile.alpha += 15;
 			Projectile.rotation += MathHelper.ToRadians(5);
 				float num165 = 8f; //(float)Math.Sqrt((double)(Projectile.velocity.X * Projectile.velocity.X + Projectile.velocity.Y * Projectile.velocity.Y));
 				if (Projectile.alpha > 150)

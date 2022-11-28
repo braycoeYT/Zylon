@@ -10,7 +10,7 @@ namespace Zylon.Items.BossSummons
 		public override void SetStaticDefaults() {
 			string extra = "";
 			if (ModContent.GetInstance<ZylonConfig>().infBossSum) extra = "\nNot Consumable";
-			Tooltip.SetDefault("Summons the Ancient Diskite Director\nCan only be used in the desert at night"+extra);
+			Tooltip.SetDefault("Summons the Ancient Diskite Director\nCan only be used in the desert at night\nEnrages outside of the desert\nFlees during the day"+extra);
 		}
 		public override void SetDefaults()  {
 			Item.width = 28;

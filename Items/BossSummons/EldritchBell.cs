@@ -10,7 +10,7 @@ namespace Zylon.Items.BossSummons
 		public override void SetStaticDefaults() {
 			string extra = "";
 			if (ModContent.GetInstance<ZylonConfig>().infBossSum) extra = "\nNot Consumable";
-			Tooltip.SetDefault("'It calls for the ocean...'\nSummons the Eldritch Jellyfish"+extra);
+			Tooltip.SetDefault("'It calls for the ocean...'\nSummons the Eldritch Jellyfish\nEnrages outside of the ocean"+extra);
 			ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 3;
 		}
 		public override void SetDefaults() {

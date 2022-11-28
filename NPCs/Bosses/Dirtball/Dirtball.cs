@@ -51,6 +51,10 @@ namespace Zylon.NPCs.Bosses.Dirtball
             NPC.lifeMax = (int)((2100 + ((numPlayers - 1) * 900))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 46;
 			NPC.value = 20000;
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)((2700 + ((numPlayers - 1) * 1200))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+				NPC.damage = 61;
+            }
         }
 		bool bool1;
 		bool bool2;
@@ -85,7 +89,19 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DBSpirit>(), 0, 0f);
 			}
 		}
-		public override void PostAI() {
+        public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit) {
+            if (phase == 2) {
+				if (player.Center.Y < NPC.Center.Y) SoundEngine.PlaySound(SoundID.NPCHit1, NPC.Center);
+				else SoundEngine.PlaySound(SoundID.NPCHit4, NPC.Center);
+            }
+        }
+        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit) {
+			if (phase == 2) {
+				if (projectile.Center.Y < NPC.Center.Y) SoundEngine.PlaySound(SoundID.NPCHit1, NPC.Center);
+				else SoundEngine.PlaySound(SoundID.NPCHit4, NPC.Center);
+            }
+        }
+        public override void PostAI() {
 			for (int i = 0; i < (3-phase); i++) {
 				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, 0);
 				Dust dust = Main.dust[dustIndex];
@@ -148,10 +164,13 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			phase = 1;
 			if (NPC.life < NPC.lifeMax*(0.6f+expertBoost)) phase = 2;
 			if (NPC.life < NPC.lifeMax*(0.3f+expertBoost)) phase = 3;
+			if (phase == 2) NPC.HitSound = null;
+			if (phase == 3) NPC.HitSound = SoundID.NPCHit4;
 			NPC.frame.Y = 90*(phase-1);
 			NPC.defense = 20-(phase*4);
 			NPC.damage = 31;
 			if (Main.expertMode) NPC.damage = 46;
+			if (Main.masterMode) NPC.damage = 61;
 			NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
 			if (NPC.CountNPCS(ModContent.NPCType<Dirtboi>()) < 1) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Dirtboi>()); //Dirtboi, my boy, a true ball of dirt never runs away from battle!
 			if (attackDone) {
@@ -516,7 +535,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.DirtballRelic>(), 1));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.DS_91Controller>(), 4));
             }
-			if (Main.expertMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.DirtballBag>(), 1));
+			if (Main.expertMode || Main.masterMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.DirtballBag>(), 1));
 			else {
 				npcLoot.Add(new CommonDrop(ItemID.DirtBlock, 1, 25, 50));
 				npcLoot.Add(new CommonDrop(ItemID.MudBlock, 1, 15, 30));

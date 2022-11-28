@@ -21,9 +21,7 @@ namespace Zylon.Projectiles.Bosses.Dirtball
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = false;
 		}
-		int Timer;
 		public override void AI() {
-			Timer++;
 			if (++Projectile.frameCounter >= 6) {
 				Projectile.frameCounter = 0;
 				if (++Projectile.frame >= 6)

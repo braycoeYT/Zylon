@@ -34,12 +34,15 @@ namespace Zylon.NPCs.TownNPCs
 			NPCID.Sets.AttackAverageChance[Type] = 30;
 			//NPCID.Sets.HatOffsetY[Type] = 4;
 
-			NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
+			/*NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				Velocity = 1f,
 				Direction = -1
 			};
-
-			NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);
+			NPCID.Sets.NPCBestiaryDrawOffset.Add(Type, drawModifiers);*/
+			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
+				Hide = true
+			};
+			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
 
 			NPC.Happiness
 				.SetBiomeAffection<ForestBiome>(AffectionLevel.Dislike)

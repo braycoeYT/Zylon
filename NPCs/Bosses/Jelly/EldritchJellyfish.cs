@@ -51,6 +51,10 @@ namespace Zylon.NPCs.Bosses.Jelly
             NPC.lifeMax = (int)((11500 + ((numPlayers - 1) * 3500))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
             NPC.damage = 80;
 			NPC.value = 13750;
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)((15500 + ((numPlayers - 1) * 4100))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+				NPC.damage = 120;
+            }
         }
 		public override void HitEffect(int hitDirection, double damage) {
 			for (int i = 0; i < 4; i++) {
@@ -361,7 +365,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.JellyRelic>(), 1));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.EldritchGland>(), 4));
             }
-			if (Main.expertMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.JellyBag>(), 1));
+			if (Main.expertMode || Main.masterMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.JellyBag>(), 1));
 			else {
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.EerieBell>(), 1, 30, 45));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.OtherworldlyFang>(), 1, 35, 50));
