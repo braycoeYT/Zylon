@@ -468,6 +468,14 @@ namespace Zylon
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
+			recipe = Recipe.Create(ItemID.BrokenHeroSword);
+			recipe.AddIngredient(ItemID.WoodenSword);
+			recipe.AddIngredient(ItemID.SoulofLight, 8);
+			recipe.AddIngredient(ItemID.SoulofNight, 8);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ElementalGoop>(), 10);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
         }
         public override void PostAddRecipes() {
             for (int i = 0; i < Recipe.numRecipes; i++) {

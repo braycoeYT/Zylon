@@ -35,7 +35,7 @@ namespace Zylon.Items.Blowpipes
 			origKnockback = Item.knockBack;
 			origShootSpeed = Item.shootSpeed;
 			origItemSpeed = Item.useAnimation;
-			Item.rare = ItemRarityID.Quest;
+			Item.rare = ItemRarityID.Green;
 		}
 		public override bool AltFunctionUse(Player player) {
 			return true;
@@ -116,6 +116,14 @@ namespace Zylon.Items.Blowpipes
         }
         public override Vector2? HoldoutOffset() {
 			return new Vector2(4, -8);
+		}
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.Obsidian, 12);
+			recipe.AddIngredient(ItemID.BeeWax, 15);
+			recipe.AddIngredient(ItemID.Stinger, 6);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
 		}
 	}
 }

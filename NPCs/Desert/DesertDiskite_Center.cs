@@ -91,6 +91,7 @@ namespace Zylon.NPCs.Desert
 		}
 		public override void ModifyNPCLoot(NPCLoot NPCLoot) {
 			NPCLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ModContent.ItemType<Items.Materials.DiskiteCrumbles>(), 3, 1, 2, 2), new CommonDrop(ModContent.ItemType<Items.Materials.DiskiteCrumbles>(), 1, 1, 2)));
+			NPCLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Amber, 20), new CommonDrop(ItemID.Amber, 18)));
 		}
     }
 }

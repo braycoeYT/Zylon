@@ -19,5 +19,14 @@ namespace Zylon.Items.Accessories
         public override void UpdateAccessory(Player player, bool hideVisual) {
             player.buffImmune[BuffID.Venom] = true;
         }
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.Bottle);
+			recipe.AddIngredient(ModContent.ItemType<Materials.Oozeberry>(), 15);
+			recipe.AddIngredient(ItemID.JungleSpores, 10);
+			recipe.AddIngredient(ItemID.SoulofNight, 2);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+		}
 	}
 }

@@ -2,12 +2,10 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.Audio;
-using Terraria.Chat;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace Zylon.NPCs.Bosses.Dirtball
@@ -144,6 +142,8 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				}
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Dirtboi>());
 				init = true;
+				//if (Main.GameModeInfo.)// && Main.GameModeInfo.EnemyMaxLifeMultiplier > 1) //doesn't work sadly
+				//	NPC.lifeMax = (int)(NPC.lifeMax/Main.GameModeInfo.EnemyMaxLifeMultiplier);
             }
 
 			if (Main.player[NPC.target].statLife < 1) {
