@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
+using System;
 using System.IO;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
@@ -17,7 +19,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 		public override int TailType => ModContent.NPCType<MetelordTail>();
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Metelord");
-
+			Main.npcFrameCount[NPC.type] = 2;
 			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				CustomTexturePath = "Zylon/NPCs/Bosses/Metelord/Metelord_Bestiary",
 				Position = new Vector2(40f, 24f),
@@ -74,8 +76,12 @@ namespace Zylon.NPCs.Bosses.Metelord
 			CommonWormInit(this);
 		}
 		internal static void CommonWormInit(Worm worm) {
-			worm.MoveSpeed = 14f;
-			worm.Acceleration = 0.125f;
+			worm.MoveSpeed = 12f;
+			worm.Acceleration = 0.105f;
+			if (Main.expertMode) {
+				worm.MoveSpeed = 14f;
+				worm.Acceleration = 0.125f;
+			}
 		}
 		private int attackCounter;
 		public override void SendExtraAI(BinaryWriter writer) {
@@ -102,7 +108,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 		int attackTimer2;
 		int attackInt;
 		int prevAttack;
-		int attackMax = 2;
+		int attackMax = 3;
 		int runBoost = 180;
 		bool attackDone = true;
 		Vector2 newVel;
@@ -120,15 +126,15 @@ namespace Zylon.NPCs.Bosses.Metelord
 					newVel = new Vector2();
 					attackInt = 0; //Fun story: I forgot to put this in and as I was testing the boss, I thought to myself: "It's almost like attackInt isn't reset-OHHHH!"
 
-					//attack = 0;
+					//attack = 2;
                 }
             }
 			else if (attack == 0) {
 				runBoost = 30;
 				if (attackTimer <= 0) {
-					if (attackInt >= (int)(6-(4*NPC.life/NPC.lifeMax))) attackDone = true;
+					if (attackInt >= (int)(8-(6*NPC.life/NPC.lifeMax))) attackDone = true;
 					else {
-						attackTimer = (int)(60+(30*NPC.life/NPC.lifeMax));
+						attackTimer = (int)(50+(40*NPC.life/NPC.lifeMax));
 						Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 						speed.Normalize();
 						newVel = speed*(int)(-18f+(5f*NPC.life/NPC.lifeMax));
@@ -138,10 +144,24 @@ namespace Zylon.NPCs.Bosses.Metelord
 				else {
 					newVel *= (0.994f-(0.002f*NPC.life/NPC.lifeMax));
 					attackTimer--;
-					if (attackTimer % 10 == 0) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireTrail>(), (int)(NPC.damage*0.3f), 0f);
-                }
+					if (attackTimer % 10 == 0) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireTrail>(), (int)(NPC.damage*0.2f), 0f);
+					/*if (attackTimer == 30 && NPC.life < NPC.lifeMax*0.66f) {
+						Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
+						if (Math.Abs(speed.X)+Math.Abs(speed.Y) > 128)
+						speed.Normalize();*/
+						/*Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
+						speed *= -1;
+						speed.Normalize();
+						Vector2 speed2 = NPC.velocity;
+						speed2.Normalize();
+						if (Math.Acos(Vector2.Dot(speed, speed2)) < 0) {
+                            NPC.velocity = speed * (int)(18f - (5f * NPC.life / NPC.lifeMax));
+							SoundEngine.PlaySound(SoundID.Roar, NPC.Center);
+                        }*/
+                    //}
 				NPC.velocity = newVel;
-            }
+				}
+			}
 			else if (attack == 1) {
 				/*if (attackInt == 0) {
 					newVel = new Vector2(0, -9);
@@ -151,29 +171,56 @@ namespace Zylon.NPCs.Bosses.Metelord
 				if (attackInt == 1) {
 					if (attackTimer == 0) newVel.Y /= 2;*/
 					attackTimer++;
-					if (NPC.Center.X < target.Center.X && attackTimer % 3 == 0)
-						newVel.X += 1;
-					else if (attackTimer % 3 == 0)
-						newVel.X -= 1;
-					if (newVel.X > 10) newVel.X = 10;
-					if (newVel.X < -10) newVel.X = -10;
-					if (NPC.Center.Y < (target.Center.Y-300) && attackTimer % 3 == 0)
-						newVel.Y += 1;
-					else if (attackTimer % 3 == 0)
-						newVel.Y -= 1;
-					if (newVel.Y > 10) newVel.Y = 10;
-					if (newVel.Y < -10) newVel.Y = -10;
-					if (attackTimer % 12 == 0) {
-						int projType;
-						if (Main.rand.NextBool(3)) projType = ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireDrop1>();
-						else if (Main.rand.NextBool(2)) projType = ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireDrop2>();
-						else projType = ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireDrop3>();
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-6, 3)), projType, (int)(NPC.damage*0.3f), 0f);
-                    }
-					if (attackTimer > 359) attackDone = true;
-                //}
+				int counter = 3;
+				if ((Main.expertMode && NPC.life < NPC.lifeMax*0.5f) || NPC.life < NPC.lifeMax*0.33f) counter = 2;
+				if (NPC.Center.X < (target.Center.X+(target.velocity.X*24)) && attackTimer % counter == 0)
+					newVel.X += 1;
+				else if (attackTimer % counter == 0)
+					newVel.X -= 1;
+				int num69 = (int)(17-(7*NPC.life/NPC.lifeMax));
+				if (newVel.X > num69) newVel.X = num69;
+				if (newVel.X < -1*num69) newVel.X = -1*num69;
+				if (NPC.Center.Y < (target.Center.Y-300) && attackTimer % 3 == 0)
+					newVel.Y += 1;
+				else if (attackTimer % 3 == 0)
+					newVel.Y -= 1;
+				if (newVel.Y > 10) newVel.Y = 10;
+				if (newVel.Y < -10) newVel.Y = -10;
+				if (attackTimer % 12 == 0) {
+					int projType;
+					if (Main.rand.NextBool(3)) projType = ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireDrop1>();
+					else if (Main.rand.NextBool(2)) projType = ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireDrop2>();
+					else projType = ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireDrop3>();
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-6, 3)), projType, (int)(NPC.damage*0.19f), 0f);
+                }
+				if (attackTimer > 359) attackDone = true;
 				NPC.velocity = newVel;
             }
+			else if (attack == 2) {
+				runBoost = 75;
+				attackTimer++;
+				if (attackTimer % (int)(30-(15*NPC.life/NPC.lifeMax)) == 0) {
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(Main.rand.Next(-100, 101)+(target.velocity.X*32), 0), new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordMeteoriteAttack2>(), (int)(NPC.damage*0.25f), 0f, Main.myPlayer, Main.rand.Next(0, 360), 5f-(2f*NPC.life/NPC.lifeMax));
+                }
+				if (attackTimer > 300) attackDone = true;
+            }
+			/*else if (attack == 2) { //scrapped version of meteor ring
+				if (attackTimer == 0 && attackInt == 0) newVel = NPC.velocity;
+				attackTimer++;
+				if (attackTimer >= 180) {
+					int j = Main.rand.Next(0, 12);
+					int k = 1;
+					if (Main.rand.NextBool()) k = -1;
+					for (int i = 0; i < 11; i++) {
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordMeteoriteAttack>(), (int)(NPC.damage*0.3f), 0f, Main.myPlayer, i+j, k);
+                    }
+					attackTimer = 0;
+					attackInt++;
+                }
+				newVel *= 0.99f;
+				//NPC.velocity = newVel;
+				if (attackInt == 3) attackDone = true;
+            }*/
             if (!target.ZoneMeteor) {
 				NPC.damage = 74;
 				if (Main.expertMode) NPC.damage = 128;
@@ -205,9 +252,9 @@ namespace Zylon.NPCs.Bosses.Metelord
 				}
             }
 			if (NPC.rotation > MathHelper.Pi) { 
-				NPC.spriteDirection = 0;
-				NPC.rotation -= MathHelper.Pi;
+				NPC.frame.Y = 52;
 			}
+			else NPC.frame.Y = 0;
         }
         /*public override void AI() {
 			if (Main.netMode != NetmodeID.MultiplayerClient) {
@@ -230,11 +277,11 @@ namespace Zylon.NPCs.Bosses.Metelord
         public override void OnHitPlayer(Player target, int damage, bool crit) {
             target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(4, 6));
         }
-		public override void ModifyNPCLoot(NPCLoot npcLoot) {
+		/*public override void ModifyNPCLoot(NPCLoot npcLoot) {
 			npcLoot.Add(new CommonDrop(ItemID.Vertebrae, 1, 1, 3));
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.BloodySpiderLeg>(), 1, 2, 6));
 			npcLoot.Add(new CommonDrop(ItemID.Ichor, 1, 3, 9));
-		}
+		}*/
 	}
 	internal class MetelordBody : WormBody
 	{
@@ -264,7 +311,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.CloneDefaults(NPCID.DiggerBody);
 			NPC.aiStyle = -1;
 			NPC.damage = 32;
-			NPC.defense = 32;
+			NPC.defense = 39;
 			NPC.width = 38;
 			NPC.height = 38;
 			NPC.noGravity = true;
@@ -297,7 +344,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				if (Main.expertMode) NPC.damage = 120;
 				if (Main.masterMode) NPC.damage = 176;
 				NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
-				NPC.defense = 96;
+				NPC.defense = 117;
 				for (int i = 0; i < 2; i++) {
 					int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
 					Dust dust = Main.dust[dustIndex];
@@ -312,7 +359,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				if (Main.expertMode) NPC.damage = 60;
 				if (Main.masterMode) NPC.damage = 88;
 				NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
-				NPC.defense = 32;
+				NPC.defense = 39;
 				if (Main.rand.NextBool()) {
 					int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
 					Dust dust = Main.dust[dustIndex];

@@ -147,13 +147,13 @@ namespace Zylon
 			trueMeleeBoost = 1f;
 			if (trueMelee10) trueMeleeBoost += 0.1f;
 			if (trueMelee15) trueMeleeBoost += 0.15f;
-			damage += (int)(damage * trueMeleeBoost);
+			damage = (int)(damage * trueMeleeBoost);
 		}
         public override void ModifyHitPvp(Item item, Player target, ref int damage, ref bool crit) {
             trueMeleeBoost = 1f;
 			if (trueMelee10) trueMeleeBoost += 0.1f;
 			if (trueMelee15) trueMeleeBoost += 0.15f;
-			damage += (int)(damage * trueMeleeBoost);
+			damage = (int)(damage * trueMeleeBoost);
         }
         public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit) {
 			OnHitNPCGlobal(item, null, target, damage, knockback, crit, target.type == NPCID.TargetDummy, true);

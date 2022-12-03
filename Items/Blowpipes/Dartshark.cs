@@ -11,7 +11,7 @@ namespace Zylon.Items.Blowpipes
 	public class Dartshark : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Maximum blowpipe charge: " + maxCharge + "\nBlowpipe charge speed: " + (chargeRate * 30) + "/s\nRight click to change modes.\nThe longer you inhale, the more speed, knockback, and damage the seed/dart deals, though you don't have to inhale to shoot.\nTake breaks from shooting to get your breath back.\nYou can inhale while in breath recovery.\nUses seeds as ammo\n33% chance to not consume ammo\n'Minishark's cousin'\nAt max charge, spawns several mini jellies to attack foes");
+			Tooltip.SetDefault("Maximum blowpipe charge: " + maxCharge + "\nBlowpipe charge speed: " + (chargeRate * 30) + "/s\nRight click to change modes.\nThe longer you inhale, the more speed, knockback, and damage the seed/dart deals, though you don't have to inhale to shoot.\nTake breaks from shooting to get your breath back.\nYou can inhale while in breath recovery.\nUses seeds as ammo\n33% chance to not consume ammo\n'Minishark's cousin. You still need to blow into it, though.'\nAt max charge, spawns several mini jellies to attack foes");
 			if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1) {
 				DisplayName.SetDefault("Dartshart");
 				Tooltip.SetDefault("Barrages enemies with taco bell\nUses seeds as ammo (symbolizes the seeds of intestinal damage sown by the taco bell)");

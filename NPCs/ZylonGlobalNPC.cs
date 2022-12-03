@@ -93,7 +93,7 @@ namespace Zylon.NPCs
             }
 			if (npc.type == NPCID.QueenBee) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Stinger, 1, 3, 6), new CommonDrop(ItemID.Stinger, 1, 4, 7)));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Blowpipes.Revel>(), 8), new CommonDrop(ItemType<Items.Blowpipes.Revel>(), 6)));
+				//npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Blowpipes.Revel>(), 8), new CommonDrop(ItemType<Items.Blowpipes.Revel>(), 6)));
 			}
 			if (npc.type == NPCID.SkeletronHead)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Bone, 1, 20, 30), new CommonDrop(ItemID.Bone, 1, 30, 40)));
@@ -159,6 +159,8 @@ namespace Zylon.NPCs
 				ItemDropRule.ByCondition(new Conditions.IsHardmode(), ItemType<Items.Materials.TabooEssence>(), 2, 1, 2);
 			if (npc.type == NPCID.GoblinPeon || npc.type == NPCID.GoblinArcher || npc.type == NPCID.GoblinScout || npc.type == NPCID.GoblinSorcerer || npc.type == NPCID.GoblinThief || npc.type == NPCID.GoblinWarrior)
 				npcLoot.Add(new CommonDrop(ItemID.TatteredCloth, 2));
+			if (npc.type == NPCID.ToxicSludge || npc.type == NPCID.MossHornet || npc.type == NPCID.BigMossHornet || npc.type == NPCID.TinyMossHornet || npc.type == NPCID.LittleMossHornet || npc.type == NPCID.GiantMossHornet)
+				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.Oozeberry>(), 1, 1, 3));
 		}
         public override void ModifyGlobalLoot(GlobalLoot globalLoot) {
             //globalLoot.Add(ItemDropRule.ByCondition(new Conditions.WindyEnoughForKiteDrops(), ItemType<Items.Materials.WindEssence>(), 5));

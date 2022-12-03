@@ -14,7 +14,7 @@ namespace Zylon.Items.Blowpipes
 		}
 		float maxCharge = 70;
 		float charge;
-		float chargeRate = 0.7f;
+		float chargeRate = 0.75f;
 		bool modeCharge;
 		int chargeCount;
 		int origDamage;
