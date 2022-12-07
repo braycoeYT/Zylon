@@ -3,22 +3,22 @@ The best mod that starts with Z (I guarantee or your money back)! Zylon is a uni
 THIS MOD IS IN SEVERE NEED OF SPRITERS. If you are a fan of the mod and want to sprite, feel free to join the discord server!
 
 Stats:
-~319 Items
+~327 Items
 ~3 Bosses:
 ~~~3 Prehardmode Bosses
 ~51 total NPCs
 ~45 Buffs
-~11 Tiles
+~13 Tiles
 ~A complete reworking and expansion of blowpipes!
 ~Many new vanilla recipes and changes to help balance the game out (including an easier Slime Crown recipe).
 ~Several new prefixes!
 
-V0.0.2.1: Update
-~Fixed a major damage issue with true melee the mod accidentally added.
-~Added Oozeberry, Oozebit, Oozing Arrow, and Oozing Bullet.
-~Added X-Blade (unobtainable).
-~Desert Diskites now have a rare chance to drop Amber.
-New boss: 13% complete
+V0.0.2.2: Update
+~Decreased Suspicious Looking Eye's health by a lot.
+~Replaced Icy Infernus with Fire and Ice.
+~Added many unobtainable items for the new boss.
+New Boss: 22-42% Complete
+I am tired so I will take a short break. Thanks.
 
 Q&A:
 
@@ -44,6 +44,7 @@ BraycoeYT
 Ideas, Sprites, Music, and General Support:
 Skymanisbtman (Composer)
 Tome Man (Coder and Spriter)
+Mafia_Cheezstick (Spriter)
 Mjoon (Spriter)
 Slimelad (General Support and Ideas)
 Pufferfisher77 (General Support and Ideas)

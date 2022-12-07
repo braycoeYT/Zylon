@@ -476,6 +476,11 @@ namespace Zylon
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 
+			recipe = Recipe.Create(ItemID.Hellforge);
+			recipe.AddIngredient(ItemID.HellstoneBar, 12);
+			recipe.AddIngredient(ItemID.LavaBucket, 3);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
             for (int i = 0; i < Recipe.numRecipes; i++) {
