@@ -26,7 +26,7 @@ namespace Zylon.NPCs.Bosses
 			//NPC.value = 0f;
 			//NPC.aiStyle = NPCID.DemonEye;
 			AnimationType = 1;
-			NPC.lifeMax = 10000000;
+			NPC.lifeMax = 2500000;
 			NPC.damage = 718;
 			NPC.defense = 400;
 			NPC.noTileCollide = true;
