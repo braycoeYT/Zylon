@@ -13,6 +13,7 @@ namespace Zylon.Items.Food
 			Item.width = 30;
 			Item.height = 30;
 			Item.maxStack = 999;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.value = Item.sellPrice(0, 0, 0, 20);
 			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item2;

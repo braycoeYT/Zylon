@@ -14,6 +14,8 @@ namespace Zylon.NPCs.Bosses
 	public class SuspiciousLookingEye : ModNPC
 	{
 		public override void SetStaticDefaults() {
+			NPCID.Sets.MPAllowedEnemies[Type] = true;
+
 			DisplayName.SetDefault("Suspicious Looking Eye");
 			Main.npcFrameCount[NPC.type] = 2;
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {

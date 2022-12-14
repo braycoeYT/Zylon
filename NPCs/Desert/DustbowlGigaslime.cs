@@ -14,7 +14,9 @@ namespace Zylon.NPCs.Desert
 	public class DustbowlGigaslime : ModNPC
 	{
         public override void SetStaticDefaults() {
-            Main.npcFrameCount[NPC.type] = 2;
+			NPCID.Sets.MPAllowedEnemies[Type] = true;
+
+			Main.npcFrameCount[NPC.type] = 2;
 
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				ImmuneToAllBuffsThatAreNotWhips = true

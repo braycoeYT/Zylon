@@ -27,9 +27,21 @@ namespace Zylon.Items.BossSummons
             return !Main.dayTime && player.ZoneDesert && !NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.ADD.ADD_Center>());
         }
         public override bool? UseItem(Player player) {
-			NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<NPCs.Bosses.ADD.ADD_Setup>());
-			SoundEngine.PlaySound(SoundID.Roar, player.position);
-            return true;
+			if (player.whoAmI == Main.myPlayer)
+			{
+				SoundEngine.PlaySound(SoundID.Roar, player.position);
+				int type = ModContent.NPCType<NPCs.Bosses.ADD.ADD_Setup>();
+
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					NPC.SpawnOnPlayer(player.whoAmI, type);
+				}
+				else
+				{
+					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+				}
+			}
+			return true;
         }
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

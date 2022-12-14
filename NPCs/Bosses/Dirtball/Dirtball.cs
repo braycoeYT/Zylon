@@ -14,7 +14,11 @@ namespace Zylon.NPCs.Bosses.Dirtball
     public class Dirtball : ModNPC
 	{
         public override void SetStaticDefaults() {
-            Main.npcFrameCount[NPC.type] = 3;
+
+			NPCID.Sets.BossBestiaryPriority.Add(Type);
+			NPCID.Sets.MPAllowedEnemies[Type] = true;
+
+			Main.npcFrameCount[NPC.type] = 3;
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				SpecificallyImmuneTo = new int[] {
 					BuffID.Poisoned,

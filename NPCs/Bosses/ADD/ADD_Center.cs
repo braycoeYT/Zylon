@@ -16,6 +16,9 @@ namespace Zylon.NPCs.Bosses.ADD
     public class ADD_Center : ModNPC
 	{
         public override void SetStaticDefaults() {
+
+			NPCID.Sets.BossBestiaryPriority.Add(Type);
+
 			DisplayName.SetDefault("Ancient Diskite Director");
             //Main.npcFrameCount[NPC.type] = 2;
 			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {

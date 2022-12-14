@@ -18,6 +18,10 @@ namespace Zylon.NPCs.Bosses.Metelord
 		public override int BodyType => ModContent.NPCType<MetelordBody>();
 		public override int TailType => ModContent.NPCType<MetelordTail>();
 		public override void SetStaticDefaults() {
+
+			NPCID.Sets.BossBestiaryPriority.Add(Type);
+			NPCID.Sets.MPAllowedEnemies[Type] = true;
+
 			DisplayName.SetDefault("Metelord");
 			//Main.npcFrameCount[NPC.type] = 2;
 			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {

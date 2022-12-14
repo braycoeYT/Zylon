@@ -14,7 +14,7 @@ namespace Zylon.Items.Food
 			Item.height = 22;
 			Item.useTime = 17;
 			Item.useAnimation = 17;
-			Item.useStyle = ItemUseStyleID.Swing;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.value = Item.sellPrice(0, 0, 5, 0);
 			Item.rare = ItemRarityID.LightRed;
 			Item.autoReuse = true;

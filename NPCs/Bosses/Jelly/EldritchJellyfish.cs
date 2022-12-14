@@ -14,6 +14,10 @@ namespace Zylon.NPCs.Bosses.Jelly
 	public class EldritchJellyfish : ModNPC
 	{
 		public override void SetStaticDefaults() {
+
+			NPCID.Sets.BossBestiaryPriority.Add(Type);
+			NPCID.Sets.MPAllowedEnemies[Type] = true;
+
 			DisplayName.SetDefault("Eldritch Jellyfish");
 			Main.npcFrameCount[NPC.type] = 7;
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {

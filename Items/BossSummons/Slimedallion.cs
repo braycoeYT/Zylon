@@ -27,11 +27,24 @@ namespace Zylon.Items.BossSummons
             return NPC.downedPlantBoss;
         }
         public override bool? UseItem(Player player) {
-			if (player.ZoneBeach) NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<NPCs.Ocean.LittoralGigaslime>());
-			else if (player.ZoneDesert) NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<NPCs.Desert.DustbowlGigaslime>());
-			else NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<NPCs.Forest.VerdureGigaslime>());
-			SoundEngine.PlaySound(SoundID.Roar, player.position);
-            return true;
+			if (player.whoAmI == Main.myPlayer)
+			{
+				SoundEngine.PlaySound(SoundID.Roar, player.position);
+				int type = ModContent.NPCType<NPCs.Forest.VerdureGigaslime>();
+				if (player.ZoneBeach) type = ModContent.NPCType<NPCs.Ocean.LittoralGigaslime>();
+				else if (player.ZoneDesert) type = ModContent.NPCType<NPCs.Desert.DustbowlGigaslime>();
+
+
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					NPC.SpawnOnPlayer(player.whoAmI, type);
+				}
+				else
+				{
+					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+				}
+			}
+			return true;
         }
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

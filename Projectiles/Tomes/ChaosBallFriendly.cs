@@ -6,6 +6,7 @@ using System;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
+using System.Linq;
 
 namespace Zylon.Projectiles.Tomes
 {
@@ -36,18 +37,39 @@ namespace Zylon.Projectiles.Tomes
 			
 
 		}
+		private void AttemptNetworking()
+		{
+			foreach (NPC npc in Main.npc.Where(npc => npc.life > 0 && npc.Hitbox.Intersects(Projectile.Hitbox)))
+			{
+				NetworkHex(npc);
+			}
+		}
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		private void NetworkHex(NPC target)
+        {
+			// The only reason I don't just call OnHitNPC is because it is more efficent to run a seperate one that doesn't check the HP because it already gets checked. Really small efficency difference that doesn't mean much but I will do it anyways.
+			var HexNPC = target.GetGlobalNPC<HexNPC>();
+
+			if (HexNPC.Hexes < 4)
+			{
+				HexNPC.FadeIn = 0.05f;
+				HexNPC.Hexes++;
+			}
+			HexNPC.HexesPlayer = Projectile.owner;
+		}
+
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
 			// Literally no point in trying to apply the effect to (should be) dead NPCs, so we don't.
 			if (target.life > 0)
             {
-				if (target.GetGlobalNPC<HexNPC>().Hexes < 4)
+				var HexNPC = target.GetGlobalNPC<HexNPC>();
+				if (HexNPC.Hexes < 4)
                 {
-					target.GetGlobalNPC<HexNPC>().FadeIn = 0.05f;
-					target.GetGlobalNPC<HexNPC>().Hexes++;
+					HexNPC.FadeIn = 0.05f;
+					HexNPC.Hexes++;
 				}
-				target.GetGlobalNPC<HexNPC>().HexesPlayer = Projectile.owner;
+				HexNPC.HexesPlayer = Projectile.owner;
 			}
         }
 
@@ -83,6 +105,11 @@ namespace Zylon.Projectiles.Tomes
 			{
 				Dust.NewDust(Projectile.Center, 0, 0, DustID.Shadowflame, Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-3, 3), 0, Color.White, 1.3f);
 			}
+			if (Main.myPlayer != Projectile.owner)
+            {
+				AttemptNetworking();
+            }
 		}
+
 	}   
 }

@@ -10,6 +10,9 @@ namespace Zylon.NPCs.Bosses.ADD
 	public class ADD_Setup : ModNPC
 	{
         public override void SetStaticDefaults() {
+
+			NPCID.Sets.MPAllowedEnemies[Type] = true;
+
 			DisplayName.SetDefault("Ancient Diskite Director");
             //Main.npcFrameCount[NPC.type] = 2;
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
