@@ -14,6 +14,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 			AIType = ProjectileID.BallofFire;
 			Projectile.friendly = false;
 			Projectile.hostile = true;
+			Projectile.timeLeft = 120;
 		}
 		public override void OnHitPlayer(Player target, int damage, bool crit) {
 			target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(3, 6));

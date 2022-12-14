@@ -23,7 +23,7 @@ namespace Zylon.Items.Armor
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddRecipeGroup("Zylon:AnySilverBar", 12);
+			recipe.AddRecipeGroup("Zylon:AnySilverBar", 10);
 			recipe.AddIngredient(ModContent.ItemType<Materials.SlimyCore>(), 7);
 			recipe.AddIngredient(ItemID.Gel, 60);
 			recipe.AddTile(TileID.Solidifier);

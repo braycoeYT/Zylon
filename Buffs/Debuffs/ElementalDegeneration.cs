@@ -25,7 +25,7 @@ namespace Zylon.Buffs.Debuffs
 			}
 		}
   		public override void Update(NPC npc, ref int buffIndex) {
-			npc.GetGlobalNPC<NPCs.ZylonGlobalNPC>().elemDegen = true;
+			npc.GetGlobalNPC<NPCs.ZylonGlobalNPCDebuff>().elemDegen = true;
             if (!npc.buffImmune[BuffID.Confused])
                 npc.confused = true;
             npc.defense = (int)(npc.defense*0.8f);

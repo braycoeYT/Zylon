@@ -26,7 +26,7 @@ namespace Zylon.Buffs.Debuffs
                 safeColor = npc.color;
                 safe = false;
             }
-			npc.GetGlobalNPC<NPCs.ZylonGlobalNPC>().shroomed = true;
+			npc.GetGlobalNPC<NPCs.ZylonGlobalNPCDebuff>().shroomed = true;
             npc.color = Color.DarkBlue;
             if (npc.buffTime[buffIndex] < 5)
                 npc.color = safeColor;

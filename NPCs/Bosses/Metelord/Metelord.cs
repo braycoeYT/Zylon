@@ -41,7 +41,8 @@ namespace Zylon.NPCs.Bosses.Metelord
 					BuffID.Frostburn,
 					BuffID.Frostburn2,
 					BuffID.Frozen,
-					BuffID.ShadowFlame
+					BuffID.ShadowFlame,
+					ModContent.BuffType<Buffs.Debuffs.Timestop>()
 				}
 			};
 			NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
@@ -102,7 +103,7 @@ namespace Zylon.NPCs.Bosses.Metelord
         }
         Player target;
         public override void AI() {
-			NPC.active = false;
+			//NPC.active = false;
 			NPC.TargetClosest();
 			target = Main.player[NPC.target];
 			ZylonGlobalNPC.metelordBoss = NPC.whoAmI;
@@ -124,8 +125,9 @@ namespace Zylon.NPCs.Bosses.Metelord
 
 					attackMax = 3;
 					float expertBoost = 0f;
-					if (Main.expertMode) expertBoost = 0.25f;
+					if (Main.expertMode) expertBoost = 0.125f;
 					if (NPC.life <= NPC.lifeMax*(0.75f+expertBoost)) attackMax = 4;
+					if (NPC.life <= NPC.lifeMax*(0.625f+expertBoost)) attackMax = 5;
 
 					attack = Main.rand.Next(attackMax);
 					while (attack == prevAttack) attack = Main.rand.Next(attackMax);
@@ -138,7 +140,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 					attackInt = 0; //Fun story: I forgot to put this in and as I was testing the boss, I thought to myself: "It's almost like attackInt isn't reset-OHHHH!"
 					attackInt2 = 0;
 
-					//attack = 3;
+					attack = 3;
                 }
             }
 			else if (attack == 0) {
@@ -216,10 +218,22 @@ namespace Zylon.NPCs.Bosses.Metelord
                 }
 				if (attackTimer > 300) attackDone = true;
             }
-			//else if (attack == 3) {
-
-            //}
 			else if (attack == 3) {
+				if (attackTimer % (100+(20*NPC.life/NPC.lifeMax)) == 0) {
+					Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
+					speed.Normalize();
+					if (speed.Length() == 0) speed = new Vector2(0, -1);
+					newVel = speed*(int)(-20f+(5f*NPC.life/NPC.lifeMax));
+                }
+				if (attackTimer % (100+(20*NPC.life/NPC.lifeMax)) <= 30) {
+					NPC.velocity = newVel;
+					newVel *= 0.992f;
+					if (attackTimer % 3 == 0) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -17).RotatedBy(NPC.rotation+Main.rand.NextFloat(-0.7f, 0.7f)), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordBallofFire>(), (int)(NPC.damage*0.22f), 0f);
+                }
+				attackTimer++;
+				if (attackTimer == 470) attackDone = true;
+            }
+			else if (attack == 4) {
 				runBoost = 30;
 				attackTimer++;
 				if (attackTimer % (int)(5+(5*NPC.life/NPC.lifeMax)) == 0) {
@@ -238,13 +252,35 @@ namespace Zylon.NPCs.Bosses.Metelord
 					newVel = speed*(int)(-13f-evilness+kindness+(3f*NPC.life/NPC.lifeMax));
                 }
 				if (attackTimer % (100+(50*NPC.life/NPC.lifeMax)) > (100+(50*NPC.life/NPC.lifeMax))-10) newVel *= 0.8f;
-				//else {
-
-                //}
 				if (attackTimer < (44+(14*NPC.life/NPC.lifeMax))) newVel /= 2;
 				NPC.velocity = newVel;
 				if (attackTimer > 360) attackDone = true;
             }
+			/*else if (attack == 3) { //scrapped fireball spit attack
+				runBoost = 60;
+				if (attackInt == 0) {
+					attackTimer++;
+					if (attackTimer > 50) attackTimer = 50;
+					newVel.Y = -13f*(1+(attackTimer/100));
+					if (attackTimer == 1) newVel.X = NPC.velocity.X;
+					else newVel.X *= 0.8f;
+					if (attackTimer > 20 && NPC.Center.Y+400 < target.Center.Y) {
+						attackTimer = 0;
+						attackInt = 1;
+                    }
+                }
+				if (attackInt == 1) {
+					Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
+					speed.Normalize();
+					newVel = speed*(int)(-20f+(5f*NPC.life/NPC.lifeMax));
+					attackInt = 2;
+                }
+				if (attackInt == 2) {
+					newVel *= 0.992f;
+					attackTimer++;
+                }
+				NPC.velocity = newVel;
+            }*/
 			/*else if (attack == 4) { //early scrapped version of flamethrower dash
 				attackTimer++;
 				/*if (attackTimer % (int)(10+(10*NPC.life/NPC.lifeMax)) == 0) {
@@ -347,8 +383,9 @@ namespace Zylon.NPCs.Bosses.Metelord
 			else {
 				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Ores.HaxoniteOre>(), 1, 80, 100));
 				npcLoot.Add(ItemDropRule.Common(ItemID.Meteorite, 1, 15, 30));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.MetelordMask>(), 7));
             }
-			//npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.DirtballTrophy>(), 10));
+			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.MetelordTrophy>(), 10));
 		}
     }
 	internal class MetelordBody : WormBody
@@ -370,7 +407,8 @@ namespace Zylon.NPCs.Bosses.Metelord
 					BuffID.Frostburn,
 					BuffID.Frostburn2,
 					BuffID.Frozen,
-					BuffID.ShadowFlame
+					BuffID.ShadowFlame,
+					ModContent.BuffType<Buffs.Debuffs.Timestop>()
 				}
 			};
 			NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);
@@ -463,7 +501,8 @@ namespace Zylon.NPCs.Bosses.Metelord
 					BuffID.Frostburn,
 					BuffID.Frostburn2,
 					BuffID.Frozen,
-					BuffID.ShadowFlame
+					BuffID.ShadowFlame,
+					ModContent.BuffType<Buffs.Debuffs.Timestop>()
 				}
 			};
 			NPCID.Sets.DebuffImmunitySets.Add(Type, debuffData);

@@ -9,7 +9,7 @@ using Terraria.ModLoader;
 
 namespace Zylon.Projectiles.Boomerangs
 {
-	public class Pentagram : ModProjectile
+	public class Pentagram_2 : ModProjectile
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Pentagram");
@@ -24,14 +24,16 @@ namespace Zylon.Projectiles.Boomerangs
 			Projectile.penetrate = -1;
 			Projectile.DamageType = DamageClass.Melee;
 			Projectile.timeLeft = 9999;
+			Projectile.tileCollide = false;
+			Projectile.usesLocalNPCImmunity = true;
+			Projectile.localNPCHitCooldown = 10;
 		}
 		int Timer;
 		float speedAcc;
 		bool goBack;
-		bool done;
 		public override void AI() {
 			Timer++;
-			Projectile.rotation += 0.12f;
+			Projectile.rotation += 0.16f;
 			if (Timer >= 40 || goBack) {
 				Projectile.tileCollide = false;
 				Vector2 speed = Projectile.Center - Main.player[Projectile.owner].Center;
@@ -46,54 +48,30 @@ namespace Zylon.Projectiles.Boomerangs
 				speed.Normalize();
 				speedAcc += 0.05f;
 				if (speedAcc > 1f) speedAcc = 1f;
-				Projectile.velocity = speed*-18f*speedAcc;
+				Projectile.velocity = speed*-24f*speedAcc;
 			}
-			else if (Timer >= 25) Projectile.velocity *= 0.95f;
+			else Projectile.velocity *= 0.96f;
 		}
-        /*public override void PostAI() {
+		/*public override void PostAI() {
             if (Main.rand.NextBool(3)) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Firework_Red);
 				dust.noGravity = false;
 				dust.scale = 1f;
 			}
 		}*/
-        public override bool OnTileCollide(Vector2 oldVelocity) {
-			Projectile.tileCollide = false;
-			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-            if (Projectile.velocity.X != oldVelocity.X) {
-				Projectile.velocity.X = -oldVelocity.X;
-			}
-			if (Projectile.velocity.Y != oldVelocity.Y) {
-				Projectile.velocity.Y = -oldVelocity.Y;
-			}
-			Projectile.velocity *= 0.92f;
-			return false;
-        }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-			int verycool = Main.rand.Next(0, 72);
 			for (int i = 0; i < 5; i++) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Firework_Red);
 				dust.noGravity = false;
 				dust.scale = 2f;
 			}
-			if (done) return;
-			done = true;
-			for (int i = 0; i < 5; i++)
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -14).RotatedBy(MathHelper.ToRadians((i*72)+verycool)), ModContent.ProjectileType<Pentagram_2>(), (int)(Projectile.damage*0.65f), Projectile.knockBack/2, Main.myPlayer);
-            Projectile.Kill();
         }
         public override void OnHitPvp(Player target, int damage, bool crit) {
-            int verycool = Main.rand.Next(0, 72);
 			for (int i = 0; i < 5; i++) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Firework_Red);
 				dust.noGravity = false;
 				dust.scale = 2f;
 			}
-			if (done) return;
-			done = true;
-			for (int i = 0; i < 5; i++)
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -14).RotatedBy(MathHelper.ToRadians((i*72)+verycool)), ModContent.ProjectileType<Pentagram_2>(), (int)(Projectile.damage*0.65f), Projectile.knockBack/2, Main.myPlayer);
-            Projectile.Kill();
         }
 		public override bool PreDraw(ref Color lightColor) {
             // This just controls when to flip the projectile horizontally.

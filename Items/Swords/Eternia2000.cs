@@ -11,7 +11,7 @@ namespace Zylon.Items.Swords
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Eternia 2000");
-			Tooltip.SetDefault("UNOBTAINABLE: Will probably be obtainable when I make PML content.\n'Not to be confused with the Eternia 995'\nReleases Vinyl Discs, LP Rockets, and World-Ending Meteors\nDamaging enemies has a chance to inflict Broken Karta (a shatter sound plays and '!!!' appear above the enemy each time this happens)\nPure melee has a much higher chance of inflicting Broken Karta than projectiles.\nInflicting Broken Karta three times will replace the debuff with Severe Bleeding.\nThis debuff lasts until you don't damage the enemy for a bit.\nSevere Bleeding has lower effect on bosses"); //I yiiked my pants creating this weapon
+			Tooltip.SetDefault("UNOBTAINABLE: Will probably be obtainable when I make PML content.\n'Not to be confused with the Eternia 995'\nReleases Vinyl Discs, LP Rockets, and World-Ending Meteors\nDamaging enemies has a chance to inflict Broken Karta (a shatter sound plays and '!!!' appear above the enemy each time this happens)\nPure melee has a much higher chance of inflicting Broken Karta than projectiles.\nInflicting Broken Karta three times will replace the debuff with Heartdaze.\nThis debuff lasts until you don't damage the enemy for a bit.\nHeartdaze has lower effect on bosses"); //I yiiked my pants creating this weapon
 		}
 		public override void SetDefaults()
 		{
@@ -32,13 +32,13 @@ namespace Zylon.Items.Swords
 			Item.shootSpeed = 22f;
 		}
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit) {
-			if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>())) {
-				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>(), 90);
+			if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>())) {
+				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>(), 90);
 			}
 			else if (Main.rand.NextBool(5)) {
 				SoundEngine.PlaySound(SoundID.Shatter, target.position);
 				if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta2>()))
-					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>(), 120);
+					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>(), 120);
 				else if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta1>()))
 					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta2>(), 3600);
 				else
@@ -47,13 +47,13 @@ namespace Zylon.Items.Swords
 			}
 		}
         public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
-			if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>())) {
-				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>(), 90);
+			if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>())) {
+				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>(), 90);
 			}
 			else if (Main.rand.NextBool(5)) {
 				SoundEngine.PlaySound(SoundID.Shatter, target.position);
 				if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta2>()))
-					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.SevereBleeding>(), 120);
+					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>(), 120);
 				else if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta1>()))
 					target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta2>(), 3600);
 				else

@@ -30,6 +30,7 @@ namespace Zylon.Projectiles.Swords
 		bool dead;
 		float rot;
         public override void AI() {
+			Projectile.alpha -= 17;
 			if (dead) {
 				Timer++;
 				Projectile.penetrate = 1;
@@ -43,7 +44,6 @@ namespace Zylon.Projectiles.Swords
 			Projectile main = Main.projectile[(int)Projectile.ai[0]];
 			Projectile.rotation += 0.02f;
 			Projectile.Center = main.Center - new Vector2(0, 32).RotatedBy(MathHelper.ToRadians((360/9*Projectile.ai[1])+rot));
-			Projectile.alpha -= 17;
 			if (main.active == false) dead = true;
         }
 		public override void Kill(int timeLeft) {
