@@ -16,12 +16,12 @@ namespace Zylon.Buffs.Debuffs
 		}
 		public override void Update(Player player, ref int buffIndex)
 		{
-			if (player.HasBuff(ModContent.BuffType<SevereBleeding>()))
+			if (player.HasBuff(ModContent.BuffType<Heartdaze>()))
 				player.buffTime[buffIndex] = 0;
 		}
 		public override void Update(NPC npc, ref int buffIndex)
 		{
-			if (npc.HasBuff(ModContent.BuffType<SevereBleeding>()))
+			if (npc.HasBuff(ModContent.BuffType<Heartdaze>()))
 				npc.buffTime[buffIndex] = 0;
 		}
 	}

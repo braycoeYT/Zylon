@@ -33,11 +33,11 @@ namespace Zylon.Items.Bags
 			return true;
 		}
 		public override void ModifyItemLoot(ItemLoot itemLoot) {
-			//itemLoot.Add(ItemDropRule.Common(ItemType<Accessories.HeartofPrisms>(), 1));
+			itemLoot.Add(ItemDropRule.Common(ItemType<Accessories.Metecore>(), 1));
 			itemLoot.Add(ItemDropRule.Common(ItemType<Ores.HaxoniteOre>(), 1, 90, 120));
-			itemLoot.Add(ItemDropRule.Common(ItemID.Meteorite, 1, 20, 35));
+			itemLoot.Add(ItemDropRule.Common(ItemID.Meteorite, 1, 30, 45));
 			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(NPCType<NPCs.Bosses.Metelord.MetelordHead>()));
-			//itemLoot.Add(new CommonDrop(ItemType<Vanity.ADDMask>(), 7));
+			itemLoot.Add(new CommonDrop(ItemType<Vanity.MetelordMask>(), 7));
 		}
 		public override Color? GetAlpha(Color lightColor) {
 			return Color.Lerp(lightColor, Color.White, 0.4f);

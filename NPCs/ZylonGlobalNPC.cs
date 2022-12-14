@@ -12,60 +12,9 @@ namespace Zylon.NPCs
 	public class ZylonGlobalNPC : GlobalNPC
 	{
 		public override bool InstancePerEntity => true;
-
-		public bool severeBleeding;
-		public bool shroomed;
-		public bool deadlyToxins;
-		public bool elemDegen;
 		public static int diskiteBoss = -1;
 		public static int dirtballBoss = -1;
 		public static int metelordBoss = -1;
-		public override void ResetEffects(NPC npc) {
-			severeBleeding = false;
-			shroomed = false;
-			deadlyToxins = false;
-			elemDegen = false;
-		}
-		public override void UpdateLifeRegen(NPC npc, ref int damage) {
-			if (severeBleeding) {
-				if (npc.lifeRegen > 0) {
-					npc.lifeRegen = 0;
-				}
-				npc.lifeRegen -= 20;
-				if (!npc.boss)
-					npc.lifeRegen -= 40;
-				if (damage < 1) {
-					damage = 1;
-				}
-			}
-			if (shroomed) {
-				if (npc.lifeRegen > 0) {
-					npc.lifeRegen = 0;
-				}
-				npc.lifeRegen -= 4;
-				if (damage < 1) {
-					damage = 1;
-				}
-			}
-			if (deadlyToxins) {
-				if (npc.lifeRegen > 0) {
-					npc.lifeRegen = 0;
-				}
-				npc.lifeRegen -= 20;
-				if (damage < 1) {
-					damage = 1;
-				}
-			}
-			if (elemDegen) {
-				if (npc.lifeRegen > 0) {
-					npc.lifeRegen = 0;
-				}
-				npc.lifeRegen -= 48;
-				if (damage < 1) {
-					damage = 1;
-				}
-			}
-		}
         public override void HitEffect(NPC npc, int hitDirection, double damage) {
             if (npc.type == NPCID.Plantera && npc.life < 1 && !NPC.downedPlantBoss)
 				Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, new Vector2(0, 0), ProjectileType<Projectiles.PlanteraElementalGel>(), 0, 0, Main.myPlayer);
@@ -146,7 +95,7 @@ namespace Zylon.NPCs
 			if (npc.type == NPCID.AngryBones || (npc.type >= 294 && npc.type <= 296) || npc.type == NPCID.CursedSkull || npc.type == NPCID.DarkCaster)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Wands.SpareLeg>(), 400));
 			if (npc.type == NPCID.Demon || npc.type == NPCID.VoodooDemon)
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.NightmareCatcher>(), 150), new CommonDrop(ItemType<Items.Accessories.NightmareCatcher>(), 125)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.NightmareCatcher>(), 125), new CommonDrop(ItemType<Items.Accessories.NightmareCatcher>(), 100)));
 			if (npc.type == NPCID.BlackRecluse || npc.type == NPCID.BlackRecluseWall || npc.type == NPCID.JungleCreeper || npc.type == NPCID.JungleCreeperWall || npc.type == NPCID.DesertScorpionWalk || npc.type == NPCID.DesertScorpionWall)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.VenomousPills>(), 50), new CommonDrop(ItemType<Items.Accessories.VenomousPills>(), 40)));
 			if (npc.type == NPCID.WyvernHead)
@@ -161,6 +110,8 @@ namespace Zylon.NPCs
 				npcLoot.Add(new CommonDrop(ItemID.TatteredCloth, 2));
 			if (npc.type == NPCID.ToxicSludge || npc.type == NPCID.MossHornet || npc.type == NPCID.BigMossHornet || npc.type == NPCID.TinyMossHornet || npc.type == NPCID.LittleMossHornet || npc.type == NPCID.GiantMossHornet)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.Oozeberry>(), 1, 1, 3));
+			if (npc.type == NPCID.RedDevil)
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Boomerangs.Pentagram>(), 33), new CommonDrop(ItemType<Items.Boomerangs.Pentagram>(), 25)));
 		}
         public override void ModifyGlobalLoot(GlobalLoot globalLoot) {
             //globalLoot.Add(ItemDropRule.ByCondition(new Conditions.WindyEnoughForKiteDrops(), ItemType<Items.Materials.WindEssence>(), 5));

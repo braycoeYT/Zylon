@@ -10,7 +10,7 @@ namespace Zylon
 {
 	public class ZylonPlayer : ModPlayer
 	{
-		public bool severeBleeding;
+		public bool Heartdaze;
 		public bool outofBreath;
 		public bool shroomed;
 		public bool wadofSpores;
@@ -35,6 +35,7 @@ namespace Zylon
 		public bool elemDegen;
 		public bool nightmareCatcher;
 		public bool shadowflameMagic;
+		public bool metelordExpert;
 
 		public int blowpipeMaxInc;
 		public float blowpipeChargeInc;
@@ -45,7 +46,7 @@ namespace Zylon
 		public int blowpipeMinCharge;
 		public int blowpipeCharge;*/
 		public override void ResetEffects() {
-			severeBleeding = false;
+			Heartdaze = false;
 			outofBreath = false;
 			shroomed = false;
 			wadofSpores = false;
@@ -70,6 +71,7 @@ namespace Zylon
 			elemDegen = false;
 			nightmareCatcher = false;
 			shadowflameMagic = false;
+			metelordExpert = false;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeDamage = 0;
@@ -77,13 +79,13 @@ namespace Zylon
 			blowpipeChargeShootSpeed = 0;
 		}
 		public override void UpdateDead() {
-			severeBleeding = false;
+			Heartdaze = false;
 			outofBreath = false;
 			shroomed = false;
 			elemDegen = false;
 		}
 		public override void UpdateBadLifeRegen() {
-			if (severeBleeding) {
+			if (Heartdaze) {
 				if (Player.lifeRegen > 0)
 					Player.lifeRegen = 0;
 				Player.lifeRegenTime = 0;
@@ -114,6 +116,7 @@ namespace Zylon
 				Player.lifeRegenTime = 0;
 				Player.lifeRegen -= 16;
 			}
+			if (Player.HasBuff(BuffID.OnFire) && metelordExpert) Player.lifeRegen += 6;
 		}
         public override void UpdateEquips() {
             if (GetInstance<ZylonConfig>().bandBuffs) {
@@ -130,6 +133,8 @@ namespace Zylon
 						Player.accRunSpeed += 0.75f;
 					Player.moveSpeed += 0.15f;
                 }
+				if (metelordExpert && Player.HasBuff(BuffID.OnFire))
+					Player.statDefense += 5;
             }
 			if (Player.npcTypeNoAggro[NPCID.MotherSlime]) {
 				Player.npcTypeNoAggro[NPCType<NPCs.Dungeon.BoneSlime>()] = true;

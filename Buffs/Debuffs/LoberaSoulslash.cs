@@ -25,13 +25,8 @@ namespace Zylon.Buffs.Debuffs
                 dust.scale *= 0.5f + Main.rand.Next(-30, 31) * 0.01f;
             }
         }
-        bool safe;
-        Color safeColor;
         public override void Update(NPC npc, ref int buffIndex) {
-            if (safe) {
-                safeColor = npc.color;
-                safe = false;
-            }
+            npc.GetGlobalNPC<NPCs.ZylonGlobalNPCDebuff>().loberaSlash = true;
             npc.defense = (int)(npc.defense * 0.5f);
             for (int i = 0; i < 3; i++) {
                 int dustType = ModContent.DustType<Dusts.LoberaDust>();
@@ -41,9 +36,6 @@ namespace Zylon.Buffs.Debuffs
                 dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
                 dust.scale *= 0.5f + Main.rand.Next(-30, 31) * 0.01f;
             }
-            npc.color = Color.LightGoldenrodYellow;
-            if (npc.buffTime[buffIndex] < 5)
-                npc.color = safeColor;
         }
     }
 }

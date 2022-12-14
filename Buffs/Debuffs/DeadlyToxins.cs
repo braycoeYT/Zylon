@@ -24,7 +24,7 @@ namespace Zylon.Buffs.Debuffs
                 safeColor = npc.color;
                 safe = false;
             }
-			npc.GetGlobalNPC<NPCs.ZylonGlobalNPC>().deadlyToxins = true;
+			npc.GetGlobalNPC<NPCs.ZylonGlobalNPCDebuff>().deadlyToxins = true;
             npc.color = Color.Purple;
             if (npc.buffTime[buffIndex] < 5)
                 npc.color = safeColor;
