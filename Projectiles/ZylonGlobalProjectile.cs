@@ -8,6 +8,7 @@ namespace Zylon.Projectiles
 {
 	public class ZylonGlobalProjectile : GlobalProjectile
 	{
+		int damageCooldown;
 		public override bool InstancePerEntity => true;
 		public override void SetDefaults(Projectile projectile) {
 			if (GetInstance<ZylonConfig>().zylonianBalancing) {
@@ -49,11 +50,19 @@ namespace Zylon.Projectiles
 					Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, projDir, ProjectileType<Accessories.DirtBallAcc>(), (int)(projectile.damage*0.6f), projectile.knockBack/2, Main.myPlayer);
                 }
             }
-
+			if (damageCooldown > 0) { //only use this if you are sure that projectiles inflicted are friendly
+				projectile.friendly = false;
+				damageCooldown--;
+				if (damageCooldown == 0) projectile.friendly = true;
+            }
         }
         public override void OnHitNPC(Projectile projectile, NPC target, int damage, float knockback, bool crit) {
             if (target.type == NPCType<NPCs.Bosses.Dirtball.DirtBlock>() && (projectile.penetrate < 0 || projectile.penetrate > 3) && projectile.minion == false && Main.expertMode)
 				projectile.penetrate = 3;
+			if (target.type == NPCType<NPCs.Bosses.Metelord.MetelordHead>() || target.type == NPCType<NPCs.Bosses.Metelord.MetelordBody>() || target.type == NPCType<NPCs.Bosses.Metelord.MetelordTail>()) {
+				if ((projectile.DamageType != DamageClass.Summon && projectile.DamageType != DamageClass.MagicSummonHybrid && projectile.aiStyle != 19) || projectile.type == ProjectileType<Minions.DirtBlockExp>())
+					damageCooldown = 30;
+            }
         }
     }
 }

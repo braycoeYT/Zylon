@@ -19,6 +19,11 @@ namespace Zylon.Projectiles.Bosses.Metelord
 		public override void OnHitPlayer(Player target, int damage, bool crit) {
 			target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(3, 6));
 		}
+		int Timer;
+        public override void AI() {
+            Timer++;
+			if (Timer % 5 == 0 && Projectile.velocity.Y < 0) Projectile.velocity.Y += 1;
+        }
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}

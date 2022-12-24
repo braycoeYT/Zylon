@@ -31,12 +31,12 @@ namespace Zylon.Items.BossSummons
 			SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
-        /*public override void AddRecipes() {
+        public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Meteorite, 6);
-			recipe.AddIngredient(ItemID.FallenStar, 5);
+			recipe.AddIngredient(ItemID.FallenStar, 3);
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
-		}*/
+		}
 	}
 }

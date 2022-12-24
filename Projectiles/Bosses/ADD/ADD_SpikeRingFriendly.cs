@@ -40,6 +40,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 			Projectile.Center = Main.player[Projectile.owner].Center;
 			Projectile.rotation += 0.05f;
 			Projectile.direction = Main.player[Projectile.owner].direction;
+			Projectile.velocity = Vector2.Zero;
         }
     }
 }

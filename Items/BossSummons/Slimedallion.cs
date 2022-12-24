@@ -38,7 +38,6 @@ namespace Zylon.Items.BossSummons
 			recipe.AddIngredient(ItemID.Gel, 20);
 			recipe.AddIngredient(ItemID.SoulofLight, 2);
 			recipe.AddIngredient(ItemID.SoulofNight, 2);
-			recipe.AddIngredient(ItemID.LunarTabletFragment, 2);
 			recipe.AddTile(TileID.Solidifier);
 			recipe.Register();
 		}
