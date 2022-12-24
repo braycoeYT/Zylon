@@ -11,7 +11,7 @@ namespace Zylon.Items.Boomerangs
 			Tooltip.SetDefault("\n'100% satanic!'\nSplits into five after striking an enemy");
 		}
 		public override void SetDefaults() {
-			Item.damage = 79;
+			Item.damage = 85;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 12;
 			Item.useTime = 14;

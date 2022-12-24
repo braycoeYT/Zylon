@@ -17,7 +17,7 @@ namespace Zylon.Tiles
 		public const int FrameWidth = 18 * 3;
 		public const int FrameHeight = 18 * 4;
 		public const int HorizontalFrames = 1;
-		public const int VerticalFrames = 3;
+		public const int VerticalFrames = 4;
 		public Asset<Texture2D> RelicTexture;
 		public virtual string RelicTextureName => "Zylon/Tiles/BossRelic";
 		public override string Texture => "Zylon/Tiles/RelicPedestal";
@@ -64,6 +64,9 @@ namespace Zylon.Tiles
 					break;
 				case 2:
 					itemType = ModContent.ItemType<Items.Placeables.Relics.DirtballRelic>();
+					break;
+				case 3:
+					itemType = ModContent.ItemType<Items.Placeables.Relics.MetelordRelic>();
 					break;
 			}
 			if (itemType > 0) {

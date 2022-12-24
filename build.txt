@@ -1,6 +1,6 @@
-displayName = [c/0000FF:Zy][c/00C6FF:lo][c/00FFA6:n]
+displayName = [c/0000FF:Zy][c/00C6FF:lo][c/00FFA6:n] (Introducing Metelord!)
 author = BraycoeYT and the Devs
-version = 0.0.2.3
+version = 0.0.2.4
 hideCode = true
 hideResources = true
 includeSource = false

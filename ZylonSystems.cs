@@ -481,6 +481,40 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.LavaBucket, 3);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.FiberglassFishingPole);
+			recipe.AddIngredient(ModContent.ItemType<Items.Bars.CarnalliteBar>(), 18);
+			recipe.AddIngredient(ItemID.Glass, 24);
+			recipe.AddIngredient(ItemID.JungleSpores, 10);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.LavaCharm);
+			recipe.AddIngredient(ModContent.ItemType<Items.Bars.HaxoniteBar>(), 12);
+			recipe.AddIngredient(ItemID.HellstoneBar, 8);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.WaterWalkingBoots);
+			recipe.AddIngredient(ItemID.Silk, 15);
+			recipe.AddIngredient(ItemID.WaterWalkingPotion, 3);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 12);
+			recipe.AddTile(TileID.Loom);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.ObsidianRose);
+			recipe.AddIngredient(ItemID.JungleRose);
+			recipe.AddIngredient(ItemID.HellstoneBar, 6);
+			recipe.AddIngredient(ModContent.ItemType<Items.Bars.HaxoniteBar>(), 6);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.MagmaStone);
+			recipe.AddIngredient(ItemID.StoneBlock, 40);
+			recipe.AddIngredient(ItemID.HellstoneBar, 8);
+			recipe.AddIngredient(ModContent.ItemType<Items.Bars.HaxoniteBar>(), 4);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
             for (int i = 0; i < Recipe.numRecipes; i++) {
@@ -491,6 +525,8 @@ namespace Zylon
 					recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 20);
 				if (recipe.HasResult(ItemID.Sandgun))
 					recipe.AddIngredient(ModContent.ItemType<Items.Materials.RustedTech>(), 15);
+				if (recipe.HasResult(ItemID.MeteorStaff))
+					recipe.AddIngredient(ModContent.ItemType<Items.Wands.MeteorHerder>());
 			}
         }
     }

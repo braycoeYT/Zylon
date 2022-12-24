@@ -103,7 +103,7 @@ namespace Zylon
 				ModContent.ItemType<Items.Vanity.PolandballMask>()
 			};
 			summonItem = ModContent.ItemType<Items.BossSummons.EnchantedEye>();
-			spawnInfo = $"Use a [i:{summonItem}] in the desert";
+			spawnInfo = $"Use a [i:{summonItem}] in the desert at night";
 			despawnInfo = null;
 			customBossPortrait = (SpriteBatch sb, Rectangle rect, Color color) => {
 				Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/ADD/ADD_Bestiary").Value;
@@ -141,6 +141,40 @@ namespace Zylon
 			despawnInfo = null;
 			customBossPortrait = (SpriteBatch sb, Rectangle rect, Color color) => {
 				Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Dirtball/Dirtball").Value;
+				Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
+				sb.Draw(texture, centered, color);
+			};
+			bossChecklistMod.Call(
+				"AddBoss",
+				Mod,
+				bossName,
+				bossType,
+				weight,
+				downed,
+				available,
+				collection,
+				summonItem,
+				spawnInfo,
+				despawnInfo,
+				customBossPortrait
+			);
+			bossName = "Metelord";
+			bossType = ModContent.NPCType<NPCs.Bosses.Metelord.MetelordHead>();
+			weight = 3.5f;
+			downed = () => ZylonWorldCheckSystem.downedMetelord;
+			available = () => true;
+			collection = new List<int>()
+			{
+				ModContent.ItemType<Items.Placeables.Relics.MetelordRelic>(),
+				ModContent.ItemType<Items.Pets.PlasticDinoFigurine>(),
+				ModContent.ItemType<Items.Placeables.Trophies.MetelordTrophy>(),
+				ModContent.ItemType<Items.Vanity.MetelordMask>(),
+			};
+			summonItem = ModContent.ItemType<Items.BossSummons.StarstruckMeteorChunk>();
+			spawnInfo = $"Use a [i:{summonItem}] in the Meteorite biome";
+			despawnInfo = null;
+			customBossPortrait = (SpriteBatch sb, Rectangle rect, Color color) => {
+				Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Metelord/Metelord_Bestiary").Value;
 				Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
 				sb.Draw(texture, centered, color);
 			};
