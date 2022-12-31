@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -11,7 +12,11 @@ namespace Zylon.NPCs.Bosses.Dirtball
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Dirtboi");
-            Main.npcFrameCount[NPC.type] = 3;
+            Main.npcFrameCount[NPC.type] = 4;
+            NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
+				ImmuneToAllBuffsThatAreNotWhips = true
+			};
+			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				Hide = true
 			};
@@ -38,8 +43,11 @@ namespace Zylon.NPCs.Bosses.Dirtball
                 num = 1;
             if ((month == 1 && day == 4) || (month == 9 && day == 28))
                 num = 2;
+            if (month == 4 && day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges)
+                num = 3;
         }
         public override void PostAI() {
+            if (NPC.life > 0) NPC.life = NPC.lifeMax;
 			if (NPC.CountNPCS(ModContent.NPCType<Dirtball>()) > 0) 
                 for (int i = 0; i < 1; i++) {
 			    	int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, 0);
@@ -56,6 +64,14 @@ namespace Zylon.NPCs.Bosses.Dirtball
                 case 1:
                     val = 1;
                     NPC.frame.Y = 1 * frameHeight;
+                    break;
+                case 2:
+                    val = 2;
+                    NPC.frame.Y = 2 * frameHeight;
+                    break;
+                case 3:
+                    val = 3;
+                    NPC.frame.Y = 3 * frameHeight;
                     break;
             }
         }
@@ -110,6 +126,10 @@ namespace Zylon.NPCs.Bosses.Dirtball
                         case 2:
                             Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, new Vector2(Main.rand.Next(-2, 3), Main.rand.Next(-5, -3)), ModContent.GoreType<Gores.Bosses.Dirtball.DirtboiDie>());
                             Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, new Vector2(Main.rand.Next(-2, 3), Main.rand.Next(-5, -3)), GoreID.PartyHatBlue);
+                            return;
+                        case 3:
+                            for (int i = 0; i < 10; i++)
+                                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, new Vector2(Main.rand.Next(-2, 3), Main.rand.Next(-5, -3)), ModContent.GoreType<Gores.Bosses.Dirtball.DirtChunkGore>());
                             return;
                     }
                 }

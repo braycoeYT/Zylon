@@ -17,17 +17,8 @@ namespace Zylon.Buffs.Debuffs
         public override void Update(Player player, ref int buffIndex) {
 			player.GetModPlayer<ZylonPlayer>().deadlyToxins = true;
 		}
-        bool safe = true;
-        Color safeColor;
   		public override void Update(NPC npc, ref int buffIndex) {
-            if (safe) {
-                safeColor = npc.color;
-                safe = false;
-            }
 			npc.GetGlobalNPC<NPCs.ZylonGlobalNPCDebuff>().deadlyToxins = true;
-            npc.color = Color.Purple;
-            if (npc.buffTime[buffIndex] < 5)
-                npc.color = safeColor;
 		}
     }
 }

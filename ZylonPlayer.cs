@@ -36,7 +36,10 @@ namespace Zylon
 		public bool nightmareCatcher;
 		public bool shadowflameMagic;
 		public bool metelordExpert;
+		public bool stncheck;
+		public bool st2check;
 
+		public float critExtraDmg;
 		public int blowpipeMaxInc;
 		public float blowpipeChargeInc;
 		public int blowpipeChargeDamage;
@@ -72,6 +75,9 @@ namespace Zylon
 			nightmareCatcher = false;
 			shadowflameMagic = false;
 			metelordExpert = false;
+			stncheck = false;
+			st2check = false;
+			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeDamage = 0;
@@ -82,6 +88,7 @@ namespace Zylon
 			Heartdaze = false;
 			outofBreath = false;
 			shroomed = false;
+			deadlyToxins = false;
 			elemDegen = false;
 		}
 		public override void UpdateBadLifeRegen() {
@@ -136,6 +143,13 @@ namespace Zylon
 				if (metelordExpert && Player.HasBuff(BuffID.OnFire))
 					Player.statDefense += 5;
             }
+			if (GetInstance<ZylonConfig>().zylonianBalancing) {
+				if (Player.HasBuff(BuffID.MagicPower)) {
+					Player.GetDamage(DamageClass.Magic) -= 0.15f*Player.statLife/Player.statLifeMax2;
+					Player.GetDamage(DamageClass.MagicSummonHybrid) -= 0.15f*Player.statLife/Player.statLifeMax2;
+					Player.manaRegen -= 2;
+                }
+            }
 			if (Player.npcTypeNoAggro[NPCID.MotherSlime]) {
 				Player.npcTypeNoAggro[NPCType<NPCs.Dungeon.BoneSlime>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Forest.DirtSlime>()] = true;
@@ -148,17 +162,32 @@ namespace Zylon
             }
         }
 		float trueMeleeBoost;
+		float critBoost;
 		public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit) {
+			critBoost = 1f;
+			if (crit) critBoost += critExtraDmg;
 			trueMeleeBoost = 1f;
 			if (trueMelee10) trueMeleeBoost += 0.1f;
 			if (trueMelee15) trueMeleeBoost += 0.15f;
-			damage = (int)(damage * trueMeleeBoost);
+			damage = (int)(damage * trueMeleeBoost * critBoost);
 		}
         public override void ModifyHitPvp(Item item, Player target, ref int damage, ref bool crit) {
+			critBoost = 1f;
+			if (crit) critBoost += critExtraDmg;
             trueMeleeBoost = 1f;
 			if (trueMelee10) trueMeleeBoost += 0.1f;
 			if (trueMelee15) trueMeleeBoost += 0.15f;
-			damage = (int)(damage * trueMeleeBoost);
+			damage = (int)(damage * trueMeleeBoost * critBoost);
+        }
+        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) {
+            critBoost = 1f;
+			if (crit) critBoost += critExtraDmg;
+			damage = (int)(damage * critBoost);
+        }
+        public override void ModifyHitPvpWithProj(Projectile proj, Player target, ref int damage, ref bool crit) {
+            critBoost = 1f;
+			if (crit) critBoost += critExtraDmg;
+			damage = (int)(damage * critBoost);
         }
         public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit) {
 			OnHitNPCGlobal(item, null, target, damage, knockback, crit, target.type == NPCID.TargetDummy, true);

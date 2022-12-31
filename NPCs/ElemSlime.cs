@@ -113,8 +113,8 @@ namespace Zylon.NPCs
 		}
         public override float SpawnChance(NPCSpawnInfo spawnInfo) {
 			if (!NPC.downedPlantBoss) return 0f;
-			if (SpawnCondition.OverworldDaySlime.Chance > 0) return 0.075f;
-            else return 0.01f;
+			if (SpawnCondition.OverworldDaySlime.Chance > 0) return 0.04f;
+            else return 0.001f;
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
 			npcLoot.Add(new CommonDrop(ItemID.Gel, 1, 2, 5));

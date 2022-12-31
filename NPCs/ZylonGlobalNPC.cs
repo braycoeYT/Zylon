@@ -112,6 +112,10 @@ namespace Zylon.NPCs
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.Oozeberry>(), 1, 1, 3));
 			if (npc.type == NPCID.RedDevil)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Boomerangs.Pentagram>(), 33), new CommonDrop(ItemType<Items.Boomerangs.Pentagram>(), 25)));
+			if (npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.IceBat)
+				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.EnchantedIceCube>(), 1, 1, 2));
+			if (npc.type == NPCID.Werewolf || npc.type == NPCID.Wolf)
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 100), new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 80)));
 		}
         public override void ModifyGlobalLoot(GlobalLoot globalLoot) {
             //globalLoot.Add(ItemDropRule.ByCondition(new Conditions.WindyEnoughForKiteDrops(), ItemType<Items.Materials.WindEssence>(), 5));

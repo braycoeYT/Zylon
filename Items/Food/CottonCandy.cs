@@ -14,10 +14,10 @@ namespace Zylon.Items.Food
 			Item.height = 24;
 			Item.useTime = 17;
 			Item.useAnimation = 17;
-			Item.useStyle = ItemUseStyleID.Swing;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.value = Item.sellPrice(0, 0, 30);
 			Item.rare = ItemRarityID.Lime;
-			Item.autoReuse = true;
+			Item.autoReuse = false;
 			Item.useTurn = true;
 			Item.noMelee = true;
 			Item.maxStack = 999;

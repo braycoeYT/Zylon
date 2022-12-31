@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Pets
 	{
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Dirtboi");
-            Main.projFrames[Projectile.type] = 3;
+            Main.projFrames[Projectile.type] = 4;
             Main.projPet[Projectile.type] = true;
         }
         public override void SetDefaults() {
@@ -26,6 +26,8 @@ namespace Zylon.Projectiles.Pets
                 Projectile.frame = 1;
             if ((month == 1 && day == 4) || (month == 9 && day == 28))
                 Projectile.frame = 2;
+            if (month == 4 && day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges)
+                Projectile.frame = 3;
         }
         bool cry;
         int cryTimer;

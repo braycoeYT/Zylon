@@ -44,6 +44,12 @@ namespace Zylon.Items
 					tooltips.Add(line);
 				}
             }
+			if (GetInstance<ZylonConfig>().zylonianBalancing) {
+				if (item.type == ItemID.MagicPowerPotion) {
+					TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "This effect decreases to 5% as the player reaches max health\nDecreases mana regeneration rate");
+					tooltips.Add(line);
+				}
+            }
 			/*if (item.type == ItemID.Minishark || item.type == ItemID.Shotgun || item.type == ItemID.PainterPaintballGun) {
 				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Slightly weakened until Eater of Worlds or Brain of Cthulhu is defeated");
 				tooltips.Add(line);
@@ -120,6 +126,12 @@ namespace Zylon.Items
 				if (item.type == ItemID.ManaRegenerationBand) {
 					p.bandofMagicRegen = true;
 				}
+            }
+			if (item.type == ItemID.SharkToothNecklace) {
+				if (p.stncheck) { 
+					player.GetArmorPenetration(DamageClass.Generic) -= 5;
+				}
+				p.stncheck = true;
             }
 		}
 		public override string IsArmorSet(Item head, Item body, Item legs) {

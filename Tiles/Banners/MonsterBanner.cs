@@ -92,6 +92,9 @@ namespace Zylon.Tiles.Banners
 				case 19:
 					item = ModContent.ItemType<MeteorTailBanner>();
 					break;
+				case 20:
+					item = ModContent.ItemType<BlizzardSeerBanner>();
+					break;
 				default:
 					return;
 			}
@@ -162,6 +165,9 @@ namespace Zylon.Tiles.Banners
 						break;
 					case 19:
 						npcType = ModContent.NPCType<NPCs.Meteorite.MeteorTail>();
+						break;
+					case 20:
+						npcType = ModContent.NPCType<NPCs.Snow.BlizzardSeer>();
 						break;
 					default:
 						return;
