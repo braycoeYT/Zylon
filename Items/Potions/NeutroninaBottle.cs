@@ -20,7 +20,7 @@ namespace Zylon.Items.Potions
             Item.UseSound = SoundID.Item3;
             Item.maxStack = 30;
             Item.consumable = true;
-            Item.rare = ItemRarityID.Blue;
+            Item.rare = ItemRarityID.Red;
             Item.value = 200;
             Item.buffType = ModContent.BuffType<Buffs.Potions.Neutronic>();
             Item.buffTime = 28800;

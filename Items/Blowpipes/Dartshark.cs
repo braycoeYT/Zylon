@@ -12,7 +12,7 @@ namespace Zylon.Items.Blowpipes
 	{
 		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("Maximum blowpipe charge: " + maxCharge + "\nBlowpipe charge speed: " + (chargeRate * 30) + "/s\nRight click to change modes.\nThe longer you inhale, the more speed, knockback, and damage the seed/dart deals, though you don't have to inhale to shoot.\nTake breaks from shooting to get your breath back.\nYou can inhale while in breath recovery.\nUses seeds as ammo\n33% chance to not consume ammo\n'Minishark's cousin. You still need to blow into it, though.'\nAt max charge, spawns several mini jellies to attack foes");
-			if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1) {
+			if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges) {
 				DisplayName.SetDefault("Dartshart");
 				Tooltip.SetDefault("Barrages enemies with taco bell\nUses seeds as ammo (symbolizes the seeds of intestinal damage sown by the taco bell)");
             }
@@ -37,7 +37,7 @@ namespace Zylon.Items.Blowpipes
 			Item.UseSound = SoundID.Item64;
 			Item.value = Item.sellPrice(0, 2);
 			Item.autoReuse = true;
-			if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1) {
+			if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges) {
 				Item.damage = 1;
 			}
 			origDamage = Item.damage;
@@ -101,7 +101,7 @@ namespace Zylon.Items.Blowpipes
             return true;
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-            if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1) {
+            if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges) {
 				Projectile.NewProjectile(Item.GetSource_FromThis(), position, velocity, ModContent.ProjectileType<Projectiles.Blowpipes.PoopFriendly>(), damage, knockback, Main.myPlayer);
 				return false;
 			}

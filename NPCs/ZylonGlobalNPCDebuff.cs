@@ -20,6 +20,8 @@ namespace Zylon.NPCs
 		public bool timestop;
 		public bool brainFreeze;
 		public bool loberaSlash;
+		public bool zombieRot;
+		public bool flashPandemic;
 		public override void ResetEffects(NPC npc) {
 			heartdaze = false;
 			shroomed = false;
@@ -28,6 +30,8 @@ namespace Zylon.NPCs
 			timestop = false;
 			brainFreeze = false;
 			loberaSlash = false;
+			zombieRot = false;
+			flashPandemic = false;
 			base.ResetEffects(npc);
 		}
 		public override void UpdateLifeRegen(NPC npc, ref int damage) {
@@ -65,8 +69,26 @@ namespace Zylon.NPCs
 					npc.lifeRegen = 0;
 				}
 				npc.lifeRegen -= 48;
+				if (damage < 2) {
+					damage = 2;
+				}
+			}
+			if (zombieRot) {
+				if (npc.lifeRegen > 0) {
+					npc.lifeRegen = 0;
+				}
+				npc.lifeRegen -= 10;
 				if (damage < 1) {
 					damage = 1;
+				}
+			}
+			if (flashPandemic) {
+				if (npc.lifeRegen > 0) {
+					npc.lifeRegen = 0;
+				}
+				npc.lifeRegen -= 100;
+				if (damage < 2) {
+					damage = 2;
 				}
 			}
 			base.UpdateLifeRegen(npc, ref damage);
@@ -76,59 +98,59 @@ namespace Zylon.NPCs
         Color safeColor;
 		bool setup;
 		bool safeGrav;
-		bool canNormal;
 		float stayRot;
 		int stayDir;
 		Vector2 stay;
+		Color tColor;
+		bool checkColor;
         public override void PostAI(NPC npc) { //Tome man gonna kill me for this if statement army
+			checkColor = !npc.boss && npc.type != NPCID.GolemHead;
 			Timer++;
-			canNormal = true;
             if (safe) {
                 safeColor = npc.color;
                 safe = false;
 				safeGrav = npc.noGravity;
             }
+			tColor = safeColor;
 			if (brainFreeze) {
-				if (!npc.boss && npc.type != NPCID.GolemHead) {
-					npc.color = Color.LightSkyBlue;
+				tColor = Color.LightSkyBlue;
+				if (checkColor) {
 					npc.velocity *= 0.93f;
 				}
-				canNormal = false;
             }
 			if (shroomed) {
-				if (!npc.boss && npc.type != NPCID.GolemHead) {
-					npc.color = Color.DarkBlue;
-				}
-				canNormal = false;
+				tColor = Color.DarkBlue;
+            }
+			if (zombieRot) {
+				tColor = Color.ForestGreen;
+				for (int i = 0; i < Main.maxNPCs; i++) {
+					if (Vector2.Distance(npc.Center, Main.npc[i].Center) < 60 && !Main.npc[i].friendly && Main.npc[i].active && !Main.npc[i].HasBuff<Buffs.Debuffs.ZombieRot>() && Main.rand.NextFloat() < .03f)
+						Main.npc[i].AddBuff(BuffType<Buffs.Debuffs.ZombieRot>(), 180);
+                }
             }
 			if (deadlyToxins) {
-				if (!npc.boss && npc.type != NPCID.GolemHead) {
-					npc.color = Color.Purple;
-				}
-				canNormal = false;
+				tColor = Color.Purple;
             }
 			if (loberaSlash) {
-				if (!npc.boss && npc.type != NPCID.GolemHead) {
-					npc.color = Color.LightGoldenrodYellow;
-				}
-				canNormal = false;
+				tColor = Color.LightGoldenrodYellow;
+            }
+			if (flashPandemic) {
+				tColor = Color.LimeGreen;
+				for (int i = 0; i < Main.maxNPCs; i++) {
+					if (Vector2.Distance(npc.Center, Main.npc[i].Center) < 60 && !Main.npc[i].friendly && Main.npc[i].active && !Main.npc[i].HasBuff<Buffs.Debuffs.FlashPandemic>() && Main.rand.NextFloat() < .05f)
+						Main.npc[i].AddBuff(BuffType<Buffs.Debuffs.FlashPandemic>(), 60);
+                }
             }
 			if (heartdaze) {
-				if (!npc.boss && npc.type != NPCID.GolemHead) {
-					npc.color = Color.Red;
-				}
-				canNormal = false;
+				tColor = Color.Red;
             }
 			if (elemDegen) {
-				if (!npc.boss && npc.type != NPCID.GolemHead) {
-					if (Timer % 90 < 45) npc.color = Color.Orange;
-					else npc.color = Color.LawnGreen;
-				}
-				canNormal = false;
+				tColor = Color.LawnGreen;
+				if (Timer % 90 < 45) tColor = Color.Orange;
             }
 			if (timestop) {
-				if (!npc.boss && npc.type != NPCID.GolemHead) {
-					npc.color = Color.SlateGray;
+				tColor = Color.SlateGray;
+				if (checkColor) {
 					npc.velocity = Vector2.Zero;
 					if (!setup) {
 				        stay = npc.position;
@@ -141,16 +163,21 @@ namespace Zylon.NPCs
 					npc.spriteDirection = stayDir;
 					npc.noGravity = true;
 				}
-				canNormal = false;
 			}
 			else {
 				setup = false;
 				npc.noGravity = safeGrav;
             }
-			if (canNormal) {
-                npc.color = safeColor;
+			if (checkColor) {
+                npc.color = tColor;
 			}
 			base.PostAI(npc);
         }
+		/*private void ColorStuff(NPC npc, Color color) {
+			if (!npc.boss && npc.type != NPCID.GolemHead) {
+				npc.color = color;
+			}
+			canNormal = false;
+        }*/
     }
 }

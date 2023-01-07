@@ -12,6 +12,9 @@ namespace Zylon.Items.Food
 		public override void SetDefaults() {
 			Item.width = 30;
 			Item.height = 30;
+			Item.useTime = 17;
+			Item.useAnimation = 17;
+			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.maxStack = 999;
 			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.value = Item.sellPrice(0, 0, 0, 20);
@@ -21,6 +24,9 @@ namespace Zylon.Items.Food
 			Item.consumable = true;
 			Item.buffType = BuffID.WellFed;
             Item.buffTime = 18000;
+			Item.autoReuse = false;
+			Item.useTurn = true;
+			Item.noMelee = true;
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

@@ -39,6 +39,11 @@ namespace Zylon
 		[Tooltip("Allows you to multiply the health of the mod's bosses for increased difficulty. To be used with the similar config from Calamity.")]
 		public float bossHpMult;
 
+		[DefaultValue(true)]
+		[Label("April Fools Day Changes")]
+		[Tooltip("Allows the mod to go absolutely wacky on that fateful day.")]
+		public bool aprilFoolsChanges;
+
 		[Header("Accessibility")]
 
 		[Range(0f, 1f)]

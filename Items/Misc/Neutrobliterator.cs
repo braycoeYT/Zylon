@@ -26,6 +26,7 @@ namespace Zylon.Items.Misc
 			Item.UseSound = SoundID.Item93;
 			Item.autoReuse = true;
 			Item.rare = ItemRarityID.Red;
+			Item.DamageType = DamageClass.Generic;
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             int numberProjectiles = 5;

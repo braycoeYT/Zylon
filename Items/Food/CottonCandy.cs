@@ -17,7 +17,7 @@ namespace Zylon.Items.Food
 			Item.useStyle = ItemUseStyleID.EatFood;
 			Item.value = Item.sellPrice(0, 0, 30);
 			Item.rare = ItemRarityID.Lime;
-			Item.autoReuse = true;
+			Item.autoReuse = false;
 			Item.useTurn = true;
 			Item.noMelee = true;
 			Item.maxStack = 999;

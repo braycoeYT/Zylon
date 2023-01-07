@@ -10,24 +10,30 @@ namespace Zylon.Items.Swords
 	public class BloodyZombieArm : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("'It pulsates nauseatingly...'");
+            Tooltip.SetDefault("'Bloodier than ever!'\nInflicts Zombie Rot upon hitting enemies, which can be spread to other nearby enemies");
         }
         public override void SetDefaults() {
-			Item.damage = 20;
+			Item.damage = 16;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 34;
 			Item.height = 34;
-			Item.useTime = 41;
-			Item.useAnimation = 41;
+			Item.useTime = 31;
+			Item.useAnimation = 31;
 			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 8.5f;
-			Item.value = Item.sellPrice(0, 0, 5);
-			Item.rare = ItemRarityID.White;
+			Item.knockBack = 6.25f;
+			Item.value = Item.sellPrice(0, 0, 40);
+			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 			Item.useTurn = false;
 		}
-		public override void AddRecipes() {
+        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
+            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ZombieRot>(), Main.rand.Next(5, 9)*60);
+        }
+        /*public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
+            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ZombieRot>(), Main.rand.Next(5, 9)*60);
+        }*/
+        public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ZombieArm);
 			recipe.AddIngredient(ModContent.ItemType<Materials.BloodDroplet>(), 20);

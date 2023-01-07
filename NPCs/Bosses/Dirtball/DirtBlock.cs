@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -12,6 +13,10 @@ namespace Zylon.NPCs.Bosses.Dirtball
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Dirt Block");
+			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
+				ImmuneToAllBuffsThatAreNotWhips = true
+			};
+			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
 		}
         public override void SetDefaults() {
 			NPC.value = 0;
