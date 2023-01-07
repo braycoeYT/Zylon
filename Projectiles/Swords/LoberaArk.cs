@@ -20,7 +20,7 @@ namespace Zylon.Projectiles.Swords
 		public override void AI() {
 			Timer++;
 			if (Timer % 5 == 0)
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), new Vector2(Main.MouseWorld.X + Main.rand.Next(-160, 161), Main.player[Projectile.owner].position.Y - 400), new Vector2(0, 20), ModContent.ProjectileType<LoberaTropicalOrb>(), (int)(Projectile.damage * 0.4f), Projectile.knockBack / 4, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), new Vector2(Main.MouseWorld.X + Main.rand.Next(-160, 161), Main.player[Projectile.owner].position.Y - 400), new Vector2(0, 20), ModContent.ProjectileType<LoberaTropicalOrb>(), (int)(Projectile.damage * 0.4f), Projectile.knockBack / 4, Projectile.owner);
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
 			if (target.boss == false)

@@ -6,7 +6,6 @@ using System;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
-using System.Linq;
 
 namespace Zylon.Projectiles.Tomes
 {
@@ -36,13 +35,6 @@ namespace Zylon.Projectiles.Tomes
 			Projectile.rotation += 0.1f;
 			
 
-		}
-		private void AttemptNetworking()
-		{
-			foreach (NPC npc in Main.npc.Where(npc => npc.life > 0 && npc.Hitbox.Intersects(Projectile.Hitbox)))
-			{
-				NetworkHex(npc);
-			}
 		}
 
 		private void NetworkHex(NPC target)
@@ -107,8 +99,15 @@ namespace Zylon.Projectiles.Tomes
 			}
 			if (Main.myPlayer != Projectile.owner)
             {
-				AttemptNetworking();
-            }
+				for (int npcnum = 0; npcnum < Main.maxNPCs; npcnum++)
+				{
+					NPC npc = Main.npc[npcnum];
+					if (npc.life > 0 && npc.Hitbox.Intersects(Projectile.Hitbox) && npc.active && !npc.dontTakeDamage)
+					{
+						NetworkHex(npc);
+					}
+				}
+			}
 		}
 
 	}   

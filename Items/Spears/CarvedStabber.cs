@@ -7,6 +7,10 @@ namespace Zylon.Items.Spears
 {
 	public class CarvedStabber : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			ItemID.Sets.Spears[Item.type] = true;
+		}
 		public override void SetDefaults() {
 			Item.damage = 6;
 			Item.useStyle = ItemUseStyleID.Shoot;

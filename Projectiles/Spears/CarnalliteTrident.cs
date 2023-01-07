@@ -14,7 +14,6 @@ namespace Zylon.Projectiles.Spears
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Carnallite Trident");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
-			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
         public override void SpearDefaultsSafe()
         {
@@ -28,7 +27,7 @@ namespace Zylon.Projectiles.Spears
             {
 				for (int k = 0; k < Projectile.oldPos.Length; k++)
 				{
-					Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+					Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
 					Color colorAfterEffect = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.5f;
 					spriteBatch.Draw(projectileTexture, drawPosEffect, new Rectangle(0, 0, projectileTexture.Width, (projectileTexture.Height / amountOfExtras)), colorAfterEffect, drawRotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
 				}

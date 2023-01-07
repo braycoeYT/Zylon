@@ -70,7 +70,7 @@ namespace Zylon.NPCs.Bosses.ADD
 			target = main.Center - Main.player[main.target].Center;
 			target.Normalize();
 			if (Timer % 270 == 0) {
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, target*-11f, ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser3>(), (int)(NPC.damage * 0.33f), 0f);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, target*-11f, ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser3>(), (int)(NPC.damage * 0.33f), 0f, BasicNetType: 2);
 			}
 			if (main.life < 1 || !main.active) NPC.life = 0;
         }

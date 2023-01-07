@@ -47,7 +47,7 @@ namespace Zylon.Projectiles.Tomes
 				Projectile.velocity = new Vector2(0, 0);
 				Projectile.aiStyle = -1;
 				Projectile.rotation += 0.1f;
-				if (Timer % 60 == 0) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 8).RotatedByRandom(6.28f), ProjectileID.BookOfSkullsSkull, Projectile.damage, Projectile.knockBack, Main.myPlayer);
+				if (Timer % 60 == 0) ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 8).RotatedByRandom(6.28f), ProjectileID.BookOfSkullsSkull, Projectile.damage, Projectile.knockBack, Projectile.owner);
             }
 		}
 		public override void Kill(int timeLeft) {

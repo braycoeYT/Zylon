@@ -36,7 +36,7 @@ namespace Zylon.Projectiles.Boomerangs
 				if (Timer == 50) for (int i = 0; i < 3; i++) {
 					int projType = ModContent.ProjectileType<FireandIce_1>();
 					if (Main.rand.NextBool()) projType = ModContent.ProjectileType<FireandIce_2>();
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(Main.rand.NextFloat(-4, 4), Main.rand.Next(-8, -4)), projType, (int)(Projectile.damage*0.75f), Projectile.knockBack*0.75f, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(Main.rand.NextFloat(-4, 4), Main.rand.Next(-8, -4)), projType, (int)(Projectile.damage*0.75f), Projectile.knockBack*0.75f, Projectile.owner);
 				}
 				if (Math.Abs(speed.X)+Math.Abs(speed.Y) < Projectile.height) {
 					for (int i = 0; i < 5; i++) {

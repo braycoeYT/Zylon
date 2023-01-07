@@ -44,14 +44,14 @@ namespace Zylon.NPCs.Meteorite
 				NPC.TargetClosest(true);
 				Vector2 speed = NPC.velocity;//NPC.Center - Main.player[NPC.target].Center;
 				speed.Normalize();
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*6f, ModContent.ProjectileType<Projectiles.Enemies.MeteorTailFireBlast>(), (int)(NPC.damage*0.2f), 0f);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*6f, ModContent.ProjectileType<Projectiles.Enemies.MeteorTailFireBlast>(), (int)(NPC.damage*0.2f), 0f, BasicNetType: 2);
             }
 		}
         public override void PostAI() {
             NPC.rotation = NPC.velocity.ToRotation() - MathHelper.PiOver2;
 			NPC.spriteDirection = 0;
 			for (int i = 0; i < 2; i++) {
-				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6);
+				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
 				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;

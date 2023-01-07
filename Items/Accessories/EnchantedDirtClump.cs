@@ -23,7 +23,7 @@ namespace Zylon.Items.Accessories
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			p.dirtballExpert = true;
 			player.AddBuff(ModContent.BuffType<Buffs.Minions.DirtBlock>(), 60);
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>()] < 5)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>()] < 5 && player.whoAmI == Main.myPlayer)
 				Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center, new Microsoft.Xna.Framework.Vector2(0, 0), ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>(), Item.damage, 0.5f, Main.myPlayer);
 		}
 	}

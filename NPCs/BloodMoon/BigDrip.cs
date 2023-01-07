@@ -49,7 +49,7 @@ namespace Zylon.NPCs.BloodMoon
 			NPC.TargetClosest(true);
 			Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 			speed.Normalize();
-			if (Timer % 180 == 0) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-9, ProjectileID.DeathLaser, (int)(NPC.damage*0.3f), 0f);
+			if (Timer % 180 == 0) ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-9, ProjectileID.DeathLaser, (int)(NPC.damage*0.3f), 0f, BasicNetType: 2);
 		}
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {

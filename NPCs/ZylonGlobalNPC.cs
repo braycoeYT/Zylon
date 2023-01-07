@@ -17,7 +17,7 @@ namespace Zylon.NPCs
 		public static int metelordBoss = -1;
         public override void HitEffect(NPC npc, int hitDirection, double damage) {
             if (npc.type == NPCID.Plantera && npc.life < 1 && !NPC.downedPlantBoss)
-				Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, new Vector2(0, 0), ProjectileType<Projectiles.PlanteraElementalGel>(), 0, 0, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(npc.GetSource_FromThis(), npc.Center, new Vector2(0, 0), ProjectileType<Projectiles.PlanteraElementalGel>(), 0, 0, Main.myPlayer, BasicNetType: 2);
         }
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot) {
 			if (npc.type == NPCID.Harpy)
@@ -92,7 +92,7 @@ namespace Zylon.NPCs
 				npcLoot.Add(new CommonDrop(ItemType<Items.Accessories.ExtraShinyOreNugget>(), 250));
 			if (npc.type == NPCID.WindyBalloon || npc.type == NPCID.Dandelion)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Food.CottonCandy>(), 100));
-			if (npc.type == NPCID.AngryBones || (npc.type >= 294 && npc.type <= 296) || npc.type == NPCID.CursedSkull || npc.type == NPCID.DarkCaster)
+			if (npc.type == NPCID.AngryBones || (npc.type >= NPCID.AngryBonesBig && npc.type <= NPCID.AngryBonesBigHelmet) || npc.type == NPCID.CursedSkull || npc.type == NPCID.DarkCaster)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Wands.SpareLeg>(), 400));
 			if (npc.type == NPCID.Demon || npc.type == NPCID.VoodooDemon)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.NightmareCatcher>(), 125), new CommonDrop(ItemType<Items.Accessories.NightmareCatcher>(), 100)));

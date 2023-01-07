@@ -10,8 +10,8 @@ namespace Zylon.Items.Flails
 			Tooltip.SetDefault("Has a large range");
 		}
 		public override void SetDefaults() {
-			Item.width = 42;
-			Item.height = 38;
+			Item.width = 32;
+			Item.height = 32;
 			Item.value = Item.sellPrice(0, 3, 12);
 			Item.rare = ItemRarityID.Green;
 			Item.noMelee = true;

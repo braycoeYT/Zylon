@@ -33,7 +33,7 @@ namespace Zylon.Projectiles.Wands
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 0; i < 12; i++)
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*30)), ModContent.ProjectileType<SlimecasterSlimeSpike>(), (int)(Projectile.damage*0.8f), Projectile.knockBack/2, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*30)), ModContent.ProjectileType<SlimecasterSlimeSpike>(), (int)(Projectile.damage*0.8f), Projectile.knockBack/2, Projectile.owner);
 		}
 	}   
 }

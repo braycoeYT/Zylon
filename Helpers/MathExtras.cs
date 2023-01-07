@@ -16,7 +16,7 @@ namespace Zylon
 		public static float TensionStep(float value1, float value2, float progress, float tensionProgressMax, float tensionAmount)
         {
 			float tensionAccustomatedValue = (value1 + tensionAmount);
-			float value = 0f;
+			float value;
 			if (tensionProgressMax > progress)
             {
 				value = MathHelper.SmoothStep(value1, tensionAccustomatedValue, (progress/tensionProgressMax));

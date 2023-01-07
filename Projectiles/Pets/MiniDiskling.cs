@@ -27,7 +27,7 @@ namespace Zylon.Projectiles.Pets
         public override void AI() {
             Player player = Main.player[Projectile.owner];
             if (!init && Main.player[Projectile.owner].ownedProjectileCounts[ModContent.ProjectileType<MiniDiskling_SpikeRing>()] < 1) {
-                Projectile.NewProjectile(Projectile.GetSource_FromAI(), Projectile.Center, new Vector2(), ModContent.ProjectileType<MiniDiskling_SpikeRing>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI);
+                ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromAI(), Projectile.Center, new Vector2(), ModContent.ProjectileType<MiniDiskling_SpikeRing>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI);
                 init = true;
             }
             if (!player.dead && player.HasBuff<Buffs.Pets.MiniDiskling>())

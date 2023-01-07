@@ -37,7 +37,7 @@ namespace Zylon.Projectiles.Pets
                 Projectile.velocity = new Vector2();
                 cryTimer++;
                 if (cryTimer % 10 == 0)
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + Main.rand.Next(-15, 16), Projectile.Center.Y + 20, 0, 10, ModContent.ProjectileType<Bosses.Dirtball.DirtboiTears>(), 0, 0f, Main.myPlayer);
+                    ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + Main.rand.Next(-15, 16), Projectile.Center.Y + 20, 0, 10, ModContent.ProjectileType<Bosses.Dirtball.DirtboiTears>(), 0, 0f, Projectile.owner);
                 if (cryTimer > 100) Projectile.alpha += 15;
                 if (cryTimer > 120) Projectile.active = false;
                 if (!player.dead && cryTimer > 60) {

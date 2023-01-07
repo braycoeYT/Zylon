@@ -274,7 +274,7 @@ namespace Zylon.Projectiles.Flails
 
 		public override bool OnTileCollide(Vector2 oldVelocity) {
 			if (!bool1) {
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center - new Vector2(0, 20), new Vector2(0, 0), ProjectileID.DD2ExplosiveTrapT3Explosion, Projectile.damage, Projectile.knockBack*1.25f, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center - new Vector2(0, 20), new Vector2(0, 0), ProjectileID.DD2ExplosiveTrapT3Explosion, Projectile.damage, Projectile.knockBack*1.25f, Projectile.owner);
 				bool1 = true;
 			}
 

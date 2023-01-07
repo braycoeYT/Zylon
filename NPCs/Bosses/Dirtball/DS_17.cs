@@ -68,7 +68,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			target2.Y += Main.rand.Next(-64, 65);
 			Timer++;
 			if (Timer % 180 == 0)
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(target2)*9f, ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtballLaser>(), (int)(NPC.damage * 0.25f), 0f);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(target2)*9f, ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtballLaser>(), (int)(NPC.damage * 0.25f), 0f, BasicNetType: 2);
 			
 			speedBoost = 0.75f;
 			Vector2 calc = Main.player[NPC.target].Center - NPC.Center;

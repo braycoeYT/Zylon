@@ -21,7 +21,7 @@ namespace Zylon.Projectiles.Yoyos
 		}
 		public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 0), ModContent.ProjectileType<AmazonPackage>(), Projectile.damage, 0, Main.myPlayer);
+			ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 0), ModContent.ProjectileType<AmazonPackage>(), Projectile.damage, 0, Projectile.owner);
 		}
 	}   
 }

@@ -38,7 +38,7 @@ namespace Zylon.Projectiles.Swords
 		}
 		public override void Kill(int timeLeft) {
 			for (int i = 0; i < num; i++) {
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, 15).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<Slimeblast>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, 15).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<Slimeblast>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 			}
 		}
 		public override void PostAI() {

@@ -58,10 +58,10 @@ namespace Zylon.Projectiles.Yoyos
 			if (foundTarget) {
 				Timer++;
 				if (Timer % 60 == 0)
-					Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir, ModContent.ProjectileType<AcornFriendlyMelee>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir, ModContent.ProjectileType<AcornFriendlyMelee>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 			}
 			if (Timer2 % 20 == 0)
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, -5), ModContent.ProjectileType<Minions.MushroomSpore>(), Projectile.damage / 2, 1f, Main.myPlayer, 1f);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, -5), ModContent.ProjectileType<Minions.MushroomSpore>(), Projectile.damage / 2, 1f, Projectile.owner, 1f);
 		}
     }
 }

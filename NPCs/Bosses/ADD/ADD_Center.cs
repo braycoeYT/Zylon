@@ -145,7 +145,7 @@ namespace Zylon.NPCs.Bosses.ADD
             }
 					return false;
                 }
-				if (preTimer % 5 == 0) Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-18, 18), Main.rand.NextFloat(-6, -12)), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteShrapnelHostile>(), (int)(NPC.damage*0.45f), 0f);
+				if (preTimer % 5 == 0) ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-18, 18), Main.rand.NextFloat(-6, -12)), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteShrapnelHostile>(), (int)(NPC.damage*0.45f), 0f, BasicNetType: 2);
 				if (preTimer % 15 == 0) {
 					prePos = NPC.Center - new Vector2(44, 44);
 			SoundEngine.PlaySound(SoundID.Item14, prePos);
@@ -184,7 +184,7 @@ namespace Zylon.NPCs.Bosses.ADD
                 }
 			if (preTimer % 10 == 0) {
 					crazyLaser *= -1;
-					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, new Vector2(0, -8).RotatedBy(MathHelper.ToRadians(preTimer*crazyLaser)), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser2>(), NPC.damage / 2, 0f);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromAI(), NPC.Center, new Vector2(0, -8).RotatedBy(MathHelper.ToRadians(preTimer*crazyLaser)), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser2>(), NPC.damage / 2, 0f, BasicNetType: 2);
 				}
 			NPC.dontTakeDamage = false;
 				if (!finalAtk2) return false;
@@ -362,8 +362,8 @@ namespace Zylon.NPCs.Bosses.ADD
 					if (attackTimer % 70 > 30 && attackTimer % 70 < 55)
 						NPC.velocity *= 0.975f;
 					if (attackTimer % 70 >= (30 + (int)(20*NPC.life/NPC.lifeMax)) && attackTimer % 3 <= 1) {
-						if (target.Center.X < NPC.Center.X) Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-12, 6), Main.rand.NextFloat(-6, -9)), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteShrapnelHostile>(), (int)(NPC.damage * 0.35f), 0f);
-						else Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-6, 12), Main.rand.NextFloat(-6, -9)), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteShrapnelHostile>(), (int)(NPC.damage * (0.45f - (0.1f*NPC.life/NPC.lifeMax))), 0f);
+						if (target.Center.X < NPC.Center.X) ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-12, 6), Main.rand.NextFloat(-6, -9)), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteShrapnelHostile>(), (int)(NPC.damage * 0.35f), 0f, BasicNetType: 2);
+						else ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-6, 12), Main.rand.NextFloat(-6, -9)), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteShrapnelHostile>(), (int)(NPC.damage * (0.45f - (0.1f*NPC.life/NPC.lifeMax))), 0f, BasicNetType: 2);
                     }
 						
                 }
@@ -371,7 +371,7 @@ namespace Zylon.NPCs.Bosses.ADD
 					attackTimer++;
 					if (attackTimer % (45 + (int)(30*NPC.life/NPC.lifeMax)) == 0) {
 						SoundEngine.PlaySound(SoundID.Item93);
-						Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, new Vector2(0, -8), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDZapChase>(), (int)(NPC.damage * (0.4f - (0.1f*NPC.life/NPC.lifeMax))), 0f);
+						ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromAI(), NPC.Center, new Vector2(0, -8), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDZapChase>(), (int)(NPC.damage * (0.4f - (0.1f*NPC.life/NPC.lifeMax))), 0f, BasicNetType: 2);
 					}
 				}
 				else if (attack == 6) {

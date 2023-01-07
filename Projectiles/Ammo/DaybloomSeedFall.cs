@@ -24,7 +24,7 @@ namespace Zylon.Projectiles.Ammo
         }
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center - new Vector2 (0, 0), new Vector2 (0, 0), ModContent.ProjectileType<DaybloomSprouted>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+			ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center - new Vector2 (0, 0), new Vector2 (0, 0), ModContent.ProjectileType<DaybloomSprouted>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 		}
 	}   
 }

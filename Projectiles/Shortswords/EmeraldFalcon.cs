@@ -43,7 +43,7 @@ namespace Zylon.Projectiles.Shortswords
 			if (Timer == 3 && Projectile.ai[1] % 5 == 0) {
 				Vector2 speed = Projectile.velocity;
 				speed.Normalize();
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed*12f, ModContent.ProjectileType<EmeraldWave>(), Projectile.damage/2, Projectile.knockBack/2, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed*12f, ModContent.ProjectileType<EmeraldWave>(), Projectile.damage/2, Projectile.knockBack/2, Projectile.owner);
             }
 
 			Timer += 1;

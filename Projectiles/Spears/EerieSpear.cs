@@ -62,6 +62,15 @@ namespace Zylon.Projectiles.Spears
 		{
 			if (SwingNumber == 2)
             {
+				Texture2D AfterEffect = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Spears/EerieSpear_after");
+
+				for (int k = 0; k < Projectile.oldPos.Length; k++)
+				{
+						Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
+						Color colorAfterEffect = Projectile.GetAlpha(Color.White) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.5f;
+						spriteBatch.Draw(AfterEffect, drawPosEffect, null, colorAfterEffect, drawRotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
+				}
+
 				Texture2D link = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Spears/EerieSpear_link");
 
 				// Below is taken from Example Mods Advanced Flail, figured there was no point in me writing my own system to achieve the exact same thing

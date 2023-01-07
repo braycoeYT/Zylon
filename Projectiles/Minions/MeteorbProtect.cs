@@ -39,7 +39,7 @@ namespace Zylon.Projectiles.Minions
         Projectile main;
         public override void AI() {
 			if (!init) {
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(), ModContent.ProjectileType<MeteorbProtectDeco>(), 0, 0f, Main.myPlayer, Projectile.whoAmI);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(), ModContent.ProjectileType<MeteorbProtectDeco>(), 0, 0f, Projectile.owner, Projectile.whoAmI);
 				init = true;
             }
 			main = Main.projectile[(int)Projectile.ai[0]];

@@ -66,7 +66,7 @@ namespace Zylon.Projectiles.Flails
 			Timer++;
 			if (Timer % 30 == 0) {
 				SoundEngine.PlaySound(SoundID.Item12, Projectile.position);
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -5).RotatedByRandom(Math.PI*2f), ModContent.ProjectileType<EyeLaserFriendly>(), (int)(Projectile.damage * 0.75f), (int)(Projectile.knockBack / 3), Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -5).RotatedByRandom(Math.PI*2f), ModContent.ProjectileType<EyeLaserFriendly>(), (int)(Projectile.damage * 0.75f), (int)(Projectile.knockBack / 3), Projectile.owner);
 			}
 
 			Player player = Main.player[Projectile.owner];

@@ -30,7 +30,7 @@ namespace Zylon.Projectiles.Yoyos
 			if (counter >= 3) {
 				while (counter2 < 8) {
 					counter2++;
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Microsoft.Xna.Framework.Vector2(Main.rand.Next(-20, 21), Main.rand.Next(-20, 21)), new Microsoft.Xna.Framework.Vector2(), ModContent.ProjectileType<MiniMiniMeteoroid>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.75f, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Microsoft.Xna.Framework.Vector2(Main.rand.Next(-20, 21), Main.rand.Next(-20, 21)), new Microsoft.Xna.Framework.Vector2(), ModContent.ProjectileType<MiniMiniMeteoroid>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.75f, Projectile.owner);
 				}
 			}
 		}
@@ -40,7 +40,7 @@ namespace Zylon.Projectiles.Yoyos
 			if (counter >= 3) {
 				while (counter2 < 8) {
 					counter2++;
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Microsoft.Xna.Framework.Vector2(Main.rand.Next(-20, 21), Main.rand.Next(-20, 21)), new Microsoft.Xna.Framework.Vector2(), ModContent.ProjectileType<MiniMiniMeteoroid>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.75f, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Microsoft.Xna.Framework.Vector2(Main.rand.Next(-20, 21), Main.rand.Next(-20, 21)), new Microsoft.Xna.Framework.Vector2(), ModContent.ProjectileType<MiniMiniMeteoroid>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.75f, Projectile.owner);
 				}
 			}
         }

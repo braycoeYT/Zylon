@@ -185,7 +185,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				else {
 					newVel *= (0.994f-(0.002f*NPC.life/NPC.lifeMax));
 					attackTimer--;
-					if (attackTimer % 15 == 0) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireTrail>(), (int)(NPC.damage*0.2f), 0f);
+					if (attackTimer % 15 == 0) ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireTrail>(), (int)(NPC.damage*0.2f), 0f, BasicNetType: 2);
 					/*if (attackTimer == 30 && NPC.life < NPC.lifeMax*0.66f) {
 						Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 						if (Math.Abs(speed.X)+Math.Abs(speed.Y) > 128)
@@ -232,7 +232,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 					if (Main.rand.NextBool(3)) projType = ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireDrop1>();
 					else if (Main.rand.NextBool(2)) projType = ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireDrop2>();
 					else projType = ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireDrop3>();
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-6, 3)), projType, (int)(NPC.damage*0.19f), 0f);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-6, 3)), projType, (int)(NPC.damage*0.19f), 0f, BasicNetType: 2);
                 }
 				if (attackTimer > 359) attackDone = true;
 				NPC.velocity = newVel;
@@ -247,7 +247,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 					newVel = speed*(int)(-11.5f-(2f*NPC.life/NPC.lifeMax));
                 }
 				if (attackTimer % (int)(15+(25*NPC.life/NPC.lifeMax)) == 0) {
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(Main.rand.Next(-100, 101)+(target.velocity.X*32), 0), new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordMeteoriteAttack2>(), (int)(NPC.damage*0.25f), 0f, Main.myPlayer, Main.rand.Next(0, 360), 5f-(2f*NPC.life/NPC.lifeMax));
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(Main.rand.Next(-100, 101)+(target.velocity.X*32), 0), new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordMeteoriteAttack2>(), (int)(NPC.damage*0.25f), 0f, Main.myPlayer, Main.rand.Next(0, 360), 5f-(2f*NPC.life/NPC.lifeMax), BasicNetType: 2);
                 }
 				if (attackTimer > 300) attackDone = true;
 				NPC.velocity = newVel;
@@ -262,7 +262,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				if (attackTimer % (100+(20*NPC.life/NPC.lifeMax)) <= 30) {
 					NPC.velocity = newVel;
 					newVel *= 0.992f;
-					if (attackTimer % 4 == 0) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -15).RotatedBy(NPC.rotation+Main.rand.NextFloat(-0.2f, 0.2f)), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordBallofFire>(), (int)(NPC.damage*0.22f), 0f);
+					if (attackTimer % 4 == 0) ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -15).RotatedBy(NPC.rotation+Main.rand.NextFloat(-0.2f, 0.2f)), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordBallofFire>(), (int)(NPC.damage*0.22f), 0f, BasicNetType: 2);
                 }
 				attackTimer++;
 				if (attackTimer == (290+(60*NPC.life/NPC.lifeMax))) attackDone = true;
@@ -271,7 +271,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				runBoost = 30;
 				attackTimer++;
 				if (attackTimer % (int)(5+(5*NPC.life/NPC.lifeMax)) == 0) {
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -15).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireBreath>(), (int)(NPC.damage*0.33f), 0f, Main.myPlayer, 30-(30*NPC.life/NPC.lifeMax));
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -15).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireBreath>(), (int)(NPC.damage*0.33f), 0f, Main.myPlayer, 30-(30*NPC.life/NPC.lifeMax), BasicNetType: 2);
                 }
 				if (attackTimer % (100+(50*NPC.life/NPC.lifeMax)) < (55+(15*NPC.life/NPC.lifeMax))) {
 					Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
@@ -307,17 +307,17 @@ namespace Zylon.NPCs.Bosses.Metelord
 					float boost = 1.5f-(0.5f*NPC.life/NPC.lifeMax);
 					int j = (int)(6*boost);
 					for (int i = 0; i < j; i++) {
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 5f*boost).RotatedBy(MathHelper.ToRadians(i*(360/j))+randomizer), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordDMFireball>(), (int)(NPC.damage*0.35f), 0f);
+						ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 5f*boost).RotatedBy(MathHelper.ToRadians(i*(360/j))+randomizer), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordDMFireball>(), (int)(NPC.damage*0.35f), 0f, BasicNetType: 2);
                     }
 					randomizer = Main.rand.NextFloat(MathHelper.TwoPi);
 					j = (int)(10*boost);
 					for (int i = 0; i < j; i++) {
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 7.5f*boost).RotatedBy(MathHelper.ToRadians(i*(360/j))+randomizer), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordDMFireball>(), (int)(NPC.damage*0.35f), 0f);
+						ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 7.5f*boost).RotatedBy(MathHelper.ToRadians(i*(360/j))+randomizer), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordDMFireball>(), (int)(NPC.damage*0.35f), 0f, BasicNetType: 2);
                     }
 					randomizer = Main.rand.NextFloat(MathHelper.TwoPi);
 					j = (int)(16*boost);
 					for (int i = 0; i < j; i++) {
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 10f*boost).RotatedBy(MathHelper.ToRadians(i*(360/j))+randomizer), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordDMFireball>(), (int)(NPC.damage*0.35f), 0f);
+						ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 10f*boost).RotatedBy(MathHelper.ToRadians(i*(360/j))+randomizer), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordDMFireball>(), (int)(NPC.damage*0.35f), 0f, BasicNetType: 2);
                     }
                 }
 				if (attackTimer > 30 && attackTimer < 90)

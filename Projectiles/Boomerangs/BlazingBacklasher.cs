@@ -57,7 +57,7 @@ namespace Zylon.Projectiles.Boomerangs
 			num46 = (float)Math.Sqrt((double)(num44 * num44 + num45 * num45));
 			Timer++;
 			if (Timer % 20 == 0) 
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position + Projectile.velocity * -5, new Vector2(0, 0), ProjectileID.SolarWhipSwordExplosion, Projectile.damage, 0, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position + Projectile.velocity * -5, new Vector2(0, 0), ProjectileID.SolarWhipSwordExplosion, Projectile.damage, 0, Projectile.owner);
 			else if (Timer > 10) {
 				Projectile.width = 32;
 				Projectile.height = 32;

@@ -74,7 +74,7 @@ namespace Zylon.Projectiles.Bosses.Jelly
 			Projectile.velocity *= 0.98f;
 			if (Projectile.timeLeft == 1) {
 				for (int i = 0; i < 4; i++)
-					Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, 10).RotatedByRandom(MathHelper.ToRadians(360)), ModContent.ProjectileType<JellyExpertProj2>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, 10).RotatedByRandom(MathHelper.ToRadians(360)), ModContent.ProjectileType<JellyExpertProj2>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, BasicNetType: 2);
 			}
 		}
 	}

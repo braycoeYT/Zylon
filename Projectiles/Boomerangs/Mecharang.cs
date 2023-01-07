@@ -25,7 +25,7 @@ namespace Zylon.Projectiles.Boomerangs
 			Timer++;
 			if (Timer % 120 == 0) {
 				for (int i = 0; i < 8; i++)
-					Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, 10).RotatedBy(MathHelper.ToRadians(45*i)), ModContent.ProjectileType<EyeLaserFriendly>(), Projectile.damage, Projectile.knockBack / 3, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, 10).RotatedBy(MathHelper.ToRadians(45*i)), ModContent.ProjectileType<EyeLaserFriendly>(), Projectile.damage, Projectile.knockBack / 3, Projectile.owner);
 			}
 		}
 	}   

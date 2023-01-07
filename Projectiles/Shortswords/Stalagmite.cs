@@ -40,11 +40,11 @@ namespace Zylon.Projectiles.Shortswords
 		}
         public override void OnHitNPC(NPC target, int damage, float knockBack, bool crit) {
 			if (target.type != NPCID.TargetDummy) for (int i = 0; i < 3; i++)
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-7, -4)), ModContent.ProjectileType<GraniteSpark>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-7, -4)), ModContent.ProjectileType<GraniteSpark>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
         }
         public override void OnHitPvp(Player target, int damage, bool crit) {
 			for (int i = 0; i < 3; i++)
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-7, -4)), ModContent.ProjectileType<GraniteSpark>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-7, -4)), ModContent.ProjectileType<GraniteSpark>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
         }
 
 		public override void AI() {

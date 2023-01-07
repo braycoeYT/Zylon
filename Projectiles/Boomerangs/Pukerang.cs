@@ -50,7 +50,7 @@ namespace Zylon.Projectiles.Boomerangs
 			if (foundTarget) {
 				Timer++;
 				if (Timer % 20 == 0)
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir, ModContent.ProjectileType<Projectiles.CursedFlamesMelee>(), Projectile.damage, Projectile.knockBack / 4, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir, ModContent.ProjectileType<Projectiles.CursedFlamesMelee>(), Projectile.damage, Projectile.knockBack / 4, Projectile.owner);
 			}
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {

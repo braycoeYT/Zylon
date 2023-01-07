@@ -27,7 +27,7 @@ namespace Zylon.Projectiles.Gigaslime
         public override void AI() {
             Timer++;
 			if ((Timer % 90 == 0 && !Main.expertMode) || (Main.expertMode && Timer % 75 == 0))
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(Main.rand.NextFloat(-4, 4), -11), ModContent.ProjectileType<AcornTreeShoot>(), Projectile.damage, 0f, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(Main.rand.NextFloat(-4, 4), -11), ModContent.ProjectileType<AcornTreeShoot>(), Projectile.damage, 0f, Main.myPlayer, BasicNetType: 2);
         }
     }   
 }

@@ -36,7 +36,7 @@ namespace Zylon.Projectiles.Yoyos
         public override void AI() {
             Timer++;
 			if (Timer % 5 == 0 && Timer > 20) {
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(spin)), ModContent.ProjectileType<IceLaser>(), Projectile.damage, Projectile.knockBack / 2, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(spin)), ModContent.ProjectileType<IceLaser>(), Projectile.damage, Projectile.knockBack / 2, Projectile.owner);
 				spin += 15;
             }
         }

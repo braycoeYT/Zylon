@@ -108,7 +108,7 @@ namespace Zylon.NPCs.Bosses.ADD
 			int damage = (int)(main.damage*(0.4f - (0.1f*main.life/main.lifeMax)));
 			int range = 10;
 			if (Main.expertMode) range = 8;
-			if (Timer >= 60 && degrees != 360 && degrees != -360 && Timer % range == 0) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -8).RotatedBy(MathHelper.ToRadians(degrees)), atkProj, damage, 0f);
+			if (Timer >= 60 && degrees != 360 && degrees != -360 && Timer % range == 0) ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -8).RotatedBy(MathHelper.ToRadians(degrees)), atkProj, damage, 0f, BasicNetType: 2);
 
 			if (main.life < 1 || !main.active || Timer > 300) NPC.active = false;
             }

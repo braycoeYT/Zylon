@@ -40,12 +40,12 @@ namespace Zylon.Projectiles.Shortswords
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
             if (target.life < 1)
 				for (int i = 0; i < 8; i++)
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*45)), ModContent.ProjectileType<ShadeOrb>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*45)), ModContent.ProjectileType<ShadeOrb>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
         }
         public override void OnHitPvp(Player target, int damage, bool crit) {
             if (target.statLife < 1)
 				for (int i = 0; i < 8; i++)
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*45)), ModContent.ProjectileType<ShadeOrb>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*45)), ModContent.ProjectileType<ShadeOrb>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
         }
 
 		public override void AI() {

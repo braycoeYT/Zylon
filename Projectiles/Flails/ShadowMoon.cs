@@ -64,7 +64,7 @@ namespace Zylon.Projectiles.Flails
 		public override void AI() {
 			if (!bool1 && Projectile.ai[0] == 2) {
 				for (int i = 0; i < 9; i++) {
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 10).RotatedBy(MathHelper.ToRadians(i*40)), ModContent.ProjectileType<Spears.EerieSpearProj>(), (int)(Projectile.damage * 0.5f), (int)(Projectile.knockBack * 0.5f), Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 10).RotatedBy(MathHelper.ToRadians(i*40)), ModContent.ProjectileType<Spears.EerieSpearProj>(), (int)(Projectile.damage * 0.5f), (int)(Projectile.knockBack * 0.5f), Projectile.owner);
 				}
 				bool1 = true;
             }

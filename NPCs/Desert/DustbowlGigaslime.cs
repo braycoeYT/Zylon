@@ -55,7 +55,7 @@ namespace Zylon.NPCs.Desert
 			Timer++;
 
 			if (Timer % (120 + (90*(NPC.life/NPC.lifeMax))) == 0)
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ProjectileID.SandnadoHostileMark, (int)(NPC.damage * 0.3f), 0f);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ProjectileID.SandnadoHostileMark, (int)(NPC.damage * 0.3f), 0f, BasicNetType: 2);
 			
 			if (Main.player[NPC.target].ZoneHallow)
 				decide = ModContent.ProjectileType<Projectiles.Gigaslime.PearlsandballHostile>();
@@ -67,7 +67,7 @@ namespace Zylon.NPCs.Desert
 
 			if (Timer % 240 >= (180 + (30*(NPC.life/NPC.lifeMax))) && Timer % 5 == 0) {
 				SoundEngine.PlaySound(SoundID.Item5, NPC.position);
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.Center - (Main.player[NPC.target].Center - new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101)))) * -12f, decide, (int)(NPC.damage * 0.25f), 0f);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.Center - (Main.player[NPC.target].Center - new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101)))) * -12f, decide, (int)(NPC.damage * 0.25f), 0f, BasicNetType: 2);
 			}
 			if (Main.player[NPC.target].statLife < 1)
 			{

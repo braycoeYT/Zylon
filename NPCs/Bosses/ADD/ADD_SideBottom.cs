@@ -132,33 +132,33 @@ namespace Zylon.NPCs.Bosses.ADD
 
 			if (Main.expertMode) {
 				if (Timer % 480 == 120) {//if (Timer % (300 + (180*(NPC.life/NPC.lifeMax))) == 90) {
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f, BasicNetType: 2);
 				}
 				if (Timer % 480 == 130 && NPC.life <= NPC.lifeMax * 0.75f) {
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f, BasicNetType: 2);
 				}
 				if (Timer % 480 == 140 && NPC.life <= NPC.lifeMax * 0.5f) {
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f, BasicNetType: 2);
 				}
 				if (Timer % 480 == 150 && NPC.life <= NPC.lifeMax * 0.25f) {
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f, BasicNetType: 2);
 				}
 				if (Timer % 480 == 160 && NPC.life <= NPC.lifeMax * 0.125f) {
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f, BasicNetType: 2);
 				}
             }
 			else {
 				if (Timer % 480 == 120) {
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -8).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -8).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f, BasicNetType: 2);
 				}
 				if (Timer % 480 == 135 && NPC.life <= NPC.lifeMax * 0.66f) {
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -8).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -8).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f, BasicNetType: 2);
 				}
 				if (Timer % 480 == 150 && NPC.life <= NPC.lifeMax * 0.33f) {
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -8).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -8).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f, BasicNetType: 2);
 				}
 				if (Timer % 480 == 165 && NPC.life <= NPC.lifeMax * 0.16f) {
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -8).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -8).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f, BasicNetType: 2);
 				}
             }
 			if (main.life < 1 || !main.active) NPC.active = false;

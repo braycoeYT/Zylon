@@ -23,7 +23,7 @@ namespace Zylon.Projectiles.Swords
         public override void AI() {
 			if (!init) {
 				for (int i = 0; i < 9; i++)
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(), ModContent.ProjectileType<OreTourProjRotate>(), (int)(Projectile.damage*0.75f), Projectile.knockBack/3, Main.myPlayer, Projectile.whoAmI, i);
+					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(), ModContent.ProjectileType<OreTourProjRotate>(), (int)(Projectile.damage*0.75f), Projectile.knockBack/3, Projectile.owner, Projectile.whoAmI, i);
 				init = true; //remove this for absolute chaos
 			}
         }

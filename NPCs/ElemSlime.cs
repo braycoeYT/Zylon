@@ -82,14 +82,14 @@ namespace Zylon.NPCs
 				if (attackTimer < 120) return;
 				Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 				speed.Normalize();
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-8.5f, ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeBlob>(), (int)(NPC.damage*0.3f), 0f);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-8.5f, ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeBlob>(), (int)(NPC.damage*0.3f), 0f, BasicNetType: 2);
 				attackDone = true;
 			}
 			else if (attack == 1) {
 				attackTimer++;
 				if (attackTimer == 120) {
 					for (int i = 0; i < 6; i++)
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-9, -5)), ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeSpike>(), (int)(NPC.damage*0.2f), 0f);
+						ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-9, -5)), ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeSpike>(), (int)(NPC.damage*0.2f), 0f, BasicNetType: 2);
 					attackDone = true;
                 }
             }
@@ -98,9 +98,9 @@ namespace Zylon.NPCs
 				if (attackTimer < 120) return;
 				Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 				speed.Normalize();
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-12f, ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeOrb>(), (int)(NPC.damage*0.3f), 0f);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-12f, ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeOrb>(), (int)(NPC.damage*0.3f), 0f, BasicNetType: 2);
 				for (int i = 0; i < 4; i++)
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 12).RotatedBy(Main.rand.NextFloat(MathHelper.TwoPi)), ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeOrb>(), (int)(NPC.damage*0.3f), 0f);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 12).RotatedBy(Main.rand.NextFloat(MathHelper.TwoPi)), ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeOrb>(), (int)(NPC.damage*0.3f), 0f, BasicNetType: 2);
 				attackDone = true;
 			}
         }

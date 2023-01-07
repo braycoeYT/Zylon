@@ -35,7 +35,7 @@ namespace Zylon.Projectiles.Swords
             for (int i = 0; i < Main.rand.Next(1, 4); i++) {
                 Vector2 spawn = new Vector2(target.Center.X + Main.rand.Next(-320, 321), Main.player[Projectile.owner].position.Y - 400);
 			    Vector2 target2 = spawn - target.Center;
-			    Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawn, target2*Main.rand.NextFloat(-8f, -5f), ModContent.ProjectileType<LoberaTropicalOrb>(), damage/2, Projectile.knockBack/2, Main.myPlayer);
+			    ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), spawn, target2*Main.rand.NextFloat(-8f, -5f), ModContent.ProjectileType<LoberaTropicalOrb>(), damage/2, Projectile.knockBack/2, Projectile.owner);
                 if (target.boss == false) target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60 * Main.rand.Next(3, 7), false);
             }
         }
@@ -43,7 +43,7 @@ namespace Zylon.Projectiles.Swords
             for (int i = 0; i < Main.rand.Next(1, 4); i++) {
                 Vector2 spawn = new Vector2(target.Center.X + Main.rand.Next(-320, 321), Main.player[Projectile.owner].position.Y - 400);
 			    Vector2 target2 = spawn - target.Center;
-			    Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawn, target2*Main.rand.NextFloat(-8f, -5f), ModContent.ProjectileType<LoberaTropicalOrb>(), damage/2, Projectile.knockBack/2, Main.myPlayer);
+			    ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), spawn, target2*Main.rand.NextFloat(-8f, -5f), ModContent.ProjectileType<LoberaTropicalOrb>(), damage/2, Projectile.knockBack/2, Projectile.owner);
                 target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60 * Main.rand.Next(3, 7), false);
             }
         }

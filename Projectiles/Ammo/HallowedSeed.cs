@@ -18,11 +18,11 @@ namespace Zylon.Projectiles.Ammo
 		}
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
             if (Main.rand.NextBool(2))
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position - new Vector2(0, 400), new Vector2(Main.rand.NextFloat(-1f, 1f), 12), ProjectileID.HallowStar, (int)(damage * 0.75f), Projectile.knockBack * 0.5f, Main.myPlayer);
+				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position - new Vector2(0, 400), new Vector2(Main.rand.NextFloat(-1f, 1f), 12), ProjectileID.HallowStar, (int)(damage * 0.75f), Projectile.knockBack * 0.5f, Projectile.owner);
         }
         public override void OnHitPvp(Player target, int damage, bool crit) {
             if (Main.rand.NextBool(2))
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position - new Vector2(0, 400), new Vector2(Main.rand.NextFloat(-1f, 1f), 12), ProjectileID.HallowStar, (int)(damage * 0.75f), Projectile.knockBack * 0.5f, Main.myPlayer);
+				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position - new Vector2(0, 400), new Vector2(Main.rand.NextFloat(-1f, 1f), 12), ProjectileID.HallowStar, (int)(damage * 0.75f), Projectile.knockBack * 0.5f, Projectile.owner);
         }
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);

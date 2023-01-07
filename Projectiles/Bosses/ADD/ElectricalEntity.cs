@@ -48,7 +48,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 			Projectile.rotation += 0.05f;
 			Projectile.alpha -= 17;
 			if (Timer % 60 == 0) {
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 8), ModContent.ProjectileType<ADDZap>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 8), ModContent.ProjectileType<ADDZap>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, BasicNetType: 2);
             }
         }
         public override void PostAI() {

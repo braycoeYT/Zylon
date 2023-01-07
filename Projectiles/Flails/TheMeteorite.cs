@@ -17,7 +17,7 @@ namespace Zylon.Projectiles.Flails
 	public class TheMeteorite : ModProjectile
 	{
 		private const string ChainTexturePath = "Zylon/Projectiles/Flails/TheMeteoriteChain"; // The folder path to the flail chain sprite
-		private const string ChainTextureExtraPath = "Zylon/Projectiles/Flails/TheMeteoriteChainExtra";  // This texture and related code is optional and used for a unique effect
+		private const string ChainTextureExtraPath = "Zylon/Projectiles/Flails/TheMeteoriteChain";  // This texture and related code is optional and used for a unique effect
 
 		private enum AIState
 		{
@@ -314,7 +314,7 @@ namespace Zylon.Projectiles.Flails
 				dustRate = 1;
 
 			if (Main.rand.NextBool(dustRate))
-				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 1);
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Stone);
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity) {
@@ -484,7 +484,7 @@ namespace Zylon.Projectiles.Flails
 				}
 
 				// Here, we draw the chain texture at the coordinates
-				Main.spriteBatch.Draw(chainTextureToDraw.Value, chainDrawPosition - Main.screenPosition, chainSourceRectangle, chainDrawColor, chainRotation, chainOrigin, 1f, SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(chainTextureToDraw.Value, chainDrawPosition - Main.screenPosition, chainSourceRectangle, Projectile.GetAlpha(Color.White), chainRotation, chainOrigin, 1f, SpriteEffects.None, 0f);
 
 				// chainDrawPosition is advanced along the vector back to the player by the chainSegmentLength
 				chainDrawPosition += unitVectorFromProjectileToPlayerArms * chainSegmentLength;

@@ -22,7 +22,7 @@ namespace Zylon.Tiles.Ores
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Haxonite Ore");
 			AddMapEntry(new Color(211, 69, 0), name);
-			DustType = DustType<Dusts.HaxoniteDust>();
+			DustType = DustType<Dusts.HaxoniteOreDust>();
 			ItemDrop = ItemType<Items.Ores.HaxoniteOre>();
 			HitSound = SoundID.Tink;
 			MineResist = 2f;

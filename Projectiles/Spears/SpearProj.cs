@@ -75,14 +75,29 @@ namespace Zylon.Projectiles.Spears
         {
             SpearAISafe();
 
+            Projectile.oldPos[0] = Projectile.Center;
+            for (int i = Projectile.oldPos.Length - 1; i > 0; i--)
+            {
+                Projectile.oldPos[i] = Projectile.oldPos[i - 1];
+            }
+
+            Projectile.oldRot[0] = Projectile.rotation;
+            for (int i = (Projectile.oldRot.Length - 1); i > 0; i--)
+            {
+                Projectile.oldRot[i] = Projectile.oldRot[i - 1];
+            }
+
             Player ProjectileOwner = Main.player[Projectile.owner];
             var ZylonSpearPlayer = ProjectileOwner.GetModPlayer<SpearPlayer>();
 
+            if (!Setup)
+                SpearExtraSetupGlobal();
             if (!Setup && Main.myPlayer == Projectile.owner)
             {
                 SwingNumber = ZylonSpearPlayer.SpearCombo;
                 ZylonSpearPlayer.SpearCombo++;
                 ZylonSpearPlayer.SpearComboTimer = 240;
+                SpearExtraSetup();
                 Projectile.netUpdate = true;
                 Setup = true;
             }
@@ -323,9 +338,22 @@ namespace Zylon.Projectiles.Spears
         public virtual void SpearDrawBefore(SpriteBatch spriteBatch, Color lightColor, Texture2D projectileTexture, Vector2 drawOrigin, Vector2 drawPosition, float drawRotation, int amountOfExtras)
         {
         }
+        public virtual void SpearSendExtraAI(BinaryWriter writer)
+        {
+        }
+        public virtual void SpearReceiveExtraAI(BinaryReader reader)
+        {
+        }
+        public virtual void SpearExtraSetup()
+        {
+        }
+        public virtual void SpearExtraSetupGlobal()
+        {
+        }
 
         public override void SendExtraAI(BinaryWriter writer)
         {
+            SpearSendExtraAI(writer);
             writer.Write(Duration);
             if (FreezeFrames > 0)
             {
@@ -335,6 +363,7 @@ namespace Zylon.Projectiles.Spears
         }
         public override void ReceiveExtraAI(BinaryReader reader)
         {
+            SpearReceiveExtraAI(reader);
             Duration = reader.ReadInt32();
             if (FreezeFrames > 0)
             {

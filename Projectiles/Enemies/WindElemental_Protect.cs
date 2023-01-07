@@ -30,7 +30,7 @@ namespace Zylon.Projectiles.Enemies
         NPC main;
         public override void AI() {
 			if (!init) {
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(), ModContent.ProjectileType<WindElemental_ProtectDeco>(), 0, 0f, Main.myPlayer, Projectile.whoAmI);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(), ModContent.ProjectileType<WindElemental_ProtectDeco>(), 0, 0f, Main.myPlayer, Projectile.whoAmI, BasicNetType: 2);
 				init = true;
             }
 			main = Main.npc[(int)Projectile.ai[0]];

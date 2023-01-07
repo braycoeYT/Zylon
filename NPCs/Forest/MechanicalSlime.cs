@@ -55,7 +55,7 @@ namespace Zylon.NPCs.Forest
 			target2.Y += Main.rand.Next(-60, 61);
 			Timer++;
 			if (Timer % 180 == 0)
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, (NPC.DirectionTo(target2)) * 8, ProjectileID.PinkLaser, (int)(NPC.damage * 0.3f), 0f, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, (NPC.DirectionTo(target2)) * 8, ProjectileID.PinkLaser, (int)(NPC.damage * 0.3f), 0f, Main.myPlayer, BasicNetType: 2);
 			if (Timer % 10 == 0)
 				animationTimer++;
 			if (animationTimer > 6)

@@ -28,7 +28,7 @@ namespace Zylon.Projectiles.Misc
 		public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 0; i < 5; i++) {
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position, new Vector2(0, 12).RotatedByRandom(2), ProjectileID.IchorSplash, (int)(Projectile.damage*0.75f), 2.5f, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position, new Vector2(0, 12).RotatedByRandom(2), ProjectileID.IchorSplash, (int)(Projectile.damage*0.75f), 2.5f, Projectile.owner);
 			}
 		}
 	}   

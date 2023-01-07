@@ -49,13 +49,13 @@ namespace Zylon.Projectiles.Boomerangs
 				if (Main.rand.NextBool()) {
 					for (int i = 0; i < 13; i++) {
 						Vector2 cool = new Vector2(0, 1).RotatedBy(MathHelper.ToRadians(i*360/13));
-						Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center-160*cool, cool*12f, ModContent.ProjectileType<XBlade_NoName>(), Projectile.damage/2, Projectile.knockBack/2, Projectile.owner);
+						ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center-160*cool, cool*12f, ModContent.ProjectileType<XBlade_NoName>(), Projectile.damage/2, Projectile.knockBack/2, Projectile.owner);
 					  }
 				}
 				else {
 					for (int i = 0; i < 7; i++) {
 						Vector2 cool = new Vector2(0, 1).RotatedBy(MathHelper.ToRadians(i*360/7));
-						Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center-160*cool, cool*12f, ModContent.ProjectileType<XBlade_OrbofLight>(), 0, 0f, Projectile.owner);
+						ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center-160*cool, cool*12f, ModContent.ProjectileType<XBlade_OrbofLight>(), 0, 0f, Projectile.owner);
 				    }
 				}
 			}
@@ -67,13 +67,13 @@ namespace Zylon.Projectiles.Boomerangs
 				if (Main.rand.NextBool()) {
 					for (int i = 0; i < 13; i++) {
 						Vector2 cool = new Vector2(0, 1).RotatedBy(MathHelper.ToRadians(i*360/13));
-						Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center-160*cool, cool*12f, ModContent.ProjectileType<XBlade_NoName>(), Projectile.damage/2, Projectile.knockBack/2, Projectile.owner);
+						ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center-160*cool, cool*12f, ModContent.ProjectileType<XBlade_NoName>(), Projectile.damage/2, Projectile.knockBack/2, Projectile.owner);
 					  }
 				}
 				else {
 					for (int i = 0; i < 7; i++) {
 						Vector2 cool = new Vector2(0, 1).RotatedBy(MathHelper.ToRadians(i*360/7));
-						Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center-160*cool, cool*12f, ModContent.ProjectileType<XBlade_OrbofLight>(), 0, 0f, Projectile.owner);
+						ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center-160*cool, cool*12f, ModContent.ProjectileType<XBlade_OrbofLight>(), 0, 0f, Projectile.owner);
 				    }
 				}
 			}

@@ -154,7 +154,7 @@ namespace Zylon.Projectiles.Minions
 			{
 				Timer++;
 				if (Timer % 40 == rand)
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir, ProjectileType<StardustBeam>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir, ProjectileType<StardustBeam>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 			}
 
 			#endregion

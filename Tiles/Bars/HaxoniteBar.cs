@@ -20,7 +20,7 @@ namespace Zylon.Tiles.Bars
 			TileObjectData.newTile.LavaDeath = false;
 			TileObjectData.addTile(Type);
 			AddMapEntry(new Color(93, 138, 161), Language.GetText("MapObject.MetalBar"));
-			DustType = DustType<Dusts.HaxoniteDust>();
+			DustType = DustType<Dusts.HaxoniteOreDust>();
 		}
 		public override bool Drop(int i, int j) {
 			Tile t = Main.tile[i, j];

@@ -50,7 +50,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 				SoundEngine.PlaySound(SoundID.Item62);
 				int beamDamage = (int)(25 + NPC.ai[0]);
 				if (Main.expertMode) beamDamage = (int)(30 + NPC.ai[0]);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyBeamCenter>(), beamDamage, 0f, Main.myPlayer, NPC.ai[0] + 5);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyBeamCenter>(), beamDamage, 0f, Main.myPlayer, NPC.ai[0] + 5, BasicNetType: 2);
 			}
 			NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + MathHelper.ToRadians(90);
 

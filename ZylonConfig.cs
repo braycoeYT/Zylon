@@ -38,5 +38,15 @@ namespace Zylon
 		[Label("Boss HP Multiplier")]
 		[Tooltip("Allows you to multiply the health of the mod's bosses for increased difficulty. To be used with the similar config from Calamity.")]
 		public float bossHpMult;
+
+		[Header("Accessibility")]
+
+		[Range(0f, 1f)]
+		[Increment(.01f)]
+		[DefaultValue(1f)]
+		[Slider]
+		[Label("Screenshake Amount")]
+		[Tooltip("Changes the amount of all screenshake in the mod. Reccomended for people who have trouble with it.")]
+		public float ScreenshakeAccessibilityMulti;
 	}
 }

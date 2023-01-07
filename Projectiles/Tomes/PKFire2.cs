@@ -32,7 +32,7 @@ namespace Zylon.Projectiles.Tomes
 		}
 		public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center.X, Projectile.Center.Y - 30, 0, 0, ModContent.ProjectileType<PKFireWall>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+			ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center.X, Projectile.Center.Y - 30, 0, 0, ModContent.ProjectileType<PKFireWall>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 			for (int i = 0; i < 4; i++) {
 				int dustType = 127;
 				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType);

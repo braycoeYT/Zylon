@@ -23,7 +23,7 @@ namespace Zylon.Projectiles
 		}
 		public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position - new Microsoft.Xna.Framework.Vector2(0, 30), new Microsoft.Xna.Framework.Vector2(0, 0), ProjectileID.DD2ExplosiveTrapT2Explosion, Projectile.damage, 2f, Main.myPlayer);
+			ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position - new Microsoft.Xna.Framework.Vector2(0, 30), new Microsoft.Xna.Framework.Vector2(0, 0), ProjectileID.DD2ExplosiveTrapT2Explosion, Projectile.damage, 2f, Main.myPlayer, BasicNetType: 2);
 		}
 	}   
 }

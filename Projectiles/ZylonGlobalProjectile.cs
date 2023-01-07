@@ -47,7 +47,7 @@ namespace Zylon.Projectiles
 				}
 				if (foundTarget) {
 					Vector2 projDir = Vector2.Normalize(targetCenter - projectile.Center) * 7f;
-					Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, projDir, ProjectileType<Accessories.DirtBallAcc>(), (int)(projectile.damage*0.6f), projectile.knockBack/2, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(projectile.GetSource_FromThis(), projectile.Center, projDir, ProjectileType<Accessories.DirtBallAcc>(), (int)(projectile.damage*0.6f), projectile.knockBack/2, projectile.owner);
                 }
             }
 			if (damageCooldown > 0) { //only use this if you are sure that projectiles inflicted are friendly

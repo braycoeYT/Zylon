@@ -55,7 +55,7 @@ namespace Zylon.Projectiles.Guns
         {
             for (int i = 0; i < 3; i++)
             {
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-7, 7))), ModContent.ProjectileType<MoltenBullet>(), (int)(Projectile.damage / 3.1f), Projectile.knockBack, Projectile.owner, 0f, 0f);
+                ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-7, 7))), ModContent.ProjectileType<MoltenBullet>(), (int)(Projectile.damage / 3.1f), Projectile.knockBack, Projectile.owner, 0f, 0f);
             }
 
             Projectile.Kill();

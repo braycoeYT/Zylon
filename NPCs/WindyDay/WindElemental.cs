@@ -72,7 +72,7 @@ namespace Zylon.NPCs.WindyDay
         public override void AI() {
 			Timer++;
 			if (Timer % 240 == 119) {
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Enemies.WindElemental_Protect>(), (int)(NPC.damage*0.3f), 0f, Main.myPlayer, NPC.whoAmI);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Enemies.WindElemental_Protect>(), (int)(NPC.damage*0.3f), 0f, Main.myPlayer, NPC.whoAmI, BasicNetType: 2);
 				//Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Enemies.WindElemental_ProtectDeco>(), (int)(NPC.damage*0.3f), 0f, Main.myPlayer, NPC.whoAmI);
 			}
 		}

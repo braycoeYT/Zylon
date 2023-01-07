@@ -96,9 +96,9 @@ namespace Zylon.NPCs.Bosses.Dirtball
                 NPC.velocity = new Vector2(0, 0);
                 Timer++;
                 if (Timer % 10 == 0 && Timer > 180)
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-15, 16), NPC.Center.Y + 20, 0, 10, ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtboiTears>(), 0, 0f, Main.myPlayer, 0f, 0f);
+                    ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-15, 16), NPC.Center.Y + 20, 0, 10, ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtboiTears>(), 0, 0f, Main.myPlayer, 0f, 0f, BasicNetType: 2);
                 if (Timer > 360) {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DBoiSpirit>(), 0, 0f);
+                    ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DBoiSpirit>(), 0, 0f, BasicNetType: 2);
                     NPC.life = 0;
                     switch (val) {
                         case 0:

@@ -29,7 +29,7 @@ namespace Zylon.Items.Armor
 		int Timer;
         public override void UpdateArmorSet(Player player) {
 			player.setBonus = "Gives the player a short flame orb trail when moving";
-			if (player.velocity.Length() > 0f && (Timer % 20 == 0))
+			if (player.velocity.Length() > 0f && (Timer % 20 == 0) && player.whoAmI == Main.myPlayer)
 				Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, new Microsoft.Xna.Framework.Vector2(), ModContent.ProjectileType<Projectiles.HaxoniteTrail>(), 15, 0.1f, Main.myPlayer);
 		}
 		public override void AddRecipes() {

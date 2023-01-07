@@ -47,7 +47,7 @@ namespace Zylon.Projectiles.Misc
 
 			if (Projectile.ai[0] % 12 == 0 && Projectile.ai[0] < 100)
             {
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Vector2(0f, Main.rand.NextFloat(-16, 16)).RotatedBy(Projectile.rotation), Projectile.velocity.RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-4, 4))), ModContent.ProjectileType<MagnificentOrbStar>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Vector2(0f, Main.rand.NextFloat(-16, 16)).RotatedBy(Projectile.rotation), Projectile.velocity.RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-4, 4))), ModContent.ProjectileType<MagnificentOrbStar>(), Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 			}
 
 

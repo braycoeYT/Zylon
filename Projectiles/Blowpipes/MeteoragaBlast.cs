@@ -28,7 +28,7 @@ namespace Zylon.Projectiles.Blowpipes
 		}
         public override void Kill(int timeLeft) {
 			for (int i = 0; i < 8; i++) {
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 8).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<Projectiles.Blowpipes.MeteoragaBlastFireball>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.5f, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 8).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<Projectiles.Blowpipes.MeteoragaBlastFireball>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.5f, Projectile.owner);
             }
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}

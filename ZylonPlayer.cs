@@ -178,7 +178,7 @@ namespace Zylon
 					if (diskbringerSet)
 						DiskiteBuffs(90);
 					if (glazedLens && crit)
-						Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
+						ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Player.whoAmI, item.crit + Player.GetCritChance(item.DamageType));
 					if (nightmareCatcher && Main.rand.NextFloat() < .2f)
 						Item.NewItem(target.GetSource_FromThis(), target.getRect(), ModContent.ItemType<Items.Misc.LostNightmare>());
 				} else {
@@ -186,7 +186,7 @@ namespace Zylon
 					if (diskbringerSet)
 						DiskiteBuffs(60, 75);
 					if (glazedLens && crit)
-						Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, proj.CritChance);
+						ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Player.whoAmI, proj.CritChance);
 					if (nightmareCatcher && Main.rand.NextFloat() < .07f)
 						Item.NewItem(target.GetSource_FromThis(), target.getRect(), ModContent.ItemType<Items.Misc.LostNightmare>());
 				}
@@ -194,7 +194,7 @@ namespace Zylon
 					Player.Heal(1);
 			}
 			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Player.whoAmI);
 			if (shadowflameMagic) {
 				if (item != null)
 					if (item.DamageType == DamageClass.Magic)
@@ -209,19 +209,19 @@ namespace Zylon
 				if (diskbringerSet)
 					DiskiteBuffs(90);
 				if (glazedLens && crit)
-					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
+					ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Player.whoAmI, item.crit + Player.GetCritChance(item.DamageType));
 
 			} else {
 				// To encourage more true melee play, this only has a 75% chance of applying instead of 100
 				if (diskbringerSet)
 					DiskiteBuffs(60, 75);
 				if (glazedLens && crit)
-					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, proj.CritChance);
+					ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Player.whoAmI, proj.CritChance);
 			}
 			if (bloodVial && Main.rand.NextFloat() < .1f)
 				Player.Heal(1);
 			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Player.whoAmI);
 		}
 		public void DiskiteBuffs(int Bufftime) {
 			switch (Main.rand.Next(3)) {
@@ -263,10 +263,10 @@ namespace Zylon
 				return false;
 			}
 			if (slimePendant) {
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(-4.5f, -3), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(-1.5f, -5), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(1.5f, -5), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(4.5f, -3), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(-4.5f, -3), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Player.whoAmI);
+				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(-1.5f, -5), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Player.whoAmI);
+				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(1.5f, -5), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Player.whoAmI);
+				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(4.5f, -3), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Player.whoAmI);
             }
 			return true;
         }

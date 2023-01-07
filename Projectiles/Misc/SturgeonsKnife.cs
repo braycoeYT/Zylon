@@ -48,14 +48,14 @@ namespace Zylon.Projectiles.Misc
         }
         public override void PostAI() {
 			if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 4);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.TintableDust);
 				dust.noGravity = true;
 				dust.scale = 1f;
 			}
 		}
 		public override void Kill(int timeLeft) {
-			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(6, 0), ModContent.ProjectileType<AquaBubble>(), 1, 0.1f, Main.myPlayer);
-			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(-6, 0), ModContent.ProjectileType<AquaBubble>(), 1, 0.1f, Main.myPlayer);
+			ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(6, 0), ModContent.ProjectileType<AquaBubble>(), 1, 0.1f, Projectile.owner);
+			ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(-6, 0), ModContent.ProjectileType<AquaBubble>(), 1, 0.1f, Projectile.owner);
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

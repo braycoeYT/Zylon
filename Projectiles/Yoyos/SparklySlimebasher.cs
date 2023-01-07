@@ -25,11 +25,11 @@ namespace Zylon.Projectiles.Yoyos
 		}
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
 			target.AddBuff(320, 60*Main.rand.Next(3, 6), false);
-			if (target.type != NPCID.TargetDummy) for (int i = 0; i < Main.rand.Next(1, 4); i++) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-12, -6)), ModContent.ProjectileType<SparklyGelFriendly>(), Projectile.damage/2, Projectile.knockBack/2, Main.myPlayer);
+			if (target.type != NPCID.TargetDummy) for (int i = 0; i < Main.rand.Next(1, 4); i++) ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-12, -6)), ModContent.ProjectileType<SparklyGelFriendly>(), Projectile.damage/2, Projectile.knockBack/2, Projectile.owner);
 		}
         public override void OnHitPvp(Player target, int damage, bool crit) {
 			target.AddBuff(320, 60*Main.rand.Next(3, 6), false);
-			for (int i = 0; i < Main.rand.Next(1, 4); i++) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-12, -6)), ModContent.ProjectileType<SparklyGelFriendly>(), Projectile.damage/2, Projectile.knockBack/2, Main.myPlayer);
+			for (int i = 0; i < Main.rand.Next(1, 4); i++) ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-12, -6)), ModContent.ProjectileType<SparklyGelFriendly>(), Projectile.damage/2, Projectile.knockBack/2, Projectile.owner);
         }
         public override void PostAI() {
 			if (Main.rand.NextBool()) {

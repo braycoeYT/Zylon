@@ -79,7 +79,7 @@ namespace Zylon.Projectiles.Boomerangs
 			if (done) return;
 			done = true;
 			for (int i = 0; i < 5; i++)
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -14).RotatedBy(MathHelper.ToRadians((i*72)+verycool)), ModContent.ProjectileType<Pentagram_2>(), (int)(Projectile.damage*0.65f), Projectile.knockBack/2, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -14).RotatedBy(MathHelper.ToRadians((i*72)+verycool)), ModContent.ProjectileType<Pentagram_2>(), (int)(Projectile.damage*0.65f), Projectile.knockBack/2, Projectile.owner);
             Projectile.Kill();
         }
         public override void OnHitPvp(Player target, int damage, bool crit) {
@@ -92,7 +92,7 @@ namespace Zylon.Projectiles.Boomerangs
 			if (done) return;
 			done = true;
 			for (int i = 0; i < 5; i++)
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -14).RotatedBy(MathHelper.ToRadians((i*72)+verycool)), ModContent.ProjectileType<Pentagram_2>(), (int)(Projectile.damage*0.65f), Projectile.knockBack/2, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -14).RotatedBy(MathHelper.ToRadians((i*72)+verycool)), ModContent.ProjectileType<Pentagram_2>(), (int)(Projectile.damage*0.65f), Projectile.knockBack/2, Projectile.owner);
             Projectile.Kill();
         }
 		public override bool PreDraw(ref Color lightColor) {

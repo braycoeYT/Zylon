@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -12,6 +13,7 @@ namespace Zylon.Dusts
 			dust.noGravity = true;
 			dust.velocity /= 2f;
 			//dust.alpha = 100;
+			dust.frame = new Rectangle(0, Main.rand.Next(3) * 18, 18, 18);
 		}
 		public override bool Update(Dust dust) {
 			dust.position += dust.velocity;

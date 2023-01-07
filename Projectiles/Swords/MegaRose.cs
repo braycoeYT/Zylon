@@ -46,7 +46,7 @@ namespace Zylon.Projectiles.Swords
 				int j = 0;
 				for (int i = 0; i < 8; i++) {
 					if (Projectile.ai[0] == 1) j = i;
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -16).RotatedBy(MathHelper.ToRadians(i*45)), type, damage, Projectile.knockBack, Main.myPlayer, j);
+					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -16).RotatedBy(MathHelper.ToRadians(i*45)), type, damage, Projectile.knockBack, Projectile.owner, j);
 				}
 			}
 			if (Projectile.timeLeft <= 20) Projectile.alpha += 17;

@@ -53,10 +53,10 @@ namespace Zylon.NPCs.Forest
 			Timer++;
 
 			if (Timer % (60 + (90*(NPC.life/NPC.lifeMax))) == 0)
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.Center - (Main.player[NPC.target].Center - new Vector2(0, 100))) * -6f, ModContent.ProjectileType<Projectiles.Gigaslime.AcornTreePlant>(), (int)(NPC.damage * 0.3f), 0f, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.Center - (Main.player[NPC.target].Center - new Vector2(0, 100))) * -6f, ModContent.ProjectileType<Projectiles.Gigaslime.AcornTreePlant>(), (int)(NPC.damage * 0.3f), 0f, Main.myPlayer, BasicNetType: 2);
 			
 			if (Timer % (30 + (90*(NPC.life/NPC.lifeMax))) == 0 && (Main.expertMode || NPC.life > NPC.lifeMax / 2))
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -8), ModContent.ProjectileType<Projectiles.Gigaslime.MushroomSporeHostile>(), (int)(NPC.damage * 0.2f), 0f, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -8), ModContent.ProjectileType<Projectiles.Gigaslime.MushroomSporeHostile>(), (int)(NPC.damage * 0.2f), 0f, Main.myPlayer, BasicNetType: 2);
 
 			if (Main.player[NPC.target].statLife < 1)
 			{

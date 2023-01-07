@@ -27,7 +27,7 @@ namespace Zylon.Projectiles.Wands
             Projectile.velocity *= 0.955f;
 			Projectile.rotation += 0.15f;
 			if (Main.GameUpdateCount % 8 == 0)
-			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Microsoft.Xna.Framework.Vector2(Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-7, -3)), ModContent.ProjectileType<Projectiles.BoneFriendlyMagic>(), (int)(Projectile.damage*0.8f), Projectile.knockBack/2, Main.myPlayer);
+			ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Microsoft.Xna.Framework.Vector2(Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-7, -3)), ModContent.ProjectileType<Projectiles.BoneFriendlyMagic>(), (int)(Projectile.damage*0.8f), Projectile.knockBack/2, Projectile.owner);
         }
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
