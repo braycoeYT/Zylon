@@ -19,6 +19,9 @@ namespace Zylon.Tiles.Ores
 			Main.tileMergeDirt[Type] = true;
 			Main.tileSolid[Type] = true;
 			Main.tileBlockLight[Type] = true;
+			Main.tileMerge[Type][TileID.Marble] = true;
+			Main.tileMerge[TileID.Marble][Type] = true;
+			TileID.Sets.ChecksForMerge[Type] = true;
 			ModTranslation name = CreateMapEntryName();
 			name.SetDefault("Zinc Ore");
 			AddMapEntry(new Color(108, 158, 181), name);

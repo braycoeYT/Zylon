@@ -28,6 +28,7 @@ namespace Zylon.Items.Boomerangs
 			Item.autoReuse = true;
 			Item.UseSound = SoundID.Item1;
 			Item.shoot = ProjectileType<Projectiles.Boomerangs.FireandIce>();
+			Item.channel = true;
 		}
 		public override bool CanUseItem(Player player) {
 			return player.ownedProjectileCounts[Item.shoot] < 1;
