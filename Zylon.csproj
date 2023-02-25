@@ -13,6 +13,7 @@
   <ItemGroup>
     <Folder Include="Buffs\Whips\" />
     <Folder Include="Items\Whips\" />
+    <Folder Include="Items\Whips\" />
     <Folder Include="Projectiles\Whips\" />
   </ItemGroup>
 </Project>
