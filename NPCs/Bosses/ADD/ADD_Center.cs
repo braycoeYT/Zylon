@@ -50,6 +50,8 @@ namespace Zylon.NPCs.Bosses.ADD
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			NPC.boss = true;
+			NPC.lavaImmune = true;
+			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DuneBreaker1");
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
             NPC.lifeMax = (int)((2600 + ((numPlayers - 1) * 1200))*ModContent.GetInstance<ZylonConfig>().bossHpMult);

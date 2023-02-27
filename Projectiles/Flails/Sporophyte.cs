@@ -64,7 +64,7 @@ namespace Zylon.Projectiles.Flails
 		public override void AI() {
 			Timer++;
 			if (Timer % 20 == 0) {
-				SoundEngine.PlaySound(SoundID.Grass);
+				//SoundEngine.PlaySound(SoundID.Grass, Projectile.Center);
 				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, -5).RotatedByRandom(1f), ModContent.ProjectileType<StingerPassive>(), (int)(Projectile.damage * 0.5f), (int)(Projectile.knockBack / 3), Main.myPlayer);
 			}
 

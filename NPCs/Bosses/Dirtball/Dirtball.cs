@@ -44,6 +44,8 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPC.noTileCollide = true;
 			NPC.boss = true;
 			NPC.netAlways = true;
+			NPC.lavaImmune = true;
+			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
             NPC.lifeMax = (int)((2100 + ((numPlayers - 1) * 900))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
@@ -51,7 +53,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPC.value = 20000;
 			if (Main.masterMode) {
 				NPC.lifeMax = (int)((2700 + ((numPlayers - 1) * 1200))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
-				NPC.damage = 61;
+				NPC.damage = 55;
             }
         }
 		bool bool1;
@@ -170,7 +172,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPC.defense = 20-(phase*4);
 			NPC.damage = 31;
 			if (Main.expertMode) NPC.damage = 46;
-			if (Main.masterMode) NPC.damage = 61;
+			if (Main.masterMode) NPC.damage = 55;
 			NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
 			if (NPC.CountNPCS(ModContent.NPCType<Dirtboi>()) < 1) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Dirtboi>()); //Dirtboi, my boy, a true ball of dirt never runs away from battle!
 			if (attackDone) {

@@ -22,7 +22,13 @@ namespace Zylon.Projectiles.Minions
 			//if (Projectile.ai[0] == 1f)
 			//	Projectile.DamageType = DamageClass.Ranged;
 		}
-		int Timer;
+        public override void OnHitPvp(Player target, int damage, bool crit) {
+            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Shroomed>(), 60*Main.rand.Next(2, 6));
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Shroomed>(), 60*Main.rand.Next(2, 6));
+        }
+        int Timer;
 		public override void AI() {
 			Timer++;
 				float num165 = (float)Math.Sqrt((double)(Projectile.velocity.X * Projectile.velocity.X + Projectile.velocity.Y * Projectile.velocity.Y));

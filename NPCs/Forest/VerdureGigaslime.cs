@@ -37,6 +37,7 @@ namespace Zylon.NPCs.Forest
 			NPC.lavaImmune = true;
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.VerdureGigaslimeBanner>();
+			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/SlimyDemise2");
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
             NPC.lifeMax = 24000;

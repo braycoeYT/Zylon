@@ -15,6 +15,7 @@ namespace Zylon
 			ItemID.TinBar,
 			ItemID.IronBar,
 			ItemID.LeadBar,
+			ModContent.ItemType<Items.Bars.ZincBar>(),
 			ItemID.SilverBar,
 			ItemID.TungstenBar,
 			ItemID.GoldBar,
@@ -99,10 +100,10 @@ namespace Zylon
 		}
         public override void AddRecipes() {
             Recipe recipe = Recipe.Create(ItemID.MagicMirror);
-			recipe.AddIngredient(ItemID.StoneBlock, 15);
-			recipe.AddIngredient(ItemID.Glass, 15);
-			recipe.AddIngredient(ItemID.RecallPotion, 10);
-			recipe.AddIngredient(ItemID.FallenStar, 20);
+			recipe.AddRecipeGroup("Zylon:AnyPHBar", 8);
+			recipe.AddIngredient(ItemID.Glass, 10);
+			recipe.AddIngredient(ItemID.RecallPotion, 3);
+			recipe.AddIngredient(ItemID.FallenStar, 5);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
@@ -156,23 +157,22 @@ namespace Zylon
 
 			recipe = Recipe.Create(ItemID.TruffleWorm);
 			recipe.AddIngredient(ItemID.Worm);
-			recipe.AddIngredient(ItemID.ShroomiteBar, 5);
-			recipe.AddIngredient(ItemID.Ectoplasm, 10);
+			recipe.AddIngredient(ItemID.ShroomiteBar, 3);
+			recipe.AddIngredient(ItemID.Ectoplasm, 5);
 			recipe.AddTile(TileID.Autohammer);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.LihzahrdPowerCell);
-			recipe.AddIngredient(ItemID.LunarTabletFragment, 10);
-			recipe.AddIngredient(ItemID.Glass, 3);
-			recipe.AddIngredient(ItemID.FallenStar, 3);
+			recipe.AddIngredient(ItemID.LunarTabletFragment, 8);
+			recipe.AddIngredient(ItemID.Glass, 2);
+			recipe.AddIngredient(ItemID.FallenStar);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.WandofSparking);
-			recipe.AddRecipeGroup("Wood", 15);
-			recipe.AddIngredient(ItemID.Torch, 5);
-			recipe.AddRecipeGroup("Zylon:AnyCopperBar", 3);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddRecipeGroup("Wood", 11);
+			recipe.AddIngredient(ItemID.Torch, 9);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.IceBoomerang);
@@ -227,8 +227,8 @@ namespace Zylon
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.BloodMoonStarter);
-			recipe.AddIngredient(ItemID.Lens, 3);
-			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 5);
+			recipe.AddIngredient(ItemID.Lens);
+			recipe.AddRecipeGroup("Zylon:AnyPHBar", 3);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.BloodDroplet>(), 10);
 			recipe.AddTile(TileID.Bottles);
 			recipe.Register();
@@ -240,37 +240,37 @@ namespace Zylon
 
 			recipe = Recipe.Create(ItemID.FlyingCarpet);
 			recipe.AddIngredient(ItemID.Silk, 12);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 15);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 10);
 			recipe.AddTile(TileID.Loom);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.CloudinaBottle);
 			recipe.AddIngredient(ItemID.Bottle);
-			recipe.AddIngredient(ItemID.Cloud, 20);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 10);
+			recipe.AddIngredient(ItemID.Cloud, 10);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 6);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.BlizzardinaBottle);
 			recipe.AddIngredient(ItemID.Bottle);
-			recipe.AddIngredient(ItemID.SnowBlock, 25);
+			recipe.AddIngredient(ItemID.SnowBlock, 15);
 			recipe.AddIngredient(ItemID.FlinxFur, 3);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 15);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 8);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.SandstorminaBottle);
 			recipe.AddIngredient(ItemID.Bottle);
-			recipe.AddIngredient(ItemID.SandBlock, 30);
+			recipe.AddIngredient(ItemID.SandBlock, 15);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.DiskiteCrumbles>(), 15);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 20);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 12);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.ShinyRedBalloon);
 			recipe.AddIngredient(ItemID.WhoopieCushion);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 10);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.SpeckledStardust>(), 15);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 8);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.SpeckledStardust>(), 5);
 			recipe.AddTile(TileID.SkyMill);
 			recipe.Register();
 
@@ -296,50 +296,52 @@ namespace Zylon
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.GiantHarpyFeather);
-			recipe.AddIngredient(ItemID.Feather, 50);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 5);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.SpeckledStardust>(), 10);
+			recipe.AddIngredient(ItemID.Feather, 35);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 7);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.SpeckledStardust>(), 7);
 			recipe.AddTile(TileID.SkyMill);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.Starfury);
 			recipe.AddIngredient(ItemID.WoodenSword);
-			recipe.AddIngredient(ItemID.FallenStar, 10);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.SpeckledStardust>(), 20);
+			recipe.AddIngredient(ItemID.FallenStar, 9);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.SpeckledStardust>(), 16);
 			recipe.AddTile(TileID.SkyMill);
 			recipe.Register();
 
-			recipe = Recipe.Create(4978);
-			recipe.AddIngredient(ItemID.Feather, 20);
-			recipe.AddIngredient(ItemID.FallenStar, 20);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.SpeckledStardust>(), 20);
+			recipe = Recipe.Create(ItemID.CreativeWings);
+			recipe.AddIngredient(ItemID.Cloud, 15);
+			recipe.AddIngredient(ItemID.Feather, 12);
+			recipe.AddIngredient(ItemID.FallenStar, 10);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.SpeckledStardust>(), 10);
 			recipe.AddTile(TileID.SkyMill);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.LuckyHorseshoe);
-			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 10);
-			recipe.AddIngredient(ItemID.SunplateBlock, 12);
+			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 8);
+			recipe.AddIngredient(ItemID.SunplateBlock, 8);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.SpeckledStardust>(), 10);
 			recipe.AddTile(TileID.SkyMill);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.SkyMill);
-			recipe.AddIngredient(ItemID.SunplateBlock, 20);
+			recipe.AddIngredient(ItemID.StoneBlock, 15);
+			recipe.AddIngredient(ItemID.FallenStar, 10);
 			recipe.AddIngredient(ItemID.Feather, 10);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.SpeckledStardust>(), 10);
-			recipe.AddTile(TileID.SkyMill);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.BoneSword);
-			recipe.AddIngredient(ItemID.Bone, 26);
+			recipe.AddIngredient(ItemID.Bone, 18);
 			recipe.AddRecipeGroup("Zylon:AnyCopperBar", 10);
 			recipe.AddTile(TileID.BoneWelder);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.ThunderStaff);
-			recipe.AddRecipeGroup("Zylon:AnyCopperBar", 10);
-			recipe.AddIngredient(ItemID.FossilOre, 8);
-			recipe.AddIngredient(ItemID.Lens, 3);
+			recipe.AddRecipeGroup("Zylon:AnyCopperBar", 8);
+			recipe.AddIngredient(ItemID.FossilOre, 6);
+			recipe.AddIngredient(ItemID.Lens);
 			recipe.AddIngredient(ItemID.FallenStar);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
@@ -432,13 +434,13 @@ namespace Zylon
 
 			recipe = Recipe.Create(ItemID.ShadowKey);
 			recipe.AddIngredient(ItemID.GoldenKey);
-			recipe.AddIngredient(ItemID.Obsidian, 20);
-			recipe.AddIngredient(ItemID.Bone, 20);
+			recipe.AddIngredient(ItemID.Obsidian, 10);
+			recipe.AddIngredient(ItemID.Bone, 12);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.IceSkates);
-			recipe.AddIngredient(ItemID.Silk, 15);
+			recipe.AddIngredient(ItemID.Silk, 12);
 			recipe.AddIngredient(ItemID.SnowBlock, 20);
 			recipe.AddIngredient(ItemID.IceBlock, 20);
 			recipe.AddTile(TileID.IceMachine);
@@ -446,32 +448,32 @@ namespace Zylon
 
 			recipe = Recipe.Create(ItemID.AnkletoftheWind);
 			recipe.AddIngredient(ItemID.Vine, 3);
-			recipe.AddIngredient(ItemID.JungleSpores, 12);
-			recipe.AddIngredient(ItemID.PinkGel, 10);
+			recipe.AddIngredient(ItemID.JungleSpores, 9);
+			recipe.AddIngredient(ItemID.PinkGel, 5);
 			recipe.AddTile(TileID.Loom);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.Aglet);
-			recipe.AddRecipeGroup("IronBar", 12);
+			recipe.AddRecipeGroup("IronBar", 8);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.HermesBoots);
-			recipe.AddIngredient(ItemID.Silk, 15);
-			recipe.AddIngredient(ItemID.SwiftnessPotion, 3);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 12);
+			recipe.AddIngredient(ItemID.Silk, 12);
+			recipe.AddIngredient(ItemID.SwiftnessPotion);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 10);
 			recipe.AddTile(TileID.Loom);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.CobaltShield);
-			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 12);
+			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 10);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.BrokenHeroSword);
 			recipe.AddIngredient(ItemID.WoodenSword);
-			recipe.AddIngredient(ItemID.SoulofLight, 8);
-			recipe.AddIngredient(ItemID.SoulofNight, 8);
+			recipe.AddIngredient(ItemID.SoulofLight, 6);
+			recipe.AddIngredient(ItemID.SoulofNight, 6);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ElementalGoop>(), 10);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
@@ -483,9 +485,9 @@ namespace Zylon
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.FiberglassFishingPole);
-			recipe.AddIngredient(ModContent.ItemType<Items.Bars.CarnalliteBar>(), 18);
-			recipe.AddIngredient(ItemID.Glass, 24);
-			recipe.AddIngredient(ItemID.JungleSpores, 10);
+			recipe.AddIngredient(ModContent.ItemType<Items.Bars.CarnalliteBar>(), 14);
+			recipe.AddIngredient(ItemID.Glass, 18);
+			recipe.AddIngredient(ItemID.JungleSpores, 8);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
@@ -496,9 +498,9 @@ namespace Zylon
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.WaterWalkingBoots);
-			recipe.AddIngredient(ItemID.Silk, 15);
-			recipe.AddIngredient(ItemID.WaterWalkingPotion, 3);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 12);
+			recipe.AddIngredient(ItemID.Silk, 12);
+			recipe.AddIngredient(ItemID.WaterWalkingPotion);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 10);
 			recipe.AddTile(TileID.Loom);
 			recipe.Register();
 

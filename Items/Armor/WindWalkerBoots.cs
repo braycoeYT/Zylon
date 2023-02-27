@@ -22,10 +22,9 @@ namespace Zylon.Items.Armor
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.SunplateBlock, 15);
-			recipe.AddIngredient(ItemID.Feather, 12);
-			recipe.AddIngredient(ModContent.ItemType<Materials.WindEssence>(), 20);
-			recipe.AddIngredient(ModContent.ItemType<Materials.SpeckledStardust>(), 10);
+			recipe.AddIngredient(ModContent.ItemType<Materials.WindEssence>(), 12);
+			recipe.AddIngredient(ItemID.Feather, 6);
+			recipe.AddIngredient(ModContent.ItemType<Materials.SpeckledStardust>(), 6);
 			recipe.AddTile(TileID.SkyMill);
 			recipe.Register();
 		}

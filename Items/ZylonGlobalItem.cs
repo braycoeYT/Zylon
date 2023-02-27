@@ -63,14 +63,12 @@ namespace Zylon.Items
 					item.damage = 10;
 				if (item.type == ItemID.CookedMarshmallow)
 					item.buffTime = 7200;
-				if (item.type == ItemID.Coal) 
-					item.maxStack = 999;
-				if (item.type == ItemID.SnowGlobe) 
+				if (item.type == ItemID.Coal || item.type == ItemID.SnowGlobe || item.type == ItemID.GoldCrown || item.type == ItemID.PlatinumCrown) 
 					item.maxStack = 999;
 				if (item.type == ItemID.LaserDrill)
 					item.pick = 220;
 				if (item.type == ItemID.FlareGun)
-					item.damage = 12;
+					item.damage = 15;
 				if (item.type == ItemID.Zenith)
 					item.damage = 84;
 				if (item.type == ItemID.Flare || item.type == ItemID.BlueFlare)
@@ -80,7 +78,7 @@ namespace Zylon.Items
 				if (item.type == ItemID.DirtBlock) {
 					item.consumable = true;
 					item.ammo = ItemType<Misc.Dirtthrower>();
-					item.notAmmo = false;
+					item.notAmmo = true;
                 }
             }
 		}

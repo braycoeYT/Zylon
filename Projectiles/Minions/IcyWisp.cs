@@ -18,7 +18,7 @@ namespace Zylon.Projectiles.Minions
 			Projectile.height = 26;
 			Projectile.aiStyle = -1;
 			Projectile.friendly = true;
-			Projectile.timeLeft = 3;
+			Projectile.timeLeft = 9999;
 			Projectile.penetrate = -1;
 			Projectile.tileCollide = false;
 			Projectile.DamageType = DamageClass.Summon;
@@ -81,7 +81,10 @@ namespace Zylon.Projectiles.Minions
 				}
 			}
 			Projectile.friendly = foundTarget;
-			if (((int)(Main.GameUpdateCount % 240) == (int)(240*minionID/minionMax)) && foundTarget) {
+			int temp = (int)(240*minionID/minionMax);
+			if (temp < 0) temp = 0;
+			if (temp > 239) temp = 239;
+			if (((int)(Main.GameUpdateCount % 240) == temp) && foundTarget) {
 				Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 5f;
 				if (Main.myPlayer == Projectile.owner) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, projDir, ModContent.ProjectileType<IcyWispBeam>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 			}
