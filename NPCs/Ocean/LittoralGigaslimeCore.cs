@@ -27,6 +27,7 @@ namespace Zylon.NPCs.Ocean
 			NPC.noGravity = true;
 			Banner = Item.NPCtoBanner(ModContent.NPCType<LittoralGigaslime>());
 			BannerItem = Item.BannerToItem(Banner);
+			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/SlimyDemise2");
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
             NPC.lifeMax = 1500;

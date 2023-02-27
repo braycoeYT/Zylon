@@ -65,9 +65,9 @@ namespace Zylon.Items.Blowpipes
 					Item.useTime = origItemSpeed;
 					Item.useAnimation = origItemSpeed;
 					if (charge != 0) {
-						Item.damage = origDamage + (int)(20*((float)charge/(float)(maxCharge))) + (int)(p.blowpipeChargeDamage*((float)charge/(float)(maxCharge)));
-			    		Item.knockBack = origKnockback + (2.5f*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeKnockback*((float)charge/(float)(maxCharge)));
-			    		Item.shootSpeed = origShootSpeed + (12f*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeShootSpeed*((float)charge/(float)(maxCharge)));
+						Item.damage = origDamage + (int)((Item.damage*2)*((float)charge/(float)(maxCharge))) + (int)(p.blowpipeChargeDamage*((float)charge/(float)(maxCharge)));
+			    		Item.knockBack = origKnockback + ((Item.knockBack*1.2f)*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeKnockback*((float)charge/(float)(maxCharge)));
+			    		Item.shootSpeed = origShootSpeed + ((Item.shootSpeed*0.8f)*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeShootSpeed*((float)charge/(float)(maxCharge)));
                     }
 					if (Main.rand.NextBool(2)) roxa = Color.Black;
 					else roxa = Color.White;

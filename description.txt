@@ -3,7 +3,7 @@ The best mod that starts with Z (I guarantee or your money back)! Zylon is a uni
 THIS MOD IS IN SEVERE NEED OF SPRITERS. If you are a fan of the mod and want to sprite, feel free to join the discord server!
 
 Stats:
-~350 Items
+~354 Items
 ~4 Bosses:
 ~~~4 Prehardmode Bosses [i:2][i:131][i:116][i:282]
 ~52 total NPCs
@@ -13,21 +13,27 @@ Stats:
 ~Many new vanilla recipes and changes to help balance the game out (including an easier Slime Crown recipe).
 ~Several new prefixes!
 
-V0.0.2.5: Update
-~Resprited Space Machine Gun.
-~Added Blizzard Seer.
-~Fixed several issues with modded foods.
-~Heavily decreased Elem Slime spawn rates.
-~Added a new costume for Dirtboi on April Fool's Day.
-~Added a config to disable April Fool's Day changes.
-~Added Enchanted Ice Cube, Cryo Staff, Icicle on a Rod, Icicle Maker, and Icy Wisp Staff.
-~Reworked Bloody Zombie Arm.
-~Minor buff fixes and changes.
-~Added Pandemic.
-~Added Saber Tooth and Saber Tooth Necklace.
-~Changed Neutron in a Bottle's rarity.
-~Added Heavy Hitter Potion.
-~Nerfed Magic Power Potion.
+V0.0.2.6: Not Worth the Wait Update
+~Fixed several Ice Wisp Staff bugs.
+~Simplified tons of recipes.
+~Made Wind Essence drop more often.
+~Zinc Bar is now counted in the Any Basic Prehardmode Bar recipe group.
+~Made Desert Diskites no longer go through tiles because of AI issues (temporary fix).
+~Made Gold and Platinum Crowns now stack to 999.
+~Buffed Flare Gun again.
+~Dirt Blocks no longer appear in the ammo slot.
+~Made Dirtball's laser much easier to see.
+~Made Sporophyte way less annoying.
+~Glowing Mushtop now inflicts Shroomed.
+~Made Tattered Cloth drop less often.
+~Added new drops to goblins.
+~Added Warrior's Ribbon, Goblin Archbow, and Hex Necklace.
+~King Slime now drops Gel.
+~Made Poisonous Arrows easier to craft.
+~Added Disco Canister.
+~Added all of the themes that the mod was missing.
+~Made Pocket Grenade and its variants have a smaller explosion.
+~Added Shellshocker.
 
 Q&A:
 
@@ -54,8 +60,8 @@ Ideas, Sprites, Music, and General Support:
 Skymanisbtman (Composer)
 Tome Man (Coder and Spriter)
 Mafia_Cheezstick (Spriter)
-
 Mjoon (Spriter)
+
 Slimelad (General Support and Ideas)
 Pufferfisher77 (General Support and Ideas)
 HBDeus (Spriter and Composer)

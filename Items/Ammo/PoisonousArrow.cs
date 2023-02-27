@@ -26,8 +26,8 @@ namespace Zylon.Items.Ammo
 			Item.ammo = AmmoID.Arrow;
 		}
 		public override void AddRecipes() {
-			Recipe recipe = CreateRecipe(100);
-			recipe.AddIngredient(ItemID.WoodenArrow, 100);
+			Recipe recipe = CreateRecipe(150);
+			recipe.AddIngredient(ItemID.WoodenArrow, 150);
 			recipe.AddIngredient(ItemID.JungleSpores);
 			recipe.AddIngredient(ItemID.Stinger);
 			recipe.AddTile(TileID.WorkBenches);

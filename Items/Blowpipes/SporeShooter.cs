@@ -57,9 +57,9 @@ namespace Zylon.Items.Blowpipes
 					Item.useTime = origItemSpeed;
 					Item.useAnimation = origItemSpeed;
 					if (charge != 0) {
-						Item.damage = origDamage + (int)(13*((float)charge/(float)(maxCharge))) + (int)(p.blowpipeChargeDamage*((float)charge/(float)(maxCharge)));
-			    		Item.knockBack = origKnockback + (3f*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeKnockback*((float)charge/(float)(maxCharge)));
-			    		Item.shootSpeed = origShootSpeed + (11f*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeShootSpeed*((float)charge/(float)(maxCharge)));
+						Item.damage = origDamage + (int)((Item.damage*2)*((float)charge/(float)(maxCharge))) + (int)(p.blowpipeChargeDamage*((float)charge/(float)(maxCharge)));
+			    		Item.knockBack = origKnockback + ((Item.knockBack*1.2f)*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeKnockback*((float)charge/(float)(maxCharge)));
+			    		Item.shootSpeed = origShootSpeed + ((Item.shootSpeed*0.8f)*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeShootSpeed*((float)charge/(float)(maxCharge)));
                     }
 					CombatText.NewText(player.getRect(), Color.LimeGreen, "SHOOT");
                 }

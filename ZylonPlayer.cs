@@ -38,6 +38,8 @@ namespace Zylon
 		public bool metelordExpert;
 		public bool stncheck;
 		public bool st2check;
+		public bool discoCanister;
+		public bool hexNecklace;
 
 		public float critExtraDmg;
 		public int blowpipeMaxInc;
@@ -45,6 +47,7 @@ namespace Zylon
 		public int blowpipeChargeDamage;
 		public int blowpipeChargeKnockback;
 		public int blowpipeChargeShootSpeed;
+		public int critCount;
 		/*public bool blowpipeShowUI;
 		public int blowpipeMinCharge;
 		public int blowpipeCharge;*/
@@ -77,6 +80,8 @@ namespace Zylon
 			metelordExpert = false;
 			stncheck = false;
 			st2check = false;
+			discoCanister = false;
+			hexNecklace = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -202,7 +207,10 @@ namespace Zylon
 			OnHitPVPGlobal(null, proj, target, damage, crit, false);
 		}
 		public void OnHitNPCGlobal(Item item, Projectile proj, NPC target, int damage, float knockback, bool crit, bool isDummy, bool TrueMelee) {
-			if (!isDummy) {
+			if (crit) {
+				critCount++;
+			}
+			if (!isDummy && Main.myPlayer == Player.whoAmI) {
 				if (TrueMelee) {
 					if (diskbringerSet)
 						DiskiteBuffs(90);
@@ -234,6 +242,9 @@ namespace Zylon
             }
 		}
 		public void OnHitPVPGlobal(Item item, Projectile proj, Player target, int damage, bool crit, bool TrueMelee) {
+			if (crit) {
+				critCount++;
+			}
 			if (TrueMelee) {
 				if (diskbringerSet)
 					DiskiteBuffs(90);

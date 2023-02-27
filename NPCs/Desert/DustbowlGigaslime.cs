@@ -40,6 +40,7 @@ namespace Zylon.NPCs.Desert
 			NPC.lavaImmune = true;
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.DustbowlGigaslimeBanner>();
+			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/SlimyDemise2");
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
             NPC.lifeMax = 29500;

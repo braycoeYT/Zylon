@@ -59,6 +59,8 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.noGravity = true;
 			CanFly = true;
 			NPC.boss = true;
+			NPC.lavaImmune = true;
+			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/BolideSerpent");
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
 			NPC.lifeMax = (int)((7000 + ((numPlayers - 1) * 4900))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
@@ -124,6 +126,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 		int runBoost = 180;
 		int flee;
 		bool attackDone = true;
+		bool spawnGore = true;
 		Vector2 newVel;
         public override void PostAI() {
 			NPC.TargetClosest(true);
@@ -413,6 +416,10 @@ namespace Zylon.NPCs.Bosses.Metelord
 					dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 				}
             }
+			/*if (Main.npc[ZylonGlobalNPC.metelordBoss].life < 1 && spawnGore && Main.netMode != NetmodeID.MultiplayerClient) {
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), 0), ModContent.GoreType<Gores.Bosses.Metelord.MetelordHeadGore>());
+				spawnGore = false;
+			}*/
 			/*if (NPC.rotation > MathHelper.Pi) { //for old sprite
 				NPC.frame.Y = 52;
 			}
@@ -519,6 +526,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 			head = Main.npc[ZylonGlobalNPC.metelordBoss];
             target = Main.player[head.target];
         }
+		bool spawnGore = true;
 		public override void PostAI() {
 			if (head.ai[1] == 1) NPC.Center += new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-3, 4));
             if (!target.ZoneMeteor) {
@@ -551,6 +559,10 @@ namespace Zylon.NPCs.Bosses.Metelord
 					dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 				}
             }
+			/*if (Main.npc[ZylonGlobalNPC.metelordBoss].life < 1 && spawnGore && Main.netMode != NetmodeID.MultiplayerClient) {
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), 0), ModContent.GoreType<Gores.Bosses.Metelord.MetelordBodyGore>());
+				spawnGore = false;
+			}*/
         }
 		public override void OnHitPlayer(Player target, int damage, bool crit) {
             target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(3, 5));
@@ -618,6 +630,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 			head = Main.npc[ZylonGlobalNPC.metelordBoss];
             target = Main.player[head.target];
         }
+		bool spawnGore = true;
 		public override void PostAI() {
 			if (head.ai[1] == 1) NPC.Center += new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-3, 4));
             if (!target.ZoneMeteor) {
@@ -650,6 +663,12 @@ namespace Zylon.NPCs.Bosses.Metelord
 					dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 				}
             }
+			/*if (Main.npc[ZylonGlobalNPC.metelordBoss].life < 1 && spawnGore && Main.netMode != NetmodeID.MultiplayerClient) {
+				int deezNuts = ModContent.GoreType<Gores.Bosses.Metelord.MetelordTailGore>();
+				//if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges) deezNuts = ModContent.GoreType<Gores.Bosses.Metelord.MetelordHeadGore>();
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), 0), deezNuts);
+				spawnGore = false;
+			}*/
         }
 		public override void OnHitPlayer(Player target, int damage, bool crit) {
             target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(3, 5));

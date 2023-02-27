@@ -39,6 +39,11 @@ namespace Zylon.NPCs.Bosses.Dirtball
             NPC.lifeMax = 82;
 			NPC.damage = 30;
 			NPC.knockBackResist = 0f;
+			if (Main.masterMode) {
+				NPC.lifeMax = 123;
+				NPC.damage = 45;
+				NPC.knockBackResist = 0f;
+            }
         }
 		public override void HitEffect(int hitDirection, double damage) {
 			if (NPC.life > 0) {

@@ -1,4 +1,4 @@
-/*using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -53,17 +53,17 @@ namespace Zylon.Items.Blowpipes
 				if (modeCharge) {
 					Item.useTime = 2;
 					Item.useAnimation = 2;
-					CombatText.NewText(player.getRect(), Color.Tan, "CHARGE");
+					CombatText.NewText(player.getRect(), Color.LightYellow, "CHARGE");
                 }
 				else {
 					Item.useTime = origItemSpeed;
 					Item.useAnimation = origItemSpeed;
 					if (charge != 0) {
-						Item.damage = origDamage + (int)(10*((float)charge/(float)(maxCharge))) + (int)(p.blowpipeChargeDamage*((float)charge/(float)(maxCharge)));
-			    		Item.knockBack = origKnockback + (2.5f*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeKnockback*((float)charge/(float)(maxCharge)));
-			    		Item.shootSpeed = origShootSpeed + (7f*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeShootSpeed*((float)charge/(float)(maxCharge)));
+						Item.damage = origDamage + (int)((Item.damage*2)*((float)charge/(float)(maxCharge))) + (int)(p.blowpipeChargeDamage*((float)charge/(float)(maxCharge)));
+			    		Item.knockBack = origKnockback + ((Item.knockBack*1.2f)*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeKnockback*((float)charge/(float)(maxCharge)));
+			    		Item.shootSpeed = origShootSpeed + ((Item.shootSpeed*0.8f)*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeShootSpeed*((float)charge/(float)(maxCharge)));
                     }
-					CombatText.NewText(player.getRect(), Color.Tan, "SHOOT");
+					CombatText.NewText(player.getRect(), Color.LightYellow, "SHOOT");
                 }
 				return false;
             }
@@ -78,9 +78,9 @@ namespace Zylon.Items.Blowpipes
 					charge = maxCharge + p.blowpipeMaxInc;
 				//p.blowpipeCharge = charge;
 				if (chargeCount % 10 == 0 && charge != maxCharge + p.blowpipeMaxInc)
-					CombatText.NewText(player.getRect(), Color.Tan, (int)charge);
+					CombatText.NewText(player.getRect(), Color.LightYellow, (int)charge);
 				else if (chargeCount % 10 == 0 && charge == maxCharge + p.blowpipeMaxInc)
-					CombatText.NewText(player.getRect(), Color.Tan, "MAX!");
+					CombatText.NewText(player.getRect(), Color.LightYellow, "MAX!");
             }
 			else {
 				Item.damage = origDamage;
@@ -96,7 +96,12 @@ namespace Zylon.Items.Blowpipes
 				if (charge == maxCharge + p.blowpipeMaxInc) {
 					if (p.wadofSpores)
 						Projectile.NewProjectile(source, position, Vector2.Normalize(velocity) * 9, ModContent.ProjectileType<Projectiles.WadofSpores>(), damage, knockback, player.whoAmI);
-                }
+					Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<Projectiles.Blowpipes.ShellshockerProj>(), damage, knockback, Main.myPlayer);
+					player.AddBuff(ModContent.BuffType<Buffs.Debuffs.OutofBreath>(), Item.useTime + 1, false);
+					charge = 0;
+					chargeCount = 0;
+					return false;
+				}
 				player.AddBuff(ModContent.BuffType<Buffs.Debuffs.OutofBreath>(), Item.useTime + 1, false);
 				charge = 0;
 				chargeCount = 0;
@@ -116,4 +121,4 @@ namespace Zylon.Items.Blowpipes
 			recipe.Register();
 		}
 	}
-}*/
+}
