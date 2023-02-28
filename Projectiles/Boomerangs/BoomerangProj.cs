@@ -44,7 +44,9 @@ namespace Zylon.Projectiles.Boomerangs
 		public float ScreenshakeOnHit;
 		public float ScreenshakeDistance;
 
-		public BoomerangProj(int ChannelMax_Input, int ThrowAnimationMax_Input, int BonusDamage_Input, float ArcSpread_Input, float ArcLength_Input, int ArcFrames_Input, float BoomerangRotationSpeed_Input = 0.2f, int MaxPredictionDots_Input = 95, float ScreenshakeOnHit_Input = 5f, float ScreenshakeDistance_Input = 425f)
+		public float ArcCenter;
+
+		public BoomerangProj(int ChannelMax_Input, int ThrowAnimationMax_Input, int BonusDamage_Input, float ArcSpread_Input, float ArcLength_Input, int ArcFrames_Input, float BoomerangRotationSpeed_Input = 0.2f, int MaxPredictionDots_Input = 95, float ScreenshakeOnHit_Input = 5f, float ScreenshakeDistance_Input = 425f, float ArcCenter_Input = 0.8f)
 		{
 			ChannelMax = ChannelMax_Input;
 			ThrowAnimationMax = ThrowAnimationMax_Input;
@@ -56,6 +58,7 @@ namespace Zylon.Projectiles.Boomerangs
 			MaxPredictionDots = MaxPredictionDots_Input;
 			ScreenshakeOnHit = ScreenshakeOnHit_Input;
 			ScreenshakeDistance = ScreenshakeDistance_Input;
+			ArcCenter = ArcCenter_Input;
 		}
 
 		public override void SetDefaults()
@@ -128,7 +131,7 @@ namespace Zylon.Projectiles.Boomerangs
 			{
 				float FakeArcRatio = (ArcRatio - 0.5f) * 2f;
 				Projectile.Center = new Vector2(MathHelper.SmoothStep(ArcLength, 0f, FakeArcRatio), 0f).RotatedBy((double)Projectile.velocity.ToRotation(), default(Vector2)) + player.Center;
-				Projectile.Center += new Vector2(MathExtras.TensionStep(0f, 0f, FakeArcRatio, 0.2f, -ArcSpread), 0f).RotatedBy((double)(Projectile.velocity.ToRotation() + 1.57079637f * (float)initialDirection), default(Vector2));
+				Projectile.Center += new Vector2(MathExtras.TensionStep(0f, 0f, FakeArcRatio, (1f - ArcCenter), -ArcSpread), 0f).RotatedBy((double)(Projectile.velocity.ToRotation() + 1.57079637f * (float)initialDirection), default(Vector2));
 				if (!ReachedTipOfArc)
 				{
 					ReachedTipOfArc = true;
@@ -139,7 +142,7 @@ namespace Zylon.Projectiles.Boomerangs
 			{
 				float FakeArcRatio2 = ArcRatio * 2f;
 				Projectile.Center = new Vector2(MathHelper.SmoothStep(0f, ArcLength, FakeArcRatio2), 0f).RotatedBy((double)Projectile.velocity.ToRotation(), default(Vector2)) + player.Center;
-				Projectile.Center += new Vector2(MathExtras.TensionStep(0f, 0f, FakeArcRatio2, 0.8f, ArcSpread), 0f).RotatedBy((double)(Projectile.velocity.ToRotation() + 1.57079637f * (float)initialDirection), default(Vector2));
+				Projectile.Center += new Vector2(MathExtras.TensionStep(0f, 0f, FakeArcRatio2, ArcCenter, ArcSpread), 0f).RotatedBy((double)(Projectile.velocity.ToRotation() + 1.57079637f * (float)initialDirection), default(Vector2));
 			}
 			ArcTime++;
 			if (ArcTime > ArcFrames)
@@ -304,13 +307,13 @@ namespace Zylon.Projectiles.Boomerangs
 							{
 								float FakeArcRatio = (ArcPredictionRatio - 0.5f) * 2f;
 								drawLocation = new Vector2(MathHelper.SmoothStep(ArcLength, 0f, FakeArcRatio), 0f).RotatedBy((double)PredictionVelocity.ToRotation(), default(Vector2)) + Projectile.Center;
-								drawLocation += new Vector2(MathExtras.TensionStep(0f, 0f, FakeArcRatio, 0.2f, -ArcSpread), 0f).RotatedBy((double)(PredictionVelocity.ToRotation() + 1.57079637f * (float)initialDirection), default(Vector2));
+								drawLocation += new Vector2(MathExtras.TensionStep(0f, 0f, FakeArcRatio, (1f - ArcCenter), -ArcSpread), 0f).RotatedBy((double)(PredictionVelocity.ToRotation() + 1.57079637f * (float)initialDirection), default(Vector2));
 							}
 							else
 							{
 								float FakeArcRatio2 = ArcPredictionRatio * 2f;
 								drawLocation = new Vector2(MathHelper.SmoothStep(0f, ArcLength, FakeArcRatio2), 0f).RotatedBy((double)PredictionVelocity.ToRotation(), default(Vector2)) + Projectile.Center;
-								drawLocation += new Vector2(MathExtras.TensionStep(0f, 0f, FakeArcRatio2, 0.8f, ArcSpread), 0f).RotatedBy((double)(PredictionVelocity.ToRotation() + 1.57079637f * (float)initialDirection), default(Vector2));
+								drawLocation += new Vector2(MathExtras.TensionStep(0f, 0f, FakeArcRatio2, ArcCenter, ArcSpread), 0f).RotatedBy((double)(PredictionVelocity.ToRotation() + 1.57079637f * (float)initialDirection), default(Vector2));
 							}
 							if (ArcPredictionRatio <= 1f)
 							{

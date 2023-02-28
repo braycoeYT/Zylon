@@ -15,5 +15,6 @@
     <Folder Include="Items\Whips\" />
     <Folder Include="Items\Whips\" />
     <Folder Include="Projectiles\Whips\" />
+    <Folder Include="Projectiles\Whips\" />
   </ItemGroup>
 </Project>
