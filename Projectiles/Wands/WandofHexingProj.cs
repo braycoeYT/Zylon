@@ -16,7 +16,7 @@ namespace Zylon.Projectiles.Wands
 			Projectile.aiStyle = 1;
 			Projectile.friendly = true;
 			Projectile.penetrate = -1;
-			Projectile.timeLeft = 9999;
+			Projectile.timeLeft = 90;
 			Projectile.DamageType = DamageClass.Magic;
 			AIType = ProjectileID.Seed;
 		}

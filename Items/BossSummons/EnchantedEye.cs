@@ -33,10 +33,10 @@ namespace Zylon.Items.BossSummons
         }
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Glass, 5);
-			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 3);
-			recipe.AddIngredient(ModContent.ItemType<Materials.DiskiteCrumbles>(), 12);
-			recipe.AddIngredient(ItemID.FallenStar, 3);
+			recipe.AddIngredient(ItemID.Glass, 2);
+			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar");
+			recipe.AddIngredient(ModContent.ItemType<Materials.DiskiteCrumbles>(), 8);
+			recipe.AddIngredient(ItemID.FallenStar);
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}

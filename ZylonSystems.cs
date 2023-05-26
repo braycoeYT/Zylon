@@ -92,6 +92,18 @@ namespace Zylon
 			});
 			RecipeGroup.RegisterGroup("Zylon:AnyAdamantiteBar", group);
 
+			group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Herb", new int[]
+			{
+			ItemID.Blinkroot,
+			ItemID.Daybloom,
+			ItemID.Deathweed,
+			ItemID.Fireblossom,
+			ItemID.Moonglow,
+			ItemID.Shiverthorn,
+			ItemID.Waterleaf,
+			});
+			RecipeGroup.RegisterGroup("Zylon:AnyHerb", group);
+
 			if (RecipeGroup.recipeGroupIDs.ContainsKey("IronBar")) {
 				int index = RecipeGroup.recipeGroupIDs["IronBar"];
 				group = RecipeGroup.recipeGroups[index];
@@ -176,8 +188,10 @@ namespace Zylon
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.IceBoomerang);
-			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 9);
-			recipe.AddIngredient(ItemID.IceBlock, 20);
+			recipe.AddIngredient(ItemID.WoodenBoomerang);
+			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 6);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.EnchantedIceCube>(), 12);
+			recipe.AddIngredient(ItemID.IceBlock, 25);
 			recipe.AddTile(TileID.IceMachine);
 			recipe.Register();
 
@@ -465,6 +479,12 @@ namespace Zylon
 			recipe.AddTile(TileID.Loom);
 			recipe.Register();
 
+			recipe = Recipe.Create(ItemID.HermesBoots);
+			recipe.AddIngredient(ItemID.TatteredCloth, 23);
+			recipe.AddIngredient(ItemID.SwiftnessPotion);
+			recipe.AddTile(TileID.Loom);
+			recipe.Register();
+
 			recipe = Recipe.Create(ItemID.CobaltShield);
 			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 10);
 			recipe.AddTile(TileID.Anvils);
@@ -504,6 +524,12 @@ namespace Zylon
 			recipe.AddTile(TileID.Loom);
 			recipe.Register();
 
+			recipe = Recipe.Create(ItemID.WaterWalkingBoots);
+			recipe.AddIngredient(ItemID.TatteredCloth, 23);
+			recipe.AddIngredient(ItemID.WaterWalkingPotion);
+			recipe.AddTile(TileID.Loom);
+			recipe.Register();
+
 			recipe = Recipe.Create(ItemID.ObsidianRose);
 			recipe.AddIngredient(ItemID.JungleRose);
 			recipe.AddIngredient(ItemID.HellstoneBar, 6);
@@ -517,6 +543,25 @@ namespace Zylon
 			recipe.AddIngredient(ModContent.ItemType<Items.Bars.HaxoniteBar>(), 4);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.IceBlade);
+			recipe.AddIngredient(ItemID.WoodenSword);
+			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 6);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.EnchantedIceCube>(), 12);
+			recipe.AddIngredient(ItemID.IceBlock, 25);
+			recipe.AddTile(TileID.IceMachine);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.WhoopieCushion);
+			recipe.AddIngredient(ItemID.Leather);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 5);
+			recipe.AddTile(TileID.WorkBenches);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.Leather);
+			recipe.AddIngredient(ItemID.Vertebrae, 5);
+			recipe.AddTile(TileID.WorkBenches);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
             for (int i = 0; i < Recipe.numRecipes; i++) {
@@ -527,8 +572,14 @@ namespace Zylon
 					recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 20);
 				if (recipe.HasResult(ItemID.Sandgun))
 					recipe.AddIngredient(ModContent.ItemType<Items.Materials.RustedTech>(), 15);
-				if (recipe.HasResult(ItemID.MeteorStaff))
-					recipe.AddIngredient(ModContent.ItemType<Items.Wands.MeteorHerder>());
+				//if (recipe.HasResult(ItemID.MeteorStaff))
+				//	recipe.AddIngredient(ModContent.ItemType<Items.Wands.MeteorHerder>());
+				if (recipe.HasResult(ItemID.EnchantedBoomerang)) {
+					recipe.RemoveIngredient(ItemID.FallenStar);
+					recipe.AddRecipeGroup("IronBar", 5);
+					recipe.AddIngredient(ItemID.ManaCrystal);
+					recipe.AddTile(TileID.Anvils);
+				}
 			}
         }
     }

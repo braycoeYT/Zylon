@@ -10,7 +10,7 @@ namespace Zylon.Items.Ammo
 	public class DiskiteShrapnel : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Note to self: Do not play catch with these.'\nFor use with the shrapnel gun");
+			Tooltip.SetDefault("For use with the shrapnel gun");
         }
 		public override void SetDefaults() {
 			Item.damage = 3;

@@ -43,15 +43,15 @@ namespace Zylon.NPCs
             }
 			if (npc.type == NPCID.QueenBee) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Stinger, 1, 3, 6), new CommonDrop(ItemID.Stinger, 1, 4, 7)));
-				//npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Blowpipes.Revel>(), 8), new CommonDrop(ItemType<Items.Blowpipes.Revel>(), 6)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Blowpipes.Beepipe>(), 3), new CommonDrop(ItemType<Items.Blowpipes.Beepipe>(), 2)));
 			}
 			if (npc.type == NPCID.SkeletronHead)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Bone, 1, 20, 30), new CommonDrop(ItemID.Bone, 1, 30, 40)));
-			/*if (NPC.downedBoss3 && (npc.type == NPCID.Skeleton || npc.type == NPCID.SkeletonAlien || npc.type == NPCID.SkeletonArcher || npc.type == NPCID.SkeletonAstonaut || npc.type == NPCID.SkeletonSniper || npc.type == NPCID.ArmoredSkeleton || npc.type == NPCID.BigHeadacheSkeleton || npc.type == NPCID.BigMisassembledSkeleton || npc.type == NPCID.BigPantlessSkeleton || npc.type == NPCID.BigSkeleton || npc.type == NPCID.HeadacheSkeleton || npc.type == NPCID.HeadacheSkeleton|| npc.type == NPCID.MisassembledSkeleton || npc.type == NPCID.PantlessSkeleton || npc.type == NPCID.SmallHeadacheSkeleton || npc.type == NPCID.SmallMisassembledSkeleton || npc.type == NPCID.SmallPantlessSkeleton|| npc.type == NPCID.SmallSkeleton || npc.type == NPCID.SporeSkeleton))
-				npcLoot.Add(new CommonDrop(ItemID.Bone, 1, 1, 3));*/
-			if (npc.type == NPCID.WallofFlesh) {
+			//if (NPC.downedBoss3 && (npc.type == NPCID.Skeleton || npc.type == NPCID.SkeletonAlien || npc.type == NPCID.SkeletonArcher || npc.type == NPCID.SkeletonAstonaut || npc.type == NPCID.SkeletonSniper || npc.type == NPCID.ArmoredSkeleton || npc.type == NPCID.BigHeadacheSkeleton || npc.type == NPCID.BigMisassembledSkeleton || npc.type == NPCID.BigPantlessSkeleton || npc.type == NPCID.BigSkeleton || npc.type == NPCID.HeadacheSkeleton || npc.type == NPCID.HeadacheSkeleton|| npc.type == NPCID.MisassembledSkeleton || npc.type == NPCID.PantlessSkeleton || npc.type == NPCID.SmallHeadacheSkeleton || npc.type == NPCID.SmallMisassembledSkeleton || npc.type == NPCID.SmallPantlessSkeleton|| npc.type == NPCID.SmallSkeleton || npc.type == NPCID.SporeSkeleton))
+			//	npcLoot.Add(new CommonDrop(ItemID.Bone, 1, 1, 3));
+			/*if (npc.type == NPCID.WallofFlesh) {
 				npcLoot.Add(ItemDropRule.OneFromOptions(2, ItemType<Items.Blowpipes.FamiliarFoamDartPistol>(), ItemType<Items.Misc.MagnificentOrb>()));
-            }
+            }*/
 			if (npc.type == NPCID.BloodNautilus) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Swords.Dreadclawtilus>(), 5), new CommonDrop(ItemType<Items.Swords.Dreadclawtilus>(), 4)));
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.BloodDroplet>(), 1, 3, 6));
@@ -64,9 +64,9 @@ namespace Zylon.NPCs
 			}
 			if (npc.type == NPCID.Golem)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Spears.LihzahrdLance>(), 4), new CommonDrop(ItemType<Items.Spears.LihzahrdLance>(), 3)));
-			if (npc.type == NPCID.MoonLordCore) {
+			/*if (npc.type == NPCID.MoonLordCore) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Blowpipes.RoxinBlowgun>(), 3), new CommonDrop(ItemType<Items.Blowpipes.RoxinBlowgun>(), 2)));
-            }
+            }*/
 			if (npc.type == NPCID.MossHornet) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Stinger, 2), new CommonDrop(ItemID.Stinger, 1)));
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Vine, 5), new CommonDrop(ItemID.Vine, 4)));
@@ -140,6 +140,8 @@ namespace Zylon.NPCs
 				npcLoot.Add(new CommonDrop(ItemID.WoodenArrow, 1, 3, 7));
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Bows.GoblinArchbow>(), 20), new CommonDrop(ItemType<Items.Bows.GoblinArchbow>(), 30)));
             }
+			//if (npc.type == NPCID.Demon || npc.type == NPCID.VoodooDemon) //too similar to nightmare catcher
+			//	npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.BloodContract>(), 50), new CommonDrop(ItemType<Items.Accessories.BloodContract>(), 40)));
 		}
         public override void ModifyGlobalLoot(GlobalLoot globalLoot) {
             //globalLoot.Add(ItemDropRule.ByCondition(new Conditions.WindyEnoughForKiteDrops(), ItemType<Items.Materials.WindEssence>(), 5));
@@ -167,34 +169,33 @@ namespace Zylon.NPCs
 						nextSlot++;
 					}
 				}
+				if (Main.hardMode) {
+					shop.item[nextSlot].SetDefaults(ItemType<Items.Blowpipes.FamiliarFoamDartPistol>());
+						nextSlot++;
+                }
 			}
-			if (type == NPCID.Merchant) { //DB downed
-				if (Main.dayTime) {
+			if (type == NPCID.Merchant) {
+				if (ZylonWorldCheckSystem.downedDirtball) {
 					shop.item[nextSlot].SetDefaults(ItemType<Items.Tools.TreeWhacker>());
 					nextSlot++;
 				}
 			}
+			/*if (type == NPCID.Wizard) {
+				shop.item[nextSlot].SetDefaults(ItemType<Items.Misc.MagnificentOrb>());
+				nextSlot++;
+			}*/
         }
         public override void SetupTravelShop(int[] shop, ref int nextSlot) {
             if (Main.rand.NextFloat() < .5f) {
-				int rand = Main.rand.Next(2);
-				if (rand == 0) {
-					shop[nextSlot] = ItemType<Items.Ammo.OverclockArrow>();
-					nextSlot++;
-                }
-				if (rand == 1) {
-					shop[nextSlot] = ItemType<Items.Accessories.IronfistMedal>();
-					nextSlot++;
-                }
-			}
-			else if (Main.rand.NextFloat() < .5f && Main.hardMode) {
-				shop[nextSlot] = ItemType<Items.Flails.StickyHand>();
+				if (Main.rand.NextBool()) shop[nextSlot] = ItemType<Items.Ammo.OverclockArrow>();
+				else shop[nextSlot] = ItemType<Items.Accessories.IronfistMedal>();
 				nextSlot++;
-            }
-			/*if (Main.rand.NextFloat() < .25f && Main.hardMode) {
-				shop[nextSlot] = ItemType<Items.Accessories.AirTank>();
-                nextSlot++;
-			}*/
+			}
+			if (Main.rand.NextFloat() < .5f && Main.hardMode) {
+				if (Main.rand.NextBool()) shop[nextSlot] = ItemType<Items.Flails.StickyHand>();
+				else shop[nextSlot] = ItemType<Items.Accessories.AirTank>();
+				nextSlot++;
+			}
         }
     }
 }

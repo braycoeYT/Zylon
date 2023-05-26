@@ -160,12 +160,12 @@ namespace Zylon.NPCs.TownNPCs
 					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
 					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Misc.Flamecougher>());
 				}
-				else if (Main.LocalPlayer.HasItem(ItemID.BrainofCthulhuTrophy)) {
+				/*else if (Main.LocalPlayer.HasItem(ItemID.BrainofCthulhuTrophy)) {
 					int wantedItemIndex = Main.LocalPlayer.FindItem(ItemID.BrainofCthulhuTrophy);
 					var entitySource = NPC.GetSource_GiftOrReward();
 					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
 					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Misc.SurgeonsKnife>());
-				}
+				}*/
 				else if (Main.LocalPlayer.HasItem(ItemID.QueenBeeTrophy)) {
 					int wantedItemIndex = Main.LocalPlayer.FindItem(ItemID.QueenBeeTrophy);
 					var entitySource = NPC.GetSource_GiftOrReward();

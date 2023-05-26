@@ -113,7 +113,7 @@ namespace Zylon.NPCs
 		}
         public override float SpawnChance(NPCSpawnInfo spawnInfo) {
 			if (!NPC.downedPlantBoss) return 0f;
-			if (SpawnCondition.OverworldDaySlime.Chance > 0) return 0.04f;
+			if (SpawnCondition.OverworldDaySlime.Chance > 0) return 0.07f; //0.04f when minibosses return
             else return 0.001f;
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {

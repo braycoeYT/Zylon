@@ -8,7 +8,7 @@ namespace Zylon.Items.Accessories
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Heart of Prisms");
-			Tooltip.SetDefault("'Back off!'\nPuts a spike ring around the player\nEnemies hit by the ring are thrown away");
+			Tooltip.SetDefault("Puts a spike ring around the player\nEnemies hit by the ring are thrown away");
 		}
 		public override void SetDefaults() {
 			Item.width = 28;
@@ -22,8 +22,8 @@ namespace Zylon.Items.Accessories
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			p.ADDExpert = true;
 			player.AddBuff(ModContent.BuffType<Buffs.ADDSpikeRing>(), 60);
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Bosses.ADD.ADD_SpikeRingFriendly>()] < 1)
-				Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, new Microsoft.Xna.Framework.Vector2(0, 0), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADD_SpikeRingFriendly>(), 20, 9f, Main.myPlayer);
+			//if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Bosses.ADD.ADD_SpikeRingFriendly>()] < 1)
+			//	Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, new Microsoft.Xna.Framework.Vector2(0, 0), ModContent.ProjectileType<Projectiles.Bosses.ADD.ADD_SpikeRingFriendly>(), 20, 9f, Main.myPlayer);
 		}
 	}
 }

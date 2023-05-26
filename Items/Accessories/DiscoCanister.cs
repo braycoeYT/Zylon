@@ -16,6 +16,7 @@ namespace Zylon.Items.Accessories
 			Item.value = Item.sellPrice(0, 5);
 			Item.rare = ItemRarityID.LightRed;
 			Item.damage = 60;
+			Item.DamageType = DamageClass.Summon;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
 			player.GetCritChance(DamageClass.Generic) += 5;
@@ -28,9 +29,10 @@ namespace Zylon.Items.Accessories
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<GlazedLens>());
 			recipe.AddIngredient(ItemID.DiscoBall, 5);
+			recipe.AddIngredient(ItemID.Glass, 20);
 			recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 15);
 			recipe.AddIngredient(ItemID.CrystalShard, 12);
-			recipe.AddTile(TileID.WorkBenches);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

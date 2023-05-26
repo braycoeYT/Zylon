@@ -110,7 +110,7 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.Forest.OrangeSlime>();
 						break;
 					case 1:
-						npcType = ModContent.NPCType<NPCs.Ocean.CyanSlime>();
+						npcType = 0; //npcType = ModContent.NPCType<NPCs.Ocean.CyanSlime>();
 						break;
 					case 2:
 						npcType = ModContent.NPCType<NPCs.Forest.DirtSlime>();
@@ -134,7 +134,7 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.Forest.MechanicalSlime>();
 						break;
 					case 9:
-						npcType = ModContent.NPCType<NPCs.Sky.StarpackSlime>();
+						npcType = 0; //npcType = ModContent.NPCType<NPCs.Sky.StarpackSlime>();
 						break;
 					case 10:
 						npcType = ModContent.NPCType<NPCs.Snow.LivingMarshmallow>();
@@ -158,7 +158,7 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.WindyDay.WindElemental>();
 						break;
 					case 17:
-						npcType = ModContent.NPCType<NPCs.BloodMoon.BigDrip>();
+						npcType = 0; //npcType = ModContent.NPCType<NPCs.BloodMoon.BigDrip>();
 						break;
 					case 18:
 						npcType = ModContent.NPCType<NPCs.ElemSlime>();
@@ -167,7 +167,7 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.Meteorite.MeteorTail>();
 						break;
 					case 20:
-						npcType = ModContent.NPCType<NPCs.Snow.BlizzardSeer>();
+						npcType = 0; //npcType = ModContent.NPCType<NPCs.Snow.BlizzardSeer>();
 						break;
 					default:
 						return;

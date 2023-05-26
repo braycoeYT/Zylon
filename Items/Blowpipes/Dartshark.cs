@@ -11,22 +11,12 @@ namespace Zylon.Items.Blowpipes
 	public class Dartshark : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Maximum blowpipe charge: " + maxCharge + "\nBlowpipe charge speed: " + (chargeRate * 30) + "/s\nRight click to change modes.\nThe longer you inhale, the more speed, knockback, and damage the seed/dart deals, though you don't have to inhale to shoot.\nTake breaks from shooting to get your breath back.\nYou can inhale while in breath recovery.\nUses seeds as ammo\n33% chance to not consume ammo\n'Minishark's cousin. You still need to blow into it, though.'\nAt max charge, spawns several mini jellies to attack foes");
+			Tooltip.SetDefault("Uses seeds as ammo\n33% chance to not consume ammo\n'Minishark's cousin. Part of the Telumcetus family.'");
 			if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges) {
 				DisplayName.SetDefault("Dartshart");
 				Tooltip.SetDefault("Barrages enemies with taco bell\nUses seeds as ammo (symbolizes the seeds of intestinal damage sown by the taco bell)");
             }
 		}
-		float maxCharge = 95;
-		float charge;
-		float chargeRate = 1.2f;
-		bool modeCharge;
-		int chargeCount;
-		int origDamage;
-		float origKnockback;
-		float origShootSpeed;
-		int origItemSpeed;
-		int Timer;
 		public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);
 			Item.damage = 11;
@@ -40,89 +30,13 @@ namespace Zylon.Items.Blowpipes
 			if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges) {
 				Item.damage = 1;
 			}
-			origDamage = Item.damage;
-			origKnockback = Item.knockBack;
-			origShootSpeed = Item.shootSpeed;
-			origItemSpeed = Item.useAnimation;
 			Item.rare = ItemRarityID.Orange;
 		}
 		public override bool AltFunctionUse(Player player) {
 			return true;
 		}
         public override bool CanConsumeAmmo(Item ammo, Player player) {
-			if (Main.rand.NextBool(3)) return false;
-            return !(player.altFunctionUse == 2) && !modeCharge;
-        }
-        public override bool CanUseItem(Player player) {
-			ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
-			if (player.altFunctionUse == 2) {
-				modeCharge = !modeCharge;
-				SoundEngine.PlaySound(SoundID.MaxMana, player.position);
-				//p.blowpipeMinCharge = minCharge;
-				//p.blowpipeShowUI = modeCharge;
-				if (modeCharge) {
-					Item.useTime = 2;
-					Item.useAnimation = 2;
-					CombatText.NewText(player.getRect(), Color.Purple, "CHARGE");
-                }
-				else {
-					Item.useTime = origItemSpeed;
-					Item.useAnimation = origItemSpeed;
-					if (charge != 0) {
-						Item.damage = origDamage + (int)((Item.damage*2)*((float)charge/(float)(maxCharge))) + (int)(p.blowpipeChargeDamage*((float)charge/(float)(maxCharge)));
-			    		Item.knockBack = origKnockback + ((Item.knockBack*1.2f)*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeKnockback*((float)charge/(float)(maxCharge)));
-			    		Item.shootSpeed = origShootSpeed + ((Item.shootSpeed*0.8f)*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeShootSpeed*((float)charge/(float)(maxCharge)));
-                    }
-					CombatText.NewText(player.getRect(), Color.Purple, "SHOOT");
-                }
-				return false;
-            }
-            return true;
-        }
-        public override bool? UseItem(Player player) {
-			ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
-			if (modeCharge) {
-				chargeCount++;
-				charge += chargeRate + p.blowpipeChargeInc;
-				if (charge > maxCharge + p.blowpipeMaxInc)
-					charge = maxCharge + p.blowpipeMaxInc;
-				//p.blowpipeCharge = charge;
-				if (chargeCount % 10 == 0 && charge != maxCharge + p.blowpipeMaxInc)
-					CombatText.NewText(player.getRect(), Color.Purple, (int)charge);
-				else if (chargeCount % 10 == 0 && charge == maxCharge + p.blowpipeMaxInc)
-					CombatText.NewText(player.getRect(), Color.Purple, "MAX!");
-            }
-			else {
-				Item.damage = origDamage;
-				Item.knockBack = origKnockback;
-				Item.shootSpeed = origShootSpeed;
-				//p.blowpipeCharge = 0;
-            }
-            return true;
-        }
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-            if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges) {
-				Projectile.NewProjectile(Item.GetSource_FromThis(), position, velocity, ModContent.ProjectileType<Projectiles.Blowpipes.PoopFriendly>(), damage, knockback, Main.myPlayer);
-				return false;
-			}
-			
-			ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
-			if (!modeCharge) {
-				player.AddBuff(ModContent.BuffType<Buffs.Debuffs.OutofBreath>(), Item.useTime + 1, false);
-				if (charge == maxCharge + p.blowpipeMaxInc) {
-					SoundEngine.PlaySound(SoundID.Item34, position);
-					for (int i = 0; i < 5; i++)
-						Projectile.NewProjectile(source, player.Center + new Vector2(Main.rand.Next(-240, 241), Main.rand.Next(-240, 241)), new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj2>(), (int)(Item.damage * 1.5f), Item.knockBack, Main.myPlayer);
-					if (p.wadofSpores)
-						Projectile.NewProjectile(source, position, Vector2.Normalize(velocity) * 9, ModContent.ProjectileType<Projectiles.WadofSpores>(), damage, knockback, player.whoAmI);
-					charge = 0;
-					chargeCount = 0;
-					return false;
-                }
-				charge = 0;
-				chargeCount = 0;
-            }
-			return !modeCharge;
+            return Main.rand.Next(3) < 2;
         }
         public override Vector2? HoldoutOffset() {
 			return new Vector2(4, -4);

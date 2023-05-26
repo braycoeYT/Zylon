@@ -33,13 +33,13 @@ namespace Zylon.Items.BossSummons
 			SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
         }
-        public override void AddRecipes() {
+        /*public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Gel, 20);
 			recipe.AddIngredient(ItemID.SoulofLight, 2);
 			recipe.AddIngredient(ItemID.SoulofNight, 2);
 			recipe.AddTile(TileID.Solidifier);
 			recipe.Register();
-		}
+		}*/
 	}
 }

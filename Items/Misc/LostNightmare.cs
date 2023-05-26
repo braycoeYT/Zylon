@@ -26,8 +26,11 @@ namespace Zylon.Items.Misc
 		int Timer;
 		public override void Update(ref float gravity, ref float maxFallSpeed) {
 			Timer++;
-			if (Timer > 2400) Item.active = false;
+			if (Timer > 600) Item.active = false;
 		}
+        public override bool ItemSpace(Player player) {
+            return true;
+        }
         public override bool OnPickup(Player player) {
 			int rand = Main.rand.Next(1, 4);
 			player.statLife += rand;

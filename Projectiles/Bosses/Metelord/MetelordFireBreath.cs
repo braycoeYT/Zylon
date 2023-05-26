@@ -17,7 +17,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 			Projectile.height = 58;
 			Projectile.hostile = true;
 			Projectile.aiStyle = -1;
-			Projectile.timeLeft = 45+(int)Projectile.ai[0];
+			Projectile.timeLeft = 120+(int)Projectile.ai[0];
 			Projectile.tileCollide = false;
 			Projectile.ignoreWater = true;
 			Projectile.alpha = 255;
