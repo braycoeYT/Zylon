@@ -11,7 +11,7 @@ namespace Zylon.Items.Accessories
 	{
 		public override void SetStaticDefaults() {
             DisplayName.SetDefault("Pyrite");
-            Tooltip.SetDefault("'I love miners!'\nEmits a faint glow from within your pack");
+            Tooltip.SetDefault("Emits a faint glow from within your pack");
 		}
 		public override void SetDefaults() {
 			Item.width = 24;

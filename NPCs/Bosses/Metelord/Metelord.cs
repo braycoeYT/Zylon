@@ -54,8 +54,8 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.damage = 36;
 			NPC.defense = 6;
 			NPC.value = 50000;
-			NPC.height = 128;
-			NPC.width = 128;
+			NPC.height = 52;
+			NPC.width = 26; //34
 			NPC.noGravity = true;
 			CanFly = true;
 			NPC.boss = true;
@@ -77,8 +77,8 @@ namespace Zylon.NPCs.Bosses.Metelord
 			});
 		}
 		public override void Init() {
-			MinSegmentLength = 5;
-			MaxSegmentLength = 5;
+			MinSegmentLength = 6; //5
+			MaxSegmentLength = 6;
 
 			CommonWormInit(this);
 		}
@@ -115,6 +115,10 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.TargetClosest();
 			target = Main.player[NPC.target];
 			ZylonGlobalNPC.metelordBoss = NPC.whoAmI;
+			if (NPC.life < 1 && spawnGore) {
+				Gore.NewGore(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-3, -0)), ModContent.GoreType<Gores.Bosses.Metelord.MetelordHeadGore>());
+				spawnGore = false;
+            }
         }
 		int Timer;
 		int attack;
@@ -247,7 +251,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				if (attackTimer % (int)(35+(20*NPC.life/NPC.lifeMax)) == 1) {
 					Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 					speed.Normalize();
-					newVel = speed*(int)(-11.5f-(2f*NPC.life/NPC.lifeMax));
+					newVel = speed*(int)(-10f-(2f*NPC.life/NPC.lifeMax)); //-11.5f
                 }
 				if (attackTimer % (int)(15+(25*NPC.life/NPC.lifeMax)) == 0) {
 					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(Main.rand.Next(-100, 101)+(target.velocity.X*32), 0), new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordMeteoriteAttack2>(), (int)(NPC.damage*0.25f), 0f, Main.myPlayer, Main.rand.Next(0, 360), 5f-(2f*NPC.life/NPC.lifeMax), BasicNetType: 2);
@@ -273,9 +277,10 @@ namespace Zylon.NPCs.Bosses.Metelord
 			else if (attack == 4) {
 				runBoost = 30;
 				attackTimer++;
-				if (attackTimer % (int)(5+(5*NPC.life/NPC.lifeMax)) == 0) {
-					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -15).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireBreath>(), (int)(NPC.damage*0.33f), 0f, Main.myPlayer, 30-(30*NPC.life/NPC.lifeMax), BasicNetType: 2);
-                }
+				attackTimer2++;
+				if (attackTimer % (int)(5+(5*NPC.life/NPC.lifeMax)) == 0 && attackTimer2 % 180 < 90) {
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -15).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireBreath>(), (int)(NPC.damage * 0.33f), 0f, Main.myPlayer, 30 - (30 * NPC.life / NPC.lifeMax), BasicNetType: 2);
+				}
 				if (attackTimer % (100+(50*NPC.life/NPC.lifeMax)) < (55+(15*NPC.life/NPC.lifeMax))) {
 					Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 					speed.Normalize();
@@ -286,7 +291,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 					if (!Main.expertMode) kindness = 2f;
 					if (attackTimer % (100+(50*NPC.life/NPC.lifeMax)) < 20) basedness = 0.05f*(attackTimer % (100+(50*NPC.life/NPC.lifeMax)));
 					speed *= basedness;
-					newVel = speed*(int)(-13f-evilness+kindness+(3f*NPC.life/NPC.lifeMax));
+					newVel = speed*(int)(-10f-evilness+kindness+(3f*NPC.life/NPC.lifeMax));
                 }
 				if (attackTimer % (100+(50*NPC.life/NPC.lifeMax)) > (100+(50*NPC.life/NPC.lifeMax))-10) newVel *= 0.8f;
 				if (attackTimer < (44+(14*NPC.life/NPC.lifeMax))) newVel /= 2;
@@ -493,9 +498,9 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.CloneDefaults(NPCID.DiggerBody);
 			NPC.aiStyle = -1;
 			NPC.damage = 32;
-			NPC.defense = 39;
-			NPC.width = 128;
-			NPC.height = 128;
+			NPC.defense = 12;
+			NPC.width = 38; //44
+			NPC.height = 36;
 			NPC.noGravity = true;
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
@@ -525,6 +530,10 @@ namespace Zylon.NPCs.Bosses.Metelord
         public override void AI() {
 			head = Main.npc[ZylonGlobalNPC.metelordBoss];
             target = Main.player[head.target];
+			if (NPC.life < 1 && spawnGore) {
+				Gore.NewGore(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-3, 0)), ModContent.GoreType<Gores.Bosses.Metelord.MetelordTailGore>());
+				spawnGore = false;
+            }
         }
 		bool spawnGore = true;
 		public override void PostAI() {
@@ -534,7 +543,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				if (Main.expertMode) NPC.damage = 120;
 				if (Main.masterMode) NPC.damage = 176;
 				NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
-				NPC.defense = 117;
+				NPC.defense = 36;
 				for (int i = 0; i < 2; i++) {
 					int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
 					Dust dust = Main.dust[dustIndex];
@@ -549,7 +558,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				if (Main.expertMode) NPC.damage = 60;
 				if (Main.masterMode) NPC.damage = 88;
 				NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
-				NPC.defense = 39;
+				NPC.defense = 12;
 				if (Main.rand.NextBool()) {
 					int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
 					Dust dust = Main.dust[dustIndex];
@@ -599,8 +608,8 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.aiStyle = -1;
 			NPC.damage = 20;
 			NPC.defense = 198;
-			NPC.width = 128;
-			NPC.height = 128;
+			NPC.width = 46;
+			NPC.height = 46;
 			NPC.noGravity = true;
 		}
 		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
@@ -629,6 +638,10 @@ namespace Zylon.NPCs.Bosses.Metelord
         public override void AI() {
 			head = Main.npc[ZylonGlobalNPC.metelordBoss];
             target = Main.player[head.target];
+			if (NPC.life < 1 && spawnGore) {
+				Gore.NewGore(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-3, 0)), ModContent.GoreType<Gores.Bosses.Metelord.MetelordBodyGore>());
+				spawnGore = false;
+            }
         }
 		bool spawnGore = true;
 		public override void PostAI() {

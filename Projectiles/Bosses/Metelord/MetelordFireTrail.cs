@@ -18,9 +18,11 @@ namespace Zylon.Projectiles.Bosses.Metelord
 			Projectile.penetrate = -1;
 			Projectile.timeLeft = 300;
 			Projectile.tileCollide = false;
-			Projectile.scale = 1.5f;
+			Projectile.scale = 0f;
 		}
         public override void AI() {
+			if (Projectile.scale < 1.5f) Projectile.scale += 0.025f;
+			else Projectile.hostile = true;
             if (Projectile.timeLeft < 18)
 				Projectile.alpha += 15;
 			Lighting.AddLight(Projectile.Center, 0.6f, 0f, 0f);

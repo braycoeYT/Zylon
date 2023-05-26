@@ -10,7 +10,7 @@ namespace Zylon.Items.Accessories
 	public class NightmareCatcher : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'You can feel the bad vibes being emitted from this'\nStriking enemies has a chance to release lost nightmares, which can be absorbed by players to recover health\nTrue melee attacks have a much higher chance to release lost nightmares");
+			Tooltip.SetDefault("'You can feel the bad vibes being emitted from this'\nStriking enemies has a chance to release lost nightmares, which can be absorbed by players to recover health\nTrue melee attacks have a much higher chance to release lost nightmares\nA maximum of 10 lost nightmares can be active at once");
 		}
 		public override void SetDefaults() {
 			Item.width = 30;

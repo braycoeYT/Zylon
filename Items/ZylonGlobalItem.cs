@@ -50,6 +50,22 @@ namespace Zylon.Items
 					tooltips.Add(line);
 				}
             }
+			if (item.type == ItemID.ShinyRedBalloon || item.type == ItemID.BalloonPufferfish) {
+				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 4/s (does not stack with other balloons)");
+				tooltips.Add(line);
+			}
+			if (item.type == ItemID.BlizzardinaBalloon || item.type == ItemID.CloudinaBalloon || item.type == ItemID.FartInABalloon || item.type == ItemID.SandstorminaBalloon || item.type == ItemID.SharkronBalloon || item.type == ItemID.HoneyBalloon) {
+				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 6/s (does not stack with other balloons)");
+				tooltips.Add(line);
+			}
+			if (item.type == ItemID.BalloonHorseshoeFart || item.type == ItemID.BalloonHorseshoeHoney || item.type == ItemID.BalloonHorseshoeSharkron || item.type == ItemID.BlueHorseshoeBalloon || item.type == ItemID.WhiteHorseshoeBalloon || item.type == ItemID.YellowHorseshoeBalloon) {
+				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 8/s (does not stack with other balloons)");
+				tooltips.Add(line);
+			}
+			if (item.type == ItemID.BundleofBalloons) {
+				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 10/s (does not stack with other balloons)");
+				tooltips.Add(line);
+			}
 			/*if (item.type == ItemID.Minishark || item.type == ItemID.Shotgun || item.type == ItemID.PainterPaintballGun) {
 				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Slightly weakened until Eater of Worlds or Brain of Cthulhu is defeated");
 				tooltips.Add(line);
@@ -77,7 +93,7 @@ namespace Zylon.Items
 			if (!GetInstance<ZylonConfig>().dirtAmmoFix) {
 				if (item.type == ItemID.DirtBlock) {
 					item.consumable = true;
-					item.ammo = ItemType<Misc.Dirtthrower>();
+					item.ammo = ModContent.ItemType<Misc.Dirtthrower>();
 					item.notAmmo = true;
                 }
             }
@@ -104,16 +120,6 @@ namespace Zylon.Items
          }*/
         public override void UpdateAccessory(Item item, Player player, bool hideVisual) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			if (item.type == ItemID.RoyalGel) {
-				player.npcTypeNoAggro[NPCType<NPCs.Dungeon.BoneSlime>()] = true;
-				player.npcTypeNoAggro[NPCType<NPCs.Forest.DirtSlime>()] = true;
-				player.npcTypeNoAggro[NPCType<NPCs.Forest.MechanicalSlime>()] = true;
-				player.npcTypeNoAggro[NPCType<NPCs.Forest.OrangeSlime>()] = true;
-				player.npcTypeNoAggro[NPCType<NPCs.Ocean.CyanSlime>()] = true;
-				player.npcTypeNoAggro[NPCType<NPCs.Sky.StarpackSlime>()] = true;
-				player.npcTypeNoAggro[NPCType<NPCs.Snow.LivingMarshmallow>()] = true;
-				player.npcTypeNoAggro[NPCType<NPCs.Snow.RoastedLivingMarshmallow>()] = true;
-			}
 			if (GetInstance<ZylonConfig>().bandBuffs) {
 				if (item.type == ItemID.BandofRegeneration || item.type == ItemID.CharmofMyths) {
 					p.bandofRegen = true;
@@ -131,6 +137,30 @@ namespace Zylon.Items
 				}
 				p.stncheck = true;
             }
+			if (item.type == ItemID.ShinyRedBalloon || item.type == ItemID.BalloonPufferfish) {
+				if (!p.balloonCheck) { 
+					p.blowpipeChargeInc += 0.1333333333f;
+				}
+				p.balloonCheck = true;
+			}
+			if (item.type == ItemID.BlizzardinaBalloon || item.type == ItemID.CloudinaBalloon || item.type == ItemID.FartInABalloon || item.type == ItemID.SandstorminaBalloon || item.type == ItemID.SharkronBalloon || item.type == ItemID.HoneyBalloon) {
+				if (!p.balloonCheck) { 
+					p.blowpipeChargeInc += 0.2f;
+				}
+				p.balloonCheck = true;
+			}
+			if (item.type == ItemID.BalloonHorseshoeFart || item.type == ItemID.BalloonHorseshoeHoney || item.type == ItemID.BalloonHorseshoeSharkron || item.type == ItemID.BlueHorseshoeBalloon || item.type == ItemID.WhiteHorseshoeBalloon || item.type == ItemID.YellowHorseshoeBalloon) {
+				if (!p.balloonCheck) { 
+					p.blowpipeChargeInc += 0.2666666666f;
+				}
+				p.balloonCheck = true;
+			}
+			if (item.type == ItemID.BundleofBalloons) {
+				if (!p.balloonCheck) { 
+					p.blowpipeChargeInc += 0.3333333333f;
+				}
+				p.balloonCheck = true;
+			}
 		}
 		public override string IsArmorSet(Item head, Item body, Item legs) {
 			if (head.type == ItemID.MagicHat && body.type == ItemType<Armor.JadeRobe>())

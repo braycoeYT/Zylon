@@ -27,6 +27,10 @@ namespace Zylon.Projectiles.Accessories
             Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 10;
         }
+        public override void AI() {
+            if (Projectile.timeLeft >= 200) Projectile.tileCollide = false;
+            else Projectile.tileCollide = true;
+        }
         public override bool PreDraw(ref Color lightColor)
         {
             Main.instance.LoadProjectile(Projectile.type);

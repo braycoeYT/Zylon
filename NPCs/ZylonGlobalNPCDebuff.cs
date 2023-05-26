@@ -102,14 +102,14 @@ namespace Zylon.NPCs
 		int stayDir;
 		Vector2 stay;
 		Color tColor;
-		bool checkColor;
+		bool checkColor; //DOESNT WORK DONT USE //find a way to only look for one frame instead of always?
         public override void PostAI(NPC npc) { //Tome man gonna kill me for this if statement army
 			checkColor = !npc.boss && npc.type != NPCID.GolemHead;
 			Timer++;
             if (safe) {
                 safeColor = npc.color;
                 safe = false;
-				safeGrav = npc.noGravity;
+				//safeGrav = npc.noGravity;
             }
 			tColor = safeColor;
 			if (brainFreeze) {
@@ -153,23 +153,23 @@ namespace Zylon.NPCs
 				if (checkColor) {
 					npc.velocity = Vector2.Zero;
 					if (!setup) {
-				        stay = npc.position;
-						stayRot = npc.rotation;
-						stayDir = npc.spriteDirection;
+				        //stay = npc.position;
+						//stayRot = npc.rotation;
+						//stayDir = npc.spriteDirection;
 				        setup = true;
 					}
-					npc.position = stay;
-					npc.rotation = stayRot;
-					npc.spriteDirection = stayDir;
-					npc.noGravity = true;
+					//npc.position = stay;
+					//npc.rotation = stayRot;
+					//npc.spriteDirection = stayDir;
+					//npc.noGravity = true;
 				}
 			}
 			else {
 				setup = false;
-				npc.noGravity = safeGrav;
+				//npc.noGravity = safeGrav;
             }
 			if (checkColor) {
-                npc.color = tColor;
+                //npc.color = tColor;
 			}
 			base.PostAI(npc);
         }

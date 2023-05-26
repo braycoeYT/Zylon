@@ -10,18 +10,18 @@ namespace Zylon.Projectiles.Ammo
         public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Starshot");
         }
-		bool word;
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.FallingStar);
 			Projectile.width = 16;
 			Projectile.height = 16;
-			if (Projectile.ai[0] == 1f)
-				word = true;
-			Projectile.ai[0] = 0f;
+			Projectile.timeLeft = 400;
 		}
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+            Projectile.damage /= 2;
+			if (Projectile.damage < 1) Projectile.damage = 1;
+        }
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			if (Main.rand.NextFloat() < .2f) Item.NewItem(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.getRect(), ModContent.ItemType<Items.Ammo.Starshot>());
 		}
 	}   
 }

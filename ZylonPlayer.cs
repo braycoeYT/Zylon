@@ -40,14 +40,25 @@ namespace Zylon
 		public bool st2check;
 		public bool discoCanister;
 		public bool hexNecklace;
+		public bool shivercrown;
+		public bool bloodContract;
+		public bool balloonCheck;
+		public bool rootGuard;
 
 		public float critExtraDmg;
-		public int blowpipeMaxInc;
-		public float blowpipeChargeInc;
-		public int blowpipeChargeDamage;
-		public int blowpipeChargeKnockback;
-		public int blowpipeChargeShootSpeed;
 		public int critCount;
+		public int blowpipeMaxInc; //Increases max blowpipe charge.
+		public float blowpipeChargeInc; //Increases blowpipe charge rate. 30x/s.
+		public float blowpipeChargeMult; //Multiplies the blowpipe charge rate BEFORE adding the above.
+		public int blowpipeChargeDamageAdd; //Increases max charge damage by a set amount.
+		public int blowpipeChargeKnockbackAdd; //Increases max charge knockback by a set amount.
+		public int blowpipeChargeShootSpeedAdd; //Increases max charge shoot speed by a set amount.
+		public float blowpipeChargeDamageMult; //Multiplies the added max charge damage.
+		public float blowpipeChargeKnockbackMult; //Multiplies the added max charge knockback.
+		public float blowpipeChargeShootSpeedMult; //Multiplies the added max charge shoot speed.
+		public float blowpipeChargeRetain; //What percentage of charge is retained after shooting.
+		//public float blowpipeMaxOverflow; //REMOVED: Better to fix this with higher max charges. How far blowpipes can charge over the default max. Default is 150%, or 1.5f.
+		public float blowpipeMinShootSpeed; //Minimum shoot speed for blowpipes.
 		/*public bool blowpipeShowUI;
 		public int blowpipeMinCharge;
 		public int blowpipeCharge;*/
@@ -82,12 +93,23 @@ namespace Zylon
 			st2check = false;
 			discoCanister = false;
 			hexNecklace = false;
+			shivercrown = false;
+			bloodContract = false;
+			balloonCheck = false;
+			rootGuard = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
-			blowpipeChargeDamage = 0;
-			blowpipeChargeKnockback = 0;
-			blowpipeChargeShootSpeed = 0;
+			blowpipeChargeMult = 1f;
+			blowpipeChargeDamageAdd = 0;
+			blowpipeChargeKnockbackAdd = 0;
+			blowpipeChargeShootSpeedAdd = 0;
+			blowpipeChargeDamageMult = 1f;
+			blowpipeChargeKnockbackMult = 1f;
+			blowpipeChargeShootSpeedMult = 1f;
+			blowpipeChargeRetain = 0f;
+			//blowpipeMaxOverflow = 1.5f;
+			blowpipeMinShootSpeed = 0f;
 		}
 		public override void UpdateDead() {
 			Heartdaze = false;
@@ -154,14 +176,26 @@ namespace Zylon
 					Player.GetDamage(DamageClass.MagicSummonHybrid) -= 0.15f*Player.statLife/Player.statLifeMax2;
 					Player.manaRegen -= 2;
                 }
+				if (Player.HasBuff(BuffID.WellFed)) {
+					blowpipeMaxInc += 10;
+					blowpipeChargeInc += 0.1f;
+                }
+				if (Player.HasBuff(BuffID.WellFed2)) {
+					blowpipeMaxInc += 20;
+					blowpipeChargeInc += 0.2f;
+                }
+				if (Player.HasBuff(BuffID.WellFed3)) {
+					blowpipeMaxInc += 40;
+					blowpipeChargeInc += 0.3f;
+                }
             }
 			if (Player.npcTypeNoAggro[NPCID.MotherSlime]) {
 				Player.npcTypeNoAggro[NPCType<NPCs.Dungeon.BoneSlime>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Forest.DirtSlime>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Forest.MechanicalSlime>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Forest.OrangeSlime>()] = true;
-				Player.npcTypeNoAggro[NPCType<NPCs.Ocean.CyanSlime>()] = true;
-				Player.npcTypeNoAggro[NPCType<NPCs.Sky.StarpackSlime>()] = true;
+				//Player.npcTypeNoAggro[NPCType<NPCs.Ocean.CyanSlime>()] = true;
+				//Player.npcTypeNoAggro[NPCType<NPCs.Sky.StarpackSlime>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Snow.LivingMarshmallow>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Snow.RoastedLivingMarshmallow>()] = true;
             }
@@ -214,18 +248,38 @@ namespace Zylon
 				if (TrueMelee) {
 					if (diskbringerSet)
 						DiskiteBuffs(90);
-					if (glazedLens && crit)
-						ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Player.whoAmI, item.crit + Player.GetCritChance(item.DamageType));
-					if (nightmareCatcher && Main.rand.NextFloat() < .2f)
-						Item.NewItem(target.GetSource_FromThis(), target.getRect(), ModContent.ItemType<Items.Misc.LostNightmare>());
+					if (nightmareCatcher && Main.rand.NextFloat() < .2f) {
+						int y = 0;
+						for (int x = 0; x < Main.maxItems; x++) {
+							if (Main.item[x].type == ItemType<Items.Misc.LostNightmare>()) y++;
+                        }
+						if (y < 10) Item.NewItem(target.GetSource_FromThis(), target.getRect(), ItemType<Items.Misc.LostNightmare>());
+					}
+					if (crit) {
+						if (glazedLens)
+							Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
+						if (bloodContract) for (int x = 0; x < Main.rand.Next(1, 4); x++)
+							if (item.crit + Player.GetCritChance(item.DamageType) < Main.rand.NextFloat(30f, 130f))
+								Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-9, -5)), ProjectileType<Projectiles.Accessories.BloodContractProj>(), 0, 0, Main.myPlayer);
+					}
 				} else {
 					// To encourage more true melee play, this only has a 75% chance of applying instead of 100
 					if (diskbringerSet)
 						DiskiteBuffs(60, 75);
-					if (glazedLens && crit)
-						ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Player.whoAmI, proj.CritChance);
-					if (nightmareCatcher && Main.rand.NextFloat() < .07f)
-						Item.NewItem(target.GetSource_FromThis(), target.getRect(), ModContent.ItemType<Items.Misc.LostNightmare>());
+					if (nightmareCatcher && Main.rand.NextFloat() < .07f) {
+						int y = 0;
+						for (int x = 0; x < Main.maxItems; x++) {
+							if (Main.item[x].type == ItemType<Items.Misc.LostNightmare>()) y++;
+                        }
+						if (y < 10) Item.NewItem(target.GetSource_FromThis(), target.getRect(), ItemType<Items.Misc.LostNightmare>());
+					}
+					if (crit) {
+						if (glazedLens)
+							Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, proj.CritChance);
+						if (bloodContract) for (int x = 0; x < Main.rand.Next(1, 3); x++)
+							if (proj.CritChance < Main.rand.NextFloat(30f, 130f))
+								Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-9, -5)), ProjectileType<Projectiles.Accessories.BloodContractProj>(), 0, 0, Main.myPlayer);
+					}
 				}
 				if (bloodVial && Main.rand.NextFloat() < .1f)
 					Player.Heal(1);
@@ -281,6 +335,16 @@ namespace Zylon
 				DiskiteBuffs(Bufftime);
         }
         public override void OnHitByNPC(NPC npc, int damage, bool crit) {
+            if (rootGuard) for (int x = 0; x < 3; x++) { //FINISH
+				int pos = Main.rand.Next(16, 49);
+				if (Main.rand.NextBool()) pos *= -1;
+				//Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + new Vector2(pos, -16), Vector2.Zero, ProjectileType<Projectiles.Accessories.RootGuardProj>(), 10, 2f, Main.myPlayer);
+			}
+        }
+        public override void OnHitByProjectile(Projectile proj, int damage, bool crit) {
+            
+        }
+        /*public override void OnHitByNPC(NPC npc, int damage, bool crit) {
             if ((npc.type == NPCType<NPCs.Bosses.ADD.ADD_SpikeRing>() || npc.type == NPCType<NPCs.Bosses.ADD.ADD_Center>()) && !Player.noKnockback) {
 				Vector2 vector1;
 				vector1 = npc.Center - Player.Center;
@@ -295,7 +359,7 @@ namespace Zylon
 				vector1.Normalize();
 				Player.velocity = vector1*-12f;
             }
-        }
+        }*/
         public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource, ref int cooldownCounter) {
 			if (stealthPotion && Main.rand.NextFloat() < .04f) {
 				damage = 0;
@@ -310,12 +374,19 @@ namespace Zylon
             }
 			return true;
         }
+		float check;
         public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition) {
-            Player owner = Main.player[(int)Player.FindClosest(Player.position, Player.width, Player.height)];
+            if (Main.hardMode) check = 1f;
+			Player owner = Main.player[(int)Player.FindClosest(Player.position, Player.width, Player.height)];
 			if ((owner.ZoneDirtLayerHeight || owner.ZoneRockLayerHeight) && Main.rand.NextFloat() < .04f)
 				itemDrop = ItemType<Items.Materials.Fish.LabyrinthFish>();
 			if (owner.ZoneRockLayerHeight && Main.rand.NextFloat() < .07f && Player.HasBuff(BuffID.Hunter))
 				itemDrop = ItemType<Items.Materials.Fish.PaintedGlassTetra>();
+			if (owner.ZoneBeach && Main.rand.NextFloat() < (.04f-(.02f*check)))
+				itemDrop = ItemType<Items.Blowpipes.Shellshocker>();
+        }
+        public override void PostUpdate() {
+           
         }
     }
 }

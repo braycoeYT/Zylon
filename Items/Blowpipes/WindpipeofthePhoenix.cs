@@ -1,4 +1,58 @@
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace Zylon.Items.Blowpipes
+{
+	public class WindpipeofthePhoenix : ZylonBlowpipe
+	{
+		public WindpipeofthePhoenix() : base(185, 1.8f, new Color(252, 102, 25), true) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
+		public override void SetStaticDefaults() {
+			DisplayName.SetDefault("Windpipe of the Phoenix");
+			Tooltip.SetDefault("At max charge, replaces ammo with a burst of flames\nRight click to disable and enable this effect");
+		}
+        public override void SetDefaults() {
+			Item.CloneDefaults(ItemID.Blowpipe);
+            Item.damage = 34;
+			Item.knockBack = 1f;
+			Item.shootSpeed = 9.25f;
+			Item.useTime = 1;
+			Item.useAnimation = 1;
+			Item.value = Item.sellPrice(0, 2);
+			Item.rare = ItemRarityID.Orange;
+			Item.autoReuse = true;
+        }
+		public override bool AltFunctionUse(Player player) {
+			return true;
+		}
+		public override void AltClickEvent(Player player) {
+			maxReplace = !maxReplace;
+			if (maxReplace) CombatText.NewText(player.getRect(), textColor, "Enabled");
+			else CombatText.NewText(player.getRect(), textColor, "Disabled");
+        }
+		public override void MaxChargeEvent(Player player, Vector2 vel, int tempType, int tempDmg, float tempKb, float tempSpd) {
+			if (maxReplace) {
+				SoundEngine.PlaySound(SoundID.Item34, player.position);
+				for (int i = 0; i < 5; i++)
+					Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, (vel*tempSpd).RotatedBy(MathHelper.ToRadians(-6+(i*3))), ProjectileID.Flames, tempDmg, tempKb, player.whoAmI);
+			}
+        }
+		public override Vector2? HoldoutOffset() {
+			return new Vector2(4, -8);
+		}
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.HellstoneBar, 16);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+		}
+    }
+}
+/*using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -60,9 +114,9 @@ namespace Zylon.Items.Blowpipes
 					Item.useTime = origItemSpeed;
 					Item.useAnimation = origItemSpeed;
 					if (charge != 0) {
-						Item.damage = origDamage + (int)((Item.damage*2)*((float)charge/(float)(maxCharge))) + (int)(p.blowpipeChargeDamage*((float)charge/(float)(maxCharge)));
-			    		Item.knockBack = origKnockback + ((Item.knockBack*1.2f)*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeKnockback*((float)charge/(float)(maxCharge)));
-			    		Item.shootSpeed = origShootSpeed + ((Item.shootSpeed*0.8f)*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeShootSpeed*((float)charge/(float)(maxCharge)));
+						//Item.damage = origDamage + (int)((Item.damage*2)*((float)charge/(float)(maxCharge))) + (int)(p.blowpipeChargeDamage*((float)charge/(float)(maxCharge)));
+			    		//Item.knockBack = origKnockback + ((Item.knockBack*1.2f)*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeKnockback*((float)charge/(float)(maxCharge)));
+			    		//Item.shootSpeed = origShootSpeed + ((Item.shootSpeed*0.8f)*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeShootSpeed*((float)charge/(float)(maxCharge)));
                     }
 					CombatText.NewText(player.getRect(), Color.OrangeRed, "SHOOT");
                 }
@@ -125,4 +179,4 @@ namespace Zylon.Items.Blowpipes
 			recipe.Register();
 		}
 	}
-}
+}*/

@@ -11,7 +11,7 @@ namespace Zylon.Items.Ammo
 			Tooltip.SetDefault("For use with blowpipes");
         }
 		public override void SetDefaults() {
-			Item.damage = 5;
+			Item.damage = 4;
 			Item.DamageType = DamageClass.Ranged;
 			Item.width = 10;
 			Item.height = 10;

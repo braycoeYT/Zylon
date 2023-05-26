@@ -7,7 +7,7 @@ namespace Zylon.Items.Accessories
 	public class LeadBalloon : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'I saw this in a video game once'\nIncreases jump height\nIncreases max falling speed and grants immunity to fall damage");
+			Tooltip.SetDefault("'I saw this in a video game once'\nIncreases jump height\nIncreases max falling speed and grants immunity to fall damage\nIncreases blowpipe charge speed by 6/s (does not stack with other balloons)");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;
@@ -18,9 +18,14 @@ namespace Zylon.Items.Accessories
 			Item.defense = 2;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			player.maxFallSpeed += 6f;
 			player.jumpBoost = true;
 			player.noFallDmg = true;
+			if (!p.balloonCheck) { 
+				p.blowpipeChargeInc += 0.2f;
+			}
+			p.balloonCheck = true;
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
