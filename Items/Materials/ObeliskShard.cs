@@ -7,7 +7,7 @@ namespace Zylon.Items.Materials
 	public class ObeliskShard : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'It's unusually dusty...'");
+			// Tooltip.SetDefault("'It's unusually dusty...'");
 		}
 		public override void SetDefaults() {
 			Item.width = 32;

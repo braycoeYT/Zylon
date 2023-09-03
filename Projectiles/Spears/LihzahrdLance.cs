@@ -13,7 +13,7 @@ namespace Zylon.Projectiles.Spears
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Lihzahrd Lance");
+			// DisplayName.SetDefault("Lihzahrd Lance");
 		}
 		public LihzahrdLance() : base(-20f, 24, 45f, 20f, 2, 30, 60f, 0f, 1.5f, false, false, false) { }
 		public override void SpearDefaultsSafe()

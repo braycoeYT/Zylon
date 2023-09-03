@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Pets
 	public class MiniDiskling : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Mini Diskling");
+            // DisplayName.SetDefault("Mini Diskling");
             Main.projPet[Projectile.type] = true;
         }
         public override void SetDefaults() {

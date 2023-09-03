@@ -8,7 +8,7 @@ namespace Zylon.Projectiles
 	public class ElectricBoltPassive : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Electric Bolt");
+			// DisplayName.SetDefault("Electric Bolt");
 			Main.projFrames[Projectile.type] = 4;
         }
 		public override void SetDefaults() {

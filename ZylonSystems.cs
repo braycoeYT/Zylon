@@ -430,7 +430,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Umbrella);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 20);
 			recipe.AddTile(TileID.Anvils);
-			recipe.AddCondition(Recipe.Condition.InGraveyardBiome);
+			recipe.AddCondition(Condition.InGraveyard);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.GoldenDelight);

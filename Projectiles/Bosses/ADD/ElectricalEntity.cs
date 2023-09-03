@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 	public class ElectricalEntity : ModProjectile
 	{
         public override void SetStaticDefaults() { //SCRAPPED ATTACK
-			DisplayName.SetDefault("Electrical Entity");
+			// DisplayName.SetDefault("Electrical Entity");
 			Main.projFrames[Projectile.type] = 2;
         }
 		public override void SetDefaults() {

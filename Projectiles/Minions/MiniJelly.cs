@@ -10,7 +10,7 @@ namespace Zylon.Projectiles.Minions
 	public class MiniJelly : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mini Jelly");
+			// DisplayName.SetDefault("Mini Jelly");
 			Main.projFrames[Projectile.type] = 3;
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;

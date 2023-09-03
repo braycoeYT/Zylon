@@ -9,7 +9,7 @@ namespace Zylon.Items.Spears
 	{
 		public override void SetStaticDefaults() {
 			ItemID.Sets.Spears[Item.type] = true;
-			Tooltip.SetDefault("Shoots otherworldly fangs on use");
+			// Tooltip.SetDefault("Shoots otherworldly fangs on use");
 		}
 		public override void SetDefaults() {
 			Item.width = 60;

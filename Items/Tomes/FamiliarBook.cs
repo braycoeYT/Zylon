@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,7 +11,7 @@ namespace Zylon.Items.Tomes
 	public class FamiliarBook : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Casts down a psychokinetic flame wall\n'Reminds you of something, although you don't know what.'");
+			// Tooltip.SetDefault("Casts down a psychokinetic flame wall\n'Reminds you of something, although you don't know what.'");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 0, 54, 0);
@@ -122,9 +123,9 @@ namespace Zylon.Items.Tomes
 
             return false;
         }
-        public override void OnCreate(ItemCreationContext context)
+        public override void OnCreated(ItemCreationContext context)
         {
-            if (context is RecipeCreationContext)
+            if (context is RecipeItemCreationContext)
             {
                 Player NearestPlayer = null;
                 float lowestDistance = 1000f;
@@ -141,7 +142,7 @@ namespace Zylon.Items.Tomes
                     Projectile.NewProjectile(Item.GetSource_FromThis(), NearestPlayer.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Puzzles.FamiliarBookCraftingAnim>(), 0, 0f, NearestPlayer.whoAmI, 0, 0);
                 }
             }
-            base.OnCreate(context);
+            base.OnCreated(context);
         }
     }
 }

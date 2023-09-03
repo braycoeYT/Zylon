@@ -10,7 +10,7 @@ namespace Zylon.Items.BossSummons
 		public override void SetStaticDefaults() {
 			string extra = "";
 			if (ModContent.GetInstance<ZylonConfig>().infBossSum) extra = "\nNot Consumable";
-			Tooltip.SetDefault("'It melts in your hand...'\nSummons Dirtball"+extra);
+			// Tooltip.SetDefault("'It melts in your hand...'\nSummons Dirtball"+extra);
 			ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 0;
 		}
 		public override void SetDefaults() {
@@ -39,7 +39,7 @@ namespace Zylon.Items.BossSummons
 				}
 				else
 				{
-					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+					NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: type);
 				}
 			}
 			return true;

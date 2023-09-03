@@ -12,7 +12,7 @@ namespace Zylon.Projectiles.Boomerangs
 	public class BionicBoomerRang : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Bionic Boomer");
+			// DisplayName.SetDefault("Bionic Boomer");
         }
 		public override void SetDefaults() {
 			Projectile.width = 20;

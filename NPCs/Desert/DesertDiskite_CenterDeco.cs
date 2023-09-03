@@ -13,7 +13,7 @@ namespace Zylon.NPCs.Desert
 	public class DesertDiskite_CenterDeco : ModNPC
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("");
+			// DisplayName.SetDefault("");
             //Main.npcFrameCount[NPC.type] = 2;
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				Hide = true
@@ -37,7 +37,7 @@ namespace Zylon.NPCs.Desert
 			Banner = Item.NPCtoBanner(ModContent.NPCType<DesertDiskite_Center>());
 			BannerItem = Item.BannerToItem(Banner);
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 69;
 			NPC.damage = 32;
         }

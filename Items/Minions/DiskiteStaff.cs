@@ -10,7 +10,7 @@ namespace Zylon.Items.Minions
 	public class DiskiteStaff : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons a desert diskite to fight for you");
+			// Tooltip.SetDefault("Summons a desert diskite to fight for you");
 			ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
 			ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
 		}

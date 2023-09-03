@@ -9,7 +9,7 @@ namespace Zylon.Items.Wands
 	public class OceanWaterer : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("'Seems a little much for just winning a water gun fight...'\nWaterboards enemies with a barrage of water splashes");
+            // Tooltip.SetDefault("'Seems a little much for just winning a water gun fight...'\nWaterboards enemies with a barrage of water splashes");
         }
         public override void SetDefaults() {
 			Item.damage = 61;

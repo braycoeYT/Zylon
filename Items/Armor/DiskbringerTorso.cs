@@ -8,7 +8,7 @@ namespace Zylon.Items.Armor
 	public class DiskbringerTorso : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Increases max life by 10%");
+			// Tooltip.SetDefault("Increases max life by 10%");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

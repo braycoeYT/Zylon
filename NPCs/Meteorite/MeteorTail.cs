@@ -27,12 +27,12 @@ namespace Zylon.NPCs.Meteorite
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
         }
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 48;
             NPC.damage = 74;
 			NPC.knockBackResist = 0.02f;
         }
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
             target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(6, 8));
         }
 		int Timer;

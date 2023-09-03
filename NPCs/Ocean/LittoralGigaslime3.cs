@@ -13,7 +13,7 @@ namespace Zylon.NPCs.Ocean
 	{
         public override void SetStaticDefaults() {
             Main.npcFrameCount[NPC.type] = 2;
-			DisplayName.SetDefault("Littoral Gigaslime");
+			// DisplayName.SetDefault("Littoral Gigaslime");
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				ImmuneToAllBuffsThatAreNotWhips = true
 			};
@@ -40,7 +40,7 @@ namespace Zylon.NPCs.Ocean
 			Banner = Item.NPCtoBanner(ModContent.NPCType<LittoralGigaslime>());
 			BannerItem = Item.BannerToItem(Banner);
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 10250;
 			NPC.damage = 111;
 			NPC.defense = 16;

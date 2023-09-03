@@ -21,7 +21,7 @@ namespace Zylon.Projectiles.Shortswords
 		}
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Emerald Falcon");
+			// DisplayName.SetDefault("Emerald Falcon");
 		}
 		public override void SetDefaults() {
 			Projectile.Size = new Vector2(18);

@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Pets
 	public class SpookyJellyfish : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Spooky Jellyfish");
+            // DisplayName.SetDefault("Spooky Jellyfish");
             Main.projPet[Projectile.type] = true;
             Main.projFrames[Projectile.type] = 2;
         }

@@ -13,7 +13,7 @@ namespace Zylon.Items.Food
 		bool PotatoAlchemy = false;
 		int PotatoAlchemyTimer = 0;
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Minor improvements to all stats\n'Alchemists have been known to use potatoes for soul infusions.'");
+			// Tooltip.SetDefault("Minor improvements to all stats\n'Alchemists have been known to use potatoes for soul infusions.'");
 		}
 		public override void SetDefaults() {
 			Item.width = 24;

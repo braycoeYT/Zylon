@@ -29,7 +29,7 @@ namespace Zylon.NPCs.Ocean
 			BannerItem = Item.BannerToItem(Banner);
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/SlimyDemise2");
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 1500;
 			NPC.damage = 110;
 			NPC.value = 60000;

@@ -9,7 +9,7 @@ namespace Zylon.Items.Blowpipes
 	{
 		public BloodyBaller() : base(130, 1.25f, new Color(200, 0, 0)) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Spawns lifestealing bloodballs (amount depends on charge) around the player on use");
+			// Tooltip.SetDefault("Spawns lifestealing bloodballs (amount depends on charge) around the player on use");
 		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);

@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Ammo
 	public class OozingArrow : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Oozing Arrow");
+			// DisplayName.SetDefault("Oozing Arrow");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);

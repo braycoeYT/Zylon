@@ -7,7 +7,7 @@ namespace Zylon
 	{
 		public override ConfigScope Mode => ConfigScope.ServerSide;
 
-		[Header("General (reload may be required)")]
+		[Header("config.general")]
 
 		[Label("Advanced Blowpipe Display")]
 		[Tooltip("Replaces the usage instructions in blowpipe tooltips with even more stats!")]
@@ -54,7 +54,7 @@ namespace Zylon
 		[Tooltip("Plays a short noise when blowpipes reach max charge.")]
 		public bool blowpipeNoise;
 
-		[Header("Accessibility")]
+		[Header("config.accessibility")]
 
 		[Range(0, 100)]
 		[Increment(1)]

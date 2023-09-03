@@ -8,7 +8,7 @@ namespace Zylon.NPCs.Bosses.ADD
 	public class ADD_SpikeRing : ModNPC
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ancient Diskite Director");
+			// DisplayName.SetDefault("Ancient Diskite Director");
             //Main.npcFrameCount[NPC.type] = 2;
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				Hide = true
@@ -30,11 +30,11 @@ namespace Zylon.NPCs.Bosses.ADD
 			NPC.dontCountMe = true;
 			NPC.dontTakeDamage = true;
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 69;
 			NPC.damage = 0;
         }
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
             if (Main.expertMode) target.AddBuff(BuffID.Weak, 60*Main.rand.Next(10, 21));
         }
         NPC main;

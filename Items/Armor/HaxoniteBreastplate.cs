@@ -8,7 +8,7 @@ namespace Zylon.Items.Armor
 	public class HaxoniteBreastplate : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Increases life and mana regeneration by 1");
+			// Tooltip.SetDefault("Increases life and mana regeneration by 1");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

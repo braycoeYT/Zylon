@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Minions
 	public class GlowingMushroomSpore : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Glowing Mushroom Spore");
+			// DisplayName.SetDefault("Glowing Mushroom Spore");
         }
 		public override void SetDefaults() {
 			Projectile.aiStyle = -1;
@@ -22,10 +22,15 @@ namespace Zylon.Projectiles.Minions
 			//if (Projectile.ai[0] == 1f)
 			//	Projectile.DamageType = DamageClass.Ranged;
 		}
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Shroomed>(), 60*Main.rand.Next(2, 6));
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Shroomed>(), 60 * Main.rand.Next(2, 6));
+			}
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Shroomed>(), 60*Main.rand.Next(2, 6));
         }
         int Timer;

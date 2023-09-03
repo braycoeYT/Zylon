@@ -202,52 +202,44 @@ namespace Zylon
         }
 		float trueMeleeBoost;
 		float critBoost;
-		public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit) {
-			critBoost = 1f;
-			if (crit) critBoost += critExtraDmg;
+		public override void ModifyHitNPCWithItem(Item item, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Item, consider using ModifyHitNPC instead */ {
+			modifiers.CritDamage += critExtraDmg;
 			trueMeleeBoost = 1f;
 			if (trueMelee10) trueMeleeBoost += 0.1f;
 			if (trueMelee15) trueMeleeBoost += 0.15f;
-			damage = (int)(damage * trueMeleeBoost * critBoost);
+			modifiers.SourceDamage *= trueMeleeBoost;
+			
 		}
-        public override void ModifyHitPvp(Item item, Player target, ref int damage, ref bool crit) {
-			critBoost = 1f;
-			if (crit) critBoost += critExtraDmg;
-            trueMeleeBoost = 1f;
-			if (trueMelee10) trueMeleeBoost += 0.1f;
-			if (trueMelee15) trueMeleeBoost += 0.15f;
-			damage = (int)(damage * trueMeleeBoost * critBoost);
+        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Projectile, consider using ModifyHitNPC instead */ {
+			modifiers.CritDamage += critExtraDmg;
+		}
+        public override void OnHitNPCWithItem(Item item, NPC target, NPC.HitInfo hit, int damageDone) {
+			OnHitNPCGlobal(item, null, target, damageDone, hit.Knockback, hit.Crit, target.type == NPCID.TargetDummy, true);
+		}
+        public override void OnHitNPCWithProj(Projectile proj, NPC target, NPC.HitInfo hit, int damageDone) {
+			OnHitNPCGlobal(null, proj, target, damageDone, hit.Knockback, hit.Crit, target.type == NPCID.TargetDummy, false);
+		}
+
+        public override void OnHurt(Player.HurtInfo info)
+        {
+			if (slimePendant)
+			{
+				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(-4.5f, -3), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Player.whoAmI);
+				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(-1.5f, -5), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Player.whoAmI);
+				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(1.5f, -5), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Player.whoAmI);
+				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(4.5f, -3), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Player.whoAmI);
+			}
+            base.OnHurt(info);
         }
-        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) {
-            critBoost = 1f;
-			if (crit) critBoost += critExtraDmg;
-			damage = (int)(damage * critBoost);
-        }
-        public override void ModifyHitPvpWithProj(Projectile proj, Player target, ref int damage, ref bool crit) {
-            critBoost = 1f;
-			if (crit) critBoost += critExtraDmg;
-			damage = (int)(damage * critBoost);
-        }
-        public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit) {
-			OnHitNPCGlobal(item, null, target, damage, knockback, crit, target.type == NPCID.TargetDummy, true);
-		}
-        public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit) {
-			OnHitNPCGlobal(null, proj, target, damage, knockback, crit, target.type == NPCID.TargetDummy, false);
-		}
-        public override void OnHitPvp(Item item, Player target, int damage, bool crit) {
-			OnHitPVPGlobal(item, null, target, damage, crit, true);
-		}
-        public override void OnHitPvpWithProj(Projectile proj, Player target, int damage, bool crit) {
-			OnHitPVPGlobal(null, proj, target, damage, crit, false);
-		}
-		public void OnHitNPCGlobal(Item item, Projectile proj, NPC target, int damage, float knockback, bool crit, bool isDummy, bool TrueMelee) {
+
+        public void OnHitNPCGlobal(Item item, Projectile proj, NPC target, int damage, float knockback, bool crit, bool isDummy, bool TrueMelee) {
 			if (crit) {
 				critCount++;
 			}
 			if (!isDummy && Main.myPlayer == Player.whoAmI) {
 				if (TrueMelee) {
 					if (diskbringerSet)
-						DiskiteBuffs(90);
+						DiskiteBuffs(90, Player);
 					if (nightmareCatcher && Main.rand.NextFloat() < .2f) {
 						int y = 0;
 						for (int x = 0; x < Main.maxItems; x++) {
@@ -265,7 +257,7 @@ namespace Zylon
 				} else {
 					// To encourage more true melee play, this only has a 75% chance of applying instead of 100
 					if (diskbringerSet)
-						DiskiteBuffs(60, 75);
+						DiskiteBuffs(60, Player, 75);
 					if (nightmareCatcher && Main.rand.NextFloat() < .07f) {
 						int y = 0;
 						for (int x = 0; x < Main.maxItems; x++) {
@@ -295,53 +287,31 @@ namespace Zylon
 						target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(5, 11)*60);
             }
 		}
-		public void OnHitPVPGlobal(Item item, Projectile proj, Player target, int damage, bool crit, bool TrueMelee) {
-			if (crit) {
-				critCount++;
-			}
-			if (TrueMelee) {
-				if (diskbringerSet)
-					DiskiteBuffs(90);
-				if (glazedLens && crit)
-					ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Player.whoAmI, item.crit + Player.GetCritChance(item.DamageType));
-
-			} else {
-				// To encourage more true melee play, this only has a 75% chance of applying instead of 100
-				if (diskbringerSet)
-					DiskiteBuffs(60, 75);
-				if (glazedLens && crit)
-					ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Player.whoAmI, proj.CritChance);
-			}
-			if (bloodVial && Main.rand.NextFloat() < .1f)
-				Player.Heal(1);
-			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
-				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Player.whoAmI);
-		}
-		public void DiskiteBuffs(int Bufftime) {
+		public void DiskiteBuffs(int Bufftime, Player player) {
 			switch (Main.rand.Next(3)) {
 				case 0:
-					Player.AddBuff(BuffType<Buffs.Armor.DiskiteOffense>(), Bufftime);
+					player.AddBuff(BuffType<Buffs.Armor.DiskiteOffense>(), Bufftime);
 					return;
 				case 1:
-					Player.AddBuff(BuffType<Buffs.Armor.DiskiteDefense>(), Bufftime);
+					player.AddBuff(BuffType<Buffs.Armor.DiskiteDefense>(), Bufftime);
 					return;
 				case 2:
-					Player.AddBuff(BuffType<Buffs.Armor.DiskiteAgility>(), Bufftime);
+					player.AddBuff(BuffType<Buffs.Armor.DiskiteAgility>(), Bufftime);
 					return;
             }
 		}
-		public void DiskiteBuffs(int Bufftime, int PercentChance) {
+		public void DiskiteBuffs(int Bufftime, Player player, int PercentChance) {
 			if (Main.rand.Next(1, 100) <= PercentChance)
-				DiskiteBuffs(Bufftime);
+				DiskiteBuffs(Bufftime, player);
         }
-        public override void OnHitByNPC(NPC npc, int damage, bool crit) {
+        public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo) {
             if (rootGuard) for (int x = 0; x < 3; x++) { //FINISH
 				int pos = Main.rand.Next(16, 49);
 				if (Main.rand.NextBool()) pos *= -1;
 				//Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + new Vector2(pos, -16), Vector2.Zero, ProjectileType<Projectiles.Accessories.RootGuardProj>(), 10, 2f, Main.myPlayer);
 			}
         }
-        public override void OnHitByProjectile(Projectile proj, int damage, bool crit) {
+        public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo) {
             
         }
         /*public override void OnHitByNPC(NPC npc, int damage, bool crit) {
@@ -360,21 +330,18 @@ namespace Zylon
 				Player.velocity = vector1*-12f;
             }
         }*/
-        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource, ref int cooldownCounter) {
-			if (stealthPotion && Main.rand.NextFloat() < .04f) {
-				damage = 0;
+
+        public override bool FreeDodge(Player.HurtInfo info)
+        {
+			if (stealthPotion && Main.rand.NextFloat() < .04f)
+			{
 				Player.NinjaDodge();
-				return false;
+				return true;
 			}
-			if (slimePendant) {
-				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(-4.5f, -3), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Player.whoAmI);
-				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(-1.5f, -5), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Player.whoAmI);
-				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(1.5f, -5), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Player.whoAmI);
-				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(4.5f, -3), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Player.whoAmI);
-            }
-			return true;
+			return base.FreeDodge(info);
         }
-		float check;
+
+        float check;
         public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition) {
             if (Main.hardMode) check = 1f;
 			Player owner = Main.player[(int)Player.FindClosest(Player.position, Player.width, Player.height)];

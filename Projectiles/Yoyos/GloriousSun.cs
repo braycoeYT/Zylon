@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Yoyos
 	public class GloriousSun : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Glorious Sun");
+			// DisplayName.SetDefault("Glorious Sun");
 			//3-16 Vanilla, -1 = Infinite
 			ProjectileID.Sets.YoyosLifeTimeMultiplier[Projectile.type] = -1f;
 			//130-400 Vanilla
@@ -37,7 +37,7 @@ namespace Zylon.Projectiles.Yoyos
 				dust.scale = 1f;
 			}
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Daybreak, 180);
 		}
 	}

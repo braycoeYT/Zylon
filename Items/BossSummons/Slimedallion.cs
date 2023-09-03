@@ -10,7 +10,7 @@ namespace Zylon.Items.BossSummons
 		public override void SetStaticDefaults() {
 			string extra = "";
 			if (ModContent.GetInstance<ZylonConfig>().infBossSum) extra = "\nNot Consumable";
-			Tooltip.SetDefault("Summons a different gigaslime depending on the biome\nCan only be used after the elemental goop has been unleashed"+extra);
+			// Tooltip.SetDefault("Summons a different gigaslime depending on the biome\nCan only be used after the elemental goop has been unleashed"+extra);
 		}
 		public override void SetDefaults()  {
 			Item.width = 28;
@@ -41,7 +41,7 @@ namespace Zylon.Items.BossSummons
 				}
 				else
 				{
-					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+					NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: type);
 				}
 			}
 			return true;

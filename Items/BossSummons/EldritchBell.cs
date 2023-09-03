@@ -10,7 +10,7 @@ namespace Zylon.Items.BossSummons
 		public override void SetStaticDefaults() {
 			string extra = "";
 			if (ModContent.GetInstance<ZylonConfig>().infBossSum) extra = "\nNot Consumable";
-			Tooltip.SetDefault("'It calls for the ocean...'\nSummons the Eldritch Jellyfish\nEnrages outside of the ocean"+extra);
+			// Tooltip.SetDefault("'It calls for the ocean...'\nSummons the Eldritch Jellyfish\nEnrages outside of the ocean"+extra);
 			ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 3;
 		}
 		public override void SetDefaults() {
@@ -40,7 +40,7 @@ namespace Zylon.Items.BossSummons
 				}
 				else
 				{
-					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+					NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: type);
 				}
 			}
 			return true;

@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Ammo
 	public class DaybloomSeed : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Daybloom Seed");
+			// DisplayName.SetDefault("Daybloom Seed");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);

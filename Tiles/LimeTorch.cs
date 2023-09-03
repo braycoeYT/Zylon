@@ -7,6 +7,7 @@ using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
 using Terraria.IO;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.WorldBuilding;
@@ -30,7 +31,6 @@ namespace Zylon.Tiles
 			TileID.Sets.DisableSmartCursor[Type] = true;
 			TileID.Sets.Torch[Type] = true;
 
-			ItemDrop = ModContent.ItemType<Items.Placeables.LimeTorch>();
 			DustType = ModContent.DustType<Dusts.JadeDust2>();
 			AdjTiles = new int[] { TileID.Torches };
 
@@ -53,9 +53,9 @@ namespace Zylon.Tiles
 			TileObjectData.addTile(Type);
 
 			// Etc
-			ModTranslation name = CreateMapEntryName();
+			LocalizedText name = CreateMapEntryName();
 
-			name.SetDefault("Torch");
+			// name.SetDefault("Torch");
 
 			AddMapEntry(new Color(123, 209, 88), name);
 

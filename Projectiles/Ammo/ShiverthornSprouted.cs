@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Ammo
 	public class ShiverthornSprouted : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Shiverthorn");
+			// DisplayName.SetDefault("Shiverthorn");
         }
 		public override void SetDefaults() {
 			Projectile.width = 16;

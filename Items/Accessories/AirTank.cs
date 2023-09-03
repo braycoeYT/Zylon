@@ -7,7 +7,7 @@ namespace Zylon.Items.Accessories
 	public class AirTank : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Hot buy amongst the elderly, scuba divers, and fans of currency overprinting!'\nIncreases blowpipe charge speed by 15/s\nIncreases blowpipe shoot speed by 10%");//\nIncreases blowpipe max charge shoot speed by 999");
+			// Tooltip.SetDefault("'Hot buy amongst the elderly, scuba divers, and fans of currency overprinting!'\nIncreases blowpipe charge speed by 15/s\nIncreases blowpipe shoot speed by 10%");//\nIncreases blowpipe max charge shoot speed by 999");
 		}
 		public override void SetDefaults() {
 			Item.width = 32;

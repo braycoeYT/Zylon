@@ -10,7 +10,7 @@ namespace Zylon.Items.Puzzles.Potato
 	public class SoulInfusedPotato : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Incredible energy emanates from such a vegetable'");
+			// Tooltip.SetDefault("'Incredible energy emanates from such a vegetable'");
 		}
 		public override void SetDefaults() {
 			Item.width = 28;

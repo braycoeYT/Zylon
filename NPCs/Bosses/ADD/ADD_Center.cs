@@ -19,7 +19,7 @@ namespace Zylon.NPCs.Bosses.ADD
 
 			NPCID.Sets.BossBestiaryPriority.Add(Type);
 
-			DisplayName.SetDefault("Ancient Diskite Director");
+			// DisplayName.SetDefault("Ancient Diskite Director");
             //Main.npcFrameCount[NPC.type] = 2;
 			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				CustomTexturePath = "Zylon/NPCs/Bosses/ADD/ADD_Bestiary",
@@ -56,7 +56,7 @@ namespace Zylon.NPCs.Bosses.ADD
 			NPC.lavaImmune = true;
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DuneBreaker1");
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = (int)((2600 + ((numPlayers - 1) * 1200))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 43;
 			NPC.value = 80000;
@@ -73,7 +73,7 @@ namespace Zylon.NPCs.Bosses.ADD
             if (finalAtk && !finalAtk2) return false;
             return null;
 		}
-        public override void HitEffect(int hitDirection, double damage) {
+        public override void HitEffect(NPC.HitInfo hit) {
 			if (NPC.life > 0) {
 				for (int i = 0; i < 3; i++) {
 					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.DiskiteDust>(), Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
@@ -91,7 +91,7 @@ namespace Zylon.NPCs.Bosses.ADD
 			}
 			else if (NPC.life < 0) Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-1, 1), 0), ModContent.GoreType<Gores.Bosses.ADD.ADDCenterDeath>());
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
             if (Main.expertMode) target.AddBuff(BuffID.Weak, 60*Main.rand.Next(10, 21));
         }
 		int preTimer;

@@ -10,7 +10,7 @@ namespace Zylon.Items.Ammo
 	public class MoonglowSeed : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("For use with blowpipes\nGrows a moonglow flower on impact\nDeals more damage during the night");
+			// Tooltip.SetDefault("For use with blowpipes\nGrows a moonglow flower on impact\nDeals more damage during the night");
         }
 		public override void SetDefaults() {
 			Item.damage = 5;

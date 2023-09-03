@@ -8,7 +8,7 @@ namespace Zylon.Items.Ammo
 	public class CrimsonSeed : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("For use with blowpipes\nCan pierce up to four times, heavily increasing critical strike chance each time");
+			// Tooltip.SetDefault("For use with blowpipes\nCan pierce up to four times, heavily increasing critical strike chance each time");
         }
 		public override void SetDefaults() {
 			Item.damage = 8;

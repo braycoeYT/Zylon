@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Yoyos
 	public class IceLaser : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ice Laser");
+			// DisplayName.SetDefault("Ice Laser");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.GreenLaser);

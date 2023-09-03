@@ -12,7 +12,7 @@ namespace Zylon.Items.Misc
 	public class LostNightmare : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'You shouldn't be able to read this unless you're cheating, or something has gone terribly wrong!\nIn that case, hello.\nHope you like the mod.'");
+			// Tooltip.SetDefault("'You shouldn't be able to read this unless you're cheating, or something has gone terribly wrong!\nIn that case, hello.\nHope you like the mod.'");
 			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 4)); //first is speed, second is amount of frames
 			ItemID.Sets.AnimatesAsSoul[Item.type] = true;
 			ItemID.Sets.ItemIconPulse[Item.type] = true;

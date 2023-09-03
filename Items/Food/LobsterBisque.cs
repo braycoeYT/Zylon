@@ -7,7 +7,7 @@ namespace Zylon.Items.Food
 	public class LobsterBisque : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Major improvements to all stats\n'Five stars, five thumbs up, five children...'");
+			// Tooltip.SetDefault("Major improvements to all stats\n'Five stars, five thumbs up, five children...'");
 		}
 		public override void SetDefaults() {
 			Item.width = 32;

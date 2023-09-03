@@ -10,7 +10,7 @@ namespace Zylon.Projectiles.Bosses.Dirtball
 	public class DBSpirit : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Forest Spirit");
+			// DisplayName.SetDefault("Forest Spirit");
         }
 		public override void SetDefaults() {
 			Projectile.width = 80;

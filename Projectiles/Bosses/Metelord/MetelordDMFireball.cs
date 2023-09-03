@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 	public class MetelordDMFireball : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Giga Fire");
+            // DisplayName.SetDefault("Giga Fire");
         }
         public override void SetDefaults() {
 			Projectile.width = 58;
@@ -30,7 +30,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 			Projectile.rotation += 0.08f;
 			Projectile.velocity *= 0.994f;
         }
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(5, 8));
 		}
     }   

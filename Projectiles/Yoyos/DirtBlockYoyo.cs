@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Yoyos
 	public class DirtBlockYoyo : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Dirt Block");
+			// DisplayName.SetDefault("Dirt Block");
         }
 		public override void SetDefaults() {
 			Projectile.width = 16;

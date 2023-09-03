@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Shortswords
 	public class ShadeOrb : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Shade Orb");
+			// DisplayName.SetDefault("Shade Orb");
         }
 		public override void SetDefaults() {
 			AIType = ProjectileID.Bullet;

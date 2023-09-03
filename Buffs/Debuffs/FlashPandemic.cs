@@ -8,7 +8,7 @@ namespace Zylon.Buffs.Debuffs
     public class FlashPandemic : ModBuff
     {
         public override void SetStaticDefaults() {
-            Description.SetDefault("The plague is upon you");
+            // Description.SetDefault("The plague is upon you");
             Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;

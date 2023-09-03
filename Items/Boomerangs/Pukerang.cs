@@ -7,7 +7,7 @@ namespace Zylon.Items.Boomerangs
 	public class Pukerang : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Inflicts cursed inferno on struck enemies\nShoots cursed flames at nearby enemies");
+			// Tooltip.SetDefault("Inflicts cursed inferno on struck enemies\nShoots cursed flames at nearby enemies");
 		}
 		public override void SetDefaults() {
 			Item.damage = 78;

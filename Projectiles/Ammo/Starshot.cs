@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Ammo
 	public class Starshot : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Starshot");
+			// DisplayName.SetDefault("Starshot");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.FallingStar);
@@ -16,7 +16,7 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.height = 16;
 			Projectile.timeLeft = 400;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             Projectile.damage /= 2;
 			if (Projectile.damage < 1) Projectile.damage = 1;
         }

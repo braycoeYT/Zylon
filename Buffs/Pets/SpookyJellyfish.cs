@@ -8,8 +8,8 @@ namespace Zylon.Buffs.Pets
 	public class SpookyJellyfish : ModBuff
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Spooky Jellyfish");
-			Description.SetDefault("It flashes in and out of visibility, trying to scare something...");
+			// DisplayName.SetDefault("Spooky Jellyfish");
+			// Description.SetDefault("It flashes in and out of visibility, trying to scare something...");
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.vanityPet[Type] = true;
 		}

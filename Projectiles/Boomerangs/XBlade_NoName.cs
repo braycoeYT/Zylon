@@ -12,7 +12,7 @@ namespace Zylon.Projectiles.Boomerangs
 	public class XBlade_NoName : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("No Name");
+			// DisplayName.SetDefault("No Name");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }

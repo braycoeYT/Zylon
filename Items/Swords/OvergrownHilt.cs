@@ -7,7 +7,7 @@ namespace Zylon.Items.Swords
 	public class OvergrownHilt : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Only at 0.1% of its true power'");
+			// Tooltip.SetDefault("'Only at 0.1% of its true power'");
 		}
 		public override void SetDefaults() {
 			Item.damage = 1;

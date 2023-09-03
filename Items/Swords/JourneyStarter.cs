@@ -10,7 +10,7 @@ namespace Zylon.Items.Swords
 	public class JourneyStarter : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("'Only the start of the endless road to infinity'\nAlternates between firing different types of bolts");
+            // Tooltip.SetDefault("'Only the start of the endless road to infinity'\nAlternates between firing different types of bolts");
         }
         public override void SetDefaults() {
 			Item.damage = 18;

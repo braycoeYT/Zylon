@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Bosses.Dirtball
 	public class DirtBallHostile : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Dirt Ball");
+			// DisplayName.SetDefault("Dirt Ball");
         }
 		public override void SetDefaults() {
 			Projectile.hostile = true;

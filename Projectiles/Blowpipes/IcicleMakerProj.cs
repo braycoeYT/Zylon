@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Blowpipes
 	public class IcicleMakerProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Mini Icicle");
+            // DisplayName.SetDefault("Mini Icicle");
         }
         public override void SetDefaults() {
 			Projectile.width = 14;
@@ -19,12 +19,18 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.scale = 0.75f;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.Frostburn, Main.rand.Next(1, 4)*60);
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Frostburn, Main.rand.Next(1, 4)*60);
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.Frostburn, Main.rand.Next(1, 4) * 60);
+			}
         }
+
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}

@@ -8,7 +8,7 @@ namespace Zylon.Items.Swords
 	public class Diskalibur : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'For valor!'\nCritical strikes have extremely high knockback");
+			// Tooltip.SetDefault("'For valor!'\nCritical strikes have extremely high knockback");
 		}
 		public override void SetDefaults() {
 			Item.damage = 21;
@@ -26,16 +26,8 @@ namespace Zylon.Items.Swords
 			Item.useTurn = true;
 			Item.crit = 12;
 		}
-        public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
-			if (!target.noKnockback && crit) {
-				Vector2 vector1;
-				vector1 = target.Center - player.Center - new Vector2(0, 150);
-				vector1.Normalize();
-				target.velocity = vector1*16f;
-			}
-        }
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
-			if (target.knockBackResist > 0f && target.boss == false && crit) {
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
+			if (target.knockBackResist > 0f && target.boss == false && hit.Crit) {
 				Vector2 vector1;
 				vector1 = target.Center - player.Center;
 				vector1.Normalize();

@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Ammo
 	public class OozingBullet : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Oozing Bullet");
+			// DisplayName.SetDefault("Oozing Bullet");
         }
 		public override void SetDefaults() {
 			Projectile.width = 14;

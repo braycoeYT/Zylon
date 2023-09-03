@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 	public class DiskiteShrapnelHostile : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Diskite Shrapnel");
+			// DisplayName.SetDefault("Diskite Shrapnel");
 			Main.projFrames[Projectile.type] = 4;
         }
 		public override void SetDefaults() {

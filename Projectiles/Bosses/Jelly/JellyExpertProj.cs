@@ -12,7 +12,7 @@ namespace Zylon.Projectiles.Bosses.Jelly
 	public class JellyExpertProj : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Big Eerie Jellyfish");
+			// DisplayName.SetDefault("Big Eerie Jellyfish");
 			Main.projFrames[Projectile.type] = 3;
 		}
 		public override void SetDefaults() {
@@ -53,7 +53,7 @@ namespace Zylon.Projectiles.Bosses.Jelly
 						}
 					}
 				}
-				if (target.active && target != null && Main.maxNPCs > 0 && Main.maxNPCUpdates > 0 && Main.maxNPCTypes > 0)
+				if (target.active && target != null && Main.maxNPCs > 0 && Main.maxNPCUpdates > 0)
 				{
 					Vector2 look = target.Center - Projectile.Center;
 					if (look.X != 0f) {

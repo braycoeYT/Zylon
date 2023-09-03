@@ -8,16 +8,16 @@ namespace Zylon.Projectiles.Tomes
 	public class PKFire2 : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Volcanic Flame");
+			// DisplayName.SetDefault("Volcanic Flame");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);
 			AIType = ProjectileID.Seed;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6), false);
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6), false);
 		}
 		public override void AI() {

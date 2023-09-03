@@ -8,7 +8,7 @@ namespace Zylon.Items.Placeables.Trophies
 	public class ADDTrophy : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ancient Desert Diskite Trophy");
+			// DisplayName.SetDefault("Ancient Desert Diskite Trophy");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 		public override void SetDefaults() {

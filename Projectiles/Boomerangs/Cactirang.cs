@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Boomerangs
 	{
 		public Cactirang() : base(50, 7, 2, 42.5f, 420f, 70, ArcCenter_Input: 0.65f, MaxPredictionDots_Input: 150, BoomerangRotationSpeed_Input: 0.13f) { }
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Cactirang");
+			// DisplayName.SetDefault("Cactirang");
         }
 		public override void BoomerangDefaultsSafe()
 		{

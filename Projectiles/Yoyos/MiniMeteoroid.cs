@@ -24,7 +24,7 @@ namespace Zylon.Projectiles.Yoyos
 		}
 		int counter;
 		int counter2;
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			counter++;
 			target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(3, 6), false);
 			if (counter >= 3) {
@@ -34,16 +34,24 @@ namespace Zylon.Projectiles.Yoyos
 				}
 			}
 		}
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			counter++;
-            target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(3, 6), false);
-			if (counter >= 3) {
-				while (counter2 < 8) {
-					counter2++;
-					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Microsoft.Xna.Framework.Vector2(Main.rand.Next(-20, 21), Main.rand.Next(-20, 21)), new Microsoft.Xna.Framework.Vector2(), ModContent.ProjectileType<MiniMiniMeteoroid>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.75f, Projectile.owner);
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				counter++;
+				target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(3, 6), false);
+				if (counter >= 3)
+				{
+					while (counter2 < 8)
+					{
+						counter2++;
+						ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Microsoft.Xna.Framework.Vector2(Main.rand.Next(-20, 21), Main.rand.Next(-20, 21)), new Microsoft.Xna.Framework.Vector2(), ModContent.ProjectileType<MiniMiniMeteoroid>(), (int)(Projectile.damage * 0.75f), Projectile.knockBack * 0.75f, Projectile.owner);
+					}
 				}
 			}
         }
+
         public override void PostAI() {
 			if (Main.rand.NextBool()) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Meteorite);

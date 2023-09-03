@@ -13,7 +13,7 @@ namespace Zylon.Projectiles.Tomes
 	public class SnowfallProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Snowfall");
+			// DisplayName.SetDefault("Snowfall");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}

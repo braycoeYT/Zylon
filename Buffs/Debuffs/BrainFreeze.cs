@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Debuffs
     public class BrainFreeze : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Brain Freeze");
-            Description.SetDefault("A terrible headache, but cold");
+            // DisplayName.SetDefault("Brain Freeze");
+            // Description.SetDefault("A terrible headache, but cold");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;

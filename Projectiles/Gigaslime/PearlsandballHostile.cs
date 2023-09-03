@@ -6,7 +6,7 @@ namespace Zylon.Projectiles.Gigaslime
 	public class PearlsandballHostile : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Pearlsand Ball");
+			// DisplayName.SetDefault("Pearlsand Ball");
         }
 		public override void SetDefaults() {
 			Projectile.width = 14;

@@ -10,7 +10,7 @@ namespace Zylon.Items.Swords
 	public class BloodyZombieArm : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("'Bloodier than ever!'\nInflicts Zombie Rot upon hitting enemies, which can be spread to other nearby enemies");
+            // Tooltip.SetDefault("'Bloodier than ever!'\nInflicts Zombie Rot upon hitting enemies, which can be spread to other nearby enemies");
         }
         public override void SetDefaults() {
 			Item.damage = 16;
@@ -27,7 +27,7 @@ namespace Zylon.Items.Swords
 			Item.autoReuse = true;
 			Item.useTurn = false;
 		}
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ZombieRot>(), Main.rand.Next(5, 9)*60);
         }
         /*public override void OnHitPvp(Player player, Player target, int damage, bool crit) {

@@ -10,7 +10,7 @@ namespace Zylon.Items.Spears
 		public override void SetStaticDefaults()
 		{
 			ItemID.Sets.Spears[Item.type] = true;
-			Tooltip.SetDefault("Shoots multiple high-speed lihzahrd beams");
+			// Tooltip.SetDefault("Shoots multiple high-speed lihzahrd beams");
 		}
 		public override void SetDefaults() {
 			Item.damage = 81;

@@ -14,7 +14,7 @@ namespace Zylon.Projectiles.Minions
 	public class MeteorbProtect : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Meteorb");
+			// DisplayName.SetDefault("Meteorb");
         }
         public override void SetDefaults() {
             Projectile.width = 60;
@@ -29,13 +29,19 @@ namespace Zylon.Projectiles.Minions
 			Projectile.localNPCHitCooldown = 30;
 			Projectile.scale = 0f;
         }
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(2, 5), false);
 		}
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-            target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(2, 5), false);
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(2, 5), false);
+			}
         }
-		bool init;
+
+        bool init;
         Projectile main;
         public override void AI() {
 			if (!init) {

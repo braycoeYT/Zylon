@@ -8,7 +8,7 @@ namespace Zylon.Items.Ammo
 	public class Pebble : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("For use with blowpipes\nMay confuse struck enemies");
+			// Tooltip.SetDefault("For use with blowpipes\nMay confuse struck enemies");
         }
 		public override void SetDefaults() {
 			Item.damage = 4;

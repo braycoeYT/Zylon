@@ -7,7 +7,7 @@ namespace Zylon.Items.Yoyos
 	public class MiniMeteoroid : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Splits into eight smaller meteoroids after hitting enemies enough times");
+			// Tooltip.SetDefault("Splits into eight smaller meteoroids after hitting enemies enough times");
 			ItemID.Sets.Yoyo[Item.type] = true;
 			ItemID.Sets.GamepadExtraRange[Item.type] = 15;
 			ItemID.Sets.GamepadSmartQuickReach[Item.type] = true;

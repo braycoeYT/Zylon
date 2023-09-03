@@ -20,7 +20,7 @@ namespace Zylon.Tiles.Granite
 			TileID.Sets.ChecksForMerge[(int)Type] = true;
 			AddMapEntry(new Color(140, 100, 177));
 			DustType = 36;
-			ItemDrop = ModContent.ItemType<OnyxShard>();
+			RegisterItemDrop(ModContent.ItemType<OnyxShard>());
 			HitSound = new SoundStyle?(new SoundStyle("Zylon/Sounds/Tiles/EnergyGraniteHit", SoundType.Sound)
 			{
 				Volume = 1f,

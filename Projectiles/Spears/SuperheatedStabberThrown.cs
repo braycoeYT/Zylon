@@ -22,7 +22,7 @@ namespace Zylon.Projectiles.Spears
         int StuckTimer = 0;
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Superheated Stabber");
+            // DisplayName.SetDefault("Superheated Stabber");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 15;
         }
         public override void SetDefaults()
@@ -139,7 +139,7 @@ namespace Zylon.Projectiles.Spears
 
             Projectile.Kill();
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             Projectile.velocity = Vector2.Zero;
             HitTarget = target.whoAmI;
@@ -247,7 +247,7 @@ namespace Zylon.Projectiles.Spears
         public override string Texture => "Zylon/Projectiles/Spears/SuperheatedStabber";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Superheated Stabber");
+            // DisplayName.SetDefault("Superheated Stabber");
         }
         public override void SetDefaults()
         {
@@ -268,14 +268,12 @@ namespace Zylon.Projectiles.Spears
         {
             return false;
         }
-        public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
             if (Projectile.ai[0] >= 21)
             {
-                crit = true;
+                modifiers.SetCrit();
             }
-
-            base.ModifyHitNPC(target, ref damage, ref knockback, ref crit, ref hitDirection);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPCID.Sets.BossBestiaryPriority.Add(Type);
 			NPCID.Sets.MPAllowedEnemies[Type] = true;
 
-			DisplayName.SetDefault("Eldritch Jellyfish");
+			// DisplayName.SetDefault("Eldritch Jellyfish");
 			Main.npcFrameCount[NPC.type] = 7;
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				SpecificallyImmuneTo = new int[] {
@@ -51,7 +51,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPC.lavaImmune = true;
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/JellyTheme");
         }
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = (int)((11500 + ((numPlayers - 1) * 3500))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
             NPC.damage = 80;
 			NPC.value = 13750;
@@ -60,7 +60,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 				NPC.damage = 120;
             }
         }
-		public override void HitEffect(int hitDirection, double damage) {
+		public override void HitEffect(NPC.HitInfo hit) {
 			for (int i = 0; i < 4; i++) {
 				int dustType = ModContent.DustType<Dusts.JellyDust>();
 				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType);

@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 	public class ADDZap : ModProjectile
 	{
         public override void SetStaticDefaults() { //SCRAPPED ATTACK
-			DisplayName.SetDefault("Electric Orb");
+			// DisplayName.SetDefault("Electric Orb");
         }
 		public override void SetDefaults() {
 			Projectile.width = 36;
@@ -26,7 +26,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 				//Projectile.NewProjectile();
             }
         }
-        public override void OnHitPlayer(Player target, int damage, bool crit) {
+        public override void OnHitPlayer(Player target, Player.HurtInfo info) {
             target.AddBuff(BuffID.Electrified, Main.rand.Next(1, 4)*60);
         }
         public override void Kill(int timeLeft) {

@@ -22,7 +22,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPCID.Sets.BossBestiaryPriority.Add(Type);
 			NPCID.Sets.MPAllowedEnemies[Type] = true;
 
-			DisplayName.SetDefault("Metelord");
+			// DisplayName.SetDefault("Metelord");
 			//Main.npcFrameCount[NPC.type] = 2;
 			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				CustomTexturePath = "Zylon/NPCs/Bosses/Metelord/Metelord_Bestiary",
@@ -62,7 +62,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.lavaImmune = true;
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/BolideSerpent");
 		}
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.lifeMax = (int)((7000 + ((numPlayers - 1) * 4900))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 64;
 			if (Main.masterMode) {
@@ -97,10 +97,10 @@ namespace Zylon.NPCs.Bosses.Metelord
 		public override void ReceiveExtraAI(BinaryReader reader) {
 			attackCounter = reader.ReadInt32();
 		}
-        public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit) {
+        public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone) {
             if (target.ZoneMeteor) NPC.ai[0] = 1;
         }
-        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit) {
+        public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone) {
             if (target.ZoneMeteor) NPC.ai[0] = 1;
 			if (projectile.aiStyle == 1 || projectile.aiStyle == 2 || projectile.aiStyle == 3 || projectile.aiStyle == 5 || projectile.aiStyle == 8 || projectile.aiStyle == 12 || projectile.aiStyle == 13 || projectile.aiStyle == 14 || projectile.aiStyle == 15 || projectile.aiStyle == 18 || projectile.aiStyle == 23 || projectile.aiStyle == 24 || projectile.aiStyle == 27 || projectile.aiStyle == 28 || projectile.aiStyle == 29 || projectile.aiStyle == 30 || projectile.aiStyle == 33 || projectile.aiStyle == 34 || projectile.aiStyle == 36 || projectile.aiStyle == 38 || projectile.aiStyle == 39 || projectile.aiStyle == 40 || projectile.aiStyle == 41 || projectile.aiStyle == 42 || projectile.aiStyle == 43 || projectile.aiStyle == 44 || projectile.aiStyle == 45 || projectile.aiStyle == 46 || projectile.aiStyle == 47 || projectile.aiStyle == 48 || projectile.aiStyle == 50 || projectile.aiStyle == 51 || projectile.aiStyle == 57 || projectile.aiStyle == 65 || projectile.aiStyle == 69 || projectile.aiStyle == 70 || projectile.aiStyle == 71 || projectile.aiStyle == 72 || projectile.aiStyle == 73 || projectile.aiStyle == 74 || projectile.aiStyle == 75 || projectile.aiStyle == 77 || projectile.aiStyle == 78 || projectile.aiStyle == 81 || projectile.aiStyle == 84 || projectile.aiStyle == 87 || projectile.aiStyle == 91 || projectile.aiStyle == 92 || projectile.aiStyle == 93 || projectile.aiStyle == 94 || projectile.aiStyle == 95 || projectile.aiStyle == 96 || projectile.type == ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>()) //stopped before 100 because this is just getting absurd
 			if (!(projectile.DamageType == DamageClass.Summon || projectile.DamageType == DamageClass.MagicSummonHybrid) || (projectile.type == ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>())) {
@@ -448,7 +448,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				}
 			}
 		}*/
-        public override void OnHitPlayer(Player target, int damage, bool crit) {
+        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
             target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(4, 6));
         }
         public override void BossLoot(ref string name, ref int potionType) {
@@ -472,7 +472,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 	internal class MetelordBody : WormBody
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Metelord");
+			// DisplayName.SetDefault("Metelord");
 
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				Hide = true
@@ -503,7 +503,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.height = 36;
 			NPC.noGravity = true;
 		}
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.damage = 60;
 			if (Main.masterMode) {
 				NPC.damage = 88;
@@ -512,10 +512,10 @@ namespace Zylon.NPCs.Bosses.Metelord
         public override void Init() {
 			MetelordHead.CommonWormInit(this);
 		}
-		public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit) {
+		public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone) {
             if (target.ZoneMeteor) head.ai[0] = 1;
         }
-        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit) {
+        public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone) {
             if (target.ZoneMeteor) head.ai[0] = 1;
 			if (projectile.aiStyle == 1 || projectile.aiStyle == 2 || projectile.aiStyle == 3 || projectile.aiStyle == 5 || projectile.aiStyle == 8 || projectile.aiStyle == 12 || projectile.aiStyle == 13 || projectile.aiStyle == 14 || projectile.aiStyle == 15 || projectile.aiStyle == 18 || projectile.aiStyle == 23 || projectile.aiStyle == 24 || projectile.aiStyle == 27 || projectile.aiStyle == 28 || projectile.aiStyle == 29 || projectile.aiStyle == 30 || projectile.aiStyle == 33 || projectile.aiStyle == 34 || projectile.aiStyle == 36 || projectile.aiStyle == 38 || projectile.aiStyle == 39 || projectile.aiStyle == 40 || projectile.aiStyle == 41 || projectile.aiStyle == 42 || projectile.aiStyle == 43 || projectile.aiStyle == 44 || projectile.aiStyle == 45 || projectile.aiStyle == 46 || projectile.aiStyle == 47 || projectile.aiStyle == 48 || projectile.aiStyle == 50 || projectile.aiStyle == 51 || projectile.aiStyle == 57 || projectile.aiStyle == 65 || projectile.aiStyle == 69 || projectile.aiStyle == 70 || projectile.aiStyle == 71 || projectile.aiStyle == 72 || projectile.aiStyle == 73 || projectile.aiStyle == 74 || projectile.aiStyle == 75 || projectile.aiStyle == 77 || projectile.aiStyle == 78 || projectile.aiStyle == 81 || projectile.aiStyle == 84 || projectile.aiStyle == 87 || projectile.aiStyle == 91 || projectile.aiStyle == 92 || projectile.aiStyle == 93 || projectile.aiStyle == 94 || projectile.aiStyle == 95 || projectile.aiStyle == 96 || projectile.type == ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>()) //stopped before 100 because this is just getting absurd
 			if (!(projectile.DamageType == DamageClass.Summon || projectile.DamageType == DamageClass.MagicSummonHybrid) || (projectile.type == ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>())) {
@@ -573,7 +573,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				spawnGore = false;
 			}*/
         }
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
             target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(3, 5));
         }
 	}
@@ -581,7 +581,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 	internal class MetelordTail : WormTail
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Metelord");
+			// DisplayName.SetDefault("Metelord");
 
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				Hide = true
@@ -612,7 +612,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.height = 46;
 			NPC.noGravity = true;
 		}
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.damage = 40;
 			if (Main.masterMode) {
 				NPC.damage = 60;
@@ -621,10 +621,10 @@ namespace Zylon.NPCs.Bosses.Metelord
 		public override void Init() {
 			MetelordHead.CommonWormInit(this);
 		}
-		public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit) {
+		public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone) {
             if (target.ZoneMeteor) head.ai[0] = 1;
         }
-        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit) {
+        public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone) {
             if (target.ZoneMeteor) head.ai[0] = 1;
 			if (projectile.aiStyle == 1 || projectile.aiStyle == 2 || projectile.aiStyle == 3 || projectile.aiStyle == 5 || projectile.aiStyle == 8 || projectile.aiStyle == 12 || projectile.aiStyle == 13 || projectile.aiStyle == 14 || projectile.aiStyle == 15 || projectile.aiStyle == 18 || projectile.aiStyle == 23 || projectile.aiStyle == 24 || projectile.aiStyle == 27 || projectile.aiStyle == 28 || projectile.aiStyle == 29 || projectile.aiStyle == 30 || projectile.aiStyle == 33 || projectile.aiStyle == 34 || projectile.aiStyle == 36 || projectile.aiStyle == 38 || projectile.aiStyle == 39 || projectile.aiStyle == 40 || projectile.aiStyle == 41 || projectile.aiStyle == 42 || projectile.aiStyle == 43 || projectile.aiStyle == 44 || projectile.aiStyle == 45 || projectile.aiStyle == 46 || projectile.aiStyle == 47 || projectile.aiStyle == 48 || projectile.aiStyle == 50 || projectile.aiStyle == 51 || projectile.aiStyle == 57 || projectile.aiStyle == 65 || projectile.aiStyle == 69 || projectile.aiStyle == 70 || projectile.aiStyle == 71 || projectile.aiStyle == 72 || projectile.aiStyle == 73 || projectile.aiStyle == 74 || projectile.aiStyle == 75 || projectile.aiStyle == 77 || projectile.aiStyle == 78 || projectile.aiStyle == 81 || projectile.aiStyle == 84 || projectile.aiStyle == 87 || projectile.aiStyle == 91 || projectile.aiStyle == 92 || projectile.aiStyle == 93 || projectile.aiStyle == 94 || projectile.aiStyle == 95 || projectile.aiStyle == 96 || projectile.type == ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>()) //stopped before 100 because this is just getting absurd
 			if (!(projectile.DamageType == DamageClass.Summon || projectile.DamageType == DamageClass.MagicSummonHybrid) || (projectile.type == ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>())) {
@@ -683,7 +683,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				spawnGore = false;
 			}*/
         }
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
             target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(3, 5));
         }
 	}

@@ -10,7 +10,7 @@ namespace Zylon.Items.BossSummons
 		public override void SetStaticDefaults() {
 			string extra = "";
 			if (ModContent.GetInstance<ZylonConfig>().infBossSum) extra = "\nNot Consumable";
-			Tooltip.SetDefault("Summons Metelord\nCan only be used in the meteorite\nEnrages outside of the meteorite"+extra);
+			// Tooltip.SetDefault("Summons Metelord\nCan only be used in the meteorite\nEnrages outside of the meteorite"+extra);
 		}
 		public override void SetDefaults()  {
 			Item.width = 28;
@@ -38,7 +38,7 @@ namespace Zylon.Items.BossSummons
 				}
 				else
 				{
-					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+					NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: type);
 				}
 			}
 			return true;

@@ -8,7 +8,7 @@ namespace Zylon.Buffs.Debuffs
     public class DeadlyToxins : ModBuff
     {
         public override void SetStaticDefaults() {
-            Description.SetDefault("Deadly toxins are rapidly draining your life!");
+            // Description.SetDefault("Deadly toxins are rapidly draining your life!");
             Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;

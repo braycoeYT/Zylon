@@ -8,8 +8,8 @@ namespace Zylon.Buffs.Pets
 	public class DS_91Pet : ModBuff
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Malfunctioning DS-91");
-			Description.SetDefault("Its failing sensors have detected you as its owner");
+			// DisplayName.SetDefault("Malfunctioning DS-91");
+			// Description.SetDefault("Its failing sensors have detected you as its owner");
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.vanityPet[Type] = true;
 		}

@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Swords
 	public class MidpointBolt2 : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Midpoint");
+			// DisplayName.SetDefault("Midpoint");
         }
 		public override void SetDefaults() {
 			Projectile.width = 4;

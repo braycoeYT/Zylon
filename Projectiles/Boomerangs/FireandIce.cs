@@ -14,7 +14,7 @@ namespace Zylon.Projectiles.Boomerangs
 		public FireandIce() : base(30, 6, 7, 30f, 400f, 35) { }
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Fire and Ice");
+			// DisplayName.SetDefault("Fire and Ice");
         }
 		public override void BoomerangDefaultsSafe() {
 			Projectile.width = 38;

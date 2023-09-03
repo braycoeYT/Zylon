@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Wands
 	public class SparklySlimecasterProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Sparkly Slimecaster");
+			// DisplayName.SetDefault("Sparkly Slimecaster");
         }
 		public override void SetDefaults() {
 			Projectile.width = 68;
@@ -20,11 +20,15 @@ namespace Zylon.Projectiles.Wands
 			Projectile.DamageType = DamageClass.Magic;
 			Projectile.alpha = 255;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(320, Main.rand.Next(5, 11)*60);
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(320, Main.rand.Next(5, 11)*60);
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(320, Main.rand.Next(5, 11) * 60);
+			}
         }
         public override void AI() {
 			Projectile.alpha -= 17;

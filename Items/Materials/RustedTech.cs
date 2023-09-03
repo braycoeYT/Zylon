@@ -7,7 +7,7 @@ namespace Zylon.Items.Materials
 	public class RustedTech : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Ancient tech worn by the figurative and literal sands of time...'");
+			// Tooltip.SetDefault("'Ancient tech worn by the figurative and literal sands of time...'");
 		}
 		public override void SetDefaults() {
 			Item.width = 32;

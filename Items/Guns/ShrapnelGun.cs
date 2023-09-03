@@ -9,7 +9,7 @@ namespace Zylon.Items.Guns
 	public class ShrapnelGun : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Uses shrapnel as ammo\n90% chance not to consume ammo\nFires multiple small bits of shrapnel");
+			// Tooltip.SetDefault("Uses shrapnel as ammo\n90% chance not to consume ammo\nFires multiple small bits of shrapnel");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 2);

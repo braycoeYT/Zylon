@@ -12,7 +12,7 @@ namespace Zylon.Items.Spears
 	{
         public override void SetStaticDefaults() {
 			ItemID.Sets.Spears[Item.type] = true;
-			Tooltip.SetDefault("Enemies struck with the spear drop more money");
+			// Tooltip.SetDefault("Enemies struck with the spear drop more money");
         }
         public override void SetDefaults() {
 			Item.damage = 16;

@@ -107,7 +107,7 @@ namespace Zylon.Projectiles.Tomes
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Chaos Hex");
+            // DisplayName.SetDefault("Chaos Hex");
         }
 
         public override string Texture => "Zylon/Projectiles/Tomes/ChaosBallFriendly";

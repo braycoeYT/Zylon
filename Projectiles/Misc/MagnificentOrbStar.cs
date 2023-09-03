@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Misc
 	public class MagnificentOrbStar : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Magnificent Star");
+			// DisplayName.SetDefault("Magnificent Star");
 
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 8;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 2;

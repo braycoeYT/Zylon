@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Spears
 	public class ZincSpear : SpearProj
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Zinc Spear");
+			// DisplayName.SetDefault("Zinc Spear");
 		}
         public override void SpearDefaultsSafe()
         {

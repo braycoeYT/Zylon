@@ -7,7 +7,7 @@ namespace Zylon.Items.Materials
 	public class TabooEssence : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'It dances unevenly on your hand'");
+			// Tooltip.SetDefault("'It dances unevenly on your hand'");
         }
 		public override void SetDefaults() {
 			Item.width = 16;

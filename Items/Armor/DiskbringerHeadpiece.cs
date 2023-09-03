@@ -8,7 +8,7 @@ namespace Zylon.Items.Armor
 	public class DiskbringerHeadpiece : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Increases mining speed by 12%");
+			// Tooltip.SetDefault("Increases mining speed by 12%");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

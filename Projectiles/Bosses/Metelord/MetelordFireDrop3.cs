@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 	public class MetelordFireDrop3 : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Fallen Fire");
+			// DisplayName.SetDefault("Fallen Fire");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.GreekFire1);
@@ -20,10 +20,10 @@ namespace Zylon.Projectiles.Bosses.Metelord
 				dust.scale = 0.5f;
 			}
         }
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(1, 4), false);
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(1, 4), false);
 		}
         public override void Kill(int timeLeft) {

@@ -8,8 +8,8 @@ namespace Zylon.Buffs.Debuffs
 	public class Heartdaze : ModBuff
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Heartdaze");
-			Description.SetDefault("Blood! BLOOD!");
+			// DisplayName.SetDefault("Heartdaze");
+			// Description.SetDefault("Blood! BLOOD!");
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;

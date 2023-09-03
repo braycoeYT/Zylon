@@ -9,7 +9,7 @@ namespace Zylon.Items.MagicGuns
 	public class OvergrownElectricalComponent : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Only at 0.1% of its true power'");
+			// Tooltip.SetDefault("'Only at 0.1% of its true power'");
         }
         public override void SetDefaults()
         {

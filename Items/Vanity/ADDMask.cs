@@ -10,7 +10,7 @@ namespace Zylon.Items.Vanity
 	public class ADDMask : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ancient Desert Diskite Mask");
+			// DisplayName.SetDefault("Ancient Desert Diskite Mask");
 		}
 		public override void SetDefaults() {
 			Item.width = 22;

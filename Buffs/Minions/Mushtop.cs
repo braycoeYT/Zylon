@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Minions
 	public class Mushtop : ModBuff
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mushtop");
-			Description.SetDefault("The Mushtop will fight for you");
+			// DisplayName.SetDefault("Mushtop");
+			// Description.SetDefault("The Mushtop will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

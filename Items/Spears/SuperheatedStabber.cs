@@ -14,7 +14,7 @@ namespace Zylon.Items.Spears
 		public override void SetStaticDefaults()
 		{
 			ItemID.Sets.Spears[Item.type] = true;
-			Tooltip.SetDefault("Heats up while using the spear\nThrow the spear out when it's hot enough with alternate fire\n'Breaks the laws of thermodynamics for fun.'");
+			// Tooltip.SetDefault("Heats up while using the spear\nThrow the spear out when it's hot enough with alternate fire\n'Breaks the laws of thermodynamics for fun.'");
 		}
 		public override void SetDefaults() {
 			Item.damage = 41;

@@ -14,7 +14,7 @@ namespace Zylon.Projectiles.Enemies
 	public class DesertDiskite_LaserEye : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Desert Diskite");
+			// DisplayName.SetDefault("Desert Diskite");
         }
         public override void SetDefaults() {
             Projectile.width = 8;

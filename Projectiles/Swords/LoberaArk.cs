@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Swords
 	public class LoberaArk : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Lobera");
+			// DisplayName.SetDefault("Lobera");
 			Main.projFrames[Projectile.type] = 28;
         }
 		public override void SetDefaults() {
@@ -22,12 +22,16 @@ namespace Zylon.Projectiles.Swords
 			if (Timer % 5 == 0)
 				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), new Vector2(Main.MouseWorld.X + Main.rand.Next(-160, 161), Main.player[Projectile.owner].position.Y - 400), new Vector2(0, 20), ModContent.ProjectileType<LoberaTropicalOrb>(), (int)(Projectile.damage * 0.4f), Projectile.knockBack / 4, Projectile.owner);
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			if (target.boss == false)
 		    target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60 * Main.rand.Next(2, 8), false);
 		}
-		public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60 * Main.rand.Next(2, 8), false);
-		}
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60 * Main.rand.Next(2, 8), false);
+			}
+        }
     }   
 }

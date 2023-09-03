@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 	public class ADDLaser : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Diskite Laser");
+			// DisplayName.SetDefault("Diskite Laser");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.EyeLaser);

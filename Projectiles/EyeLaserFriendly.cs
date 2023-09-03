@@ -9,7 +9,7 @@ namespace Zylon.Projectiles
 	public class EyeLaserFriendly : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Eye Laser");
+			// DisplayName.SetDefault("Eye Laser");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.GreenLaser);

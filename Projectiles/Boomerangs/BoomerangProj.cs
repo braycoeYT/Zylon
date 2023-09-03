@@ -341,35 +341,37 @@ namespace Zylon.Projectiles.Boomerangs
 			return SetupThrow;
 		}
 
-		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+		public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
 		{
-			damage += (int)((float)BonusDamage * ((float)channelTime / (float)ChannelMax));
+			modifiers.SourceDamage += (int)((float)BonusDamage * ((float)channelTime / (float)ChannelMax));
 			if (channelTime == ChannelMax)
 			{
-				crit = true;
+				modifiers.SetCrit();
 			}
-			base.ModifyHitNPC(target, ref damage, ref knockback, ref crit, ref hitDirection);
+			base.ModifyHitNPC(target, ref modifiers);
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			if (Projectile.owner == Main.myPlayer)
 			{
 				CameraController.ScreenshakePoints(ScreenshakeOnHit, ScreenshakeDistance, target.Center, Main.LocalPlayer.Center, 1f);
 			}
-			OnHitNPCSafe(target, damage, knockback, crit);
+			OnHitNPCSafe(target, damageDone, hit.Knockback, hit.Crit);
 		}
-
-		public override void OnHitPvp(Player target, int damage, bool crit)
-		{
-			if (Projectile.owner == Main.myPlayer)
-			{
-				CameraController.ScreenshakePoints(ScreenshakeOnHit, ScreenshakeDistance, target.Center, Main.LocalPlayer.Center, 1f);
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				if (Projectile.owner == Main.myPlayer)
+				{
+					CameraController.ScreenshakePoints(ScreenshakeOnHit, ScreenshakeDistance, target.Center, Main.LocalPlayer.Center, 1f);
+				}
+				OnHitPvpSafe(target, info.Damage, false);
 			}
-			OnHitPvpSafe(target, damage, crit);
-		}
+        }
 
-		public virtual void OnHitNPCSafe(NPC target, int damage, float knockback, bool crit)
+        public virtual void OnHitNPCSafe(NPC target, int damage, float knockback, bool crit)
 		{
 		}
 

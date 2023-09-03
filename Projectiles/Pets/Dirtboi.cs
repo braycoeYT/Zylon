@@ -10,7 +10,7 @@ namespace Zylon.Projectiles.Pets
 	public class Dirtboi : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Dirtboi");
+            // DisplayName.SetDefault("Dirtboi");
             Main.projFrames[Projectile.type] = 4;
             Main.projPet[Projectile.type] = true;
         }

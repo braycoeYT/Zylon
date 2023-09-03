@@ -10,7 +10,7 @@ namespace Zylon.Items.Ammo
 	public class OverclockArrow : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("The longer the arrow is in the air before hitting an enemy, the more damage it does");
+			// Tooltip.SetDefault("The longer the arrow is in the air before hitting an enemy, the more damage it does");
         }
 		public override void SetDefaults() {
 			Item.damage = 5;

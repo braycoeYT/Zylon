@@ -12,7 +12,7 @@ namespace Zylon.NPCs.Bosses.ADD
 	public class SupportDiskite : ModNPC
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Support Diskite");
+			// DisplayName.SetDefault("Support Diskite");
             //Main.npcFrameCount[NPC.type] = 2;
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				ImmuneToAllBuffsThatAreNotWhips = true,
@@ -35,7 +35,7 @@ namespace Zylon.NPCs.Bosses.ADD
 			NPC.dontCountMe = true;
 			NPC.alpha = 255;
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 180 + ((numPlayers - 1) * 10);
 			NPC.damage = 41;
 		}
@@ -81,7 +81,7 @@ namespace Zylon.NPCs.Bosses.ADD
 				new FlavorTextBestiaryInfoElement("A small support drone created in case the Ancient Diskite Director was under attack.")
 			});
 		}
-        public override void HitEffect(int hitDirection, double damage) {
+        public override void HitEffect(NPC.HitInfo hit) {
             if (NPC.life < 0) Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-2, 2), 0), ModContent.GoreType<Gores.Bosses.ADD.SupportDiskiteGore>());
         }
     }

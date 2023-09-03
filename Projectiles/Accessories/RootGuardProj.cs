@@ -6,7 +6,7 @@ namespace Zylon.Projectiles.Accessories
 	public class RootGuardProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Root Guard");
+			// DisplayName.SetDefault("Root Guard");
 			Main.projFrames[Projectile.type] = 9;
         }
         public override void SetDefaults() {

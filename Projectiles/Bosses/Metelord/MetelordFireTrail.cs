@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 	public class MetelordFireTrail : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Flame Orb");
+			// DisplayName.SetDefault("Flame Orb");
 			Main.projFrames[Projectile.type] = 4;
         }
 		public override void SetDefaults() {
@@ -39,7 +39,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 				dust.scale = 0.5f;
 			}
 		}*/
-        public override void OnHitPlayer(Player target, int damage, bool crit) {
+        public override void OnHitPlayer(Player target, Player.HurtInfo info) {
             target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 5)*60);
         }
         public override void Kill(int timeLeft) {

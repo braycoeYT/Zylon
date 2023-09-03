@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Gigaslime
 	public class AcornTreeGrow : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Tree");
+			// DisplayName.SetDefault("Tree");
         }
 		public override void SetDefaults() {
 			Projectile.width = 64;

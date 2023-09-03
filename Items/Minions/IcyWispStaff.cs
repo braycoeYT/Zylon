@@ -11,7 +11,7 @@ namespace Zylon.Items.Minions
 	public class IcyWispStaff : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons icy wisps to fight for you\nSpawns two wisps that share a single minion slot");
+			// Tooltip.SetDefault("Summons icy wisps to fight for you\nSpawns two wisps that share a single minion slot");
 			ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
 			ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
 		}

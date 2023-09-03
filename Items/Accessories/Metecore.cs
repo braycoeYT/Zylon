@@ -7,7 +7,7 @@ namespace Zylon.Items.Accessories
 	public class Metecore : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Spawns a mini inferno ring around your cursor to roast enemies\nIncreases your life regen and defense when on fire");
+			// Tooltip.SetDefault("Spawns a mini inferno ring around your cursor to roast enemies\nIncreases your life regen and defense when on fire");
 		}
 		public override void SetDefaults() {
 			Item.width = 28;

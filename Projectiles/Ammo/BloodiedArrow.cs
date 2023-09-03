@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Ammo
 	public class BloodiedArrow : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Bloodied Arrow");
+			// DisplayName.SetDefault("Bloodied Arrow");
         }
 		public override void SetDefaults() {
 			Projectile.width = 8;

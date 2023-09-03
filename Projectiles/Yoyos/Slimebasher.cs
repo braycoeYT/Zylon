@@ -22,12 +22,17 @@ namespace Zylon.Projectiles.Yoyos
 			Projectile.penetrate = -1;
 			Projectile.DamageType = DamageClass.Melee;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Slimed, 60 * Main.rand.Next(3, 6), false);
 		}
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-            target.AddBuff(BuffID.Slimed, 60 * Main.rand.Next(3, 6), false);
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.Slimed, 60 * Main.rand.Next(3, 6), false);
+			}
         }
+
         public override void PostAI() {
 			if (Main.rand.NextBool()) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Ice);

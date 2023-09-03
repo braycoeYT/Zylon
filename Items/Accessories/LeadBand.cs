@@ -7,7 +7,7 @@ namespace Zylon.Items.Accessories
 	public class LeadBand : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Increases the potency of Ironskin Potions");
+			// Tooltip.SetDefault("Increases the potency of Ironskin Potions");
 		}
 		public override void SetDefaults() {
 			Item.width = 28;

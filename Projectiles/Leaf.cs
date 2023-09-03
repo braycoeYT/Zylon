@@ -7,7 +7,7 @@ namespace Zylon.Projectiles
 	public class Leaf : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Leaf");
+			// DisplayName.SetDefault("Leaf");
 			Main.projFrames[Projectile.type] = 5;
         }
 		public override void SetDefaults() {

@@ -10,8 +10,8 @@ namespace Zylon.Items.Swords
 	public class HBDeusGreatsword : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("HBDeus's Greatsword");
-			Tooltip.SetDefault("UNOBTAINABLE: Developer Item\nSurrounds the cursor with shattered swords");
+			// DisplayName.SetDefault("HBDeus's Greatsword");
+			// Tooltip.SetDefault("UNOBTAINABLE: Developer Item\nSurrounds the cursor with shattered swords");
 		}
 		public override void SetDefaults() {
 			Item.damage = 819;

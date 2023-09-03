@@ -7,7 +7,7 @@ namespace Zylon.Items.Accessories
 	public class SlimePendant : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Slightly increases max jump height\nReleases slime spikes after taking damage");
+			// Tooltip.SetDefault("Slightly increases max jump height\nReleases slime spikes after taking damage");
 		}
 		public override void SetDefaults() {
 			Item.width = 26;

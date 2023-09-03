@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Boomerangs
 	public class Pukerang : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Pukerang");
+			// DisplayName.SetDefault("Pukerang");
         }
 		public override void SetDefaults() {
 			Projectile.width = 24;
@@ -53,11 +53,17 @@ namespace Zylon.Projectiles.Boomerangs
 				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir, ModContent.ProjectileType<Projectiles.CursedFlamesMelee>(), Projectile.damage, Projectile.knockBack / 4, Projectile.owner);
 			}
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.CursedInferno, Main.rand.Next(4, 11) * 60);
 		}
-		public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.CursedInferno, Main.rand.Next(4, 11) * 60);
-		}
-	}   
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.CursedInferno, Main.rand.Next(4, 11) * 60);
+			}
+        }
+
+    }   
 }

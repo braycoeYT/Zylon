@@ -10,7 +10,7 @@ namespace Zylon.Items.Tomes
 	public class VolcanicFlame : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Casts down a psychokinetic flame wall");
+			// Tooltip.SetDefault("Casts down a psychokinetic flame wall");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 0, 54, 0);

@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Ammo
 	public class ShiverthornSeed : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Shiverthorn Seed");
+			// DisplayName.SetDefault("Shiverthorn Seed");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);

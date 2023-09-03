@@ -11,7 +11,7 @@ namespace Zylon.NPCs.Bosses.ADD
 	public class ADD_SideTop : ModNPC
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ancient Diskite Director");
+			// DisplayName.SetDefault("Ancient Diskite Director");
             //Main.npcFrameCount[NPC.type] = 2;
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				ImmuneToAllBuffsThatAreNotWhips = true,
@@ -33,7 +33,7 @@ namespace Zylon.NPCs.Bosses.ADD
 			NPC.noTileCollide = true;
 			NPC.dontCountMe = true;
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = (int)((950 + ((numPlayers - 1) * 400))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 43;
 		}
@@ -155,7 +155,7 @@ namespace Zylon.NPCs.Bosses.ADD
 				new FlavorTextBestiaryInfoElement("A laser-shooting piece of the Ancient Diskite Director.")
 			});
 		}
-        public override void HitEffect(int hitDirection, double damage) {
+        public override void HitEffect(NPC.HitInfo hit) {
             if (NPC.life < 0) Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), -6), ModContent.GoreType<Gores.Bosses.ADD.SideTopDeath>());
         }
     }

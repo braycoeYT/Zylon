@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Accessories
 	public class BloodContractProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Blood Contract");
+			// DisplayName.SetDefault("Blood Contract");
         }
 		public override void SetDefaults() {
 			Projectile.width = 20;

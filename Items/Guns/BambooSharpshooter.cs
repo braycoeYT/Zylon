@@ -9,7 +9,7 @@ namespace Zylon.Items.Guns
 	public class BambooSharpshooter : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Fires a spread of bullets and poisonous bamboo spikes");
+			// Tooltip.SetDefault("Fires a spread of bullets and poisonous bamboo spikes");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 3);

@@ -9,7 +9,7 @@ namespace Zylon.Items.Swords
 	public class Midpoint : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("'Only halfway to oblivion, and whatever lies beyond'\nAlternates between firing different types of bolts");
+            // Tooltip.SetDefault("'Only halfway to oblivion, and whatever lies beyond'\nAlternates between firing different types of bolts");
         }
         public override void SetDefaults() {
 			Item.damage = 54;

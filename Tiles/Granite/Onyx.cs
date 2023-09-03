@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -6,6 +7,7 @@ using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Zylon.Items.Materials;
@@ -27,8 +29,8 @@ namespace Zylon.Tiles.Granite
 			TileID.Sets.IgnoredInHouseScore[(int)Type] = true;
 			TileID.Sets.IgnoredByGrowingSaplings[(int)Type] = true;
 			Main.tileSpelunker[(int)Type] = true;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Onyx");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Onyx");
 			AddMapEntry(new Color(140, 100, 177), name);
 			TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
 			TileObjectData.newTile.AnchorValidTiles = new int[]
@@ -56,8 +58,9 @@ namespace Zylon.Tiles.Granite
 		{
 			offsetY = -2;
 		}
-		public override bool Drop(int i, int j)
-		{
+
+        public override IEnumerable<Item> GetItemDrops(int i, int j)
+        {
 			Vector2 worldPosition = new Vector2((float)i, (float)j).ToWorldCoordinates(8f, 8f);
 			int onyxItem = ModContent.ItemType<OnyxShard>();
 			int onyxAmount = Main.rand.Next(1, 4);
@@ -66,10 +69,10 @@ namespace Zylon.Tiles.Granite
 			{
 				Item.NewItem(source, worldPosition, onyxItem, onyxAmount, false, 0, false, false);
 			}
-			return false;
+			return null;
 		}
 
-		public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+        public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
 		{
 			float LightAmount = Main.rand.NextFloat(0.35f, 0.4f);
 			r = LightAmount;

@@ -17,10 +17,10 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPC.CloneDefaults(NPCID.DetonatingBubble);
 			NPC.damage = 60;
         }
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.damage = 90;
         }
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
 			for (int i = 0; i < 10; i++) {
 				int dustType = ModContent.DustType<Dusts.WaterDust>();
 				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType);
@@ -30,7 +30,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 				dust.scale *= 0.33f + Main.rand.Next(-30, 31) * 0.01f;
 			}
 		}
-		public override void HitEffect(int hitDirection, double damage) {
+		public override void HitEffect(NPC.HitInfo hit) {
 			for (int i = 0; i < (int)(10*NPC.scale); i++) {
 				int dustType = ModContent.DustType<Dusts.WaterDust>();;
 				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType);

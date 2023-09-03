@@ -7,7 +7,7 @@ namespace Zylon.WorldGeneration
 {
 	public class ZylonMarbleSystem : ModSystem
 	{
-		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
+		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
 		{
 			int ShiniesIndex = tasks.FindIndex((GenPass genpass) => genpass.Name.Equals("Shinies"));
 			int HerbsIndex = tasks.FindIndex((GenPass genpass) => genpass.Name.Equals("Herbs"));

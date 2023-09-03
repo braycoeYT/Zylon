@@ -14,7 +14,7 @@ namespace Zylon.Projectiles.Minions
 	public class MeteorbProtectDeco : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Meteorb");
+			// DisplayName.SetDefault("Meteorb");
 			Main.projFrames[Projectile.type] = 3;
         }
         public override void SetDefaults() {

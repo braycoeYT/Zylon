@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Boomerangs
 	public class CactirangPricklyPear : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Prickly Pear");
+			// DisplayName.SetDefault("Prickly Pear");
         }
         public override void SetDefaults()
         {

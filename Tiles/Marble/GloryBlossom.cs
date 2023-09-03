@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -7,6 +8,7 @@ using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Metadata;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Zylon.Items.Materials;
@@ -27,8 +29,8 @@ namespace Zylon.Tiles.Marble
 			TileID.Sets.IgnoredByGrowingSaplings[(int)base.Type] = true;
 			Main.tileSpelunker[(int)base.Type] = true;
 			TileMaterials.SetForTileId(base.Type, TileMaterials._materialsByName["Plant"]);
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Glory Blossom");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Glory Blossom");
 			AddMapEntry(new Color(255, 126, 49), name);
 			TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
 			TileObjectData.newTile.AnchorValidTiles = new int[]
@@ -53,7 +55,7 @@ namespace Zylon.Tiles.Marble
 			offsetY = -2;
 		}
 
-		public override bool Drop(int i, int j)
+		public override IEnumerable<Item> GetItemDrops(int i, int j)
 		{
 			Vector2 worldPosition = new Vector2((float)i, (float)j).ToWorldCoordinates(8f, 8f);
 			int petalItem = ModContent.ItemType<GloryPetals>();
@@ -63,7 +65,7 @@ namespace Zylon.Tiles.Marble
 			{
 				Item.NewItem(source, worldPosition, petalItem, petalAmount, false, 0, false, false);
 			}
-			return false;
+			return null;
 		}
 
 		public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

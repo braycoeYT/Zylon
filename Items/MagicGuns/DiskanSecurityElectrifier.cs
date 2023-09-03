@@ -9,7 +9,7 @@ namespace Zylon.Items.MagicGuns
 	public class DiskanSecurityElectrifier : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Every third shot fires a bolt that explodes into electricity");
+			// Tooltip.SetDefault("Every third shot fires a bolt that explodes into electricity");
 		}
 		public override void SetDefaults() {
 			Item.damage = 18;

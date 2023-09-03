@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Minions
 	public class Mushtop : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mushtop");
+			// DisplayName.SetDefault("Mushtop");
 			Main.projFrames[Projectile.type] = 5;
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;

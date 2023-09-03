@@ -10,7 +10,7 @@ namespace Zylon.Items.Ammo
 	public class FireblossomSeed : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("For use with blowpipes\nGrows a fireblossom flower on impact\nThe fireblossom shoots balls of fire around itself");
+			// Tooltip.SetDefault("For use with blowpipes\nGrows a fireblossom flower on impact\nThe fireblossom shoots balls of fire around itself");
         }
 		public override void SetDefaults() {
 			Item.damage = 10;

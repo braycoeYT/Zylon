@@ -10,8 +10,8 @@ namespace Zylon.Items.Guns
 	public class FatherofTime : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Father of Time"); //Originally named Father Time but had to be renamed because everyone would think of something else
-			Tooltip.SetDefault("Fires a four round burst of small clockwork bits, which have a small chance to inflict Timestop on enemies");
+			// DisplayName.SetDefault("Father of Time"); //Originally named Father Time but had to be renamed because everyone would think of something else
+			// Tooltip.SetDefault("Fires a four round burst of small clockwork bits, which have a small chance to inflict Timestop on enemies");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 1, 75, 0);

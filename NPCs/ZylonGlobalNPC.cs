@@ -15,7 +15,7 @@ namespace Zylon.NPCs
 		public static int diskiteBoss = -1;
 		public static int dirtballBoss = -1;
 		public static int metelordBoss = -1;
-        public override void HitEffect(NPC npc, int hitDirection, double damage) {
+        public override void HitEffect(NPC npc, NPC.HitInfo hit) {
             if (npc.type == NPCID.Plantera && npc.life < 1 && !NPC.downedPlantBoss)
 				ProjectileHelpers.NewNetProjectile(npc.GetSource_FromThis(), npc.Center, new Vector2(0, 0), ProjectileType<Projectiles.PlanteraElementalGel>(), 0, 0, Main.myPlayer, BasicNetType: 2);
         }
@@ -87,7 +87,7 @@ namespace Zylon.NPCs
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SlimePendant>(), 150), new CommonDrop(ItemType<Items.Accessories.SlimePendant>(), 125)));
 			if (npc.type == NPCID.WindyBalloon || npc.type == NPCID.Dandelion)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Materials.WindEssence>(), 3, 1, 2), new CommonDrop(ItemType<Items.Materials.WindEssence>(), 2, 1, 2)));
-			if ((npc.type == 2) || (npc.type >= -43 && npc.type <= -38) || (npc.type >= 190 && npc.type <= 194) || (npc.type == 317) || (npc.type == 318))
+			if ((npc.type == NPCID.DemonEye) || (npc.type >= -43 && npc.type <= -38) || (npc.type >= NPCID.CataractEye && npc.type <= NPCID.PurpleEye) || (npc.type == NPCID.DemonEyeOwl) || (npc.type == NPCID.DemonEyeSpaceship))
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.GlazedLens>(), 100), new CommonDrop(ItemType<Items.Accessories.GlazedLens>(), 90)));
 			if (npc.type == NPCID.UndeadMiner || npc.type == NPCID.GiantWormHead)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Accessories.ExtraShinyOreNugget>(), 30));
@@ -147,37 +147,74 @@ namespace Zylon.NPCs
             //globalLoot.Add(ItemDropRule.ByCondition(new Conditions.WindyEnoughForKiteDrops(), ItemType<Items.Materials.WindEssence>(), 5));
 			globalLoot.Add(ItemDropRule.ByCondition(new Conditions.IsBloodMoonAndNotFromStatue(), ItemType<Items.Materials.BloodDroplet>(), 6));
 		}
-        public override void SetupShop(int type, Chest shop, ref int nextSlot) {
-            if (type == NPCID.Dryad) {
-				shop.item[nextSlot].SetDefaults(ItemID.Seed);
-				shop.item[nextSlot].shopCustomPrice = 4;
-				nextSlot++;
+        public override void ModifyActiveShop(NPC npc, string shopName, Item[] items) {
+
+            if (npc.type == NPCID.Dryad) {
+				for (int i = 0; i < items.Length; i++)
+                {
+                    if (items[i].type == ItemID.None)
+                    {
+						items[i].SetDefaults(ItemID.Seed);
+						items[i].shopCustomPrice = 4;
+						break;
+                    }
+                }
 			}
-			if (type == NPCID.WitchDoctor) {
-				shop.item[nextSlot].SetDefaults(ItemID.PoisonDart);
-				shop.item[nextSlot].shopCustomPrice = 7;
-				nextSlot++;
+			if (npc.type == NPCID.WitchDoctor) {
+				for (int i = 0; i < items.Length; i++)
+				{
+					if (items[i].type == ItemID.None)
+					{
+						items[i].SetDefaults(ItemID.PoisonDart);
+						items[i].shopCustomPrice = 7;
+						break;
+					}
+				}
 			}
-			if (type == NPCID.Demolitionist) {
-				shop.item[nextSlot].SetDefaults(ItemType<Items.Ammo.PocketGrenade>());
-				nextSlot++;
+			if (npc.type == NPCID.Demolitionist) {
+				for (int i = 0; i < items.Length; i++)
+				{
+					if (items[i].type == ItemID.None)
+					{
+						items[i].SetDefaults(ItemType<Items.Ammo.PocketGrenade>());
+						break;
+					}
+				}
 			}
-			if (type == NPCID.ArmsDealer) {
+			if (npc.type == NPCID.ArmsDealer) {
 				if (NPC.downedBoss2) {
 					if (Main.hardMode || !Main.dayTime) {
-						shop.item[nextSlot].SetDefaults(ItemType<Items.Ammo.BloodiedArrow>());
-						nextSlot++;
+						for (int i = 0; i < items.Length; i++)
+						{
+							if (items[i].type == ItemID.None)
+							{
+								items[i].SetDefaults(ItemType<Items.Ammo.BloodiedArrow>());
+								break;
+							}
+						}
 					}
 				}
 				if (Main.hardMode) {
-					shop.item[nextSlot].SetDefaults(ItemType<Items.Blowpipes.FamiliarFoamDartPistol>());
-						nextSlot++;
+					for (int i = 0; i < items.Length; i++)
+					{
+						if (items[i].type == ItemID.None)
+						{
+							items[i].SetDefaults(ItemType<Items.Blowpipes.FamiliarFoamDartPistol>());
+							break;
+						}
+					}
                 }
 			}
-			if (type == NPCID.Merchant) {
+			if (npc.type == NPCID.Merchant) {
 				if (ZylonWorldCheckSystem.downedDirtball) {
-					shop.item[nextSlot].SetDefaults(ItemType<Items.Tools.TreeWhacker>());
-					nextSlot++;
+					for (int i = 0; i < items.Length; i++)
+					{
+						if (items[i].type == ItemID.None)
+						{
+							items[i].SetDefaults(ItemType<Items.Tools.TreeWhacker>());
+							break;
+						}
+					}
 				}
 			}
 			/*if (type == NPCID.Wizard) {

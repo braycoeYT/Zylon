@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.MagicGuns
     public class SMGBlast : ModProjectile
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Space Machine Gun");
+            // DisplayName.SetDefault("Space Machine Gun");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
         }

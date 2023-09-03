@@ -9,7 +9,7 @@ namespace Zylon.Items.Spears
 	{
 		public override void SetStaticDefaults() {
 			ItemID.Sets.Spears[Item.type] = true;
-			Tooltip.SetDefault("'Enchanted with Loyalty I'");
+			// Tooltip.SetDefault("'Enchanted with Loyalty I'");
 		}
 		public override void SetDefaults() {
 			Item.damage = 27;

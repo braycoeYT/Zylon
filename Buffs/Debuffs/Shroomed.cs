@@ -8,8 +8,8 @@ namespace Zylon.Buffs.Debuffs
     public class Shroomed : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Shroomed");
-            Description.SetDefault("You have been infected by bioluminescent fungi");
+            // DisplayName.SetDefault("Shroomed");
+            // Description.SetDefault("You have been infected by bioluminescent fungi");
             Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;

@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Minions
 	public class DiskiteMinion : ModBuff
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Desert Diskite");
-			Description.SetDefault("The Desert Diskite will fight for you");
+			// DisplayName.SetDefault("Desert Diskite");
+			// Description.SetDefault("The Desert Diskite will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

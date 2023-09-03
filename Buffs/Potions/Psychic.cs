@@ -6,8 +6,8 @@ namespace Zylon.Buffs.Potions
     public class Psychic : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Psychic");
-            Description.SetDefault("You are focused on your psychic ability");
+            // DisplayName.SetDefault("Psychic");
+            // Description.SetDefault("You are focused on your psychic ability");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = false;
         }

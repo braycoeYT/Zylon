@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Bosses.Dirtball
 	public class DirtGlobHostile : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Dirt Glob");
+			// DisplayName.SetDefault("Dirt Glob");
 			Main.projFrames[Projectile.type] = 6;
         }
 		public override void SetDefaults() {

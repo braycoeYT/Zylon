@@ -10,8 +10,8 @@ namespace Zylon.Items.Swords
 	public class ForgottenRosesSaber : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Forgotten Rose's Saber");
-			Tooltip.SetDefault("'The forgotten rose's bloom will be others' doom!'\nSwings release a blossomed rose\nBlossomed roses release spore clouds after stopping\nEvery third swing also releases a ring of roses");
+			// DisplayName.SetDefault("Forgotten Rose's Saber");
+			// Tooltip.SetDefault("'The forgotten rose's bloom will be others' doom!'\nSwings release a blossomed rose\nBlossomed roses release spore clouds after stopping\nEvery third swing also releases a ring of roses");
 		}
 		public override void SetDefaults() {
 			Item.damage = 65;

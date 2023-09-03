@@ -8,7 +8,7 @@ namespace Zylon.Items.Boomerangs
 	{
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("Spawns damaging prickly pears on critical strikes");
+			// Tooltip.SetDefault("Spawns damaging prickly pears on critical strikes");
 		}
 		public override void SetDefaults() {
 			Item.damage = 10;

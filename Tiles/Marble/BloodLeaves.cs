@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace Zylon.Tiles.Marble
@@ -19,13 +20,12 @@ namespace Zylon.Tiles.Marble
 			Main.tileMerge[TileID.Marble][(int)Type] = true;
 			TileID.Sets.ChecksForMerge[(int)Type] = true;
 			Main.tileBlockLight[(int)Type] = true;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Blood Leaves");
+			LocalizedText name = CreateMapEntryName();
 			AddMapEntry(new Color(140, 26, 89), name);
 			DustType = 117;
 			HitSound = new SoundStyle?(SoundID.Grass);
 			MineResist = 0.5f;
-			ItemDrop = 0;
+			RegisterItemDrop(0);
 		}
 		
 		public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref TileDrawInfo drawData)

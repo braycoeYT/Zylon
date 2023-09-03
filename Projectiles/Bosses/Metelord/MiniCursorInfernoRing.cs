@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 	public class MiniCursorInfernoRing : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mini Inferno");
+			// DisplayName.SetDefault("Mini Inferno");
 			Main.projFrames[Projectile.type] = 3;
 		}
 		public sealed override void SetDefaults() {

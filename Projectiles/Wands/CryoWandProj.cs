@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Wands
 	public class CryoWandProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Cryo Wand");
+			// DisplayName.SetDefault("Cryo Wand");
         }
 		public override void SetDefaults() {
 			Projectile.width = 32;
@@ -31,12 +31,17 @@ namespace Zylon.Projectiles.Wands
             newRot += 0.08f;
 			Projectile.rotation = newRot;
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.Frostburn, Main.rand.Next(3, 8)*60);
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Frostburn, Main.rand.Next(3, 8)*60);
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.Frostburn, Main.rand.Next(3, 8) * 60);
+			}
         }
+
         public override void Kill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Shatter, Projectile.Center);
 			Vector2 newVel = Projectile.velocity*-1f;

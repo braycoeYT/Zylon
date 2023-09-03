@@ -7,8 +7,8 @@ namespace Zylon.Items.Accessories
 	public class HeartofPrisms : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Heart of Prisms");
-			Tooltip.SetDefault("Puts a spike ring around the player\nEnemies hit by the ring are thrown away");
+			// DisplayName.SetDefault("Heart of Prisms");
+			// Tooltip.SetDefault("Puts a spike ring around the player\nEnemies hit by the ring are thrown away");
 		}
 		public override void SetDefaults() {
 			Item.width = 28;

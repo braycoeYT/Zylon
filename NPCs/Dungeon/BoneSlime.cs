@@ -10,7 +10,7 @@ namespace Zylon.NPCs.Dungeon
 	public class BoneSlime : ModNPC
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Bone Slime");
+			// DisplayName.SetDefault("Bone Slime");
 			Main.npcFrameCount[NPC.type] = 2;
 		}
         public override void SetDefaults() {
@@ -29,7 +29,7 @@ namespace Zylon.NPCs.Dungeon
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.BoneSlimeBanner>();
         }
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 189;
             NPC.damage = 71;
         }

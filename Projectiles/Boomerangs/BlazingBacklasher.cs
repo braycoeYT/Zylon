@@ -10,7 +10,7 @@ namespace Zylon.Projectiles.Boomerangs
 	public class BlazingBacklasher : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Blazing Backlasher");
+			// DisplayName.SetDefault("Blazing Backlasher");
         }
 		public override void SetDefaults() {
 			Projectile.width = 8;
@@ -22,7 +22,7 @@ namespace Zylon.Projectiles.Boomerangs
 			Projectile.timeLeft = 9999;
 			Projectile.ignoreWater = true;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Daybreak, 300);
 		}
 		public override void PostAI() {

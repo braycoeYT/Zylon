@@ -10,8 +10,8 @@ namespace Zylon.Items.BossSummons
 		public override void SetStaticDefaults() {
 			string extra = "";
 			if (ModContent.GetInstance<ZylonConfig>().infBossSum) extra = "\nNot Consumable";
-			DisplayName.SetDefault("Eye of Cthulhu");
-			Tooltip.SetDefault("'A suspicious looking eye summons the eye of cthulhu, but what does the eye of cthulhu summon?'"+extra);
+			// DisplayName.SetDefault("Eye of Cthulhu");
+			// Tooltip.SetDefault("'A suspicious looking eye summons the eye of cthulhu, but what does the eye of cthulhu summon?'"+extra);
 		}
 		public override void SetDefaults()  {
 			Item.width = 152;
@@ -39,7 +39,7 @@ namespace Zylon.Items.BossSummons
 				}
 				else
 				{
-					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+					NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: type);
 				}
 			}
 			return true;

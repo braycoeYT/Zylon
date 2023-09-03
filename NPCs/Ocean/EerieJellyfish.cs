@@ -32,12 +32,12 @@ namespace Zylon.NPCs.Ocean
 			AnimationType = 1;
 			NPC.noGravity = true;
         }
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 210;
             NPC.damage = 70;
 			NPC.knockBackResist = 0.9f;
         }
-		public override void HitEffect(int hitDirection, double damage) {
+		public override void HitEffect(NPC.HitInfo hit) {
 			for (int i = 0; i < 4; i++) {
 				int dustType = ModContent.DustType<Dusts.JellyDust>();
 				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType);

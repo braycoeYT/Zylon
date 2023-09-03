@@ -7,7 +7,7 @@ namespace Zylon.Items.Yoyos
 	public class EarthDay : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'The day the earth stood up for itself'\nShoots acorns at nearby enemies\nRains mushroom spores on foes");
+			// Tooltip.SetDefault("'The day the earth stood up for itself'\nShoots acorns at nearby enemies\nRains mushroom spores on foes");
 			ItemID.Sets.Yoyo[Item.type] = true;
 			ItemID.Sets.GamepadExtraRange[Item.type] = 15;
 			ItemID.Sets.GamepadSmartQuickReach[Item.type] = true;

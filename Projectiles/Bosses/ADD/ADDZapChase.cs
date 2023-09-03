@@ -10,7 +10,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 	public class ADDZapChase : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Diskite Zap");
+			// DisplayName.SetDefault("Diskite Zap");
         }
 		public override void SetDefaults() {
 			Projectile.width = 36;
@@ -43,7 +43,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 				dust.scale = 1f;
 			}
 		}
-        public override void OnHitPlayer(Player target, int damage, bool crit) {
+        public override void OnHitPlayer(Player target, Player.HurtInfo info) {
             target.AddBuff(BuffID.Electrified, Main.rand.Next(1, 4)*60);
         }
         public override void Kill(int timeLeft) {

@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Wands
 	public class ManaSiphonBolt : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mana Siphon");
+			// DisplayName.SetDefault("Mana Siphon");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 32;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
@@ -31,14 +31,20 @@ namespace Zylon.Projectiles.Wands
 			Projectile.velocity *= 1.01f;
 
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			if (target.type != NPCID.TargetDummy) {
 				Siphon(Main.player[Projectile.owner], Main.rand.Next(5, 8));
 			}
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			Siphon(Main.player[Projectile.owner], Main.rand.Next(5, 8));
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				Siphon(Main.player[Projectile.owner], Main.rand.Next(5, 8));
+			}
         }
+
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}

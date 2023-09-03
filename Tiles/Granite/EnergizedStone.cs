@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace Zylon.Tiles.Granite
@@ -18,11 +19,9 @@ namespace Zylon.Tiles.Granite
 			Main.tileSolid[(int)Type] = true;
 			Main.tileBlockLight[(int)Type] = true;
 			Main.tileSpelunker[(int)Type] = true;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Energized Stone");
+			LocalizedText name = CreateMapEntryName();
 			AddMapEntry(new Color(94, 101, 241), name);
 			DustType = 228;
-			ItemDrop = ModContent.ItemType<Items.Materials.EnergizedStone>();
 			HitSound = new SoundStyle?(new SoundStyle("Zylon/Sounds/Tiles/EnergizedStoneHit", SoundType.Sound)
 			{
 				Volume = 1f,

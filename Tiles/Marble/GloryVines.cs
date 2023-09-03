@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace Zylon.Tiles.Marble
@@ -16,12 +17,12 @@ namespace Zylon.Tiles.Marble
 			Main.tileNoAttach[(int)Type] = true;
 			Main.tileFrameImportant[(int)Type] = true;
 			Main.tileCut[(int)Type] = true;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Glory Vine");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Glory Vine");
 			AddMapEntry(new Color(110, 0, 59));
 			DustType = 117;
 			HitSound = new SoundStyle?(SoundID.Grass);
-			ItemDrop = 0;
+			RegisterItemDrop(0);
 		}
 
 		public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)

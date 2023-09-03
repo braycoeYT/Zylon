@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Misc
 	public class MagnificentOrbPortal : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Magnificent Portal");
+			// DisplayName.SetDefault("Magnificent Portal");
 			Main.projFrames[Projectile.type] = 4;
 		}
 		public override void SetDefaults() {

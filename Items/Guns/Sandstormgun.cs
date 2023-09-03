@@ -9,7 +9,7 @@ namespace Zylon.Items.Guns
 	public class Sandstormgun : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Spread the sand!'");
+			// Tooltip.SetDefault("'Spread the sand!'");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 6);

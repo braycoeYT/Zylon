@@ -11,7 +11,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
     public class Dirtboi : ModNPC
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Dirtboi");
+            // DisplayName.SetDefault("Dirtboi");
             Main.npcFrameCount[NPC.type] = 4;
             NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				ImmuneToAllBuffsThatAreNotWhips = true

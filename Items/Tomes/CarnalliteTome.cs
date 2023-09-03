@@ -17,7 +17,7 @@ namespace Zylon.Items.Tomes
 		
 
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Shoots seeds that grow into buffing flowers\nRight click changes the seed thrown\nMaximum of two at a given time\n'I always knew flowers had powers!'");
+			// Tooltip.SetDefault("Shoots seeds that grow into buffing flowers\nRight click changes the seed thrown\nMaximum of two at a given time\n'I always knew flowers had powers!'");
 		}
 		public override void SetDefaults() {
 			Item.width = 44;

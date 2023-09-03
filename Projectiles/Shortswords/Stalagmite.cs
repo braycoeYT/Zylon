@@ -22,7 +22,7 @@ namespace Zylon.Projectiles.Shortswords
 		}
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Stalagmite");
+			// DisplayName.SetDefault("Stalagmite");
 		}
 		public override void SetDefaults() {
 			Projectile.Size = new Vector2(18);
@@ -38,16 +38,21 @@ namespace Zylon.Projectiles.Shortswords
 			Projectile.timeLeft = 360;
 			Projectile.hide = true;
 		}
-        public override void OnHitNPC(NPC target, int damage, float knockBack, bool crit) {
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			if (target.type != NPCID.TargetDummy) for (int i = 0; i < 3; i++)
 				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-7, -4)), ModContent.ProjectileType<GraniteSpark>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			for (int i = 0; i < 3; i++)
-				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-7, -4)), ModContent.ProjectileType<GraniteSpark>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				for (int i = 0; i < 3; i++)
+					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-7, -4)), ModContent.ProjectileType<GraniteSpark>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+			}
         }
 
-		public override void AI() {
+        public override void AI() {
 			Player player = Main.player[Projectile.owner];
 
 			Timer += 1;

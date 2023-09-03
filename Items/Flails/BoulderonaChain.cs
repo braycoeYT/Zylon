@@ -7,8 +7,8 @@ namespace Zylon.Items.Flails
 	public class BoulderonaChain : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Boulder on a Chain");
-			Tooltip.SetDefault("'Pinky may cry'\nStriking the ground produces a shockwave");
+			// DisplayName.SetDefault("Boulder on a Chain");
+			// Tooltip.SetDefault("'Pinky may cry'\nStriking the ground produces a shockwave");
 		}
 		public override void SetDefaults() {
 			Item.width = 42;

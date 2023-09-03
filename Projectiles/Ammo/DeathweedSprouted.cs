@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Ammo
 	public class DeathweedSprouted : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Deathweed");
+			// DisplayName.SetDefault("Deathweed");
         }
 		public override void SetDefaults() {
 			Projectile.width = 12; //16
@@ -21,17 +21,22 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.penetrate = 3;
 			Projectile.rotation = 0;
 		}
-        public override void ModifyHitPvp(Player target, ref int damage, ref bool crit) {
-            if (target.statLife < target.statLifeMax/2) damage += 3;
-			if (target.statLife < target.statLifeMax/4) damage += 2;
-			if (target.statLife < target.statLifeMax/8) damage += 2;
-			if (target.statLife < target.statLifeMax/16) damage += 1;
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) {
+			if (target.life < target.lifeMax/2) modifiers.SourceDamage += 3;
+			if (target.life < target.lifeMax/4) modifiers.SourceDamage += 2;
+			if (target.life < target.lifeMax/8) modifiers.SourceDamage += 2;
+			if (target.life < target.lifeMax/16) modifiers.SourceDamage += 1;
         }
-        public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) {
-			if (target.life < target.lifeMax/2) damage += 3;
-			if (target.life < target.lifeMax/4) damage += 2;
-			if (target.life < target.lifeMax/8) damage += 2;
-			if (target.life < target.lifeMax/16) damage += 1;
+
+        public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
+        {
+            if (modifiers.PvP)
+            {
+				if (target.statLife < target.statLifeMax2 / 2) modifiers.SourceDamage += 3;
+				if (target.statLife < target.statLifeMax2 / 4) modifiers.SourceDamage += 2;
+				if (target.statLife < target.statLifeMax2 / 8) modifiers.SourceDamage += 2;
+				if (target.statLife < target.statLifeMax2 / 16) modifiers.SourceDamage += 1;
+			}
         }
-	}   
+    }   
 }

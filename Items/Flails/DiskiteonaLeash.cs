@@ -7,8 +7,8 @@ namespace Zylon.Items.Flails
 	public class DiskiteonaLeash : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Diskite on a Leash");
-			Tooltip.SetDefault("Does not collide with tiles and fires lasers at random on use");
+			// DisplayName.SetDefault("Diskite on a Leash");
+			// Tooltip.SetDefault("Does not collide with tiles and fires lasers at random on use");
 		}
 		public override void SetDefaults() {
 			Item.width = 42;

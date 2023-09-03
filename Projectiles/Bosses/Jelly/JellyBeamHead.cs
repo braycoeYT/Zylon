@@ -6,7 +6,7 @@ namespace Zylon.Projectiles.Bosses.Jelly
 	public class JellyBeamHead : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Jelly Beam");
+			// DisplayName.SetDefault("Jelly Beam");
 		}
 		public override void SetDefaults() {
 			Projectile.width = 32;

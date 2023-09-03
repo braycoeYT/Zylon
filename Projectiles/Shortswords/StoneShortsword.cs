@@ -17,7 +17,7 @@ namespace Zylon.Projectiles.Shortswords
 			set => Projectile.ai[0] = value;
 		}
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Stone Shortsword");
+			// DisplayName.SetDefault("Stone Shortsword");
 		}
 		public override void SetDefaults() {
 			Projectile.Size = new Vector2(18);

@@ -51,7 +51,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPC.lavaImmune = true;
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = (int)((2100 + ((numPlayers - 1) * 900))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 46;
 			NPC.value = 20000;
@@ -62,7 +62,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
         }
 		bool bool1;
 		bool bool2;
-		public override void HitEffect(int hitDirection, double damage) {
+		public override void HitEffect(NPC.HitInfo hit) {
 			for (int i = 0; i < (3-phase)*4; i++) {
 				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Dirt);
 				Dust dust = Main.dust[dustIndex];
@@ -93,13 +93,13 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DBSpirit>(), 0, 0f, BasicNetType: 2);
 			}
 		}
-        public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit) {
+        public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone) {
             if (phase == 2) {
 				if (player.Center.Y < NPC.Center.Y) SoundEngine.PlaySound(SoundID.NPCHit1, NPC.Center);
 				else SoundEngine.PlaySound(SoundID.NPCHit4, NPC.Center);
             }
         }
-        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit) {
+        public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone) {
 			if (phase == 2) {
 				if (projectile.Center.Y < NPC.Center.Y) SoundEngine.PlaySound(SoundID.NPCHit1, NPC.Center);
 				else SoundEngine.PlaySound(SoundID.NPCHit4, NPC.Center);

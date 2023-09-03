@@ -9,7 +9,7 @@ namespace Zylon.Projectiles
 	public class WadofSpores : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Wad of Spores");
+			// DisplayName.SetDefault("Wad of Spores");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);

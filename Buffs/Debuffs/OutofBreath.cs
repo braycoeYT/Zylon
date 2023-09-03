@@ -6,8 +6,8 @@ namespace Zylon.Buffs.Debuffs
     public class OutofBreath : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Out of Breath");
-            Description.SetDefault("You can't breathe!");
+            // DisplayName.SetDefault("Out of Breath");
+            // Description.SetDefault("You can't breathe!");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = true;
         }

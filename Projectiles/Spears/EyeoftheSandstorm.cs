@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Spears
 	public class EyeoftheSandstorm : SpearProj
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Eye of the Sandstorm");
+			// DisplayName.SetDefault("Eye of the Sandstorm");
 		}
 
 		public EyeoftheSandstorm() : base(-23f, 8, 12.5f, 75f, 0, 12, 90f, 0f, 1.5f, false, false, false) { }
@@ -25,7 +25,7 @@ namespace Zylon.Projectiles.Spears
         {
 			if (target.type != NPCID.TargetDummy && Projectile.owner == Main.myPlayer) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Vector2(Main.rand.Next(-128, 129), Main.rand.Next(-128, 129)), new Vector2(), ModContent.ProjectileType<DesertSpiritFlameFriendly>(), (int)(Projectile.damage * 0.75f), Projectile.knockBack / 2, Main.myPlayer);
 		}
-        public override void SpearOnHitPVP(Player target, int damage, bool crit)
+        public override void SpearOnHitPVP(Player target, int damage)
         {
 			if (Projectile.owner == Main.myPlayer) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Vector2(Main.rand.Next(-128, 129), Main.rand.Next(-128, 129)), new Vector2(), ModContent.ProjectileType<DesertSpiritFlameFriendly>(), (int)(Projectile.damage * 0.75f), Projectile.knockBack / 2, Main.myPlayer);
 		}

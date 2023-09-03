@@ -10,7 +10,7 @@ namespace Zylon.Projectiles.Tomes
 	public class DeterminationBreakerProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Determination Breaker");
+			// DisplayName.SetDefault("Determination Breaker");
         }
 		public override void SetDefaults() {
 			AIType = ProjectileID.Bullet;
@@ -25,15 +25,21 @@ namespace Zylon.Projectiles.Tomes
 			Projectile.localNPCHitCooldown = 10;
 		}
 		bool stop;
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			if (!stop) Projectile.timeLeft = 240;
             stop = true;
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			if (!stop) Projectile.timeLeft = 240;
-            stop = true;
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				if (!stop) Projectile.timeLeft = 240;
+				stop = true;
+			}
         }
-		int Timer;
+
+        int Timer;
         public override void AI() {
 			Timer++;
 			for (int i = 0; i < 2; i++) {

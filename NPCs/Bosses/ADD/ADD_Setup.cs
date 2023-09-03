@@ -13,7 +13,7 @@ namespace Zylon.NPCs.Bosses.ADD
 
 			NPCID.Sets.MPAllowedEnemies[Type] = true;
 
-			DisplayName.SetDefault("Ancient Diskite Director");
+			// DisplayName.SetDefault("Ancient Diskite Director");
             //Main.npcFrameCount[NPC.type] = 2;
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				Hide = true
@@ -37,7 +37,7 @@ namespace Zylon.NPCs.Bosses.ADD
 			NPC.dontTakeDamage = true;
 			NPC.boss = true;
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 72000000;
         }
         public override void AI() { //if any smart people are reading this, please tell me how to layer npcs

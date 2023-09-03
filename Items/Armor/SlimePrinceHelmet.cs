@@ -9,7 +9,7 @@ namespace Zylon.Items.Armor
 	public class SlimePrinceHelmet : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Only second to the king himself'\nIncreases summoner damage by 3%");
+			// Tooltip.SetDefault("'Only second to the king himself'\nIncreases summoner damage by 3%");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

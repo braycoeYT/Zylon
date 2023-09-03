@@ -7,7 +7,7 @@ namespace Zylon.Items.Potions
     public class HeavyHitterPotion : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("Increases critical strike damage by 20%");
+            // Tooltip.SetDefault("Increases critical strike damage by 20%");
         }
         public override void SetDefaults() {
             Item.width = 16;

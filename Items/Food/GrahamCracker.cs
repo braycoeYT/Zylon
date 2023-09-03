@@ -7,7 +7,7 @@ namespace Zylon.Items.Food
 	public class GrahamCracker : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Minor improvements to all stats");
+			// Tooltip.SetDefault("Minor improvements to all stats");
 		}
 		public override void SetDefaults() {
 			Item.width = 30;

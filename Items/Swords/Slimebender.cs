@@ -9,7 +9,7 @@ namespace Zylon.Items.Swords
 	public class Slimebender : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("UNOBTAINABLE: Developer item\nShoots a large slimeblast that explodes into smaller slimeblasts");
+			// Tooltip.SetDefault("UNOBTAINABLE: Developer item\nShoots a large slimeblast that explodes into smaller slimeblasts");
 		}
 		public override void SetDefaults() {
 			Item.damage = 797;

@@ -9,7 +9,7 @@ namespace Zylon.Items.Guns
 	public class Crumblegun : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Fires bullets at high velocity");
+			// Tooltip.SetDefault("Fires bullets at high velocity");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 0, 25);

@@ -12,7 +12,7 @@ namespace Zylon.Items.Blowpipes
 	{
 		public LobbingLog() : base(100, 1f, new Color(125, 63, 0), true) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("At max charge, shoots a faster piercing splinter\nRight click to disable and enable this effect");
+			// Tooltip.SetDefault("At max charge, shoots a faster piercing splinter\nRight click to disable and enable this effect");
 		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);

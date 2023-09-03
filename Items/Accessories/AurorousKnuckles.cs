@@ -7,7 +7,7 @@ namespace Zylon.Items.Accessories
 	public class AurorousKnuckles : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Enemies are more likely to target you\nPuts a shell around the owner when below 50% life that reduces damage");
+			// Tooltip.SetDefault("Enemies are more likely to target you\nPuts a shell around the owner when below 50% life that reduces damage");
 		}
 		public override void SetDefaults() {
 			Item.width = 40;

@@ -17,12 +17,18 @@ namespace Zylon.Projectiles.Guns
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.extraUpdates = 1;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             if (!target.boss && target.type != NPCID.GolemHead && target.type != NPCID.SkeletronHand && Main.rand.NextFloat() < .2f) target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Timestop>(), Main.rand.Next(1, 4)*60);
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			if (Main.rand.NextFloat() < .1f) target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Timestop>(), Main.rand.Next(1, 3)*60);
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+			if (info.PvP)
+            {
+				if (Main.rand.NextFloat() < .1f) target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Timestop>(), Main.rand.Next(1, 3) * 60);
+			}
         }
+
         public override void AI() {
             Projectile.rotation += 0.1f;
         }

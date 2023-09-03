@@ -26,7 +26,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
         }
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.damage = 70;
         }
 		int Timer;

@@ -11,7 +11,7 @@ namespace Zylon.Items.Placeables.Unobtainable
 	{
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("Testing and building purposes only.\nUnobtainable.");
+			// Tooltip.SetDefault("Testing and building purposes only.\nUnobtainable.");
 		}
 
 		public override void SetDefaults()

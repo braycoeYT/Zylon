@@ -8,7 +8,7 @@ namespace Zylon.Items.Ammo
 	public class CorruptSeed : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("For use with blowpipes\nCan pierce up to three times, increasing damage each pierce");
+			// Tooltip.SetDefault("For use with blowpipes\nCan pierce up to three times, increasing damage each pierce");
         }
 		public override void SetDefaults() {
 			Item.damage = 9;

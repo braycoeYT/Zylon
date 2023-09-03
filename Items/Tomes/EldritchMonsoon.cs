@@ -9,7 +9,7 @@ namespace Zylon.Items.Tomes
 	public class EldritchMonsoon : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons three jellyfish to dash at enemies");
+			// Tooltip.SetDefault("Summons three jellyfish to dash at enemies");
 		}
 		public override void SetDefaults() {
 			Item.damage = 21;

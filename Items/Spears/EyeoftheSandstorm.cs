@@ -9,8 +9,8 @@ namespace Zylon.Items.Spears
 	{
 		public override void SetStaticDefaults() {
 			ItemID.Sets.Spears[Item.type] = true;
-			DisplayName.SetDefault("Eye of the Sandstorm");
-			Tooltip.SetDefault("Releases homing desert spirits after striking a foe");
+			// DisplayName.SetDefault("Eye of the Sandstorm");
+			// Tooltip.SetDefault("Releases homing desert spirits after striking a foe");
 		}
 		public override void SetDefaults() {
 			Item.damage = 49;

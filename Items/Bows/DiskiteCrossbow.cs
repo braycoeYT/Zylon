@@ -9,7 +9,7 @@ namespace Zylon.Items.Bows
 	public class DiskiteCrossbow : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Every third shot is supercharged, causing it to be shot with much higher damage and knockback");
+			// Tooltip.SetDefault("Every third shot is supercharged, causing it to be shot with much higher damage and knockback");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 0, 25);

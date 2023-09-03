@@ -9,7 +9,7 @@ namespace Zylon.Items.Materials
 	{
 		public override void SetStaticDefaults()
 		{
-			Tooltip.SetDefault("'Glorious!'");
+			// Tooltip.SetDefault("'Glorious!'");
 		}
 
 		public override void SetDefaults()

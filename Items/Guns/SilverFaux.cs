@@ -10,8 +10,8 @@ namespace Zylon.Items.Guns
 	public class SilverFaux : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Silver Faux");
-			Tooltip.SetDefault("'Hot to the touch'\nShoots a flaming shard that blasts into shrapnel");
+			// DisplayName.SetDefault("Silver Faux");
+			// Tooltip.SetDefault("'Hot to the touch'\nShoots a flaming shard that blasts into shrapnel");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 5, 50, 0);

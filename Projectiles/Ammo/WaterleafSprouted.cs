@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Ammo
 	public class WaterleafSprouted : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Waterleaf");
+			// DisplayName.SetDefault("Waterleaf");
         }
 		public override void SetDefaults() {
 			Projectile.width = 16;

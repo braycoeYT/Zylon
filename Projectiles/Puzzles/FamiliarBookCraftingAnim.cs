@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Puzzles
 	public class FamiliarBookCraftingAnim : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ghastly Familiar Book");
+			// DisplayName.SetDefault("Ghastly Familiar Book");
         }
 		public override void SetDefaults() {
 			Projectile.width = 32;

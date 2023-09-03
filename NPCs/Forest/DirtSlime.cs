@@ -29,7 +29,7 @@ namespace Zylon.NPCs.Forest
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.DirtSlimeBanner>();
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 69;
 			NPC.damage = 38;
 			NPC.value = 64;

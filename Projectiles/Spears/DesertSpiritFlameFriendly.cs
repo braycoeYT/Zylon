@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Spears
 	public class DesertSpiritFlameFriendly : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Desert Spirit Flame");
+			// DisplayName.SetDefault("Desert Spirit Flame");
 			Main.projFrames[Projectile.type] = 4;
         }
 		public override void SetDefaults() {

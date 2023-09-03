@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Wands
 	public class BigBone : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Big Bone");
+			// DisplayName.SetDefault("Big Bone");
         }
 		public override void SetDefaults() {
 			Projectile.width = 64;

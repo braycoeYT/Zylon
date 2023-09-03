@@ -8,7 +8,7 @@ namespace Zylon.Items.Armor
 	public class DiskbringerLegpieces : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Grants immunity to desert winds");
+			// Tooltip.SetDefault("Grants immunity to desert winds");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

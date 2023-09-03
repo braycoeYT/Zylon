@@ -8,7 +8,7 @@ namespace Zylon.Items.Ammo
 	public class GrassSeed : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("For use with blowpipes");
+			// Tooltip.SetDefault("For use with blowpipes");
         }
 		public override void SetDefaults() {
 			Item.damage = 6;

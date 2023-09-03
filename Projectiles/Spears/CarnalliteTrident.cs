@@ -12,7 +12,7 @@ namespace Zylon.Projectiles.Spears
 	public class CarnalliteTrident : SpearProj
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Carnallite Trident");
+			// DisplayName.SetDefault("Carnallite Trident");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
 		}
         public override void SpearDefaultsSafe()

@@ -40,12 +40,12 @@ namespace Zylon.NPCs.Ocean
             BannerItem = ModContent.ItemType<Items.Banners.LittoralGigaslimeBanner>();
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/SlimyDemise2");
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 41000;
 			NPC.damage = 97;
 			NPC.defense = 45;
         }
-        public override void HitEffect(int hitDirection, double damage) {
+        public override void HitEffect(NPC.HitInfo hit) {
             if (NPC.life < NPC.lifeMax / 2) {
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + 50, (int)NPC.Center.Y, ModContent.NPCType<LittoralGigaslime2>(), 0);
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X - 50, (int)NPC.Center.Y, ModContent.NPCType<LittoralGigaslime2>(), 0);

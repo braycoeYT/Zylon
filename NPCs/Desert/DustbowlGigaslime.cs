@@ -42,7 +42,7 @@ namespace Zylon.NPCs.Desert
             BannerItem = ModContent.ItemType<Items.Banners.DustbowlGigaslimeBanner>();
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/SlimyDemise2");
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 29500;
 			NPC.damage = 107;
 			NPC.value = 60000;

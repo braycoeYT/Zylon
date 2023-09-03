@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 	public class ADD_LaserEye : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ancient Desert Diskite");
+			// DisplayName.SetDefault("Ancient Desert Diskite");
         }
 		public override void SetDefaults() {
 			Projectile.width = 8;

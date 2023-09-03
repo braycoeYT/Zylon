@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 	public class ADDSandBall : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Sand Ball");
+			// DisplayName.SetDefault("Sand Ball");
         }
 		Player target;
 		public override void SetDefaults() {

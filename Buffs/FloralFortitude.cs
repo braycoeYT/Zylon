@@ -7,8 +7,8 @@ namespace Zylon.Buffs
     public class FloralFortitude : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Floral Fortitude");
-            Description.SetDefault("Increases your defense by 8");
+            // DisplayName.SetDefault("Floral Fortitude");
+            // Description.SetDefault("Increases your defense by 8");
             Main.debuff[Type] = false;
             Main.buffNoTimeDisplay[Type] = true;
             Main.pvpBuff[Type] = false;

@@ -6,7 +6,7 @@ namespace Zylon.Projectiles.Enemies
 	public class WindElemental_ProtectDeco : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Wind Elemental");
+			// DisplayName.SetDefault("Wind Elemental");
         }
         public override void SetDefaults() {
             Projectile.width = 70;
