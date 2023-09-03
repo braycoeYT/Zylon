@@ -19,11 +19,3117 @@ Mods: {
 			}
 		}
 
+		Buffs: {
+			ADDSpikeRing: {
+				DisplayName: Spike Ring
+				Description: The spike ring will push enemies away from you
+			}
+
+			DiskiteAgility: {
+				DisplayName: Diskbringer: Agility
+				Description: Increases your run acceleration and deceleration by 10%, move speed by 20%, increases the power of sprinting boots, and max jump speed
+			}
+
+			DiskiteDefense: {
+				DisplayName: Diskbringer: Defense
+				Description: Increases your defense by 10 and damage reduction by 5%
+			}
+
+			DiskiteOffense: {
+				DisplayName: Diskbringer: Offense
+				Description: Increases your damage by 10%, critical strike chance by 5, and weapon speed by 8%
+			}
+
+			LeafShield: {
+				DisplayName: Leaf Shield
+				Description: "'The leaves are empowering you'"
+			}
+
+			NaturesPrayer: {
+				DisplayName: Nature's Prayer
+				Description: "'Nature cares for all'"
+			}
+
+			ShadowstitchedBlitz: {
+				DisplayName: Shadowstitched Blitz
+				Description: Mana usage is reduced by 42%, magic attacks inflict shadowflame, and magic critical strike chance is increased by 10
+			}
+
+			ShadowstitchedBlitzCooldown: {
+				DisplayName: Tattered Blitz Cooldown
+				Description: You can't use tattered blitz right now!
+			}
+
+			TatteredBlitz: {
+				DisplayName: Tattered Blitz
+				Description: Mana usage is reduced by 33%
+			}
+
+			TatteredBlitzCooldown: {
+				DisplayName: Tattered Blitz Cooldown
+				Description: You can't use tattered blitz right now!
+			}
+
+			BrainFreeze: {
+				DisplayName: Brain Freeze
+				Description: A terrible headache, but cold
+			}
+
+			BreathRecovery: {
+				DisplayName: Breath Recovery
+				Description: All this blowing takes a while to recover from!
+			}
+
+			BrokenKarta1: {
+				DisplayName: Broken Karta
+				Description: Your Karta is broken!
+			}
+
+			BrokenKarta2: {
+				DisplayName: Broken Karta
+				Description: Your Karta is broken!
+			}
+
+			DeadlyToxins: {
+				DisplayName: Mods.Zylon.BuffName.DeadlyToxins
+				Description: Deadly toxins are rapidly draining your life!
+			}
+
+			ElementalDegeneration: {
+				DisplayName: Elemental Degeneration
+				Description: Burning, freezing, dizziness, weakness... you feel it all!
+			}
+
+			FlashPandemic: {
+				DisplayName: Mods.Zylon.BuffName.FlashPandemic
+				Description: The plague is upon you
+			}
+
+			FoamDartDebuff: {
+				DisplayName: Defense Nerf
+				Description: Defense is decreased by 15
+			}
+
+			Heartdaze: {
+				DisplayName: Heartdaze
+				Description: Blood! BLOOD!
+			}
+
+			LoberaSoulslash: {
+				DisplayName: Lobera's Soulslash
+				Description: Your soul has been pierced by a sword of great virtue
+			}
+
+			OutofBreath: {
+				DisplayName: Out of Breath
+				Description: You can't breathe!
+			}
+
+			Shroomed: {
+				DisplayName: Shroomed
+				Description: You have been infected by bioluminescent fungi
+			}
+
+			Timestop: {
+				DisplayName: Timestop
+				Description: ZA WARUDO!
+			}
+
+			WornOut: {
+				DisplayName: Worn Out
+				Description: "'You are exhausted and cannot use weapons'"
+			}
+
+			ZombieRot: {
+				DisplayName: Mods.Zylon.BuffName.ZombieRot
+				Description: Your limbs feel like falling off...
+			}
+
+			FloralFortitude: {
+				DisplayName: Floral Fortitude
+				Description: Increases your defense by 8
+			}
+
+			GravelyPowers: {
+				DisplayName: Gravely Powers
+				Description: "'The powers of the dead radiate within you'"
+			}
+
+			DirtBlock: {
+				DisplayName: Dirt Block Army
+				Description: The Dirt Block Army will fight for you
+			}
+
+			DiskiteMinion: {
+				DisplayName: Desert Diskite
+				Description: The Desert Diskite will fight for you
+			}
+
+			FloatingStardustFragment: {
+				DisplayName: Floating Stardust Fragment
+				Description: The Floating Stardust Fragment will fight for you
+			}
+
+			GlowingMushtop: {
+				DisplayName: Glowing Mushtop
+				Description: The Glowing Mushtop will fight for you
+			}
+
+			IcyWisp: {
+				DisplayName: Icy Wisp
+				Description: The Icy Wisp will fight for you
+			}
+
+			Meteorb: {
+				DisplayName: Meteorb
+				Description: The Meteorb will fight for you
+			}
+
+			MiniJelly: {
+				DisplayName: Mini Jelly
+				Description: The Mini Jelly will fight for you
+			}
+
+			Mushtop: {
+				DisplayName: Mushtop
+				Description: The Mushtop will fight for you
+			}
+
+			RoyalSlime: {
+				DisplayName: Floating Slime Staff
+				Description: The Floating Slime Staff will fight for you
+			}
+
+			DirtboiBuff: {
+				DisplayName: Dirtboi
+				Description: Dirtboi is following you! Be proud.
+			}
+
+			DS_91Pet: {
+				DisplayName: Malfunctioning DS-91
+				Description: Its failing sensors have detected you as its owner
+			}
+
+			ExtinctionMeteorite: {
+				DisplayName: Extinction Meteorite
+				Description: It COULD cause another extinction, but it chooses not to...
+			}
+
+			MiniDiskling: {
+				DisplayName: Mini Diskling
+				Description: It seems to believe you are its master
+			}
+
+			SpookyJellyfish: {
+				DisplayName: Spooky Jellyfish
+				Description: It flashes in and out of visibility, trying to scare something...
+			}
+
+			BloodiedVial: {
+				DisplayName: Bloodied Vial
+				Description: Small chance to lifesteal from enemies
+			}
+
+			Feral: {
+				DisplayName: Feral
+				Description: Melee speed increased by 10%
+			}
+
+			Floater: {
+				DisplayName: Floater
+				Description: Increased max wingtime
+			}
+
+			Gale: {
+				DisplayName: Gale's Blessing
+				Description: You have been blessed by the winds!
+			}
+
+			HeavyHitter: {
+				DisplayName: Heavy Hitter
+				Description: Critical strike damage increased by 20%
+			}
+
+			Manareach: {
+				DisplayName: Manareach
+				Description: Increases mana star pickup range
+			}
+
+			Neutronic: {
+				DisplayName: Neutronic
+				Description: Modifies your damage and defense based on your current health
+			}
+
+			Psychic: {
+				DisplayName: Psychic
+				Description: You are focused on your psychic ability
+			}
+
+			Stealthy: {
+				DisplayName: Stealthy
+				Description: Gives a small chance to dodge attacks
+			}
+		}
+
+		Items: {
+			AirTank: {
+				DisplayName: Air Tank
+				Tooltip:
+					'''
+					'Hot buy amongst the elderly, scuba divers, and fans of currency overprinting!'
+					Increases blowpipe charge speed by 15/s
+					Increases blowpipe shoot speed by 10%
+					'''
+			}
+
+			AurorousKnuckles: {
+				DisplayName: Aurorous Knuckles
+				Tooltip:
+					'''
+					Enemies are more likely to target you
+					Puts a shell around the owner when below 50% life that reduces damage
+					'''
+			}
+
+			BloodContract: {
+				DisplayName: Blood Contract
+				Tooltip:
+					'''
+					'Signed in blood...'
+					Increases crit chance by 3
+					Critical strikes cause blood to splatter from enemies
+					Collected blood will heal the player
+					Chances of blood appearing are lowered at extremely high crit rates
+					'''
+			}
+
+			DirtRegalia: {
+				DisplayName: Dirt Regalia
+				Tooltip:
+					'''
+					'It's a royal mudallion'
+					Allows minions to fire dirt balls if enemies are nearby
+					'''
+			}
+
+			DiscoCanister: {
+				DisplayName: Disco Canister
+				Tooltip:
+					'''
+					'Let's get the party started!'
+					Increases crit chance by 5
+					Summons four disco balls to rotate around the player and shoot at enemies on critical strikes
+					'''
+			}
+
+			EnchantedDirtClump: {
+				DisplayName: Enchanted Dirt Clump
+				Tooltip:
+					'''
+					Summons a small army of dirt blocks to protect you
+					Dirt blocks are affected by the Dirt Regalia
+					'''
+			}
+
+			ExtraShinyOreNugget: {
+				DisplayName: Pyrite
+				Tooltip: Emits a faint glow from within your pack
+			}
+
+			FusionBand: {
+				DisplayName: Fusion Band
+				Tooltip:
+					'''
+					'It's too big for anyone's arm, let alone yours'
+					Increases life and mana regeneration
+					Increases max mana by 20
+					Increases the power of regeneration, magic power, magic regeneration, ironskin, and swiftness potions
+					'''
+			}
+
+			GlazedLens: {
+				DisplayName: Glazed Lens
+				Tooltip:
+					'''
+					'Eye can see!'
+					Increases crit chance by 4
+					Critical strikes spawn temporary eyes to rotate around the player, damaging enemies
+					The higher the player's crit chance, the faster the eyes move
+					'''
+			}
+
+			HarpysCrest: {
+				DisplayName: Harpy's Crest
+				Tooltip: When equipped, hold the W key to fall slower
+			}
+
+			HeartofPrisms: {
+				DisplayName: Heart of Prisms
+				Tooltip:
+					'''
+					Puts a spike ring around the player
+					Enemies hit by the ring are thrown away
+					'''
+			}
+
+			HexNecklace: {
+				DisplayName: Hex Necklace
+				Tooltip: Hexes the Wand of Sparking and Ore Staves with shadowy magicks
+			}
+
+			IronBand: {
+				DisplayName: Iron Band
+				Tooltip: Increases the potency of Ironskin Potions
+			}
+
+			IronfistMedal: {
+				DisplayName: Ironfist Medal
+				Tooltip: Increases true melee damage by 15%
+			}
+
+			LeadBalloon: {
+				DisplayName: Lead Balloon
+				Tooltip:
+					'''
+					'I saw this in a video game once'
+					Increases jump height
+					Increases max falling speed and grants immunity to fall damage
+					Increases blowpipe charge speed by 6/s (does not stack with other balloons)
+					'''
+			}
+
+			LeadBand: {
+				DisplayName: Lead Band
+				Tooltip: Increases the potency of Ironskin Potions
+			}
+
+			MagicalVaccine: {
+				DisplayName: Magical Vaccine
+				Tooltip:
+					'''
+					'Scares those flat-earthers outta town!'
+					Grants immunity to feral bite
+					'''
+			}
+
+			Metecore: {
+				DisplayName: Metecore
+				Tooltip:
+					'''
+					Spawns a mini inferno ring around your cursor to roast enemies
+					Increases your life regen and defense when on fire
+					'''
+			}
+
+			NightmareCatcher: {
+				DisplayName: Nightmare Catcher
+				Tooltip:
+					'''
+					'You can feel the bad vibes being emitted from this'
+					Striking enemies has a chance to release lost nightmares, which can be absorbed by players to recover health
+					True melee attacks have a much higher chance to release lost nightmares
+					A maximum of 10 lost nightmares can be active at once
+					'''
+			}
+
+			RootGuard: {
+				DisplayName: Root Guard
+				Tooltip: ""
+			}
+
+			SaberTooth: {
+				DisplayName: Saber Tooth
+				Tooltip:
+					'''
+					'Fresh from the maw of a slain canine'
+					Increases critical strike chance by 6
+					Critical strikes deal 33% more damage
+					'''
+			}
+
+			SaberToothNecklace: {
+				DisplayName: Saber Tooth Necklace
+				Tooltip:
+					'''
+					Increases critical strike chance and armor penetration by 8
+					Critical strikes deal 33% more damage
+					Does not stack with downgrades
+					'''
+			}
+
+			Shivercrown: {
+				DisplayName: Shivercrown
+				Tooltip:
+					'''
+					Increases critical strike chance by 2 and critical strike damage by 10%
+					Critical strikes inflict frostburn
+					'''
+			}
+
+			SlimePendant: {
+				DisplayName: Slime Pendant
+				Tooltip:
+					'''
+					Slightly increases max jump height
+					Releases slime spikes after taking damage
+					'''
+			}
+
+			TitanfistMedal: {
+				DisplayName: Titanfist Medal
+				Tooltip:
+					'''
+					Increases true melee damage by 25%
+					Does not stack with Ironfist Medal
+					'''
+			}
+
+			VenomousPills: {
+				DisplayName: Venomous Pills
+				Tooltip: Grants immunity to acid venom
+			}
+
+			WadofSpores: {
+				DisplayName: Wad of Spores
+				Tooltip:
+					'''
+					Increases max blowpipe charge by 10
+					At default max blowpipe charge, releases a wad of spores that explodes into more spores on impact
+					'''
+			}
+
+			WarriorsRibbon: {
+				DisplayName: Warrior's Ribbon
+				Tooltip:
+					'''
+					'The stars signify the importance of the holder'
+					Heavily increases critical strike chance and damage as health decreases
+					This maxes out at 15% increased chance and 25% increased damage
+					'''
+			}
+
+			EldritchTentacles: {
+				DisplayName: Eldritch Tentacles
+				Tooltip:
+					'''
+					Allows flight and slow fall
+					You have increased mobility while wet
+					Critical strikes summon big eerie jellies to damage enemies
+					Up to 2 eerie jellies can be active at once
+					'''
+			}
+
+			ZincBand: {
+				DisplayName: Zinc Band
+				Tooltip: Increases the potency of Swiftness Potions
+			}
+
+			BlinkrootSeed: {
+				DisplayName: Blinkroot Seed
+				Tooltip:
+					'''
+					For use with blowpipes
+					Grows a blinkroot flower on impact
+					The blinkroot slows non-boss enemies
+					'''
+			}
+
+			BloodiedArrow: {
+				DisplayName: Bloodied Arrow
+				Tooltip: Pierces multiple times
+			}
+
+			BouncyPocketGrenade: {
+				DisplayName: Bouncy Pocket Grenade
+				Tooltip:
+					'''
+					'Nothing's more painful than spilling them all over the floor...'
+					For use with blowpipes
+					'''
+			}
+
+			CorruptSeed: {
+				DisplayName: Corrupt Seed
+				Tooltip:
+					'''
+					For use with blowpipes
+					Can pierce up to three times, increasing damage each pierce
+					'''
+			}
+
+			CrimsonSeed: {
+				DisplayName: Crimson Seed
+				Tooltip:
+					'''
+					For use with blowpipes
+					Can pierce up to four times, heavily increasing critical strike chance each time
+					'''
+			}
+
+			DaybloomSeed: {
+				DisplayName: Daybloom Seed
+				Tooltip:
+					'''
+					For use with blowpipes
+					Grows a daybloom flower on impact
+					Deals more damage during the day
+					'''
+			}
+
+			DeathweedSeed: {
+				DisplayName: Deathweed Seed
+				Tooltip:
+					'''
+					For use with blowpipes
+					Grows a deathweed flower on impact
+					The closer an enemy is to death, the more damage it deals
+					'''
+			}
+
+			DiskiteShrapnel: {
+				DisplayName: Diskite Shrapnel
+				Tooltip: For use with the shrapnel gun
+			}
+
+			ElementalGooshot: {
+				DisplayName: Elemental Gooshot
+				Tooltip:
+					'''
+					For use with blowpipes
+					Inflicts Elemental Degeneration upon striking a foe
+					'''
+			}
+
+			EndlessSeedPouch: {
+				DisplayName: Bottomless Sack of Seeds
+				Tooltip: For use with blowpipes
+			}
+
+			EndlessWormPouch: {
+				DisplayName: Bottomless Sack of Worms
+				Tooltip: "'The angler would love this, though he'd probably just leave them in peoples' beds.'"
+			}
+
+			FireblossomSeed: {
+				DisplayName: Fireblossom Seed
+				Tooltip:
+					'''
+					For use with blowpipes
+					Grows a fireblossom flower on impact
+					The fireblossom shoots balls of fire around itself
+					'''
+			}
+
+			GiantGelCluster: {
+				DisplayName: Giant Gel Cluster
+				Tooltip: For use with flamethrowers and other gel-consuming weapons
+			}
+
+			GrassSeed: {
+				DisplayName: Grass Seed
+				Tooltip: For use with blowpipes
+			}
+
+			HallowedSeed: {
+				DisplayName: Hallowed Seed
+				Tooltip:
+					'''
+					For use with blowpipes
+					Can pierce up to three times, with each hit sometimes raining a holy star
+					'''
+			}
+
+			JungleGrassSeed: {
+				DisplayName: Jungle Grass Seed
+				Tooltip:
+					'''
+					For use with blowpipes
+					May poison struck enemies
+					'''
+			}
+
+			MoonglowSeed: {
+				DisplayName: Moonglow Seed
+				Tooltip:
+					'''
+					For use with blowpipes
+					Grows a moonglow flower on impact
+					Deals more damage during the night
+					'''
+			}
+
+			MushroomGrassSeed: {
+				DisplayName: Mushroom Grass Seed
+				Tooltip:
+					'''
+					For use with blowpipes
+					May shroomify struck enemies
+					'''
+			}
+
+			ObsidianDart: {
+				DisplayName: Obsidian Dart
+				Tooltip: For use with blowpipes
+			}
+
+			OozingArrow: {
+				DisplayName: Oozing Arrow
+				Tooltip: On death, leaves a lasting ooze cloud
+			}
+
+			OozingBullet: {
+				DisplayName: Oozing Bullet
+				Tooltip: On death, leaves a lasting ooze cloud
+			}
+
+			OozingSeed: {
+				DisplayName: Oozing Seed
+				Tooltip:
+					'''
+					For use with blowpipes
+					On death, leaves a lasting ooze cloud
+					'''
+			}
+
+			OverclockArrow: {
+				DisplayName: Overclock Arrow
+				Tooltip: The longer the arrow is in the air before hitting an enemy, the more damage it does
+			}
+
+			Pebble: {
+				DisplayName: Pebble
+				Tooltip:
+					'''
+					For use with blowpipes
+					May confuse struck enemies
+					'''
+			}
+
+			PocketGrenade: {
+				DisplayName: Pocket Grenade
+				Tooltip:
+					'''
+					'Each year these get smaller and smaller... wasn't it already pocket enough?'
+					For use with blowpipes
+					'''
+			}
+
+			PoisonousArrow: {
+				DisplayName: Poisonous Arrow
+				Tooltip: "'Not to be confused with venom arrows'"
+			}
+
+			SharpenedFang: {
+				DisplayName: Sharpened Fang
+				Tooltip:
+					'''
+					Inflicts bleeding on enemies
+					Can be used with stake launchers
+					'''
+			}
+
+			ShiverthornSeed: {
+				DisplayName: Shiverthorn Seed
+				Tooltip:
+					'''
+					For use with blowpipes
+					Grows a shiverthorn flower on impact
+					The shiverthorn shoots ice bolts upwards
+					'''
+			}
+
+			SlimeArrow: {
+				DisplayName: Slime Arrow
+				Tooltip: Slimes struck enemies
+			}
+
+			Starshot: {
+				DisplayName: Starshot
+				Tooltip:
+					'''
+					For use with blowpipes
+					Pierces infinitely and ignores gravity
+					'''
+			}
+
+			StickyPocketGrenade: {
+				DisplayName: Sticky Pocket Grenade
+				Tooltip:
+					'''
+					'I could barely throw the normal size ones!'
+					For use with blowpipes
+					'''
+			}
+
+			WaterleafSeed: {
+				DisplayName: Waterleaf Seed
+				Tooltip:
+					'''
+					For use with blowpipes
+					Grows a waterleaf flower on impact
+					The waterleaf shoots water streams around itself
+					'''
+			}
+
+			WoodenDart: {
+				DisplayName: Wooden Dart
+				Tooltip: For use with blowpipes
+			}
+
+			CarnalliteBreastplate: {
+				DisplayName: Carnallite Breastplate
+				Tooltip:
+					'''
+					Increases run speed by 10%
+					Increases max life by 20
+					'''
+			}
+
+			CarnalliteHelmet: {
+				DisplayName: Carnallite Helmet
+				Tooltip:
+					'''
+					Increases damage by 4%
+					Increases run speed by 10%
+					'''
+			}
+
+			CarnalliteLeggings: {
+				DisplayName: Carnallite Leggings
+				Tooltip:
+					'''
+					Increases max life by 20
+					Increases damage by 4%
+					'''
+			}
+
+			DiskbringerHeadpiece: {
+				DisplayName: Diskbringer Headpiece
+				Tooltip: Increases mining speed by 12%
+			}
+
+			DiskbringerLegpieces: {
+				DisplayName: Diskbringer Legpieces
+				Tooltip: Grants immunity to desert winds
+			}
+
+			DiskbringerTorso: {
+				DisplayName: Diskbringer Torso
+				Tooltip: Increases max life by 10%
+			}
+
+			GooeyCover: {
+				DisplayName: Gooey Cover
+				Tooltip:
+					'''
+					Somehow just as strong as metal, but I wouldn't question it
+					Increases melee speed by 8%, ranged critical strike chance by 5, max mana by 20, and minion knockback by 20%
+					'''
+			}
+
+			GooeyCowl: {
+				DisplayName: Gooey Cowl
+				Tooltip:
+					'''
+					Somehow just as strong as metal, but I wouldn't question it
+					Increases damage by 3%
+					'''
+			}
+
+			GooeyLeggings: {
+				DisplayName: Gooey Leggings
+				Tooltip:
+					'''
+					Somehow just as strong as metal, but I wouldn't question it
+					Increases damage by 4%
+					'''
+			}
+
+			HaxoniteBreastplate: {
+				DisplayName: Haxonite Breastplate
+				Tooltip: Increases life and mana regeneration by 1
+			}
+
+			HaxoniteHelmet: {
+				DisplayName: Haxonite Helmet
+				Tooltip: Increases armor penetration and critical strike chance by 2
+			}
+
+			HaxoniteLeggings: {
+				DisplayName: Haxonite Leggings
+				Tooltip: Decreases movement speed by 8%
+			}
+
+			JadeRobe: {
+				DisplayName: Jade Robe
+				Tooltip:
+					'''
+					Increases maximum mana by 40
+					Reduces mana usage by 8%
+					'''
+			}
+
+			ShadowstitchedBoots: {
+				DisplayName: Shadowstitched Boots
+				Tooltip:
+					'''
+					'Malevolent energy jumps from its folds'
+					Decreases mana usage by 7%
+					Increases magic critical strike chance and damage by 8%
+					'''
+			}
+
+			ShadowstitchedHat: {
+				DisplayName: Shadowstitched Hat
+				Tooltip:
+					'''
+					'Malevolent energy jumps from its folds'
+					Decreases mana usage by 6%
+					Increases magic critical strike chance and damage by 7%
+					'''
+			}
+
+			ShadowstitchedRobe: {
+				DisplayName: Shadowstitched Robe
+				Tooltip:
+					'''
+					'Malevolent energy jumps from its folds'
+					Decreases mana usage by 8%
+					Increases magic critical strike chance and damage by 8%
+					'''
+			}
+
+			ShroomiteHeaddress: {
+				DisplayName: Shroomite Headdress
+				Tooltip:
+					'''
+					8% increased ranged damage
+					5% increased ranged critical strike chance
+					Increases max blowpipe charge by 50
+					Increases max blowpipe charge by 37.5/s
+					'''
+			}
+
+			SlimePrinceBreastplate: {
+				DisplayName: Slime Prince Breastplate
+				Tooltip:
+					'''
+					'Only second to the king himself'
+					Increases summoner damage by 4%
+					Increases your max number of minions by 1
+					'''
+			}
+
+			SlimePrinceHelmet: {
+				DisplayName: Slime Prince Helmet
+				Tooltip:
+					'''
+					'Only second to the king himself'
+					Increases summoner damage by 3%
+					'''
+			}
+
+			SlimePrinceLeggings: {
+				DisplayName: Slime Prince Leggings
+				Tooltip:
+					'''
+					'Only second to the king himself'
+					Increases summoner damage by 3%
+					'''
+			}
+
+			TatteredBoots: {
+				DisplayName: Tattered Boots
+				Tooltip:
+					'''
+					'It seems to be decades due for a restitching'
+					Decreases mana usage by 6%
+					Increases magic critical strike chance and damage by 4%
+					'''
+			}
+
+			TatteredHat: {
+				DisplayName: Tattered Hat
+				Tooltip:
+					'''
+					'It seems to be decades due for a restitching'
+					Decreases mana usage by 5%
+					Increases magic critical strike chance and damage by 4%
+					'''
+			}
+
+			TatteredRobe: {
+				DisplayName: Tattered Robe
+				Tooltip:
+					'''
+					'It seems to be decades due for a restitching'
+					Decreases mana usage by 7%
+					Increases magic critical strike chance and damage by 4%
+					'''
+			}
+
+			WindWalkerBoots: {
+				DisplayName: Wind Walker Boots
+				Tooltip:
+					'''
+					'Not to be confused with the Wind Waker'
+					Increases max run speed by 50%
+					'''
+			}
+
+			WindWalkerBreastplate: {
+				DisplayName: Wind Walker Breastplate
+				Tooltip:
+					'''
+					'Not to be confused with the Wind Waker'
+					Increases attack speed by 10%
+					Increases move speed by 15%
+					'''
+			}
+
+			WindWalkerHelm: {
+				DisplayName: Wind Walker Helm
+				Tooltip:
+					'''
+					'Not to be confused with the Wind Waker'
+					Increases run acceleration and deceleration speed by 10%
+					'''
+			}
+
+			ZincBreastplate: {
+				DisplayName: Zinc Breastplate
+				Tooltip: ""
+			}
+
+			ZincHelmet: {
+				DisplayName: Zinc Helmet
+				Tooltip: ""
+			}
+
+			ZincLeggings: {
+				DisplayName: Zinc Leggings
+				Tooltip: ""
+			}
+
+			DirtballBag: {
+				DisplayName: Treasure Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			DiskiteBag: {
+				DisplayName: Treasure Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			JellyBag: {
+				DisplayName: Treasure Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			MetelordBag: {
+				DisplayName: Treasure Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			ArteryCloggerBanner: {
+				DisplayName: Artery Clogger Banner
+				Tooltip: ""
+			}
+
+			BigDripBanner: {
+				DisplayName: Big Drip Banner
+				Tooltip: ""
+			}
+
+			BlizzardSeerBanner: {
+				DisplayName: Blizzard Seer Banner
+				Tooltip: ""
+			}
+
+			BoneSlimeBanner: {
+				DisplayName: Bone Slime Banner
+				Tooltip: ""
+			}
+
+			CyanSlimeBanner: {
+				DisplayName: Cyan Slime Banner
+				Tooltip: ""
+			}
+
+			DesertDiskiteBanner: {
+				DisplayName: Desert Diskite Banner
+				Tooltip: ""
+			}
+
+			DirtSlimeBanner: {
+				DisplayName: Dirt Slime Banner
+				Tooltip: ""
+			}
+
+			DustbowlGigaslimeBanner: {
+				DisplayName: Dustbowl Gigaslime Banner
+				Tooltip: ""
+			}
+
+			EerieJellyfishBanner: {
+				DisplayName: Eerie Jellyfish Banner
+				Tooltip: ""
+			}
+
+			ElemSlimeBanner: {
+				DisplayName: Elem Slime Banner
+				Tooltip: ""
+			}
+
+			LittoralGigaslimeBanner: {
+				DisplayName: Littoral Gigaslime Banner
+				Tooltip: ""
+			}
+
+			LiveObeliskBanner: {
+				DisplayName: Live Obelisk Banner
+				Tooltip: ""
+			}
+
+			LivingMarshmallowBanner: {
+				DisplayName: Living Marshmallow Banner
+				Tooltip: ""
+			}
+
+			MechanicalSlimeBanner: {
+				DisplayName: Mechanical Slime Banner
+				Tooltip: ""
+			}
+
+			MeteorTailBanner: {
+				DisplayName: Meteor Tail Banner
+				Tooltip: ""
+			}
+
+			OrangeSlimeBanner: {
+				DisplayName: Orange Slime Banner
+				Tooltip: ""
+			}
+
+			RoastedLivingMarshmallowBanner: {
+				DisplayName: Roasted Living Marshmallow Banner
+				Tooltip: ""
+			}
+
+			StarpackSlimeBanner: {
+				DisplayName: Starpack Slime Banner
+				Tooltip: ""
+			}
+
+			VeinTunnelerBanner: {
+				DisplayName: Vein Tunneler Banner
+				Tooltip: ""
+			}
+
+			VerdureGigaslimeBanner: {
+				DisplayName: Verdure Gigaslime Banner
+				Tooltip: ""
+			}
+
+			WindElementalBanner: {
+				DisplayName: Wind Elemental Banner
+				Tooltip: ""
+			}
+
+			CarnalliteBar: {
+				DisplayName: Carnallite Bar
+				Tooltip: "'It looks like it would be right at home in the jungle.'"
+			}
+
+			HaxoniteBar: {
+				DisplayName: Haxonite Bar
+				Tooltip: ""
+			}
+
+			ZincBar: {
+				DisplayName: Zinc Bar
+				Tooltip: Can be used in Any Iron Bar recipes
+			}
+
+			Beepipe: {
+				DisplayName: Beepipe
+				Tooltip: At max charge, replaces ammo with a horde of bees
+			}
+
+			BloodyBaller: {
+				DisplayName: Bloody Baller
+				Tooltip: Spawns lifestealing bloodballs (amount depends on charge) around the player on use
+			}
+
+			ChlorophyteBlowspitter: {
+				DisplayName: Chlorophyte Blowspitter
+				Tooltip:
+					'''
+					Shoots many seeds at once depending on charge, consuming only one ammo
+					At max charge, replaces ammo with homing chlorophyte seeds
+					Right click to disable and enable this effect
+					'''
+			}
+
+			Dartshark: {
+				DisplayName: Dartshark
+				Tooltip:
+					'''
+					Uses seeds as ammo
+					33% chance to not consume ammo
+					'Minishark's cousin. Part of the Telumcetus family.'
+					'''
+			}
+
+			DirtFunnel: {
+				DisplayName: Dirt Funnel
+				Tooltip: Converts ammo to up to four dirt balls (depending on charge), of which only the first consumes ammo
+			}
+
+			FamiliarFoamDartPistol: {
+				DisplayName: Familiar Foam Dart Pistol
+				Tooltip:
+					'''
+					'It's this or nothing, they said...'
+					Replaces every fourth shot with a powerful Tactical Foam Dart that breaks the defense of enemies
+					Uses seeds as ammo
+					'''
+			}
+
+			GoldDartGun: {
+				DisplayName: Gold Dart Gun
+				Tooltip: Uses seeds as ammo
+			}
+
+			IcicleMaker: {
+				DisplayName: Icicle Maker
+				Tooltip: At max charge, replaces ammo with a heap of mini icicles
+			}
+
+			LobbingLog: {
+				DisplayName: Lobbing Log
+				Tooltip:
+					'''
+					At max charge, shoots a faster piercing splinter
+					Right click to disable and enable this effect
+					'''
+			}
+
+			MeteorLauncher: {
+				DisplayName: Meteor Launcher
+				Tooltip:
+					'''
+					Replaces ammo with an explosive meteor whose power is affected by charge
+					Right click to disable and enable this effect
+					'''
+			}
+
+			PlatinumDartGun: {
+				DisplayName: Platinum Dart Gun
+				Tooltip: Uses seeds as ammo
+			}
+
+			Revel: {
+				DisplayName: Revel
+				Tooltip:
+					'''
+					Fire two seeds at once and for the price of one
+					At max charge, replaces ammo with deadly toxin darts
+					'''
+			}
+
+			Shellshocker: {
+				DisplayName: Shellshocker
+				Tooltip: At max charge, replaces ammo a shell that shocks enemies
+			}
+
+			SilverDartGun: {
+				DisplayName: Silver Dart Gun
+				Tooltip: Uses seeds as ammo
+			}
+
+			Slimeballer: {
+				DisplayName: Slimeballer
+				Tooltip:
+					'''
+					Converts ammo to a giant slimeball
+					The slimeball's size and pierce depends on the charge
+					'''
+			}
+
+			SporeShooter: {
+				DisplayName: Spore Shooter
+				Tooltip: Depending on the charge, shoots up to three spores
+			}
+
+			Starshooter: {
+				DisplayName: Starshooter
+				Tooltip: Supercharges starshots based on charge if they are used as ammo
+			}
+
+			TungstenDartGun: {
+				DisplayName: Tungsten Dart Gun
+				Tooltip: Uses seeds as ammo
+			}
+
+			UnholySpitter: {
+				DisplayName: Unholy Spitter
+				Tooltip: Fires dark energies (amount depending on the charge) at the cursor on use
+			}
+
+			WindpipeofthePhoenix: {
+				DisplayName: Windpipe of the Phoenix
+				Tooltip:
+					'''
+					At max charge, replaces ammo with a burst of flames
+					Right click to disable and enable this effect
+					'''
+			}
+
+			Barfarang: {
+				DisplayName: Barfarang
+				Tooltip: ""
+			}
+
+			BionicBoomer: {
+				DisplayName: Bionic Boomer
+				Tooltip:
+					'''
+					'Suited for a cyborg monkey's hand, but still fits!'
+					Has short range, but multiple can be shot at once
+					'''
+			}
+
+			BlazingBacklasher: {
+				DisplayName: Blazing Backlasher
+				Tooltip:
+					'''
+					Moves around erratically
+					Leaves an explosive trail behind itself
+					Right click for a shorter range attack
+					'''
+			}
+
+			Cactirang: {
+				DisplayName: Cactirang
+				Tooltip: Spawns damaging prickly pears on critical strikes
+			}
+
+			FireandIce: {
+				DisplayName: Fire and Ice
+				Tooltip:
+					'''
+					'Hell's frozen over!'
+					Struck enemies are inflicted with On Fire and Frostburn
+					Before returning, releases several ice and fire balls
+					'''
+			}
+
+			Pentagram: {
+				DisplayName: Pentagram
+				Tooltip:
+					'''
+
+					'100% satanic!'
+					Splits into five after striking an enemy
+					'''
+			}
+
+			Pukerang: {
+				DisplayName: Pukerang
+				Tooltip:
+					'''
+					Inflicts cursed inferno on struck enemies
+					Shoots cursed flames at nearby enemies
+					'''
+			}
+
+			XBlade: {
+				DisplayName: X-Blade
+				Tooltip:
+					'''
+					UNOBTAINABLE: Planned to be PML
+					'Pronounced keyblade, but it wouldn't save the curly x letter' - some old coot
+					Hits have a chance to spawn either thirteen No Names to pierce enemies, or seven healing orbs that chase the player
+					'''
+			}
+
+			CreepyMud: {
+				DisplayName: Creepy Mud
+				Tooltip:
+					'''
+					'It melts in your hand...'
+					Summons Dirtball
+					Not Consumable
+					'''
+			}
+
+			EldritchBell: {
+				DisplayName: Eldritch Bell
+				Tooltip:
+					'''
+					'It calls for the ocean...'
+					Summons the Eldritch Jellyfish
+					Enrages outside of the ocean
+					Not Consumable
+					'''
+			}
+
+			EnchantedEye: {
+				DisplayName: Enchanted Eye
+				Tooltip:
+					'''
+					Summons the Ancient Diskite Director
+					Can only be used in the desert at night
+					Enrages outside of the desert
+					Flees during the day
+					Not Consumable
+					'''
+			}
+
+			EyeofCthulhu: {
+				DisplayName: Eye of Cthulhu
+				Tooltip:
+					'''
+					'A suspicious looking eye summons the eye of cthulhu, but what does the eye of cthulhu summon?'
+					Not Consumable
+					'''
+			}
+
+			Slimedallion: {
+				DisplayName: Slimedallion
+				Tooltip:
+					'''
+					Summons a different gigaslime depending on the biome
+					Can only be used after the elemental goop has been unleashed
+					Not Consumable
+					'''
+			}
+
+			StarstruckMeteorChunk: {
+				DisplayName: Starstruck Meteor Chunk
+				Tooltip:
+					'''
+					Summons Metelord
+					Can only be used in the meteorite
+					Enrages outside of the meteorite
+					Not Consumable
+					'''
+			}
+
+			CarnalliteBow: {
+				DisplayName: Carnallite Bow
+				Tooltip: Every third shot releases a leaf with each arrow
+			}
+
+			Dirty3String: {
+				DisplayName: Dirty 3-String
+				Tooltip: Has a low firerate, but fires 1-3 arrows
+			}
+
+			DiskiteCrossbow: {
+				DisplayName: Diskite Crossbow
+				Tooltip: Every third shot is supercharged, causing it to be shot with much higher damage and knockback
+			}
+
+			GoblinArchbow: {
+				DisplayName: Goblin Archbow
+				Tooltip: Fires four arrows in quick succession, only consuming one ammo
+			}
+
+			MeteorTrailer: {
+				DisplayName: Meteor Trailer
+				Tooltip: Gives arrows a small trail of meteorites
+			}
+
+			Sightseer: {
+				DisplayName: Sightseer
+				Tooltip:
+					'''
+					'So much to see... so little time.'
+					The eyes will alternate firing cursed flames and lasers with you
+					'''
+			}
+
+			Slimeshooter: {
+				DisplayName: Slimeshooter
+				Tooltip: Turns regular arrows into slime arrows
+			}
+
+			SparklySlimeshooter: {
+				DisplayName: Sparkly Slimeshooter
+				Tooltip: Turns regular arrows into sparkly arrows that release bouncy sparkly gel on impact
+			}
+
+			StoneBow: {
+				DisplayName: Stone Bow
+				Tooltip: Converts ammo to stone arrows
+			}
+
+			WyvernsCall: {
+				DisplayName: Wyvern's Call
+				Tooltip: Converts arrows to powerful wyvern bolts
+			}
+
+			ZincBow: {
+				DisplayName: Zinc Bow
+				Tooltip: ""
+			}
+
+			BoulderonaChain: {
+				DisplayName: Boulder on a Chain
+				Tooltip:
+					'''
+					'Pinky may cry'
+					Striking the ground produces a shockwave
+					'''
+			}
+
+			DiskiteonaLeash: {
+				DisplayName: Diskite on a Leash
+				Tooltip: Does not collide with tiles and fires lasers at random on use
+			}
+
+			LihzahrdBoulderonaChain: {
+				DisplayName: Lihzahrd's Boulder on a Chain
+				Tooltip:
+					'''
+					'Pinky WILL cry'
+					Striking the ground produces a big shockwave
+					'''
+			}
+
+			ShadowMoon: {
+				DisplayName: Shadow Moon
+				Tooltip: Shoots a barrage of fangs on throw
+			}
+
+			Sporophyte: {
+				DisplayName: The Sporophyte
+				Tooltip: Shoots stingers upwards
+			}
+
+			StickyHand: {
+				DisplayName: Sticky Hand
+				Tooltip:
+					'''
+					'Does not get dirty after 20 minutes of use, somehow'
+					Sticks to enemies when thrown, dealing loads of extra damage
+					'''
+			}
+
+			TheMeteorite: {
+				DisplayName: The Meteorite
+				Tooltip: Has a large range
+			}
+
+			CocoaBeans: {
+				DisplayName: Cocoa Beans
+				Tooltip: Used to make Brown Dye
+			}
+
+			CottonCandy: {
+				DisplayName: Cotton Candy
+				Tooltip:
+					'''
+					Minor improvements to all stats
+					'Now this is FLUFFY!'
+					'''
+			}
+
+			GalacticBrownie: {
+				DisplayName: Galactic Brownie
+				Tooltip:
+					'''
+					Medium improvements to all stats
+					'The rainbow bits, oh, the rainbow bits...'
+					'''
+			}
+
+			GrahamCracker: {
+				DisplayName: Graham Cracker
+				Tooltip: Minor improvements to all stats
+			}
+
+			LobsterBisque: {
+				DisplayName: Lobster Bisque
+				Tooltip:
+					'''
+					Major improvements to all stats
+					'Five stars, five thumbs up, five children...'
+					'''
+			}
+
+			Potato: {
+				DisplayName: Potato
+				Tooltip:
+					'''
+					Minor improvements to all stats
+					'Alchemists have been known to use potatoes for soul infusions.'
+					'''
+			}
+
+			Smore: {
+				DisplayName: S'more
+				Tooltip:
+					'''
+					Medium improvements to all stats
+					'I'd get s'more puns, but there are none left...'
+					'''
+			}
+
+			BambooSharpshooter: {
+				DisplayName: Bamboo Sharpshooter
+				Tooltip: Fires a spread of bullets and poisonous bamboo spikes
+			}
+
+			BlizzardBlaster: {
+				DisplayName: Blizzard Blaster
+				Tooltip:
+					'''
+					33% chance not to consume ammo
+					Rapidly blasts snowballs
+					'''
+			}
+
+			BloodButler: {
+				DisplayName: Blood Butler
+				Tooltip: Adds a bullet with each shot until four bullets are reached, then the next shot is reset
+			}
+
+			CarnalliteShotgun: {
+				DisplayName: Carnallite Shotgun
+				Tooltip: Fires a spread of leaves with every shot
+			}
+
+			Crumblegun: {
+				DisplayName: Crumblegun
+				Tooltip: Fires bullets at high velocity
+			}
+
+			DeadlockPistol: {
+				DisplayName: Deadlock Pistol
+				Tooltip: Fires a spread of bullets
+			}
+
+			DiskanSecurityHandgun: {
+				DisplayName: Diskan Security Handgun
+				Tooltip: Every third shot is converted to an electric bolt that deals extra damage
+			}
+
+			EerieStakeLauncher: {
+				DisplayName: Eerie Stake Launcher
+				Tooltip: Uses stakes as ammo
+			}
+
+			FatherofTime: {
+				DisplayName: Father of Time
+				Tooltip: Fires a four round burst of small clockwork bits, which have a small chance to inflict Timestop on enemies
+			}
+
+			GraveBuster: {
+				DisplayName: Grave Buster
+				Tooltip:
+					'''
+					'Grave robbing for morons'
+					Replaces ammo with spirit bullets
+					Hitting enemies will give you the 'Gravely Powers' buff, which increases your life regen
+					'''
+			}
+
+			OvergrownHandgunFragment: {
+				DisplayName: Overgrown Handgun Fragment
+				Tooltip: "'Only at 0.1% of its true power'"
+			}
+
+			Sandstormgun: {
+				DisplayName: Sandstormgun
+				Tooltip: "'Spread the sand!'"
+			}
+
+			ShrapnelGun: {
+				DisplayName: Shrapnel Gun
+				Tooltip:
+					'''
+					Uses shrapnel as ammo
+					90% chance not to consume ammo
+					Fires multiple small bits of shrapnel
+					'''
+			}
+
+			SilverFaux: {
+				DisplayName: Silver Faux
+				Tooltip:
+					'''
+					'Hot to the touch'
+					Shoots a flaming shard that blasts into shrapnel
+					'''
+			}
+
+			JadeHookItem: {
+				DisplayName: Jade Hook
+				Tooltip: ""
+			}
+
+			DiskanSecurityElectrifier: {
+				DisplayName: Diskan Security Electrifier
+				Tooltip: Every third shot fires a bolt that explodes into electricity
+			}
+
+			EerieGlove: {
+				DisplayName: Eerie Glove
+				Tooltip: Barrages enemies with tracking jellies
+			}
+
+			OvergrownElectricalComponent: {
+				DisplayName: Overgrown Electrical Component
+				Tooltip: "'Only at 0.1% of its true power'"
+			}
+
+			SpaceMachineGun: {
+				DisplayName: Space Machine Gun
+				Tooltip:
+					'''
+					'Not to be confused with the S.D.M.G.'
+					Fires red blasts at random speeds
+					Is not affected by the meteor armor set bonus
+					'''
+			}
+
+			TacticalMegaphone: {
+				DisplayName: Tactical Megaphone
+				Tooltip:
+					'''
+					'Unethically tactical, for your pleasure.'
+					Projectile slowly gains size for every struck enemy
+					'''
+			}
+
+			BloodDroplet: {
+				DisplayName: Blood Droplet
+				Tooltip: "'I don't think you should hold this with your bare hands...'"
+			}
+
+			BloodySpiderLeg: {
+				DisplayName: Bloody Spider Leg
+				Tooltip: "'Crunchy!'"
+			}
+
+			DiskiteCrumbles: {
+				DisplayName: Diskite Crumbles
+				Tooltip: "'It seems to be made of something familiar, but you can't tell what...'"
+			}
+
+			EerieBell: {
+				DisplayName: Eerie Bell
+				Tooltip: ""
+			}
+
+			ElementalGoop: {
+				DisplayName: Elemental Goop
+				Tooltip: "'Looks extra tasty!'"
+			}
+
+			EnchantedIceCube: {
+				DisplayName: Enchanted Ice Cube
+				Tooltip:
+					'''
+					'Keeps your drinks nice and cool!'
+					Minor improvements to all stats
+					'''
+			}
+
+			EnergizedStone: {
+				DisplayName: Energized Stone
+				Tooltip: ""
+			}
+
+			LabyrinthFish: {
+				DisplayName: Labyrinth Fish
+				Tooltip: "'Its scales are beautifully complex'"
+			}
+
+			PaintedGlassTetra: {
+				DisplayName: Painted Glass Tetra
+				Tooltip:
+					'''
+					'Don't drop it! Dropping regular glass was already enough of a mess...'
+					Due to low visibility, only catchable under the usage of a hunter potion
+					'''
+			}
+
+			GloryPetals: {
+				DisplayName: Glory Petals
+				Tooltip: "'Glorious!'"
+			}
+
+			Jade: {
+				DisplayName: Jade
+				Tooltip: ""
+			}
+
+			MetallicBell: {
+				DisplayName: Metallic Bell
+				Tooltip: Not to be confused with the Bell, Fairy Bell, Reindeer Bells, Eerie Bell, or Eldritch Bell
+			}
+
+			NeutronFragment: {
+				DisplayName: Neutron Fragment
+				Tooltip: "'The manifestations of death and intensity inhabit this heavily dense fragment'"
+			}
+
+			ObeliskShard: {
+				DisplayName: Obelisk Shard
+				Tooltip: "'It's unusually dusty...'"
+			}
+
+			OnyxShard: {
+				DisplayName: Onyx Shard
+				Tooltip: "'I don't think that is how it works'"
+			}
+
+			Oozeberry: {
+				DisplayName: Oozeberry
+				Tooltip: "'Unfit and unsafe for consumption due to its strong poison'"
+			}
+
+			OtherworldlyFang: {
+				DisplayName: Otherworldly Fang
+				Tooltip: ""
+			}
+
+			RustedTech: {
+				DisplayName: Rusted Tech
+				Tooltip: "'Ancient tech worn by the figurative and literal sands of time...'"
+			}
+
+			SlimyCore: {
+				DisplayName: Slimy Core
+				Tooltip: "'Part of a slime nucleus'"
+			}
+
+			SpeckledStardust: {
+				DisplayName: Speckled Stardust
+				Tooltip: "'It looks as if it fell from heaven (not to be confused with glitter, which rose from hell)'"
+			}
+
+			TabooEssence: {
+				DisplayName: Taboo Essence
+				Tooltip: "'It dances unevenly on your hand'"
+			}
+
+			WindEssence: {
+				DisplayName: Wind Essence
+				Tooltip: "'Resembles cotton candy, but tastes like cold air.'"
+			}
+
+			DiskiteStaff: {
+				DisplayName: Diskite Staff
+				Tooltip: Summons a desert diskite to fight for you
+			}
+
+			GlowingMushtopStaff: {
+				DisplayName: Glowing Mushtop Staff
+				Tooltip: Summons a glowing mushtop to fight for you
+			}
+
+			IcyWispStaff: {
+				DisplayName: Icy Wisp Staff
+				Tooltip:
+					'''
+					Summons icy wisps to fight for you
+					Spawns two wisps that share a single minion slot
+					'''
+			}
+
+			JellyStaff: {
+				DisplayName: Jelly Staff
+				Tooltip: Summons a mini jelly to fight for you
+			}
+
+			MeteorbStaff: {
+				DisplayName: Meteorb Staff
+				Tooltip: Summons a meteorb to fight for you
+			}
+
+			MushtopStaff: {
+				DisplayName: Mushtop Staff
+				Tooltip: Summons a mushtop to fight for you
+			}
+
+			SpazmaticScythe: {
+				DisplayName: Spazmatic Scythe
+				Tooltip:
+					'''
+					Summons five spazscythes to rotate around you
+					Spazscythes do not take up any minion slots
+					Spazscythes dissipate after 5 hits
+					Spazscythes cannot be resummoned until all of them are dissipated
+					'''
+			}
+
+			StardustFragmentStaff: {
+				DisplayName: Stardust Fragment Staff
+				Tooltip: Summons a floating stardust fragment to fight for you
+			}
+
+			CrimtaneJavelin: {
+				DisplayName: Crimtane Javelin
+				Tooltip: ""
+			}
+
+			Dirtthrower: {
+				DisplayName: Dirtthrower
+				Tooltip:
+					'''
+					'Talk about terraforming!'
+					Uses dirt blocks as ammo
+					'''
+			}
+
+			Flamecougher: {
+				DisplayName: Flamecougher
+				Tooltip:
+					'''
+					UNOBTAINABLE
+					Coughs up a ball of cursed flames on use
+					Uses gel as ammo
+					'''
+			}
+
+			FleshstabJavelin: {
+				DisplayName: Fleshstab Javelin
+				Tooltip: On impact, explodes into multiple ichor splashes
+			}
+
+			LostNightmare: {
+				DisplayName: Lost Nightmare
+				Tooltip:
+					'''
+					'You shouldn't be able to read this unless you're cheating, or something has gone terribly wrong!
+					In that case, hello.
+					Hope you like the mod.'
+					'''
+			}
+
+			MagnificentOrb: {
+				DisplayName: Magnificent Orb
+				Tooltip: "'Warning: May cause spatial anomalies.'"
+			}
+
+			Neutrobliterator: {
+				DisplayName: Neutrobliterator
+				Tooltip: Shoots multiple short ranged Neutron Blasts that chase your enemies
+			}
+
+			CarnalliteOre: {
+				DisplayName: Carnallite Ore
+				Tooltip: "'It has a liking for the rich cultures of mud'"
+			}
+
+			HaxoniteOre: {
+				DisplayName: Haxonite Ore
+				Tooltip: "'A rare mineral found only in the most powerful meteorite creatures'"
+			}
+
+			ZincOre: {
+				DisplayName: Zinc Ore
+				Tooltip: ""
+			}
+
+			CreepyBlob: {
+				DisplayName: Creepy Blob
+				Tooltip: Summons the one and only Dirtboi to follow you
+			}
+
+			DiskiteDrive: {
+				DisplayName: Diskite Drive
+				Tooltip: Summons a mini diskling to follow you
+			}
+
+			DS_91Controller: {
+				DisplayName: DS-91 Controller
+				Tooltip: Summons a forgetten and malfunctioning model of drone servant to follow you
+			}
+
+			EldritchGland: {
+				DisplayName: Eldritch Gland
+				Tooltip:
+					'''
+					'It's covered in a thin coat of some sticky substance, but looks useless.'
+					Summons a spooky jellyfish to follow you
+					'''
+			}
+
+			PlasticDinoFigurine: {
+				DisplayName: Plastic Dino Figurine
+				Tooltip:
+					'''
+					'Target practice!'
+					Summons an extinction meteorite to follow you
+					'''
+			}
+
+			EnergyGranite: {
+				DisplayName: Energy Granite
+				Tooltip: ""
+			}
+
+			JadeStoneBlock: {
+				DisplayName: Jade Stone Block
+				Tooltip: ""
+			}
+
+			LimeTorch: {
+				DisplayName: Lime Torch
+				Tooltip: ""
+			}
+
+			ADDRelic: {
+				DisplayName: Ancient Diskite Director Relic
+				Tooltip: ""
+			}
+
+			DirtballRelic: {
+				DisplayName: Dirtball Relic
+				Tooltip: ""
+			}
+
+			JellyRelic: {
+				DisplayName: Eldritch Jellyfish Relic
+				Tooltip: ""
+			}
+
+			MetelordRelic: {
+				DisplayName: Metelord Relic
+				Tooltip: ""
+			}
+
+			ADDTrophy: {
+				DisplayName: Ancient Desert Diskite Trophy
+				Tooltip: ""
+			}
+
+			DirtballTrophy: {
+				DisplayName: Dirtball Trophy
+				Tooltip: ""
+			}
+
+			JellyTrophy: {
+				DisplayName: Eldritch Jellyfish Trophy
+				Tooltip: ""
+			}
+
+			MetelordTrophy: {
+				DisplayName: Metelord Trophy
+				Tooltip: ""
+			}
+
+			BloodLeaves: {
+				DisplayName: Blood Leaves
+				Tooltip:
+					'''
+					Testing and building purposes only.
+					Unobtainable.
+					'''
+			}
+
+			GloryBlossomPlaceable: {
+				DisplayName: Glory Blossom Placeable
+				Tooltip:
+					'''
+					Testing and building purposes only.
+					Unobtainable.
+					'''
+			}
+
+			GloryGrasses: {
+				DisplayName: Glory Grasses
+				Tooltip:
+					'''
+					Testing and building purposes only.
+					Unobtainable.
+					'''
+			}
+
+			GloryVines: {
+				DisplayName: Glory Vines
+				Tooltip:
+					'''
+					Testing and building purposes only.
+					Unobtainable.
+					'''
+			}
+
+			BloodiedVial: {
+				DisplayName: Bloodied Vial
+				Tooltip: Gives a small chance to lifesteal from enemies
+			}
+
+			FeralChemicals: {
+				DisplayName: Feral Chemicals
+				Tooltip: Increases melee speed by 10%
+			}
+
+			FloaterPotion: {
+				DisplayName: Floater Potion
+				Tooltip: Increases max wingtime by a second
+			}
+
+			GalePotion: {
+				DisplayName: Gale Potion
+				Tooltip:
+					'''
+					Increases max blowpipe charge by 30
+					Increases blowpipe charge speed by 10/s
+					'''
+			}
+
+			HeavyHitterPotion: {
+				DisplayName: Heavy Hitter Potion
+				Tooltip: Increases critical strike damage by 20%
+			}
+
+			ManareachPotion: {
+				DisplayName: Manareach Potion
+				Tooltip:
+					'''
+					Increases pickup range for mana stars
+					Does not stack with Celestial Magnet
+					'''
+			}
+
+			NeutroninaBottle: {
+				DisplayName: Neutron in a Bottle
+				Tooltip:
+					'''
+					When above half life, increases damage by 10% but decreases defense by 10
+					When below half life, increases defense by 10 but decreases damage by 10%
+					Positive effects are halved if an ironskin or wrath/rage potion is active (to their respective stats)
+					'''
+			}
+
+			PsychicPotion: {
+				DisplayName: Psychic Potion
+				Tooltip: Greatly increases mana regen, but decreases your max life
+			}
+
+			StealthPotion: {
+				DisplayName: Stealth Potion
+				Tooltip: Gives a small chance to dodge attacks
+			}
+
+			SoulInfusedPotato: {
+				DisplayName: Soul Infused Potato
+				Tooltip: "'Incredible energy emanates from such a vegetable'"
+			}
+
+			DeathCleaver: {
+				DisplayName: Death Cleaver
+				Tooltip:
+					'''
+					Right click to switch between legacy and modern modes
+					Slain enemies explode into eight shade orbs
+					In legacy mode, stats are buffed and twelve orbs are released
+					'''
+			}
+
+			EmeraldFalcon: {
+				DisplayName: Emerald Falcon
+				Tooltip:
+					'''
+					'Better than the diamond sword!'
+					Right click to switch between legacy and modern modes
+					Fires an emerald wave on every fifth stab
+					In legacy mode, emerald waves chase enemies
+					'''
+			}
+
+			Stalagmite: {
+				DisplayName: Stalagmite
+				Tooltip:
+					'''
+					Right click to switch between legacy and modern modes
+					Hitting enemies spawns granite sparks
+					In legacy mode, stats are buffed and more sparks are spawned
+					'''
+			}
+
+			StoneShortsword: {
+				DisplayName: Stone Shortsword
+				Tooltip:
+					'''
+					Right click to switch between legacy and modern modes
+					In legacy mode, stats are buffed
+					'''
+			}
+
+			ZincShortsword: {
+				DisplayName: Zinc Shortsword
+				Tooltip:
+					'''
+					Right click to switch between legacy and modern modes
+					In legacy mode, stats are buffed
+					'''
+			}
+
+			AridBoStaff: {
+				DisplayName: Arid Bo Staff
+				Tooltip:
+					'''
+					'From a primordial desert dynasty'
+					Creates dust storms at will
+					'''
+			}
+
+			CarnalliteTrident: {
+				DisplayName: Carnallite Trident
+				Tooltip: "'Enchanted with Loyalty I'"
+			}
+
+			CarvedStabber: {
+				DisplayName: Carved Stabber
+				Tooltip: ""
+			}
+
+			EerieSpear: {
+				DisplayName: Eerie Spear
+				Tooltip: Shoots otherworldly fangs on use
+			}
+
+			EyeoftheSandstorm: {
+				DisplayName: Eye of the Sandstorm
+				Tooltip: Releases homing desert spirits after striking a foe
+			}
+
+			IcicleonaRod: {
+				DisplayName: Icicle on a Rod
+				Tooltip:
+					'''
+					'I'll poke your eye out!'
+					Fires a short range icicle on use
+					'''
+			}
+
+			Kivasana: {
+				DisplayName: Kivasana
+				Tooltip: Enemies struck with the spear drop more money
+			}
+
+			LihzahrdLance: {
+				DisplayName: Lihzahrd Lance
+				Tooltip: Shoots multiple high-speed lihzahrd beams
+			}
+
+			SuperheatedStabber: {
+				DisplayName: Superheated Stabber
+				Tooltip:
+					'''
+					Heats up while using the spear
+					Throw the spear out when it's hot enough with alternate fire
+					'Breaks the laws of thermodynamics for fun.'
+					'''
+			}
+
+			ZincSpear: {
+				DisplayName: Zinc Spear
+				Tooltip: ""
+			}
+
+			Bloodshed: {
+				DisplayName: Bloodshed
+				Tooltip:
+					'''
+					'There will be'
+					Spawns four blood orbs after striking a foe
+					'''
+			}
+
+			BloodyZombieArm: {
+				DisplayName: Bloody Zombie Arm
+				Tooltip:
+					'''
+					'Bloodier than ever!'
+					Inflicts Zombie Rot upon hitting enemies, which can be spread to other nearby enemies
+					'''
+			}
+
+			CarnalliteCutlass: {
+				DisplayName: Carnallite Cutlass
+				Tooltip: Every fourth swing shoots a pile of leaves
+			}
+
+			ColdCrusher: {
+				DisplayName: Cold Crusher
+				Tooltip: Inflicts 'Brain Freeze' on non-boss enemies, slowing them down
+			}
+
+			DesertRose: {
+				DisplayName: Desert Rose
+				Tooltip: Rains desert sigils down from the sky
+			}
+
+			Diskalibur: {
+				DisplayName: Diskalibur
+				Tooltip:
+					'''
+					'For valor!'
+					Critical strikes have extremely high knockback
+					'''
+			}
+
+			DiskanSecurityBlade: {
+				DisplayName: Diskan Security Blade
+				Tooltip: Every third swing releases an electric bolt
+			}
+
+			Dreadclawtilus: {
+				DisplayName: Dreadclawtilus
+				Tooltip: Steals life on enemy hits
+			}
+
+			Eternia2000: {
+				DisplayName: Eternia 2000
+				Tooltip:
+					'''
+					UNOBTAINABLE: Will probably be obtainable when I make PML content. Also severely needs a rework.
+					'Not to be confused with the Eternia 995'
+					Releases Vinyl Discs, LP Rockets, and World-Ending Meteors
+					Damaging enemies has a chance to inflict Broken Karta (a shatter sound plays and '!!!' appear above the enemy each time this happens)
+					Pure melee has a much higher chance of inflicting Broken Karta than projectiles.
+					Inflicting Broken Karta three times will replace the debuff with Heartdaze.
+					This debuff lasts until you don't damage the enemy for a bit.
+					Heartdaze has lower effect on bosses
+					'''
+			}
+
+			ForgottenRosesSaber: {
+				DisplayName: Forgotten Rose's Saber
+				Tooltip:
+					'''
+					'The forgotten rose's bloom will be others' doom!'
+					Swings release a blossomed rose
+					Blossomed roses release spore clouds after stopping
+					Every third swing also releases a ring of roses
+					'''
+			}
+
+			HBDeusGreatsword: {
+				DisplayName: HBDeus's Greatsword
+				Tooltip:
+					'''
+					UNOBTAINABLE: Developer Item
+					Surrounds the cursor with shattered swords
+					'''
+			}
+
+			Heartbreaker: {
+				DisplayName: The Heartbreaker
+				Tooltip:
+					'''
+					'Don't go breaking my heart'
+					All true melee attacks leech life
+					Shoots life crystals
+					'''
+			}
+
+			IcyGreatblade: {
+				DisplayName: Icy Greatblade
+				Tooltip: Shoots several rapid icy bolts
+			}
+
+			JourneyStarter: {
+				DisplayName: Journey Starter
+				Tooltip:
+					'''
+					'Only the start of the endless road to infinity'
+					Alternates between firing different types of bolts
+					'''
+			}
+
+			LimePhaseblade: {
+				DisplayName: Lime Phaseblade
+				Tooltip: ""
+			}
+
+			LimePhasesaber: {
+				DisplayName: Lime Phasesaber
+				Tooltip: ""
+			}
+
+			Lobera: {
+				DisplayName: Lobera
+				Tooltip:
+					'''
+					Hits will slash the enemy's soul, causing their defense to be halved
+					Striking foes will rain tropical orbs upon them
+					'''
+			}
+
+			Midpoint: {
+				DisplayName: Midpoint
+				Tooltip:
+					'''
+					'Only halfway to oblivion, and whatever lies beyond'
+					Alternates between firing different types of bolts
+					'''
+			}
+
+			MuddyGreatsword: {
+				DisplayName: Muddy Greatsword
+				Tooltip: "'The only 'great' this thing is is greatly dirty!'"
+			}
+
+			Mudslinger: {
+				DisplayName: Mudslinger
+				Tooltip:
+					'''
+					Every third swing fires an accelerating dirt glob that heats up over time
+					As it heats up, its power steadily increases
+					The glob explodes into molten mud after being left alive for long enough
+					Heating speed will change depending on the player's biome
+					'''
+			}
+
+			OreTour: {
+				DisplayName: Ore Tour
+				Tooltip: Fires a ring of ores on use
+			}
+
+			OvergrownHilt: {
+				DisplayName: Overgrown Hilt
+				Tooltip: "'Only at 0.1% of its true power'"
+			}
+
+			Pandemic: {
+				DisplayName: Pandemic
+				Tooltip: Inflicts Flash Pandemic upon hitting enemies, which deals extremely high damage and can be spread to other nearby enemies
+			}
+
+			RainyDays: {
+				DisplayName: Rainy Days
+				Tooltip:
+					'''
+					'Don't we all?'
+					Shoots rain erratically
+					'''
+			}
+
+			Slimebender: {
+				DisplayName: Slimebender
+				Tooltip:
+					'''
+					UNOBTAINABLE: Developer item
+					Shoots a large slimeblast that explodes into smaller slimeblasts
+					'''
+			}
+
+			Slimecutter: {
+				DisplayName: Slimecutter
+				Tooltip: Struck enemies are slimed
+			}
+
+			SparklySlimecutter: {
+				DisplayName: Sparkly Slimecutter
+				Tooltip:
+					'''
+					Struck enemies are sparkly slimed
+					Every few swings releases bouncy sparkly gel
+					'''
+			}
+
+			Stalactite: {
+				DisplayName: Stalactite
+				Tooltip: At full health, shoots a sword beam
+			}
+
+			Starbringer: {
+				DisplayName: Starbringer
+				Tooltip: Rains stars on enemies after striking them
+			}
+
+			StoneSword: {
+				DisplayName: Stone Sword
+				Tooltip: ""
+			}
+
+			ZincBroadsword: {
+				DisplayName: Zinc Broadsword
+				Tooltip: ""
+			}
+
+			CarnalliteTome: {
+				DisplayName: Carnallite Tome
+				Tooltip:
+					'''
+					Shoots seeds that grow into buffing flowers
+					Right click changes the seed thrown
+					Maximum of two at a given time
+					'I always knew flowers had powers!'
+					'''
+			}
+
+			ChaosCaster: {
+				DisplayName: Chaos Caster
+				Tooltip:
+					'''
+					Casts a chaos ball that hexes the hit target
+					Hexes collapse after 2 seconds, dealing damage
+					'I can do anything!'
+					'''
+			}
+
+			DeterminationBreaker: {
+				DisplayName: Determination Breaker
+				Tooltip:
+					'''
+					'Does not give you a blue eye on use'
+					Begins spinning and firing skulls after striking a foe
+					'''
+			}
+
+			DictionaryofMagicks: {
+				DisplayName: Dictionary of Magicks
+				Tooltip:
+					'''
+					'There's a lot of latin in this!'
+					Alternates between fireballs, snowflakes, water bolts, lightning strikes, and chaos balls
+					'''
+			}
+
+			EldritchMonsoon: {
+				DisplayName: Eldritch Monsoon
+				Tooltip: Summons three jellyfish to dash at enemies
+			}
+
+			FamiliarBook: {
+				DisplayName: Familiar Book
+				Tooltip:
+					'''
+					Casts down a psychokinetic flame wall
+					'Reminds you of something, although you don't know what.'
+					'''
+			}
+
+			Snowfall: {
+				DisplayName: Snowfall
+				Tooltip:
+					'''
+					Launches 3 snowflakes towards your cursor
+					'Winter is coming...'
+					'''
+			}
+
+			VolcanicFlame: {
+				DisplayName: Volcanic Flame
+				Tooltip: Casts down a psychokinetic flame wall
+			}
+
+			CarnalliteAxe: {
+				DisplayName: Carnallite Axe
+				Tooltip: Struck enemies are inflicted with a natural curse
+			}
+
+			CarnalliteHammer: {
+				DisplayName: Carnallite Hammer
+				Tooltip: Struck enemies are inflicted with a natural curse
+			}
+
+			CarnallitePickaxe: {
+				DisplayName: Carnallite Pickaxe
+				Tooltip: Struck enemies are inflicted with a natural curse
+			}
+
+			CrumbledPickaxe: {
+				DisplayName: Crumbled Pickaxe
+				Tooltip: ""
+			}
+
+			HeavyMetalHammer: {
+				DisplayName: Heavy Metal Hammer
+				Tooltip: ""
+			}
+
+			StoneAxe: {
+				DisplayName: Stone Axe
+				Tooltip: ""
+			}
+
+			StoneHammer: {
+				DisplayName: Stone Hammer
+				Tooltip: ""
+			}
+
+			StonePickaxe: {
+				DisplayName: Stone Pickaxe
+				Tooltip: ""
+			}
+
+			TreeWhacker: {
+				DisplayName: Tree Whacker
+				Tooltip: "'Only hurts a little!'"
+			}
+
+			ZincAxe: {
+				DisplayName: Zinc Axe
+				Tooltip: ""
+			}
+
+			ZincHammer: {
+				DisplayName: Zinc Hammer
+				Tooltip: ""
+			}
+
+			ZincPickaxe: {
+				DisplayName: Zinc Pickaxe
+				Tooltip: ""
+			}
+
+			ADDMask: {
+				DisplayName: Ancient Desert Diskite Mask
+				Tooltip: ""
+			}
+
+			DirtballMask: {
+				DisplayName: Dirtball Mask
+				Tooltip: ""
+			}
+
+			JellyMask: {
+				DisplayName: Eldritch Jellyfish Mask
+				Tooltip: ""
+			}
+
+			MetelordMask: {
+				DisplayName: Metelord Mask
+				Tooltip: ""
+			}
+
+			PolandballMask: {
+				DisplayName: Polandball Mask
+				Tooltip: "'Can Polandball into space?'"
+			}
+
+			CarnalliteWand: {
+				DisplayName: Carnallite Wand
+				Tooltip: Rains leaves from the sky at the cursor
+			}
+
+			CryoWand: {
+				DisplayName: Cryo Wand
+				Tooltip: Fires a chunk of ice that splits into several shards on impact
+			}
+
+			JadeStaff: {
+				DisplayName: Jade Staff
+				Tooltip: ""
+			}
+
+			ManaSiphon: {
+				DisplayName: Mana Siphon
+				Tooltip: Leeches mana from struck enemies
+			}
+
+			MeteorHerder: {
+				DisplayName: Meteor Herder
+				Tooltip:
+					'''
+					'We back in Meteor Herd'
+					Rains tiny meteors from above
+					'''
+			}
+
+			OceanWaterer: {
+				DisplayName: Ocean Waterer
+				Tooltip:
+					'''
+					'Seems a little much for just winning a water gun fight...'
+					Waterboards enemies with a barrage of water splashes
+					'''
+			}
+
+			ScepterofDirt: {
+				DisplayName: Scepter of Dirt
+				Tooltip: Rains dirt balls from above on enemies
+			}
+
+			Slimecaster: {
+				DisplayName: Slimecaster
+				Tooltip: Rains a slime mass from above that explodes into slime spikes upon contact
+			}
+
+			SpareLeg: {
+				DisplayName: Spare Leg
+				Tooltip: Summons a big bone from above that unleashes a torrent of bones
+			}
+
+			SparklySlimecaster: {
+				DisplayName: Sparkly Slimecaster
+				Tooltip: Rains a giant sparkly gel from above that explodes into bouncy smaller ones on impact
+			}
+
+			StoneStaff: {
+				DisplayName: Stone Staff
+				Tooltip: ""
+			}
+
+			AmazonPrime: {
+				DisplayName: Amazon Prime
+				Tooltip:
+					'''
+					'Does not come with drone'
+					Occasionally drops packages
+					'''
+			}
+
+			Code3: {
+				DisplayName: Code 3
+				Tooltip:
+					'''
+					'One plus two does equal three, after all!'
+					Throws three yoyos to attack foes
+					'''
+			}
+
+			Coldnea: {
+				DisplayName: Coldnea
+				Tooltip: Shoots ice lasers around itself when thrown
+			}
+
+			Dirtglob: {
+				DisplayName: Dirtglob
+				Tooltip:
+					'''
+					'Become one with the dirt'
+					On use, surrounds itself with dirt blocks
+					'''
+			}
+
+			EarthDay: {
+				DisplayName: Earth Day
+				Tooltip:
+					'''
+					'The day the earth stood up for itself'
+					Shoots acorns at nearby enemies
+					Rains mushroom spores on foes
+					'''
+			}
+
+			GlazingStar: {
+				DisplayName: Glazing Star
+				Tooltip: Shoots feathers at nearby enemies
+			}
+
+			GloriousSun: {
+				DisplayName: Glorious Sun
+				Tooltip: Creates explosions nearby itself
+			}
+
+			Insomnia: {
+				DisplayName: Insomnia
+				Tooltip:
+					'''
+					'Definitely didn't come up with this item at 2:44 am!'
+					Shoots lasers at nearby enemies
+					'''
+			}
+
+			MiniMeteoroid: {
+				DisplayName: Mini Meteoroid
+				Tooltip: Splits into eight smaller meteoroids after hitting enemies enough times
+			}
+
+			Slimebasher: {
+				DisplayName: Slimebasher
+				Tooltip: Has a long reach
+			}
+
+			SparklySlimebasher: {
+				DisplayName: Sparkly Slimebasher
+				Tooltip:
+					'''
+					Has a long reach
+					Striking enemies will release bouncy sparkly gel
+					'''
+			}
+		}
+
+		Projectiles: {
+			JadeHookProj.DisplayName: Jade Hook
+			BloodContractProj.DisplayName: Blood Contract
+			DemonEyeRotate.DisplayName: Demon Eye
+			DirtBallAcc.DisplayName: Dirt Ball
+			DiscoCanisterProj.DisplayName: Disco Canister Proj
+			DiscoCanisterProj_Laser.DisplayName: Disco Canister
+			RootGuardProj.DisplayName: Root Guard
+			SlimeSpikeFriendly.DisplayName: Slime Spike
+			BlinkrootSeed.DisplayName: Blinkroot Seed
+			BlinkrootSeedFall.DisplayName: Blinkroot Seed
+			BlinkrootSprouted.DisplayName: Blinkroot
+			BloodiedArrow.DisplayName: Bloodied Arrow
+			BouncyPocketGrenade.DisplayName: Bouncy Pocket Grenade
+			CorruptSeed.DisplayName: Corrupt Seed
+			CrimsonSeed.DisplayName: Crimson Seed
+			DaybloomSeed.DisplayName: Daybloom Seed
+			DaybloomSeedFall.DisplayName: Daybloom Seed
+			DaybloomSprouted.DisplayName: Daybloom
+			DeathweedSeed.DisplayName: Deathweed Seed
+			DeathweedSeedFall.DisplayName: Deathweed Seed
+			DeathweedSprouted.DisplayName: Deathweed
+			DiskiteShrapnel.DisplayName: Diskite Shrapnel
+			ElementalGooshot.DisplayName: Elemental Gooshot
+			FireblossomSeed.DisplayName: Fireblossom Seed
+			FireblossomSeedFall.DisplayName: Fireblossom Seed
+			FireblossomSprouted.DisplayName: Fireblossom
+			GrassSeed.DisplayName: Grass Seed
+			HallowedSeed.DisplayName: Hallowed Seed
+			JungleGrassSeed.DisplayName: Jungle Grass Seed
+			MoltenSeed.DisplayName: Molten Seed
+			MoonglowSeed.DisplayName: Moonglow Seed
+			MoonglowSeedFall.DisplayName: Moonglow Seed
+			MoonglowSprouted.DisplayName: Moonglow
+			MushroomGrassSeed.DisplayName: Mushroom Grass Seed
+			ObsidianDart.DisplayName: Obsidian Dart
+			OozeCloud.DisplayName: Ooze Cloud
+			OozingArrow.DisplayName: Oozing Arrow
+			OozingBullet.DisplayName: Oozing Bullet
+			OozingSeed.DisplayName: Oozebit
+			OverclockArrow.DisplayName: Overclock Arrow
+			Pebble.DisplayName: Pebble
+			PocketGrenade.DisplayName: Pocket Grenade
+			PoisonousArrow.DisplayName: Poisonous Arrow
+			SharpenedFang.DisplayName: Sharpened Fang
+			ShiverthornSeed.DisplayName: Shiverthorn Seed
+			ShiverthornSeedFall.DisplayName: Shiverthorn Seed
+			ShiverthornSprouted.DisplayName: Shiverthorn
+			SlimeArrow.DisplayName: Slime Arrow
+			Starshot.DisplayName: Starshot
+			StickyPocketGrenade.DisplayName: Sticky Pocket Grenade
+			WaterleafSeed.DisplayName: Waterleaf Seed
+			WaterleafSeedFall.DisplayName: Waterleaf Seed
+			WaterleafSprouted.DisplayName: Waterleaf
+			WoodenDart.DisplayName: Wooden Dart
+			BallofFireRanged.DisplayName: Ball of Fire
+			BloodBall.DisplayName: Blood Ball
+			ChlorophyteBlowspitterProj.DisplayName: Slimeblast
+			DeadlyToxinDart.DisplayName: Deadly Toxin Dart
+			DirtBallFunnel.DisplayName: Dirt Ball
+			IcicleMakerProj.DisplayName: Mini Icicle
+			LobbingLogSplinter.DisplayName: Splinter
+			MeteorLauncherProj.DisplayName: Meteor Launcher
+			MeteorLauncherProjFire.DisplayName: Ball of Fire
+			PoopFriendly.DisplayName: Poop
+			ProbeChaser.DisplayName: Homing Probe
+			ShellshockerProj.DisplayName: Shellshocker
+			SigilofNobodyism.DisplayName: Sigil of Nobodyism
+			Slimeball.DisplayName: Slimeball
+			Slimeball_Deco.DisplayName: Slimeball
+			Superstarshot_F.DisplayName: Superstarshot
+			Superstarshot_O.DisplayName: Superstarshot
+			Superstarshot_R.DisplayName: Superstarshot
+			Superstarshot_V.DisplayName: Superstarshot
+			Superstarshot_Y.DisplayName: Superstarshot
+			TacticalFoamDart.DisplayName: Tactical Foam Dart
+			UnholyEnergy.DisplayName: Unholy Energy
+			WindpipeofthePhoenixProj.DisplayName: Phoenix Breath
+			BoneFriendlyMagic.DisplayName: Bone
+			Barfarang.DisplayName: Barfarang
+			BionicBoomerRang.DisplayName: Bionic Boomer
+			BlazingBacklasher.DisplayName: Blazing Backlasher
+			Cactirang.DisplayName: Cactirang
+			CactirangPricklyPear.DisplayName: Prickly Pear
+			FireandIce.DisplayName: Fire and Ice
+			FireandIce_1.DisplayName: Ball of Frost
+			FireandIce_2.DisplayName: Ball of Fire
+			Mecharang.DisplayName: Mecharang
+			Pentagram.DisplayName: Pentagram
+			Pentagram_2.DisplayName: Pentagram
+			Pukerang.DisplayName: Pukerang
+			XBlade.DisplayName: X-Blade
+			XBlade_NoName.DisplayName: No Name
+			XBlade_OrbofLight.DisplayName: Orb of Light
+			ADD_LaserEye.DisplayName: Ancient Desert Diskite
+			ADD_SpikeRingFriendly.DisplayName: Spike Ring
+			ADDLaser.DisplayName: Diskite Laser
+			ADDLaser2.DisplayName: Diskite Laser
+			ADDLaser3.DisplayName: Diskite Laser
+			ADDLaser4.DisplayName: Diskite Laser
+			ADDSandBall.DisplayName: Sand Ball
+			ADDZap.DisplayName: Electric Orb
+			ADDZapChase.DisplayName: Diskite Zap
+			DiskiteShrapnelHostile.DisplayName: Diskite Shrapnel
+			ElectricalEntity.DisplayName: Electrical Entity
+			DBoiSpirit.DisplayName: Small Forest Spirit
+			DBSpirit.DisplayName: Forest Spirit
+			DirtBallHostile.DisplayName: Dirt Ball
+			DirtballLaser.DisplayName: Laser
+			DirtboiTears.DisplayName: Dirtboi's Tears
+			DirtGlobHostile.DisplayName: Dirt Glob
+			LaserMineHostile.DisplayName: Laser Mine
+			LaserMineHostileFall.DisplayName: Laser Mine
+			JellyBeamBody.DisplayName: Jelly Beam
+			JellyBeamCenter.DisplayName: Jelly Beam
+			JellyBeamHead.DisplayName: Jelly Beam
+			JellyBeamX.DisplayName: Jelly Beam
+			JellyBeamY.DisplayName: Jelly Beam
+			JellyBit.DisplayName: Jelly Bit
+			JellyExpertProj.DisplayName: Big Eerie Jellyfish
+			JellyExpertProj2.DisplayName: Mini Jelly
+			JellyLaser.DisplayName: Water Blast
+			JellyLaserFast.DisplayName: Water Blast
+			JellyLaserWarning.DisplayName: Jelly Laser Warning
+			MetelordBallofFire.DisplayName: Ball of Fire
+			MetelordDMFireball.DisplayName: Giga Fire
+			MetelordFireBreath.DisplayName: Fire Breath
+			MetelordFireDrop1.DisplayName: Fallen Fire
+			MetelordFireDrop2.DisplayName: Fallen Fire
+			MetelordFireDrop3.DisplayName: Fallen Fire
+			MetelordFireTrail.DisplayName: Flame Orb
+			MetelordMeteoriteAttack.DisplayName: Swarm Meteorite
+			MetelordMeteoriteAttack2.DisplayName: Swarm Meteorite
+			MetelordMeteoriteRain.DisplayName: Fallen Meteorite
+			MiniCursorInfernoRing.DisplayName: Mini Inferno
+			SparklyArrow.DisplayName: Sparkly Arrow
+			StoneArrow.DisplayName: Stone Arrow
+			TrailMeteorite.DisplayName: Meteor Trailer
+			WyvernGreenBolt.DisplayName: Wyvern's Bolt
+			WyvernRedBolt.DisplayName: Wyvern's Bolt
+			CursedFlamesMelee.DisplayName: Cursed Flames
+			DirtGlobFriendly.DisplayName: Dirt Glob
+			ElectricBoltPassive.DisplayName: Electric Bolt
+			DesertDiskite_LaserEye.DisplayName: Desert Diskite
+			ElemSlimeBlob.DisplayName: Elemental Slime Blob
+			ElemSlimeOrb.DisplayName: Elemental Slime Orb
+			ElemSlimeSpike.DisplayName: Elemental Slime Spike
+			MeteorTailFireBlast.DisplayName: Fire Blast
+			WindElemental_Protect.DisplayName: Wind Elemental
+			WindElemental_ProtectDeco.DisplayName: Wind Elemental
+			ExplosiveMarshmallow.DisplayName: Explosive Marshmallow
+			EyeLaserFriendly.DisplayName: Eye Laser
+			FallenStarFriendly.DisplayName: Fallen Star
+			Feather.DisplayName: Feather
+			BoulderonaChain.DisplayName: Boulder on a Chain
+			DiskiteonaLeash.DisplayName: Diskite on a Leash
+			LihzahrdBoulderonaChain.DisplayName: Lihzahrd's Boulder on a Chain
+			ShadowMoon.DisplayName: Shadow Moon
+			Sporophyte.DisplayName: Sporophyte
+			StickyHand.DisplayName: Sticky Hand
+			TheMeteorite.DisplayName: The Meteorite
+			AcornTreeGrow.DisplayName: Tree
+			AcornTreePlant.DisplayName: Acorn
+			AcornTreeShoot.DisplayName: Acorn
+			CrimsandballHostile.DisplayName: Crimsand Ball
+			EbonsandballHostile.DisplayName: Ebonsand Ball
+			MushroomSporeHostile.DisplayName: Mushroom Spore
+			PearlsandballHostile.DisplayName: Pearlsand Ball
+			SandballHostile.DisplayName: Sand Ball
+			WaterStreamHostile.DisplayName: Water Stream
+			BambooSpike.DisplayName: Bamboo Spike
+			ClockworkBit.DisplayName: Clockwork Bit
+			MoltenBullet.DisplayName: Molten Bullet
+			SilverFauxBlast.DisplayName: Faux Blast
+			SpiritBullet.DisplayName: Spirit Bullet
+			HaxoniteTrail.DisplayName: Flame Orb
+			IceBoltRanged.DisplayName: Ice Bolt
+			JungleSporeRanged.DisplayName: Jungle Spore
+			JungleSporeRanged2.DisplayName: Jungle Spore
+			Leaf.DisplayName: Leaf
+			EerieGloveHand.DisplayName: Eerie Glove
+			EerieGloveProj.DisplayName: Eerie Jellyfish
+			ElectricBoltPassiveExplode.DisplayName: Electric Bolt
+			ElectricBoltPassiveExplodeExp.DisplayName: Electricity
+			Megawave.DisplayName: Megawave
+			SMGBlast.DisplayName: Space Machine Gun
+			DirtBlockExp.DisplayName: Dirt Block
+			DiskiteMinion_Center.DisplayName: Desert Diskite
+			DiskiteMinion_CenterDeco.DisplayName: Desert Diskite
+			DiskiteMinion_LaserEye.DisplayName: Desert Diskite
+			DiskiteMinion_SpikeRing.DisplayName: Desert Diskite
+			FloatingStardustFragment.DisplayName: Floating Stardust Fragment
+			GlowingMushroomSpore.DisplayName: Glowing Mushroom Spore
+			GlowingMushtop.DisplayName: Glowing Mushtop
+			IcyWisp.DisplayName: Icy Wisp
+			IcyWispBeam.DisplayName: Icy Beam
+			Meteorb.DisplayName: Meteorb
+			MeteorbProtect.DisplayName: Meteorb
+			MeteorbProtectDeco.DisplayName: Meteorb
+			MiniJelly.DisplayName: Mini Jelly
+			MiniJellyLaser.DisplayName: Mini Jelly Laser
+			MushroomSpore.DisplayName: Mushroom Spore
+			Mushtop.DisplayName: Mushtop
+			RoyalSlime.DisplayName: Floating Slime Staff
+			RoyalSlimeProj.DisplayName: Gel
+			Spazsickle.DisplayName: Spazsickle
+			StardustBeam.DisplayName: Stardust Beam
+			AquaBubble.DisplayName: Aqua Bubble
+			CrimtaneJavelin.DisplayName: Crimtane Javelin
+			CursedFlamethrower.DisplayName: Flamelicker
+			DirtPlaceBlocks.DisplayName: Dirt Ball
+			FleshstabJavelin.DisplayName: Fleshstab Javelin
+			MagnificentOrbPortal.DisplayName: Magnificent Portal
+			MagnificentOrbStar.DisplayName: Magnificent Star
+			NeutronBlast.DisplayName: Neutron Blast
+			SturgeonsKnife.DisplayName: Sturgeon's Knife
+			SurgeonsKnife.DisplayName: Surgeon's Knife
+			Dirtboi.DisplayName: Dirtboi
+			DS_91Pet.DisplayName: DS-91
+			ExtinctionMeteorite.DisplayName: Extinction Meteorite
+			MiniDiskling.DisplayName: Mini Diskling
+			MiniDiskling_SpikeRing.DisplayName: Mini Diskling
+			SpookyJellyfish.DisplayName: Spooky Jellyfish
+			PlanteraElementalGel.DisplayName: Elemental Goop Core
+			FamiliarBookCraftingAnim.DisplayName: Ghastly Familiar Book
+			RainFriendly.DisplayName: Rain
+			DeathCleaver.DisplayName: Death Cleaver
+			EmeraldFalcon.DisplayName: Emerald Falcon
+			EmeraldWave.DisplayName: Emerald Wave
+			EmeraldWaveChase.DisplayName: Emerald Wave
+			GraniteSpark.DisplayName: Granite Spark
+			ShadeOrb.DisplayName: Shade Orb
+			Stalagmite.DisplayName: Stalagmite
+			StoneShortsword.DisplayName: Stone Shortsword
+			ZincShortsword.DisplayName: Zinc Shortsword
+			SparklyGelFriendly.DisplayName: Sparkly Gel
+			AridBoStaff.DisplayName: Arid Bo Staff
+			AridBoStaffProj.DisplayName: Arid Winds
+			CarnalliteTrident.DisplayName: Carnallite Trident
+			CarvedStabber.DisplayName: Carved Stabber
+			DesertSpiritFlameFriendly.DisplayName: Desert Spirit Flame
+			EerieSpear.DisplayName: Eerie Spear
+			EerieSpearProj.DisplayName: Otherworldly Fang
+			EyeoftheSandstorm.DisplayName: Eye of the Sandstorm
+			IcicleonaRod.DisplayName: Icicle on a Rod
+			IcicleonaRodBreak.DisplayName: Icicle on a Rod
+			Kivasana.DisplayName: Kivasana
+			LihzahrdBeam.DisplayName: Lihzahrd Beam
+			LihzahrdLance.DisplayName: Lihzahrd Lance
+			SuperheatedStabber.DisplayName: Superheated Stabber
+			SuperheatedStabberThrown.DisplayName: Superheated Stabber
+			SuperheatedStabberThrownBoom.DisplayName: Superheated Stabber
+			ZincSpear.DisplayName: Zinc Spear
+			StingerPassive.DisplayName: Stinger
+			BloodOrb.DisplayName: Blood Orb
+			DesertSigil.DisplayName: Desert Sigil
+			HeartbreakerProj.DisplayName: Life Crystal
+			JourneyStarterBolt.DisplayName: Journey Starter
+			LoberaArk.DisplayName: Lobera
+			LoberaProj.DisplayName: Lobera
+			LoberaTropicalOrb.DisplayName: Tropical Orb
+			LPRocket.DisplayName: LP Rocket
+			MarbleGhostSword.DisplayName: Marble Sword
+			MegaRose.DisplayName: Blossomed Rose
+			MidpointBolt.DisplayName: Midpoint
+			MidpointBolt2.DisplayName: Midpoint
+			MiniRose.DisplayName: Mini Rose
+			MudslingerProj.DisplayName: Mudslinger
+			MudslingerProj_2.DisplayName: Mudslinger
+			MudslingerProj_3.DisplayName: Molten Mud
+			OreTourProjCenter.DisplayName: Ore Tour
+			OreTourProjRotate.DisplayName: Ore Tour
+			ShatteredSword.DisplayName: Shattered Sword
+			Slimeblast.DisplayName: Slimeblast
+			SlimeblastLarge.DisplayName: Large Slimeblast
+			StoneSwordProj.DisplayName: Stone Sword
+			VinylDisc.DisplayName: Vinyl Disc
+			WorldEndingMeteor.DisplayName: World-Ending Meteor
+			DefenseFlower.DisplayName: Defense Flower
+			DefenseSeed.DisplayName: Defense Seed
+			HealingFlower.DisplayName: Healing Flower
+			HealingSeed.DisplayName: Healing Seed
+			ManaFlower.DisplayName: Mana Flower
+			ManaSeed.DisplayName: Mana Seed
+			ChaosBallFriendly.DisplayName: Chaos Ball
+			DeterminationBreakerProj.DisplayName: Determination Breaker
+			HexNPCDamage.DisplayName: Chaos Hex
+			MonsoonProj.DisplayName: Eldritch Monsoon
+			PKFire1.DisplayName: Volcanic Flame
+			PKFire2.DisplayName: Volcanic Flame
+			PKFireWall.DisplayName: Volcanic Flame
+			SnowfallProj.DisplayName: Snowfall
+			WadofSpores.DisplayName: Wad of Spores
+			BigBone.DisplayName: Big Bone
+			CryoWandProj.DisplayName: Cryo Wand
+			CryoWandProjShard.DisplayName: Cryo Wand
+			DirtBallScepter.DisplayName: Dirt Ball
+			HexOreStaffProj.DisplayName: Hexed Ore Staff
+			HexOreStaffProj_Child.DisplayName: Hexed Ore Staff
+			JadeBolt.DisplayName: Jade Bolt
+			ManaSiphonBolt.DisplayName: Mana Siphon
+			MeteorHerderProj.DisplayName: Meteor Herder
+			SlimecasterProj.DisplayName: Slimecaster
+			SlimecasterSlimeSpike.DisplayName: Slime Spike
+			SparklySlimecasterProj.DisplayName: Sparkly Slimecaster
+			StoneBall.DisplayName: Stone Ball
+			WandofHexingProj.DisplayName: Wand of Hexing
+			WaterStreamRanged.DisplayName: Water Stream
+			AcornFriendlyMelee.DisplayName: Acorn
+			AmazonPackage.DisplayName: Package
+			AmazonPackageFall.DisplayName: Package
+			AmazonPrime.DisplayName: Amazon Prime
+			Code3.DisplayName: Code3
+			Coldnea.DisplayName: Coldnea
+			DirtBlockYoyo.DisplayName: Dirt Block
+			Dirtglob.DisplayName: Dirtglob
+			EarthDay.DisplayName: Earth Day
+			GlazingStar.DisplayName: Glazing Star
+			GloriousSun.DisplayName: Glorious Sun
+			IceLaser.DisplayName: Ice Laser
+			Insomnia.DisplayName: Insomnia
+			MiniMeteoroid.DisplayName: Mini Meteoroid
+			MiniMiniMeteoroid.DisplayName: Mini Mini Meteoroid
+			Slimebasher.DisplayName: Slimebasher
+			SparklySlimebasher.DisplayName: Sparkly Slimebasher
+		}
+
 		NPCs: {
-			DesertDiskite_CenterDeco.DisplayName: Desert Diskite_ Center Deco
-			DesertDiskite_Center.DisplayName: Desert Diskite_ Center
-			DesertDiskite_LaserEye.DisplayName: Desert Diskite_ Laser Eye
-			DesertDiskite_SpikeRing.DisplayName: Desert Diskite_ Spike Ring
+			ADD_Center: {
+				DisplayName: Ancient Diskite Director
+				BossChecklistIntegration.SpawnInfo: Use a [i:5688] in the desert at night
+			}
+
+			ADD_LaserEye.DisplayName: Ancient Diskite Director
+			ADD_LaserEye2.DisplayName: Ancient Diskite Director
+			ADD_Setup.DisplayName: Ancient Diskite Director
+			ADD_SideBottom.DisplayName: Ancient Diskite Director
+			ADD_SideTop.DisplayName: Ancient Diskite Director
+			ADD_SpikeRing.DisplayName: Ancient Diskite Director
+			SupportDiskite.DisplayName: Support Diskite
+
+			Dirtball: {
+				DisplayName: Dirtball
+				BossChecklistIntegration.SpawnInfo: Use a [i:5686]
+			}
+
+			DirtBlock.DisplayName: Dirt Block
+			Dirtboi.DisplayName: Dirtboi
+			DS_17.DisplayName: DS-17
+			BeamEerieJellyfish.DisplayName: Beam Eerie Jellyfish
+			DetonatingBubble.DisplayName: Detonating Bubble
+
+			EldritchJellyfish: {
+				DisplayName: Eldritch Jellyfish
+				BossChecklistIntegration.SpawnInfo: Use a [i:5687] in the ocean
+			}
+
+			ExplosiveEerieJellyfish.DisplayName: Explosive Eerie Jellyfish
+			MetelordBody.DisplayName: Metelord
+
+			MetelordHead: {
+				DisplayName: Metelord
+				BossChecklistIntegration.SpawnInfo: Use a [i:5691] in the Meteorite biome
+			}
+
+			MetelordTail.DisplayName: Metelord
+			SuspiciousLookingEye.DisplayName: Suspicious Looking Eye
+			ArteryCloggerBody.DisplayName: Artery Clogger
+			ArteryCloggerHead.DisplayName: Artery Clogger
+			ArteryCloggerTail.DisplayName: Artery Clogger
+			VeinTunnelerBody.DisplayName: Vein Tunneler
+			VeinTunnelerHead.DisplayName: Vein Tunneler
+			VeinTunnelerTail.DisplayName: Vein Tunneler
+			DesertDiskite_Center.DisplayName: Desert Diskite
+			DesertDiskite_LaserEye.DisplayName: Desert Diskite
+			DesertDiskite_SpikeRing.DisplayName: Desert Diskite
 			DustbowlGigaslime.DisplayName: Dustbowl Gigaslime
 			BoneSlime.DisplayName: Bone Slime
 			ElemSlime.DisplayName: Elem Slime
@@ -35,8 +3141,8 @@ Mods: {
 			MeteorTail.DisplayName: Meteor Tail
 			EerieJellyfish.DisplayName: Eerie Jellyfish
 			LittoralGigaslime.DisplayName: Littoral Gigaslime
-			LittoralGigaslime2.DisplayName: Littoral Gigaslime2
-			LittoralGigaslime3.DisplayName: Littoral Gigaslime3
+			LittoralGigaslime2.DisplayName: Littoral Gigaslime
+			LittoralGigaslime3.DisplayName: Littoral Gigaslime
 			LittoralGigaslimeCore.DisplayName: Littoral Gigaslime Core
 			LivingMarshmallow.DisplayName: Living Marshmallow
 			RoastedLivingMarshmallow.DisplayName: Roasted Living Marshmallow
@@ -45,13 +3151,6 @@ Mods: {
 				DisplayName: Weapons Master
 
 				TownNPCMood: {
-					Content: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.Content}"
-					NoHome: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.NoHome}"
-					FarFromHome: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.FarFromHome}"
-					LoveSpace: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.LoveSpace}"
-					DislikeCrowded: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.DislikeCrowded}"
-					HateCrowded: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.HateCrowded}"
-					LoveBiome: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.LoveBiome}"
 					Princess_LovesNPC: I like {NPCName}.
 					LikeNPC_Princess: I like {NPCName}.
 					HateNPC: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.HateNPC}"
@@ -59,2547 +3158,114 @@ Mods: {
 					LikeNPC: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.LikeNPC}"
 					LoveNPC: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.LoveNPC}"
 					DislikeBiome: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.DislikeBiome}"
+					LoveBiome: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.LoveBiome}"
+					HateCrowded: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.HateCrowded}"
+					DislikeCrowded: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.DislikeCrowded}"
+					LoveSpace: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.LoveSpace}"
+					FarFromHome: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.FarFromHome}"
+					NoHome: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.NoHome}"
+					Content: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.Content}"
 				}
 			}
 
-			ADD_LaserEye.DisplayName: A D D_ Laser Eye
-			ADD_LaserEye2.DisplayName: A D D_ Laser Eye2
-			ADD_Setup.DisplayName: A D D_ Setup
-			ADD_SideBottom.DisplayName: A D D_ Side Bottom
-			ADD_SideTop.DisplayName: A D D_ Side Top
-			ADD_SpikeRing.DisplayName: A D D_ Spike Ring
-			SupportDiskite.DisplayName: Support Diskite
-			DirtBlock.DisplayName: Dirt Block
-			Dirtboi.DisplayName: Dirtboi
-			DS_17.DisplayName: D S_17
-			BeamEerieJellyfish.DisplayName: Beam Eerie Jellyfish
-			DetonatingBubble.DisplayName: Detonating Bubble
-			ExplosiveEerieJellyfish.DisplayName: Explosive Eerie Jellyfish
-			MetelordBody.DisplayName: Metelord Body
-			MetelordTail.DisplayName: Metelord Tail
-			SuspiciousLookingEye.DisplayName: Suspicious Looking Eye
-			ArteryCloggerBody.DisplayName: Artery Clogger Body
-			ArteryCloggerHead.DisplayName: Artery Clogger Head
-			ArteryCloggerTail.DisplayName: Artery Clogger Tail
-			VeinTunnelerBody.DisplayName: Vein Tunneler Body
-			VeinTunnelerHead.DisplayName: Vein Tunneler Head
-			VeinTunnelerTail.DisplayName: Vein Tunneler Tail
 			WindElemental.DisplayName: Wind Elemental
-
-			MetelordHead: {
-				BossChecklistIntegration: {
-					SpawnInfo: Use a [i:5691] in the Meteorite biome
-					EntryName: Metelord
-				}
-
-				DisplayName: Metelord Head
-			}
-
-			Dirtball: {
-				BossChecklistIntegration.SpawnInfo: Use a [i:5686]
-				DisplayName: Dirtball
-			}
-
-			ADD_Center: {
-				BossChecklistIntegration: {
-					SpawnInfo: Use a [i:5688] in the desert at night
-					EntryName: Ancient Diskite Director
-				}
-
-				DisplayName: A D D_ Center
-			}
-
-			EldritchJellyfish: {
-				BossChecklistIntegration.SpawnInfo: Use a [i:5687] in the ocean
-				DisplayName: Eldritch Jellyfish
-			}
+			DesertDiskite_CenterDeco.DisplayName: Desert Diskite_ Center Deco
 		}
 
-		Items: {
-			Slimebasher: {
-				DisplayName: Slimebasher
-				Tooltip: ""
-			}
-
-			SparklySlimebasher: {
-				DisplayName: Sparkly Slimebasher
-				Tooltip: ""
-			}
-
-			MiniMeteoroid: {
-				Tooltip: ""
-				DisplayName: Mini Meteoroid
-			}
-
-			Insomnia: {
-				Tooltip: ""
-				DisplayName: Insomnia
-			}
-
-			GloriousSun: {
-				Tooltip: ""
-				DisplayName: Glorious Sun
-			}
-
-			GlazingStar: {
-				Tooltip: ""
-				DisplayName: Glazing Star
-			}
-
-			EarthDay: {
-				Tooltip: ""
-				DisplayName: Earth Day
-			}
-
-			Dirtglob: {
-				Tooltip: ""
-				DisplayName: Dirtglob
-			}
-
-			Coldnea: {
-				Tooltip: ""
-				DisplayName: Coldnea
-			}
-
-			Code3: {
-				Tooltip: ""
-				DisplayName: Code3
-			}
-
-			AmazonPrime: {
-				Tooltip: ""
-				DisplayName: Amazon Prime
-			}
-
-			StoneStaff: {
-				Tooltip: ""
-				DisplayName: Stone Staff
-			}
-
-			SparklySlimecaster: {
-				Tooltip: ""
-				DisplayName: Sparkly Slimecaster
-			}
-
-			SpareLeg: {
-				Tooltip: ""
-				DisplayName: Spare Leg
-			}
-
-			Slimecaster: {
-				Tooltip: ""
-				DisplayName: Slimecaster
-			}
-
-			ScepterofDirt: {
-				Tooltip: ""
-				DisplayName: Scepterof Dirt
-			}
-
-			OceanWaterer: {
-				Tooltip: ""
-				DisplayName: Ocean Waterer
-			}
-
-			MeteorHerder: {
-				Tooltip: ""
-				DisplayName: Meteor Herder
-			}
-
-			ManaSiphon: {
-				Tooltip: ""
-				DisplayName: Mana Siphon
-			}
-
-			JadeStaff: {
-				Tooltip: ""
-				DisplayName: Jade Staff
-			}
-
-			CryoWand: {
-				Tooltip: ""
-				DisplayName: Cryo Wand
-			}
-
-			CarnalliteWand: {
-				Tooltip: ""
-				DisplayName: Carnallite Wand
-			}
-
-			PolandballMask: {
-				Tooltip: ""
-				DisplayName: Polandball Mask
-			}
-
-			MetelordMask: {
-				Tooltip: ""
-				DisplayName: Metelord Mask
-			}
-
-			JellyMask: {
-				Tooltip: ""
-				DisplayName: Jelly Mask
-			}
-
-			DirtballMask: {
-				Tooltip: ""
-				DisplayName: Dirtball Mask
-			}
-
-			ADDMask: {
-				Tooltip: ""
-				DisplayName: A D D Mask
-			}
-
-			ZincPickaxe: {
-				Tooltip: ""
-				DisplayName: Zinc Pickaxe
-			}
-
-			ZincHammer: {
-				Tooltip: ""
-				DisplayName: Zinc Hammer
-			}
-
-			ZincAxe: {
-				Tooltip: ""
-				DisplayName: Zinc Axe
-			}
-
-			TreeWhacker: {
-				Tooltip: ""
-				DisplayName: Tree Whacker
-			}
-
-			StonePickaxe: {
-				Tooltip: ""
-				DisplayName: Stone Pickaxe
-			}
-
-			StoneHammer: {
-				Tooltip: ""
-				DisplayName: Stone Hammer
-			}
-
-			StoneAxe: {
-				Tooltip: ""
-				DisplayName: Stone Axe
-			}
-
-			HeavyMetalHammer: {
-				Tooltip: ""
-				DisplayName: Heavy Metal Hammer
-			}
-
-			CrumbledPickaxe: {
-				Tooltip: ""
-				DisplayName: Crumbled Pickaxe
-			}
-
-			CarnallitePickaxe: {
-				Tooltip: ""
-				DisplayName: Carnallite Pickaxe
-			}
-
-			CarnalliteHammer: {
-				Tooltip: ""
-				DisplayName: Carnallite Hammer
-			}
-
-			CarnalliteAxe: {
-				Tooltip: ""
-				DisplayName: Carnallite Axe
-			}
-
-			VolcanicFlame: {
-				Tooltip: ""
-				DisplayName: Volcanic Flame
-			}
-
-			Snowfall: {
-				Tooltip: ""
-				DisplayName: Snowfall
-			}
-
-			FamiliarBook: {
-				Tooltip: ""
-				DisplayName: Familiar Book
-			}
-
-			EldritchMonsoon: {
-				Tooltip: ""
-				DisplayName: Eldritch Monsoon
-			}
-
-			DictionaryofMagicks: {
-				Tooltip: ""
-				DisplayName: Dictionaryof Magicks
-			}
-
-			DeterminationBreaker: {
-				Tooltip: ""
-				DisplayName: Determination Breaker
-			}
-
-			ChaosCaster: {
-				Tooltip: ""
-				DisplayName: Chaos Caster
-			}
-
-			CarnalliteTome: {
-				Tooltip: ""
-				DisplayName: Carnallite Tome
-			}
-
-			ZincBroadsword: {
-				Tooltip: ""
-				DisplayName: Zinc Broadsword
-			}
-
-			StoneSword: {
-				Tooltip: ""
-				DisplayName: Stone Sword
-			}
-
-			Starbringer: {
-				Tooltip: ""
-				DisplayName: Starbringer
-			}
-
-			Stalactite: {
-				Tooltip: ""
-				DisplayName: Stalactite
-			}
-
-			SparklySlimecutter: {
-				Tooltip: ""
-				DisplayName: Sparkly Slimecutter
-			}
-
-			Slimecutter: {
-				Tooltip: ""
-				DisplayName: Slimecutter
-			}
-
-			Slimebender: {
-				Tooltip: ""
-				DisplayName: Slimebender
-			}
-
-			RainyDays: {
-				Tooltip: ""
-				DisplayName: Rainy Days
-			}
-
-			Pandemic: {
-				Tooltip: ""
-				DisplayName: Pandemic
-			}
-
-			OvergrownHilt: {
-				Tooltip: ""
-				DisplayName: Overgrown Hilt
-			}
-
-			OreTour: {
-				Tooltip: ""
-				DisplayName: Ore Tour
-			}
-
-			Mudslinger: {
-				Tooltip: ""
-				DisplayName: Mudslinger
-			}
-
-			MuddyGreatsword: {
-				Tooltip: ""
-				DisplayName: Muddy Greatsword
-			}
-
-			Midpoint: {
-				Tooltip: ""
-				DisplayName: Midpoint
-			}
-
-			Lobera: {
-				Tooltip: ""
-				DisplayName: Lobera
-			}
-
-			LimePhasesaber: {
-				Tooltip: ""
-				DisplayName: Lime Phasesaber
-			}
-
-			LimePhaseblade: {
-				Tooltip: ""
-				DisplayName: Lime Phaseblade
-			}
-
-			JourneyStarter: {
-				Tooltip: ""
-				DisplayName: Journey Starter
-			}
-
-			IcyGreatblade: {
-				Tooltip: ""
-				DisplayName: Icy Greatblade
-			}
-
-			Heartbreaker: {
-				Tooltip: ""
-				DisplayName: Heartbreaker
-			}
-
-			HBDeusGreatsword: {
-				Tooltip: ""
-				DisplayName: H B Deus Greatsword
-			}
-
-			ForgottenRosesSaber: {
-				Tooltip: ""
-				DisplayName: Forgotten Roses Saber
-			}
-
-			Eternia2000: {
-				Tooltip: ""
-				DisplayName: Eternia2000
-			}
-
-			Dreadclawtilus: {
-				Tooltip: ""
-				DisplayName: Dreadclawtilus
-			}
-
-			DiskanSecurityBlade: {
-				Tooltip: ""
-				DisplayName: Diskan Security Blade
-			}
-
-			Diskalibur: {
-				Tooltip: ""
-				DisplayName: Diskalibur
-			}
-
-			DesertRose: {
-				Tooltip: ""
-				DisplayName: Desert Rose
-			}
-
-			ColdCrusher: {
-				Tooltip: ""
-				DisplayName: Cold Crusher
-			}
-
-			CarnalliteCutlass: {
-				Tooltip: ""
-				DisplayName: Carnallite Cutlass
-			}
-
-			BloodyZombieArm: {
-				Tooltip: ""
-				DisplayName: Bloody Zombie Arm
-			}
-
-			Bloodshed: {
-				Tooltip: ""
-				DisplayName: Bloodshed
-			}
-
-			ZincSpear: {
-				Tooltip: ""
-				DisplayName: Zinc Spear
-			}
-
-			SuperheatedStabber: {
-				Tooltip: ""
-				DisplayName: Superheated Stabber
-			}
-
-			LihzahrdLance: {
-				Tooltip: ""
-				DisplayName: Lihzahrd Lance
-			}
-
-			Kivasana: {
-				Tooltip: ""
-				DisplayName: Kivasana
-			}
-
-			IcicleonaRod: {
-				Tooltip: ""
-				DisplayName: Icicleona Rod
-			}
-
-			EyeoftheSandstorm: {
-				Tooltip: ""
-				DisplayName: Eyeofthe Sandstorm
-			}
-
-			EerieSpear: {
-				Tooltip: ""
-				DisplayName: Eerie Spear
-			}
-
-			CarvedStabber: {
-				Tooltip: ""
-				DisplayName: Carved Stabber
-			}
-
-			CarnalliteTrident: {
-				Tooltip: ""
-				DisplayName: Carnallite Trident
-			}
-
-			AridBoStaff: {
-				Tooltip: ""
-				DisplayName: Arid Bo Staff
-			}
-
-			ZincShortsword: {
-				Tooltip: ""
-				DisplayName: Zinc Shortsword
-			}
-
-			StoneShortsword: {
-				Tooltip: ""
-				DisplayName: Stone Shortsword
-			}
-
-			Stalagmite: {
-				Tooltip: ""
-				DisplayName: Stalagmite
-			}
-
-			EmeraldFalcon: {
-				Tooltip: ""
-				DisplayName: Emerald Falcon
-			}
-
-			DeathCleaver: {
-				Tooltip: ""
-				DisplayName: Death Cleaver
-			}
-
-			SoulInfusedPotato: {
-				Tooltip: ""
-				DisplayName: Soul Infused Potato
-			}
-
-			StealthPotion: {
-				Tooltip: ""
-				DisplayName: Stealth Potion
-			}
-
-			PsychicPotion: {
-				Tooltip: ""
-				DisplayName: Psychic Potion
-			}
-
-			NeutroninaBottle: {
-				Tooltip: ""
-				DisplayName: Neutronina Bottle
-			}
-
-			ManareachPotion: {
-				Tooltip: ""
-				DisplayName: Manareach Potion
-			}
-
-			HeavyHitterPotion: {
-				Tooltip: ""
-				DisplayName: Heavy Hitter Potion
-			}
-
-			GalePotion: {
-				Tooltip: ""
-				DisplayName: Gale Potion
-			}
-
-			FloaterPotion: {
-				Tooltip: ""
-				DisplayName: Floater Potion
-			}
-
-			FeralChemicals: {
-				Tooltip: ""
-				DisplayName: Feral Chemicals
-			}
-
-			BloodiedVial: {
-				Tooltip: ""
-				DisplayName: Bloodied Vial
-			}
-
-			GloryVines: {
-				Tooltip: ""
-				DisplayName: Glory Vines
-			}
-
-			GloryGrasses: {
-				Tooltip: ""
-				DisplayName: Glory Grasses
-			}
-
-			GloryBlossomPlaceable: {
-				Tooltip: ""
-				DisplayName: Glory Blossom Placeable
-			}
-
-			BloodLeaves: {
-				Tooltip: ""
-				DisplayName: Blood Leaves
-			}
-
-			MetelordTrophy: {
-				Tooltip: ""
-				DisplayName: Metelord Trophy
-			}
-
-			JellyTrophy: {
-				Tooltip: ""
-				DisplayName: Jelly Trophy
-			}
-
-			DirtballTrophy: {
-				Tooltip: ""
-				DisplayName: Dirtball Trophy
-			}
-
-			ADDTrophy: {
-				Tooltip: ""
-				DisplayName: A D D Trophy
-			}
-
-			MetelordRelic: {
-				Tooltip: ""
-				DisplayName: Metelord Relic
-			}
-
-			JellyRelic: {
-				Tooltip: ""
-				DisplayName: Jelly Relic
-			}
-
-			DirtballRelic: {
-				Tooltip: ""
-				DisplayName: Dirtball Relic
-			}
-
-			ADDRelic: {
-				Tooltip: ""
-				DisplayName: A D D Relic
-			}
-
-			LimeTorch: {
-				Tooltip: ""
-				DisplayName: Lime Torch
-			}
-
-			JadeStoneBlock: {
-				Tooltip: ""
-				DisplayName: Jade Stone Block
-			}
-
-			Jade: {
-				Tooltip: ""
-				DisplayName: Jade
-			}
-
-			EnergyGranite: {
-				Tooltip: ""
-				DisplayName: Energy Granite
-			}
-
-			PlasticDinoFigurine: {
-				Tooltip: ""
-				DisplayName: Plastic Dino Figurine
-			}
-
-			EldritchGland: {
-				Tooltip: ""
-				DisplayName: Eldritch Gland
-			}
-
-			DS_91Controller: {
-				Tooltip: ""
-				DisplayName: D S_91 Controller
-			}
-
-			DiskiteDrive: {
-				Tooltip: ""
-				DisplayName: Diskite Drive
-			}
-
-			CreepyBlob: {
-				Tooltip: ""
-				DisplayName: Creepy Blob
-			}
-
-			ZincOre: {
-				Tooltip: ""
-				DisplayName: Zinc Ore
-			}
-
-			HaxoniteOre: {
-				Tooltip: ""
-				DisplayName: Haxonite Ore
-			}
-
-			CarnalliteOre: {
-				Tooltip: ""
-				DisplayName: Carnallite Ore
-			}
-
-			Neutrobliterator: {
-				Tooltip: ""
-				DisplayName: Neutrobliterator
-			}
-
-			MagnificentOrb: {
-				Tooltip: ""
-				DisplayName: Magnificent Orb
-			}
-
-			LostNightmare: {
-				Tooltip: ""
-				DisplayName: Lost Nightmare
-			}
-
-			FleshstabJavelin: {
-				Tooltip: ""
-				DisplayName: Fleshstab Javelin
-			}
-
-			Flamecougher: {
-				Tooltip: ""
-				DisplayName: Flamecougher
-			}
-
-			Dirtthrower: {
-				Tooltip: ""
-				DisplayName: Dirtthrower
-			}
-
-			CrimtaneJavelin: {
-				Tooltip: ""
-				DisplayName: Crimtane Javelin
-			}
-
-			StardustFragmentStaff: {
-				Tooltip: ""
-				DisplayName: Stardust Fragment Staff
-			}
-
-			SpazmaticScythe: {
-				Tooltip: ""
-				DisplayName: Spazmatic Scythe
-			}
-
-			MushtopStaff: {
-				Tooltip: ""
-				DisplayName: Mushtop Staff
-			}
-
-			MeteorbStaff: {
-				Tooltip: ""
-				DisplayName: Meteorb Staff
-			}
-
-			JellyStaff: {
-				Tooltip: ""
-				DisplayName: Jelly Staff
-			}
-
-			IcyWispStaff: {
-				Tooltip: ""
-				DisplayName: Icy Wisp Staff
-			}
-
-			GlowingMushtopStaff: {
-				Tooltip: ""
-				DisplayName: Glowing Mushtop Staff
-			}
-
-			DiskiteStaff: {
-				Tooltip: ""
-				DisplayName: Diskite Staff
-			}
-
-			WindEssence: {
-				Tooltip: ""
-				DisplayName: Wind Essence
-			}
-
-			TabooEssence: {
-				Tooltip: ""
-				DisplayName: Taboo Essence
-			}
-
-			SpeckledStardust: {
-				Tooltip: ""
-				DisplayName: Speckled Stardust
-			}
-
-			SlimyCore: {
-				Tooltip: ""
-				DisplayName: Slimy Core
-			}
-
-			RustedTech: {
-				Tooltip: ""
-				DisplayName: Rusted Tech
-			}
-
-			OtherworldlyFang: {
-				Tooltip: ""
-				DisplayName: Otherworldly Fang
-			}
-
-			Oozeberry: {
-				Tooltip: ""
-				DisplayName: Oozeberry
-			}
-
-			OnyxShard: {
-				Tooltip: ""
-				DisplayName: Onyx Shard
-			}
-
-			ObeliskShard: {
-				Tooltip: ""
-				DisplayName: Obelisk Shard
-			}
-
-			NeutronFragment: {
-				Tooltip: ""
-				DisplayName: Neutron Fragment
-			}
-
-			MetallicBell: {
-				Tooltip: ""
-				DisplayName: Metallic Bell
-			}
-
-			GloryPetals: {
-				Tooltip: ""
-				DisplayName: Glory Petals
-			}
-
-			PaintedGlassTetra: {
-				Tooltip: ""
-				DisplayName: Painted Glass Tetra
-			}
-
-			LabyrinthFish: {
-				Tooltip: ""
-				DisplayName: Labyrinth Fish
-			}
-
-			EnergizedStone: {
-				Tooltip: ""
-				DisplayName: Energized Stone
-			}
-
-			EnchantedIceCube: {
-				Tooltip: ""
-				DisplayName: Enchanted Ice Cube
-			}
-
-			ElementalGoop: {
-				Tooltip: ""
-				DisplayName: Elemental Goop
-			}
-
-			EerieBell: {
-				Tooltip: ""
-				DisplayName: Eerie Bell
-			}
-
-			DiskiteCrumbles: {
-				Tooltip: ""
-				DisplayName: Diskite Crumbles
-			}
-
-			BloodySpiderLeg: {
-				Tooltip: ""
-				DisplayName: Bloody Spider Leg
-			}
-
-			BloodDroplet: {
-				Tooltip: ""
-				DisplayName: Blood Droplet
-			}
-
-			TacticalMegaphone: {
-				Tooltip: ""
-				DisplayName: Tactical Megaphone
-			}
-
-			SpaceMachineGun: {
-				Tooltip: ""
-				DisplayName: Space Machine Gun
-			}
-
-			OvergrownElectricalComponent: {
-				Tooltip: ""
-				DisplayName: Overgrown Electrical Component
-			}
-
-			EerieGlove: {
-				Tooltip: ""
-				DisplayName: Eerie Glove
-			}
-
-			DiskanSecurityElectrifier: {
-				Tooltip: ""
-				DisplayName: Diskan Security Electrifier
-			}
-
-			JadeHookItem: {
-				Tooltip: ""
-				DisplayName: Jade Hook Item
-			}
-
-			SilverFaux: {
-				Tooltip: ""
-				DisplayName: Silver Faux
-			}
-
-			ShrapnelGun: {
-				Tooltip: ""
-				DisplayName: Shrapnel Gun
-			}
-
-			Sandstormgun: {
-				Tooltip: ""
-				DisplayName: Sandstormgun
-			}
-
-			OvergrownHandgunFragment: {
-				Tooltip: ""
-				DisplayName: Overgrown Handgun Fragment
-			}
-
-			GraveBuster: {
-				Tooltip: ""
-				DisplayName: Grave Buster
-			}
-
-			FatherofTime: {
-				Tooltip: ""
-				DisplayName: Fatherof Time
-			}
-
-			EerieStakeLauncher: {
-				Tooltip: ""
-				DisplayName: Eerie Stake Launcher
-			}
-
-			DiskanSecurityHandgun: {
-				Tooltip: ""
-				DisplayName: Diskan Security Handgun
-			}
-
-			DeadlockPistol: {
-				Tooltip: ""
-				DisplayName: Deadlock Pistol
-			}
-
-			Crumblegun: {
-				Tooltip: ""
-				DisplayName: Crumblegun
-			}
-
-			CarnalliteShotgun: {
-				Tooltip: ""
-				DisplayName: Carnallite Shotgun
-			}
-
-			BloodButler: {
-				Tooltip: ""
-				DisplayName: Blood Butler
-			}
-
-			BlizzardBlaster: {
-				Tooltip: ""
-				DisplayName: Blizzard Blaster
-			}
-
-			BambooSharpshooter: {
-				Tooltip: ""
-				DisplayName: Bamboo Sharpshooter
-			}
-
-			Smore: {
-				Tooltip: ""
-				DisplayName: Smore
-			}
-
-			Potato: {
-				Tooltip: ""
-				DisplayName: Potato
-			}
-
-			LobsterBisque: {
-				Tooltip: ""
-				DisplayName: Lobster Bisque
-			}
-
-			GrahamCracker: {
-				Tooltip: ""
-				DisplayName: Graham Cracker
-			}
-
-			GalacticBrownie: {
-				Tooltip: ""
-				DisplayName: Galactic Brownie
-			}
-
-			CottonCandy: {
-				Tooltip: ""
-				DisplayName: Cotton Candy
-			}
-
-			CocoaBeans: {
-				Tooltip: ""
-				DisplayName: Cocoa Beans
-			}
-
-			TheMeteorite: {
-				Tooltip: ""
-				DisplayName: The Meteorite
-			}
-
-			StickyHand: {
-				Tooltip: ""
-				DisplayName: Sticky Hand
-			}
-
-			Sporophyte: {
-				Tooltip: ""
-				DisplayName: Sporophyte
-			}
-
-			ShadowMoon: {
-				Tooltip: ""
-				DisplayName: Shadow Moon
-			}
-
-			LihzahrdBoulderonaChain: {
-				Tooltip: ""
-				DisplayName: Lihzahrd Boulderona Chain
-			}
-
-			DiskiteonaLeash: {
-				Tooltip: ""
-				DisplayName: Diskiteona Leash
-			}
-
-			BoulderonaChain: {
-				Tooltip: ""
-				DisplayName: Boulderona Chain
-			}
-
-			ZincBow: {
-				Tooltip: ""
-				DisplayName: Zinc Bow
-			}
-
-			WyvernsCall: {
-				Tooltip: ""
-				DisplayName: Wyverns Call
-			}
-
-			StoneBow: {
-				Tooltip: ""
-				DisplayName: Stone Bow
-			}
-
-			SparklySlimeshooter: {
-				Tooltip: ""
-				DisplayName: Sparkly Slimeshooter
-			}
-
-			Slimeshooter: {
-				Tooltip: ""
-				DisplayName: Slimeshooter
-			}
-
-			Sightseer: {
-				Tooltip: ""
-				DisplayName: Sightseer
-			}
-
-			MeteorTrailer: {
-				Tooltip: ""
-				DisplayName: Meteor Trailer
-			}
-
-			GoblinArchbow: {
-				Tooltip: ""
-				DisplayName: Goblin Archbow
-			}
-
-			DiskiteCrossbow: {
-				Tooltip: ""
-				DisplayName: Diskite Crossbow
-			}
-
-			Dirty3String: {
-				Tooltip: ""
-				DisplayName: Dirty3 String
-			}
-
-			CarnalliteBow: {
-				Tooltip: ""
-				DisplayName: Carnallite Bow
-			}
-
-			StarstruckMeteorChunk: {
-				Tooltip: ""
-				DisplayName: Starstruck Meteor Chunk
-			}
-
-			Slimedallion: {
-				Tooltip: ""
-				DisplayName: Slimedallion
-			}
-
-			EyeofCthulhu: {
-				Tooltip: ""
-				DisplayName: Eyeof Cthulhu
-			}
-
-			EnchantedEye: {
-				Tooltip: ""
-				DisplayName: Enchanted Eye
-			}
-
-			EldritchBell: {
-				Tooltip: ""
-				DisplayName: Eldritch Bell
-			}
-
-			CreepyMud: {
-				Tooltip: ""
-				DisplayName: Creepy Mud
-			}
-
-			XBlade: {
-				Tooltip: ""
-				DisplayName: X Blade
-			}
-
-			Pukerang: {
-				Tooltip: ""
-				DisplayName: Pukerang
-			}
-
-			Pentagram: {
-				Tooltip: ""
-				DisplayName: Pentagram
-			}
-
-			FireandIce: {
-				Tooltip: ""
-				DisplayName: Fireand Ice
-			}
-
-			Cactirang: {
-				Tooltip: ""
-				DisplayName: Cactirang
-			}
-
-			BlazingBacklasher: {
-				Tooltip: ""
-				DisplayName: Blazing Backlasher
-			}
-
-			BionicBoomer: {
-				Tooltip: ""
-				DisplayName: Bionic Boomer
-			}
-
-			Barfarang: {
-				Tooltip: ""
-				DisplayName: Barfarang
-			}
-
-			WindpipeofthePhoenix: {
-				Tooltip: ""
-				DisplayName: Windpipeofthe Phoenix
-			}
-
-			UnholySpitter: {
-				Tooltip: ""
-				DisplayName: Unholy Spitter
-			}
-
-			TungstenDartGun: {
-				Tooltip: ""
-				DisplayName: Tungsten Dart Gun
-			}
-
-			Starshooter: {
-				Tooltip: ""
-				DisplayName: Starshooter
-			}
-
-			SporeShooter: {
-				Tooltip: ""
-				DisplayName: Spore Shooter
-			}
-
-			Slimeballer: {
-				Tooltip: ""
-				DisplayName: Slimeballer
-			}
-
-			SilverDartGun: {
-				Tooltip: ""
-				DisplayName: Silver Dart Gun
-			}
-
-			Shellshocker: {
-				Tooltip: ""
-				DisplayName: Shellshocker
-			}
-
-			Revel: {
-				Tooltip: ""
-				DisplayName: Revel
-			}
-
-			PlatinumDartGun: {
-				Tooltip: ""
-				DisplayName: Platinum Dart Gun
-			}
-
-			MeteorLauncher: {
-				Tooltip: ""
-				DisplayName: Meteor Launcher
-			}
-
-			LobbingLog: {
-				Tooltip: ""
-				DisplayName: Lobbing Log
-			}
-
-			IcicleMaker: {
-				Tooltip: ""
-				DisplayName: Icicle Maker
-			}
-
-			GoldDartGun: {
-				Tooltip: ""
-				DisplayName: Gold Dart Gun
-			}
-
-			FamiliarFoamDartPistol: {
-				Tooltip: ""
-				DisplayName: Familiar Foam Dart Pistol
-			}
-
-			DirtFunnel: {
-				Tooltip: ""
-				DisplayName: Dirt Funnel
-			}
-
-			Dartshark: {
-				Tooltip: ""
-				DisplayName: Dartshark
-			}
-
-			ChlorophyteBlowspitter: {
-				Tooltip: ""
-				DisplayName: Chlorophyte Blowspitter
-			}
-
-			BloodyBaller: {
-				Tooltip: ""
-				DisplayName: Bloody Baller
-			}
-
-			Beepipe: {
-				Tooltip: ""
-				DisplayName: Beepipe
-			}
-
-			ZincBar: {
-				Tooltip: ""
-				DisplayName: Zinc Bar
-			}
-
-			HaxoniteBar: {
-				Tooltip: ""
-				DisplayName: Haxonite Bar
-			}
-
-			CarnalliteBar: {
-				Tooltip: ""
-				DisplayName: Carnallite Bar
-			}
-
-			WindElementalBanner: {
-				Tooltip: ""
-				DisplayName: Wind Elemental Banner
-			}
-
-			VerdureGigaslimeBanner: {
-				Tooltip: ""
-				DisplayName: Verdure Gigaslime Banner
-			}
-
-			VeinTunnelerBanner: {
-				Tooltip: ""
-				DisplayName: Vein Tunneler Banner
-			}
-
-			StarpackSlimeBanner: {
-				Tooltip: ""
-				DisplayName: Starpack Slime Banner
-			}
-
-			RoastedLivingMarshmallowBanner: {
-				Tooltip: ""
-				DisplayName: Roasted Living Marshmallow Banner
-			}
-
-			OrangeSlimeBanner: {
-				Tooltip: ""
-				DisplayName: Orange Slime Banner
-			}
-
-			MeteorTailBanner: {
-				Tooltip: ""
-				DisplayName: Meteor Tail Banner
-			}
-
-			MechanicalSlimeBanner: {
-				Tooltip: ""
-				DisplayName: Mechanical Slime Banner
-			}
-
-			LivingMarshmallowBanner: {
-				Tooltip: ""
-				DisplayName: Living Marshmallow Banner
-			}
-
-			LiveObeliskBanner: {
-				Tooltip: ""
-				DisplayName: Live Obelisk Banner
-			}
-
-			LittoralGigaslimeBanner: {
-				Tooltip: ""
-				DisplayName: Littoral Gigaslime Banner
-			}
-
-			ElemSlimeBanner: {
-				Tooltip: ""
-				DisplayName: Elem Slime Banner
-			}
-
-			EerieJellyfishBanner: {
-				Tooltip: ""
-				DisplayName: Eerie Jellyfish Banner
-			}
-
-			DustbowlGigaslimeBanner: {
-				Tooltip: ""
-				DisplayName: Dustbowl Gigaslime Banner
-			}
-
-			DirtSlimeBanner: {
-				Tooltip: ""
-				DisplayName: Dirt Slime Banner
-			}
-
-			DesertDiskiteBanner: {
-				Tooltip: ""
-				DisplayName: Desert Diskite Banner
-			}
-
-			CyanSlimeBanner: {
-				Tooltip: ""
-				DisplayName: Cyan Slime Banner
-			}
-
-			BoneSlimeBanner: {
-				Tooltip: ""
-				DisplayName: Bone Slime Banner
-			}
-
-			BlizzardSeerBanner: {
-				Tooltip: ""
-				DisplayName: Blizzard Seer Banner
-			}
-
-			BigDripBanner: {
-				Tooltip: ""
-				DisplayName: Big Drip Banner
-			}
-
-			ArteryCloggerBanner: {
-				Tooltip: ""
-				DisplayName: Artery Clogger Banner
-			}
-
-			MetelordBag: {
-				Tooltip: ""
-				DisplayName: Metelord Bag
-			}
-
-			JellyBag: {
-				Tooltip: ""
-				DisplayName: Jelly Bag
-			}
-
-			DiskiteBag: {
-				Tooltip: ""
-				DisplayName: Diskite Bag
-			}
-
-			DirtballBag: {
-				Tooltip: ""
-				DisplayName: Dirtball Bag
-			}
-
-			ZincLeggings: {
-				Tooltip: ""
-				DisplayName: Zinc Leggings
-			}
-
-			ZincHelmet: {
-				Tooltip: ""
-				DisplayName: Zinc Helmet
-			}
-
-			ZincBreastplate: {
-				Tooltip: ""
-				DisplayName: Zinc Breastplate
-			}
-
-			WindWalkerHelm: {
-				Tooltip: ""
-				DisplayName: Wind Walker Helm
-			}
-
-			WindWalkerBreastplate: {
-				Tooltip: ""
-				DisplayName: Wind Walker Breastplate
-			}
-
-			WindWalkerBoots: {
-				Tooltip: ""
-				DisplayName: Wind Walker Boots
-			}
-
-			TatteredRobe: {
-				Tooltip: ""
-				DisplayName: Tattered Robe
-			}
-
-			TatteredHat: {
-				Tooltip: ""
-				DisplayName: Tattered Hat
-			}
-
-			TatteredBoots: {
-				Tooltip: ""
-				DisplayName: Tattered Boots
-			}
-
-			SlimePrinceLeggings: {
-				Tooltip: ""
-				DisplayName: Slime Prince Leggings
-			}
-
-			SlimePrinceHelmet: {
-				Tooltip: ""
-				DisplayName: Slime Prince Helmet
-			}
-
-			SlimePrinceBreastplate: {
-				Tooltip: ""
-				DisplayName: Slime Prince Breastplate
-			}
-
-			ShroomiteHeaddress: {
-				Tooltip: ""
-				DisplayName: Shroomite Headdress
-			}
-
-			ShadowstitchedRobe: {
-				Tooltip: ""
-				DisplayName: Shadowstitched Robe
-			}
-
-			ShadowstitchedHat: {
-				Tooltip: ""
-				DisplayName: Shadowstitched Hat
-			}
-
-			ShadowstitchedBoots: {
-				Tooltip: ""
-				DisplayName: Shadowstitched Boots
-			}
-
-			JadeRobe: {
-				Tooltip: ""
-				DisplayName: Jade Robe
-			}
-
-			HaxoniteLeggings: {
-				Tooltip: ""
-				DisplayName: Haxonite Leggings
-			}
-
-			HaxoniteHelmet: {
-				Tooltip: ""
-				DisplayName: Haxonite Helmet
-			}
-
-			HaxoniteBreastplate: {
-				Tooltip: ""
-				DisplayName: Haxonite Breastplate
-			}
-
-			GooeyLeggings: {
-				Tooltip: ""
-				DisplayName: Gooey Leggings
-			}
-
-			GooeyCowl: {
-				Tooltip: ""
-				DisplayName: Gooey Cowl
-			}
-
-			GooeyCover: {
-				Tooltip: ""
-				DisplayName: Gooey Cover
-			}
-
-			DiskbringerTorso: {
-				Tooltip: ""
-				DisplayName: Diskbringer Torso
-			}
-
-			DiskbringerLegpieces: {
-				Tooltip: ""
-				DisplayName: Diskbringer Legpieces
-			}
-
-			DiskbringerHeadpiece: {
-				Tooltip: ""
-				DisplayName: Diskbringer Headpiece
-			}
-
-			CarnalliteLeggings: {
-				Tooltip: ""
-				DisplayName: Carnallite Leggings
-			}
-
-			CarnalliteHelmet: {
-				Tooltip: ""
-				DisplayName: Carnallite Helmet
-			}
-
-			CarnalliteBreastplate: {
-				Tooltip: ""
-				DisplayName: Carnallite Breastplate
-			}
-
-			WoodenDart: {
-				Tooltip: ""
-				DisplayName: Wooden Dart
-			}
-
-			WaterleafSeed: {
-				Tooltip: ""
-				DisplayName: Waterleaf Seed
-			}
-
-			StickyPocketGrenade: {
-				Tooltip: ""
-				DisplayName: Sticky Pocket Grenade
-			}
-
-			Starshot: {
-				Tooltip: ""
-				DisplayName: Starshot
-			}
-
-			SlimeArrow: {
-				Tooltip: ""
-				DisplayName: Slime Arrow
-			}
-
-			ShiverthornSeed: {
-				Tooltip: ""
-				DisplayName: Shiverthorn Seed
-			}
-
-			SharpenedFang: {
-				Tooltip: ""
-				DisplayName: Sharpened Fang
-			}
-
-			PoisonousArrow: {
-				Tooltip: ""
-				DisplayName: Poisonous Arrow
-			}
-
-			PocketGrenade: {
-				Tooltip: ""
-				DisplayName: Pocket Grenade
-			}
-
-			Pebble: {
-				Tooltip: ""
-				DisplayName: Pebble
-			}
-
-			OverclockArrow: {
-				Tooltip: ""
-				DisplayName: Overclock Arrow
-			}
-
-			OozingSeed: {
-				Tooltip: ""
-				DisplayName: Oozing Seed
-			}
-
-			OozingBullet: {
-				Tooltip: ""
-				DisplayName: Oozing Bullet
-			}
-
-			OozingArrow: {
-				Tooltip: ""
-				DisplayName: Oozing Arrow
-			}
-
-			ObsidianDart: {
-				Tooltip: ""
-				DisplayName: Obsidian Dart
-			}
-
-			MushroomGrassSeed: {
-				Tooltip: ""
-				DisplayName: Mushroom Grass Seed
-			}
-
-			MoonglowSeed: {
-				Tooltip: ""
-				DisplayName: Moonglow Seed
-			}
-
-			JungleGrassSeed: {
-				Tooltip: ""
-				DisplayName: Jungle Grass Seed
-			}
-
-			HallowedSeed: {
-				Tooltip: ""
-				DisplayName: Hallowed Seed
-			}
-
-			GrassSeed: {
-				Tooltip: ""
-				DisplayName: Grass Seed
-			}
-
-			GiantGelCluster: {
-				Tooltip: ""
-				DisplayName: Giant Gel Cluster
-			}
-
-			FireblossomSeed: {
-				Tooltip: ""
-				DisplayName: Fireblossom Seed
-			}
-
-			EndlessWormPouch: {
-				Tooltip: ""
-				DisplayName: Endless Worm Pouch
-			}
-
-			EndlessSeedPouch: {
-				Tooltip: ""
-				DisplayName: Endless Seed Pouch
-			}
-
-			ElementalGooshot: {
-				Tooltip: ""
-				DisplayName: Elemental Gooshot
-			}
-
-			DiskiteShrapnel: {
-				Tooltip: ""
-				DisplayName: Diskite Shrapnel
-			}
-
-			DeathweedSeed: {
-				Tooltip: ""
-				DisplayName: Deathweed Seed
-			}
-
-			DaybloomSeed: {
-				Tooltip: ""
-				DisplayName: Daybloom Seed
-			}
-
-			CrimsonSeed: {
-				Tooltip: ""
-				DisplayName: Crimson Seed
-			}
-
-			CorruptSeed: {
-				Tooltip: ""
-				DisplayName: Corrupt Seed
-			}
-
-			BouncyPocketGrenade: {
-				Tooltip: ""
-				DisplayName: Bouncy Pocket Grenade
-			}
-
-			BloodiedArrow: {
-				Tooltip: ""
-				DisplayName: Bloodied Arrow
-			}
-
-			BlinkrootSeed: {
-				Tooltip: ""
-				DisplayName: Blinkroot Seed
-			}
-
-			ZincBand: {
-				Tooltip: ""
-				DisplayName: Zinc Band
-			}
-
-			EldritchTentacles: {
-				Tooltip: ""
-				DisplayName: Eldritch Tentacles
-			}
-
-			WarriorsRibbon: {
-				Tooltip: ""
-				DisplayName: Warriors Ribbon
-			}
-
-			WadofSpores: {
-				Tooltip: ""
-				DisplayName: Wadof Spores
-			}
-
-			VenomousPills: {
-				Tooltip: ""
-				DisplayName: Venomous Pills
-			}
-
-			TitanfistMedal: {
-				Tooltip: ""
-				DisplayName: Titanfist Medal
-			}
-
-			SlimePendant: {
-				Tooltip: ""
-				DisplayName: Slime Pendant
-			}
-
-			Shivercrown: {
-				Tooltip: ""
-				DisplayName: Shivercrown
-			}
-
-			SaberToothNecklace: {
-				Tooltip: ""
-				DisplayName: Saber Tooth Necklace
-			}
-
-			SaberTooth: {
-				Tooltip: ""
-				DisplayName: Saber Tooth
-			}
-
-			RootGuard: {
-				Tooltip: ""
-				DisplayName: Root Guard
-			}
-
-			NightmareCatcher: {
-				Tooltip: ""
-				DisplayName: Nightmare Catcher
-			}
-
-			Metecore: {
-				Tooltip: ""
-				DisplayName: Metecore
-			}
-
-			MagicalVaccine: {
-				Tooltip: ""
-				DisplayName: Magical Vaccine
-			}
-
-			LeadBand: {
-				Tooltip: ""
-				DisplayName: Lead Band
-			}
-
-			LeadBalloon: {
-				Tooltip: ""
-				DisplayName: Lead Balloon
-			}
-
-			IronfistMedal: {
-				Tooltip: ""
-				DisplayName: Ironfist Medal
-			}
-
-			IronBand: {
-				Tooltip: ""
-				DisplayName: Iron Band
-			}
-
-			HexNecklace: {
-				Tooltip: ""
-				DisplayName: Hex Necklace
-			}
-
-			HeartofPrisms: {
-				Tooltip: ""
-				DisplayName: Heartof Prisms
-			}
-
-			HarpysCrest: {
-				Tooltip: ""
-				DisplayName: Harpys Crest
-			}
-
-			GlazedLens: {
-				Tooltip: ""
-				DisplayName: Glazed Lens
-			}
-
-			FusionBand: {
-				Tooltip: ""
-				DisplayName: Fusion Band
-			}
-
-			ExtraShinyOreNugget: {
-				Tooltip: ""
-				DisplayName: Extra Shiny Ore Nugget
-			}
-
-			EnchantedDirtClump: {
-				Tooltip: ""
-				DisplayName: Enchanted Dirt Clump
-			}
-
-			DiscoCanister: {
-				Tooltip: ""
-				DisplayName: Disco Canister
-			}
-
-			DirtRegalia: {
-				Tooltip: ""
-				DisplayName: Dirt Regalia
-			}
-
-			BloodContract: {
-				Tooltip: ""
-				DisplayName: Blood Contract
-			}
-
-			AurorousKnuckles: {
-				Tooltip: ""
-				DisplayName: Aurorous Knuckles
-			}
-
-			AirTank: {
-				Tooltip: ""
-				DisplayName: Air Tank
-			}
+		Prefixes: {
+			Atomic.DisplayName: Atomic
+			Beloved.DisplayName: Beloved
+			Charged.DisplayName: Charged
+			Cheap.DisplayName: Cheap
+			Crazy.DisplayName: Crazy
+			Critical.DisplayName: Critical
+			Epic.DisplayName: Epic
+			Fatal.DisplayName: Fatal
+			Gigantic.DisplayName: Gigantic
+			Irate.DisplayName: Irate
+			Proud.DisplayName: Proud
+			Standard.DisplayName: Standard
+			Supernatural.DisplayName: Supernatural
+			Ultimate.DisplayName: Ultimate
+		}
+
+		Tiles: {
+			MonsterBanner.MapEntry: Banner
+			EnergizedStone.MapEntry: Energized Stone
+			EnergyGranite.MapEntry: Energy Granite
+			Onyx.MapEntry: Onyx
+			Jade.MapEntry: Jade
+			LimeTorch.MapEntry: Torch
+			BloodLeaves.MapEntry: Blood Leaves
+			GloryBlossom.MapEntry: Glory Blossom
+			GloryGrasses.MapEntry: Glory Grass
+			GloryVines.MapEntry: Glory Vine
+			CarnalliteOre.MapEntry: Carnallite Ore
+			HaxoniteOre.MapEntry: Haxonite Ore
+			ZincOre.MapEntry: Zinc Ore
 		}
 
 		Configs: {
 			ZylonConfig: {
-				DisplayName: Zylon Config
+				ScreenshakeAccessibilityMulti: {
+					Tooltip: Changes the amount of all screenshake in the mod. Reccomended for people who have trouble with it.
+					Label: Screenshake Amount
+				}
 
 				Headers: {
 					config: {
-						general: config.general Header
 						accessibility: config.accessibility Header
+						general: config.general Header
 					}
 				}
 
-				advBlowpipe: {
-					Label: Advanced Blowpipe Display
-					Tooltip: Replaces the usage instructions in blowpipe tooltips with even more stats!
-				}
-
-				zylonianPrefixes: {
-					Label: Zylonian Prefixes
-					Tooltip: Allows for custom prefixes.
-				}
-
-				zylonianBalancing: {
-					Label: Zylonian Balancing
-					Tooltip: Rebalances a lot of the vanilla content.
-				}
-
-				bandBuffs: {
-					Label: Band Buffs
-					Tooltip: Bands (such as the Band of Regeneration) now buff certain potions.
-				}
-
-				dirtAmmoFix: {
-					Label: Dirt Ammo Compatibility Fixer
-					Tooltip: Keep this disabled unless a mod uses dirt blocks as ammo and is having major issues. Enabling this will disable the Dirtthrower.
-				}
-
-				infBossSum: {
-					Label: Infinite Boss Summons
-					Tooltip: Makes the mod's boss summons infinite.
-				}
-
-				bossHpMult: {
-					Label: Boss HP Multiplier
-					Tooltip: Allows you to multiply the health of the mod's bosses for increased difficulty. To be used with the similar config from Calamity.
+				blowpipeNoise: {
+					Tooltip: Plays a short noise when blowpipes reach max charge.
+					Label: Blowpipe Max Charge Noise
 				}
 
 				aprilFoolsChanges: {
-					Label: April Fools Day Changes
 					Tooltip: Allows the mod to go absolutely wacky on that fateful day.
+					Label: April Fools Day Changes
 				}
 
-				blowpipeNoise: {
-					Label: Blowpipe Max Charge Noise
-					Tooltip: Plays a short noise when blowpipes reach max charge.
+				bossHpMult: {
+					Tooltip: Allows you to multiply the health of the mod's bosses for increased difficulty. To be used with the similar config from Calamity.
+					Label: Boss HP Multiplier
 				}
 
-				ScreenshakeAccessibilityMulti: {
-					Label: Screenshake Amount
-					Tooltip: Changes the amount of all screenshake in the mod. Reccomended for people who have trouble with it.
+				infBossSum: {
+					Tooltip: Makes the mod's boss summons infinite.
+					Label: Infinite Boss Summons
 				}
+
+				dirtAmmoFix: {
+					Tooltip: Keep this disabled unless a mod uses dirt blocks as ammo and is having major issues. Enabling this will disable the Dirtthrower.
+					Label: Dirt Ammo Compatibility Fixer
+				}
+
+				bandBuffs: {
+					Tooltip: Bands (such as the Band of Regeneration) now buff certain potions.
+					Label: Band Buffs
+				}
+
+				zylonianBalancing: {
+					Tooltip: Rebalances a lot of the vanilla content.
+					Label: Zylonian Balancing
+				}
+
+				zylonianPrefixes: {
+					Tooltip: Allows for custom prefixes.
+					Label: Zylonian Prefixes
+				}
+
+				advBlowpipe: {
+					Tooltip: Replaces the usage instructions in blowpipe tooltips with even more stats!
+					Label: Advanced Blowpipe Display
+				}
+
+				DisplayName: Zylon Config
 			}
-		}
-
-		Projectiles: {
-			SparklySlimebasher.DisplayName: Sparkly Slimebasher
-			Slimebasher.DisplayName: Slimebasher
-			MiniMiniMeteoroid.DisplayName: Mini Mini Meteoroid
-			MiniMeteoroid.DisplayName: Mini Meteoroid
-			Insomnia.DisplayName: Insomnia
-			IceLaser.DisplayName: Ice Laser
-			GloriousSun.DisplayName: Glorious Sun
-			GlazingStar.DisplayName: Glazing Star
-			EarthDay.DisplayName: Earth Day
-			Dirtglob.DisplayName: Dirtglob
-			DirtBlockYoyo.DisplayName: Dirt Block Yoyo
-			Coldnea.DisplayName: Coldnea
-			Code3.DisplayName: Code3
-			AmazonPrime.DisplayName: Amazon Prime
-			AmazonPackageFall.DisplayName: Amazon Package Fall
-			AmazonPackage.DisplayName: Amazon Package
-			AcornFriendlyMelee.DisplayName: Acorn Friendly Melee
-			WaterStreamRanged.DisplayName: Water Stream Ranged
-			WandofHexingProj.DisplayName: Wandof Hexing Proj
-			StoneBall.DisplayName: Stone Ball
-			SparklySlimecasterProj.DisplayName: Sparkly Slimecaster Proj
-			SlimecasterSlimeSpike.DisplayName: Slimecaster Slime Spike
-			SlimecasterProj.DisplayName: Slimecaster Proj
-			MeteorHerderProj.DisplayName: Meteor Herder Proj
-			ManaSiphonBolt.DisplayName: Mana Siphon Bolt
-			JadeBolt.DisplayName: Jade Bolt
-			HexOreStaffProj_Child.DisplayName: Hex Ore Staff Proj_ Child
-			HexOreStaffProj.DisplayName: Hex Ore Staff Proj
-			DirtBallScepter.DisplayName: Dirt Ball Scepter
-			CryoWandProjShard.DisplayName: Cryo Wand Proj Shard
-			CryoWandProj.DisplayName: Cryo Wand Proj
-			BigBone.DisplayName: Big Bone
-			WadofSpores.DisplayName: Wadof Spores
-			SnowfallProj.DisplayName: Snowfall Proj
-			PKFireWall.DisplayName: P K Fire Wall
-			PKFire2.DisplayName: P K Fire2
-			PKFire1.DisplayName: P K Fire1
-			MonsoonProj.DisplayName: Monsoon Proj
-			HexNPCDamage.DisplayName: Hex N P C Damage
-			DeterminationBreakerProj.DisplayName: Determination Breaker Proj
-			ChaosBallFriendly.DisplayName: Chaos Ball Friendly
-			ManaSeed.DisplayName: Mana Seed
-			ManaFlower.DisplayName: Mana Flower
-			HealingSeed.DisplayName: Healing Seed
-			HealingFlower.DisplayName: Healing Flower
-			DefenseSeed.DisplayName: Defense Seed
-			DefenseFlower.DisplayName: Defense Flower
-			WorldEndingMeteor.DisplayName: World Ending Meteor
-			VinylDisc.DisplayName: Vinyl Disc
-			StoneSwordProj.DisplayName: Stone Sword Proj
-			SlimeblastLarge.DisplayName: Slimeblast Large
-			Slimeblast.DisplayName: Slimeblast
-			ShatteredSword.DisplayName: Shattered Sword
-			OreTourProjRotate.DisplayName: Ore Tour Proj Rotate
-			OreTourProjCenter.DisplayName: Ore Tour Proj Center
-			MudslingerProj_3.DisplayName: Mudslinger Proj_3
-			MudslingerProj_2.DisplayName: Mudslinger Proj_2
-			MudslingerProj.DisplayName: Mudslinger Proj
-			MiniRose.DisplayName: Mini Rose
-			MidpointBolt2.DisplayName: Midpoint Bolt2
-			MidpointBolt.DisplayName: Midpoint Bolt
-			MegaRose.DisplayName: Mega Rose
-			MarbleGhostSword.DisplayName: Marble Ghost Sword
-			LPRocket.DisplayName: L P Rocket
-			LoberaTropicalOrb.DisplayName: Lobera Tropical Orb
-			LoberaProj.DisplayName: Lobera Proj
-			LoberaArk.DisplayName: Lobera Ark
-			JourneyStarterBolt.DisplayName: Journey Starter Bolt
-			HeartbreakerProj.DisplayName: Heartbreaker Proj
-			DesertSigil.DisplayName: Desert Sigil
-			BloodOrb.DisplayName: Blood Orb
-			StingerPassive.DisplayName: Stinger Passive
-			ZincSpear.DisplayName: Zinc Spear
-			SuperheatedStabberThrownBoom.DisplayName: Superheated Stabber Thrown Boom
-			SuperheatedStabberThrown.DisplayName: Superheated Stabber Thrown
-			SuperheatedStabber.DisplayName: Superheated Stabber
-			LihzahrdLance.DisplayName: Lihzahrd Lance
-			LihzahrdBeam.DisplayName: Lihzahrd Beam
-			Kivasana.DisplayName: Kivasana
-			IcicleonaRodBreak.DisplayName: Icicleona Rod Break
-			IcicleonaRod.DisplayName: Icicleona Rod
-			EyeoftheSandstorm.DisplayName: Eyeofthe Sandstorm
-			EerieSpearProj.DisplayName: Eerie Spear Proj
-			EerieSpear.DisplayName: Eerie Spear
-			DesertSpiritFlameFriendly.DisplayName: Desert Spirit Flame Friendly
-			CarvedStabber.DisplayName: Carved Stabber
-			CarnalliteTrident.DisplayName: Carnallite Trident
-			AridBoStaffProj.DisplayName: Arid Bo Staff Proj
-			AridBoStaff.DisplayName: Arid Bo Staff
-			SparklyGelFriendly.DisplayName: Sparkly Gel Friendly
-			ZincShortsword.DisplayName: Zinc Shortsword
-			StoneShortsword.DisplayName: Stone Shortsword
-			Stalagmite.DisplayName: Stalagmite
-			ShadeOrb.DisplayName: Shade Orb
-			GraniteSpark.DisplayName: Granite Spark
-			EmeraldWaveChase.DisplayName: Emerald Wave Chase
-			EmeraldWave.DisplayName: Emerald Wave
-			EmeraldFalcon.DisplayName: Emerald Falcon
-			DeathCleaver.DisplayName: Death Cleaver
-			RainFriendly.DisplayName: Rain Friendly
-			FamiliarBookCraftingAnim.DisplayName: Familiar Book Crafting Anim
-			PlanteraElementalGel.DisplayName: Plantera Elemental Gel
-			SpookyJellyfish.DisplayName: Spooky Jellyfish
-			MiniDiskling_SpikeRing.DisplayName: Mini Diskling_ Spike Ring
-			MiniDiskling.DisplayName: Mini Diskling
-			ExtinctionMeteorite.DisplayName: Extinction Meteorite
-			DS_91Pet.DisplayName: D S_91 Pet
-			Dirtboi.DisplayName: Dirtboi
-			SurgeonsKnife.DisplayName: Surgeons Knife
-			SturgeonsKnife.DisplayName: Sturgeons Knife
-			NeutronBlast.DisplayName: Neutron Blast
-			MagnificentOrbStar.DisplayName: Magnificent Orb Star
-			MagnificentOrbPortal.DisplayName: Magnificent Orb Portal
-			FleshstabJavelin.DisplayName: Fleshstab Javelin
-			DirtPlaceBlocks.DisplayName: Dirt Place Blocks
-			CursedFlamethrower.DisplayName: Cursed Flamethrower
-			CrimtaneJavelin.DisplayName: Crimtane Javelin
-			AquaBubble.DisplayName: Aqua Bubble
-			StardustBeam.DisplayName: Stardust Beam
-			Spazsickle.DisplayName: Spazsickle
-			RoyalSlimeProj.DisplayName: Royal Slime Proj
-			RoyalSlime.DisplayName: Royal Slime
-			Mushtop.DisplayName: Mushtop
-			MushroomSpore.DisplayName: Mushroom Spore
-			MiniJellyLaser.DisplayName: Mini Jelly Laser
-			MiniJelly.DisplayName: Mini Jelly
-			MeteorbProtectDeco.DisplayName: Meteorb Protect Deco
-			MeteorbProtect.DisplayName: Meteorb Protect
-			Meteorb.DisplayName: Meteorb
-			IcyWispBeam.DisplayName: Icy Wisp Beam
-			IcyWisp.DisplayName: Icy Wisp
-			GlowingMushtop.DisplayName: Glowing Mushtop
-			GlowingMushroomSpore.DisplayName: Glowing Mushroom Spore
-			FloatingStardustFragment.DisplayName: Floating Stardust Fragment
-			DiskiteMinion_SpikeRing.DisplayName: Diskite Minion_ Spike Ring
-			DiskiteMinion_LaserEye.DisplayName: Diskite Minion_ Laser Eye
-			DiskiteMinion_CenterDeco.DisplayName: Diskite Minion_ Center Deco
-			DiskiteMinion_Center.DisplayName: Diskite Minion_ Center
-			DirtBlockExp.DisplayName: Dirt Block Exp
-			SMGBlast.DisplayName: S M G Blast
-			Megawave.DisplayName: Megawave
-			ElectricBoltPassiveExplodeExp.DisplayName: Electric Bolt Passive Explode Exp
-			ElectricBoltPassiveExplode.DisplayName: Electric Bolt Passive Explode
-			ElectricBoltPassive.DisplayName: Electric Bolt Passive
-			EerieGloveProj.DisplayName: Eerie Glove Proj
-			EerieGloveHand.DisplayName: Eerie Glove Hand
-			Leaf.DisplayName: Leaf
-			JungleSporeRanged2.DisplayName: Jungle Spore Ranged2
-			JungleSporeRanged.DisplayName: Jungle Spore Ranged
-			IceBoltRanged.DisplayName: Ice Bolt Ranged
-			HaxoniteTrail.DisplayName: Haxonite Trail
-			SpiritBullet.DisplayName: Spirit Bullet
-			SilverFauxBlast.DisplayName: Silver Faux Blast
-			MoltenBullet.DisplayName: Molten Bullet
-			ClockworkBit.DisplayName: Clockwork Bit
-			BambooSpike.DisplayName: Bamboo Spike
-			WaterStreamHostile.DisplayName: Water Stream Hostile
-			SandballHostile.DisplayName: Sandball Hostile
-			PearlsandballHostile.DisplayName: Pearlsandball Hostile
-			MushroomSporeHostile.DisplayName: Mushroom Spore Hostile
-			EbonsandballHostile.DisplayName: Ebonsandball Hostile
-			CrimsandballHostile.DisplayName: Crimsandball Hostile
-			AcornTreeShoot.DisplayName: Acorn Tree Shoot
-			AcornTreePlant.DisplayName: Acorn Tree Plant
-			AcornTreeGrow.DisplayName: Acorn Tree Grow
-			TheMeteorite.DisplayName: The Meteorite
-			StickyHand.DisplayName: Sticky Hand
-			Sporophyte.DisplayName: Sporophyte
-			ShadowMoon.DisplayName: Shadow Moon
-			LihzahrdBoulderonaChain.DisplayName: Lihzahrd Boulderona Chain
-			DiskiteonaLeash.DisplayName: Diskiteona Leash
-			BoulderonaChain.DisplayName: Boulderona Chain
-			Feather.DisplayName: Feather
-			FallenStarFriendly.DisplayName: Fallen Star Friendly
-			EyeLaserFriendly.DisplayName: Eye Laser Friendly
-			ExplosiveMarshmallow.DisplayName: Explosive Marshmallow
-			WindElemental_ProtectDeco.DisplayName: Wind Elemental_ Protect Deco
-			WindElemental_Protect.DisplayName: Wind Elemental_ Protect
-			MeteorTailFireBlast.DisplayName: Meteor Tail Fire Blast
-			ElemSlimeSpike.DisplayName: Elem Slime Spike
-			ElemSlimeOrb.DisplayName: Elem Slime Orb
-			ElemSlimeBlob.DisplayName: Elem Slime Blob
-			DesertDiskite_LaserEye.DisplayName: Desert Diskite_ Laser Eye
-			DirtGlobFriendly.DisplayName: Dirt Glob Friendly
-			CursedFlamesMelee.DisplayName: Cursed Flames Melee
-			WyvernRedBolt.DisplayName: Wyvern Red Bolt
-			WyvernGreenBolt.DisplayName: Wyvern Green Bolt
-			TrailMeteorite.DisplayName: Trail Meteorite
-			StoneArrow.DisplayName: Stone Arrow
-			SparklyArrow.DisplayName: Sparkly Arrow
-			MiniCursorInfernoRing.DisplayName: Mini Cursor Inferno Ring
-			MetelordMeteoriteRain.DisplayName: Metelord Meteorite Rain
-			MetelordMeteoriteAttack2.DisplayName: Metelord Meteorite Attack2
-			MetelordMeteoriteAttack.DisplayName: Metelord Meteorite Attack
-			MetelordFireTrail.DisplayName: Metelord Fire Trail
-			MetelordFireDrop3.DisplayName: Metelord Fire Drop3
-			MetelordFireDrop2.DisplayName: Metelord Fire Drop2
-			MetelordFireDrop1.DisplayName: Metelord Fire Drop1
-			MetelordFireBreath.DisplayName: Metelord Fire Breath
-			MetelordDMFireball.DisplayName: Metelord D M Fireball
-			MetelordBallofFire.DisplayName: Metelord Ballof Fire
-			JellyLaserWarning.DisplayName: Jelly Laser Warning
-			JellyLaserFast.DisplayName: Jelly Laser Fast
-			JellyLaser.DisplayName: Jelly Laser
-			JellyExpertProj2.DisplayName: Jelly Expert Proj2
-			JellyExpertProj.DisplayName: Jelly Expert Proj
-			JellyBit.DisplayName: Jelly Bit
-			JellyBeamY.DisplayName: Jelly Beam Y
-			JellyBeamX.DisplayName: Jelly Beam X
-			JellyBeamHead.DisplayName: Jelly Beam Head
-			JellyBeamCenter.DisplayName: Jelly Beam Center
-			JellyBeamBody.DisplayName: Jelly Beam Body
-			LaserMineHostileFall.DisplayName: Laser Mine Hostile Fall
-			LaserMineHostile.DisplayName: Laser Mine Hostile
-			DirtGlobHostile.DisplayName: Dirt Glob Hostile
-			DirtboiTears.DisplayName: Dirtboi Tears
-			DirtballLaser.DisplayName: Dirtball Laser
-			DirtBallHostile.DisplayName: Dirt Ball Hostile
-			DBSpirit.DisplayName: D B Spirit
-			DBoiSpirit.DisplayName: D Boi Spirit
-			ElectricalEntity.DisplayName: Electrical Entity
-			DiskiteShrapnelHostile.DisplayName: Diskite Shrapnel Hostile
-			DiskiteShrapnel.DisplayName: Diskite Shrapnel
-			ADDZapChase.DisplayName: A D D Zap Chase
-			ADDZap.DisplayName: A D D Zap
-			ADDSandBall.DisplayName: A D D Sand Ball
-			ADDLaser4.DisplayName: A D D Laser4
-			ADDLaser3.DisplayName: A D D Laser3
-			ADDLaser2.DisplayName: A D D Laser2
-			ADDLaser.DisplayName: A D D Laser
-			ADD_SpikeRingFriendly.DisplayName: A D D_ Spike Ring Friendly
-			ADD_LaserEye.DisplayName: A D D_ Laser Eye
-			XBlade_OrbofLight.DisplayName: X Blade_ Orbof Light
-			XBlade_NoName.DisplayName: X Blade_ No Name
-			XBlade.DisplayName: X Blade
-			Pukerang.DisplayName: Pukerang
-			Pentagram_2.DisplayName: Pentagram_2
-			Pentagram.DisplayName: Pentagram
-			Mecharang.DisplayName: Mecharang
-			FireandIce_2.DisplayName: Fireand Ice_2
-			FireandIce_1.DisplayName: Fireand Ice_1
-			FireandIce.DisplayName: Fireand Ice
-			CactirangPricklyPear.DisplayName: Cactirang Prickly Pear
-			Cactirang.DisplayName: Cactirang
-			BlazingBacklasher.DisplayName: Blazing Backlasher
-			BionicBoomerRang.DisplayName: Bionic Boomer Rang
-			Barfarang.DisplayName: Barfarang
-			BoneFriendlyMagic.DisplayName: Bone Friendly Magic
-			WindpipeofthePhoenixProj.DisplayName: Windpipeofthe Phoenix Proj
-			UnholyEnergy.DisplayName: Unholy Energy
-			TacticalFoamDart.DisplayName: Tactical Foam Dart
-			Superstarshot_Y.DisplayName: Superstarshot_ Y
-			Superstarshot_V.DisplayName: Superstarshot_ V
-			Superstarshot_R.DisplayName: Superstarshot_ R
-			Superstarshot_O.DisplayName: Superstarshot_ O
-			Superstarshot_F.DisplayName: Superstarshot_ F
-			Slimeball_Deco.DisplayName: Slimeball_ Deco
-			Slimeball.DisplayName: Slimeball
-			SigilofNobodyism.DisplayName: Sigilof Nobodyism
-			ShellshockerProj.DisplayName: Shellshocker Proj
-			ProbeChaser.DisplayName: Probe Chaser
-			PoopFriendly.DisplayName: Poop Friendly
-			MeteorLauncherProjFire.DisplayName: Meteor Launcher Proj Fire
-			MeteorLauncherProj.DisplayName: Meteor Launcher Proj
-			LobbingLogSplinter.DisplayName: Lobbing Log Splinter
-			IcicleMakerProj.DisplayName: Icicle Maker Proj
-			DirtBallFunnel.DisplayName: Dirt Ball Funnel
-			DeadlyToxinDart.DisplayName: Deadly Toxin Dart
-			ChlorophyteBlowspitterProj.DisplayName: Chlorophyte Blowspitter Proj
-			BloodBall.DisplayName: Blood Ball
-			BallofFireRanged.DisplayName: Ballof Fire Ranged
-			WoodenDart.DisplayName: Wooden Dart
-			WaterleafSprouted.DisplayName: Waterleaf Sprouted
-			WaterleafSeedFall.DisplayName: Waterleaf Seed Fall
-			WaterleafSeed.DisplayName: Waterleaf Seed
-			StickyPocketGrenade.DisplayName: Sticky Pocket Grenade
-			Starshot.DisplayName: Starshot
-			SlimeArrow.DisplayName: Slime Arrow
-			ShiverthornSprouted.DisplayName: Shiverthorn Sprouted
-			ShiverthornSeedFall.DisplayName: Shiverthorn Seed Fall
-			ShiverthornSeed.DisplayName: Shiverthorn Seed
-			SharpenedFang.DisplayName: Sharpened Fang
-			PoisonousArrow.DisplayName: Poisonous Arrow
-			PocketGrenade.DisplayName: Pocket Grenade
-			Pebble.DisplayName: Pebble
-			OverclockArrow.DisplayName: Overclock Arrow
-			OozingSeed.DisplayName: Oozing Seed
-			OozingBullet.DisplayName: Oozing Bullet
-			OozingArrow.DisplayName: Oozing Arrow
-			OozeCloud.DisplayName: Ooze Cloud
-			ObsidianDart.DisplayName: Obsidian Dart
-			MushroomGrassSeed.DisplayName: Mushroom Grass Seed
-			MoonglowSprouted.DisplayName: Moonglow Sprouted
-			MoonglowSeedFall.DisplayName: Moonglow Seed Fall
-			MoonglowSeed.DisplayName: Moonglow Seed
-			MoltenSeed.DisplayName: Molten Seed
-			JungleGrassSeed.DisplayName: Jungle Grass Seed
-			HallowedSeed.DisplayName: Hallowed Seed
-			GrassSeed.DisplayName: Grass Seed
-			FireblossomSprouted.DisplayName: Fireblossom Sprouted
-			FireblossomSeedFall.DisplayName: Fireblossom Seed Fall
-			FireblossomSeed.DisplayName: Fireblossom Seed
-			ElementalGooshot.DisplayName: Elemental Gooshot
-			DeathweedSprouted.DisplayName: Deathweed Sprouted
-			DeathweedSeedFall.DisplayName: Deathweed Seed Fall
-			DeathweedSeed.DisplayName: Deathweed Seed
-			DaybloomSprouted.DisplayName: Daybloom Sprouted
-			DaybloomSeedFall.DisplayName: Daybloom Seed Fall
-			DaybloomSeed.DisplayName: Daybloom Seed
-			CrimsonSeed.DisplayName: Crimson Seed
-			CorruptSeed.DisplayName: Corrupt Seed
-			BouncyPocketGrenade.DisplayName: Bouncy Pocket Grenade
-			BloodiedArrow.DisplayName: Bloodied Arrow
-			BlinkrootSprouted.DisplayName: Blinkroot Sprouted
-			BlinkrootSeedFall.DisplayName: Blinkroot Seed Fall
-			BlinkrootSeed.DisplayName: Blinkroot Seed
-			SlimeSpikeFriendly.DisplayName: Slime Spike Friendly
-			RootGuardProj.DisplayName: Root Guard Proj
-			DiscoCanisterProj_Laser.DisplayName: Disco Canister Proj_ Laser
-			DiscoCanisterProj.DisplayName: Disco Canister Proj
-			DirtBallAcc.DisplayName: Dirt Ball Acc
-			DemonEyeRotate.DisplayName: Demon Eye Rotate
-			BloodContractProj.DisplayName: Blood Contract Proj
-			JadeHookProj.DisplayName: Jade Hook Proj
-		}
-
-		Prefixes: {
-			Ultimate.DisplayName: Ultimate
-			Supernatural.DisplayName: Supernatural
-			Standard.DisplayName: Standard
-			Proud.DisplayName: Proud
-			Irate.DisplayName: Irate
-			Gigantic.DisplayName: Gigantic
-			Fatal.DisplayName: Fatal
-			Epic.DisplayName: Epic
-			Critical.DisplayName: Critical
-			Crazy.DisplayName: Crazy
-			Cheap.DisplayName: Cheap
-			Charged.DisplayName: Charged
-			Beloved.DisplayName: Beloved
-			Atomic.DisplayName: Atomic
-		}
-
-		Buffs: {
-			Stealthy: {
-				Description: Mods.Zylon.Buffs.Stealthy.Description
-				DisplayName: Stealthy
-			}
-
-			Psychic: {
-				Description: Mods.Zylon.Buffs.Psychic.Description
-				DisplayName: Psychic
-			}
-
-			Neutronic: {
-				Description: Mods.Zylon.Buffs.Neutronic.Description
-				DisplayName: Neutronic
-			}
-
-			Manareach: {
-				Description: Mods.Zylon.Buffs.Manareach.Description
-				DisplayName: Manareach
-			}
-
-			HeavyHitter: {
-				Description: Mods.Zylon.Buffs.HeavyHitter.Description
-				DisplayName: Heavy Hitter
-			}
-
-			Gale: {
-				Description: Mods.Zylon.Buffs.Gale.Description
-				DisplayName: Gale
-			}
-
-			Floater: {
-				Description: Mods.Zylon.Buffs.Floater.Description
-				DisplayName: Floater
-			}
-
-			Feral: {
-				Description: Mods.Zylon.Buffs.Feral.Description
-				DisplayName: Feral
-			}
-
-			BloodiedVial: {
-				Description: Mods.Zylon.Buffs.BloodiedVial.Description
-				DisplayName: Bloodied Vial
-			}
-
-			SpookyJellyfish: {
-				Description: Mods.Zylon.Buffs.SpookyJellyfish.Description
-				DisplayName: Spooky Jellyfish
-			}
-
-			MiniDiskling: {
-				Description: Mods.Zylon.Buffs.MiniDiskling.Description
-				DisplayName: Mini Diskling
-			}
-
-			ExtinctionMeteorite: {
-				Description: Mods.Zylon.Buffs.ExtinctionMeteorite.Description
-				DisplayName: Extinction Meteorite
-			}
-
-			DS_91Pet: {
-				Description: Mods.Zylon.Buffs.DS_91Pet.Description
-				DisplayName: D S_91 Pet
-			}
-
-			DirtboiBuff: {
-				Description: Mods.Zylon.Buffs.DirtboiBuff.Description
-				DisplayName: Dirtboi Buff
-			}
-
-			RoyalSlime: {
-				Description: Mods.Zylon.Buffs.RoyalSlime.Description
-				DisplayName: Royal Slime
-			}
-
-			Mushtop: {
-				Description: Mods.Zylon.Buffs.Mushtop.Description
-				DisplayName: Mushtop
-			}
-
-			MiniJelly: {
-				Description: Mods.Zylon.Buffs.MiniJelly.Description
-				DisplayName: Mini Jelly
-			}
-
-			Meteorb: {
-				Description: Mods.Zylon.Buffs.Meteorb.Description
-				DisplayName: Meteorb
-			}
-
-			IcyWisp: {
-				Description: Mods.Zylon.Buffs.IcyWisp.Description
-				DisplayName: Icy Wisp
-			}
-
-			GlowingMushtop: {
-				Description: Mods.Zylon.Buffs.GlowingMushtop.Description
-				DisplayName: Glowing Mushtop
-			}
-
-			FloatingStardustFragment: {
-				Description: Mods.Zylon.Buffs.FloatingStardustFragment.Description
-				DisplayName: Floating Stardust Fragment
-			}
-
-			DiskiteMinion: {
-				Description: Mods.Zylon.Buffs.DiskiteMinion.Description
-				DisplayName: Diskite Minion
-			}
-
-			DirtBlock: {
-				Description: Mods.Zylon.Buffs.DirtBlock.Description
-				DisplayName: Dirt Block
-			}
-
-			GravelyPowers: {
-				Description: Mods.Zylon.Buffs.GravelyPowers.Description
-				DisplayName: Gravely Powers
-			}
-
-			FloralFortitude: {
-				Description: Mods.Zylon.Buffs.FloralFortitude.Description
-				DisplayName: Floral Fortitude
-			}
-
-			ZombieRot: {
-				Description: Mods.Zylon.Buffs.ZombieRot.Description
-				DisplayName: Zombie Rot
-			}
-
-			WornOut: {
-				Description: Mods.Zylon.Buffs.WornOut.Description
-				DisplayName: Worn Out
-			}
-
-			Timestop: {
-				Description: Mods.Zylon.Buffs.Timestop.Description
-				DisplayName: Timestop
-			}
-
-			Shroomed: {
-				Description: Mods.Zylon.Buffs.Shroomed.Description
-				DisplayName: Shroomed
-			}
-
-			OutofBreath: {
-				Description: Mods.Zylon.Buffs.OutofBreath.Description
-				DisplayName: Outof Breath
-			}
-
-			LoberaSoulslash: {
-				Description: Mods.Zylon.Buffs.LoberaSoulslash.Description
-				DisplayName: Lobera Soulslash
-			}
-
-			Heartdaze: {
-				Description: Mods.Zylon.Buffs.Heartdaze.Description
-				DisplayName: Heartdaze
-			}
-
-			FoamDartDebuff: {
-				Description: Mods.Zylon.Buffs.FoamDartDebuff.Description
-				DisplayName: Foam Dart Debuff
-			}
-
-			FlashPandemic: {
-				Description: Mods.Zylon.Buffs.FlashPandemic.Description
-				DisplayName: Flash Pandemic
-			}
-
-			ElementalDegeneration: {
-				Description: Mods.Zylon.Buffs.ElementalDegeneration.Description
-				DisplayName: Elemental Degeneration
-			}
-
-			DeadlyToxins: {
-				Description: Mods.Zylon.Buffs.DeadlyToxins.Description
-				DisplayName: Deadly Toxins
-			}
-
-			BrokenKarta2: {
-				Description: Mods.Zylon.Buffs.BrokenKarta2.Description
-				DisplayName: Broken Karta2
-			}
-
-			BrokenKarta1: {
-				Description: Mods.Zylon.Buffs.BrokenKarta1.Description
-				DisplayName: Broken Karta1
-			}
-
-			BreathRecovery: {
-				Description: Mods.Zylon.Buffs.BreathRecovery.Description
-				DisplayName: Breath Recovery
-			}
-
-			BrainFreeze: {
-				Description: Mods.Zylon.Buffs.BrainFreeze.Description
-				DisplayName: Brain Freeze
-			}
-
-			TatteredBlitzCooldown: {
-				Description: Mods.Zylon.Buffs.TatteredBlitzCooldown.Description
-				DisplayName: Tattered Blitz Cooldown
-			}
-
-			TatteredBlitz: {
-				Description: Mods.Zylon.Buffs.TatteredBlitz.Description
-				DisplayName: Tattered Blitz
-			}
-
-			ShadowstitchedBlitzCooldown: {
-				Description: Mods.Zylon.Buffs.ShadowstitchedBlitzCooldown.Description
-				DisplayName: Shadowstitched Blitz Cooldown
-			}
-
-			ShadowstitchedBlitz: {
-				Description: Mods.Zylon.Buffs.ShadowstitchedBlitz.Description
-				DisplayName: Shadowstitched Blitz
-			}
-
-			NaturesPrayer: {
-				Description: Mods.Zylon.Buffs.NaturesPrayer.Description
-				DisplayName: Natures Prayer
-			}
-
-			LeafShield: {
-				Description: Mods.Zylon.Buffs.LeafShield.Description
-				DisplayName: Leaf Shield
-			}
-
-			DiskiteOffense: {
-				Description: Mods.Zylon.Buffs.DiskiteOffense.Description
-				DisplayName: Diskite Offense
-			}
-
-			DiskiteDefense: {
-				Description: Mods.Zylon.Buffs.DiskiteDefense.Description
-				DisplayName: Diskite Defense
-			}
-
-			DiskiteAgility: {
-				Description: Mods.Zylon.Buffs.DiskiteAgility.Description
-				DisplayName: Diskite Agility
-			}
-
-			ADDSpikeRing: {
-				Description: Mods.Zylon.Buffs.ADDSpikeRing.Description
-				DisplayName: A D D Spike Ring
-			}
-		}
-
-		Tiles: {
-			ZincOre.MapEntry: Zinc Ore
-			HaxoniteOre.MapEntry: Haxonite Ore
-			CarnalliteOre.MapEntry: Carnallite Ore
-			GloryVines.MapEntry: Glory Vines
-			GloryGrasses.MapEntry: Glory Grasses
-			GloryBlossom.MapEntry: Glory Blossom
-			BloodLeaves.MapEntry: Blood Leaves
-			LimeTorch.MapEntry: Lime Torch
-			Jade.MapEntry: Jade
-			Onyx.MapEntry: Onyx
-			EnergyGranite.MapEntry: Energy Granite
-			EnergizedStone.MapEntry: Energized Stone
-			MonsterBanner.MapEntry: Monster Banner
 		}
 	}
 }
