@@ -12,7 +12,7 @@ namespace Zylon.Items.Placeables.Relics
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 		public override void SetDefaults() {
-			Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.BossRelic>(), 0);
+			Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.BossRelic>(), 1);
 			Item.width = 30;
 			Item.height = 40;
 			Item.maxStack = 99;

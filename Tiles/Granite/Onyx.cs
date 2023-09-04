@@ -59,20 +59,12 @@ namespace Zylon.Tiles.Granite
 			offsetY = -2;
 		}
 
-        public override IEnumerable<Item> GetItemDrops(int i, int j)
-        {
-			Vector2 worldPosition = new Vector2((float)i, (float)j).ToWorldCoordinates(8f, 8f);
-			int onyxItem = ModContent.ItemType<OnyxShard>();
-			int onyxAmount = Main.rand.Next(1, 4);
-			EntitySource_TileBreak source = new EntitySource_TileBreak(i, j, null);
-			if (onyxItem > 0 && onyxAmount > 0)
-			{
-				Item.NewItem(source, worldPosition, onyxItem, onyxAmount, false, 0, false, false);
-			}
-			return null;
+		public override IEnumerable<Item> GetItemDrops(int i, int j)
+		{
+			yield return new Item(ModContent.ItemType<Items.Materials.OnyxShard>(), Main.rand.Next(1, 4));
 		}
 
-        public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+		public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
 		{
 			float LightAmount = Main.rand.NextFloat(0.35f, 0.4f);
 			r = LightAmount;

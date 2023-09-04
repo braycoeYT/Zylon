@@ -36,6 +36,11 @@ namespace Zylon.Tiles.Marble
 			}
 		}
 
+		public override bool CanDrop(int i, int j)
+		{
+			return false;
+		}
+
 		public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)
 		{
 			return base.TileFrame(i, j, ref resetFrame, ref noBreak);

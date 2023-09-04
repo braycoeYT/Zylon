@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -29,5 +30,11 @@ namespace Zylon.Tiles.Granite
 			});
 			MineResist = 1.5f;
 		}
+
+		public override IEnumerable<Item> GetItemDrops(int i, int j)
+		{
+			yield return new Item(ModContent.ItemType<OnyxShard>());
+		}
+
 	}
 }

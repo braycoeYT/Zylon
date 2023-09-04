@@ -35,11 +35,11 @@ namespace Zylon.Tiles.Marble
 			}
 			else
 			{
-				tile.TileFrameY = 18;
+				tile.TileFrameY = 1;
 			}
 			if (resetFrame)
 			{
-				tile.TileFrameX = (short)(18 * Main.rand.Next(0, 8));
+				tile.TileFrameX = (short)Main.rand.Next(0, 8);
 			}
 			return true;
 		}
@@ -67,12 +67,17 @@ namespace Zylon.Tiles.Marble
 			offsetY = -2;
 		}
 
+		public override bool CanDrop(int i, int j)
+		{
+			return false;
+		}
+
 		public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
 		{
 			Tile tile = Main.tile[i, j];
 			Texture2D tileTexture = TextureAssets.Tile[(int)Type].Value;
 			SpriteEffects effects = 0;
-			Rectangle frame = new Rectangle((int)(tile.TileFrameX), (int)(tile.TileFrameY), 16, 16);
+			Rectangle frame = tileTexture.Frame(8, 2, tile.TileFrameX, tile.TileFrameY);
 			Vector2 zero = Main.drawToScreen ? Vector2.Zero : new Vector2((float)Main.offScreenRange);
 			Vector2 drawPos = new Vector2((float)(i * 16 - (int)Main.screenPosition.X), (float)(j * 16 - (int)Main.screenPosition.Y));
 			float time = Main.GlobalTimeWrappedHourly;

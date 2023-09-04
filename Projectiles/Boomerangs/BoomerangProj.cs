@@ -343,7 +343,7 @@ namespace Zylon.Projectiles.Boomerangs
 
 		public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
 		{
-			modifiers.SourceDamage += (int)((float)BonusDamage * ((float)channelTime / (float)ChannelMax));
+			modifiers.SourceDamage += ((float)BonusDamage * ((float)channelTime / (float)ChannelMax)) * 0.01f;
 			if (channelTime == ChannelMax)
 			{
 				modifiers.SetCrit();

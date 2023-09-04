@@ -52,27 +52,6 @@ namespace Zylon.Tiles
 			TileObjectData.addTile(Type);
 			AddMapEntry(new Color(233, 207, 94), Language.GetText("MapObject.Relic"));
 		}
-		public override void KillMultiTile(int i, int j, int frameX, int frameY) {
-			int placeStyle = frameX / FrameWidth;
-			int itemType = 0;
-			switch (placeStyle) {
-				case 0:
-					itemType = ModContent.ItemType<Items.Placeables.Relics.ADDRelic>();
-					break;
-				case 1:
-					itemType = ModContent.ItemType<Items.Placeables.Relics.JellyRelic>();
-					break;
-				case 2:
-					itemType = ModContent.ItemType<Items.Placeables.Relics.DirtballRelic>();
-					break;
-				case 3:
-					itemType = ModContent.ItemType<Items.Placeables.Relics.MetelordRelic>();
-					break;
-			}
-			if (itemType > 0) {
-				Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 32, 32, itemType);
-			}
-		}
 		public override bool CreateDust(int i, int j, ref int type) {
 			return false;
 		}

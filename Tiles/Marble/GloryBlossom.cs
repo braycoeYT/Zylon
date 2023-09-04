@@ -57,15 +57,7 @@ namespace Zylon.Tiles.Marble
 
 		public override IEnumerable<Item> GetItemDrops(int i, int j)
 		{
-			Vector2 worldPosition = new Vector2((float)i, (float)j).ToWorldCoordinates(8f, 8f);
-			int petalItem = ModContent.ItemType<GloryPetals>();
-			int petalAmount = Main.rand.Next(1, 4);
-			EntitySource_TileBreak source = new EntitySource_TileBreak(i, j, null);
-			if (petalItem > 0 && petalAmount > 0)
-			{
-				Item.NewItem(source, worldPosition, petalItem, petalAmount, false, 0, false, false);
-			}
-			return null;
+			yield return new Item(ModContent.ItemType<GloryPetals>(), Main.rand.Next(1, 4));
 		}
 
 		public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

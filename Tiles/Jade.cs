@@ -33,7 +33,11 @@ namespace Zylon.Tiles
 			return true;
 		}
 
-		
+		public override IEnumerable<Item> GetItemDrops(int i, int j)
+		{
+			yield return new Item(ItemType<Items.Materials.Jade>());
+		}
+
 
 	}
 	public class JadeGenSystem : ModSystem
