@@ -18,7 +18,7 @@ namespace Zylon.Buffs.Debuffs
         public override void Update(Player player, ref int buffIndex) {
 			player.GetModPlayer<ZylonPlayer>().elemDegen = true;
             if (!player.buffImmune[BuffID.Confused]) player.confused = true;
-            player.statDefense *= 0.8f;
+            player.statDefense = (int)(player.statDefense*0.8f);
             if (Main.rand.NextBool(3)) {
 				Dust dust = Dust.NewDustDirect(player.position, player.width, player.height, ModContent.DustType<Dusts.ElemDust>(), Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
 				dust.noGravity = true;
@@ -26,8 +26,8 @@ namespace Zylon.Buffs.Debuffs
 		}
   		public override void Update(NPC npc, ref int buffIndex) {
 			npc.GetGlobalNPC<NPCs.ZylonGlobalNPCDebuff>().elemDegen = true;
-            if (!npc.buffImmune[BuffID.Confused])
-                npc.confused = true;
+            //if (!npc.buffImmune[BuffID.Confused])
+            //    npc.confused = true;
             npc.defense = (int)(npc.defense*0.8f);
             if (Main.rand.NextBool(3)) {
 				Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.ElemDust>(), Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));

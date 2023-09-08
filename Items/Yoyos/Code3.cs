@@ -10,8 +10,7 @@ namespace Zylon.Items.Yoyos
 	public class Code3 : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Code 3");
-			// Tooltip.SetDefault("'One plus two does equal three, after all!'\nThrows three yoyos to attack foes");
+
 			ItemID.Sets.Yoyo[Item.type] = true;
 			ItemID.Sets.GamepadExtraRange[Item.type] = 15;
 			ItemID.Sets.GamepadSmartQuickReach[Item.type] = true;

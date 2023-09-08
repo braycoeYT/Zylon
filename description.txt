@@ -1,57 +1,50 @@
-The best mod that starts with Z (I guarantee or your money back)! Zylon is a unique terraria mod full of slimes, blowpipes, peculiar boss fights, and much much more!
+(currently works on 1.4.3)
+The best mod that starts with Z (I guarantee or your money back)! Zylon is a unique terraria mod full of slimes, blowpipes, references, peculiar boss fights, and much much more!
 
 THIS MOD IS IN SEVERE NEED OF SPRITERS. If you are a fan of the mod and want to sprite, feel free to join the discord server!
+DISCORD JOIN: https://discord.gg/x6G8rKduWc
 
 Stats:
-~352 Items
-~4 Bosses:
-~~~4 Prehardmode Bosses [i:2][i:131][i:116][i:282]
-~48 total NPCs
-~54 Buffs
-~14 Tiles
+~340 Items
+~3 Bosses:
+~~~3 Prehardmode Bosses [i:2][i:116][i:282]
+~36 total NPCs
+~55 Buffs
+~13 Tiles
 ~A complete reworking and expansion of blowpipes!
-~Many new vanilla recipes and changes to help balance the game out (including an easier Slime Crown recipe).
+~LOTS of new vanilla recipes and changes to help balance the game out.
 ~Several new prefixes!
 
-V0.0.2.7: Also Not Worth the Wait Update
-~Changed Disco Canister's recipe.
-~Added more vanilla item recipes and changed a few of them.
-~Disco Canister lasers now go through tiles for a few moments and the item now deals summon damage.
-~Made hexed Wand of Sparking's projectile's timeLeft much shorter.
-~Added Mudslinger.
-~Shellshocker is now obtained through fishing instead of crafting.
-~Reworked blowpipes to be much easier and simpler to use (excluding three of them because of time issues, removed temporarily).
-~Food now buffs blowpipe max charge and charge speed.
-~Added Advanced Blowpipe Display config.
-~Blowpipes now display your current stats as well as the default.
-~Fixed issue with Lost Nightmares.
-~Added Air Tank.
-~Beepipe is now dropped by Queen Bee instead of crafted.
-~Added Blood Contract.
-~Infinite Boss Summons is now on by default.
-~Renamed Meteoraga to Meteor Launcher.
-~Balloons now increase blowpipe charge rate.
-~FINALLY FIXED THE GLITCH WITH ANTLIONS AND QUEEN SLIME AFTER A 2 HOUR SEARCH. Side effect is that Zylon debuffs no longer color enemies until a workaround is found.
-~Removed Pandemic's tooltip.
-~Balanced Starshot piercing better.
-~Resprited Forgotten Rose's Saber, Diskalibur, and Bloodshed.
-~Removed Advent's Day.
-~Reworked Bloodshed.
-~Reduced Enchanted Eye recipe requirements.
-~Added more vanilla recipes.
-~Lost Nightmares now despawn after 10 seconds and a max of 10 can be active at once.
-~Meteor Herder is no longer required for Meteor Staff recipe.
-~Slightly buffed Gale Potion.
-~Resprited Metelord and revamped AI to be better.
-~Tree Whacker is now sold after Dirtball is defeated.
-~Familiar Foam Dart Pistol is now sold by the Arms Dealer instead of dropped by the Wall of Flesh.
-~Reworked Familiar Foam Dart Pistol.
-~Removed Magnificent Orb, Surgeon's Knife, and Sturgeon's Knife (for now).
-~Removed Big Drip, Starpack Slime (for now), Blizzard Seer, and Cyan Slime.
-~Fixed a code redundancy.
-~Made the gigaslimes unfightable due to their concept not being fully finished, and increased Elem Slime spawn rate accordingly.
-~Removed tooltips from Diskite Shrapnel, Enchanted Dirt Clump, Extra Shiny Ore Nugget, Heart of Prisms, Venomous Pills, and Wooden Shield.
-~Renamed Wooden Shield to Root Guard, but due to time restraints the reworks can't be finished until next update.
+V0.0.2.9: Commitment Issues Update
+~Hey so I kind of accidentally messed up the whole mod (long story), and have frantically tried to fix it. If there are any issues with stuff, please don't delay to tell me.
+~Removed ADD temporarily for reworks.
+~Added two new recipes for Heavy Metal Hammer, and reduced Iron Bars needed.
+~Increased chances of Plantera dropping Nature's Gift and Jungle Rose.
+~Fixed Metelord's relic placing Dirtball's.
+~Fixed a mistake with Eerie Bell drops from Eerie Jellyfish.
+~Added Tent and Cabin.
+~Added Bag of Fruits.
+~Aurorous Knuckles no longer stack with Flesh Knuckles.
+~Fixed typo in Warrior's Ribbon's tooltip.
+~Readded Starpack Slime, and heavily decreased knockback resistance.
+~Added Glass armor.
+~Decreased Worms required for Endless Worm Pouch.
+~Changed Carnallite Bar tooltip.
+~Added Spear of Justice.
+~Made Lihzahrd Lance longer, projectiles last less time, and sell for more.
+~Changed Lihzahrd Lance tooltip.
+~Added Mud Pie.
+~Added new vanilla recipes.
+~Decreased Bamboo Sharpshooter requirements and changed sell value.
+~Added Eight Legs. Yes, really.
+~Fixed issue with X-Blade tooltip.
+~Moved Forgotten Rose's Saber to post-Golem.
+~Reworked Forgotten Rose's Saber again.
+~Fixed grammatical error in Forgotten Rose's Saber tooltip.
+~Resprited Metelord.
+~Fixed typo in Leaf Bracelet tooltip.
+~Changed Mudslinger rarity.
+~Reworked Metecore.
 
 Credits (from the previous mod versions and now):
 Owner:
@@ -62,6 +55,7 @@ Skymanisbtman (Composer)
 Tome Man (Coder and Spriter)
 Mafia_Cheezstick (Spriter)
 Mjoon (Spriter)
+Mr.Gerd26 (Minor Spriter and General Support)
 
 Slimelad (General Support and Ideas)
 Pufferfisher77 (General Support and Ideas)
@@ -78,7 +72,6 @@ Minor Help:
 Jabon
 Ebon
 Juice/Slayer
-Mr.Gerd26
 STiML
 
 

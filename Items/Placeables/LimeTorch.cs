@@ -52,6 +52,9 @@ namespace Zylon.Items.Placeables
 				Lighting.AddLight(Item.Center, 0.2f, 0.8f, -1f);
 			}
 		}
+		public override void AutoLightSelect(ref bool dryTorch, ref bool wetTorch, ref bool glowstick) {
+			dryTorch = true; // This makes our item eligible for being selected with smart select at a short distance when not underwater.
+		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe(10);
 			recipe.AddIngredient(ItemID.Torch, 10);

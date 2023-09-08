@@ -49,7 +49,7 @@ namespace Zylon.Projectiles.Spears
 			projOwner.itemTime = projOwner.itemAnimation;
 			Projectile.position.X = ownerMountedCenter.X - (float)(Projectile.width / 2);
 			Projectile.position.Y = ownerMountedCenter.Y - (float)(Projectile.height / 2);
-			// As long as the player isn't frozen, the spear can move
+			//As long as the player isn't frozen, the spear can move
 			if (!projOwner.frozen) {
 				if (MovementFactor == 0f)
 				{
@@ -67,7 +67,7 @@ namespace Zylon.Projectiles.Spears
 						change = true;
 					}
 				}
-				else // Otherwise, increase the movement factor
+				else //Otherwise, increase the movement factor
 				{
 					MovementFactor += 1.4f;
 				}

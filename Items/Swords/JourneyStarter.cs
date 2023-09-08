@@ -13,14 +13,14 @@ namespace Zylon.Items.Swords
             // Tooltip.SetDefault("'Only the start of the endless road to infinity'\nAlternates between firing different types of bolts");
         }
         public override void SetDefaults() {
-			Item.damage = 18;
+			Item.damage = 15;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 42;
 			Item.height = 42;
-			Item.useTime = 32;
-			Item.useAnimation = 16;
+			Item.useTime = 57;
+			Item.useAnimation = 19;
 			Item.useStyle = ItemUseStyleID.Swing;
-			Item.knockBack = 1.8f;
+			Item.knockBack = 3.5f;
 			Item.value = Item.sellPrice(0, 1, 50);
 			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
@@ -40,19 +40,11 @@ namespace Zylon.Items.Swords
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.WoodenSword);
 			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 8);
 			recipe.AddIngredient(ItemID.Glass, 20);
 			recipe.AddIngredient(ItemID.Ruby);
 			recipe.AddIngredient(ItemID.Emerald);
-			recipe.AddIngredient(ItemID.Sapphire);
-			recipe.AddTile(TileID.Anvils);
-			recipe.Register();
-
-			recipe = CreateRecipe();
-			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 8);
-			recipe.AddIngredient(ItemID.Glass, 20);
-			recipe.AddIngredient(ItemID.Ruby);
-			recipe.AddIngredient(ModContent.ItemType<Materials.Jade>());
 			recipe.AddIngredient(ItemID.Sapphire);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();

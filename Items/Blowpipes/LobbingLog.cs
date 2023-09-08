@@ -16,8 +16,8 @@ namespace Zylon.Items.Blowpipes
 		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);
-            Item.damage = 4;
-			Item.knockBack = 0.5f;
+            Item.damage = 9;
+			Item.knockBack = 1f;
 			Item.shootSpeed = 5.5f;
 			Item.useTime = 1;
 			Item.useAnimation = 1;
@@ -41,8 +41,9 @@ namespace Zylon.Items.Blowpipes
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Wood, 9);
-			recipe.AddTile(TileID.WorkBenches);
+			recipe.AddRecipeGroup("Wood", 12);
+			recipe.AddIngredient(ModContent.ItemType<Materials.LivingBranch>(), 8);;
+			recipe.AddTile(TileID.LivingLoom);
 			recipe.Register();
 		}
     }

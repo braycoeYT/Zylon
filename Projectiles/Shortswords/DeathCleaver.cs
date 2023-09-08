@@ -12,7 +12,7 @@ namespace Zylon.Projectiles.Shortswords
 
 		public const int TotalDuration = 9; //16
 
-		// The "width" of the blade
+		//The "width" of the blade
 		public float CollisionWidth => 10f * Projectile.scale;
 
 		public int Timer {
@@ -87,7 +87,7 @@ namespace Zylon.Projectiles.Shortswords
 			DrawOffsetX = -(HalfSpriteWidth - HalfProjWidth);
 			DrawOriginOffsetY = -(HalfSpriteHeight - HalfProjHeight);
 
-			// Vanilla configuration for "hitbox towards the end"
+			//Vanilla configuration for "hitbox towards the end"
 			//if (Projectile.spriteDirection == 1) {
 			//	DrawOriginOffsetX = -(HalfProjWidth - HalfSpriteWidth);
 			//	DrawOffsetX = (int)-DrawOriginOffsetX * 2;
@@ -114,7 +114,7 @@ namespace Zylon.Projectiles.Shortswords
 		public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox) {
 			Vector2 start = Projectile.Center;
 			Vector2 end = start + Projectile.velocity * 2f;
-			float collisionPoint = 0f; // Don't need that variable, but required as parameter
+			float collisionPoint = 0f; //Don't need that variable, but required as parameter
 			return Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), start, end, CollisionWidth, ref collisionPoint);
 		}
 	}
