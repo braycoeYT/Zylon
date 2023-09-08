@@ -35,8 +35,7 @@ namespace Zylon.NPCs.Bosses
 			NPC.knockBackResist = 0f;
 			NPC.value = 42069;
         }
-		public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit)
-		{
+        public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit) {
 			if (damage > 99999) {
 				NPC.life += damage;
 				CombatText.NewText(NPC.getRect(), Color.LimeGreen, damage);
@@ -2050,7 +2049,7 @@ namespace Zylon.NPCs.Bosses
 													}
 												}
 		}
-		public override void HitEffect(int hitDirection, double damage) {
+        public override void HitEffect(int hitDirection, double damage) {
 			for (int i = 0; i < 2; i++) {
 				int dustType = 0;
 				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType);

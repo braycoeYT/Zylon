@@ -38,7 +38,7 @@ namespace Zylon.NPCs.Desert
 			BannerItem = Item.BannerToItem(Banner);
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.lifeMax = 69;
+        NPC.lifeMax = 69;
 			NPC.damage = 32;
         }
         NPC main;

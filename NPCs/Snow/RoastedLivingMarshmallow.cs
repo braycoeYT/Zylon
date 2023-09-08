@@ -27,8 +27,8 @@ namespace Zylon.NPCs.Snow
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.RoastedLivingMarshmallowBanner>();
         }
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.lifeMax = 82;
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+			NPC.lifeMax = 82;
             NPC.damage = 28;
 			NPC.knockBackResist = 0.25f;
         }

@@ -25,7 +25,7 @@ namespace Zylon.Items.Swords
 			Item.useTurn = false;
 		}
         public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
-            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrainFreeze>(), Main.rand.Next(5, 11) * 60, false);
+			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrainFreeze>(), Main.rand.Next(5, 11) * 60, false);
         }
         public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
 			if (!target.boss && target.type != NPCID.EaterofWorldsHead) target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrainFreeze>(), Main.rand.Next(5, 11) * 60, false);

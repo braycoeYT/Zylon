@@ -26,7 +26,7 @@ namespace Zylon.Projectiles.Swords
 			Projectile.penetrate = 3;
 		}
         public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) {
-            damage = (int)(damage*(0.5f+(0.5f*pwr)));
+			damage = (int)(damage*(0.5f+(0.5f*pwr)));
         }
         int Timer;
 		bool init;

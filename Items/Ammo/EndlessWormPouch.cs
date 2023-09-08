@@ -25,7 +25,7 @@ namespace Zylon.Items.Ammo
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Worm, 500);
+			recipe.AddIngredient(ItemID.Worm, 300);
 			recipe.AddTile(TileID.CrystalBall);
 			recipe.Register();
 		}

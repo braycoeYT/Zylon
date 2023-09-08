@@ -29,8 +29,8 @@ namespace Zylon.Projectiles.Swords
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
 			target.AddBuff(BuffID.Slimed, Main.rand.Next(2, 6) * 60, false);
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Slimed, Main.rand.Next(2, 6) * 60, false);
+        public override void OnHitPlayer(Player target, int damage, bool crit) {
+        target.AddBuff(BuffID.Slimed, Main.rand.Next(2, 6) * 60, false);
 		}
 		public override void AI() {
 				float num165 = (float)Math.Sqrt((double)(Projectile.velocity.X * Projectile.velocity.X + Projectile.velocity.Y * Projectile.velocity.Y));

@@ -31,7 +31,7 @@ namespace Zylon.Items.Swords
 			Item.shoot = ModContent.ProjectileType<Projectiles.Swords.VinylDisc>();
 			Item.shootSpeed = 22f;
 		}
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
 			if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>())) {
 				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>(), 90);
 			}

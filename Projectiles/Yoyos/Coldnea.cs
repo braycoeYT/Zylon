@@ -19,8 +19,8 @@ namespace Zylon.Projectiles.Yoyos
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
 			target.AddBuff(BuffID.Frostburn, 60*Main.rand.Next(5, 11));
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Frostburn, 60*Main.rand.Next(5, 11));
+        public override void OnHitPvp(Player target, int damage, bool crit) {
+        target.AddBuff(BuffID.Frostburn, 60*Main.rand.Next(5, 11));
 		}
 		public override void SetDefaults() {
 			Projectile.extraUpdates = 0;

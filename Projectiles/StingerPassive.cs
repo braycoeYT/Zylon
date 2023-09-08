@@ -22,8 +22,8 @@ namespace Zylon.Projectiles
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
 			target.AddBuff(BuffID.Poisoned, 60 * Main.rand.Next(5, 11), false);
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Poisoned, 60 * Main.rand.Next(5, 11), false);
+        public override void OnHitPlayer(Player target, int damage, bool crit) {
+        target.AddBuff(BuffID.Poisoned, 60 * Main.rand.Next(5, 11), false);
 		}
 	}   
 }

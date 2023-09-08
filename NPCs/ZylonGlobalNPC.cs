@@ -59,8 +59,9 @@ namespace Zylon.NPCs
 			if (npc.type == NPCID.Spazmatism)
 				ItemDropRule.ByCondition(new Conditions.MissingTwin(), ItemType<Items.Minions.SpazmaticScythe>(), 4);
 			if (npc.type == NPCID.Plantera) {
-				npcLoot.Add(new CommonDrop(ItemID.JungleRose, 4));
-				npcLoot.Add(new CommonDrop(ItemID.NaturesGift, 4));
+				npcLoot.Add(new CommonDrop(ItemID.JungleRose, 3));
+				npcLoot.Add(new CommonDrop(ItemID.NaturesGift, 3));
+				npcLoot.Add(new CommonDrop(ItemID.ChlorophyteOre, 1, 20, 30));
 			}
 			if (npc.type == NPCID.Golem)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Spears.LihzahrdLance>(), 4), new CommonDrop(ItemType<Items.Spears.LihzahrdLance>(), 3)));

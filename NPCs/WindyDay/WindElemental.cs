@@ -42,7 +42,7 @@ namespace Zylon.NPCs.WindyDay
             BannerItem = ModContent.ItemType<Items.Banners.WindElementalBanner>();
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.lifeMax = 101;
+        NPC.lifeMax = 101;
 			NPC.damage = 36;
 			NPC.value = 150;
 			NPC.knockBackResist = 0.5f;
@@ -52,7 +52,7 @@ namespace Zylon.NPCs.WindyDay
 				NPC.value = 250;
             }
         }
-		public override void HitEffect(int hitDirection, double damage) {
+        public override void HitEffect(int hitDirection, double damage) {
 			if (NPC.life > 0) {
 				for (int i = 0; i < 4; i++) {
 					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.RainCloud, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2), 0, default, 2f);

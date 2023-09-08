@@ -35,7 +35,7 @@ namespace Zylon.Projectiles
 			}
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-            target.AddBuff(BuffID.OnFire, Main.rand.Next(1, 4)*60);
+        target.AddBuff(BuffID.OnFire, Main.rand.Next(1, 4)*60);
         }
         public override void OnHitPvp(Player target, int damage, bool crit) {
             target.AddBuff(BuffID.OnFire, Main.rand.Next(1, 4)*60);

@@ -562,6 +562,148 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Vertebrae, 5);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.TurtleHelmet);
+			recipe.AddIngredient(ItemID.ChlorophyteMask);
+			recipe.AddIngredient(ItemID.TurtleShell);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.TurtleScaleMail);
+			recipe.AddIngredient(ItemID.ChlorophytePlateMail);
+			recipe.AddIngredient(ItemID.TurtleShell);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.TurtleLeggings);
+			recipe.AddIngredient(ItemID.ChlorophyteGreaves);
+			recipe.AddIngredient(ItemID.TurtleShell);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.FrozenTurtleShell);
+			recipe.AddIngredient(ItemID.TurtleShell);
+			recipe.AddIngredient(ItemID.FrostCore);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.LivingLoom);
+			recipe.AddRecipeGroup("Wood", 18);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.LivingBranch>(), 10);
+			recipe.AddTile(TileID.WorkBenches);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.SlimeStaff);
+			recipe.AddRecipeGroup("Wood", 15);
+			recipe.AddIngredient(ItemID.Gel, 32);
+			recipe.AddTile(TileID.WorkBenches);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.SandBoots);
+			recipe.AddIngredient(ItemID.HermesBoots);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.RustedTech>(), 8);
+			recipe.AddIngredient(ItemID.SandBlock, 12);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.WaterBolt);
+			recipe.AddIngredient(ItemID.Book);
+			recipe.AddIngredient(ItemID.Bone, 20);
+			recipe.AddIngredient(ItemID.FallenStar, 3);
+			recipe.AddTile(TileID.Anvils);
+			recipe.AddCondition(Recipe.Condition.NearWater);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.Handgun);
+			recipe.AddRecipeGroup("IronBar", 12);
+			recipe.AddIngredient(ItemID.Bone, 15);
+			recipe.AddIngredient(ItemID.FallenStar, 3);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.AquaScepter);
+			recipe.AddRecipeGroup("IronBar", 8);
+			recipe.AddIngredient(ItemID.Bone, 20);
+			recipe.AddIngredient(ItemID.FallenStar, 3);
+			recipe.AddTile(TileID.Anvils);
+			recipe.AddCondition(Recipe.Condition.NearWater);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.MagicMissile);
+			recipe.AddRecipeGroup("IronBar", 6);
+			recipe.AddIngredient(ItemID.Glass, 5);
+			recipe.AddIngredient(ItemID.Bone, 15);
+			recipe.AddIngredient(ItemID.FallenStar, 3);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.BlueMoon);
+			recipe.AddIngredient(ItemID.Mace);
+			recipe.AddIngredient(ItemID.Bone, 16);
+			recipe.AddIngredient(ItemID.FallenStar, 3);
+			recipe.AddTile(TileID.Anvils);
+			recipe.AddCondition(Recipe.Condition.NearWater);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.Muramasa);
+			recipe.AddRecipeGroup("IronBar", 8);
+			recipe.AddIngredient(ItemID.Bone, 15);
+			recipe.AddIngredient(ItemID.FallenStar, 5);
+			recipe.AddTile(TileID.Anvils);
+			recipe.AddCondition(Recipe.Condition.NearWater);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.Valor);
+			recipe.AddIngredient(ItemID.WoodYoyo);
+			recipe.AddRecipeGroup("IronBar", 4);
+			recipe.AddIngredient(ItemID.Bone, 22);
+			recipe.AddIngredient(ItemID.FallenStar, 2);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.ClothierVoodooDoll);
+			recipe.AddIngredient(ItemID.Silk, 10);
+			recipe.AddIngredient(ItemID.TatteredCloth, 8);
+			recipe.AddIngredient(ItemID.Bone, 15);
+			recipe.AddIngredient(ItemID.FallenStar, 3);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.GuideVoodooDoll);
+			recipe.AddIngredient(ItemID.Silk, 10);
+			recipe.AddIngredient(ItemID.TatteredCloth, 8);
+			recipe.AddIngredient(ItemID.AshBlock, 15);
+			recipe.AddIngredient(ItemID.FallenStar, 3);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.Sextant);
+			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 10);
+			recipe.AddIngredient(ItemID.Glass, 8);
+			recipe.AddIngredient(ItemID.FallenStar);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.FishermansGuide);
+			recipe.AddIngredient(ItemID.Silk, 8);
+			recipe.AddRecipeGroup("Zylon:AnyGoldBar");
+			recipe.AddIngredient(ItemID.BlueDye);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.WeatherRadio);
+			recipe.AddRecipeGroup("IronBar", 8);
+			recipe.AddIngredient(ItemID.Glass, 3);
+			recipe.AddIngredient(ItemID.Wire, 5);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.Radar);
+			recipe.AddRecipeGroup("IronBar", 9);
+			recipe.AddIngredient(ItemID.Glass, 8);
+			recipe.AddRecipeGroup("Zylon:AnyGem");
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
             for (int i = 0; i < Recipe.numRecipes; i++) {

@@ -40,8 +40,8 @@ namespace Zylon.NPCs.Forest
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.MechanicalSlimeBanner>();
 		}
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.lifeMax = 542;
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        NPC.lifeMax = 542;
             NPC.damage = 129;
         }
 		int Timer;

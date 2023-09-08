@@ -7,7 +7,7 @@ namespace Zylon.Items.Accessories
 	public class ExtraShinyOreNugget : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Emits a faint glow from within your pack");
+			Tooltip.SetDefault("'I love miners!'\nEmits a faint glow from within your pack");
 		}
 		public override void SetDefaults() {
 			Item.width = 36;

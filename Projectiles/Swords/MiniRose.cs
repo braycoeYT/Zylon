@@ -18,13 +18,13 @@ namespace Zylon.Projectiles.Swords
 			Projectile.timeLeft = 360;
 			Projectile.tileCollide = false;
 			Projectile.usesLocalNPCImmunity = true;
-			Projectile.localNPCHitCooldown = 2;
+			Projectile.localNPCHitCooldown = 5;
 		}
 		Vector2 spawn;
 		int Timer;
 		int dist;
         public override void AI() {
-			Projectile.velocity = new Vector2();
+			Projectile.velocity = Vector2.Zero;
 			if (Timer == 0) spawn = Projectile.Center;
 			Timer++;
 			dist += 1;

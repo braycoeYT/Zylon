@@ -27,13 +27,13 @@ namespace Zylon.NPCs.Meteorite
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
         }
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.lifeMax = 48;
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        NPC.lifeMax = 48;
             NPC.damage = 74;
 			NPC.knockBackResist = 0.02f;
         }
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
-            target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(6, 8));
+        public override void OnHitPlayer(Player target, int damage, bool crit) {
+			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(6, 8));
         }
 		int Timer;
 		int timeMax = 300;

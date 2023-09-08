@@ -36,8 +36,7 @@ namespace Zylon.Projectiles.Guns
 		}
 
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
             Player projectileOwner = Main.player[Projectile.owner];
             projectileOwner.AddBuff(ModContent.BuffType<Buffs.GravelyPowers>(), 90, false);
         }

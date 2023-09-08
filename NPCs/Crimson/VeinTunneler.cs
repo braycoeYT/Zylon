@@ -41,8 +41,8 @@ namespace Zylon.NPCs.Crimson
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.VeinTunnelerBanner>();
 		}
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-			NPC.lifeMax = 189;
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        NPC.lifeMax = 189;
 			NPC.damage = 49;
 		}
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
@@ -120,8 +120,8 @@ namespace Zylon.NPCs.Crimson
 			Banner = Item.NPCtoBanner(ModContent.NPCType<VeinTunnelerHead>());
 			BannerItem = Item.BannerToItem(Banner);
 		}
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-			NPC.damage = 31;
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        NPC.damage = 31;
 		}
 		public override void Init() {
 			VeinTunnelerHead.CommonWormInit(this);
@@ -152,7 +152,7 @@ namespace Zylon.NPCs.Crimson
 			Banner = Item.NPCtoBanner(ModContent.NPCType<VeinTunnelerHead>());
 			BannerItem = Item.BannerToItem(Banner);
 		}
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
 			NPC.damage = 23;
 		}
 		public override void Init() {

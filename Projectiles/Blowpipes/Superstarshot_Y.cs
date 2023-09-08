@@ -18,7 +18,7 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.timeLeft = 400;
 		}
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-            Projectile.damage /= 2;
+			Projectile.damage /= 2;
 			if (Projectile.damage < 1 && Projectile.ai[0] == 0f) Projectile.damage = 1;
         }
         int Timer;

@@ -12,7 +12,7 @@ namespace Zylon.Items.Guns
 			Tooltip.SetDefault("Fires a spread of bullets and poisonous bamboo spikes");
 		}
 		public override void SetDefaults() {
-			Item.value = Item.sellPrice(0, 3);
+			Item.value = Item.sellPrice(0, 3, 23);
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 34;
 			Item.useTime = 34;
@@ -48,12 +48,10 @@ namespace Zylon.Items.Guns
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Boomstick);
-			recipe.AddIngredient(ItemID.BambooBlock, 50);
-			recipe.AddIngredient(ItemID.JungleSpores, 11);
-			recipe.AddIngredient(ItemID.Stinger, 8);
-			recipe.AddIngredient(ItemID.Vine, 2);
-			recipe.AddIngredient(ModContent.ItemType<Materials.RustedTech>(), 15);
-			recipe.AddRecipeGroup("Zylon:AnyShadowScale", 12);
+			recipe.AddIngredient(ItemID.BambooBlock, 30);
+			recipe.AddIngredient(ItemID.JungleSpores, 8);
+			recipe.AddIngredient(ItemID.Vine, 3);
+			recipe.AddRecipeGroup("Zylon:AnyShadowScale");
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

@@ -27,8 +27,8 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPC.noTileCollide = true;
 			NPC.alpha = 255;
         }
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.damage = 70;
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+			NPC.damage = 70;
         }
 		int Timer;
 		int attackCount;

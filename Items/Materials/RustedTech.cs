@@ -16,5 +16,13 @@ namespace Zylon.Items.Materials
 			Item.value = Item.sellPrice(0, 0, 1);
 			Item.rare = ItemRarityID.Blue;
 		}
+		public override void AddRecipes() { //temp fix aaaaa
+			Recipe recipe = CreateRecipe(4);
+			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar");
+			recipe.AddIngredient(ModContent.ItemType<DiskiteCrumbles>(), 2);
+			recipe.AddIngredient(ItemID.SandBlock, 2);
+			recipe.AddTile(TileID.Furnaces);
+			recipe.Register();
+		}
 	}
 }

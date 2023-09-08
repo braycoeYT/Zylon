@@ -161,6 +161,10 @@ namespace Zylon.Items
 				}
 				p.balloonCheck = true;
 			}
+			if (item.type == ItemID.FleshKnuckles) {
+				if (p.fleKnuCheck) player.statDefense -= 8;
+				p.fleKnuCheck = true;
+            }
 		}
 		public override string IsArmorSet(Item head, Item body, Item legs) {
 			if (head.type == ItemID.MagicHat && body.type == ItemType<Armor.JadeRobe>())

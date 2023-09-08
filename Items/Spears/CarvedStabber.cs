@@ -8,7 +8,7 @@ namespace Zylon.Items.Spears
 	public class CarvedStabber : ModItem
 	{
 		public override void SetDefaults() {
-			Item.damage = 6;
+			Item.damage = 9;
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 18;
 			Item.useTime = 24;
@@ -30,8 +30,9 @@ namespace Zylon.Items.Spears
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Wood, 12);
-			recipe.AddTile(TileID.WorkBenches);
+			recipe.AddRecipeGroup("Wood", 12);
+			recipe.AddIngredient(ItemType<Materials.LivingBranch>(), 8);
+			recipe.AddTile(TileID.LivingLoom);
 			recipe.Register();
 		}
 	}

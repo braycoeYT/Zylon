@@ -36,7 +36,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
             NPC.noTileCollide = true;
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.lifeMax = 82;
+        NPC.lifeMax = 82;
 			NPC.damage = 30;
 			NPC.knockBackResist = 0f;
 			if (Main.masterMode) {
@@ -45,7 +45,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				NPC.knockBackResist = 0f;
             }
         }
-		public override void HitEffect(int hitDirection, double damage) {
+        public override void HitEffect(int hitDirection, double damage) {
 			if (NPC.life > 0) {
 				for (int i = 0; i < 2; i++) {
 					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.Iron, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));

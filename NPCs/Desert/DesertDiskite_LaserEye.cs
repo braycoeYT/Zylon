@@ -36,11 +36,11 @@ namespace Zylon.NPCs.Desert
 			NPC.dontTakeDamage = true;
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.lifeMax = 69;
+        NPC.lifeMax = 69;
 			NPC.damage = 0;
         }
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) {
-            Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/ADD/ADD_LaserEye_Glow").Value;
+            Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Desert/DesertDiskite_LaserEyeGlow").Value;
 			spriteBatch.Draw
 			(
 				texture,

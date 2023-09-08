@@ -44,6 +44,11 @@ namespace Zylon
 		public bool bloodContract;
 		public bool balloonCheck;
 		public bool rootGuard;
+		public bool leafBracer;
+		public bool leafBracerTempBool;
+		public bool friendshipBracelet;
+		public bool fleKnuCheck;
+		public bool glassArmor;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -62,6 +67,10 @@ namespace Zylon
 		/*public bool blowpipeShowUI;
 		public int blowpipeMinCharge;
 		public int blowpipeCharge;*/
+		public int hitTimer30;
+		public int sojDamageCount;
+		public int sojCooldown;
+		public float metecoreFloat = 1f;
 		public override void ResetEffects() {
 			Heartdaze = false;
 			outofBreath = false;
@@ -97,6 +106,10 @@ namespace Zylon
 			bloodContract = false;
 			balloonCheck = false;
 			rootGuard = false;
+			leafBracer = false;
+			friendshipBracelet = false;
+			fleKnuCheck = false;
+			glassArmor = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -117,6 +130,10 @@ namespace Zylon
 			shroomed = false;
 			deadlyToxins = false;
 			elemDegen = false;
+			hitTimer30 = 0;
+			sojDamageCount = 0;
+			sojCooldown = 0;
+			metecoreFloat = 1f;
 		}
 		public override void UpdateBadLifeRegen() {
 			if (Heartdaze) {
@@ -150,7 +167,9 @@ namespace Zylon
 				Player.lifeRegenTime = 0;
 				Player.lifeRegen -= 16;
 			}
-			if (Player.HasBuff(BuffID.OnFire) && metelordExpert) Player.lifeRegen += 6;
+
+			hitTimer30 -= 1;
+			sojCooldown -= 1;
 		}
         public override void UpdateEquips() {
             if (GetInstance<ZylonConfig>().bandBuffs) {
@@ -167,8 +186,6 @@ namespace Zylon
 						Player.accRunSpeed += 0.75f;
 					Player.moveSpeed += 0.15f;
                 }
-				if (metelordExpert && Player.HasBuff(BuffID.OnFire))
-					Player.statDefense += 5;
             }
 			if (GetInstance<ZylonConfig>().zylonianBalancing) {
 				if (Player.HasBuff(BuffID.MagicPower)) {
@@ -199,11 +216,18 @@ namespace Zylon
 				Player.npcTypeNoAggro[NPCType<NPCs.Snow.LivingMarshmallow>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Snow.RoastedLivingMarshmallow>()] = true;
             }
+			if (leafBracer) {
+				if (!Player.HasBuff(BuffID.PotionSickness) && !leafBracerTempBool) leafBracerTempBool = true;
+				if (Player.HasBuff(BuffID.PotionSickness) && leafBracerTempBool) {
+					Player.AddBuff(BuffType<Buffs.LeafBracer>(), 120);
+					leafBracerTempBool = false;
+                }
+            }
         }
 		float trueMeleeBoost;
 		float critBoost;
-		public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit) {
-			critBoost = 1f;
+        public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit) {
+        critBoost = 1f;
 			if (crit) critBoost += critExtraDmg;
 			trueMeleeBoost = 1f;
 			if (trueMelee10) trueMeleeBoost += 0.1f;
@@ -228,10 +252,11 @@ namespace Zylon
 			if (crit) critBoost += critExtraDmg;
 			damage = (int)(damage * critBoost);
         }
-        public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit) {
 			OnHitNPCGlobal(item, null, target, damage, knockback, crit, target.type == NPCID.TargetDummy, true);
 		}
-        public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
+        {
 			OnHitNPCGlobal(null, proj, target, damage, knockback, crit, target.type == NPCID.TargetDummy, false);
 		}
         public override void OnHitPvp(Item item, Player target, int damage, bool crit) {
@@ -241,6 +266,21 @@ namespace Zylon
 			OnHitPVPGlobal(null, proj, target, damage, crit, false);
 		}
 		public void OnHitNPCGlobal(Item item, Projectile proj, NPC target, int damage, float knockback, bool crit, bool isDummy, bool TrueMelee) {
+			hitTimer30 = 1800;
+			if (proj != null) {
+				if (proj.type == ProjectileType<Projectiles.Spears.SpearofJustice>() && sojCooldown < 1) {
+					sojDamageCount += damage;
+					sojCooldown = 6;
+					if (sojDamageCount > 749) {
+						CombatText.NewText(Player.getRect(), Color.Cyan, "MAX!");
+						sojDamageCount = 0;
+						for (int x = 0; x < 3; x++) {
+							Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Spears.SpearofJusticeClone>(), 65, 4f, Main.myPlayer, x);
+				        }
+				    }
+					else CombatText.NewText(Player.getRect(), Color.Cyan, sojDamageCount);
+				}
+			}
 			if (crit) {
 				critCount++;
 			}
@@ -294,8 +334,26 @@ namespace Zylon
 					if (proj.DamageType == DamageClass.Magic)
 						target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(5, 11)*60);
             }
+			if (metelordExpert && Player.ownedProjectileCounts[ProjectileType<Projectiles.Accessories.MetecoreSpirit>()] < 20 && metecoreFloat < 3f) {
+				if (target.type != NPCID.TargetDummy) Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.MetecoreSpirit>(), 0, 0, Main.myPlayer);
+            }
 		}
 		public void OnHitPVPGlobal(Item item, Projectile proj, Player target, int damage, bool crit, bool TrueMelee) {
+			hitTimer30 = 1800;
+			if (proj != null) {
+				if (proj.type == ProjectileType<Projectiles.Spears.SpearofJustice>() && sojCooldown < 1) {
+					sojDamageCount += damage;
+					sojCooldown = 6;
+					if (sojDamageCount > 749) {
+						CombatText.NewText(Player.getRect(), Color.Cyan, "MAX!");
+						sojDamageCount = 0;
+						for (int x = 0; x < 3; x++) {
+							Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Spears.SpearofJusticeClone>(), 65, 4f, Main.myPlayer, x);
+				        }
+				    }
+					else CombatText.NewText(Player.getRect(), Color.Cyan, sojDamageCount);
+				}
+			}
 			if (crit) {
 				critCount++;
 			}
@@ -315,6 +373,9 @@ namespace Zylon
 				Player.Heal(1);
 			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
 				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer);
+			if (metelordExpert && Player.ownedProjectileCounts[ProjectileType<Projectiles.Accessories.MetecoreSpirit>()] < 20 && metecoreFloat < 3f) {
+				Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.MetecoreSpirit>(), 0, 0, Main.myPlayer);
+            }
 		}
 		public void DiskiteBuffs(int Bufftime) {
 			switch (Main.rand.Next(3)) {
@@ -333,15 +394,21 @@ namespace Zylon
 			if (Main.rand.Next(1, 100) <= PercentChance)
 				DiskiteBuffs(Bufftime);
         }
-        public override void OnHitByNPC(NPC npc, int damage, bool crit) {
+        public override void OnHitByNPC(NPC npc, int damage, bool crit)
+        {
             if (rootGuard) for (int x = 0; x < 3; x++) { //FINISH
-				int pos = Main.rand.Next(16, 49);
+				int pos = Main.rand.Next(32, 65);
 				if (Main.rand.NextBool()) pos *= -1;
-				//Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + new Vector2(pos, -16), Vector2.Zero, ProjectileType<Projectiles.Accessories.RootGuardProj>(), 10, 2f, Main.myPlayer);
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + new Vector2(pos, -12), Vector2.Zero, ProjectileType<Projectiles.Accessories.RootGuardProj>(), 10, 0f, Main.myPlayer);
 			}
         }
-        public override void OnHitByProjectile(Projectile proj, int damage, bool crit) {
-            
+        public override void OnHitByProjectile(Projectile proj, int damage, bool crit)
+        {
+            if (rootGuard) for (int x = 0; x < 3; x++) { //FINISH
+				int pos = Main.rand.Next(32, 65);
+				if (Main.rand.NextBool()) pos *= -1;
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + new Vector2(pos, -12), Vector2.Zero, ProjectileType<Projectiles.Accessories.RootGuardProj>(), 10, 0f, Main.myPlayer);
+			}
         }
         /*public override void OnHitByNPC(NPC npc, int damage, bool crit) {
             if ((npc.type == NPCType<NPCs.Bosses.ADD.ADD_SpikeRing>() || npc.type == NPCType<NPCs.Bosses.ADD.ADD_Center>()) && !Player.noKnockback) {
@@ -371,6 +438,17 @@ namespace Zylon
 				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(1.5f, -5), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
 				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(4.5f, -3), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
             }
+			if (glassArmor) {
+				int temp = damage / 10;
+				if (temp < 3) temp = 3;
+				if (temp > 15) temp = 15;
+				int temp2 = (damage + 20) / 20;
+				if (temp2 < 4) temp2 = 4;
+				if (temp2 > 8) temp2 = 8;
+				int z = 0;
+				for (int y = 0; y < Main.maxProjectiles; y++) if (Main.projectile[y].type == ProjectileType<Projectiles.GlassShard>() && Main.projectile[y].active == true) z++;
+				if (z < 40) for (int x = 0; x < temp; x++) Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(0, temp2).RotatedByRandom(Math.PI*2), ModContent.ProjectileType<Projectiles.GlassShard>(), damage, 2.5f, Main.myPlayer);
+            }
 			return true;
         }
 		float check;
@@ -383,9 +461,6 @@ namespace Zylon
 				itemDrop = ItemType<Items.Materials.Fish.PaintedGlassTetra>();
 			if (owner.ZoneBeach && Main.rand.NextFloat() < (.04f-(.02f*check)))
 				itemDrop = ItemType<Items.Blowpipes.Shellshocker>();
-        }
-        public override void PostUpdate() {
-           
         }
     }
 }

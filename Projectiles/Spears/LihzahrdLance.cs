@@ -49,16 +49,16 @@ namespace Zylon.Projectiles.Spears
 			if (!projOwner.frozen) {
 				if (MovementFactor == 0f)
 				{
-					MovementFactor = 1.2f; //3
+					MovementFactor = 1.5f; //3
 					Projectile.netUpdate = true;
 				}
 				if (projOwner.itemAnimation < projOwner.itemAnimationMax / 3)
 				{
-					MovementFactor -= 1.1f; //2.4
+					MovementFactor -= 1.2f; //2.4
 				}
 				else // Otherwise, increase the movement factor
 				{
-					MovementFactor += 1f; //2.1
+					MovementFactor += 1.05f; //2.1
 				}
 			}
 			Projectile.position += Projectile.velocity * MovementFactor;

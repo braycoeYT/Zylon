@@ -19,8 +19,8 @@ namespace Zylon.Projectiles.Accessories
 			Projectile.DamageType = DamageClass.Generic;
 			AIType = ProjectileID.Seed;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-            target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11)*60);
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11)*60);
         }
         public override void OnHitPvp(Player target, int damage, bool crit) {
 			target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11)*60);

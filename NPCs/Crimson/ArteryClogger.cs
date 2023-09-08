@@ -43,8 +43,8 @@ namespace Zylon.NPCs.Crimson
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.ArteryCloggerBanner>();
 		}
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-			NPC.lifeMax = 950;
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        NPC.lifeMax = 950;
 			NPC.damage = 156;
 		}
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
@@ -90,7 +90,7 @@ namespace Zylon.NPCs.Crimson
 			}
 		}*/
         public override void OnHitPlayer(Player target, int damage, bool crit) {
-            target.AddBuff(BuffID.Ichor, 60*Main.rand.Next(11, 21));
+			target.AddBuff(BuffID.Ichor, 60*Main.rand.Next(11, 21));
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo) {
 			if (Main.hardMode)
@@ -130,7 +130,7 @@ namespace Zylon.NPCs.Crimson
 			Banner = Item.NPCtoBanner(ModContent.NPCType<ArteryCloggerHead>());
 			BannerItem = Item.BannerToItem(Banner);
 		}
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
 			NPC.damage = 96;
 		}
 		public override void Init() {
@@ -164,8 +164,8 @@ namespace Zylon.NPCs.Crimson
 			Banner = Item.NPCtoBanner(ModContent.NPCType<ArteryCloggerHead>());
 			BannerItem = Item.BannerToItem(Banner);
 		}
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-			NPC.damage = 92;
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+		    NPC.damage = 92;
 		}
 		public override void Init() {
 			ArteryCloggerHead.CommonWormInit(this);

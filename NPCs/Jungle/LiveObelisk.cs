@@ -36,12 +36,12 @@ namespace Zylon.NPCs.Jungle
             BannerItem = ModContent.ItemType<Items.Banners.LiveObeliskBanner>();
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.lifeMax = 134;
+        NPC.lifeMax = 134;
 			NPC.damage = 48;
 			NPC.value = 500;
 			NPC.knockBackResist = 0.15f;
         }
-		public override void HitEffect(int hitDirection, double damage) {
+        public override void HitEffect(int hitDirection, double damage) {
 			if (NPC.life > 0) {
 				for (int i = 0; i < 5; i++) {
 					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, 1, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2), 0, default, 2f);

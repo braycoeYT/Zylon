@@ -46,6 +46,8 @@ namespace Zylon.Items.Bags
 			itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()));
 			itemLoot.Add(new CommonDrop(ItemType<Vanity.DirtballMask>(), 7));
 			itemLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.CreepyBlob>(), 8));
+			itemLoot.Add(new CommonDrop(ModContent.ItemType<Bags.BagofFruits>(), 2));
+			itemLoot.Add(new CommonDrop(ModContent.ItemType<Food.MudPie>(), 2));
 		}
 		public override Color? GetAlpha(Color lightColor) {
 			return Color.Lerp(lightColor, Color.White, 0.4f);

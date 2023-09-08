@@ -8,7 +8,7 @@ namespace Zylon.Items.Armor
 	public class ShroomiteHeaddress : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("8% increased ranged damage\n5% increased ranged critical strike chance\nIncreases max blowpipe charge by 50\nIncreases max blowpipe charge by 37.5/s");
+			Tooltip.SetDefault("8% increased ranged damage\n5% increased ranged critical strike chance\nIncreases max blowpipe charge by 50\nIncreases blowpipe charge speed by 37.5/s");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

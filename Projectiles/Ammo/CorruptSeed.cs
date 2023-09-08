@@ -16,7 +16,7 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.penetrate = 3;
 		}
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-            Projectile.damage += 4;
+			Projectile.damage += 4;
         }
         public override void OnHitPvp(Player target, int damage, bool crit) {
             Projectile.damage += 4;

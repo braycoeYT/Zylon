@@ -43,12 +43,12 @@ namespace Zylon.NPCs.Desert
             BannerItem = ModContent.ItemType<Items.Banners.DesertDiskiteBanner>();
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.lifeMax = 90;
+        NPC.lifeMax = 90;
 			NPC.damage = 32;
 			NPC.value = 200;
 			NPC.knockBackResist = 0.3f;
         }
-		public override void HitEffect(int hitDirection, double damage) {
+        public override void HitEffect(int hitDirection, double damage) {
 			if (NPC.life > 0) {
 				for (int i = 0; i < 2; i++) {
 					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.DiskiteDust>(), Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));

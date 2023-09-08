@@ -33,8 +33,8 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPC.noTileCollide = true;
 			NPC.dontCountMe = true;
         }
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.damage = 20;
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+			NPC.damage = 20;
         }
 		int newVel;
 		float fleeRand = Main.rand.NextFloat(-0.75f, 0.75f);

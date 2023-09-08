@@ -16,7 +16,7 @@ namespace Zylon.Projectiles.Spears
 			Projectile.aiStyle = 1;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
-			Projectile.timeLeft = 9999;
+			Projectile.timeLeft = 25;
 		}
 		public override void AI() {
 			for (int i = 0; i < 2; i++) {

@@ -20,8 +20,8 @@ namespace Zylon.Projectiles.Bosses.Metelord
 				dust.scale = 0.5f;
 			}
         }
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-			target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(1, 4), false);
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(1, 4), false);
 		}
 		public override void OnHitPlayer(Player target, int damage, bool crit) {
 			target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(1, 4), false);

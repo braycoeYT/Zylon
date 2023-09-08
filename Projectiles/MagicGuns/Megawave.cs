@@ -26,8 +26,8 @@ namespace Zylon.Projectiles.MagicGuns
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
 			grow += 0.5f;
 		}
-		public override void OnHitPvp(Player target, int damage, bool crit) {
-			grow += 0.5f;
+        public override void OnHitPvp(Player target, int damage, bool crit) {
+        grow += 0.5f;
 		}
 		public override bool OnTileCollide(Vector2 oldVelocity) {
 			Projectile.penetrate--;

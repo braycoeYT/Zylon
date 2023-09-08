@@ -28,7 +28,7 @@ namespace Zylon.Items.Swords
 		}
         int rotHit;
         public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
-			rotHit++;
+        rotHit++;
 			for (int i = 0; i < 4; i++) Projectile.NewProjectile(player.GetSource_FromThis(), target.Center - new Vector2(0, -120).RotatedBy(MathHelper.ToRadians(rotHit*5+i*90)), new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(rotHit*5+i*90)), ModContent.ProjectileType<Projectiles.Swords.BloodOrb>(), Item.damage/3, Item.knockBack/2, Main.myPlayer);
         }
         public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {

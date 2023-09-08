@@ -8,7 +8,7 @@ namespace Zylon.Items.Accessories
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Warrior's Ribbon");
-			Tooltip.SetDefault("'The stars signify the importance of the holder'\nHeavily increases critical strike chance and damage as health decreases\nThis maxes out at 15% increased chance and 25% increased damage");
+			Tooltip.SetDefault("'The stars signify the importance of the holder'\nHeavily increases critical strike chance and crit damage as health decreases\nThis maxes out at 15% increased chance and 25% increased crit damage");
 		}
 		public override void SetDefaults() {
 			Item.width = 12;

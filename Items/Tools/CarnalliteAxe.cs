@@ -24,7 +24,7 @@ namespace Zylon.Items.Tools
 			Item.autoReuse = true;
 			Item.axe = 19;
 		}
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
 			target.AddBuff(BuffID.DryadsWardDebuff, Main.rand.Next(5, 11)*60);
 		}
         public override void OnHitPvp(Player player, Player target, int damage, bool crit) {

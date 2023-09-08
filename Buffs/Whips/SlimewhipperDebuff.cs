@@ -20,8 +20,8 @@ namespace Zylon.Buffs.Whips
 		public override void ResetEffects(NPC npc) {
 			markedByThisWhip = false;
 		}
-		public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) {
-			if (markedByThisWhip && !projectile.npcProj && !projectile.trap && (projectile.minion || ProjectileID.Sets.MinionShot[projectile.type])) {
+        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) {
+            if (markedByThisWhip && !projectile.npcProj && !projectile.trap && (projectile.minion || ProjectileID.Sets.MinionShot[projectile.type])) {
 				damage += 5;
 			}
 		}

@@ -21,7 +21,7 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.penetrate = 5;
 			Projectile.rotation = 0;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
             if (target.boss == false)
 				target.velocity *= 0.25f;
         }

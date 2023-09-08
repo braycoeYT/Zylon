@@ -14,7 +14,7 @@ namespace Zylon.Projectiles.Blowpipes
 			AIType = ProjectileID.BallofFire;
 			Projectile.DamageType = DamageClass.Melee;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
 			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(3, 8));
 		}
 		public override void OnHitPlayer(Player target, int damage, bool crit) {

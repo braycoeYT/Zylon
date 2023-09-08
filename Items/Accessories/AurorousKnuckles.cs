@@ -7,7 +7,7 @@ namespace Zylon.Items.Accessories
 	public class AurorousKnuckles : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Enemies are more likely to target you\nPuts a shell around the owner when below 50% life that reduces damage");
+			Tooltip.SetDefault("Enemies are more likely to target you\nPuts a shell around the owner when below 50% life that reduces damage\nDoes not stack with Flesh Knuckles");
 		}
 		public override void SetDefaults() {
 			Item.width = 40;
@@ -18,9 +18,12 @@ namespace Zylon.Items.Accessories
 			Item.defense = 8;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			player.aggro += 400;
 			if (player.statLife <= player.statLifeMax2 * 0.5f)
 				player.AddBuff(62, 5, true);
+			if (p.fleKnuCheck) player.statDefense -= 8;
+			p.fleKnuCheck = true;
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

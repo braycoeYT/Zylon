@@ -25,8 +25,7 @@ namespace Zylon.Projectiles.Swords
 			Projectile.friendly = true;
 			Projectile.hostile = false;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
 			if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>()))
 			{
 				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>(), 20);
@@ -43,8 +42,7 @@ namespace Zylon.Projectiles.Swords
 				CombatText.NewText(target.getRect(), Color.Crimson, "!!!");
 			}
 		}
-		public override void OnHitPvp(Player target, int damage, bool crit)
-		{
+		public override void OnHitPvp(Player target, int damage, bool crit) {
 			if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>()))
 			{
 				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>(), 20);

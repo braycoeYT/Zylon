@@ -18,7 +18,7 @@ namespace Zylon.Items.Placeables.Relics
 			Item.rare = ItemRarityID.Master;
 			Item.master = true;
 			Item.value = Item.buyPrice(0, 5);
-			Item.placeStyle = 2;
+			Item.placeStyle = 3;
 		}
 	}
 }
