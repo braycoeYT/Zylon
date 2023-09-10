@@ -89,27 +89,27 @@ namespace Zylon
 				despawnInfo
 				//customBossPortrait
 			);
-			/*bossName = "Ancient Diskite Director";
-			bossType = ModContent.NPCType<NPCs.Bosses.ADD.ADD_Center>();
-			weight = 2.5f;
+			bossName = "Ancient Diskite Director";
+			bossType = ModContent.NPCType<NPCs.Bosses.ADD.ADD_Main>();
+			weight = 4.5f;
 			downed = () => ZylonWorldCheckSystem.downedADD;
 			available = () => true;
 			collection = new List<int>()
 			{
 				ModContent.ItemType<Items.Placeables.Relics.ADDRelic>(),
 				ModContent.ItemType<Items.Pets.DiskiteDrive>(),
-				ModContent.ItemType<Items.Placeables.Trophies.ADDTrophy>(),
+				//ModContent.ItemType<Items.Placeables.Trophies.ADDTrophy>(),
 				ModContent.ItemType<Items.Vanity.ADDMask>(),
 				ModContent.ItemType<Items.Vanity.PolandballMask>()
 			};
 			summonItem = ModContent.ItemType<Items.BossSummons.EnchantedEye>();
-			spawnInfo = $"Use a [i:{summonItem}] in the desert at night";
+			spawnInfo = $"Use a [i:{summonItem}] in the desert";
 			despawnInfo = null;
 			customBossPortrait = (SpriteBatch sb, Rectangle rect, Color color) => {
 				Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/ADD/ADD_Bestiary").Value;
 				Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
 				sb.Draw(texture, centered, color);
-			};*/
+			};
 			bossChecklistMod.Call(
 				"AddBoss",
 				Mod,

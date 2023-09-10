@@ -1,5 +1,5 @@
 (currently works on 1.4.3)
-The best mod that starts with Z (I guarantee or your money back)! Zylon is a unique terraria mod full of slimes, blowpipes, references, peculiar boss fights, and much much more!
+The best mod that starts with Z (I guarantee or your money back)! Zylon is a unique terraria mod full of slimes, blowpipes, references, peculiar boss fights, and much much more! Zylon is the kind of mod that makes all its boss summons infinite because who has the time to craft the same summon a billion times?!
 
 THIS MOD IS IN SEVERE NEED OF SPRITERS. If you are a fan of the mod and want to sprite, feel free to join the discord server!
 DISCORD JOIN: https://discord.gg/x6G8rKduWc
@@ -15,36 +15,8 @@ Stats:
 ~LOTS of new vanilla recipes and changes to help balance the game out.
 ~Several new prefixes!
 
-V0.0.2.9: Commitment Issues Update
-~Hey so I kind of accidentally messed up the whole mod (long story), and have frantically tried to fix it. If there are any issues with stuff, please don't delay to tell me.
-~Removed ADD temporarily for reworks.
-~Added two new recipes for Heavy Metal Hammer, and reduced Iron Bars needed.
-~Increased chances of Plantera dropping Nature's Gift and Jungle Rose.
-~Fixed Metelord's relic placing Dirtball's.
-~Fixed a mistake with Eerie Bell drops from Eerie Jellyfish.
-~Added Tent and Cabin.
-~Added Bag of Fruits.
-~Aurorous Knuckles no longer stack with Flesh Knuckles.
-~Fixed typo in Warrior's Ribbon's tooltip.
-~Readded Starpack Slime, and heavily decreased knockback resistance.
-~Added Glass armor.
-~Decreased Worms required for Endless Worm Pouch.
-~Changed Carnallite Bar tooltip.
-~Added Spear of Justice.
-~Made Lihzahrd Lance longer, projectiles last less time, and sell for more.
-~Changed Lihzahrd Lance tooltip.
-~Added Mud Pie.
-~Added new vanilla recipes.
-~Decreased Bamboo Sharpshooter requirements and changed sell value.
-~Added Eight Legs. Yes, really.
-~Fixed issue with X-Blade tooltip.
-~Moved Forgotten Rose's Saber to post-Golem.
-~Reworked Forgotten Rose's Saber again.
-~Fixed grammatical error in Forgotten Rose's Saber tooltip.
-~Resprited Metelord.
-~Fixed typo in Leaf Bracelet tooltip.
-~Changed Mudslinger rarity.
-~Reworked Metecore.
+V0.0.3: Diskite Update
+~Fixed Metecore damaging issue.
 
 Credits (from the previous mod versions and now):
 Owner:

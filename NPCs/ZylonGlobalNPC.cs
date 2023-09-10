@@ -15,6 +15,16 @@ namespace Zylon.NPCs
 		public static int diskiteBoss = -1;
 		public static int dirtballBoss = -1;
 		public static int metelordBoss = -1;
+		//public int meteiframes = 0;
+        /*public override void PostAI(NPC npc) {
+            meteiframes--;
+        }
+        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) {
+            if (projectile.type == ModContent.ProjectileType<Projectiles.Accessories.MetecoreFireball>()) {
+				if (meteiframes > 0) damage = 0;
+				else meteiframes = 5;
+            }
+        }*/
         public override void HitEffect(NPC npc, int hitDirection, double damage) {
             if (npc.type == NPCID.Plantera && npc.life < 1 && !NPC.downedPlantBoss)
 				Projectile.NewProjectile(npc.GetSource_FromThis(), npc.Center, new Vector2(0, 0), ProjectileType<Projectiles.PlanteraElementalGel>(), 0, 0, Main.myPlayer);
