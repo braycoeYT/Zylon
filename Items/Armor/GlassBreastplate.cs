@@ -8,11 +8,7 @@ namespace Zylon.Items.Armor
 	public class GlassBreastplate : ModItem
 	{
 		public override void SetStaticDefaults() {
-<<<<<<< HEAD
-			Tooltip.SetDefault("-5 Defense\n'Make sure no one throws any stones at you'\nIncreases damage by 12%");
-=======
 			// Tooltip.SetDefault("-5 Defense\n'Make sure no one throws any stones at you'\nIncreases damage by 12%");
->>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

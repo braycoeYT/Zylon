@@ -17,11 +17,7 @@ namespace Zylon.Projectiles.Tomes
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6), false);
 		}
-<<<<<<< HEAD
-		public override void OnHitPvp(Player target, int damage, bool crit) {
-=======
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
->>>>>>> ProjectClash
 			target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6), false);
 		}
 		public override void AI() {

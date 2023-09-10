@@ -28,7 +28,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				CustomTexturePath = "Zylon/NPCs/Bosses/Metelord/Metelord_Bestiary",
 				Position = new Vector2(40f, 24f),
 				PortraitPositionXOverride = 0f,
-				PortraitPositionYOverride = 12f,
+				PortraitPositionYOverride = 12f
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
@@ -50,7 +50,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 		public override void SetDefaults() {
 			NPC.CloneDefaults(NPCID.DiggerBody);
 			NPC.aiStyle = -1;
-			NPC.lifeMax = (int)(5100*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+			NPC.lifeMax = (int)(5500*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 36;
 			NPC.defense = 6;
 			NPC.value = 50000;
@@ -62,16 +62,11 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.lavaImmune = true;
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/BolideSerpent");
 		}
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = (int)((6500 + ((numPlayers - 1) * 4000))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
-=======
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.lifeMax = (int)((7000 + ((numPlayers - 1) * 4900))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
->>>>>>> ProjectClash
 			NPC.damage = 64;
 			if (Main.masterMode) {
-				NPC.lifeMax = (int)((7900 + ((numPlayers - 1) * 6000))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+				NPC.lifeMax = (int)((8500 + ((numPlayers - 1) * 6400))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 92;
             }
 		}
@@ -134,7 +129,6 @@ namespace Zylon.NPCs.Bosses.Metelord
 		int attackMax = 4;
 		int runBoost = 180;
 		int flee;
-		int rageTimer;
 		bool attackDone = true;
 		bool spawnGore = true;
 		Vector2 newVel;
@@ -285,13 +279,8 @@ namespace Zylon.NPCs.Bosses.Metelord
 				attackTimer++;
 				attackTimer2++;
 				if (attackTimer % (int)(5+(5*NPC.life/NPC.lifeMax)) == 0 && attackTimer2 % 180 < 90) {
-<<<<<<< HEAD
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -15).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireBreath>(), (int)(NPC.damage*0.33f), 0f, Main.myPlayer, 60-(60*NPC.life/NPC.lifeMax));
-                }
-=======
 					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -15).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireBreath>(), (int)(NPC.damage * 0.33f), 0f, Main.myPlayer, 30 - (30 * NPC.life / NPC.lifeMax), BasicNetType: 2);
 				}
->>>>>>> ProjectClash
 				if (attackTimer % (100+(50*NPC.life/NPC.lifeMax)) < (55+(15*NPC.life/NPC.lifeMax))) {
 					Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 					speed.Normalize();
@@ -402,9 +391,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				//NPC.velocity = newVel;
 				if (attackInt == 3) attackDone = true;
             }*/
-            if (!target.ZoneMeteor) rageTimer += 1;
-			else rageTimer = 0;
-			if (rageTimer > 299) {
+            if (!target.ZoneMeteor) {
 				NPC.damage = 74;
 				if (Main.expertMode) NPC.damage = 128;
 				if (Main.masterMode) NPC.damage = 184;
@@ -449,7 +436,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 					attackCounter--;
 				}
 				Player target = Main.player[NPC.target];
-				//If the attack counter is 0, this NPC is less than 12.5 tiles away from its target, and has a path to the target unobstructed by blocks, summon a projectile.
+				// If the attack counter is 0, this NPC is less than 12.5 tiles away from its target, and has a path to the target unobstructed by blocks, summon a projectile.
 				if (attackCounter <= 0 && Vector2.Distance(NPC.Center, target.Center) < 200 && Collision.CanHit(NPC.Center, 1, 1, target.Center, 1, 1)) {
 					Vector2 direction = (target.Center - NPC.Center).SafeNormalize(Vector2.UnitX);
 					direction = direction.RotatedByRandom(MathHelper.ToRadians(10));
@@ -461,28 +448,25 @@ namespace Zylon.NPCs.Bosses.Metelord
 				}
 			}
 		}*/
-<<<<<<< HEAD
-        public override void OnHitPlayer(Player target, int damage, bool crit) {
-        target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(4, 6));
-=======
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
             target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(4, 6));
->>>>>>> ProjectClash
         }
         public override void BossLoot(ref string name, ref int potionType) {
             potionType = ItemID.RestorationPotion;
 			ZylonWorldCheckSystem.downedMetelord = true;
         }
         public override void ModifyNPCLoot(NPCLoot npcLoot) {
-			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeables.Relics.MetelordRelic>()));
-			npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<Items.Pets.PlasticDinoFigurine>(), 4));            
-			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<Items.Bags.MetelordBag>()));
+			if (Main.masterMode) {
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.MetelordRelic>(), 1));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.PlasticDinoFigurine>(), 4));
+            }
+			if (Main.expertMode || Main.masterMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.MetelordBag>(), 1));
+			else {
+				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Ores.HaxoniteOre>(), 1, 80, 100));
+				npcLoot.Add(ItemDropRule.Common(ItemID.Meteorite, 1, 15, 30));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.MetelordMask>(), 7));
+            }
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.MetelordTrophy>(), 10));
-
-			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
-			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Ores.HaxoniteOre>(), 1, 80, 100));
-			notExpertRule.OnSuccess(new CommonDrop(ItemID.Meteorite, 1, 15, 30));
-			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.MetelordMask>(), 7));
 		}
     }
 	internal class MetelordBody : WormBody
@@ -519,13 +503,8 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.height = 36;
 			NPC.noGravity = true;
 		}
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.damage = 60;
-=======
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.damage = 60;
->>>>>>> ProjectClash
 			if (Main.masterMode) {
 				NPC.damage = 88;
             }
@@ -533,11 +512,7 @@ namespace Zylon.NPCs.Bosses.Metelord
         public override void Init() {
 			MetelordHead.CommonWormInit(this);
 		}
-<<<<<<< HEAD
-        public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit) {
-=======
 		public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone) {
->>>>>>> ProjectClash
             if (target.ZoneMeteor) head.ai[0] = 1;
         }
         public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone) {
@@ -560,16 +535,10 @@ namespace Zylon.NPCs.Bosses.Metelord
 				spawnGore = false;
             }
         }
-<<<<<<< HEAD
-		int rageTimer;
-=======
->>>>>>> ProjectClash
 		bool spawnGore = true;
 		public override void PostAI() {
 			if (head.ai[1] == 1) NPC.Center += new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-3, 4));
-            if (!target.ZoneMeteor) rageTimer += 1;
-			else rageTimer = 0;
-			if (rageTimer > 299) {
+            if (!target.ZoneMeteor) {
 				NPC.damage = 64;
 				if (Main.expertMode) NPC.damage = 120;
 				if (Main.masterMode) NPC.damage = 176;
@@ -604,13 +573,8 @@ namespace Zylon.NPCs.Bosses.Metelord
 				spawnGore = false;
 			}*/
         }
-<<<<<<< HEAD
-        public override void OnHitPlayer(Player target, int damage, bool crit) {
-        target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(3, 5));
-=======
 		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
             target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(3, 5));
->>>>>>> ProjectClash
         }
 	}
 
@@ -648,13 +612,8 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.height = 46;
 			NPC.noGravity = true;
 		}
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.damage = 40;
-=======
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.damage = 40;
->>>>>>> ProjectClash
 			if (Main.masterMode) {
 				NPC.damage = 60;
             }
@@ -662,11 +621,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 		public override void Init() {
 			MetelordHead.CommonWormInit(this);
 		}
-<<<<<<< HEAD
-        public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit) {
-=======
 		public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone) {
->>>>>>> ProjectClash
             if (target.ZoneMeteor) head.ai[0] = 1;
         }
         public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone) {
@@ -688,16 +643,10 @@ namespace Zylon.NPCs.Bosses.Metelord
 				spawnGore = false;
             }
         }
-<<<<<<< HEAD
-		int rageTimer;
-=======
->>>>>>> ProjectClash
 		bool spawnGore = true;
 		public override void PostAI() {
 			if (head.ai[1] == 1) NPC.Center += new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-3, 4));
-            if (!target.ZoneMeteor) rageTimer += 1;
-			else rageTimer = 0;
-			if (rageTimer > 299) {
+            if (!target.ZoneMeteor) {
 				NPC.damage = 40;
 				if (Main.expertMode) NPC.damage = 80;
 				if (Main.masterMode) NPC.damage = 120;
@@ -734,13 +683,8 @@ namespace Zylon.NPCs.Bosses.Metelord
 				spawnGore = false;
 			}*/
         }
-<<<<<<< HEAD
-        public override void OnHitPlayer(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(3, 5));
-=======
 		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
             target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(3, 5));
->>>>>>> ProjectClash
         }
 	}
 }

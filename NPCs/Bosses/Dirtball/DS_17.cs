@@ -35,13 +35,8 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPC.noGravity = true;
             NPC.noTileCollide = true;
         }
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = 82;
-=======
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 82;
->>>>>>> ProjectClash
 			NPC.damage = 30;
 			NPC.knockBackResist = 0f;
 			if (Main.masterMode) {
@@ -50,11 +45,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				NPC.knockBackResist = 0f;
             }
         }
-<<<<<<< HEAD
-        public override void HitEffect(int hitDirection, double damage) {
-=======
 		public override void HitEffect(NPC.HitInfo hit) {
->>>>>>> ProjectClash
 			if (NPC.life > 0) {
 				for (int i = 0; i < 2; i++) {
 					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.Iron, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));

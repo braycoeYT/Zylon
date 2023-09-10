@@ -25,12 +25,8 @@ namespace Zylon.Projectiles.Swords
 			Projectile.scale = 0.5f;
 			AIType = ProjectileID.Bullet;
 		}
-<<<<<<< HEAD
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-=======
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
->>>>>>> ProjectClash
 			if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>()))
 			{
 				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>(), 20);
@@ -47,12 +43,6 @@ namespace Zylon.Projectiles.Swords
 				CombatText.NewText(target.getRect(), Color.Crimson, "!!!");
 			}
 		}
-<<<<<<< HEAD
-		public override void OnHitPvp(Player target, int damage, bool crit) {
-			if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>()))
-			{
-				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>(), 20);
-=======
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
@@ -73,7 +63,6 @@ namespace Zylon.Projectiles.Swords
 						target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrokenKarta1>(), 3600);
 					CombatText.NewText(target.getRect(), Color.Crimson, "!!!");
 				}
->>>>>>> ProjectClash
 			}
         }
 

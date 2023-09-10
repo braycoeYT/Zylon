@@ -38,11 +38,7 @@ namespace Zylon.Projectiles.Shortswords
 			Projectile.timeLeft = 360;
 			Projectile.hide = true;
 		}
-<<<<<<< HEAD
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-=======
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
->>>>>>> ProjectClash
 			if (target.type != NPCID.TargetDummy) for (int i = 0; i < 3; i++)
 				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-7, -4)), ModContent.ProjectileType<GraniteSpark>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
         }

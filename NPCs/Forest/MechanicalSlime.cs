@@ -40,13 +40,8 @@ namespace Zylon.NPCs.Forest
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.MechanicalSlimeBanner>();
 		}
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = 542;
-=======
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 542;
->>>>>>> ProjectClash
             NPC.damage = 129;
         }
 		int Timer;

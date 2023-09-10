@@ -41,13 +41,8 @@ namespace Zylon.NPCs.WindyDay
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.WindElementalBanner>();
         }
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = 101;
-=======
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 101;
->>>>>>> ProjectClash
 			NPC.damage = 36;
 			NPC.value = 150;
 			NPC.knockBackResist = 0.5f;
@@ -57,11 +52,7 @@ namespace Zylon.NPCs.WindyDay
 				NPC.value = 250;
             }
         }
-<<<<<<< HEAD
-        public override void HitEffect(int hitDirection, double damage) {
-=======
 		public override void HitEffect(NPC.HitInfo hit) {
->>>>>>> ProjectClash
 			if (NPC.life > 0) {
 				for (int i = 0; i < 4; i++) {
 					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.RainCloud, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2), 0, default, 2f);

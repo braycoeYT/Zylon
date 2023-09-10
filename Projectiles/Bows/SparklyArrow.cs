@@ -21,13 +21,8 @@ namespace Zylon.Projectiles.Bows
 			Projectile.ignoreWater = true;
 			AIType = 1;
 		}
-<<<<<<< HEAD
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-        target.AddBuff(320, 60 * Main.rand.Next(3, 6), false);
-=======
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(320, 60 * Main.rand.Next(3, 6), false);
->>>>>>> ProjectClash
 		}
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(320, 60 * Main.rand.Next(3, 6), false);

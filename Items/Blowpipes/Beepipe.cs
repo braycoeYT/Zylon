@@ -8,11 +8,7 @@ namespace Zylon.Items.Blowpipes
 	{
 		public Beepipe() : base(160, 1.6f, new Color(255, 200, 0), true) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
 		public override void SetStaticDefaults() {
-<<<<<<< HEAD
-			Tooltip.SetDefault("At max charge, replaces ammo with a horde of bees");
-=======
 			// Tooltip.SetDefault("At max charge, replaces ammo with a horde of bees");
->>>>>>> ProjectClash
 		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);

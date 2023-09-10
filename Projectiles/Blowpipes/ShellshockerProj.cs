@@ -7,11 +7,7 @@ namespace Zylon.Projectiles.Blowpipes
 	public class ShellshockerProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-<<<<<<< HEAD
-			DisplayName.SetDefault("Shellshocker");
-=======
 			// DisplayName.SetDefault("Shellshocker");
->>>>>>> ProjectClash
 			Main.projFrames[Projectile.type] = 3;
         }
 		public override void SetDefaults() {
@@ -24,15 +20,6 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.penetrate = 1;
 			Projectile.frame = Main.rand.Next(3);
 		}
-<<<<<<< HEAD
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-		    target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Timestop>(), Main.rand.Next(2, 5)*60, false);
-		}
-		public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Timestop>(), Main.rand.Next(2, 5)*60, false);
-		}
-		float totalRot;
-=======
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 		    target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Timestop>(), Main.rand.Next(2, 5)*60, false);
 		}
@@ -46,7 +33,6 @@ namespace Zylon.Projectiles.Blowpipes
         }
 
         float totalRot;
->>>>>>> ProjectClash
         public override void PostAI() {
             totalRot += 0.03f;
 			Projectile.rotation = totalRot;

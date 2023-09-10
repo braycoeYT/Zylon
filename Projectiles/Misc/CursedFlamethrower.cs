@@ -23,13 +23,8 @@ namespace Zylon.Projectiles.Misc
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.CursedInferno, 60 * Main.rand.Next(8, 17), false);
 		}
-<<<<<<< HEAD
-        public override void OnHitPlayer(Player target, int damage, bool crit) {
-        target.AddBuff(BuffID.CursedInferno, 60 * Main.rand.Next(8, 17), false);
-=======
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(BuffID.CursedInferno, 60 * Main.rand.Next(8, 17), false);
->>>>>>> ProjectClash
 		}
         public override void PostAI() {
             for (int i = 0; i < 4; i++) {

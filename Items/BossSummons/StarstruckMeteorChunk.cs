@@ -7,12 +7,6 @@ namespace Zylon.Items.BossSummons
 {
 	public class StarstruckMeteorChunk : ModItem
 	{
-<<<<<<< HEAD
-		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons Metelord\nCan only be used in the meteorite\nEnrages outside of the meteorite\nNot Consumable");
-		}
-=======
->>>>>>> ProjectClash
 		public override void SetDefaults()  {
 			Item.width = 28;
 			Item.height = 40;
@@ -46,14 +40,8 @@ namespace Zylon.Items.BossSummons
         }
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Meteorite, 12);
-			recipe.AddIngredient(ItemID.FallenStar, 5);
-			recipe.AddTile(TileID.DemonAltar);
-			recipe.Register();
-
-			recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.MeteoriteBar, 4);
-			recipe.AddIngredient(ItemID.FallenStar, 5);
+			recipe.AddIngredient(ItemID.Meteorite, 6);
+			recipe.AddIngredient(ItemID.FallenStar, 3);
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}

@@ -23,11 +23,7 @@ namespace Zylon.Projectiles.Ammo
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Slimed, 60 * Main.rand.Next(3, 6), false);
 		}
-<<<<<<< HEAD
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-=======
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
->>>>>>> ProjectClash
 			target.AddBuff(BuffID.Slimed, 60 * Main.rand.Next(3, 6), false);
 		}
 		public override void Kill(int timeLeft) {

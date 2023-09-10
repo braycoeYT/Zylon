@@ -226,47 +226,15 @@ namespace Zylon
         }
 		float trueMeleeBoost;
 		float critBoost;
-<<<<<<< HEAD
-        public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit) {
-        critBoost = 1f;
-			if (crit) critBoost += critExtraDmg;
-=======
 		public override void ModifyHitNPCWithItem(Item item, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Item, consider using ModifyHitNPC instead */
 		{
 			modifiers.CritDamage += critExtraDmg;
->>>>>>> ProjectClash
 			trueMeleeBoost = 1f;
 			if (trueMelee10) trueMeleeBoost += 0.1f;
 			if (trueMelee15) trueMeleeBoost += 0.15f;
 			modifiers.SourceDamage *= trueMeleeBoost;
 
 		}
-<<<<<<< HEAD
-        public override void ModifyHitPvp(Item item, Player target, ref int damage, ref bool crit) {
-			critBoost = 1f;
-			if (crit) critBoost += critExtraDmg;
-            trueMeleeBoost = 1f;
-			if (trueMelee10) trueMeleeBoost += 0.1f;
-			if (trueMelee15) trueMeleeBoost += 0.15f;
-			damage = (int)(damage * trueMeleeBoost * critBoost);
-        }
-        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) {
-            critBoost = 1f;
-			if (crit) critBoost += critExtraDmg;
-			damage = (int)(damage * critBoost);
-        }
-        public override void ModifyHitPvpWithProj(Projectile proj, Player target, ref int damage, ref bool crit) {
-            critBoost = 1f;
-			if (crit) critBoost += critExtraDmg;
-			damage = (int)(damage * critBoost);
-        }
-		public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit) {
-			OnHitNPCGlobal(item, null, target, damage, knockback, crit, target.type == NPCID.TargetDummy, true);
-		}
-        public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
-        {
-			OnHitNPCGlobal(null, proj, target, damage, knockback, crit, target.type == NPCID.TargetDummy, false);
-=======
 		public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Projectile, consider using ModifyHitNPC instead */
 		{
 			modifiers.CritDamage += critExtraDmg;
@@ -274,7 +242,6 @@ namespace Zylon
 		public override void OnHitNPCWithItem(Item item, NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			OnHitNPCGlobal(item, null, target, damageDone, hit.Knockback, hit.Crit, target.type == NPCID.TargetDummy, true);
->>>>>>> ProjectClash
 		}
 		public override void OnHitNPCWithProj(Projectile proj, NPC target, NPC.HitInfo hit, int damageDone)
 		{
@@ -282,22 +249,6 @@ namespace Zylon
 		}
 		public void OnHitNPCGlobal(Item item, Projectile proj, NPC target, int damage, float knockback, bool crit, bool isDummy, bool TrueMelee) {
 			hitTimer30 = 1800;
-<<<<<<< HEAD
-			if (proj != null) {
-				if (proj.type == ProjectileType<Projectiles.Spears.SpearofJustice>() && sojCooldown < 1) {
-					sojDamageCount += damage;
-					sojCooldown = 6;
-					if (sojDamageCount > 749) {
-						CombatText.NewText(Player.getRect(), Color.Cyan, "MAX!");
-						sojDamageCount = 0;
-						for (int x = 0; x < 3; x++) {
-							Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Spears.SpearofJusticeClone>(), 65, 4f, Main.myPlayer, x);
-				        }
-				    }
-					else CombatText.NewText(Player.getRect(), Color.Cyan, sojDamageCount);
-				}
-			}
-=======
 			if (proj != null)
 			{
 				if (proj.type == ProjectileType<Projectiles.Spears.SpearofJustice>() && sojCooldown < 1)
@@ -317,18 +268,13 @@ namespace Zylon
 				}
 			}
 
->>>>>>> ProjectClash
 			if (crit) {
 				critCount++;
 			}
 			if (!isDummy && Main.myPlayer == Player.whoAmI) {
 				if (TrueMelee) {
 					if (diskbringerSet)
-<<<<<<< HEAD
-						DiskiteBuffs(90);
-=======
 						DiskiteBuffs(90, Player);
->>>>>>> ProjectClash
 					if (nightmareCatcher && Main.rand.NextFloat() < .2f) {
 						int y = 0;
 						for (int x = 0; x < Main.maxItems; x++) {
@@ -346,11 +292,7 @@ namespace Zylon
 				} else {
 					// To encourage more true melee play, this only has a 75% chance of applying instead of 100
 					if (diskbringerSet)
-<<<<<<< HEAD
-						DiskiteBuffs(60, 75);
-=======
 						DiskiteBuffs(60, Player, 75);
->>>>>>> ProjectClash
 					if (nightmareCatcher && Main.rand.NextFloat() < .07f) {
 						int y = 0;
 						for (int x = 0; x < Main.maxItems; x++) {
@@ -383,28 +325,9 @@ namespace Zylon
 					if (proj.DamageType == DamageClass.Magic)
 						target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(5, 11)*60);
             }
-			if (metelordExpert && Player.ownedProjectileCounts[ProjectileType<Projectiles.Accessories.MetecoreSpirit>()] < 20 && metecoreFloat < 3f) {
-				if (target.type != NPCID.TargetDummy) Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.MetecoreSpirit>(), 0, 0, Main.myPlayer);
-            }
 		}
 		public void OnHitPVPGlobal(Item item, Projectile proj, Player target, int damage, bool crit, bool TrueMelee) {
 			hitTimer30 = 1800;
-<<<<<<< HEAD
-			if (proj != null) {
-				if (proj.type == ProjectileType<Projectiles.Spears.SpearofJustice>() && sojCooldown < 1) {
-					sojDamageCount += damage;
-					sojCooldown = 6;
-					if (sojDamageCount > 749) {
-						CombatText.NewText(Player.getRect(), Color.Cyan, "MAX!");
-						sojDamageCount = 0;
-						for (int x = 0; x < 3; x++) {
-							Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Spears.SpearofJusticeClone>(), 65, 4f, Main.myPlayer, x);
-				        }
-				    }
-					else CombatText.NewText(Player.getRect(), Color.Cyan, sojDamageCount);
-				}
-			}
-=======
 			if (proj != null)
 			{
 				if (proj.type == ProjectileType<Projectiles.Spears.SpearofJustice>() && sojCooldown < 1)
@@ -424,7 +347,6 @@ namespace Zylon
 				}
 			}
 
->>>>>>> ProjectClash
 			if (crit) {
 				critCount++;
 			}
@@ -444,16 +366,10 @@ namespace Zylon
 				Player.Heal(1);
 			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
 				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer);
-<<<<<<< HEAD
-			if (metelordExpert && Player.ownedProjectileCounts[ProjectileType<Projectiles.Accessories.MetecoreSpirit>()] < 20 && metecoreFloat < 3f) {
-				Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.MetecoreSpirit>(), 0, 0, Main.myPlayer);
-            }
-=======
 			if (metelordExpert && Player.ownedProjectileCounts[ProjectileType<Projectiles.Accessories.MetecoreSpirit>()] < 20 && metecoreFloat < 3f)
 			{
 				Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.MetecoreSpirit>(), 0, 0, Main.myPlayer);
 			}
->>>>>>> ProjectClash
 		}
 		public void DiskiteBuffs(int Bufftime, Player player) {
 			switch (Main.rand.Next(3)) {
@@ -472,25 +388,6 @@ namespace Zylon
 			if (Main.rand.Next(1, 100) <= PercentChance)
 				DiskiteBuffs(Bufftime, player);
         }
-<<<<<<< HEAD
-        public override void OnHitByNPC(NPC npc, int damage, bool crit)
-        {
-            if (rootGuard) for (int x = 0; x < 3; x++) { //FINISH
-				int pos = Main.rand.Next(32, 65);
-				if (Main.rand.NextBool()) pos *= -1;
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + new Vector2(pos, -12), Vector2.Zero, ProjectileType<Projectiles.Accessories.RootGuardProj>(), 10, 0f, Main.myPlayer);
-			}
-        }
-        public override void OnHitByProjectile(Projectile proj, int damage, bool crit)
-        {
-            if (rootGuard) for (int x = 0; x < 3; x++) { //FINISH
-				int pos = Main.rand.Next(32, 65);
-				if (Main.rand.NextBool()) pos *= -1;
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + new Vector2(pos, -12), Vector2.Zero, ProjectileType<Projectiles.Accessories.RootGuardProj>(), 10, 0f, Main.myPlayer);
-			}
-        }
-        /*public override void OnHitByNPC(NPC npc, int damage, bool crit) {
-=======
 		public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
 		{
 			if (rootGuard) for (int x = 0; x < 3; x++)
@@ -510,7 +407,6 @@ namespace Zylon
 				}
 		}
 		/*public override void OnHitByNPC(NPC npc, int damage, bool crit) {
->>>>>>> ProjectClash
             if ((npc.type == NPCType<NPCs.Bosses.ADD.ADD_SpikeRing>() || npc.type == NPCType<NPCs.Bosses.ADD.ADD_Center>()) && !Player.noKnockback) {
 				Vector2 vector1;
 				vector1 = npc.Center - Player.Center;
@@ -526,17 +422,11 @@ namespace Zylon
 				Player.velocity = vector1*-12f;
             }
         }*/
-<<<<<<< HEAD
-        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource, ref int cooldownCounter) {
-			if (stealthPotion && Main.rand.NextFloat() < .04f) {
-				damage = 0;
-=======
 
 		public override bool FreeDodge(Player.HurtInfo info)
         {
 			if (stealthPotion && Main.rand.NextFloat() < .04f)
 			{
->>>>>>> ProjectClash
 				Player.NinjaDodge();
 				return true;
 			}
@@ -546,38 +436,22 @@ namespace Zylon
 				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(1.5f, -5), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
 				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(4.5f, -3), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
             }
-<<<<<<< HEAD
-			if (glassArmor) {
-				int temp = damage / 10;
-				if (temp < 3) temp = 3;
-				if (temp > 15) temp = 15;
-				int temp2 = (damage + 20) / 20;
-=======
 			if (glassArmor)
 			{
 				int temp = info.Damage / 10;
 				if (temp < 3) temp = 3;
 				if (temp > 15) temp = 15;
 				int temp2 = (info.Damage + 20) / 20;
->>>>>>> ProjectClash
 				if (temp2 < 4) temp2 = 4;
 				if (temp2 > 8) temp2 = 8;
 				int z = 0;
 				for (int y = 0; y < Main.maxProjectiles; y++) if (Main.projectile[y].type == ProjectileType<Projectiles.GlassShard>() && Main.projectile[y].active == true) z++;
-<<<<<<< HEAD
-				if (z < 40) for (int x = 0; x < temp; x++) Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(0, temp2).RotatedByRandom(Math.PI*2), ModContent.ProjectileType<Projectiles.GlassShard>(), damage, 2.5f, Main.myPlayer);
-            }
-			return true;
-        }
-		float check;
-=======
 				if (z < 40) for (int x = 0; x < temp; x++) Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(0, temp2).RotatedByRandom(Math.PI * 2), ModContent.ProjectileType<Projectiles.GlassShard>(), info.Damage, 2.5f, Main.myPlayer);
 			}
 			return false;
         }
 
         float check;
->>>>>>> ProjectClash
         public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition) {
             if (Main.hardMode) check = 1f;
 			Player owner = Main.player[(int)Player.FindClosest(Player.position, Player.width, Player.height)];

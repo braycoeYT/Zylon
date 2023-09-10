@@ -9,11 +9,7 @@ namespace Zylon.Items.Blowpipes
 	{
 		public Shellshocker() : base(125, 1.2f, new Color(255, 255, 155), true) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
 		public override void SetStaticDefaults() {
-<<<<<<< HEAD
-			Tooltip.SetDefault("At max charge, replaces ammo a shell that shocks enemies");
-=======
 			// Tooltip.SetDefault("At max charge, replaces ammo a shell that shocks enemies");
->>>>>>> ProjectClash
 		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);

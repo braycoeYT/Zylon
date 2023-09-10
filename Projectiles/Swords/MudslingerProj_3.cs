@@ -10,11 +10,7 @@ namespace Zylon.Projectiles.Swords
 	public class MudslingerProj_3 : ModProjectile
 	{
         public override void SetStaticDefaults() {
-<<<<<<< HEAD
-			DisplayName.SetDefault("Molten Mud");
-=======
 			// DisplayName.SetDefault("Molten Mud");
->>>>>>> ProjectClash
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 3;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
@@ -27,15 +23,6 @@ namespace Zylon.Projectiles.Swords
 			Projectile.DamageType = DamageClass.Melee;
 			Projectile.scale = 0.5f;
 		}
-<<<<<<< HEAD
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-            target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 5));
-        }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-            target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 5));
-        }
-		public override void AI() {
-=======
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 5));
         }
@@ -48,7 +35,6 @@ namespace Zylon.Projectiles.Swords
         }
 
         public override void AI() {
->>>>>>> ProjectClash
 			Projectile.velocity *= 1.02f;
 			//Projectile.friendly = Projectile.timeLeft < 105;
 			Projectile.rotation += 0.1f;

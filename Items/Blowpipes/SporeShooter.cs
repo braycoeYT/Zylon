@@ -12,11 +12,7 @@ namespace Zylon.Items.Blowpipes
 	{
 		public SporeShooter() : base(155, 1.25f, new Color(5, 185, 30)) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
 		public override void SetStaticDefaults() {
-<<<<<<< HEAD
-			Tooltip.SetDefault("Depending on the charge, shoots up to three spores");
-=======
 			// Tooltip.SetDefault("Depending on the charge, shoots up to three spores");
->>>>>>> ProjectClash
 		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);

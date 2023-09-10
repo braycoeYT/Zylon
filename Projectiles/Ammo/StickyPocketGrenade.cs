@@ -50,16 +50,6 @@ namespace Zylon.Projectiles.Ammo
         public override void Kill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
 			for (int i = 0; i < 10; i++) {
-<<<<<<< HEAD
-				int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X+60, Projectile.position.Y+30), Projectile.width/4, Projectile.height/4, 31, 0f, 0f, 100, default(Color), 2f);
-				Main.dust[dustIndex].velocity *= 1.4f;
-			}
-			for (int i = 0; i < 20; i++) {
-				int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X+60, Projectile.position.Y+30), Projectile.width/4, Projectile.height/4, 6, 0f, 0f, 100, default(Color), 3f);
-				Main.dust[dustIndex].noGravity = true;
-				Main.dust[dustIndex].velocity *= 5f;
-				dustIndex = Dust.NewDust(new Vector2(Projectile.position.X+60, Projectile.position.Y+30), Projectile.width/4, Projectile.height/4, 6, 0f, 0f, 100, default(Color), 2f);
-=======
 				int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X+60, Projectile.position.Y+30), Projectile.width/4, Projectile.height/4, DustID.Smoke, 0f, 0f, 100, default(Color), 2f);
 				Main.dust[dustIndex].velocity *= 1.4f;
 			}
@@ -68,7 +58,6 @@ namespace Zylon.Projectiles.Ammo
 				Main.dust[dustIndex].noGravity = true;
 				Main.dust[dustIndex].velocity *= 5f;
 				dustIndex = Dust.NewDust(new Vector2(Projectile.position.X+60, Projectile.position.Y+30), Projectile.width/4, Projectile.height/4, DustID.Torch, 0f, 0f, 100, default(Color), 2f);
->>>>>>> ProjectClash
 				Main.dust[dustIndex].velocity *= 3f;
 			}
 		}

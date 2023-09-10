@@ -52,12 +52,6 @@ namespace Zylon.Items.Placeables
 				Lighting.AddLight(Item.Center, 0.2f, 0.8f, -1f);
 			}
 		}
-<<<<<<< HEAD
-		public override void AutoLightSelect(ref bool dryTorch, ref bool wetTorch, ref bool glowstick)/* tModPorter Note: Removed. Use ItemID.Sets.Torches[Type], ItemID.Sets.WaterTorches[Type], and ItemID.Sets.Glowsticks[Type] in SetStaticDefaults */ {
-			dryTorch = true; // This makes our item eligible for being selected with smart select at a short distance when not underwater.
-		}
-=======
->>>>>>> ProjectClash
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe(10);
 			recipe.AddIngredient(ItemID.Torch, 10);

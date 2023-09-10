@@ -27,13 +27,6 @@ namespace Zylon.Projectiles.Ammo
 			if (target.life < target.lifeMax/8) modifiers.SourceDamage += 2;
 			if (target.life < target.lifeMax/16) modifiers.SourceDamage += 1;
         }
-<<<<<<< HEAD
-        public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection){
-			if (target.life < target.lifeMax/2) damage += 3;
-			if (target.life < target.lifeMax/4) damage += 2;
-			if (target.life < target.lifeMax/8) damage += 2;
-			if (target.life < target.lifeMax/16) damage += 1;
-=======
 
         public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
         {
@@ -44,7 +37,6 @@ namespace Zylon.Projectiles.Ammo
 				if (target.statLife < target.statLifeMax2 / 8) modifiers.SourceDamage += 2;
 				if (target.statLife < target.statLifeMax2 / 16) modifiers.SourceDamage += 1;
 			}
->>>>>>> ProjectClash
         }
     }   
 }

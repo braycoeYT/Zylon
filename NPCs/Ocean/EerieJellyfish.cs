@@ -32,21 +32,12 @@ namespace Zylon.NPCs.Ocean
 			AnimationType = 1;
 			NPC.noGravity = true;
         }
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = 210;
-            NPC.damage = 70;
-			NPC.knockBackResist = 0.9f;
-        }
-        public override void HitEffect(int hitDirection, double damage) {
-=======
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 210;
             NPC.damage = 70;
 			NPC.knockBackResist = 0.9f;
         }
 		public override void HitEffect(NPC.HitInfo hit) {
->>>>>>> ProjectClash
 			for (int i = 0; i < 4; i++) {
 				int dustType = ModContent.DustType<Dusts.JellyDust>();
 				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType);
@@ -93,7 +84,7 @@ namespace Zylon.NPCs.Ocean
 		}
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
 			npcLoot.Add(new CommonDrop(ItemID.Glowstick, 1, 1, 4));
-			npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ModContent.ItemType<Items.Materials.EerieBell>(), 4, 1, 2, 3), new CommonDrop(ModContent.ItemType<Items.Materials.EerieBell>(), 1, 1, 2)));
+			npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ModContent.ItemType<Items.Materials.EerieBell>(), 4, 1, 1, 3), new CommonDrop(ModContent.ItemType<Items.Materials.EerieBell>(), 1)));
 			npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.JellyfishNecklace, 100), new CommonDrop(ItemID.JellyfishNecklace, 80)));
 		}
 	}

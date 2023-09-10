@@ -32,13 +32,8 @@ namespace Zylon.Items.Swords
 				player.HealEffect(1, true);
 			}
 		}
-<<<<<<< HEAD
-        public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
-        player.statLife += 1;
-=======
 		public override void OnHitPvp(Player player, Player target, Player.HurtInfo hurtInfo) {
 			player.statLife += 1;
->>>>>>> ProjectClash
 			player.HealEffect(1, true);
 		}
 	}

@@ -22,12 +22,6 @@ namespace Zylon.Projectiles.Minions
 			//if (Projectile.ai[0] == 1f)
 			//	Projectile.DamageType = DamageClass.Ranged;
 		}
-<<<<<<< HEAD
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Shroomed>(), 60*Main.rand.Next(2, 6));
-        }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-=======
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             if (info.PvP)
@@ -37,7 +31,6 @@ namespace Zylon.Projectiles.Minions
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
->>>>>>> ProjectClash
             target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Shroomed>(), 60*Main.rand.Next(2, 6));
         }
         int Timer;

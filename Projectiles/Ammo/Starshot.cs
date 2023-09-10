@@ -16,11 +16,7 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.height = 16;
 			Projectile.timeLeft = 400;
 		}
-<<<<<<< HEAD
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-=======
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
->>>>>>> ProjectClash
             Projectile.damage /= 2;
 			if (Projectile.damage < 1) Projectile.damage = 1;
         }

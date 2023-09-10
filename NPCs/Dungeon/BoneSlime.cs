@@ -29,13 +29,8 @@ namespace Zylon.NPCs.Dungeon
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.BoneSlimeBanner>();
         }
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = 189;
-=======
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 189;
->>>>>>> ProjectClash
             NPC.damage = 71;
         }
 		public override void AI() {

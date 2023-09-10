@@ -7,11 +7,7 @@ namespace Zylon.Items.Accessories
 	public class RootGuard : ModItem
 	{
 		public override void SetStaticDefaults() {
-<<<<<<< HEAD
-			Tooltip.SetDefault("Taking damage will summon roots nearby to damage enemies");
-=======
 			// Tooltip.SetDefault("Taking damage will summon roots nearby to damage enemies");
->>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.width = 24;

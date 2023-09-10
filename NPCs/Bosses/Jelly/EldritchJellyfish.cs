@@ -51,13 +51,8 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPC.lavaImmune = true;
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/JellyTheme");
         }
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = (int)((11500 + ((numPlayers - 1) * 3500))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
-=======
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = (int)((11500 + ((numPlayers - 1) * 3500))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
->>>>>>> ProjectClash
             NPC.damage = 80;
 			NPC.value = 13750;
 			if (Main.masterMode) {
@@ -65,11 +60,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 				NPC.damage = 120;
             }
         }
-<<<<<<< HEAD
-        public override void HitEffect(int hitDirection, double damage) {
-=======
 		public override void HitEffect(NPC.HitInfo hit) {
->>>>>>> ProjectClash
 			for (int i = 0; i < 4; i++) {
 				int dustType = ModContent.DustType<Dusts.JellyDust>();
 				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType);
@@ -374,15 +365,17 @@ namespace Zylon.NPCs.Bosses.Jelly
 			});
 		}
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
-			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeables.Relics.JellyRelic>()));
-			npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<Items.Pets.EldritchGland>(), 4));
-			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<Items.Bags.JellyBag>()));
+			if (Main.masterMode) {
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.JellyRelic>(), 1));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.EldritchGland>(), 4));
+            }
+			if (Main.expertMode || Main.masterMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.JellyBag>(), 1));
+			else {
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.EerieBell>(), 1, 30, 45));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.OtherworldlyFang>(), 1, 35, 50));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.JellyMask>(), 7));
+            }
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.JellyTrophy>(), 10));
-
-			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
-			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Materials.EerieBell>(), 1, 30, 45));
-			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Materials.OtherworldlyFang>(), 1, 35, 50));
-			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.JellyMask>(), 7));
 		}
     }
 }

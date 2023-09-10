@@ -24,11 +24,7 @@ namespace Zylon.Items.Tools
 			Item.autoReuse = true;
 			Item.hammer = 65;
 		}
-<<<<<<< HEAD
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
-=======
 		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
->>>>>>> ProjectClash
 			target.AddBuff(BuffID.DryadsWardDebuff, Main.rand.Next(5, 11)*60);
 		}
         public override void OnHitPvp(Player player, Player target, Player.HurtInfo hurtInfo) {

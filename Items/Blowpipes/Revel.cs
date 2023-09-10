@@ -9,11 +9,7 @@ namespace Zylon.Items.Blowpipes
 	{
 		public Revel() : base(165, 1.55f, new Color(30, 0, 90), true) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
 		public override void SetStaticDefaults() {
-<<<<<<< HEAD
-			Tooltip.SetDefault("Fire two seeds at once and for the price of one\nAt max charge, replaces ammo with deadly toxin darts");
-=======
 			// Tooltip.SetDefault("Fire two seeds at once and for the price of one\nAt max charge, replaces ammo with deadly toxin darts");
->>>>>>> ProjectClash
 		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);

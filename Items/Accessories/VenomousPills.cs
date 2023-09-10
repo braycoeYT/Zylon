@@ -7,11 +7,7 @@ namespace Zylon.Items.Accessories
 	public class VenomousPills : ModItem
 	{
 		public override void SetStaticDefaults() {
-<<<<<<< HEAD
-			Tooltip.SetDefault("Grants immunity to acid venom");
-=======
 			// Tooltip.SetDefault("Grants immunity to acid venom");
->>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.width = 30;

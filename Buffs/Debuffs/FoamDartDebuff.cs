@@ -8,13 +8,8 @@ namespace Zylon.Buffs.Debuffs
 	public class FoamDartDebuff : ModBuff
 	{
 		public override void SetStaticDefaults() {
-<<<<<<< HEAD
-			DisplayName.SetDefault("Defense Nerf");
-			Description.SetDefault("Defense is decreased by 15");
-=======
 			// DisplayName.SetDefault("Defense Nerf");
 			// Description.SetDefault("Defense is decreased by 15");
->>>>>>> ProjectClash
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;

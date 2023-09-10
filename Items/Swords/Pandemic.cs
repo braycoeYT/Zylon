@@ -10,11 +10,7 @@ namespace Zylon.Items.Swords
 	public class Pandemic : ModItem
 	{
         public override void SetStaticDefaults() {
-<<<<<<< HEAD
-            Tooltip.SetDefault("Inflicts Flash Pandemic upon hitting enemies, which deals extremely high damage and can be spread to other nearby enemies");
-=======
             // Tooltip.SetDefault("Inflicts Flash Pandemic upon hitting enemies, which deals extremely high damage and can be spread to other nearby enemies");
->>>>>>> ProjectClash
         }
         public override void SetDefaults() {
 			Item.damage = 67;

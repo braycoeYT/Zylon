@@ -33,13 +33,8 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPC.noTileCollide = true;
 			NPC.dontCountMe = true;
         }
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-			NPC.damage = 20;
-=======
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.damage = 20;
->>>>>>> ProjectClash
         }
 		int newVel;
 		float fleeRand = Main.rand.NextFloat(-0.75f, 0.75f);

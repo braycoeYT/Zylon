@@ -9,11 +9,7 @@ namespace Zylon.Projectiles.Swords
 	public class MiniRose2 : ModProjectile
 	{
         public override void SetStaticDefaults() {
-<<<<<<< HEAD
-            DisplayName.SetDefault("Mini Rose");
-=======
             // DisplayName.SetDefault("Mini Rose");
->>>>>>> ProjectClash
         }
         public override void SetDefaults() {
 			Projectile.width = 14;

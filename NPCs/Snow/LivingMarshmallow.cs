@@ -27,13 +27,8 @@ namespace Zylon.NPCs.Snow
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.LivingMarshmallowBanner>();
         }
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = 82;
-=======
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 82;
->>>>>>> ProjectClash
             NPC.damage = 28;
 			NPC.knockBackResist = 0.25f;
         }

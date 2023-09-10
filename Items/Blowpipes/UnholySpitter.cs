@@ -12,11 +12,7 @@ namespace Zylon.Items.Blowpipes
 	{
 		public UnholySpitter() : base(135, 1.1f, new Color(125, 0, 255)) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
 		public override void SetStaticDefaults() {
-<<<<<<< HEAD
-			Tooltip.SetDefault("Fires dark energies (amount depending on the charge) at the cursor on use");
-=======
 			// Tooltip.SetDefault("Fires dark energies (amount depending on the charge) at the cursor on use");
->>>>>>> ProjectClash
 		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);

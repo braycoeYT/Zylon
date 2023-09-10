@@ -611,11 +611,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Bone, 20);
 			recipe.AddIngredient(ItemID.FallenStar, 3);
 			recipe.AddTile(TileID.Anvils);
-<<<<<<< HEAD
-			recipe.AddCondition(Recipe.Condition.NearWater);
-=======
 			recipe.AddCondition(Condition.NearWater);
->>>>>>> ProjectClash
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.Handgun);
@@ -630,11 +626,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Bone, 20);
 			recipe.AddIngredient(ItemID.FallenStar, 3);
 			recipe.AddTile(TileID.Anvils);
-<<<<<<< HEAD
-			recipe.AddCondition(Recipe.Condition.NearWater);
-=======
 			recipe.AddCondition(Condition.NearWater);
->>>>>>> ProjectClash
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.MagicMissile);
@@ -650,11 +642,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Bone, 16);
 			recipe.AddIngredient(ItemID.FallenStar, 3);
 			recipe.AddTile(TileID.Anvils);
-<<<<<<< HEAD
-			recipe.AddCondition(Recipe.Condition.NearWater);
-=======
 			recipe.AddCondition(Condition.NearWater);
->>>>>>> ProjectClash
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.Muramasa);
@@ -662,11 +650,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Bone, 15);
 			recipe.AddIngredient(ItemID.FallenStar, 5);
 			recipe.AddTile(TileID.Anvils);
-<<<<<<< HEAD
-			recipe.AddCondition(Recipe.Condition.NearWater);
-=======
 			recipe.AddCondition(Condition.NearWater);
->>>>>>> ProjectClash
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.Valor);

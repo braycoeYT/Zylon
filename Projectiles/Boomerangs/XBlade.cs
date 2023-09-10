@@ -42,13 +42,8 @@ namespace Zylon.Projectiles.Boomerangs
 				Projectile.velocity = speed*-20f;
 			}
 		}
-<<<<<<< HEAD
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-        target.AddBuff(BuffID.Ichor, Main.rand.Next(5, 15) * 60);
-=======
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Ichor, Main.rand.Next(5, 15) * 60);
->>>>>>> ProjectClash
 			target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(5, 15) * 60);
 			if (Main.rand.NextBool(10)) {
 				if (Main.rand.NextBool()) {

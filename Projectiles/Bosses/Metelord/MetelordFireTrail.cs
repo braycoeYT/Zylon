@@ -39,13 +39,8 @@ namespace Zylon.Projectiles.Bosses.Metelord
 				dust.scale = 0.5f;
 			}
 		}*/
-<<<<<<< HEAD
-        public override void OnHitPlayer(Player target, int damage, bool crit) {
-        target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 5)*60);
-=======
         public override void OnHitPlayer(Player target, Player.HurtInfo info) {
             target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 5)*60);
->>>>>>> ProjectClash
         }
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);

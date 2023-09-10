@@ -35,22 +35,13 @@ namespace Zylon.NPCs
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.ElemSlimeBanner>();
         }
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = 1446;
-=======
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 1446;
->>>>>>> ProjectClash
 			NPC.damage = 90;
 			NPC.value = 1300;
 			NPC.defense = 20;
         }
-<<<<<<< HEAD
-        public override void HitEffect(int hitDirection, double damage) {
-=======
 		public override void HitEffect(NPC.HitInfo hit) {
->>>>>>> ProjectClash
 			if (NPC.life > 0) {
 				for (int i = 0; i < 2; i++) {
 					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.ElemDust>(), Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
@@ -62,13 +53,8 @@ namespace Zylon.NPCs
 				dust.noGravity = true;
 			}
 		}
-<<<<<<< HEAD
-        public override void OnHitPlayer(Player target, int damage, bool crit) {
-        target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ElementalDegeneration>(), 60*Main.rand.Next(5, 11));
-=======
 		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
             target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ElementalDegeneration>(), 60*Main.rand.Next(5, 11));
->>>>>>> ProjectClash
         }
 		int Timer;
 		int animationTimer;

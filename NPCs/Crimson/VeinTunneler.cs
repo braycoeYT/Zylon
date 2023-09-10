@@ -41,13 +41,8 @@ namespace Zylon.NPCs.Crimson
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.VeinTunnelerBanner>();
 		}
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = 189;
-=======
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.lifeMax = 189;
->>>>>>> ProjectClash
 			NPC.damage = 49;
 		}
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
@@ -125,13 +120,8 @@ namespace Zylon.NPCs.Crimson
 			Banner = Item.NPCtoBanner(ModContent.NPCType<VeinTunnelerHead>());
 			BannerItem = Item.BannerToItem(Banner);
 		}
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.damage = 31;
-=======
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.damage = 31;
->>>>>>> ProjectClash
 		}
 		public override void Init() {
 			VeinTunnelerHead.CommonWormInit(this);
@@ -162,11 +152,7 @@ namespace Zylon.NPCs.Crimson
 			Banner = Item.NPCtoBanner(ModContent.NPCType<VeinTunnelerHead>());
 			BannerItem = Item.BannerToItem(Banner);
 		}
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-=======
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
->>>>>>> ProjectClash
 			NPC.damage = 23;
 		}
 		public override void Init() {

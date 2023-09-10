@@ -88,11 +88,7 @@ namespace Zylon.NPCs
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SlimePendant>(), 150), new CommonDrop(ItemType<Items.Accessories.SlimePendant>(), 125)));
 			if (npc.type == NPCID.WindyBalloon || npc.type == NPCID.Dandelion)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Materials.WindEssence>(), 3, 1, 2), new CommonDrop(ItemType<Items.Materials.WindEssence>(), 2, 1, 2)));
-<<<<<<< HEAD
-			if ((npc.type == 2) || (npc.type >= -43 && npc.type <= -38) || (npc.type >= 190 && npc.type <= 194) || (npc.type == 317) || (npc.type == 318))
-=======
 			if ((npc.type == NPCID.DemonEye) || (npc.type >= -43 && npc.type <= -38) || (npc.type >= NPCID.CataractEye && npc.type <= NPCID.PurpleEye) || (npc.type == NPCID.DemonEyeOwl) || (npc.type == NPCID.DemonEyeSpaceship))
->>>>>>> ProjectClash
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.GlazedLens>(), 100), new CommonDrop(ItemType<Items.Accessories.GlazedLens>(), 90)));
 			if (npc.type == NPCID.UndeadMiner || npc.type == NPCID.GiantWormHead)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Accessories.ExtraShinyOreNugget>(), 30));
@@ -175,19 +171,7 @@ namespace Zylon.NPCs
 						break;
 					}
 				}
-				if (Main.hardMode) {
-					shop.item[nextSlot].SetDefaults(ItemType<Items.Blowpipes.FamiliarFoamDartPistol>());
-						nextSlot++;
-                }
 			}
-<<<<<<< HEAD
-			if (type == NPCID.Merchant) {
-				if (ZylonWorldCheckSystem.downedDirtball) {
-					shop.item[nextSlot].SetDefaults(ItemType<Items.Tools.TreeWhacker>());
-					nextSlot++;
-				}
-			}
-=======
 			if (npc.type == NPCID.Demolitionist) {
 				for (int i = 0; i < items.Length; i++)
 				{
@@ -234,7 +218,6 @@ namespace Zylon.NPCs
 					}
 				}
 			}
->>>>>>> ProjectClash
 			/*if (type == NPCID.Wizard) {
 				shop.item[nextSlot].SetDefaults(ItemType<Items.Misc.MagnificentOrb>());
 				nextSlot++;

@@ -27,13 +27,8 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPC.noTileCollide = true;
 			NPC.alpha = 255;
         }
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-			NPC.damage = 70;
-=======
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.damage = 70;
->>>>>>> ProjectClash
         }
 		int Timer;
 		int attackCount;

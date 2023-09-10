@@ -7,13 +7,6 @@ namespace Zylon.Items.BossSummons
 {
 	public class EyeofCthulhu : ModItem
 	{
-<<<<<<< HEAD
-		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Eye of Cthulhu");
-			Tooltip.SetDefault("'A suspicious looking eye summons the eye of cthulhu, but what does the eye of cthulhu summon?'\nNot Consumable, but will consume your sanity");
-		}
-=======
->>>>>>> ProjectClash
 		public override void SetDefaults()  {
 			Item.width = 152;
 			Item.height = 110;

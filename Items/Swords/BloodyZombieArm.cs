@@ -27,13 +27,8 @@ namespace Zylon.Items.Swords
 			Item.autoReuse = true;
 			Item.useTurn = false;
 		}
-<<<<<<< HEAD
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
-			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ZombieRot>(), Main.rand.Next(5, 9)*60);
-=======
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ZombieRot>(), Main.rand.Next(5, 9)*60);
->>>>>>> ProjectClash
         }
         /*public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
             target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ZombieRot>(), Main.rand.Next(5, 9)*60);

@@ -34,13 +34,8 @@ namespace Zylon.Projectiles
 					Projectile.frame = 0;
 			}
         }
-<<<<<<< HEAD
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-        target.AddBuff(BuffID.OnFire, Main.rand.Next(1, 4)*60);
-=======
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.OnFire, Main.rand.Next(1, 4)*60);
->>>>>>> ProjectClash
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)

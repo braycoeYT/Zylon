@@ -26,12 +26,6 @@ namespace Zylon.Projectiles.MagicGuns
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			grow += 0.5f;
 		}
-<<<<<<< HEAD
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-        grow += 0.5f;
-		}
-		public override bool OnTileCollide(Vector2 oldVelocity) {
-=======
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
@@ -42,7 +36,6 @@ namespace Zylon.Projectiles.MagicGuns
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity) {
->>>>>>> ProjectClash
 			Projectile.penetrate--;
 			if (Projectile.penetrate <= 0) {
 				Projectile.Kill();

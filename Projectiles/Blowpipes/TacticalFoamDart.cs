@@ -8,11 +8,7 @@ namespace Zylon.Projectiles.Blowpipes
 	public class TacticalFoamDart : ModProjectile
 	{
         public override void SetStaticDefaults() {
-<<<<<<< HEAD
-            DisplayName.SetDefault("Tactical Foam Dart");
-=======
             // DisplayName.SetDefault("Tactical Foam Dart");
->>>>>>> ProjectClash
         }
         public override void SetDefaults() {
 			Projectile.width = 24;
@@ -24,11 +20,7 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.scale = 0.75f;
 		}
-<<<<<<< HEAD
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-=======
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
->>>>>>> ProjectClash
             target.AddBuff(ModContent.BuffType<Buffs.Debuffs.FoamDartDebuff>(), 300);
 			for (int i = 0; i < 24; i++) {
 				Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width, Projectile.height, DustID.Silver);
@@ -37,17 +29,6 @@ namespace Zylon.Projectiles.Blowpipes
 				dust.velocity = new Vector2(0, 12).RotatedBy(MathHelper.ToRadians(i*15));
 			}
         }
-<<<<<<< HEAD
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.FoamDartDebuff>(), 300);
-			for (int i = 0; i < 24; i++) {
-				Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width, Projectile.height, DustID.Silver);
-				dust.noGravity = true;
-				dust.scale = 1.5f;
-				dust.velocity = new Vector2(0, 12).RotatedBy(MathHelper.ToRadians(i*15));
-			}
-        }
-=======
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
@@ -64,7 +45,6 @@ namespace Zylon.Projectiles.Blowpipes
 			}
         }
 
->>>>>>> ProjectClash
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}

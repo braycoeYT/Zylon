@@ -8,11 +8,7 @@ namespace Zylon.Items.Armor
 	public class GlassLeggings : ModItem
 	{
 		public override void SetStaticDefaults() {
-<<<<<<< HEAD
-			Tooltip.SetDefault("-4 Defense\n'Make sure no one throws any stones at you'\nIncreases weapon speed by 5%");
-=======
 			// Tooltip.SetDefault("-4 Defense\n'Make sure no one throws any stones at you'\nIncreases weapon speed by 5%");
->>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

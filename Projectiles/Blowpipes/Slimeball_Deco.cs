@@ -6,11 +6,7 @@ namespace Zylon.Projectiles.Blowpipes
 	public class Slimeball_Deco : ModProjectile
 	{
         public override void SetStaticDefaults() {
-<<<<<<< HEAD
-			DisplayName.SetDefault("Slimeball");
-=======
 			// DisplayName.SetDefault("Slimeball");
->>>>>>> ProjectClash
 			Main.projFrames[Projectile.type] = 6;
         }
         public override void SetDefaults() {

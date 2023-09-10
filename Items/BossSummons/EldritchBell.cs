@@ -7,13 +7,6 @@ namespace Zylon.Items.BossSummons
 {
 	public class EldritchBell : ModItem
 	{
-<<<<<<< HEAD
-		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'It calls for the ocean...'\nSummons the Eldritch Jellyfish\nEnrages outside of the ocean\nNot Consumable");
-			ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 3;
-		}
-=======
->>>>>>> ProjectClash
 		public override void SetDefaults() {
 			Item.width = 32;
 			Item.height = 32;

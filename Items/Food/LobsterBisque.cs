@@ -6,13 +6,8 @@ namespace Zylon.Items.Food
 {
 	public class LobsterBisque : ModItem
 	{
-<<<<<<< HEAD
-		public override void SetStaticDefaults() { //reference to the lobster bisque sketch by Studio C
-			Tooltip.SetDefault("Major improvements to all stats\n'Five stars, five thumbs up, five children...'");
-=======
 		public override void SetStaticDefaults() {
 			// Tooltip.SetDefault("Major improvements to all stats\n'Five stars, five thumbs up, five children...'");
->>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.width = 32;

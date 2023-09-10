@@ -17,13 +17,8 @@ namespace Zylon.Projectiles
 				Projectile.DamageType = DamageClass.Ranged;
 			Projectile.ai[0] = 0;
 		}
-<<<<<<< HEAD
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-        target.AddBuff(BuffID.CursedInferno, 60 * Main.rand.Next(5, 11), false);
-=======
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.CursedInferno, 60 * Main.rand.Next(5, 11), false);
->>>>>>> ProjectClash
 		}
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(BuffID.CursedInferno, 60 * Main.rand.Next(5, 11), false);

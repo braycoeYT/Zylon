@@ -11,10 +11,6 @@ namespace Zylon.Projectiles.Accessories
 	public class MetecoreSpirit : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-<<<<<<< HEAD
-			DisplayName.SetDefault("Metecore");
-=======
->>>>>>> ProjectClash
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;
 			ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;

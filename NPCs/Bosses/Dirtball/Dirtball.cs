@@ -51,13 +51,8 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPC.lavaImmune = true;
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
         }
-<<<<<<< HEAD
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = (int)((2100 + ((numPlayers - 1) * 900))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
-=======
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = (int)((2100 + ((numPlayers - 1) * 900))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
->>>>>>> ProjectClash
 			NPC.damage = 46;
 			NPC.value = 20000;
 			if (Main.masterMode) {
@@ -67,11 +62,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
         }
 		bool bool1;
 		bool bool2;
-<<<<<<< HEAD
-        public override void HitEffect(int hitDirection, double damage) {
-=======
 		public override void HitEffect(NPC.HitInfo hit) {
->>>>>>> ProjectClash
 			for (int i = 0; i < (3-phase)*4; i++) {
 				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Dirt);
 				Dust dust = Main.dust[dustIndex];
@@ -157,9 +148,8 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				}
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Dirtboi>());
 				init = true;
-				//if (Main.GameModeInfo.)//&& Main.GameModeInfo.EnemyMaxLifeMultiplier > 1) //doesn't work sadly
-				//NPC.lifeMax = (int)(NPC.lifeMax/Main.GameModeInfo.EnemyMaxLifeMultiplier);
-				//BRAYC from the future, wut is this???????
+				//if (Main.GameModeInfo.)// && Main.GameModeInfo.EnemyMaxLifeMultiplier > 1) //doesn't work sadly
+				//	NPC.lifeMax = (int)(NPC.lifeMax/Main.GameModeInfo.EnemyMaxLifeMultiplier);
             }
 
 			if (Main.player[NPC.target].statLife < 1) {
@@ -547,25 +537,25 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			ZylonWorldCheckSystem.downedDirtball = true;
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
-			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeables.Relics.DirtballRelic>()));
-			npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<Items.Pets.DS_91Controller>(), 4));
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<Items.Bags.DirtballBag>()));
+			if (Main.masterMode) {
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.DirtballRelic>(), 1));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.DS_91Controller>(), 4));
+            }
+			if (Main.expertMode || Main.masterMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.DirtballBag>(), 1));
+			else {
+				npcLoot.Add(new CommonDrop(ItemID.DirtBlock, 1, 25, 50));
+				npcLoot.Add(new CommonDrop(ItemID.MudBlock, 1, 15, 30));
+				npcLoot.Add(new CommonDrop(ItemID.IronBar, 1, 1, 3));
+				npcLoot.Add(new CommonDrop(ItemID.LeadBar, 1, 1, 3));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bars.ZincBar>(), 1, 1, 3));
+				npcLoot.Add(new CommonDrop(ItemID.DirtRod, 5));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Misc.Dirtthrower>(), 25));
+				npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.MuddyGreatsword>(), ModContent.ItemType<Items.Yoyos.Dirtglob>(), ModContent.ItemType<Items.Bows.Dirty3String>(), ModContent.ItemType<Items.Blowpipes.DirtFunnel>(), ModContent.ItemType<Items.Wands.ScepterofDirt>(), ModContent.ItemType<Items.Accessories.DirtRegalia>()));
+				npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.DirtballMask>(), 7));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.CreepyBlob>(), 10));
+            }
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.DirtballTrophy>(), 10));
-
-			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
-			notExpertRule.OnSuccess(ItemDropRule.Common(ItemID.DirtBlock, 1, 25, 50));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ItemID.MudBlock, 1, 15, 30));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ItemID.IronBar, 1, 1, 3));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ItemID.LeadBar, 1, 1, 3));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Bars.ZincBar>(), 1, 1, 3));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ItemID.DirtRod, 5));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Misc.Dirtthrower>(), 25));
-			notExpertRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.MuddyGreatsword>(), ModContent.ItemType<Items.Yoyos.Dirtglob>(), ModContent.ItemType<Items.Bows.Dirty3String>(), ModContent.ItemType<Items.Blowpipes.DirtFunnel>(), ModContent.ItemType<Items.Wands.ScepterofDirt>(), ModContent.ItemType<Items.Accessories.DirtRegalia>()));
-			notExpertRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Vanity.DirtballMask>(), 7));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Pets.CreepyBlob>(), 10));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Bags.BagofFruits>(), 3));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Food.MudPie>(), 3));
 		}
     }
 }

@@ -27,21 +27,13 @@ namespace Zylon.Items.Swords
 			Item.shoot = ModContent.ProjectileType<Projectiles.Swords.HeartbreakerProj>();
 			Item.shootSpeed = 12f;
 		}
-<<<<<<< HEAD
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
-=======
 		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
->>>>>>> ProjectClash
 			if (target.type != NPCID.TargetDummy) {
 				player.statLife += 1;
 				player.HealEffect(1, true);
 			}
 		}
-<<<<<<< HEAD
-        public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
-=======
 		public override void OnHitPvp(Player player, Player target, Player.HurtInfo hurtInfo) {
->>>>>>> ProjectClash
 			player.statLife += 1;
 			player.HealEffect(1, true);
 		}
