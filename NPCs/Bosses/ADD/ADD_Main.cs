@@ -1,8 +1,10 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
+using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -137,6 +139,8 @@ namespace Zylon.NPCs.Bosses.ADD
 						break;
                 }
             }
+			SpikeGlobalDrawRotation = NPC.rotation;
+			OrbDrawRotation = -NPC.rotation;
         }
 		float w = 1f;
 		private void SpinLaser() {
@@ -326,5 +330,31 @@ namespace Zylon.NPCs.Bosses.ADD
 				new FlavorTextBestiaryInfoElement("A forgotten civilization's adopted protector, powered by a chip connected to the sun god.")
 			});
 		}
+
+		float OrbDrawRotation = 0f;
+		float SpikeGlobalDrawRotation = 0f;
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+			Texture2D texture = TextureAssets.Npc[Type].Value;
+			Texture2D spikeTextureTop = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/ADD/ADD_SpikeUpper");
+			Texture2D spikeTextureBottom = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/ADD/ADD_SpikeLower");
+			Texture2D ankhTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/ADD/ADD_Ankh");
+
+			Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
+
+			Vector2 spikeOrigin = spikeTextureTop.Size() * 0.5f;
+			Vector2 ankhOrigin = ankhTexture.Size() * 0.5f;
+
+			Vector2 drawPos = NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY);
+			Color color = NPC.GetAlpha(drawColor);
+			var effects = SpriteEffects.None;
+
+			spriteBatch.Draw(spikeTextureBottom, drawPos + new Vector2(0, 80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
+			spriteBatch.Draw(texture, drawPos, null, color, OrbDrawRotation, drawOrigin, NPC.scale, effects, 0);
+			spriteBatch.Draw(spikeTextureTop, drawPos + new Vector2(0, -80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
+			spriteBatch.Draw(ankhTexture, drawPos + new Vector2(0, -20).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, ankhOrigin, NPC.scale, effects, 0);
+
+			return false;
+        }
     }
 }

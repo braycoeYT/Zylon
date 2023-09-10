@@ -3231,6 +3231,12 @@ Mods: {
 			SpiderEgg.DisplayName: Spider Egg
 			SpiderEggInvis.DisplayName: Spider Egg Invis
 			VenomFangMelee.DisplayName: Venom Fang Melee
+			DiskiteBigSun.DisplayName: Diskite Big Sun
+			DiskiteLaser.DisplayName: Diskite Laser
+			DiskiteLaserSpeedUp.DisplayName: Diskite Laser Speed Up
+			DiskitePremonition.DisplayName: Diskite Premonition
+			DiskitePremonition2.DisplayName: Diskite Premonition2
+			DiskiteXBeam.DisplayName: Diskite X Beam
 		}
 
 		NPCs: {
@@ -3324,6 +3330,19 @@ Mods: {
 			DesertDiskite_CenterDeco.DisplayName: Desert Diskite_ Center Deco
 			SaplingWarrior.DisplayName: Sapling Warrior
 			StarpackSlime.DisplayName: Starpack Slime
+
+			ADD_Main: {
+				DisplayName: A D D_ Main
+
+				BossChecklistIntegration: {
+					EntryName: Ancient Diskite Director
+					SpawnInfo: Use a [i:5687] in the desert
+				}
+			}
+
+			ADD_Ankh.DisplayName: A D D_ Ankh
+			ADD_SpikeLower.DisplayName: A D D_ Spike Lower
+			ADD_SpikeUpper.DisplayName: A D D_ Spike Upper
 		}
 
 		Prefixes: {

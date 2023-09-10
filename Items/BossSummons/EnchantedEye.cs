@@ -28,10 +28,10 @@ namespace Zylon.Items.BossSummons
         public override bool? UseItem(Player player) {
 			Vector2 rand = player.Center + new Vector2(0, 600); //600
 			//Boss renders bottom to top
-			NPC.NewNPC(Item.GetSource_FromThis(), (int)rand.X, (int)rand.Y, ModContent.NPCType<NPCs.Bosses.ADD.ADD_Ankh>());
-			NPC.NewNPC(Item.GetSource_FromThis(), (int)rand.X, (int)rand.Y, ModContent.NPCType<NPCs.Bosses.ADD.ADD_SpikeUpper>());
-			NPC.NewNPC(Item.GetSource_FromThis(), (int)rand.X, (int)rand.Y, ModContent.NPCType<NPCs.Bosses.ADD.ADD_Main>());
-			NPC.NewNPC(Item.GetSource_FromThis(), (int)rand.X, (int)rand.Y, ModContent.NPCType<NPCs.Bosses.ADD.ADD_SpikeLower>());
+			if (Main.netMode == NetmodeID.SinglePlayer || Main.netMode == NetmodeID.Server)
+            {
+				NPC.NewNPC(Item.GetSource_FromThis(), (int)rand.X, (int)rand.Y, ModContent.NPCType<NPCs.Bosses.ADD.ADD_Main>());
+			}
 			//NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<NPCs.Bosses.ADD.ADD_Setup>());
 			SoundEngine.PlaySound(SoundID.Roar, player.position);
             return true;
