@@ -156,8 +156,8 @@ Mods: {
 			}
 
 			DirtBlock: {
-				DisplayName: Dirt Block Army
-				Description: The Dirt Block Army will fight for you
+				DisplayName: Dirt Clump Army
+				Description: The Dirt Clump Army will fight for you
 			}
 
 			DiskiteMinion: {
@@ -331,8 +331,8 @@ Mods: {
 				DisplayName: Enchanted Dirt Clump
 				Tooltip:
 					'''
-					Summons a small army of dirt blocks to protect you
-					Dirt blocks are affected by the Dirt Regalia
+					Summons a small army of dirt clumps to protect you
+					Dirt clumps are affected by the Dirt Regalia
 					'''
 			}
 
@@ -3080,7 +3080,7 @@ Mods: {
 			ElectricBoltPassiveExplodeExp.DisplayName: Electricity
 			Megawave.DisplayName: Megawave
 			SMGBlast.DisplayName: Space Machine Gun
-			DirtBlockExp.DisplayName: Dirt Block
+			DirtBlockExp.DisplayName: Dirt Clump
 			DiskiteMinion_Center.DisplayName: Desert Diskite
 			DiskiteMinion_CenterDeco.DisplayName: Desert Diskite
 			DiskiteMinion_LaserEye.DisplayName: Desert Diskite

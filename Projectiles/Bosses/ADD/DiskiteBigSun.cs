@@ -13,7 +13,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 	public class DiskiteBigSun : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Pocket Sun");
+			//DisplayName.SetDefault("Pocket Sun");
 			Main.projFrames[Projectile.type] = 4;
         }
 		public override void SetDefaults() {

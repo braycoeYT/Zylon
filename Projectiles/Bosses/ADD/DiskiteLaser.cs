@@ -12,7 +12,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 	public class DiskiteLaser : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Sun Ray");
+			//DisplayName.SetDefault("Sun Ray");
 			Main.projFrames[Projectile.type] = 2;
         }
 		public override void SetDefaults() {
