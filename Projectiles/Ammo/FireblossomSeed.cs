@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Ammo
 	public class FireblossomSeed : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Fireblossom Seed");
+			// DisplayName.SetDefault("Fireblossom Seed");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);

@@ -10,7 +10,7 @@ namespace Zylon.Items.Shortswords
 	public class ZincShortsword : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Right click to switch between legacy and modern modes\nIn legacy mode, stats are buffed");
+			// Tooltip.SetDefault("Right click to switch between legacy and modern modes\nIn legacy mode, stats are buffed");
         }
 		public override void SetDefaults() {
 			Item.damage = 9;

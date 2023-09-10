@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Accessories
 	public class SlimeSpikeFriendly : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Slime Spike");
+			// DisplayName.SetDefault("Slime Spike");
         }
 		public override void SetDefaults() {
 			Projectile.width = 14;
@@ -19,12 +19,23 @@ namespace Zylon.Projectiles.Accessories
 			Projectile.DamageType = DamageClass.Generic;
 			AIType = ProjectileID.Seed;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+<<<<<<< HEAD
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11)*60);
+=======
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11)*60);
+>>>>>>> ProjectClash
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11)*60);
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11) * 60);
+			}
         }
+
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}

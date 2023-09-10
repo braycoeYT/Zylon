@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Blowpipes
 	public class ProbeChaser : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Homing Probe");
+			// DisplayName.SetDefault("Homing Probe");
         }
 		public override void SetDefaults() {
 			Projectile.width = 34;
@@ -27,7 +27,7 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 10;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			if (Main.rand.NextFloat() <= .1f && target.type != NPCID.TargetDummy)
 				Item.NewItem(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.getRect(), ItemID.Heart);
 		}

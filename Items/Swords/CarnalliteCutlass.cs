@@ -10,7 +10,7 @@ namespace Zylon.Items.Swords
 	public class CarnalliteCutlass : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Every fourth swing shoots a pile of leaves");
+			// Tooltip.SetDefault("Every fourth swing shoots a pile of leaves");
 		}
 		public override void SetDefaults() {
 			Item.damage = 29;

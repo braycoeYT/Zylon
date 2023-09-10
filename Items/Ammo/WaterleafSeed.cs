@@ -10,7 +10,7 @@ namespace Zylon.Items.Ammo
 	public class WaterleafSeed : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("For use with blowpipes\nGrows a waterleaf flower on impact\nThe waterleaf shoots water streams around itself");
+			// Tooltip.SetDefault("For use with blowpipes\nGrows a waterleaf flower on impact\nThe waterleaf shoots water streams around itself");
         }
 		public override void SetDefaults() {
 			Item.damage = 7;

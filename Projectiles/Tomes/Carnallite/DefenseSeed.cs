@@ -13,7 +13,7 @@ namespace Zylon.Projectiles.Tomes.Carnallite
 	public class DefenseSeed : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Defense Seed");
+			// DisplayName.SetDefault("Defense Seed");
 		}
 
 		public override void SetDefaults() {

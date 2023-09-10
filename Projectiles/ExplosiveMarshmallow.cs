@@ -8,7 +8,7 @@ namespace Zylon.Projectiles
 	public class ExplosiveMarshmallow : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Explosive Marshmallow");
+			// DisplayName.SetDefault("Explosive Marshmallow");
         }
 		public override void SetDefaults() {
 			Projectile.width = 14;

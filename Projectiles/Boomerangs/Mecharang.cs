@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Boomerangs
 	public class Mecharang : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mecharang");
+			// DisplayName.SetDefault("Mecharang");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.EnchantedBoomerang);

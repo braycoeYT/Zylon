@@ -11,7 +11,7 @@ namespace Zylon.Items.Pets
 	public class DiskiteDrive : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons a mini diskling to follow you");
+			// Tooltip.SetDefault("Summons a mini diskling to follow you");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 		public override void SetDefaults() {

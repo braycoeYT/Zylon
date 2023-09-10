@@ -7,7 +7,7 @@ namespace Zylon.Items.Swords
 	public class OreTour : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Fires a ring of ores on use");
+			// Tooltip.SetDefault("Fires a ring of ores on use");
 		}
 		public override void SetDefaults() {
 			Item.damage = 26;

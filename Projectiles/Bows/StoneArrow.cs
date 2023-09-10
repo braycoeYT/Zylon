@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Bows
     public class StoneArrow : ModProjectile
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Stone Arrow");
+            // DisplayName.SetDefault("Stone Arrow");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
         }

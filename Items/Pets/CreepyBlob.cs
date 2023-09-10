@@ -11,7 +11,7 @@ namespace Zylon.Items.Pets
 	public class CreepyBlob : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons the one and only Dirtboi to follow you");
+			// Tooltip.SetDefault("Summons the one and only Dirtboi to follow you");
 		}
 		public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.ZephyrFish);

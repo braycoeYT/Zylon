@@ -7,7 +7,7 @@ namespace Zylon.Items.Materials
 	public class BloodDroplet : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'I don't think you should hold this with your bare hands...'");
+			// Tooltip.SetDefault("'I don't think you should hold this with your bare hands...'");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

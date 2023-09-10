@@ -8,7 +8,7 @@ namespace Zylon.Items.Armor
 	public class SlimePrinceBreastplate : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Only second to the king himself'\nIncreases summoner damage by 4%\nIncreases your max number of minions by 1");
+			// Tooltip.SetDefault("'Only second to the king himself'\nIncreases summoner damage by 4%\nIncreases your max number of minions by 1");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;
@@ -23,9 +23,9 @@ namespace Zylon.Items.Armor
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddRecipeGroup("Zylon:AnySilverBar", 10);
+			recipe.AddRecipeGroup("Zylon:AnySilverBar", 5);
 			recipe.AddIngredient(ModContent.ItemType<Materials.SlimyCore>(), 7);
-			recipe.AddIngredient(ItemID.Gel, 60);
+			recipe.AddIngredient(ItemID.Gel, 45);
 			recipe.AddTile(TileID.Solidifier);
 			recipe.Register();
 		}

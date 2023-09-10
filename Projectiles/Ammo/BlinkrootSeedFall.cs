@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Ammo
 	public class BlinkrootSeedFall : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Blinkroot Seed");
+			// DisplayName.SetDefault("Blinkroot Seed");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);

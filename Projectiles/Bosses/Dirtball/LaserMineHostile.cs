@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Bosses.Dirtball
 	public class LaserMineHostile : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Laser Mine");
+			// DisplayName.SetDefault("Laser Mine");
 			Main.projFrames[Projectile.type] = 2;
         }
 		public override void SetDefaults() {

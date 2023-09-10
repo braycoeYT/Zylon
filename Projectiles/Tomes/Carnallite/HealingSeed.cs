@@ -13,7 +13,7 @@ namespace Zylon.Projectiles.Tomes.Carnallite
 	public class HealingSeed : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Healing Seed");
+			// DisplayName.SetDefault("Healing Seed");
 		}
 
 		public override void SetDefaults() {

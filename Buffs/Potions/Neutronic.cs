@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Potions
     public class Neutronic : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Neutronic");
-            Description.SetDefault("Modifies your damage and defense based on your current health");
+            // DisplayName.SetDefault("Neutronic");
+            // Description.SetDefault("Modifies your damage and defense based on your current health");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = false;
         }

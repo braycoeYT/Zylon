@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Spears
 	public class AridBoStaffProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Arid Winds");
+			// DisplayName.SetDefault("Arid Winds");
         }
 		public override void SetDefaults() {
 			Projectile.width = 32;

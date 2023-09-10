@@ -7,7 +7,7 @@ namespace Zylon.Projectiles
 	public class Feather : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Feather");
+			// DisplayName.SetDefault("Feather");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.HarpyFeather);

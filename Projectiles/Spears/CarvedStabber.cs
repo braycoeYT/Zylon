@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Spears
 	public class CarvedStabber : SpearProj
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Carved Stabber");
+			// DisplayName.SetDefault("Carved Stabber");
 		}
         public override void SpearDefaultsSafe()
         {

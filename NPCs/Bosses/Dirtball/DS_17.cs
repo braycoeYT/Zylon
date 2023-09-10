@@ -14,7 +14,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
     public class DS_17 : ModNPC
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("DS-17");
+			// DisplayName.SetDefault("DS-17");
             //Main.npcFrameCount[NPC.type] = 2;
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				ImmuneToAllBuffsThatAreNotWhips = true,
@@ -35,12 +35,26 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPC.noGravity = true;
             NPC.noTileCollide = true;
         }
+<<<<<<< HEAD
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        NPC.lifeMax = 82;
+=======
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 82;
+>>>>>>> ProjectClash
 			NPC.damage = 30;
 			NPC.knockBackResist = 0f;
+			if (Main.masterMode) {
+				NPC.lifeMax = 123;
+				NPC.damage = 45;
+				NPC.knockBackResist = 0f;
+            }
         }
-		public override void HitEffect(int hitDirection, double damage) {
+<<<<<<< HEAD
+        public override void HitEffect(int hitDirection, double damage) {
+=======
+		public override void HitEffect(NPC.HitInfo hit) {
+>>>>>>> ProjectClash
 			if (NPC.life > 0) {
 				for (int i = 0; i < 2; i++) {
 					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.Iron, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));

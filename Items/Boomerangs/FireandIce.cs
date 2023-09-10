@@ -8,8 +8,8 @@ namespace Zylon.Items.Boomerangs
 	public class FireandIce : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Fire and Ice");
-			Tooltip.SetDefault("'Hell's frozen over!'\nStruck enemies are inflicted with On Fire and Frostburn\nBefore returning, releases several ice and fire balls");
+			// DisplayName.SetDefault("Fire and Ice");
+			// Tooltip.SetDefault("'Hell's frozen over!'\nStruck enemies are inflicted with On Fire and Frostburn\nBefore returning, releases several ice and fire balls");
 		}
 		public override void SetDefaults() {
 			Item.damage = 41;
@@ -28,6 +28,7 @@ namespace Zylon.Items.Boomerangs
 			Item.autoReuse = true;
 			Item.UseSound = SoundID.Item1;
 			Item.shoot = ProjectileType<Projectiles.Boomerangs.FireandIce>();
+			Item.channel = true;
 		}
 		public override bool CanUseItem(Player player) {
 			return player.ownedProjectileCounts[Item.shoot] < 1;

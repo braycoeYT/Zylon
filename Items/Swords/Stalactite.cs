@@ -9,7 +9,7 @@ namespace Zylon.Items.Swords
 	public class Stalactite : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("At full health, shoots a sword beam");
+			// Tooltip.SetDefault("At full health, shoots a sword beam");
 		}
 		public override void SetDefaults() {
 			Item.damage = 23;

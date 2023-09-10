@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Spears
 	public class AridBoStaff : SpearProj
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Arid Bo Staff");
+			// DisplayName.SetDefault("Arid Bo Staff");
 		}
         public override void SpearDefaultsSafe()
         {

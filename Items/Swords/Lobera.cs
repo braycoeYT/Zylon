@@ -9,7 +9,7 @@ namespace Zylon.Items.Swords
 	public class Lobera : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Hits will slash the enemy's soul, causing their defense to be halved\nStriking foes will rain tropical orbs upon them");
+			// Tooltip.SetDefault("Hits will slash the enemy's soul, causing their defense to be halved\nStriking foes will rain tropical orbs upon them");
 		}
 		public override void SetDefaults() {
 			Item.damage = 67;

@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Bosses.Dirtball
 	public class DirtboiTears : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Dirtboi's Tears");
+			// DisplayName.SetDefault("Dirtboi's Tears");
         }
 		public override void SetDefaults() {
 			Projectile.width = 14;

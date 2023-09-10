@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Minions
 	public class StardustBeam : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Stardust Beam");
+			// DisplayName.SetDefault("Stardust Beam");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Bullet);

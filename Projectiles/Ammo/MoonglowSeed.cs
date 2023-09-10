@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Ammo
 	public class MoonglowSeed : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Moonglow Seed");
+			// DisplayName.SetDefault("Moonglow Seed");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);

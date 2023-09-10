@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -7,11 +8,11 @@ namespace Zylon.Items.Materials
 	public class EnchantedIceCube : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Keeps your drinks nice and cool!'\nMinor improvements to all stats");
+			// Tooltip.SetDefault("'Keeps your drinks nice and cool!'\nMinor improvements to all stats");
 		}
 		public override void SetDefaults() {
 			Item.width = 30;
-			Item.height = 32;
+			Item.height = 30;
 			Item.useTime = 17;
 			Item.useAnimation = 17;
 			Item.useStyle = ItemUseStyleID.EatFood;

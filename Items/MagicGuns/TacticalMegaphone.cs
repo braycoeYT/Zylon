@@ -9,7 +9,7 @@ namespace Zylon.Items.MagicGuns
 	public class TacticalMegaphone : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Unethically tactical, for your pleasure.'\nProjectile slowly gains size for every struck enemy");
+			// Tooltip.SetDefault("'Unethically tactical, for your pleasure.'\nProjectile slowly gains size for every struck enemy");
 		}
 		public override void SetDefaults() {
 			Item.damage = 62;

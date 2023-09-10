@@ -9,7 +9,7 @@ namespace Zylon.Items.Wands
 	public class MeteorHerder : ModItem
 	{
         public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'We back in Meteor Herd'\nRains tiny meteors from above");
+			// Tooltip.SetDefault("'We back in Meteor Herd'\nRains tiny meteors from above");
             Item.staff[Item.type] = true;
         }
         public override void SetDefaults() {

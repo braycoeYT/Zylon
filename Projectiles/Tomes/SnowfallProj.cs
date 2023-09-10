@@ -6,13 +6,14 @@ using System;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
+using System.IO;
 
 namespace Zylon.Projectiles.Tomes
 {
 	public class SnowfallProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Snowfall");
+			// DisplayName.SetDefault("Snowfall");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
@@ -47,22 +48,20 @@ namespace Zylon.Projectiles.Tomes
 				Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<Dusts.SnowfallDust>(), Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-3, 3), Projectile.alpha, Color.White, 1f);
 			}
 
-
-			if (Projectile.owner == Main.myPlayer)
-            {
-				if (Projectile.ai[0] <= 1)
+			if (Projectile.ai[0] <= 1)
+			{
+				StoredCenter = Projectile.Center;
+				StoredVelocity = Projectile.velocity;
+				if (Projectile.owner == Main.myPlayer)
                 {
 					StoredMouse = Main.MouseWorld;
-					StoredCenter = Projectile.Center;
-					StoredVelocity = Projectile.velocity;
-				}
-				if (Projectile.ai[0] <= (RampSpeed + 3f))
-				{
-					Projectile.velocity = Vector2.SmoothStep(StoredVelocity, (StoredMouse - StoredCenter).SafeNormalize(Vector2.Zero) * 12f, progress);
-
 					Projectile.netUpdate = true;
 				}
-            }
+			}
+			if (Projectile.ai[0] <= (RampSpeed + 3f))
+			{
+				Projectile.velocity = Vector2.SmoothStep(StoredVelocity, (StoredMouse - StoredCenter).SafeNormalize(Vector2.Zero) * 12f, progress);
+			}
 
 			if (Projectile.ai[0] >= (RampSpeed - 7f))
             {
@@ -76,8 +75,16 @@ namespace Zylon.Projectiles.Tomes
 				Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<Dusts.SnowfallDust>(), Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-6, 6), 0, Color.White, 1.3f);
 			}
 		}
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+			writer.WriteVector2(StoredMouse);
+		}
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+			StoredMouse = reader.ReadVector2();
+		}
 
-		float fakealpha = 1f;
+        float fakealpha = 1f;
 		public override bool PreDraw(ref Color lightColor)
 		{
 			Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;

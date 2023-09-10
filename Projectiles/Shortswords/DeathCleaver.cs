@@ -12,7 +12,7 @@ namespace Zylon.Projectiles.Shortswords
 
 		public const int TotalDuration = 9; //16
 
-		// The "width" of the blade
+		//The "width" of the blade
 		public float CollisionWidth => 10f * Projectile.scale;
 
 		public int Timer {
@@ -21,7 +21,7 @@ namespace Zylon.Projectiles.Shortswords
 		}
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Death Cleaver");
+			// DisplayName.SetDefault("Death Cleaver");
 		}
 		public override void SetDefaults() {
 			Projectile.Size = new Vector2(18);
@@ -37,18 +37,23 @@ namespace Zylon.Projectiles.Shortswords
 			Projectile.timeLeft = 360;
 			Projectile.hide = true;
 		}
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             if (target.life < 1)
 				for (int i = 0; i < 8; i++)
 					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*45)), ModContent.ProjectileType<ShadeOrb>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-            if (target.statLife < 1)
-				for (int i = 0; i < 8; i++)
-					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*45)), ModContent.ProjectileType<ShadeOrb>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				if (target.statLife < 1)
+					for (int i = 0; i < 8; i++)
+						ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i * 45)), ModContent.ProjectileType<ShadeOrb>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+			}
         }
 
-		public override void AI() {
+        public override void AI() {
 			Player player = Main.player[Projectile.owner];
 
 			Timer += 1;
@@ -82,7 +87,7 @@ namespace Zylon.Projectiles.Shortswords
 			DrawOffsetX = -(HalfSpriteWidth - HalfProjWidth);
 			DrawOriginOffsetY = -(HalfSpriteHeight - HalfProjHeight);
 
-			// Vanilla configuration for "hitbox towards the end"
+			//Vanilla configuration for "hitbox towards the end"
 			//if (Projectile.spriteDirection == 1) {
 			//	DrawOriginOffsetX = -(HalfProjWidth - HalfSpriteWidth);
 			//	DrawOffsetX = (int)-DrawOriginOffsetX * 2;
@@ -109,7 +114,7 @@ namespace Zylon.Projectiles.Shortswords
 		public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox) {
 			Vector2 start = Projectile.Center;
 			Vector2 end = start + Projectile.velocity * 2f;
-			float collisionPoint = 0f; // Don't need that variable, but required as parameter
+			float collisionPoint = 0f; //Don't need that variable, but required as parameter
 			return Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), start, end, CollisionWidth, ref collisionPoint);
 		}
 	}

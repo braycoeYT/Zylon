@@ -50,6 +50,22 @@ namespace Zylon.Items
 					tooltips.Add(line);
 				}
             }
+			if (item.type == ItemID.ShinyRedBalloon || item.type == ItemID.BalloonPufferfish) {
+				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 4/s (does not stack with other balloons)");
+				tooltips.Add(line);
+			}
+			if (item.type == ItemID.BlizzardinaBalloon || item.type == ItemID.CloudinaBalloon || item.type == ItemID.FartInABalloon || item.type == ItemID.SandstorminaBalloon || item.type == ItemID.SharkronBalloon || item.type == ItemID.HoneyBalloon) {
+				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 6/s (does not stack with other balloons)");
+				tooltips.Add(line);
+			}
+			if (item.type == ItemID.BalloonHorseshoeFart || item.type == ItemID.BalloonHorseshoeHoney || item.type == ItemID.BalloonHorseshoeSharkron || item.type == ItemID.BlueHorseshoeBalloon || item.type == ItemID.WhiteHorseshoeBalloon || item.type == ItemID.YellowHorseshoeBalloon) {
+				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 8/s (does not stack with other balloons)");
+				tooltips.Add(line);
+			}
+			if (item.type == ItemID.BundleofBalloons) {
+				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 10/s (does not stack with other balloons)");
+				tooltips.Add(line);
+			}
 			/*if (item.type == ItemID.Minishark || item.type == ItemID.Shotgun || item.type == ItemID.PainterPaintballGun) {
 				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Slightly weakened until Eater of Worlds or Brain of Cthulhu is defeated");
 				tooltips.Add(line);
@@ -63,14 +79,12 @@ namespace Zylon.Items
 					item.damage = 10;
 				if (item.type == ItemID.CookedMarshmallow)
 					item.buffTime = 7200;
-				if (item.type == ItemID.Coal) 
-					item.maxStack = 999;
-				if (item.type == ItemID.SnowGlobe) 
+				if (item.type == ItemID.Coal || item.type == ItemID.SnowGlobe || item.type == ItemID.GoldCrown || item.type == ItemID.PlatinumCrown) 
 					item.maxStack = 999;
 				if (item.type == ItemID.LaserDrill)
 					item.pick = 220;
 				if (item.type == ItemID.FlareGun)
-					item.damage = 12;
+					item.damage = 15;
 				if (item.type == ItemID.Zenith)
 					item.damage = 84;
 				if (item.type == ItemID.Flare || item.type == ItemID.BlueFlare)
@@ -79,8 +93,8 @@ namespace Zylon.Items
 			if (!GetInstance<ZylonConfig>().dirtAmmoFix) {
 				if (item.type == ItemID.DirtBlock) {
 					item.consumable = true;
-					item.ammo = ItemType<Misc.Dirtthrower>();
-					item.notAmmo = false;
+					item.ammo = ModContent.ItemType<Misc.Dirtthrower>();
+					item.notAmmo = true;
                 }
             }
 		}
@@ -106,16 +120,6 @@ namespace Zylon.Items
          }*/
         public override void UpdateAccessory(Item item, Player player, bool hideVisual) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			if (item.type == ItemID.RoyalGel) {
-				player.npcTypeNoAggro[NPCType<NPCs.Dungeon.BoneSlime>()] = true;
-				player.npcTypeNoAggro[NPCType<NPCs.Forest.DirtSlime>()] = true;
-				player.npcTypeNoAggro[NPCType<NPCs.Forest.MechanicalSlime>()] = true;
-				player.npcTypeNoAggro[NPCType<NPCs.Forest.OrangeSlime>()] = true;
-				player.npcTypeNoAggro[NPCType<NPCs.Ocean.CyanSlime>()] = true;
-				player.npcTypeNoAggro[NPCType<NPCs.Sky.StarpackSlime>()] = true;
-				player.npcTypeNoAggro[NPCType<NPCs.Snow.LivingMarshmallow>()] = true;
-				player.npcTypeNoAggro[NPCType<NPCs.Snow.RoastedLivingMarshmallow>()] = true;
-			}
 			if (GetInstance<ZylonConfig>().bandBuffs) {
 				if (item.type == ItemID.BandofRegeneration || item.type == ItemID.CharmofMyths) {
 					p.bandofRegen = true;
@@ -132,6 +136,34 @@ namespace Zylon.Items
 					player.GetArmorPenetration(DamageClass.Generic) -= 5;
 				}
 				p.stncheck = true;
+            }
+			if (item.type == ItemID.ShinyRedBalloon || item.type == ItemID.BalloonPufferfish) {
+				if (!p.balloonCheck) { 
+					p.blowpipeChargeInc += 0.1333333333f;
+				}
+				p.balloonCheck = true;
+			}
+			if (item.type == ItemID.BlizzardinaBalloon || item.type == ItemID.CloudinaBalloon || item.type == ItemID.FartInABalloon || item.type == ItemID.SandstorminaBalloon || item.type == ItemID.SharkronBalloon || item.type == ItemID.HoneyBalloon) {
+				if (!p.balloonCheck) { 
+					p.blowpipeChargeInc += 0.2f;
+				}
+				p.balloonCheck = true;
+			}
+			if (item.type == ItemID.BalloonHorseshoeFart || item.type == ItemID.BalloonHorseshoeHoney || item.type == ItemID.BalloonHorseshoeSharkron || item.type == ItemID.BlueHorseshoeBalloon || item.type == ItemID.WhiteHorseshoeBalloon || item.type == ItemID.YellowHorseshoeBalloon) {
+				if (!p.balloonCheck) { 
+					p.blowpipeChargeInc += 0.2666666666f;
+				}
+				p.balloonCheck = true;
+			}
+			if (item.type == ItemID.BundleofBalloons) {
+				if (!p.balloonCheck) { 
+					p.blowpipeChargeInc += 0.3333333333f;
+				}
+				p.balloonCheck = true;
+			}
+			if (item.type == ItemID.FleshKnuckles) {
+				if (p.fleKnuCheck) player.statDefense -= 8;
+				p.fleKnuCheck = true;
             }
 		}
 		public override string IsArmorSet(Item head, Item body, Item legs) {

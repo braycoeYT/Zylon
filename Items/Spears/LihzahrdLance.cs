@@ -7,22 +7,27 @@ namespace Zylon.Items.Spears
 {
 	public class LihzahrdLance : ModItem
 	{
+<<<<<<< HEAD
+		public override void SetStaticDefaults() {
+			Tooltip.SetDefault("Shoots multiple short-range lihzahrd beams");
+=======
 		public override void SetStaticDefaults()
 		{
 			ItemID.Sets.Spears[Item.type] = true;
-			Tooltip.SetDefault("Shoots multiple high-speed lihzahrd beams");
+			// Tooltip.SetDefault("Shoots multiple high-speed lihzahrd beams");
+>>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.damage = 81;
 			Item.useStyle = ItemUseStyleID.Thrust;
 			Item.useAnimation = 22;
 			Item.useTime = 29;
-			Item.shootSpeed = 5.5f;
+			Item.shootSpeed = 6f;
 			Item.knockBack = 5.4f;
 			Item.width = 32;
 			Item.height = 32;
 			Item.rare = ItemRarityID.Lime;
-			Item.value = Item.sellPrice(0, 6, 50, 0);
+			Item.value = Item.sellPrice(0, 9, 50, 0);
 			Item.DamageType = DamageClass.Melee;
 			Item.noMelee = true;
 			Item.noUseGraphic = true;

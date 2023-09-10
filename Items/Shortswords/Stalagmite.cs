@@ -10,7 +10,7 @@ namespace Zylon.Items.Shortswords
 	public class Stalagmite : ModItem
 	{
         public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Right click to switch between legacy and modern modes\nHitting enemies spawns granite sparks\nIn legacy mode, stats are buffed and more sparks are spawned");
+			// Tooltip.SetDefault("Right click to switch between legacy and modern modes\nHitting enemies spawns granite sparks\nIn legacy mode, stats are buffed and more sparks are spawned");
         }
         public override void SetDefaults() {
 			Item.damage = 27;
@@ -67,11 +67,11 @@ namespace Zylon.Items.Shortswords
             }
 			return true;
         }
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
 			for (int i = 0; i < 5; i++)
 				Projectile.NewProjectile(Item.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-7, -4)), ProjectileType<Projectiles.Shortswords.GraniteSpark>(), Item.damage, Item.knockBack, Main.myPlayer);
         }
-        public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
+        public override void OnHitPvp(Player player, Player target, Player.HurtInfo hurtInfo) {
 			for (int i = 0; i < 5; i++)
 				Projectile.NewProjectile(Item.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-7, -4)), ProjectileType<Projectiles.Shortswords.GraniteSpark>(), Item.damage, Item.knockBack, Main.myPlayer);
         }

@@ -10,8 +10,8 @@ namespace Zylon.Items.Bows
 	public class Dirty3String : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Dirty 3-String");
-			Tooltip.SetDefault("Has a low firerate, but fires 1-3 arrows");
+			// DisplayName.SetDefault("Dirty 3-String");
+			// Tooltip.SetDefault("Has a low firerate, but fires 1-3 arrows");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 0, 50, 0);

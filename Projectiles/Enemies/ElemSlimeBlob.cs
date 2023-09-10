@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Enemies
 	public class ElemSlimeBlob : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Elemental Slime Blob");
+			// DisplayName.SetDefault("Elemental Slime Blob");
 			Main.projFrames[Projectile.type] = 6;
         }
 		public override void SetDefaults() {
@@ -21,7 +21,7 @@ namespace Zylon.Projectiles.Enemies
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = false;
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
             target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ElementalDegeneration>(), 60*Main.rand.Next(3, 7));
         }
 		int Timer;

@@ -8,7 +8,7 @@ namespace Zylon.Items.Armor
 	public class SlimePrinceLeggings : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Only second to the king himself'\nIncreases summoner damage by 3%");
+			// Tooltip.SetDefault("'Only second to the king himself'\nIncreases summoner damage by 3%");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;
@@ -22,9 +22,9 @@ namespace Zylon.Items.Armor
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddRecipeGroup("Zylon:AnySilverBar", 8);
+			recipe.AddRecipeGroup("Zylon:AnySilverBar", 4);
 			recipe.AddIngredient(ModContent.ItemType<Materials.SlimyCore>(), 6);
-			recipe.AddIngredient(ItemID.Gel, 50);
+			recipe.AddIngredient(ItemID.Gel, 35);
 			recipe.AddTile(TileID.Solidifier);
 			recipe.Register();
 		}

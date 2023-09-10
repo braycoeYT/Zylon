@@ -7,7 +7,7 @@ namespace Zylon.Projectiles
 	public class CursedFlamesMelee : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Cursed Flames");
+			// DisplayName.SetDefault("Cursed Flames");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.CursedFlameFriendly);
@@ -17,10 +17,15 @@ namespace Zylon.Projectiles
 				Projectile.DamageType = DamageClass.Ranged;
 			Projectile.ai[0] = 0;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+<<<<<<< HEAD
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        target.AddBuff(BuffID.CursedInferno, 60 * Main.rand.Next(5, 11), false);
+=======
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.CursedInferno, 60 * Main.rand.Next(5, 11), false);
+>>>>>>> ProjectClash
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(BuffID.CursedInferno, 60 * Main.rand.Next(5, 11), false);
 		}
         public override void Kill(int timeLeft) {

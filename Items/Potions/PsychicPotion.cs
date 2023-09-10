@@ -7,7 +7,7 @@ namespace Zylon.Items.Potions
     public class PsychicPotion : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("Greatly increases mana regen, but decreases your max life");
+            // Tooltip.SetDefault("Greatly increases mana regen, but decreases your max life");
         }
         public override void SetDefaults() {
             Item.width = 20;

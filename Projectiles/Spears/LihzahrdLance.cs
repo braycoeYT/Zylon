@@ -13,7 +13,7 @@ namespace Zylon.Projectiles.Spears
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Lihzahrd Lance");
+			// DisplayName.SetDefault("Lihzahrd Lance");
 		}
 		public LihzahrdLance() : base(-20f, 24, 45f, 20f, 2, 30, 60f, 0f, 1.5f, false, false, false) { }
 		public override void SpearDefaultsSafe()
@@ -36,12 +36,34 @@ namespace Zylon.Projectiles.Spears
 				SoundEngine.PlaySound(SoundID.Item12, Projectile.position);
 				if (Main.myPlayer == Projectile.owner)
 				{
+<<<<<<< HEAD
+					MovementFactor = 1.5f; //3
+					Projectile.netUpdate = true;
+				}
+				if (projOwner.itemAnimation < projOwner.itemAnimationMax / 3)
+				{
+					MovementFactor -= 1.2f; //2.4
+				}
+				else // Otherwise, increase the movement factor
+				{
+					MovementFactor += 1.05f; //2.1
+				}
+			}
+			Projectile.position += Projectile.velocity * MovementFactor;
+			if (projOwner.itemAnimation == 0) {
+				Projectile.Kill();
+			}
+			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(135f);
+			if (Projectile.spriteDirection == -1) {
+				Projectile.rotation -= MathHelper.ToRadians(90f);
+=======
 					float SwingMulti = -1;
 					if (SwingNumber == 1)
 						SwingMulti = 1;
 
 					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, (Projectile.velocity * 15f).RotatedBy(MathHelper.ToRadians((MathHelper.SmoothStep((RadianSwingRotation / 2f), ((RadianSwingRotation / 2f) * -1f), Duration / (float)RadianSwingFrames) * SwingMulti))), ModContent.ProjectileType<LihzahrdBeam>(), (int)(Projectile.damage * 0.7f), 2f, Main.myPlayer);
 				}
+>>>>>>> ProjectClash
 			}
 		}
 		public override void PostAI()

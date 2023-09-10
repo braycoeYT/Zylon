@@ -10,7 +10,11 @@ namespace Zylon.Items.Swords
 	public class Pandemic : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("'Pandemics are made to kill'\nInflicts Flash Pandemic upon hitting enemies, which deals extremely high damage and can be spread to other nearby enemies");
+<<<<<<< HEAD
+            Tooltip.SetDefault("Inflicts Flash Pandemic upon hitting enemies, which deals extremely high damage and can be spread to other nearby enemies");
+=======
+            // Tooltip.SetDefault("Inflicts Flash Pandemic upon hitting enemies, which deals extremely high damage and can be spread to other nearby enemies");
+>>>>>>> ProjectClash
         }
         public override void SetDefaults() {
 			Item.damage = 67;
@@ -27,7 +31,7 @@ namespace Zylon.Items.Swords
 			Item.autoReuse = true;
 			Item.useTurn = true;
 		}
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(ModContent.BuffType<Buffs.Debuffs.FlashPandemic>(), Main.rand.Next(2, 5)*60);
         }
         public override void AddRecipes() {

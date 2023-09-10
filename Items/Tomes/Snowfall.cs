@@ -9,7 +9,7 @@ namespace Zylon.Items.Tomes
 	public class Snowfall : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Launches 3 snowflakes towards your cursor\n'Winter is coming...'");
+			// Tooltip.SetDefault("Launches 3 snowflakes towards your cursor\n'Winter is coming...'");
 		}
 		public override void SetDefaults() {
 			Item.damage = 16;

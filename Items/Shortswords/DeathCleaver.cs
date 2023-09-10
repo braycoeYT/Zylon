@@ -10,7 +10,7 @@ namespace Zylon.Items.Shortswords
 	public class DeathCleaver : ModItem
 	{
         public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Right click to switch between legacy and modern modes\nSlain enemies explode into eight shade orbs\nIn legacy mode, stats are buffed and twelve orbs are released");
+			// Tooltip.SetDefault("Right click to switch between legacy and modern modes\nSlain enemies explode into eight shade orbs\nIn legacy mode, stats are buffed and twelve orbs are released");
         }
         public override void SetDefaults() {
 			Item.damage = 21;
@@ -67,12 +67,12 @@ namespace Zylon.Items.Shortswords
             }
 			return true;
         }
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
             if (target.life < 1)
 				for (int i = 0; i < 12; i++)
 					Projectile.NewProjectile(Item.GetSource_FromThis(), target.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*30)), ProjectileType<Projectiles.Shortswords.ShadeOrb>(), Item.damage, Item.knockBack, Main.myPlayer);
         }
-        public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
+        public override void OnHitPvp(Player player, Player target, Player.HurtInfo hurtInfo) {
             if (target.statLife < 1)
 				for (int i = 0; i < 12; i++)
 					Projectile.NewProjectile(Item.GetSource_FromThis(), target.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*30)), ProjectileType<Projectiles.Shortswords.ShadeOrb>(), Item.damage, Item.knockBack, Main.myPlayer);
@@ -82,7 +82,7 @@ namespace Zylon.Items.Shortswords
 			recipe.AddRecipeGroup("Zylon:AnyPHBar", 12);
 			recipe.AddIngredient(ItemType<Materials.ObeliskShard>(), 20);
 			recipe.AddTile(TileID.Anvils);
-			recipe.AddCondition(Recipe.Condition.InGraveyardBiome);
+			recipe.AddCondition(Condition.InGraveyard);
 			recipe.Register();
 		}
 	}

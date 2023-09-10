@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Ammo
 	public class DeathweedSeedFall : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Deathweed Seed");
+			// DisplayName.SetDefault("Deathweed Seed");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);

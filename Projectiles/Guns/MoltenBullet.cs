@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Guns
 	public class MoltenBullet : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Molten Bullet");
+			// DisplayName.SetDefault("Molten Bullet");
 
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 8;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
@@ -36,15 +36,16 @@ namespace Zylon.Projectiles.Guns
             Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 160);
-            base.OnHitNPC(target, damage, knockback, crit);
         }
-        public override void OnHitPvp(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            target.AddBuff(BuffID.OnFire, 160);
-            base.OnHitPvp(target, damage, crit);
+            if (info.PvP)
+            {
+                target.AddBuff(BuffID.OnFire, 160);
+            }
         }
 
         public override bool PreDraw(ref Color lightColor)

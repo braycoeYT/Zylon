@@ -8,8 +8,8 @@ namespace Zylon.Items.Spears
 	public class IcicleonaRod : ModItem
 	{
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Icicle on a Rod");
-			Tooltip.SetDefault("'I'll poke your eye out!'\nFires a short range icicle on use");
+            // DisplayName.SetDefault("Icicle on a Rod");
+			// Tooltip.SetDefault("'I'll poke your eye out!'\nFires a short range icicle on use");
         }
         public override void SetDefaults() {
 			Item.damage = 10;

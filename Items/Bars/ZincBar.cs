@@ -8,7 +8,7 @@ namespace Zylon.Items.Bars
 	public class ZincBar : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Can be used in Any Iron Bar recipes");
+			// Tooltip.SetDefault("Can be used in Any Iron Bar recipes");
 		}
 		public override void SetDefaults() {
 			Item.rare = ItemRarityID.White;

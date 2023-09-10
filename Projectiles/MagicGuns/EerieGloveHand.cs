@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.MagicGuns
 	public class EerieGloveHand : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Eerie Glove");
+			// DisplayName.SetDefault("Eerie Glove");
 			Main.projFrames[Projectile.type] = 4;
 		}
 		public override void SetDefaults() {

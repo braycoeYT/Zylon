@@ -14,7 +14,7 @@ namespace Zylon.NPCs.Desert
     public class DesertDiskite_Center : ModNPC
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Desert Diskite");
+			// DisplayName.SetDefault("Desert Diskite");
             //Main.npcFrameCount[NPC.type] = 2;
 			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				CustomTexturePath = "Zylon/NPCs/Desert/DesertDiskite_Bestiary",
@@ -38,17 +38,26 @@ namespace Zylon.NPCs.Desert
 			NPC.aiStyle = 44;
 			NPC.knockBackResist = 0.5f;
 			NPC.noGravity = true;
-            NPC.noTileCollide = true;
+            NPC.noTileCollide = false;
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.DesertDiskiteBanner>();
         }
+<<<<<<< HEAD
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        NPC.lifeMax = 90;
+=======
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 90;
+>>>>>>> ProjectClash
 			NPC.damage = 32;
 			NPC.value = 200;
 			NPC.knockBackResist = 0.3f;
         }
-		public override void HitEffect(int hitDirection, double damage) {
+<<<<<<< HEAD
+        public override void HitEffect(int hitDirection, double damage) {
+=======
+		public override void HitEffect(NPC.HitInfo hit) {
+>>>>>>> ProjectClash
 			if (NPC.life > 0) {
 				for (int i = 0; i < 2; i++) {
 					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.DiskiteDust>(), Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
@@ -65,10 +74,23 @@ namespace Zylon.NPCs.Desert
 			}
 		}
 		int Timer;
+		float yeah;
 		bool init;
+		bool test = true;
+		Vector2 randVector;
         public override void AI() {
+			/*Timer++;
+			if (Timer % 60 == 1) randVector = new Vector2(Main.rand.Next(-60, 61), Main.rand.Next(-60, 61));
+			NPC.TargetClosest(true);
+			if (Vector2.Distance(NPC.Center, Main.player[NPC.target].Center) < (Math.Abs(randVector.X) + Math.Abs(randVector.Y))) {
+				randVector = Vector2.Zero;
+				yeah = 1f;
+				if (Vector2.Distance(NPC.Center, Main.player[NPC.target].Center) < 30)
+					yeah = 2f;
+			}
+			else yeah = 0;*/
 			if (!init) {
-				//Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Enemies.DesertDiskite_LaserEye>(), 0, 0, 255, NPC.whoAmI);
+				//Projectile.NewProjectile(NPC.GetSource_FromNPC(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Enemies.DesertDiskite_LaserEye>(), 0, 0, 255, NPC.whoAmI);
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<DesertDiskite_LaserEye>(), 0, NPC.whoAmI, NPC.ai[0]);
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<DesertDiskite_CenterDeco>(), 0, NPC.whoAmI);
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<DesertDiskite_SpikeRing>(), 0, NPC.whoAmI);
@@ -79,6 +101,12 @@ namespace Zylon.NPCs.Desert
 				if (Timer % 240 == 0)
 					Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, Vector2.Normalize(NPC.Center - Main.player[NPC.target].Center) * -12f, ModContent.ProjectileType<Projectiles.Bosses.ADD.ADDLaser>(), (int)(NPC.damage * 0.3f), 0f);
             }*/
+			/*Vector2 speed = NPC.Center - Main.player[NPC.target].Center + randVector;
+				speed.Normalize();
+				if (Main.expertMode) speed *= -3.5f + yeah;
+				else speed *= -3f + yeah;
+				NPC.velocity += speed;
+				NPC.velocity /= 2;*/
         }
 		public override float SpawnChance(NPCSpawnInfo spawnInfo) {
             return (SpawnCondition.OverworldDayDesert.Chance * 0.9f) + (SpawnCondition.DesertCave.Chance * 0.08f);

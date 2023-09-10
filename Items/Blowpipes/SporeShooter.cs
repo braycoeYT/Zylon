@@ -1,4 +1,59 @@
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace Zylon.Items.Blowpipes
+{
+	public class SporeShooter : ZylonBlowpipe
+	{
+		public SporeShooter() : base(155, 1.25f, new Color(5, 185, 30)) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
+		public override void SetStaticDefaults() {
+<<<<<<< HEAD
+			Tooltip.SetDefault("Depending on the charge, shoots up to three spores");
+=======
+			// Tooltip.SetDefault("Depending on the charge, shoots up to three spores");
+>>>>>>> ProjectClash
+		}
+        public override void SetDefaults() {
+			Item.CloneDefaults(ItemID.Blowpipe);
+            Item.damage = 24;
+			Item.knockBack = 2.5f;
+			Item.shootSpeed = 8.75f;
+			Item.useTime = 1;
+			Item.useAnimation = 1;
+			Item.rare = ItemRarityID.Orange;
+			Item.value = Item.sellPrice(0, 0, 54);
+			Item.autoReuse = true;
+		}
+		int summonNum;
+		public override void ChargeEvent(Player player) {
+			ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
+            summonNum = (int)(3*charge/(maxCharge + p.blowpipeMaxInc));
+			if (summonNum == 3 && charge < maxCharge + p.blowpipeMaxInc) summonNum = 2;
+        }
+        public override void ShootEvent(Player player, Vector2 vel, int tempType, int tempDmg, float tempKb, float tempSpd) {
+            if (charge >= (int)(maxCharge/3)) Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, (vel*tempSpd).RotatedByRandom(MathHelper.ToRadians(20)), ModContent.ProjectileType<Projectiles.JungleSporeRanged>(), tempDmg, tempKb, player.whoAmI);
+			if (charge >= (int)(maxCharge/3*2)) Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, (vel*tempSpd).RotatedByRandom(MathHelper.ToRadians(20)), ModContent.ProjectileType<Projectiles.JungleSporeRanged>(), tempDmg, tempKb, player.whoAmI);
+			if (charge >= maxCharge) Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, (vel*tempSpd).RotatedByRandom(MathHelper.ToRadians(20)), ModContent.ProjectileType<Projectiles.JungleSporeRanged>(), tempDmg, tempKb, player.whoAmI);
+		}
+        public override Vector2? HoldoutOffset() {
+			return new Vector2(4, -6);
+		}
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.JungleSpores, 14);
+			recipe.AddIngredient(ItemID.Stinger, 10);
+			recipe.AddIngredient(ItemID.Vine);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+		}
+    }
+}
+/*using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -57,9 +112,9 @@ namespace Zylon.Items.Blowpipes
 					Item.useTime = origItemSpeed;
 					Item.useAnimation = origItemSpeed;
 					if (charge != 0) {
-						Item.damage = origDamage + (int)(13*((float)charge/(float)(maxCharge))) + (int)(p.blowpipeChargeDamage*((float)charge/(float)(maxCharge)));
-			    		Item.knockBack = origKnockback + (3f*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeKnockback*((float)charge/(float)(maxCharge)));
-			    		Item.shootSpeed = origShootSpeed + (11f*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeShootSpeed*((float)charge/(float)(maxCharge)));
+						//Item.damage = origDamage + (int)((Item.damage*2)*((float)charge/(float)(maxCharge))) + (int)(p.blowpipeChargeDamage*((float)charge/(float)(maxCharge)));
+			    		//Item.knockBack = origKnockback + ((Item.knockBack*1.2f)*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeKnockback*((float)charge/(float)(maxCharge)));
+			    		//Item.shootSpeed = origShootSpeed + ((Item.shootSpeed*0.8f)*((float)charge/(float)(maxCharge))) + (p.blowpipeChargeShootSpeed*((float)charge/(float)(maxCharge)));
                     }
 					CombatText.NewText(player.getRect(), Color.LimeGreen, "SHOOT");
                 }
@@ -116,4 +171,4 @@ namespace Zylon.Items.Blowpipes
 			recipe.Register();
 		}
 	}
-}
+}*/

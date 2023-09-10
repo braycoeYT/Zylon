@@ -8,8 +8,8 @@ namespace Zylon.Buffs.Pets
 	public class DirtboiBuff : ModBuff
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Dirtboi");
-			Description.SetDefault("Dirtboi is following you! Be proud.");
+			// DisplayName.SetDefault("Dirtboi");
+			// Description.SetDefault("Dirtboi is following you! Be proud.");
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.vanityPet[Type] = true;
 		}

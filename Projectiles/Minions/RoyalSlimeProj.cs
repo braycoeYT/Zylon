@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Minions
 	public class RoyalSlimeProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Gel");
+			// DisplayName.SetDefault("Gel");
         }
 		public override void SetDefaults() {
 			Projectile.width = 8;

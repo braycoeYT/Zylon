@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Wands
 	public class JadeBolt : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Jade Bolt");
+			// DisplayName.SetDefault("Jade Bolt");
         }
 		public override void SetDefaults() {
 			Projectile.width = 16;

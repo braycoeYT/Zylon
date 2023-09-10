@@ -14,7 +14,7 @@ namespace Zylon.Items.Accessories.Wings
 			return !ModContent.GetInstance<ExampleConfigServer>().DisableExampleWings;
 		}*/
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Allows flight and slow fall\nYou have increased mobility while wet\nCritical strikes summon big eerie jellies to damage enemies\nUp to 2 eerie jellies can be active at once");
+			// Tooltip.SetDefault("Allows flight and slow fall\nYou have increased mobility while wet\nCritical strikes summon big eerie jellies to damage enemies\nUp to 2 eerie jellies can be active at once");
 			ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(90, 6.5f, 1.2f);
 		}
 

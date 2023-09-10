@@ -9,7 +9,7 @@ namespace Zylon.Items.MagicGuns
 	public class SpaceMachineGun : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Not to be confused with the S.D.M.G.'\nFires red blasts at random speeds\nIs not affected by the meteor armor set bonus");
+			// Tooltip.SetDefault("'Not to be confused with the S.D.M.G.'\nFires red blasts at random speeds\nIs not affected by the meteor armor set bonus");
 		}
 		public override void SetDefaults() {
 			Item.damage = 21;

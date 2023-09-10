@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Gigaslime
 	public class AcornTreeShoot : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Acorn");
+			// DisplayName.SetDefault("Acorn");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);

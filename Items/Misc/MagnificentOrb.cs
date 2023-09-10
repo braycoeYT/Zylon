@@ -9,8 +9,8 @@ namespace Zylon.Items.Misc
 	public class MagnificentOrb : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Magnificent Orb");
-			Tooltip.SetDefault("'Warning: May cause spatial anomalies.'");
+			// DisplayName.SetDefault("Magnificent Orb");
+			// Tooltip.SetDefault("'Warning: May cause spatial anomalies.'");
 		}
 		public override void SetDefaults() {
 			Item.damage = 23;

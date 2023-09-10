@@ -6,7 +6,7 @@ namespace Zylon.Projectiles.Blowpipes
 	public class DirtBallFunnel : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Dirt Ball");
+            // DisplayName.SetDefault("Dirt Ball");
         }
         public override void SetDefaults() {
 			Projectile.width = 14;

@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Spears
 	public class IcicleonaRod : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Icicle on a Rod");
+			// DisplayName.SetDefault("Icicle on a Rod");
 			//Main.projFrames[Projectile.type] = 2;
 		}
 		public override void SetDefaults() {
@@ -24,13 +24,19 @@ namespace Zylon.Projectiles.Spears
 			Projectile.tileCollide = false;
 			Projectile.friendly = true;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.Frostburn, Main.rand.Next(3, 7)*60);
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Frostburn, Main.rand.Next(3, 7)*60);
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.Frostburn, Main.rand.Next(3, 7) * 60);
+			}
         }
-		public float MovementFactor {
+
+        public float MovementFactor {
 			get => Projectile.ai[0];
 			set => Projectile.ai[0] = value;
 		}
@@ -43,7 +49,7 @@ namespace Zylon.Projectiles.Spears
 			projOwner.itemTime = projOwner.itemAnimation;
 			Projectile.position.X = ownerMountedCenter.X - (float)(Projectile.width / 2);
 			Projectile.position.Y = ownerMountedCenter.Y - (float)(Projectile.height / 2);
-			// As long as the player isn't frozen, the spear can move
+			//As long as the player isn't frozen, the spear can move
 			if (!projOwner.frozen) {
 				if (MovementFactor == 0f)
 				{
@@ -61,7 +67,7 @@ namespace Zylon.Projectiles.Spears
 						change = true;
 					}
 				}
-				else // Otherwise, increase the movement factor
+				else //Otherwise, increase the movement factor
 				{
 					MovementFactor += 1.4f;
 				}

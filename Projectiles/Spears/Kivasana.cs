@@ -20,7 +20,7 @@ namespace Zylon.Projectiles.Spears
         {
 			target.AddBuff(BuffID.Midas, Main.rand.Next(10, 21) * 60);
 		}
-        public override void SpearOnHitPVP(Player target, int damage, bool crit)
+        public override void SpearOnHitPVP(Player target, int damage)
         {
 			target.AddBuff(BuffID.Midas, Main.rand.Next(10, 21) * 60);
 		}

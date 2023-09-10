@@ -7,7 +7,15 @@ namespace Zylon
 	{
 		public override ConfigScope Mode => ConfigScope.ServerSide;
 
-		[Header("General (reload may be required)")]
+		[Header("config.general")]
+
+		[Label("Advanced Blowpipe Display")]
+		[Tooltip("Replaces the usage instructions in blowpipe tooltips with even more stats!")]
+		public bool advBlowpipe;
+
+		[Label("Advanced Blowpipe Display")]
+		[Tooltip("Replaces the usage instructions in blowpipe tooltips with even more stats!")]
+		public bool advBlowpipe;
 
 		[DefaultValue(true)]
 		[Label("Zylonian Prefixes")]
@@ -28,9 +36,17 @@ namespace Zylon
 		[Tooltip("Keep this disabled unless a mod uses dirt blocks as ammo and is having major issues. Enabling this will disable the Dirtthrower.")]
 		public bool dirtAmmoFix;
 
+<<<<<<< HEAD
+		/*[DefaultValue(true)]
 		[Label("Infinite Boss Summons")]
 		[Tooltip("Makes the mod's boss summons infinite.")]
-		public bool infBossSum;
+		public bool infBossSum;*/
+=======
+		//[DefaultValue(true)]
+		//[Label("Infinite Boss Summons")]
+		//[Tooltip("Makes the mod's boss summons infinite.")]
+		//public bool infBossSum;
+>>>>>>> ProjectClash
 
 		[Range(1f, 10f)]
 		[DefaultValue(1f)]
@@ -44,14 +60,22 @@ namespace Zylon
 		[Tooltip("Allows the mod to go absolutely wacky on that fateful day.")]
 		public bool aprilFoolsChanges;
 
-		[Header("Accessibility")]
+		[DefaultValue(true)]
+		[Label("Blowpipe Max Charge Noise")]
+		[Tooltip("Plays a short noise when blowpipes reach max charge.")]
+		public bool blowpipeNoise;
+<<<<<<< HEAD
+=======
 
-		[Range(0f, 1f)]
-		[Increment(.01f)]
-		[DefaultValue(1f)]
+		[Header("config.accessibility")]
+
+		[Range(0, 100)]
+		[Increment(1)]
+		[DefaultValue(100)]
 		[Slider]
 		[Label("Screenshake Amount")]
 		[Tooltip("Changes the amount of all screenshake in the mod. Reccomended for people who have trouble with it.")]
-		public float ScreenshakeAccessibilityMulti;
+		public int ScreenshakeAccessibilityMulti;
+>>>>>>> ProjectClash
 	}
 }

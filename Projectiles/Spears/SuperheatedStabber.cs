@@ -10,7 +10,7 @@ namespace Zylon.Projectiles.Spears
 	public class SuperheatedStabber : SpearProj
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Superheated Stabber");
+			// DisplayName.SetDefault("Superheated Stabber");
 		}
         public override void SpearDefaultsSafe()
         {

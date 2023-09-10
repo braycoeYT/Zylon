@@ -7,7 +7,6 @@ namespace Zylon.Projectiles
 	public class WaterStreamRanged : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Water Stream");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.WaterStream);

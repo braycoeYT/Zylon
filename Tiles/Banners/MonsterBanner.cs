@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Zylon.Items.Banners;
@@ -24,10 +25,11 @@ namespace Zylon.Tiles.Banners
 			TileObjectData.addTile(Type);
 			DustType = -1;
 			//DisableSmartCursor = true;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Banner");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Banner");
 			AddMapEntry(new Color(13, 88, 130), name);
 		}
+<<<<<<< HEAD
 		public override void KillMultiTile(int i, int j, int frameX, int frameY) {
 			int style = frameX / 18;
 			int item;
@@ -36,16 +38,16 @@ namespace Zylon.Tiles.Banners
 					item = ModContent.ItemType<OrangeSlimeBanner>();
 					break;
 				case 1:
-					item = ModContent.ItemType<CyanSlimeBanner>();
+					item = ModContent.ItemType<SaplingWarriorBanner>();
 					break;
 				case 2:
 					item = ModContent.ItemType<DirtSlimeBanner>();
 					break;
 				case 3:
-					item = ModContent.ItemType<VerdureGigaslimeBanner>();
+					item = 0; //item = ModContent.ItemType<VerdureGigaslimeBanner>();
 					break;
 				case 4:
-					item = ModContent.ItemType<LittoralGigaslimeBanner>();
+					item = 0; //item = ModContent.ItemType<LittoralGigaslimeBanner>();
 					break;
 				case 5:
 					item = ModContent.ItemType<VeinTunnelerBanner>();
@@ -60,7 +62,7 @@ namespace Zylon.Tiles.Banners
 					item = ModContent.ItemType<MechanicalSlimeBanner>();
 					break;
 				case 9:
-					item = ModContent.ItemType<StarpackSlimeBanner>();
+					item = 0; //item = ModContent.ItemType<StarpackSlimeBanner>();
 					break;
 				case 10:
 					item = ModContent.ItemType<LivingMarshmallowBanner>();
@@ -75,7 +77,7 @@ namespace Zylon.Tiles.Banners
 					item = ModContent.ItemType<DesertDiskiteBanner>();
 					break;
 				case 14:
-					item = ModContent.ItemType<DustbowlGigaslimeBanner>();
+					item = 0; //ModContent.ItemType<DustbowlGigaslimeBanner>();
 					break;
 				case 15:
 					item = ModContent.ItemType<LiveObeliskBanner>();
@@ -84,7 +86,7 @@ namespace Zylon.Tiles.Banners
 					item = ModContent.ItemType<WindElementalBanner>();
 					break;
 				case 17:
-					item = ModContent.ItemType<BigDripBanner>();
+					item = 0; //item = ModContent.ItemType<BigDripBanner>();
 					break;
 				case 18:
 					item = ModContent.ItemType<ElemSlimeBanner>();
@@ -93,7 +95,7 @@ namespace Zylon.Tiles.Banners
 					item = ModContent.ItemType<MeteorTailBanner>();
 					break;
 				case 20:
-					item = ModContent.ItemType<BlizzardSeerBanner>();
+					item = 0; //item = ModContent.ItemType<BlizzardSeerBanner>();
 					break;
 				default:
 					return;
@@ -102,24 +104,31 @@ namespace Zylon.Tiles.Banners
 		}
 		public override void NearbyEffects(int i, int j, bool closer) {
 			if (closer) {
+=======
+		public override void NearbyEffects(int i, int j, bool closer)
+		{
+			if (closer)
+			{
+>>>>>>> ProjectClash
 				Player player = Main.LocalPlayer;
 				int style = Main.tile[i, j].TileFrameX / 18;
 				int npcType;
-				switch (style) {
+				switch (style)
+				{
 					case 0:
 						npcType = ModContent.NPCType<NPCs.Forest.OrangeSlime>();
 						break;
 					case 1:
-						npcType = ModContent.NPCType<NPCs.Ocean.CyanSlime>();
+						npcType = 0; //npcType = ModContent.NPCType<NPCs.Ocean.CyanSlime>();
 						break;
 					case 2:
 						npcType = ModContent.NPCType<NPCs.Forest.DirtSlime>();
 						break;
 					case 3:
-						npcType = ModContent.NPCType<NPCs.Forest.VerdureGigaslime>();
+						npcType = 0; //npcType = ModContent.NPCType<NPCs.Forest.VerdureGigaslime>();
 						break;
 					case 4:
-						npcType = ModContent.NPCType<NPCs.Ocean.LittoralGigaslime>();
+						npcType = 0; //npcType = ModContent.NPCType<NPCs.Ocean.LittoralGigaslime>();
 						break;
 					case 5:
 						npcType = ModContent.NPCType<NPCs.Crimson.VeinTunnelerHead>();
@@ -134,7 +143,7 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.Forest.MechanicalSlime>();
 						break;
 					case 9:
-						npcType = ModContent.NPCType<NPCs.Sky.StarpackSlime>();
+						npcType = 0; //npcType = ModContent.NPCType<NPCs.Sky.StarpackSlime>();
 						break;
 					case 10:
 						npcType = ModContent.NPCType<NPCs.Snow.LivingMarshmallow>();
@@ -149,7 +158,7 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.Desert.DesertDiskite_Center>();
 						break;
 					case 14:
-						npcType = ModContent.NPCType<NPCs.Desert.DustbowlGigaslime>();
+						npcType = 0; //npcType = ModContent.NPCType<NPCs.Desert.DustbowlGigaslime>();
 						break;
 					case 15:
 						npcType = ModContent.NPCType<NPCs.Jungle.LiveObelisk>();
@@ -158,7 +167,7 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.WindyDay.WindElemental>();
 						break;
 					case 17:
-						npcType = ModContent.NPCType<NPCs.BloodMoon.BigDrip>();
+						npcType = 0; //npcType = ModContent.NPCType<NPCs.BloodMoon.BigDrip>();
 						break;
 					case 18:
 						npcType = ModContent.NPCType<NPCs.ElemSlime>();
@@ -167,7 +176,7 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.Meteorite.MeteorTail>();
 						break;
 					case 20:
-						npcType = ModContent.NPCType<NPCs.Snow.BlizzardSeer>();
+						npcType = 0; //npcType = ModContent.NPCType<NPCs.Snow.BlizzardSeer>();
 						break;
 					default:
 						return;

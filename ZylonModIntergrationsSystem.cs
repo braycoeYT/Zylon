@@ -89,7 +89,7 @@ namespace Zylon
 				despawnInfo
 				//customBossPortrait
 			);
-			bossName = "Ancient Diskite Director";
+			/*bossName = "Ancient Diskite Director";
 			bossType = ModContent.NPCType<NPCs.Bosses.ADD.ADD_Center>();
 			weight = 2.5f;
 			downed = () => ZylonWorldCheckSystem.downedADD;
@@ -109,7 +109,7 @@ namespace Zylon
 				Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/ADD/ADD_Bestiary").Value;
 				Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
 				sb.Draw(texture, centered, color);
-			};
+			};*/
 			bossChecklistMod.Call(
 				"AddBoss",
 				Mod,

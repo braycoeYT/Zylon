@@ -183,7 +183,7 @@ namespace Zylon.Projectiles.Spears
 
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             if (SwingNumber == 2 && ThrustLaunch != 0f)
             {
@@ -196,22 +196,24 @@ namespace Zylon.Projectiles.Spears
                     ProjectileOwner.velocity += new Vector2(-ThrustLaunch * 1.5f, -8f);
                 }
             }
-            SpearOnHitNPC(target, damage, knockback, crit);
+            SpearOnHitNPC(target, damageDone, hit.Knockback, hit.Crit);
 
             TriggerFreezeFrames();
-            base.OnHitNPC(target, damage, knockback, crit);
+            base.OnHitNPC(target, hit, damageDone);
         }
-        public override void OnHitPvp(Player target, int damage, bool crit)
-        {
-            if (SwingNumber == 2 && ThrustLaunch != 0f)
-            {
-                Player ProjectileOwner = Main.player[Projectile.owner];
-                ProjectileOwner.velocity += new Vector2(-ThrustLaunch, 0f).RotatedBy(Projectile.velocity.ToRotation());
-            }
-            SpearOnHitPVP(target, damage, crit);
 
-            TriggerFreezeFrames();
-            base.OnHitPvp(target, damage, crit);
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+                if (SwingNumber == 2 && ThrustLaunch != 0f)
+                {
+                    Player ProjectileOwner = Main.player[Projectile.owner];
+                    ProjectileOwner.velocity += new Vector2(-ThrustLaunch, 0f).RotatedBy(Projectile.velocity.ToRotation());
+                }
+                SpearOnHitPVP(target, info.Damage);
+            }
+            base.OnHitPlayer(target, info);
         }
 
         public override bool? CanHitNPC(NPC target)
@@ -293,11 +295,11 @@ namespace Zylon.Projectiles.Spears
             return false;
         }
 
-        public override void ModifyDamageScaling(ref float damageScale)
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
             if (SwingNumber == 2)
             {
-                damageScale *= ThrustDamageScaling;
+                modifiers.SourceDamage *= ThrustDamageScaling;
             }
         }
 
@@ -329,7 +331,7 @@ namespace Zylon.Projectiles.Spears
         public virtual void SpearOnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
         }
-        public virtual void SpearOnHitPVP(Player target, int damage, bool crit)
+        public virtual void SpearOnHitPVP(Player target, int damage)
         {
         }
         public virtual void SpearDraw(SpriteBatch spriteBatch, Color lightColor, Texture2D projectileTexture, Vector2 drawOrigin, Vector2 drawPosition, float drawRotation, int amountOfExtras)

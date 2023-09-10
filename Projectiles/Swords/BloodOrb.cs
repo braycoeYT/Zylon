@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Swords
 	public class BloodOrb : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Blood Orb");
+			// DisplayName.SetDefault("Blood Orb");
         }
 		public override void SetDefaults() {
 			AIType = ProjectileID.Bullet;
@@ -16,9 +16,12 @@ namespace Zylon.Projectiles.Swords
 			Projectile.aiStyle = 1;
 			Projectile.hostile = false;
 			Projectile.friendly = true;
-			Projectile.timeLeft = 9999;
+			Projectile.timeLeft = 12;
 			Projectile.ignoreWater = true;
 			Projectile.penetrate = 4;
+			Projectile.usesLocalNPCImmunity = true;
+			Projectile.localNPCHitCooldown = 3;
+			Projectile.tileCollide = false;
 		}
 		public override void PostAI() {
 			if (Main.rand.NextBool()) {

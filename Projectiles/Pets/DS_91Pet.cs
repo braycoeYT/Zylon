@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Pets
 	public class DS_91Pet : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("DS-91");
+            // DisplayName.SetDefault("DS-91");
             Main.projPet[Projectile.type] = true;
             Main.projFrames[Projectile.type] = 2;
         }

@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Ammo
 	public class WaterleafSeedFall : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Waterleaf Seed");
+			// DisplayName.SetDefault("Waterleaf Seed");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);

@@ -120,14 +120,14 @@ namespace Zylon.NPCs.TownNPCs
 		public override string GetChat() {
 			WeightedRandom<string> chat = new WeightedRandom<string>();
 			chat.Add(Language.GetTextValue("You know, when I was your age, we used to take turns when fighting!"));
-			chat.Add(Language.GetTextValue("Back in my day, I used to be a protagonist... Nowadays I’m just a side character!"));
+			chat.Add(Language.GetTextValue("Back in my day, I used to be a protagonist... Nowadays IÕm just a side character!"));
 			chat.Add(Language.GetTextValue("I wonder who the main character is..."));
 			chat.Add(Language.GetTextValue("Give me your rare trophies, and I'll give you rare weapons I've collected from my time."), 2);
 			chat.Add(Language.GetTextValue("If you aren't dealing 9999 damage with each hit, you're doing something wrong."));
 			chat.Add(Language.GetTextValue("What?! There's no leveling system here?!"));
 			chat.Add(Language.GetTextValue("I've heard this world allows you to deal over 4 digits of damage, but that just feels wrong."));
 			if (NPC.life < NPC.lifeMax / 3) {
-				chat.Add(Language.GetTextValue("My health is critically low, but I don’t hear any obnoxious beeping... must be a glitch."), 5);
+				chat.Add(Language.GetTextValue("My health is critically low, but I donÕt hear any obnoxious beeping... must be a glitch."), 5);
 				chat.Add(Language.GetTextValue("Quick! Somebody cast Healaga on me!"), 5);
             }
 			if (Main.bloodMoon)
@@ -137,6 +137,9 @@ namespace Zylon.NPCs.TownNPCs
 		public override void SetChatButtons(ref string button, ref string button2) {
 			button = Language.GetTextValue("Give Trophy");
 		}
+<<<<<<< HEAD
+        public override void OnChatButtonClicked(bool firstButton, ref bool shop) {
+=======
 
 		public void AddTradeValues()
         {
@@ -148,7 +151,8 @@ namespace Zylon.NPCs.TownNPCs
 			TradeValues.Add(ItemID.AmanitaFungifin, ModContent.ItemType<Items.Spears.Kivasana>());
 		}
 
-		public override void OnChatButtonClicked(bool firstButton, ref bool shop) {
+		public override void OnChatButtonClicked(bool firstButton, ref string shopName) {
+>>>>>>> ProjectClash
 			if (firstButton) {
 				if (TradeValues.Count() <= 0)
 					AddTradeValues();
@@ -165,7 +169,53 @@ namespace Zylon.NPCs.TownNPCs
 						return;
                     }
 				}
+<<<<<<< HEAD
+				else if (Main.LocalPlayer.HasItem(ItemID.KingSlimeTrophy)) {
+					int wantedItemIndex = Main.LocalPlayer.FindItem(ItemID.KingSlimeTrophy);
+					var entitySource = NPC.GetSource_GiftOrReward();
+					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
+					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Spears.Kivasana>());
+				}
+				else if (Main.LocalPlayer.HasItem(ItemID.EyeofCthulhuTrophy)) {
+					int wantedItemIndex = Main.LocalPlayer.FindItem(ItemID.EyeofCthulhuTrophy);
+					var entitySource = NPC.GetSource_GiftOrReward();
+					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
+					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Swords.JourneyStarter>());
+				}
+				else if (Main.LocalPlayer.HasItem(ItemID.EaterofWorldsTrophy)) {
+					int wantedItemIndex = Main.LocalPlayer.FindItem(ItemID.EaterofWorldsTrophy);
+					var entitySource = NPC.GetSource_GiftOrReward();
+					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
+					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Misc.Flamecougher>());
+				}
+				/*else if (Main.LocalPlayer.HasItem(ItemID.BrainofCthulhuTrophy)) {
+					int wantedItemIndex = Main.LocalPlayer.FindItem(ItemID.BrainofCthulhuTrophy);
+					var entitySource = NPC.GetSource_GiftOrReward();
+					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
+					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Misc.SurgeonsKnife>());
+				}*/
+				else if (Main.LocalPlayer.HasItem(ItemID.QueenBeeTrophy)) {
+					int wantedItemIndex = Main.LocalPlayer.FindItem(ItemID.QueenBeeTrophy);
+					var entitySource = NPC.GetSource_GiftOrReward();
+					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
+					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Blowpipes.Revel>());
+				}
+				else if (Main.LocalPlayer.HasItem(ItemID.SkeletronTrophy)) {
+					int wantedItemIndex = Main.LocalPlayer.FindItem(ItemID.SkeletronTrophy);
+					var entitySource = NPC.GetSource_GiftOrReward();
+					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
+					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Wands.SpareLeg>());
+				}
+				else if (Main.LocalPlayer.HasItem(ItemID.SpazmatismTrophy)) {
+					int wantedItemIndex = Main.LocalPlayer.FindItem(ItemID.SpazmatismTrophy);
+					var entitySource = NPC.GetSource_GiftOrReward();
+					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
+					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Minions.SpazmaticScythe>());
+				}
+				else Main.npcChatText = $"I'm afraid you don't have any trophies with you, son!";
+=======
 				Main.npcChatText = $"I'm afraid you don't have any trophies with you, son!";
+>>>>>>> ProjectClash
 			}
 		}
 		/*public override void ModifyNPCLoot(NPCLoot npcLoot) {

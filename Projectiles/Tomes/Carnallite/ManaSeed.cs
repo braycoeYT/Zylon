@@ -13,7 +13,7 @@ namespace Zylon.Projectiles.Tomes.Carnallite
 	public class ManaSeed : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mana Seed");
+			// DisplayName.SetDefault("Mana Seed");
 		}
 
 		public override void SetDefaults() {

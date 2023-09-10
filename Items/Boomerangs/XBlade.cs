@@ -8,9 +8,15 @@ namespace Zylon.Items.Boomerangs
 {
 	public class XBlade : ModItem
 	{
+<<<<<<< HEAD
+		public override void SetStaticDefaults() { //I need to remake this to be less projectile-spammy
+			DisplayName.SetDefault("X-Blade"); //Kingdom Hearts reference
+			Tooltip.SetDefault("UNOBTAINABLE: Planned to be PML\n'Pronounced keyblade, but it wouldn't save the curly X letter' -Some old coot\nHits have a chance to spawn either thirteen No Names to pierce enemies, or seven healing orbs that chase the player");
+=======
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("X-Blade");
-			Tooltip.SetDefault("UNOBTAINABLE: Planned to be PML\n'Pronounced keyblade, but it wouldn't save the curly x letter' - some old coot\nHits have a chance to spawn either thirteen No Names to pierce enemies, or seven healing orbs that chase the player");
+			// DisplayName.SetDefault("X-Blade");
+			// Tooltip.SetDefault("UNOBTAINABLE: Planned to be PML\n'Pronounced keyblade, but it wouldn't save the curly x letter' - some old coot\nHits have a chance to spawn either thirteen No Names to pierce enemies, or seven healing orbs that chase the player");
+>>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.damage = 915;

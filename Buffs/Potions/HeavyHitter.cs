@@ -6,8 +6,8 @@ namespace Zylon.Buffs.Potions
     public class HeavyHitter : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Heavy Hitter");
-            Description.SetDefault("Critical strike damage increased by 20%");
+            // DisplayName.SetDefault("Heavy Hitter");
+            // Description.SetDefault("Critical strike damage increased by 20%");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = false;
         }

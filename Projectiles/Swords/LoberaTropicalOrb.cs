@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Swords
 	public class LoberaTropicalOrb : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Tropical Orb");
+			// DisplayName.SetDefault("Tropical Orb");
         }
 		public override void SetDefaults() {
 			AIType = ProjectileID.Bullet;
@@ -27,14 +27,18 @@ namespace Zylon.Projectiles.Swords
 				dust.scale = 1f;
 			}
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			if (target.boss == false)
 		    target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60 * Main.rand.Next(1, 4), false);
 		}
-		public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60 * Main.rand.Next(1, 4), false);
-		}
-		public override void Kill(int timeLeft) {
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60 * Main.rand.Next(1, 4), false);
+			}
+        }
+        public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 0; i < 4; i++) {
 				int dustType = ModContent.DustType<Dusts.LoberaDust>();

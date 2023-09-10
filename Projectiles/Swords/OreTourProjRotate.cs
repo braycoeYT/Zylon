@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Swords
 	public class OreTourProjRotate : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ore Tour");
+			// DisplayName.SetDefault("Ore Tour");
 			Main.projFrames[Projectile.type] = 9;
         }
 		public override void SetDefaults() {
@@ -23,7 +23,7 @@ namespace Zylon.Projectiles.Swords
 			Projectile.alpha = 255;
 			Projectile.tileCollide = false;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			if (target.type == NPCID.EaterofWorldsBody) Projectile.penetrate = 0;
 		}
         int Timer;

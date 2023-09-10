@@ -7,14 +7,14 @@ namespace Zylon.Items.Accessories
 	public class FusionBand : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'It's too big for anyone's arm, let alone yours'\nIncreases life and mana regeneration\nIncreases max mana by 20\nIncreases the power of regeneration, magic power, magic regeneration, ironskin, and swiftness potions");
+			// Tooltip.SetDefault("'It's too big for anyone's arm, let alone yours'\nIncreases life and mana regeneration\nIncreases max mana by 20\nIncreases the power of regeneration, magic power, magic regeneration, ironskin, and swiftness potions");
 		}
 		public override void SetDefaults() {
 			Item.width = 28;
 			Item.height = 20;
 			Item.accessory = true;
 			Item.value = Item.sellPrice(0, 4);
-			Item.rare = ItemRarityID.White;
+			Item.rare = ItemRarityID.Lime;
 			Item.defense = 1;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {

@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Bows
 	public class SparklyArrow : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Sparkly Arrow");
+			// DisplayName.SetDefault("Sparkly Arrow");
         }
 		public override void SetDefaults() {
 			Projectile.width = 8;
@@ -21,10 +21,15 @@ namespace Zylon.Projectiles.Bows
 			Projectile.ignoreWater = true;
 			AIType = 1;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+<<<<<<< HEAD
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        target.AddBuff(320, 60 * Main.rand.Next(3, 6), false);
+=======
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(320, 60 * Main.rand.Next(3, 6), false);
+>>>>>>> ProjectClash
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(320, 60 * Main.rand.Next(3, 6), false);
 		}
 		public override void Kill(int timeLeft) {

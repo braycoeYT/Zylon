@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 	public class MetelordFireTrail : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Flame Orb");
+			// DisplayName.SetDefault("Flame Orb");
 			Main.projFrames[Projectile.type] = 4;
         }
 		public override void SetDefaults() {
@@ -18,9 +18,11 @@ namespace Zylon.Projectiles.Bosses.Metelord
 			Projectile.penetrate = -1;
 			Projectile.timeLeft = 300;
 			Projectile.tileCollide = false;
-			Projectile.scale = 1.5f;
+			Projectile.scale = 0f;
 		}
         public override void AI() {
+			if (Projectile.scale < 1.5f) Projectile.scale += 0.025f;
+			else Projectile.hostile = true;
             if (Projectile.timeLeft < 18)
 				Projectile.alpha += 15;
 			Lighting.AddLight(Projectile.Center, 0.6f, 0f, 0f);
@@ -37,8 +39,13 @@ namespace Zylon.Projectiles.Bosses.Metelord
 				dust.scale = 0.5f;
 			}
 		}*/
+<<<<<<< HEAD
         public override void OnHitPlayer(Player target, int damage, bool crit) {
+        target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 5)*60);
+=======
+        public override void OnHitPlayer(Player target, Player.HurtInfo info) {
             target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 5)*60);
+>>>>>>> ProjectClash
         }
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);

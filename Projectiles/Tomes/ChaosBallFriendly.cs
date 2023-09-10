@@ -12,7 +12,7 @@ namespace Zylon.Projectiles.Tomes
 	public class ChaosBallFriendly : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Chaos Ball");
+			// DisplayName.SetDefault("Chaos Ball");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		}
@@ -50,7 +50,7 @@ namespace Zylon.Projectiles.Tomes
 			HexNPC.HexesPlayer = Projectile.owner;
 		}
 
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
 			// Literally no point in trying to apply the effect to (should be) dead NPCs, so we don't.
 			if (target.life > 0)

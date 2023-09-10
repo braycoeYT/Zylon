@@ -9,7 +9,7 @@ namespace Zylon.Items.Bows
 	public class Sightseer : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'So much to see... so little time.'\nThe eyes will alternate firing cursed flames and lasers with you");
+			// Tooltip.SetDefault("'So much to see... so little time.'\nThe eyes will alternate firing cursed flames and lasers with you");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 5);

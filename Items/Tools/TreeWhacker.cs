@@ -7,7 +7,7 @@ namespace Zylon.Items.Tools
 	public class TreeWhacker : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("'Only hurts a little!'");
+            // Tooltip.SetDefault("'Only hurts a little!'");
         }
         public override void SetDefaults() {
 			Item.damage = 1;

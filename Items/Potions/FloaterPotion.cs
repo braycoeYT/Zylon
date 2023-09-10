@@ -7,7 +7,7 @@ namespace Zylon.Items.Potions
     public class FloaterPotion : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("Increases max wingtime by a second");
+            // Tooltip.SetDefault("Increases max wingtime by a second");
         }
         public override void SetDefaults() {
             Item.width = 32;

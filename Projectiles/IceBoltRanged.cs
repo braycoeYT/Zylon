@@ -7,7 +7,7 @@ namespace Zylon.Projectiles
 	public class IceBoltRanged : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ice Bolt");
+			// DisplayName.SetDefault("Ice Bolt");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.IceBolt);

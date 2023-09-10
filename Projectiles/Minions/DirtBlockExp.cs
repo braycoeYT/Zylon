@@ -13,7 +13,7 @@ namespace Zylon.Projectiles.Minions
 	public class DirtBlockExp : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Dirt Block");
+			// DisplayName.SetDefault("Dirt Block");
 			Main.projFrames[Projectile.type] = 3;
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;

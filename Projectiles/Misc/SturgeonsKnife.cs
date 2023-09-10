@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Misc
 	public class SturgeonsKnife : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Sturgeon's Knife");
+			// DisplayName.SetDefault("Sturgeon's Knife");
         }
 		public override void SetDefaults() {
 			Projectile.width = 18;
@@ -20,13 +20,19 @@ namespace Zylon.Projectiles.Misc
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.timeLeft = 9999;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			Projectile.Kill();
 		}
-		public override void OnHitPvp(Player target, int damage, bool crit) {
-			Projectile.Kill();
-		}
-		public override bool OnTileCollide(Vector2 oldVelocity) {
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				Projectile.Kill();
+			}
+        }
+
+        public override bool OnTileCollide(Vector2 oldVelocity) {
 			Projectile.penetrate--;
 			if (Projectile.penetrate <= 0) {
 				Projectile.Kill();

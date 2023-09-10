@@ -9,7 +9,7 @@ namespace Zylon.Items.Bows
     public class StoneBow : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Converts ammo to stone arrows");
+			// Tooltip.SetDefault("Converts ammo to stone arrows");
 		}
 		public override void SetDefaults() {
 			Item.damage = 6;

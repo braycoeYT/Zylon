@@ -7,7 +7,7 @@ namespace Zylon.Items.Swords
 	public class ColdCrusher : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Inflicts 'Brain Freeze' on non-boss enemies, slowing them down");
+			// Tooltip.SetDefault("Inflicts 'Brain Freeze' on non-boss enemies, slowing them down");
 		}
 		public override void SetDefaults() {
 			Item.damage = 29;
@@ -24,10 +24,15 @@ namespace Zylon.Items.Swords
 			Item.autoReuse = false;
 			Item.useTurn = false;
 		}
+<<<<<<< HEAD
         public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
+			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrainFreeze>(), Main.rand.Next(5, 11) * 60, false);
+=======
+        public override void OnHitPvp(Player player, Player target, Player.HurtInfo hurtInfo) {
             target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrainFreeze>(), Main.rand.Next(5, 11) * 60, false);
+>>>>>>> ProjectClash
         }
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
 			if (!target.boss && target.type != NPCID.EaterofWorldsHead) target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrainFreeze>(), Main.rand.Next(5, 11) * 60, false);
 		}
 		public override void AddRecipes() {

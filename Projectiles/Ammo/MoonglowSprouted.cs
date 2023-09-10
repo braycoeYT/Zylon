@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Ammo
 	public class MoonglowSprouted : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Moonglow");
+			// DisplayName.SetDefault("Moonglow");
         }
 		public override void SetDefaults() {
 			Projectile.width = 12; //16

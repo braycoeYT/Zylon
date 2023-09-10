@@ -6,14 +6,13 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
-using Microsoft.Xna.Framework;
 
 namespace Zylon.Items.Misc
 {
 	public class LostNightmare : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'You shouldn't be able to read this unless you're cheating, or something has gone terribly wrong!\nIn that case, hello.\nHope you like the mod.'");
+			// Tooltip.SetDefault("'You shouldn't be able to read this unless you're cheating, or something has gone terribly wrong!\nIn that case, hello.\nHope you like the mod.'");
 			Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 4)); //first is speed, second is amount of frames
 			ItemID.Sets.AnimatesAsSoul[Item.type] = true;
 			ItemID.Sets.ItemIconPulse[Item.type] = true;
@@ -29,8 +28,11 @@ namespace Zylon.Items.Misc
 		int Timer;
 		public override void Update(ref float gravity, ref float maxFallSpeed) {
 			Timer++;
-			if (Timer > 2400) Item.active = false;
+			if (Timer > 600) Item.active = false;
 		}
+        public override bool ItemSpace(Player player) {
+            return true;
+        }
         public override bool OnPickup(Player player) {
 			int rand = Main.rand.Next(1, 4);
 			player.statLife += rand;

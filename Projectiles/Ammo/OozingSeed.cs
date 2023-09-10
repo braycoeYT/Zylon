@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Ammo
 	public class OozingSeed : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Oozebit");
+			// DisplayName.SetDefault("Oozebit");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);

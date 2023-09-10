@@ -8,7 +8,7 @@ namespace Zylon.Items.Armor
 	public class WindWalkerBreastplate : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Not to be confused with the Wind Waker'\nIncreases attack speed by 10%\nIncreases move speed by 15%");
+			// Tooltip.SetDefault("'Not to be confused with the Wind Waker'\nIncreases attack speed by 10%\nIncreases move speed by 15%");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;
@@ -23,10 +23,9 @@ namespace Zylon.Items.Armor
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.SunplateBlock, 18);
-			recipe.AddIngredient(ItemID.Feather, 15);
-			recipe.AddIngredient(ModContent.ItemType<Materials.WindEssence>(), 25);
-			recipe.AddIngredient(ModContent.ItemType<Materials.SpeckledStardust>(), 12);
+			recipe.AddIngredient(ModContent.ItemType<Materials.WindEssence>(), 16);
+			recipe.AddIngredient(ItemID.Feather, 7);
+			recipe.AddIngredient(ModContent.ItemType<Materials.SpeckledStardust>(), 7);
 			recipe.AddTile(TileID.SkyMill);
 			recipe.Register();
 		}

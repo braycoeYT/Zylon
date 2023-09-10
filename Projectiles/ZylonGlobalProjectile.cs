@@ -16,7 +16,24 @@ namespace Zylon.Projectiles
 					projectile.timeLeft = 3600;
 			}
 		}
-		int Timer;
+        public override bool PreAI(Projectile projectile) {
+            Player player = Main.player[projectile.owner];
+            ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+			if (p.hexNecklace) {
+				if (projectile.type == ProjectileID.WandOfSparkingSpark) {
+					if (Main.myPlayer == player.whoAmI)
+						Projectile.NewProjectile(projectile.GetSource_Death(), projectile.position, projectile.velocity, ProjectileType<Projectiles.Wands.WandofHexingProj>(), projectile.damage, projectile.knockBack, Main.myPlayer);
+					projectile.Kill();
+                }
+				if ((projectile.type >= 121 && projectile.type <= 126) || projectile.type == ProjectileID.AmberBolt || projectile.type == ModContent.ProjectileType<Projectiles.Wands.JadeBolt>()) {
+					if (Main.myPlayer == player.whoAmI)
+						Projectile.NewProjectile(projectile.GetSource_Death(), projectile.position, projectile.velocity, ProjectileType<Projectiles.Wands.HexOreStaffProj>(), projectile.damage, projectile.knockBack, Main.myPlayer);
+					projectile.Kill();
+                }
+            }
+			return true;
+        }
+        int Timer;
         public override void PostAI(Projectile projectile) {
 			Timer++;
 			Player player = Main.player[projectile.owner];
@@ -56,7 +73,7 @@ namespace Zylon.Projectiles
 				if (damageCooldown == 0) projectile.friendly = true;
             }
         }
-        public override void OnHitNPC(Projectile projectile, NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPC(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone) {
             if (target.type == NPCType<NPCs.Bosses.Dirtball.DirtBlock>() && (projectile.penetrate < 0 || projectile.penetrate > 3) && projectile.minion == false && Main.expertMode)
 				projectile.penetrate = 3;
 			if (target.type == NPCType<NPCs.Bosses.Metelord.MetelordHead>() || target.type == NPCType<NPCs.Bosses.Metelord.MetelordBody>() || target.type == NPCType<NPCs.Bosses.Metelord.MetelordTail>()) {

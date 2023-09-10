@@ -11,7 +11,7 @@ namespace Zylon.Items.Pets
 	public class EldritchGland : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'It's covered in a thin coat of some sticky substance, but looks useless.'\nSummons a spooky jellyfish to follow you");
+			// Tooltip.SetDefault("'It's covered in a thin coat of some sticky substance, but looks useless.'\nSummons a spooky jellyfish to follow you");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 		public override void SetDefaults() {

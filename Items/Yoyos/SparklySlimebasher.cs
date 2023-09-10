@@ -8,7 +8,7 @@ namespace Zylon.Items.Yoyos
 	public class SparklySlimebasher : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Has a long reach\nStriking enemies will release bouncy sparkly gel");
+			// Tooltip.SetDefault("Has a long reach\nStriking enemies will release bouncy sparkly gel");
 			ItemID.Sets.Yoyo[Item.type] = true;
 			ItemID.Sets.GamepadExtraRange[Item.type] = 15;
 			ItemID.Sets.GamepadSmartQuickReach[Item.type] = true;

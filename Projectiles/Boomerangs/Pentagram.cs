@@ -12,7 +12,7 @@ namespace Zylon.Projectiles.Boomerangs
 	public class Pentagram : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Pentagram");
+			// DisplayName.SetDefault("Pentagram");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 12;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
@@ -69,7 +69,7 @@ namespace Zylon.Projectiles.Boomerangs
 			Projectile.velocity *= 0.92f;
 			return false;
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			int verycool = Main.rand.Next(0, 72);
 			for (int i = 0; i < 5; i++) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Firework_Red);
@@ -82,20 +82,27 @@ namespace Zylon.Projectiles.Boomerangs
 				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -14).RotatedBy(MathHelper.ToRadians((i*72)+verycool)), ModContent.ProjectileType<Pentagram_2>(), (int)(Projectile.damage*0.65f), Projectile.knockBack/2, Projectile.owner);
             Projectile.Kill();
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-            int verycool = Main.rand.Next(0, 72);
-			for (int i = 0; i < 5; i++) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Firework_Red);
-				dust.noGravity = false;
-				dust.scale = 2f;
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				int verycool = Main.rand.Next(0, 72);
+				for (int i = 0; i < 5; i++)
+				{
+					Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Firework_Red);
+					dust.noGravity = false;
+					dust.scale = 2f;
+				}
+				if (done) return;
+				done = true;
+				for (int i = 0; i < 5; i++)
+					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -14).RotatedBy(MathHelper.ToRadians((i * 72) + verycool)), ModContent.ProjectileType<Pentagram_2>(), (int)(Projectile.damage * 0.65f), Projectile.knockBack / 2, Projectile.owner);
+				Projectile.Kill();
 			}
-			if (done) return;
-			done = true;
-			for (int i = 0; i < 5; i++)
-				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -14).RotatedBy(MathHelper.ToRadians((i*72)+verycool)), ModContent.ProjectileType<Pentagram_2>(), (int)(Projectile.damage*0.65f), Projectile.knockBack/2, Projectile.owner);
-            Projectile.Kill();
         }
-		public override bool PreDraw(ref Color lightColor) {
+
+        public override bool PreDraw(ref Color lightColor) {
             // This just controls when to flip the projectile horizontally.
             SpriteEffects spriteEffects = SpriteEffects.None;
             //if (Projectile.spriteDirection == -1)

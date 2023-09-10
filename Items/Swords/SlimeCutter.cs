@@ -7,7 +7,7 @@ namespace Zylon.Items.Swords
 	public class Slimecutter : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Struck enemies are slimed");
+			// Tooltip.SetDefault("Struck enemies are slimed");
 		}
 		public override void SetDefaults() {
 			Item.damage = 15;
@@ -24,10 +24,10 @@ namespace Zylon.Items.Swords
 			Item.autoReuse = false;
 			Item.useTurn = true;
 		}
-        public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
+        public override void OnHitPvp(Player player, Player target, Player.HurtInfo hurtInfo) {
             target.AddBuff(BuffID.Slimed, Main.rand.Next(3, 6) * 60, false);
         }
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Slimed, Main.rand.Next(3, 6) * 60, false);
 		}
 		public override void AddRecipes() {

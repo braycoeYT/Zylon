@@ -7,7 +7,11 @@ namespace Zylon.Items.Potions
     public class GalePotion : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("Increases max blowpipe charge by 50\nIncreases blowpipe charge speed by 30/s");
+<<<<<<< HEAD
+            Tooltip.SetDefault("Increases max blowpipe charge by 30\nIncreases blowpipe charge speed by 10/s");
+=======
+            // Tooltip.SetDefault("Increases max blowpipe charge by 30\nIncreases blowpipe charge speed by 10/s");
+>>>>>>> ProjectClash
         }
         public override void SetDefaults() {
             Item.width = 20;
@@ -21,7 +25,7 @@ namespace Zylon.Items.Potions
             Item.consumable = true;
             Item.rare = ItemRarityID.Blue;
             Item.value = Item.sellPrice(0, 0, 2, 0);
-            Item.buffType = ModContent.BuffType<Buffs.Gale>();
+            Item.buffType = ModContent.BuffType<Buffs.Potions.Gale>();
             Item.buffTime = 28800;
         }
 		public override void AddRecipes() {

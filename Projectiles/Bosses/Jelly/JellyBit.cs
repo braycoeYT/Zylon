@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Bosses.Jelly
 	public class JellyBit : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Jelly Bit");
+			// DisplayName.SetDefault("Jelly Bit");
 			Main.projFrames[Projectile.type] = 4;
         }
 		public override void SetDefaults() {

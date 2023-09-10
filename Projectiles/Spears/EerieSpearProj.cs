@@ -6,7 +6,7 @@ namespace Zylon.Projectiles.Spears
 	public class EerieSpearProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Otherworldly Fang");
+			// DisplayName.SetDefault("Otherworldly Fang");
         }
 		public override void SetDefaults() {
 			Projectile.width = 14;

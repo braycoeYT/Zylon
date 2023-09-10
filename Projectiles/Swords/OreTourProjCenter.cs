@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Swords
 	public class OreTourProjCenter : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Ore Tour");
+            // DisplayName.SetDefault("Ore Tour");
         }
         public override void SetDefaults() {
 			Projectile.width = 1;

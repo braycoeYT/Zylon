@@ -7,8 +7,8 @@ namespace Zylon.Items.Ammo
 	public class EndlessWormPouch : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Bottomless Sack of Worms");
-			Tooltip.SetDefault("'The angler would love this, though he'd probably just leave them in peoples' beds.'");
+			// DisplayName.SetDefault("Bottomless Sack of Worms");
+			// Tooltip.SetDefault("'The angler would love this, though he'd probably just leave them in peoples' beds.'");
         }
 		public override void SetDefaults() {
 			Item.width = 24;
@@ -25,7 +25,7 @@ namespace Zylon.Items.Ammo
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Worm, 500);
+			recipe.AddIngredient(ItemID.Worm, 300);
 			recipe.AddTile(TileID.CrystalBall);
 			recipe.Register();
 		}

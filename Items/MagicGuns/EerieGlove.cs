@@ -9,7 +9,7 @@ namespace Zylon.Items.MagicGuns
 	public class EerieGlove : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Barrages enemies with tracking jellies");
+			// Tooltip.SetDefault("Barrages enemies with tracking jellies");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 2);

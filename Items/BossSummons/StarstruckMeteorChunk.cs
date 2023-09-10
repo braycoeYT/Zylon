@@ -7,11 +7,12 @@ namespace Zylon.Items.BossSummons
 {
 	public class StarstruckMeteorChunk : ModItem
 	{
+<<<<<<< HEAD
 		public override void SetStaticDefaults() {
-			string extra = "";
-			if (ModContent.GetInstance<ZylonConfig>().infBossSum) extra = "\nNot Consumable";
-			Tooltip.SetDefault("Summons Metelord\nCan only be used in the meteorite\nEnrages outside of the meteorite"+extra);
+			Tooltip.SetDefault("Summons Metelord\nCan only be used in the meteorite\nEnrages outside of the meteorite\nNot Consumable");
 		}
+=======
+>>>>>>> ProjectClash
 		public override void SetDefaults()  {
 			Item.width = 28;
 			Item.height = 40;
@@ -21,7 +22,7 @@ namespace Zylon.Items.BossSummons
 			Item.useAnimation = 45;
 			Item.useTime = 45;
 			Item.useStyle = ItemUseStyleID.HoldUp;
-			Item.consumable = !ModContent.GetInstance<ZylonConfig>().infBossSum;
+			Item.consumable = false;
 		}
         public override bool CanUseItem(Player player) {
             return player.ZoneMeteor && !NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Metelord.MetelordHead>());
@@ -38,15 +39,21 @@ namespace Zylon.Items.BossSummons
 				}
 				else
 				{
-					NetMessage.SendData(MessageID.SpawnBoss, number: player.whoAmI, number2: type);
+					NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: type);
 				}
 			}
 			return true;
         }
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Meteorite, 6);
-			recipe.AddIngredient(ItemID.FallenStar, 3);
+			recipe.AddIngredient(ItemID.Meteorite, 12);
+			recipe.AddIngredient(ItemID.FallenStar, 5);
+			recipe.AddTile(TileID.DemonAltar);
+			recipe.Register();
+
+			recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.MeteoriteBar, 4);
+			recipe.AddIngredient(ItemID.FallenStar, 5);
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
 		}

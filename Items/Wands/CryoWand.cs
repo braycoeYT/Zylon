@@ -9,14 +9,14 @@ namespace Zylon.Items.Wands
 	public class CryoWand : ModItem
 	{
         public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Fires a chunk of ice that splits into several shards on impact");
+			// Tooltip.SetDefault("Fires a chunk of ice that splits into several shards on impact");
             Item.staff[Item.type] = true;
         }
         public override void SetDefaults() {
 			Item.damage = 10;
 			Item.DamageType = DamageClass.Magic;
-			Item.width = 40;
-			Item.height = 40;
+			Item.width = 44;
+			Item.height = 44;
 			Item.useTime = 38;
 			Item.useAnimation = 38;
 			Item.useStyle = ItemUseStyleID.Shoot;

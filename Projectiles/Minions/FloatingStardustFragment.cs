@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Minions
 	public class FloatingStardustFragment : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Floating Stardust Fragment");
+			// DisplayName.SetDefault("Floating Stardust Fragment");
 			Main.projFrames[Projectile.type] = 1;
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;

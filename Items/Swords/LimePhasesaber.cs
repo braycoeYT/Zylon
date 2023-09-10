@@ -8,12 +8,12 @@ namespace Zylon.Items.Swords
 	public class LimePhasesaber : ModItem
 	{
 		public override void SetDefaults() {
-			Item.damage = 48;
+			Item.damage = 42;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 48;
 			Item.height = 48;
-			Item.useTime = 16;
-			Item.useAnimation = 16;
+			Item.useTime = 20;
+			Item.useAnimation = 20;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 3f;
 			Item.value = Item.sellPrice(0, 1);

@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Misc
 	public class NeutronBlast : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Neutron Blast");
+			// DisplayName.SetDefault("Neutron Blast");
         }
 		public override void SetDefaults() {
 			Projectile.aiStyle = -1;

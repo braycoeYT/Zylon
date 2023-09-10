@@ -1,37 +1,70 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Microsoft.Xna.Framework;
 
 namespace Zylon.Projectiles.Blowpipes
 {
 	public class Slimeball : ModProjectile
 	{
         public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			DisplayName.SetDefault("Slimeball");
-			Main.projFrames[Projectile.type] = 6;
+=======
+			// DisplayName.SetDefault("Slimeball");
+>>>>>>> ProjectClash
         }
 		public override void SetDefaults() {
 			AIType = ProjectileID.Bullet;
 			Projectile.width = 28;
 			Projectile.height = 28;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = -1;
 			Projectile.hostile = false;
 			Projectile.friendly = true;
 			Projectile.timeLeft = 9999;
-			Projectile.penetrate = 9999;
+			Projectile.penetrate = 1;
+			Projectile.scale = 1f;
+			Projectile.tileCollide = false;
+			Projectile.usesLocalNPCImmunity = true;
+			Projectile.localNPCHitCooldown = 15;
 		}
+<<<<<<< HEAD
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-		    target.AddBuff(BuffID.Slimed, 300, false);
+		    target.AddBuff(BuffID.Slimed, 60*Main.rand.Next(3, 6));
 		}
 		public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Slimed, 300, false);
+			target.AddBuff(BuffID.Slimed, 60*Main.rand.Next(3, 6));
 		}
-		public override void AI() {
-			if (++Projectile.frameCounter >= 6) {
-				Projectile.frameCounter = 0;
-				if (++Projectile.frame >= 6)
-					Projectile.frame = 0;
+		bool init;
+=======
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+		    target.AddBuff(BuffID.Slimed, 60*Main.rand.Next(3, 6));
+		}
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.Slimed, 60 * Main.rand.Next(3, 6));
 			}
+        }
+
+        bool init;
+>>>>>>> ProjectClash
+		int Timer;
+		public override void AI() {
+			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
+			if (!init) {
+				Projectile.penetrate = (int)(1+Projectile.ai[0]*1.5f);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(), ModContent.ProjectileType<Slimeball_Deco>(), 0, 0f, Main.myPlayer, Projectile.whoAmI, Projectile.ai[0]/1.5f);
+				init = true;
+            }
+			Timer++;
+			Projectile.width = (int)(28*Projectile.ai[0]/1.5f);
+			Projectile.height = (int)(28*Projectile.ai[0]/1.5f);
+			//Projectile.scale = Projectile.ai[0]/1.5f;
+			//if (Projectile.scale < 0.25f) Projectile.scale = 0.25f;
+			Projectile.tileCollide = Timer > (int)(5f*Projectile.ai[0]);
 		}
 		public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);

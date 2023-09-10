@@ -22,13 +22,5 @@ namespace Zylon.Tiles.Bars
 			AddMapEntry(new Color(93, 138, 161), Language.GetText("MapObject.MetalBar"));
 			DustType = DustType<Dusts.ZincOreDust>();
 		}
-		public override bool Drop(int i, int j) {
-			Tile t = Main.tile[i, j];
-			int style = t.TileFrameX / 18;
-			if (style == 0) {
-				Item.NewItem(new EntitySource_TileBreak(i, j), i * 16, j * 16, 16, 16, ItemType<Items.Bars.ZincBar>());
-			}
-			return base.Drop(i, j);
-		}
 	}
 }

@@ -13,7 +13,7 @@ namespace Zylon.NPCs.Desert
 	public class DesertDiskite_LaserEye : ModNPC
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Desert Diskite");
+			// DisplayName.SetDefault("Desert Diskite");
             //Main.npcFrameCount[NPC.type] = 2;
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				Hide = true
@@ -35,12 +35,17 @@ namespace Zylon.NPCs.Desert
 			NPC.dontCountMe = true;
 			NPC.dontTakeDamage = true;
         }
+<<<<<<< HEAD
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        NPC.lifeMax = 69;
+=======
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 69;
+>>>>>>> ProjectClash
 			NPC.damage = 0;
         }
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) {
-            Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/ADD/ADD_LaserEye_Glow").Value;
+            Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Desert/DesertDiskite_LaserEyeGlow").Value;
 			spriteBatch.Draw
 			(
 				texture,

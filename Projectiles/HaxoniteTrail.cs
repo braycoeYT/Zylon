@@ -7,7 +7,7 @@ namespace Zylon.Projectiles
 	public class HaxoniteTrail : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Flame Orb");
+			// DisplayName.SetDefault("Flame Orb");
 			Main.projFrames[Projectile.type] = 4;
         }
 		public override void SetDefaults() {
@@ -34,12 +34,23 @@ namespace Zylon.Projectiles
 					Projectile.frame = 0;
 			}
         }
+<<<<<<< HEAD
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        target.AddBuff(BuffID.OnFire, Main.rand.Next(1, 4)*60);
+=======
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.OnFire, Main.rand.Next(1, 4)*60);
+>>>>>>> ProjectClash
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-            target.AddBuff(BuffID.OnFire, Main.rand.Next(1, 4)*60);
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.OnFire, Main.rand.Next(1, 4) * 60);
+			}
         }
+
         /*public override void PostAI() {
 			for (int i = 0; i < 2; i++) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch);
@@ -47,5 +58,5 @@ namespace Zylon.Projectiles
 				dust.scale = 0.5f;
 			}
 		}*/
-	}   
+    }   
 }

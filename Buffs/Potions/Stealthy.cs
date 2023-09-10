@@ -6,8 +6,8 @@ namespace Zylon.Buffs.Potions
     public class Stealthy : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Stealthy");
-            Description.SetDefault("Gives a small chance to dodge attacks");
+            // DisplayName.SetDefault("Stealthy");
+            // Description.SetDefault("Gives a small chance to dodge attacks");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = false;
         }

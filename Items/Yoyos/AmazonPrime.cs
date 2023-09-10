@@ -8,7 +8,7 @@ namespace Zylon.Items.Yoyos
 	public class AmazonPrime : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Does not come with drone'\nOccasionally drops packages");
+			// Tooltip.SetDefault("'Does not come with drone'\nOccasionally drops packages");
 			ItemID.Sets.Yoyo[Item.type] = true;
 			ItemID.Sets.GamepadExtraRange[Item.type] = 15;
 			ItemID.Sets.GamepadSmartQuickReach[Item.type] = true;

@@ -8,7 +8,7 @@ namespace Zylon.Items.Ammo
 	public class HallowedSeed : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("For use with blowpipes\nCan pierce up to three times, with each hit sometimes raining a holy star");
+			// Tooltip.SetDefault("For use with blowpipes\nCan pierce up to three times, with each hit sometimes raining a holy star");
         }
 		public override void SetDefaults() {
 			Item.damage = 10;

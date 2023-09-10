@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Ammo
 	public class FireblossomSprouted : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Fireblossom");
+			// DisplayName.SetDefault("Fireblossom");
         }
 		public override void SetDefaults() {
 			Projectile.width = 12;

@@ -10,7 +10,7 @@ namespace Zylon.Items.Vanity
 	public class JellyMask : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Eldritch Jellyfish Mask");
+			// DisplayName.SetDefault("Eldritch Jellyfish Mask");
 		}
 		public override void SetDefaults() {
 			Item.width = 22;

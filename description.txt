@@ -1,50 +1,50 @@
-The best mod that starts with Z (I guarantee or your money back)! Zylon is a unique terraria mod full of slimes, blowpipes, peculiar boss fights, and much much more!
+(currently works on 1.4.3)
+The best mod that starts with Z (I guarantee or your money back)! Zylon is a unique terraria mod full of slimes, blowpipes, references, peculiar boss fights, and much much more!
 
 THIS MOD IS IN SEVERE NEED OF SPRITERS. If you are a fan of the mod and want to sprite, feel free to join the discord server!
+DISCORD JOIN: https://discord.gg/x6G8rKduWc
 
 Stats:
-~350 Items
-~4 Bosses:
-~~~4 Prehardmode Bosses [i:2][i:131][i:116][i:282]
-~52 total NPCs
-~53 Buffs
-~14 Tiles
+~340 Items
+~3 Bosses:
+~~~3 Prehardmode Bosses [i:2][i:116][i:282]
+~36 total NPCs
+~55 Buffs
+~13 Tiles
 ~A complete reworking and expansion of blowpipes!
-~Many new vanilla recipes and changes to help balance the game out (including an easier Slime Crown recipe).
+~LOTS of new vanilla recipes and changes to help balance the game out.
 ~Several new prefixes!
 
-V0.0.2.5: Update
-~Resprited Space Machine Gun.
-~Added Blizzard Seer.
-~Fixed several issues with modded foods.
-~Heavily decreased Elem Slime spawn rates.
-~Added a new costume for Dirtboi on April Fool's Day.
-~Added a config to disable April Fool's Day changes.
-~Added Enchanted Ice Cube, Cryo Staff, Icicle on a Rod, Icicle Maker, and Icy Wisp Staff.
-~Reworked Bloody Zombie Arm.
-~Minor buff fixes and changes.
-~Added Pandemic.
-~Added Saber Tooth and Saber Tooth Necklace.
-~Changed Neutron in a Bottle's rarity.
-~Added Heavy Hitter Potion.
-~Nerfed Magic Power Potion.
-
-Q&A:
-
-Q: What's the theme of the mod?
-A: What are you, an English teacher? Shut up. The theme of the mod is that I don't care about themes.
-
-Q: Why are you returning?
-A: I didn't want to leave the game with a bad taste in my mouth, and I played the game again and it was super fun, and then ideas began to fill my head, and you can see where this went. Also, a couple people asked me to rejoin.
-
-Q: Is the original content going to come back?
-A: Some of it, yes, though I will probably remake it to fit 1.4. Sadly, the Ember Glades are most likely not going to return for a good while for complicated reasons.
-
-Q: Is the original team going to return?
-A: I can't read minds. People can rejoin if they want to. As of writing this, most of the major dev team returned (to my surprise), though most of them are busy now.
-
-Q: Where is the discord server?
-A: It should appear as the mod homepage.
+V0.0.2.9: Commitment Issues Update
+~Hey so I kind of accidentally messed up the whole mod (long story), and have frantically tried to fix it. If there are any issues with stuff, please don't delay to tell me.
+~Removed ADD temporarily for reworks.
+~Added two new recipes for Heavy Metal Hammer, and reduced Iron Bars needed.
+~Increased chances of Plantera dropping Nature's Gift and Jungle Rose.
+~Fixed Metelord's relic placing Dirtball's.
+~Fixed a mistake with Eerie Bell drops from Eerie Jellyfish.
+~Added Tent and Cabin.
+~Added Bag of Fruits.
+~Aurorous Knuckles no longer stack with Flesh Knuckles.
+~Fixed typo in Warrior's Ribbon's tooltip.
+~Readded Starpack Slime, and heavily decreased knockback resistance.
+~Added Glass armor.
+~Decreased Worms required for Endless Worm Pouch.
+~Changed Carnallite Bar tooltip.
+~Added Spear of Justice.
+~Made Lihzahrd Lance longer, projectiles last less time, and sell for more.
+~Changed Lihzahrd Lance tooltip.
+~Added Mud Pie.
+~Added new vanilla recipes.
+~Decreased Bamboo Sharpshooter requirements and changed sell value.
+~Added Eight Legs. Yes, really.
+~Fixed issue with X-Blade tooltip.
+~Moved Forgotten Rose's Saber to post-Golem.
+~Reworked Forgotten Rose's Saber again.
+~Fixed grammatical error in Forgotten Rose's Saber tooltip.
+~Resprited Metelord.
+~Fixed typo in Leaf Bracelet tooltip.
+~Changed Mudslinger rarity.
+~Reworked Metecore.
 
 Credits (from the previous mod versions and now):
 Owner:
@@ -54,8 +54,9 @@ Ideas, Sprites, Music, and General Support:
 Skymanisbtman (Composer)
 Tome Man (Coder and Spriter)
 Mafia_Cheezstick (Spriter)
-
 Mjoon (Spriter)
+Mr.Gerd26 (Minor Spriter and General Support)
+
 Slimelad (General Support and Ideas)
 Pufferfisher77 (General Support and Ideas)
 HBDeus (Spriter and Composer)
@@ -71,5 +72,11 @@ Minor Help:
 Jabon
 Ebon
 Juice/Slayer
-Mr.Gerd26
 STiML
+
+
+
+
+
+
+you like crits don't you?

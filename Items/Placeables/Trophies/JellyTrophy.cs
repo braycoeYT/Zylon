@@ -8,7 +8,7 @@ namespace Zylon.Items.Placeables.Trophies
 	public class JellyTrophy : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Eldritch Jellyfish Trophy");
+			// DisplayName.SetDefault("Eldritch Jellyfish Trophy");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 		public override void SetDefaults() {

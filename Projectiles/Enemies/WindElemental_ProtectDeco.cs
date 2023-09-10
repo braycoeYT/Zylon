@@ -1,20 +1,12 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.GameContent.Bestiary;
-using Terraria.GameContent.ItemDropRules;
-using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Utilities;
 
 namespace Zylon.Projectiles.Enemies
 {
 	public class WindElemental_ProtectDeco : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Wind Elemental");
+			// DisplayName.SetDefault("Wind Elemental");
         }
         public override void SetDefaults() {
             Projectile.width = 70;

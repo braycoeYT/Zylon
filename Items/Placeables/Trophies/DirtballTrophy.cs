@@ -8,7 +8,7 @@ namespace Zylon.Items.Placeables.Trophies
 	public class DirtballTrophy : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Dirtball Trophy");
+			// DisplayName.SetDefault("Dirtball Trophy");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 		public override void SetDefaults() {

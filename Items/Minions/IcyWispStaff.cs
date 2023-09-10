@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Chat;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,7 +11,11 @@ namespace Zylon.Items.Minions
 	public class IcyWispStaff : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons an icy wisp to fight for you\nEach wisp takes up half of a slot");
+<<<<<<< HEAD
+			Tooltip.SetDefault("Summons icy wisps to fight for you\nSpawns two wisps that share a single minion slot");
+=======
+			// Tooltip.SetDefault("Summons icy wisps to fight for you\nSpawns two wisps that share a single minion slot");
+>>>>>>> ProjectClash
 			ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
 			ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
 		}
@@ -33,9 +38,13 @@ namespace Zylon.Items.Minions
 			Item.shoot = ProjectileType<Projectiles.Minions.IcyWisp>();
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-            player.AddBuff(Item.buffType, 2);
+			//Main.NewText(player.slotsMinions.ToString()+"/"+player.maxMinions.ToString(), Color.White);
+			
+			player.AddBuff(Item.buffType, 2);
 			position = Main.MouseWorld;
+			//if (player.maxMinions - player.slotsMinions > 0f)
 			Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer, player.ownedProjectileCounts[ProjectileType<Projectiles.Minions.IcyWisp>()]);
+			Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer, player.ownedProjectileCounts[ProjectileType<Projectiles.Minions.IcyWisp>()]+1);
 			return false;
         }
         public override void AddRecipes() {

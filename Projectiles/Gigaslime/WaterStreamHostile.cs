@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Gigaslime
 	public class WaterStreamHostile : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Water Stream");
+			// DisplayName.SetDefault("Water Stream");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.WaterStream);

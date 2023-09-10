@@ -9,7 +9,7 @@ namespace Zylon.Items.Guns
 	public class BlizzardBlaster : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("33% chance not to consume ammo\nRapidly blasts snowballs");
+			// Tooltip.SetDefault("33% chance not to consume ammo\nRapidly blasts snowballs");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 6);

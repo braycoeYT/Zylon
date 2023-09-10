@@ -10,7 +10,7 @@ namespace Zylon.Items.Spears
 		public override void SetStaticDefaults()
 		{
 			ItemID.Sets.Spears[Item.type] = true;
-			Tooltip.SetDefault("'From a primordial desert dynasty'\nCreates dust storms at will");
+			// Tooltip.SetDefault("'From a primordial desert dynasty'\nCreates dust storms at will");
 		}
 		public override void SetDefaults() {
 			Item.damage = 21;
