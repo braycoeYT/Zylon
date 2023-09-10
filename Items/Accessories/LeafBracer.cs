@@ -7,7 +7,7 @@ namespace Zylon.Items.Accessories
 	public class LeafBracer : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Grants two seconds of invincibility after using a healing potion");
+			// Tooltip.SetDefault("Grants two seconds of invincibility after using a healing potion");
 		}
 		public override void SetDefaults() {
 			Item.width = 32;

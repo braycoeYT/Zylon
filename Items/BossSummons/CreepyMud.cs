@@ -7,12 +7,6 @@ namespace Zylon.Items.BossSummons
 {
 	public class CreepyMud : ModItem
 	{
-		public override void SetStaticDefaults() {
-			string extra = "";
-			if (ModContent.GetInstance<ZylonConfig>().infBossSum) extra = "\nNot Consumable";
-			// Tooltip.SetDefault("'It melts in your hand...'\nSummons Dirtball"+extra);
-			ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 0;
-		}
 		public override void SetDefaults() {
 			Item.width = 38;
 			Item.height = 68;
@@ -22,7 +16,7 @@ namespace Zylon.Items.BossSummons
 			Item.useAnimation = 45;
 			Item.useTime = 45;
 			Item.useStyle = ItemUseStyleID.HoldUp;
-			Item.consumable = !ModContent.GetInstance<ZylonConfig>().infBossSum;
+			Item.consumable = false;
 		}
 		public override bool CanUseItem(Player player) {
 			return !NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Dirtball.Dirtball>());

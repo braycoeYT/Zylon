@@ -21,11 +21,17 @@ namespace Zylon.Projectiles.Accessories
 			Projectile.rotation = MathHelper.ToRadians(Main.rand.Next(-20, 21));
 			Projectile.tileCollide = false;
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-            if (Timer < 145) Timer = 152;
-        }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-            if (Timer < 145) Timer = 152;
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+			if (Timer < 145) Timer = 152;
+		}
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+			if (info.PvP)
+            {
+				if (Timer < 145) Timer = 152;
+			}
         }
         int Timer;
         public override void AI() {

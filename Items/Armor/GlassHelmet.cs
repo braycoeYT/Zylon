@@ -8,7 +8,7 @@ namespace Zylon.Items.Armor
 	public class GlassHelmet : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("-3 Defense\n'Make sure no one throws any stones at you'\nIncreases critical strike damage by 20%");
+			// Tooltip.SetDefault("-3 Defense\n'Make sure no one throws any stones at you'\nIncreases critical strike damage by 20%");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

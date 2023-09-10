@@ -141,7 +141,7 @@ Mods: {
 			}
 
 			ZombieRot: {
-				DisplayName: Mods.Zylon.BuffName.ZombieRot
+				DisplayName: Zombie Rot
 				Description: Your limbs feel like falling off...
 			}
 
@@ -268,6 +268,11 @@ Mods: {
 			Stealthy: {
 				DisplayName: Stealthy
 				Description: Gives a small chance to dodge attacks
+			}
+
+			LeafBracer: {
+				DisplayName: Leaf Bracer
+				Description: Mods.Zylon.Buffs.LeafBracer.Description
 			}
 		}
 
@@ -416,8 +421,10 @@ Mods: {
 				DisplayName: Metecore
 				Tooltip:
 					'''
-					Spawns a mini inferno ring around your cursor to roast enemies
-					Increases your life regen and defense when on fire
+					Spawns a friendly meteor above your head
+					Damaging enemies summons meteor spirits
+					As you collect meteor spirits, your friendly meteor will grow
+					At max size, the friendly meteor explodes into a flurry of fireballs
 					'''
 			}
 
@@ -434,7 +441,7 @@ Mods: {
 
 			RootGuard: {
 				DisplayName: Root Guard
-				Tooltip: ""
+				Tooltip: Taking damage will summon roots nearby to damage enemies
 			}
 
 			SaberTooth: {
@@ -2752,6 +2759,139 @@ Mods: {
 					Striking enemies will release bouncy sparkly gel
 					'''
 			}
+
+			FriendshipBracelet: {
+				DisplayName: Friendship Bracelet
+				Tooltip:
+					'''
+					'For the bestest of friends'
+					Heavily increases the life regen and defense of the player with the least percentage of health that is also wearing a Friendship Bracelet
+					At least one other player within 75 blocks must also be wearing the Friendship Bracelet for this effect to occur
+					'''
+			}
+
+			LeafBracelet: {
+				DisplayName: Leaf Bracelet
+				Tooltip:
+					'''
+					Grants two seconds of invincibility after using a healing potion
+					Increases invincibility time after taking damage
+					Reduces the cooldown of healing potions by 25%
+					Increases life regen slightly
+					'''
+			}
+
+			LeafBracer: {
+				DisplayName: Leaf Bracer
+				Tooltip: You are granted protection through the power of nature
+			}
+
+			GlassBreastplate: {
+				DisplayName: Glass Breastplate
+				Tooltip:
+					'''
+					-5 Defense
+					'Make sure no one throws any stones at you'
+					Increases damage by 12%
+					'''
+			}
+
+			GlassHelmet: {
+				DisplayName: Glass Helmet
+				Tooltip:
+					'''
+					-3 Defense
+					'Make sure no one throws any stones at you'
+					Increases critical strike damage by 20%
+					'''
+			}
+
+			GlassLeggings: {
+				DisplayName: Glass Leggings
+				Tooltip:
+					'''
+					-4 Defense
+					'Make sure no one throws any stones at you'
+					Increases weapon speed by 5%
+					'''
+			}
+
+			BagofFruits: {
+				DisplayName: Bag of Fruits
+				Tooltip: ""
+			}
+
+			SaplingWarriorBanner: {
+				DisplayName: Sapling Warrior Banner
+				Tooltip: ""
+			}
+
+			TestBlowpipe: {
+				DisplayName: Test Blowpipe
+				Tooltip: ""
+			}
+
+			TestBlowpipe2: {
+				DisplayName: Test Blowpipe2
+				Tooltip: ""
+			}
+
+			MudPie: {
+				DisplayName: Mud Pie
+				Tooltip:
+					'''
+					Minor improvements to all stats
+					'Is it chocolate or mud? Only one way to find out!'
+					'''
+			}
+
+			TimewarpAssaultRifle: {
+				DisplayName: Timewarp Assault Rifle
+				Tooltip: Fires a four round burst of small clockwork bits, which have a small chance to inflict Timestop on enemies
+			}
+
+			LivingBranch: {
+				DisplayName: Living Branch
+				Tooltip: Enchanted with an ancient forest magic
+			}
+
+			Cabin: {
+				DisplayName: Cabin
+				Tooltip:
+					'''
+					'Sit by the fire as you melt away your worries...'
+					Can only be used if there are no bosses alive, and you have not damaged anything for 30 seconds
+					'''
+			}
+
+			Tent: {
+				DisplayName: Tent
+				Tooltip:
+					'''
+					'Does not keep the mosquitoes out...'
+					Can only be used if there are no bosses alive, and you have not damaged anything for 30 seconds
+					'''
+			}
+
+			SpearofJustice: {
+				DisplayName: Spear of Justice
+				Tooltip:
+					'''
+					'The true power of SPEAR'
+					Dealing 750 damage summons spear clones to attack enemies
+					'''
+			}
+
+			EightLegs: {
+				DisplayName: Eight Legs
+				Tooltip:
+					'''
+					Every third swing releases a Spider Egg that explodes into Venom Fangs a few seconds after landing
+					Striking enemies will lay Spider Eggs within them
+					Up to three enemy-laid eggs can be active at once
+					True melee hits and Venom Fangs inflict Acid Venom
+					'''
+			}
 		}
 
 		Projectiles: {
@@ -3079,6 +3219,18 @@ Mods: {
 			MiniMiniMeteoroid.DisplayName: Mini Mini Meteoroid
 			Slimebasher.DisplayName: Slimebasher
 			SparklySlimebasher.DisplayName: Sparkly Slimebasher
+			MetecoreFireball.DisplayName: Metecore Fireball
+			MetecoreMain.DisplayName: Metecore
+			MetecoreSpirit.DisplayName: Metecore Spirit
+			MeteoragaBlast.DisplayName: Meteoraga Blast
+			MeteoragaBlastFireball.DisplayName: Meteoraga Blast Fireball
+			GlassShard.DisplayName: Glass Shard
+			SpearofJustice.DisplayName: Spearof Justice
+			SpearofJusticeClone.DisplayName: Spearof Justice Clone
+			MiniRose2.DisplayName: Mini Rose2
+			SpiderEgg.DisplayName: Spider Egg
+			SpiderEggInvis.DisplayName: Spider Egg Invis
+			VenomFangMelee.DisplayName: Venom Fang Melee
 		}
 
 		NPCs: {
@@ -3170,6 +3322,8 @@ Mods: {
 
 			WindElemental.DisplayName: Wind Elemental
 			DesertDiskite_CenterDeco.DisplayName: Desert Diskite_ Center Deco
+			SaplingWarrior.DisplayName: Sapling Warrior
+			StarpackSlime.DisplayName: Starpack Slime
 		}
 
 		Prefixes: {

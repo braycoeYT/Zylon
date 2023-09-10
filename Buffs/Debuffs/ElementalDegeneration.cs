@@ -18,7 +18,7 @@ namespace Zylon.Buffs.Debuffs
         public override void Update(Player player, ref int buffIndex) {
 			player.GetModPlayer<ZylonPlayer>().elemDegen = true;
             if (!player.buffImmune[BuffID.Confused]) player.confused = true;
-            player.statDefense = (int)(player.statDefense*0.8f);
+            player.statDefense *= 0.8f;
             if (Main.rand.NextBool(3)) {
 				Dust dust = Dust.NewDustDirect(player.position, player.width, player.height, ModContent.DustType<Dusts.ElemDust>(), Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
 				dust.noGravity = true;

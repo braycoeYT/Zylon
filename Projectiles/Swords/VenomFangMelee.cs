@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Swords
 	public class VenomFangMelee : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Venom Fang");
+			// DisplayName.SetDefault("Venom Fang");
         }
 		public override void SetDefaults() {
 			Projectile.width = 15;
@@ -25,10 +25,16 @@ namespace Zylon.Projectiles.Swords
         public override void PostAI() {
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Venom, Main.rand.Next(5, 8)*60);
-		}
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.Venom, Main.rand.Next(5, 8) * 60);
+			}
+        }
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Venom, Main.rand.Next(5, 8)*60);
 		}
 		public override void Kill(int timeLeft) {

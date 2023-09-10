@@ -32,10 +32,10 @@ namespace Zylon
 		[Tooltip("Keep this disabled unless a mod uses dirt blocks as ammo and is having major issues. Enabling this will disable the Dirtthrower.")]
 		public bool dirtAmmoFix;
 
-		/*[DefaultValue(true)]
-		[Label("Infinite Boss Summons")]
-		[Tooltip("Makes the mod's boss summons infinite.")]
-		public bool infBossSum;*/
+		//[DefaultValue(true)]
+		//[Label("Infinite Boss Summons")]
+		//[Tooltip("Makes the mod's boss summons infinite.")]
+		//public bool infBossSum;
 
 		[Range(1f, 10f)]
 		[DefaultValue(1f)]

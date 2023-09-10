@@ -7,12 +7,6 @@ namespace Zylon.Items.BossSummons
 {
 	public class EldritchBell : ModItem
 	{
-		public override void SetStaticDefaults() {
-			string extra = "";
-			if (ModContent.GetInstance<ZylonConfig>().infBossSum) extra = "\nNot Consumable";
-			// Tooltip.SetDefault("'It calls for the ocean...'\nSummons the Eldritch Jellyfish\nEnrages outside of the ocean"+extra);
-			ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 3;
-		}
 		public override void SetDefaults() {
 			Item.width = 32;
 			Item.height = 32;
@@ -22,7 +16,7 @@ namespace Zylon.Items.BossSummons
 			Item.useAnimation = 45;
 			Item.useTime = 45;
 			Item.useStyle = ItemUseStyleID.HoldUp;
-			Item.consumable = !ModContent.GetInstance<ZylonConfig>().infBossSum;
+			Item.consumable = false;
 			Item.UseSound = SoundID.Item35.WithPitchOffset(4f);
 		}
 		public override bool CanUseItem(Player player) {

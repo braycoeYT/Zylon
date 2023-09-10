@@ -7,11 +7,6 @@ namespace Zylon.Items.BossSummons
 {
 	public class StarstruckMeteorChunk : ModItem
 	{
-		public override void SetStaticDefaults() {
-			string extra = "";
-			if (ModContent.GetInstance<ZylonConfig>().infBossSum) extra = "\nNot Consumable";
-			// Tooltip.SetDefault("Summons Metelord\nCan only be used in the meteorite\nEnrages outside of the meteorite"+extra);
-		}
 		public override void SetDefaults()  {
 			Item.width = 28;
 			Item.height = 40;
@@ -21,7 +16,7 @@ namespace Zylon.Items.BossSummons
 			Item.useAnimation = 45;
 			Item.useTime = 45;
 			Item.useStyle = ItemUseStyleID.HoldUp;
-			Item.consumable = !ModContent.GetInstance<ZylonConfig>().infBossSum;
+			Item.consumable = false;
 		}
         public override bool CanUseItem(Player player) {
             return player.ZoneMeteor && !NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Metelord.MetelordHead>());

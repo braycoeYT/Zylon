@@ -8,7 +8,7 @@ namespace Zylon.Items.Potions
 	public class Tent : ModItem
 	{
 		public override void SetStaticDefaults() { //j our next step is to add 13 tents, with all of them being carbon copies of each other but they all heal slightly more than the last
-			Tooltip.SetDefault("'Does not keep the mosquitoes out...'\nCan only be used if there are no bosses alive, and you have not damaged anything for 30 seconds");
+			// Tooltip.SetDefault("'Does not keep the mosquitoes out...'\nCan only be used if there are no bosses alive, and you have not damaged anything for 30 seconds");
 		}
 		public override void SetDefaults() {
 			Item.width = 34;

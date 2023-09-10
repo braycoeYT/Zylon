@@ -29,12 +29,15 @@ namespace Zylon.Tiles.Banners
 			// name.SetDefault("Banner");
 			AddMapEntry(new Color(13, 88, 130), name);
 		}
-		public override void NearbyEffects(int i, int j, bool closer) {
-			if (closer) {
+		public override void NearbyEffects(int i, int j, bool closer)
+		{
+			if (closer)
+			{
 				Player player = Main.LocalPlayer;
 				int style = Main.tile[i, j].TileFrameX / 18;
 				int npcType;
-				switch (style) {
+				switch (style)
+				{
 					case 0:
 						npcType = ModContent.NPCType<NPCs.Forest.OrangeSlime>();
 						break;
@@ -45,10 +48,10 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.Forest.DirtSlime>();
 						break;
 					case 3:
-						npcType = ModContent.NPCType<NPCs.Forest.VerdureGigaslime>();
+						npcType = 0; //npcType = ModContent.NPCType<NPCs.Forest.VerdureGigaslime>();
 						break;
 					case 4:
-						npcType = ModContent.NPCType<NPCs.Ocean.LittoralGigaslime>();
+						npcType = 0; //npcType = ModContent.NPCType<NPCs.Ocean.LittoralGigaslime>();
 						break;
 					case 5:
 						npcType = ModContent.NPCType<NPCs.Crimson.VeinTunnelerHead>();
@@ -78,7 +81,7 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.Desert.DesertDiskite_Center>();
 						break;
 					case 14:
-						npcType = ModContent.NPCType<NPCs.Desert.DustbowlGigaslime>();
+						npcType = 0; //npcType = ModContent.NPCType<NPCs.Desert.DustbowlGigaslime>();
 						break;
 					case 15:
 						npcType = ModContent.NPCType<NPCs.Jungle.LiveObelisk>();

@@ -45,7 +45,7 @@ namespace Zylon.Items.Swords
 		}
 		int shootCount;
 		int rot;
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
 			if (target.type != NPCID.TargetDummy) Projectile.NewProjectile(player.GetSource_FromThis(), target.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Swords.MiniRose2>(), Item.damage/4, Item.knockBack/4, Main.myPlayer, rot, target.whoAmI);
         }
 		int shootCount2;
