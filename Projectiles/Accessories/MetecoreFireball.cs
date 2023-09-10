@@ -13,9 +13,11 @@ namespace Zylon.Projectiles.Accessories
 			Projectile.alpha = 0;
 			Projectile.width = 40;
 			Projectile.height = 40;
+			Projectile.penetrate = 1;
+			Projectile.usesIDStaticNPCImmunity = true;
+			Projectile.idStaticNPCHitCooldown = 30; 
 		}
-
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
 			target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(5, 11), false);
 		}
