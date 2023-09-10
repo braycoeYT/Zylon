@@ -7,7 +7,11 @@ namespace Zylon.Items.Accessories
 	public class LeadBalloon : ModItem
 	{
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			Tooltip.SetDefault("'I saw this in a video game once'\nIncreases jump height\nIncreases max falling speed and grants immunity to fall damage\nIncreases blowpipe charge speed by 6/s (does not stack with other balloons)");
+=======
+			// Tooltip.SetDefault("'I saw this in a video game once'\nIncreases jump height\nIncreases max falling speed and grants immunity to fall damage\nIncreases blowpipe charge speed by 6/s (does not stack with other balloons)");
+>>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

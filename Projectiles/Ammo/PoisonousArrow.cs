@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Ammo
 	public class PoisonousArrow : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Poisonous Arrow");
+			// DisplayName.SetDefault("Poisonous Arrow");
         }
 		public override void SetDefaults() {
 			Projectile.width = 8;
@@ -21,13 +21,19 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.ignoreWater = true;
 			AIType = 1;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 		    target.AddBuff(BuffID.Poisoned, 60 * Main.rand.Next(4, 11));
 		}
-		public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Poisoned, 60 * Main.rand.Next(4, 11));
-		}
-		public override void Kill(int timeLeft) {
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.Poisoned, 60 * Main.rand.Next(4, 11));
+			}
+        }
+
+        public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			if (Main.rand.NextFloat() < .2f) Item.NewItem(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.getRect(), ModContent.ItemType<Items.Ammo.PoisonousArrow>());
 		}

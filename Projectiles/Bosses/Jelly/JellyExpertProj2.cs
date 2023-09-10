@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Bosses.Jelly
 	public class JellyExpertProj2 : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mini Jelly");
+			// DisplayName.SetDefault("Mini Jelly");
 			Main.projFrames[Projectile.type] = 2;
 		}
 		public override void SetDefaults() {
@@ -52,7 +52,7 @@ namespace Zylon.Projectiles.Bosses.Jelly
 							}
 						}
 					}
-					if (target.active && target != null && Main.maxNPCs > 0 && Main.maxNPCUpdates > 0 && Main.maxNPCTypes > 0)
+					if (target.active && target != null && Main.maxNPCs > 0 && Main.maxNPCUpdates > 0)
 					{
 						Vector2 look = target.Center - Projectile.Center;
 						if (look.X != 0f) {

@@ -10,7 +10,11 @@ namespace Zylon.Items.Swords
 	public class Mudslinger : ModItem
 	{
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			Tooltip.SetDefault("Every third swing fires an accelerating dirt glob that heats up over time\nAs it heats up, its power steadily increases\nThe glob explodes into molten mud after being left alive for long enough\nHeating speed will change depending on the player's biome");
+=======
+			// Tooltip.SetDefault("Every third swing fires an accelerating dirt glob that heats up over time\nAs it heats up, its power steadily increases\nThe glob explodes into molten mud after being left alive for long enough\nHeating speed will change depending on the player's biome");
+>>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.damage = 38;

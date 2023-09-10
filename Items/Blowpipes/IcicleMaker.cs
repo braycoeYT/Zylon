@@ -9,7 +9,11 @@ namespace Zylon.Items.Blowpipes
 	{
 		public IcicleMaker() : base(50, 0.75f, new Color(0, 200, 255), true) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			Tooltip.SetDefault("At max charge, replaces ammo with a heap of mini icicles");
+=======
+			// Tooltip.SetDefault("At max charge, replaces ammo with a heap of mini icicles");
+>>>>>>> ProjectClash
 		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);

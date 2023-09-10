@@ -10,8 +10,12 @@ namespace Zylon.Items.Yoyos
 	public class Code3 : ModItem
 	{
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			DisplayName.SetDefault("Code 3");
 			Tooltip.SetDefault("Throws three yoyos to attack foes");
+=======
+
+>>>>>>> ProjectClash
 			ItemID.Sets.Yoyo[Item.type] = true;
 			ItemID.Sets.GamepadExtraRange[Item.type] = 15;
 			ItemID.Sets.GamepadSmartQuickReach[Item.type] = true;

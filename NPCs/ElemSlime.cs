@@ -35,13 +35,22 @@ namespace Zylon.NPCs
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.ElemSlimeBanner>();
         }
+<<<<<<< HEAD
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
         NPC.lifeMax = 1446;
+=======
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+            NPC.lifeMax = 1446;
+>>>>>>> ProjectClash
 			NPC.damage = 90;
 			NPC.value = 1300;
 			NPC.defense = 20;
         }
+<<<<<<< HEAD
         public override void HitEffect(int hitDirection, double damage) {
+=======
+		public override void HitEffect(NPC.HitInfo hit) {
+>>>>>>> ProjectClash
 			if (NPC.life > 0) {
 				for (int i = 0; i < 2; i++) {
 					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.ElemDust>(), Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
@@ -53,8 +62,13 @@ namespace Zylon.NPCs
 				dust.noGravity = true;
 			}
 		}
+<<<<<<< HEAD
         public override void OnHitPlayer(Player target, int damage, bool crit) {
         target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ElementalDegeneration>(), 60*Main.rand.Next(5, 11));
+=======
+		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
+            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ElementalDegeneration>(), 60*Main.rand.Next(5, 11));
+>>>>>>> ProjectClash
         }
 		int Timer;
 		int animationTimer;
@@ -82,14 +96,14 @@ namespace Zylon.NPCs
 				if (attackTimer < 120) return;
 				Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 				speed.Normalize();
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-8.5f, ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeBlob>(), (int)(NPC.damage*0.3f), 0f);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-8.5f, ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeBlob>(), (int)(NPC.damage*0.3f), 0f, BasicNetType: 2);
 				attackDone = true;
 			}
 			else if (attack == 1) {
 				attackTimer++;
 				if (attackTimer == 120) {
 					for (int i = 0; i < 6; i++)
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-9, -5)), ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeSpike>(), (int)(NPC.damage*0.2f), 0f);
+						ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-9, -5)), ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeSpike>(), (int)(NPC.damage*0.2f), 0f, BasicNetType: 2);
 					attackDone = true;
                 }
             }
@@ -98,9 +112,9 @@ namespace Zylon.NPCs
 				if (attackTimer < 120) return;
 				Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 				speed.Normalize();
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-12f, ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeOrb>(), (int)(NPC.damage*0.3f), 0f);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-12f, ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeOrb>(), (int)(NPC.damage*0.3f), 0f, BasicNetType: 2);
 				for (int i = 0; i < 4; i++)
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 12).RotatedBy(Main.rand.NextFloat(MathHelper.TwoPi)), ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeOrb>(), (int)(NPC.damage*0.3f), 0f);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 12).RotatedBy(Main.rand.NextFloat(MathHelper.TwoPi)), ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeOrb>(), (int)(NPC.damage*0.3f), 0f, BasicNetType: 2);
 				attackDone = true;
 			}
         }

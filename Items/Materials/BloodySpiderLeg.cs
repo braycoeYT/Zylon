@@ -7,8 +7,8 @@ namespace Zylon.Items.Materials
 	public class BloodySpiderLeg : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Bloody Spider Leg");
-			Tooltip.SetDefault("'Crunchy!'");
+			// DisplayName.SetDefault("Bloody Spider Leg");
+			// Tooltip.SetDefault("'Crunchy!'");
 		}
 		public override void SetDefaults() {
 			Item.width = 32;

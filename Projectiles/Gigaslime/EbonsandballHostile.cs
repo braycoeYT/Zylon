@@ -6,7 +6,7 @@ namespace Zylon.Projectiles.Gigaslime
 	public class EbonsandballHostile : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ebonsand Ball");
+			// DisplayName.SetDefault("Ebonsand Ball");
         }
 		public override void SetDefaults() {
 			Projectile.width = 14;

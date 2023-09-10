@@ -9,7 +9,7 @@ namespace Zylon.Items.Bows
 	public class SparklySlimeshooter : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Turns regular arrows into sparkly arrows that release bouncy sparkly gel on impact");
+			// Tooltip.SetDefault("Turns regular arrows into sparkly arrows that release bouncy sparkly gel on impact");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 0, 60);

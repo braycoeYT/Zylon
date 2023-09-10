@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Swords
 	public class BloodOrb : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Blood Orb");
+			// DisplayName.SetDefault("Blood Orb");
         }
 		public override void SetDefaults() {
 			AIType = ProjectileID.Bullet;

@@ -12,7 +12,7 @@ namespace Zylon.Projectiles
 	public class RainFriendly : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Rain");
+			// DisplayName.SetDefault("Rain");
 		}
 
 		public override void SetDefaults() {

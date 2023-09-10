@@ -7,8 +7,8 @@ namespace Zylon.Items.Flails
 	public class Sporophyte : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("The Sporophyte");
-			Tooltip.SetDefault("Shoots stingers upwards");
+			// DisplayName.SetDefault("The Sporophyte");
+			// Tooltip.SetDefault("Shoots stingers upwards");
 		}
 		public override void SetDefaults() {
 			Item.width = 42;

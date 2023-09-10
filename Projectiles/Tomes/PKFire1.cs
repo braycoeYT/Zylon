@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Tomes
 	public class PKFire1 : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Volcanic Flame");
+			// DisplayName.SetDefault("Volcanic Flame");
         }
 		public override void SetDefaults() {
 			Projectile.width = 20;
@@ -20,11 +20,16 @@ namespace Zylon.Projectiles.Tomes
 			Projectile.ignoreWater = true;
 			AIType = ProjectileID.Bullet;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6), false);
 		}
+<<<<<<< HEAD
         public override void OnHitPvp(Player target, int damage, bool crit) {
         target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6), false);
+=======
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+			target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6), false);
+>>>>>>> ProjectClash
 		}
 		public override void AI() {
 			for (int i = 0; i < 4; i++) {
@@ -38,7 +43,7 @@ namespace Zylon.Projectiles.Tomes
 		}
 		public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 12), ModContent.ProjectileType<PKFire2>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 12), ModContent.ProjectileType<PKFire2>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 			for (int i = 0; i < 4; i++) {
 				int dustType = 127;
 				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType);

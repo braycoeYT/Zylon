@@ -8,7 +8,11 @@ namespace Zylon.Projectiles.Blowpipes
 	public class Superstarshot_F : ModProjectile
 	{
         public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			DisplayName.SetDefault("Superstarshot");
+=======
+			// DisplayName.SetDefault("Superstarshot");
+>>>>>>> ProjectClash
         }
 		bool word;
 		public override void SetDefaults() {

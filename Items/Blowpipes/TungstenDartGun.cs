@@ -10,7 +10,11 @@ namespace Zylon.Items.Blowpipes
 	public class TungstenDartGun : ModItem
 	{
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			Tooltip.SetDefault("Uses seeds as ammo");
+=======
+			// Tooltip.SetDefault("Uses seeds as ammo");
+>>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);

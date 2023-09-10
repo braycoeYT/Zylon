@@ -9,9 +9,13 @@ namespace Zylon.Items.Guns
 {
 	public class TimewarpAssaultRifle : ModItem
 	{
+<<<<<<< HEAD
 		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("Fires a four round burst of small clockwork bits, which have a small chance to inflict Timestop on enemies");
 		}
+=======
+
+>>>>>>> ProjectClash
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 5, 75, 0);
 			Item.useStyle = ItemUseStyleID.Shoot;

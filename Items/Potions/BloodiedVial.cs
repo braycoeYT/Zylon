@@ -7,7 +7,7 @@ namespace Zylon.Items.Potions
     public class BloodiedVial : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("Gives a small chance to lifesteal from enemies");
+            // Tooltip.SetDefault("Gives a small chance to lifesteal from enemies");
         }
         public override void SetDefaults() {
             Item.width = 20;

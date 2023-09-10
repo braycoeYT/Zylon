@@ -29,7 +29,7 @@ namespace Zylon.Projectiles.Yoyos
 		int Timer;
         public override void AI() {
 			Timer++;
-			if (Timer % 30 == 0) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(), ModContent.ProjectileType<DirtBlockYoyo>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, Projectile.whoAmI);
+			if (Timer % 30 == 0) ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(), ModContent.ProjectileType<DirtBlockYoyo>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI);
 		}
     }
 }

@@ -9,7 +9,11 @@ namespace Zylon.Items.Blowpipes
 	{
 		public ChlorophyteBlowspitter() : base(260, 2.6f, new Color(36, 137, 0), true) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			Tooltip.SetDefault("Shoots many seeds at once depending on charge, consuming only one ammo\nAt max charge, replaces ammo with homing chlorophyte seeds\nRight click to disable and enable this effect");
+=======
+			// Tooltip.SetDefault("Shoots many seeds at once depending on charge, consuming only one ammo\nAt max charge, replaces ammo with homing chlorophyte seeds\nRight click to disable and enable this effect");
+>>>>>>> ProjectClash
 		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);

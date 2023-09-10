@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Bosses.Jelly
 	public class JellyBeamBody : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Jelly Beam");
+			// DisplayName.SetDefault("Jelly Beam");
 		}
 		public override void SetDefaults() {
 			Projectile.width = 32;
@@ -42,9 +42,9 @@ namespace Zylon.Projectiles.Bosses.Jelly
 
 				Projectile.ai[0] -= 1;
 				if (Projectile.ai[0] > 0)
-					Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position, new Vector2(), ModContent.ProjectileType<JellyBeamBody>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, Projectile.ai[0], Projectile.ai[1]);
+					ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position, new Vector2(), ModContent.ProjectileType<JellyBeamBody>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, Projectile.ai[0], Projectile.ai[1], 2);
 				else
-					Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position, new Vector2(), ModContent.ProjectileType<JellyBeamHead>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, Projectile.ai[0], Projectile.ai[1]);
+					ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position, new Vector2(), ModContent.ProjectileType<JellyBeamHead>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, Projectile.ai[0], Projectile.ai[1], 2);
 				spawn = true;
 			}
 		}

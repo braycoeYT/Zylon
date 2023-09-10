@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Swords
 	public class HeartbreakerProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Life Crystal");
+			// DisplayName.SetDefault("Life Crystal");
 			Main.projFrames[Projectile.type] = 6;
         }
 		public override void SetDefaults() {

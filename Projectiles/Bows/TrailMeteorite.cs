@@ -10,7 +10,7 @@ namespace Zylon.Projectiles.Bows
 	public class TrailMeteorite : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Meteor Trailer");
+			// DisplayName.SetDefault("Meteor Trailer");
         }
 		public override void SetDefaults() {
 			Projectile.width = 16;
@@ -21,10 +21,15 @@ namespace Zylon.Projectiles.Bows
 			Projectile.alpha = 60*((int)Projectile.ai[0]+1);
 			Projectile.tileCollide = false;
 		}
+<<<<<<< HEAD
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
         target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(2, 5));
+=======
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(2, 5));
+>>>>>>> ProjectClash
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(2, 5));
 		}
 		float newRot;

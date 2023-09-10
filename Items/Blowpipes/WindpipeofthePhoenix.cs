@@ -12,8 +12,13 @@ namespace Zylon.Items.Blowpipes
 	{
 		public WindpipeofthePhoenix() : base(185, 1.8f, new Color(252, 102, 25), true) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			DisplayName.SetDefault("Windpipe of the Phoenix");
 			Tooltip.SetDefault("At max charge, replaces ammo with a burst of flames\nRight click to disable and enable this effect");
+=======
+			// DisplayName.SetDefault("Windpipe of the Phoenix");
+			// Tooltip.SetDefault("At max charge, replaces ammo with a burst of flames\nRight click to disable and enable this effect");
+>>>>>>> ProjectClash
 		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);

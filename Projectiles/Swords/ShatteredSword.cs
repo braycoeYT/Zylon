@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Swords
 	public class ShatteredSword : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Shattered Sword");
+			// DisplayName.SetDefault("Shattered Sword");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.TerraBeam);

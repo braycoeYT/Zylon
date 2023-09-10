@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Yoyos
 	public class AcornFriendlyMelee : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Acorn");
+			// DisplayName.SetDefault("Acorn");
         }
 		public override void SetDefaults() {
 			Projectile.aiStyle = -1;

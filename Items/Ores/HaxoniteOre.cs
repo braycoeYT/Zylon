@@ -8,7 +8,7 @@ namespace Zylon.Items.Ores
 	public class HaxoniteOre : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'A rare mineral found only in the most powerful meteorite creatures'");
+			// Tooltip.SetDefault("'A rare mineral found only in the most powerful meteorite creatures'");
 		}
 		public override void SetDefaults() {
 			Item.useStyle = ItemUseStyleID.Swing;

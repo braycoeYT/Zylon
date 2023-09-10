@@ -8,7 +8,7 @@ namespace Zylon.Projectiles
 	public class ExplosiveMarshmallow : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Explosive Marshmallow");
+			// DisplayName.SetDefault("Explosive Marshmallow");
         }
 		public override void SetDefaults() {
 			Projectile.width = 14;
@@ -23,7 +23,7 @@ namespace Zylon.Projectiles
 		}
 		public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position - new Microsoft.Xna.Framework.Vector2(0, 30), new Microsoft.Xna.Framework.Vector2(0, 0), ProjectileID.DD2ExplosiveTrapT2Explosion, Projectile.damage, 2f, Main.myPlayer);
+			ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position - new Microsoft.Xna.Framework.Vector2(0, 30), new Microsoft.Xna.Framework.Vector2(0, 0), ProjectileID.DD2ExplosiveTrapT2Explosion, Projectile.damage, 2f, Main.myPlayer, BasicNetType: 2);
 		}
 	}   
 }

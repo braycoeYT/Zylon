@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Minions
 	public class DiskiteMinion_SpikeRing : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Desert Diskite");
+			// DisplayName.SetDefault("Desert Diskite");
 			Main.projFrames[Projectile.type] = 1;
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;

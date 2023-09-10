@@ -8,7 +8,7 @@ namespace Zylon.Items.Ammo
 	public class OozingSeed : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("For use with blowpipes\nOn death, leaves a lasting ooze cloud");
+			// Tooltip.SetDefault("For use with blowpipes\nOn death, leaves a lasting ooze cloud");
         }
 		public override void SetDefaults() {
 			Item.damage = 13;

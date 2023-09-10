@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Minions
 	public class IcyWisp : ModBuff
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Icy Wisp");
-			Description.SetDefault("The Icy Wisp will fight for you");
+			// DisplayName.SetDefault("Icy Wisp");
+			// Description.SetDefault("The Icy Wisp will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

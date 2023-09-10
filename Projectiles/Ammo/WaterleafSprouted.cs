@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Ammo
 	public class WaterleafSprouted : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Waterleaf");
+			// DisplayName.SetDefault("Waterleaf");
         }
 		public override void SetDefaults() {
 			Projectile.width = 16;
@@ -27,7 +27,7 @@ namespace Zylon.Projectiles.Ammo
         public override void AI() {
             Timer++;
 			if (Timer % 60 == 0)
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2 (Main.rand.NextFloat(-5, 5), -8), ModContent.ProjectileType<WaterStreamRanged>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2 (Main.rand.NextFloat(-5, 5), -8), ModContent.ProjectileType<WaterStreamRanged>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
         }
     }   
 }

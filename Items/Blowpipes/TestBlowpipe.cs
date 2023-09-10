@@ -11,7 +11,11 @@ namespace Zylon.Items.Blowpipes
 	public class TestBlowpipe : ModItem
 	{
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			Tooltip.SetDefault("");
+=======
+			// Tooltip.SetDefault("");
+>>>>>>> ProjectClash
 		}
         public override void ModifyTooltips(List<TooltipLine> tooltips) { //reminder: move this and finish shivercrown; limit max charge
 			ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();

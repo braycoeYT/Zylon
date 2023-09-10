@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Armor
     public class DiskiteDefense : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Diskbringer: Defense");
-            Description.SetDefault("Increases your defense by 10 and damage reduction by 5%");
+            // DisplayName.SetDefault("Diskbringer: Defense");
+            // Description.SetDefault("Increases your defense by 10 and damage reduction by 5%");
             Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = false;
 			Main.buffNoSave[Type] = false;

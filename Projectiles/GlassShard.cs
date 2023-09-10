@@ -8,7 +8,11 @@ namespace Zylon.Projectiles
 	public class GlassShard : ModProjectile
 	{
         public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			DisplayName.SetDefault("Glass Shard");
+=======
+			// DisplayName.SetDefault("Glass Shard");
+>>>>>>> ProjectClash
         }
 		public override void SetDefaults() {
 			Projectile.width = 26;

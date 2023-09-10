@@ -10,7 +10,7 @@ namespace Zylon.Projectiles.Swords
 	public class MarbleGhostSword : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Marble Sword");
+			// DisplayName.SetDefault("Marble Sword");
         }
 		public override void SetDefaults() {
 			Projectile.width = 32;

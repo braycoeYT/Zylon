@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Minions
 	public class DirtBlock : ModBuff
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Dirt Block Army");
-			Description.SetDefault("The Dirt Block Army will fight for you");
+			// DisplayName.SetDefault("Dirt Block Army");
+			// Description.SetDefault("The Dirt Block Army will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

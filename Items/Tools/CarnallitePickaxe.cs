@@ -7,7 +7,7 @@ namespace Zylon.Items.Tools
 	public class CarnallitePickaxe : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Struck enemies are inflicted with a natural curse");
+			// Tooltip.SetDefault("Struck enemies are inflicted with a natural curse");
 		}
 		public override void SetDefaults() {
 			Item.damage = 14;
@@ -24,10 +24,14 @@ namespace Zylon.Items.Tools
 			Item.autoReuse = true;
 			Item.pick = 90;
 		}
+<<<<<<< HEAD
         public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
+=======
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
+>>>>>>> ProjectClash
 			target.AddBuff(BuffID.DryadsWardDebuff, Main.rand.Next(5, 11)*60);
 		}
-        public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
+        public override void OnHitPvp(Player player, Player target, Player.HurtInfo hurtInfo) {
 			target.AddBuff(BuffID.DryadsWardDebuff, Main.rand.Next(5, 11)*60);
 		}
 		public override void AddRecipes() {

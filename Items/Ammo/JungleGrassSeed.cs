@@ -8,7 +8,7 @@ namespace Zylon.Items.Ammo
 	public class JungleGrassSeed : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("For use with blowpipes\nMay poison struck enemies");
+			// Tooltip.SetDefault("For use with blowpipes\nMay poison struck enemies");
         }
 		public override void SetDefaults() {
 			Item.damage = 6;

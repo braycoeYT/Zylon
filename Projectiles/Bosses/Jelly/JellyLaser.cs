@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Bosses.Jelly
 	public class JellyLaser : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Water Blast");
+			// DisplayName.SetDefault("Water Blast");
 		}
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(83);

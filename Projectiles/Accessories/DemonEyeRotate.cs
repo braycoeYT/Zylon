@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Accessories
 	public class DemonEyeRotate : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Demon Eye");
+			// DisplayName.SetDefault("Demon Eye");
         }
 		public override void SetDefaults() {
 			Projectile.width = 36;

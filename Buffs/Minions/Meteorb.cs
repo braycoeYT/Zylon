@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Minions
 	public class Meteorb : ModBuff
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Meteorb");
-			Description.SetDefault("The Meteorb will fight for you");
+			// DisplayName.SetDefault("Meteorb");
+			// Description.SetDefault("The Meteorb will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

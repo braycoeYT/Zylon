@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.MagicGuns
 	public class Megawave : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Megawave");
+			// DisplayName.SetDefault("Megawave");
         }
 		public override void SetDefaults() {
 			Projectile.width = 20;
@@ -23,13 +23,26 @@ namespace Zylon.Projectiles.MagicGuns
 			Projectile.light = 0.3f;
 			AIType = ProjectileID.Bullet;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			grow += 0.5f;
 		}
+<<<<<<< HEAD
         public override void OnHitPvp(Player target, int damage, bool crit) {
         grow += 0.5f;
 		}
 		public override bool OnTileCollide(Vector2 oldVelocity) {
+=======
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				grow += 0.5f;
+			}
+        }
+
+        public override bool OnTileCollide(Vector2 oldVelocity) {
+>>>>>>> ProjectClash
 			Projectile.penetrate--;
 			if (Projectile.penetrate <= 0) {
 				Projectile.Kill();
@@ -57,7 +70,7 @@ namespace Zylon.Projectiles.MagicGuns
 		}
 		public override void PostAI() {
 			if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 16);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Cloud);
 				dust.noGravity = true;
 				dust.scale = 1f;
 			}

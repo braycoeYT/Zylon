@@ -9,7 +9,7 @@ namespace Zylon.Projectiles
 	public class FallenStarFriendly : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Fallen Star");
+			// DisplayName.SetDefault("Fallen Star");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.FallingStar);

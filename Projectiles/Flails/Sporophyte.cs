@@ -40,7 +40,7 @@ namespace Zylon.Projectiles.Flails
 		public ref float SpinningStateTimer => ref Projectile.localAI[1];
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Sporophyte");
+			// DisplayName.SetDefault("Sporophyte");
 
 			// These lines facilitate the trail drawing
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
@@ -64,7 +64,11 @@ namespace Zylon.Projectiles.Flails
 		public override void AI() {
 			Timer++;
 			if (Timer % 20 == 0) {
+<<<<<<< HEAD
 				//SoundEngine.PlaySound(SoundID.Grass, Projectile.Center);
+=======
+				//SoundEngine.PlaySound(SoundID.Grass);
+>>>>>>> ProjectClash
 				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, -5).RotatedByRandom(1f), ModContent.ProjectileType<StingerPassive>(), (int)(Projectile.damage * 0.5f), (int)(Projectile.knockBack / 3), Main.myPlayer);
 			}
 
@@ -316,7 +320,7 @@ namespace Zylon.Projectiles.Flails
 				dustRate = 1;
 
 			if (Main.rand.NextBool(dustRate))
-				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 1);
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Stone);
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity) {
@@ -403,30 +407,27 @@ namespace Zylon.Projectiles.Flails
 			return base.Colliding(projHitbox, targetHitbox);
 		}
 
-		public override void ModifyDamageScaling(ref float damageScale) {
-			// Flails do 20% more damage while spinning
-			if (CurrentAIState == AIState.Spinning)
-				damageScale *= 1.2f;
-
-			// Flails do 100% more damage while launched or retracting. This is the damage the item tooltip for flails aim to match, as this is the most common mode of attack. This is why the item has ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
-			if (CurrentAIState == AIState.LaunchingForward || CurrentAIState == AIState.Retracting)
-				damageScale *= 2f;
-		}
-
-		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) {
+		public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+		{
 			// Flails do a few custom things, you'll want to keep these to have the same feel as vanilla flails.
 
 			// The hitDirection is always set to hit away from the player, even if the flail damages the npc while returning
-			hitDirection = (Main.player[Projectile.owner].Center.X < target.Center.X) ? 1 : (-1);
+			modifiers.HitDirectionOverride = (Main.player[Projectile.owner].Center.X < target.Center.X) ? 1 : (-1);
 
 			// Knockback is only 25% as powerful when in spin mode
 			if (CurrentAIState == AIState.Spinning)
-				knockback *= 0.25f;
+				modifiers.Knockback *= 0.25f;
 			// Knockback is only 50% as powerful when in drop down mode
 			if (CurrentAIState == AIState.Dropping)
-				knockback *= 0.5f;
+				modifiers.Knockback *= 0.5f;
 
-			base.ModifyHitNPC(target, ref damage, ref knockback, ref crit, ref hitDirection);
+			// Flails do 20% more damage while spinning
+			if (CurrentAIState == AIState.Spinning)
+				modifiers.SourceDamage *= 1.2f;
+
+			// Flails do 100% more damage while launched or retracting. This is the damage the item tooltip for flails aim to match, as this is the most common mode of attack. This is why the item has ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
+			if (CurrentAIState == AIState.LaunchingForward || CurrentAIState == AIState.Retracting)
+				modifiers.SourceDamage *= 2f;
 		}
 
 		// PreDraw is used to draw a chain and trail before the Projectile is drawn normally.

@@ -14,7 +14,7 @@ namespace Zylon.Projectiles.Tomes.Carnallite
 	public class DefenseFlower : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Defense Flower");
+			// DisplayName.SetDefault("Defense Flower");
 		}
 
 		public override void SetDefaults() {

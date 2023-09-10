@@ -12,7 +12,11 @@ namespace Zylon.Items.Blowpipes
 	{
 		public TestBlowpipe2() : base(200, 2f, new Color(0, 0, 0)) { } //int maxChargeI, float chargeRateI, Color textColorI, float chargeRetainI = 0f, float minshootspeedI = 0f, bool maxReplaceI = false
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			Tooltip.SetDefault("Truly the blowpipe of all time");
+=======
+			// Tooltip.SetDefault("Truly the blowpipe of all time");
+>>>>>>> ProjectClash
 		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);

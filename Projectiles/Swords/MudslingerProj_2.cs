@@ -10,7 +10,11 @@ namespace Zylon.Projectiles.Swords
 	public class MudslingerProj_2 : ModProjectile
 	{
         public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			DisplayName.SetDefault("Mudslinger");
+=======
+			// DisplayName.SetDefault("Mudslinger");
+>>>>>>> ProjectClash
 			Main.projFrames[Projectile.type] = 6;
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;

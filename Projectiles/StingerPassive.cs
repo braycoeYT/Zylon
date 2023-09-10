@@ -7,7 +7,7 @@ namespace Zylon.Projectiles
 	public class StingerPassive : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Stinger");
+			// DisplayName.SetDefault("Stinger");
         }
 		public override void SetDefaults() {
 			AIType = ProjectileID.Bullet;
@@ -19,11 +19,16 @@ namespace Zylon.Projectiles
 			Projectile.timeLeft = 600;
 			Projectile.ignoreWater = true;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Poisoned, 60 * Main.rand.Next(5, 11), false);
 		}
+<<<<<<< HEAD
         public override void OnHitPlayer(Player target, int damage, bool crit) {
         target.AddBuff(BuffID.Poisoned, 60 * Main.rand.Next(5, 11), false);
+=======
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+			target.AddBuff(BuffID.Poisoned, 60 * Main.rand.Next(5, 11), false);
+>>>>>>> ProjectClash
 		}
 	}   
 }

@@ -7,8 +7,8 @@ namespace Zylon.Buffs
 	public class ADDSpikeRing : ModBuff
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Spike Ring");
-			Description.SetDefault("The spike ring will push enemies away from you");
+			// DisplayName.SetDefault("Spike Ring");
+			// Description.SetDefault("The spike ring will push enemies away from you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

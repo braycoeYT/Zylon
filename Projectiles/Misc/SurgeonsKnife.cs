@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Misc
 	public class SurgeonsKnife : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Surgeon's Knife");
+			// DisplayName.SetDefault("Surgeon's Knife");
         }
 		public override void SetDefaults() {
 			Projectile.width = 20;
@@ -20,7 +20,7 @@ namespace Zylon.Projectiles.Misc
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.timeLeft = 9999;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
 			if (Projectile.velocity.X != Projectile.oldVelocity.X) {
@@ -30,17 +30,25 @@ namespace Zylon.Projectiles.Misc
 				Projectile.velocity.Y = -Projectile.oldVelocity.Y;
 			}
 		}
-		public override void OnHitPvp(Player target, int damage, bool crit) {
-			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
-			if (Projectile.velocity.X != Projectile.oldVelocity.X) {
-				Projectile.velocity.X = -Projectile.oldVelocity.X;
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
+				SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
+				if (Projectile.velocity.X != Projectile.oldVelocity.X)
+				{
+					Projectile.velocity.X = -Projectile.oldVelocity.X;
+				}
+				if (Projectile.velocity.Y != Projectile.oldVelocity.Y)
+				{
+					Projectile.velocity.Y = -Projectile.oldVelocity.Y;
+				}
 			}
-			if (Projectile.velocity.Y != Projectile.oldVelocity.Y) {
-				Projectile.velocity.Y = -Projectile.oldVelocity.Y;
-			}
-		}
-		public override bool OnTileCollide(Vector2 oldVelocity) {
+        }
+
+        public override bool OnTileCollide(Vector2 oldVelocity) {
 			Projectile.penetrate--;
 			if (Projectile.penetrate <= 0) {
 				Projectile.Kill();

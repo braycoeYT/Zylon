@@ -28,6 +28,7 @@ namespace Zylon.NPCs.Forest
 			//Banner = NPC.type;
             //BannerItem = ModContent.ItemType<Items.Banners.OrangeSlimeBanner>();
         }
+<<<<<<< HEAD
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
             NPC.lifeMax = 46;
 			NPC.damage = 16;
@@ -39,6 +40,16 @@ namespace Zylon.NPCs.Forest
 				NPC.value = 150;
             }*/
         }
+=======
+
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
+        {
+			NPC.lifeMax = 46;
+			NPC.damage = 16;
+			NPC.value = 100;
+			NPC.defense = 5;
+		}
+>>>>>>> ProjectClash
 		int frameID;
 		float frameCounter;
         public override void AI() {

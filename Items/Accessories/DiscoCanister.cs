@@ -7,7 +7,11 @@ namespace Zylon.Items.Accessories
 	public class DiscoCanister : ModItem
 	{
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			Tooltip.SetDefault("'Let's get the party started!'\nIncreases crit chance by 5\nSummons four disco balls to rotate around the player and shoot at enemies on critical strikes");
+=======
+			// Tooltip.SetDefault("'Let's get the party started!'\nIncreases crit chance by 5\nSummons four disco balls to rotate around the player and shoot at enemies on critical strikes");
+>>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.width = 26;

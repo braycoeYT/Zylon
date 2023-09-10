@@ -9,7 +9,7 @@ namespace Zylon.Items.Wands
 	public class SparklySlimecaster : ModItem
 	{
         public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Rains a giant sparkly gel from above that explodes into bouncy smaller ones on impact");
+			// Tooltip.SetDefault("Rains a giant sparkly gel from above that explodes into bouncy smaller ones on impact");
             Item.staff[Item.type] = true;
         }
         public override void SetDefaults() {

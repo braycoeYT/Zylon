@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Swords
 	public class MegaRose : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Blossomed Rose");
+			// DisplayName.SetDefault("Blossomed Rose");
         }
 		public override void SetDefaults() {
 			Projectile.width = 64;
@@ -23,16 +23,22 @@ namespace Zylon.Projectiles.Swords
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 10;
 		}
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             Projectile.velocity *= 0.5f;
 			if (Projectile.timeLeft > 60)
 				Projectile.timeLeft -= 30;
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-            Projectile.velocity *= 0.5f;
-			if (Projectile.timeLeft > 60)
-				Projectile.timeLeft -= 30;
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				Projectile.velocity *= 0.5f;
+				if (Projectile.timeLeft > 60)
+					Projectile.timeLeft -= 30;
+			}
         }
+
         public override void AI() {
 			Projectile.rotation += (0.06f*Projectile.ai[0])+0.04f;
             Projectile.velocity *= 0.975f;
@@ -46,7 +52,7 @@ namespace Zylon.Projectiles.Swords
 				int j = 0;
 				for (int i = 0; i < 8; i++) {
 					if (Projectile.ai[0] == 1) j = i;
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -16).RotatedBy(MathHelper.ToRadians(i*45)), type, damage, Projectile.knockBack, Main.myPlayer, j);
+					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -16).RotatedBy(MathHelper.ToRadians(i*45)), type, damage, Projectile.knockBack, Projectile.owner, j);
 				}
 			}
 			if (Projectile.timeLeft <= 20) Projectile.alpha += 17;

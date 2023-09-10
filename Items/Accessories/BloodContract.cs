@@ -7,7 +7,11 @@ namespace Zylon.Items.Accessories
 	public class BloodContract : ModItem
 	{
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			Tooltip.SetDefault("'Signed in blood...'\nIncreases crit chance by 3\nCritical strikes cause blood to splatter from enemies\nCollected blood will heal the player\nChances of blood appearing are lowered at extremely high crit rates");
+=======
+			// Tooltip.SetDefault("'Signed in blood...'\nIncreases crit chance by 3\nCritical strikes cause blood to splatter from enemies\nCollected blood will heal the player\nChances of blood appearing are lowered at extremely high crit rates");
+>>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.width = 16;

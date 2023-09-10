@@ -8,7 +8,11 @@ namespace Zylon.Items.Accessories
 	public class FriendshipBracelet : ModItem
 	{
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			Tooltip.SetDefault("'For the bestest of friends'\nHeavily increases the life regen and defense of the player with the least percentage of health that is also wearing a Friendship Bracelet\nAt least one other player within 75 blocks must also be wearing the Friendship Bracelet for this effect to occur");
+=======
+			// Tooltip.SetDefault("'For the bestest of friends'\nHeavily increases the life regen and defense of the player with the least percentage of health that is also wearing a Friendship Bracelet\nAt least one other player within 75 blocks must also be wearing the Friendship Bracelet for this effect to occur");
+>>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.width = 28;

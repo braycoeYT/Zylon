@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Minions
 	public class MiniJelly : ModBuff
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mini Jelly");
-			Description.SetDefault("The Mini Jelly will fight for you");
+			// DisplayName.SetDefault("Mini Jelly");
+			// Description.SetDefault("The Mini Jelly will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

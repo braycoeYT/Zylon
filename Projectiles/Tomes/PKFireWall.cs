@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Tomes
 	public class PKFireWall : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Volcanic Flame");
+			// DisplayName.SetDefault("Volcanic Flame");
         }
 		public override void SetDefaults() {
 			AIType = ProjectileID.Bullet;
@@ -24,11 +24,16 @@ namespace Zylon.Projectiles.Tomes
 			//Projectile.usesLocalNPCImmunity = true;
 			//Projectile.localNPCHitCooldown = 10;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 5), false);
 		}
+<<<<<<< HEAD
         public override void OnHitPvp(Player target, int damage, bool crit) {
         target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 5), false);
+=======
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+			target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 5), false);
+>>>>>>> ProjectClash
 		}
 		public override void AI() {
 			for (int i = 0; i < 4; i++) {

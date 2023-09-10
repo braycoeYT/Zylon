@@ -27,8 +27,13 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPC.noTileCollide = true;
 			NPC.alpha = 255;
         }
+<<<<<<< HEAD
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
 			NPC.damage = 70;
+=======
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+            NPC.damage = 70;
+>>>>>>> ProjectClash
         }
 		int Timer;
 		int attackCount;
@@ -59,8 +64,8 @@ namespace Zylon.NPCs.Bosses.Jelly
 				SoundEngine.PlaySound(SoundID.Item124);
 				int beamDamage = (int)(25 + NPC.ai[0]);
 				if (Main.expertMode) beamDamage = (int)(35 + NPC.ai[0]);
-				if (NPC.ai[1] == 0) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position - new Vector2(2, 8), new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyBeamBody>(), beamDamage, 0f, Main.myPlayer, 30, 2f);
-				else Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(-6, -32), new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyBeamBody>(), beamDamage, 0f, Main.myPlayer, 30, 1f);
+				if (NPC.ai[1] == 0) ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.position - new Vector2(2, 8), new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyBeamBody>(), beamDamage, 0f, Main.myPlayer, 30, 2f, BasicNetType: 2);
+				else ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(-6, -32), new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyBeamBody>(), beamDamage, 0f, Main.myPlayer, 30, 1f, BasicNetType: 2);
 				attackCount++;
 			}
 			if (Timer >= 120)

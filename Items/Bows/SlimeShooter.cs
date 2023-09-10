@@ -10,7 +10,7 @@ namespace Zylon.Items.Bows
 	public class Slimeshooter : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Turns regular arrows into slime arrows");
+			// Tooltip.SetDefault("Turns regular arrows into slime arrows");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 0, 30, 0);

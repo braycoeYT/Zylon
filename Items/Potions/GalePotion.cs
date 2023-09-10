@@ -7,7 +7,11 @@ namespace Zylon.Items.Potions
     public class GalePotion : ModItem
 	{
         public override void SetStaticDefaults() {
+<<<<<<< HEAD
             Tooltip.SetDefault("Increases max blowpipe charge by 30\nIncreases blowpipe charge speed by 10/s");
+=======
+            // Tooltip.SetDefault("Increases max blowpipe charge by 30\nIncreases blowpipe charge speed by 10/s");
+>>>>>>> ProjectClash
         }
         public override void SetDefaults() {
             Item.width = 20;

@@ -8,7 +8,7 @@ namespace Zylon.Items.Misc
 	public class FleshstabJavelin : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("On impact, explodes into multiple ichor splashes");
+			// Tooltip.SetDefault("On impact, explodes into multiple ichor splashes");
 		}
 		public override void SetDefaults() {
 			Item.width = 26;

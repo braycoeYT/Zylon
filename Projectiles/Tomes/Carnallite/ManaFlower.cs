@@ -14,7 +14,7 @@ namespace Zylon.Projectiles.Tomes.Carnallite
 	public class ManaFlower : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mana Flower");
+			// DisplayName.SetDefault("Mana Flower");
 		}
 
 		public override void SetDefaults() {

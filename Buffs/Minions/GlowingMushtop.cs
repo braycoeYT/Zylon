@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Minions
 	public class GlowingMushtop : ModBuff
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Glowing Mushtop");
-			Description.SetDefault("The Glowing Mushtop will fight for you");
+			// DisplayName.SetDefault("Glowing Mushtop");
+			// Description.SetDefault("The Glowing Mushtop will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

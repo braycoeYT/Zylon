@@ -11,7 +11,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
     public class Dirtboi : ModNPC
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Dirtboi");
+            // DisplayName.SetDefault("Dirtboi");
             Main.npcFrameCount[NPC.type] = 4;
             NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				ImmuneToAllBuffsThatAreNotWhips = true
@@ -50,7 +50,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
             if (NPC.life > 0) NPC.life = NPC.lifeMax;
 			if (NPC.CountNPCS(ModContent.NPCType<Dirtball>()) > 0) 
                 for (int i = 0; i < 1; i++) {
-			    	int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, 0);
+			    	int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Dirt);
 			    	Dust dust = Main.dust[dustIndex];
 			    	dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
 			    	dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
@@ -112,9 +112,9 @@ namespace Zylon.NPCs.Bosses.Dirtball
                 NPC.velocity = new Vector2(0, 0);
                 Timer++;
                 if (Timer % 10 == 0 && Timer > 180)
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-15, 16), NPC.Center.Y + 20, 0, 10, ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtboiTears>(), 0, 0f, Main.myPlayer, 0f, 0f);
+                    ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center.X + Main.rand.Next(-15, 16), NPC.Center.Y + 20, 0, 10, ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtboiTears>(), 0, 0f, Main.myPlayer, 0f, 0f, BasicNetType: 2);
                 if (Timer > 360) {
-                    Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DBoiSpirit>(), 0, 0f);
+                    ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DBoiSpirit>(), 0, 0f, BasicNetType: 2);
                     NPC.life = 0;
                     switch (val) {
                         case 0:

@@ -11,13 +11,14 @@ namespace Zylon.Items.Spears
 	public class Kivasana : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("Enemies struck with the spear drop more money");
+			ItemID.Sets.Spears[Item.type] = true;
+			// Tooltip.SetDefault("Enemies struck with the spear drop more money");
         }
         public override void SetDefaults() {
 			Item.damage = 16;
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.useAnimation = 18;
-			Item.useTime = 24;
+			Item.useAnimation = 40;
+			Item.useTime = 40;
 			Item.shootSpeed = 4f;
 			Item.knockBack = 5.75f;
 			Item.width = 32;
@@ -27,16 +28,10 @@ namespace Zylon.Items.Spears
 			Item.DamageType = DamageClass.Melee;
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
-			Item.autoReuse = false;
+			Item.autoReuse = true;
 			Item.UseSound = SoundID.Item1;
 			Item.shoot = ProjectileType<Projectiles.Spears.Kivasana>();
 		}
-		int shootCount;
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-            shootCount++;
-			Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer, 0f, shootCount%3);
-			return false;
-        }
         public override bool CanUseItem(Player player) {
 			return player.ownedProjectileCounts[Item.shoot] < 1;
 		}

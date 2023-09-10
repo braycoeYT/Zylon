@@ -10,7 +10,7 @@ namespace Zylon.Projectiles.Bosses.Dirtball
 	public class DBSpirit : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Forest Spirit");
+			// DisplayName.SetDefault("Forest Spirit");
         }
 		public override void SetDefaults() {
 			Projectile.width = 80;
@@ -29,7 +29,7 @@ namespace Zylon.Projectiles.Bosses.Dirtball
         }
         public override void PostAI() {
 			for (int i = 0; i < 6; i++) {
-				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 56);
+				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.BlueFairy);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
 				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;

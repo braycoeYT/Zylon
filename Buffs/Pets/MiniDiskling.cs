@@ -8,8 +8,8 @@ namespace Zylon.Buffs.Pets
 	public class MiniDiskling : ModBuff
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mini Diskling");
-			Description.SetDefault("It seems to believe you are its master");
+			// DisplayName.SetDefault("Mini Diskling");
+			// Description.SetDefault("It seems to believe you are its master");
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.vanityPet[Type] = true;
 		}

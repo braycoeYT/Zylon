@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Ammo
 	public class SlimeArrow : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Slime Arrow");
+			// DisplayName.SetDefault("Slime Arrow");
         }
 		public override void SetDefaults() {
 			Projectile.width = 8;
@@ -20,10 +20,14 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.ignoreWater = true;
 			AIType = 1;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Slimed, 60 * Main.rand.Next(3, 6), false);
 		}
+<<<<<<< HEAD
         public override void OnHitPvp(Player target, int damage, bool crit) {
+=======
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+>>>>>>> ProjectClash
 			target.AddBuff(BuffID.Slimed, 60 * Main.rand.Next(3, 6), false);
 		}
 		public override void Kill(int timeLeft) {

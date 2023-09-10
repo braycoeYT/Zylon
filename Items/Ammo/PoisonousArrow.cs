@@ -8,8 +8,8 @@ namespace Zylon.Items.Ammo
 	public class PoisonousArrow : ModItem
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Poisonous Arrow");
-			Tooltip.SetDefault("'Not to be confused with venom arrows'");
+			// DisplayName.SetDefault("Poisonous Arrow");
+			// Tooltip.SetDefault("'Not to be confused with venom arrows'");
         }
 		public override void SetDefaults() {
 			Item.damage = 10;

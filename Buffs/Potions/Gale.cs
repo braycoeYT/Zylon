@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Potions
     public class Gale : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Gale's Blessing");
-            Description.SetDefault("You have been blessed by the winds!");
+            // DisplayName.SetDefault("Gale's Blessing");
+            // Description.SetDefault("You have been blessed by the winds!");
             Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = false;
 			Main.buffNoSave[Type] = false;

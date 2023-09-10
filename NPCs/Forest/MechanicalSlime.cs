@@ -40,8 +40,13 @@ namespace Zylon.NPCs.Forest
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.MechanicalSlimeBanner>();
 		}
+<<<<<<< HEAD
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
         NPC.lifeMax = 542;
+=======
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+            NPC.lifeMax = 542;
+>>>>>>> ProjectClash
             NPC.damage = 129;
         }
 		int Timer;
@@ -55,7 +60,7 @@ namespace Zylon.NPCs.Forest
 			target2.Y += Main.rand.Next(-60, 61);
 			Timer++;
 			if (Timer % 180 == 0)
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, (NPC.DirectionTo(target2)) * 8, ProjectileID.PinkLaser, (int)(NPC.damage * 0.3f), 0f, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, (NPC.DirectionTo(target2)) * 8, ProjectileID.PinkLaser, (int)(NPC.damage * 0.3f), 0f, Main.myPlayer, BasicNetType: 2);
 			if (Timer % 10 == 0)
 				animationTimer++;
 			if (animationTimer > 6)

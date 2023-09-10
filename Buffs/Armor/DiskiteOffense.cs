@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Armor
     public class DiskiteOffense : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Diskbringer: Offense");
-            Description.SetDefault("Increases your damage by 10%, critical strike chance by 5, and weapon speed by 8%");
+            // DisplayName.SetDefault("Diskbringer: Offense");
+            // Description.SetDefault("Increases your damage by 10%, critical strike chance by 5, and weapon speed by 8%");
             Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = false;
 			Main.buffNoSave[Type] = false;

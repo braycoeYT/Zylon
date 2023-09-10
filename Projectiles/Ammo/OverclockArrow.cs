@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Ammo
 	public class OverclockArrow : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Overclock Arrow");
+			// DisplayName.SetDefault("Overclock Arrow");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);

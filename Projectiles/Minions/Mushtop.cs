@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Minions
 	public class Mushtop : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mushtop");
+			// DisplayName.SetDefault("Mushtop");
 			Main.projFrames[Projectile.type] = 5;
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;
@@ -154,7 +154,7 @@ namespace Zylon.Projectiles.Minions
 			Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 1;
 			if (Timer % 180 == 0 && foundTarget)
 				for (int i = 0; i < 5; i++)
-					Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, -5).RotatedByRandom(0.5f), ProjectileType<MushroomSpore>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, -5).RotatedByRandom(0.5f), ProjectileType<MushroomSpore>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 
 			#endregion
 

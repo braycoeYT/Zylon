@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Ammo
 	public class BlinkrootSprouted : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Blinkroot");
+			// DisplayName.SetDefault("Blinkroot");
         }
 		public override void SetDefaults() {
 			Projectile.width = 16;
@@ -21,12 +21,20 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.penetrate = 5;
 			Projectile.rotation = 0;
 		}
+<<<<<<< HEAD
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+=======
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+>>>>>>> ProjectClash
             if (target.boss == false)
 				target.velocity *= 0.25f;
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.velocity *= 0.25f;
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+			if (info.PvP)
+            {
+				target.velocity *= 0.25f;
+			}
         }
-	}   
+    }   
 }

@@ -7,7 +7,7 @@ namespace Zylon.Items.Yoyos
 	public class Dirtglob : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Become one with the dirt'\nOn use, surrounds itself with dirt blocks");
+			// Tooltip.SetDefault("'Become one with the dirt'\nOn use, surrounds itself with dirt blocks");
 			ItemID.Sets.Yoyo[Item.type] = true;
 			ItemID.Sets.GamepadExtraRange[Item.type] = 15;
 			ItemID.Sets.GamepadSmartQuickReach[Item.type] = true;

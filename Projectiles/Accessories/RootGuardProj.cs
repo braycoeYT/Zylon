@@ -8,7 +8,11 @@ namespace Zylon.Projectiles.Accessories
 	public class RootGuardProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			DisplayName.SetDefault("Root Guard");
+=======
+			// DisplayName.SetDefault("Root Guard");
+>>>>>>> ProjectClash
 			Main.projFrames[Projectile.type] = 9;
         }
         public override void SetDefaults() {
@@ -21,11 +25,25 @@ namespace Zylon.Projectiles.Accessories
 			Projectile.rotation = MathHelper.ToRadians(Main.rand.Next(-20, 21));
 			Projectile.tileCollide = false;
         }
+<<<<<<< HEAD
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
             if (Timer < 145) Timer = 152;
         }
         public override void OnHitPvp(Player target, int damage, bool crit) {
             if (Timer < 145) Timer = 152;
+=======
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+			if (Timer < 145) Timer = 152;
+		}
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+			if (info.PvP)
+            {
+				if (Timer < 145) Timer = 152;
+			}
+>>>>>>> ProjectClash
         }
         int Timer;
         public override void AI() {

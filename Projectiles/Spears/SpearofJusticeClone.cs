@@ -11,7 +11,11 @@ namespace Zylon.Projectiles.Spears
 	public class SpearofJusticeClone : ModProjectile
 	{
         public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			DisplayName.SetDefault("Spear of Justice Clone");
+=======
+			// DisplayName.SetDefault("Spear of Justice Clone");
+>>>>>>> ProjectClash
         }
 		public override void SetDefaults() {
 			Projectile.width = 60;

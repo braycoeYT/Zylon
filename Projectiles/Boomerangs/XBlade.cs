@@ -12,7 +12,7 @@ namespace Zylon.Projectiles.Boomerangs
 	public class XBlade : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("X-Blade");
+			// DisplayName.SetDefault("X-Blade");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
@@ -42,43 +42,59 @@ namespace Zylon.Projectiles.Boomerangs
 				Projectile.velocity = speed*-20f;
 			}
 		}
+<<<<<<< HEAD
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
         target.AddBuff(BuffID.Ichor, Main.rand.Next(5, 15) * 60);
+=======
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+			target.AddBuff(BuffID.Ichor, Main.rand.Next(5, 15) * 60);
+>>>>>>> ProjectClash
 			target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(5, 15) * 60);
 			if (Main.rand.NextBool(10)) {
 				if (Main.rand.NextBool()) {
 					for (int i = 0; i < 13; i++) {
 						Vector2 cool = new Vector2(0, 1).RotatedBy(MathHelper.ToRadians(i*360/13));
-						Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center-160*cool, cool*12f, ModContent.ProjectileType<XBlade_NoName>(), Projectile.damage/2, Projectile.knockBack/2, Projectile.owner);
+						ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center-160*cool, cool*12f, ModContent.ProjectileType<XBlade_NoName>(), Projectile.damage/2, Projectile.knockBack/2, Projectile.owner);
 					  }
 				}
 				else {
 					for (int i = 0; i < 7; i++) {
 						Vector2 cool = new Vector2(0, 1).RotatedBy(MathHelper.ToRadians(i*360/7));
-						Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center-160*cool, cool*12f, ModContent.ProjectileType<XBlade_OrbofLight>(), 0, 0f, Projectile.owner);
+						ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center-160*cool, cool*12f, ModContent.ProjectileType<XBlade_OrbofLight>(), 0, 0f, Projectile.owner);
 				    }
 				}
 			}
 		}
-		public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Ichor, Main.rand.Next(5, 15) * 60);
-			target.AddBuff(BuffID.Blackout, Main.rand.Next(5, 15) * 60);
-			if (Main.rand.NextBool(10)) {
-				if (Main.rand.NextBool()) {
-					for (int i = 0; i < 13; i++) {
-						Vector2 cool = new Vector2(0, 1).RotatedBy(MathHelper.ToRadians(i*360/13));
-						Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center-160*cool, cool*12f, ModContent.ProjectileType<XBlade_NoName>(), Projectile.damage/2, Projectile.knockBack/2, Projectile.owner);
-					  }
-				}
-				else {
-					for (int i = 0; i < 7; i++) {
-						Vector2 cool = new Vector2(0, 1).RotatedBy(MathHelper.ToRadians(i*360/7));
-						Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center-160*cool, cool*12f, ModContent.ProjectileType<XBlade_OrbofLight>(), 0, 0f, Projectile.owner);
-				    }
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.Ichor, Main.rand.Next(5, 15) * 60);
+				target.AddBuff(BuffID.Blackout, Main.rand.Next(5, 15) * 60);
+				if (Main.rand.NextBool(10))
+				{
+					if (Main.rand.NextBool())
+					{
+						for (int i = 0; i < 13; i++)
+						{
+							Vector2 cool = new Vector2(0, 1).RotatedBy(MathHelper.ToRadians(i * 360 / 13));
+							ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center - 160 * cool, cool * 12f, ModContent.ProjectileType<XBlade_NoName>(), Projectile.damage / 2, Projectile.knockBack / 2, Projectile.owner);
+						}
+					}
+					else
+					{
+						for (int i = 0; i < 7; i++)
+						{
+							Vector2 cool = new Vector2(0, 1).RotatedBy(MathHelper.ToRadians(i * 360 / 7));
+							ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center - 160 * cool, cool * 12f, ModContent.ProjectileType<XBlade_OrbofLight>(), 0, 0f, Projectile.owner);
+						}
+					}
 				}
 			}
-		}
-		public override bool PreDraw(ref Color lightColor) {
+        }
+
+        public override bool PreDraw(ref Color lightColor) {
             // This just controls when to flip the projectile horizontally.
             SpriteEffects spriteEffects = SpriteEffects.None;
             //if (Projectile.spriteDirection == -1)

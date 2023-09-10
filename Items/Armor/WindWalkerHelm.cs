@@ -9,7 +9,7 @@ namespace Zylon.Items.Armor
 	public class WindWalkerHelm : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Not to be confused with the Wind Waker'\nIncreases run acceleration and deceleration speed by 10%");
+			// Tooltip.SetDefault("'Not to be confused with the Wind Waker'\nIncreases run acceleration and deceleration speed by 10%");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

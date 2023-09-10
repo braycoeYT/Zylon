@@ -26,8 +26,13 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
         }
+<<<<<<< HEAD
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
 			NPC.damage = 70;
+=======
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+            NPC.damage = 70;
+>>>>>>> ProjectClash
         }
 		int Timer;
 		public override void AI() {
@@ -50,7 +55,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 				SoundEngine.PlaySound(SoundID.Item62);
 				int beamDamage = (int)(25 + NPC.ai[0]);
 				if (Main.expertMode) beamDamage = (int)(30 + NPC.ai[0]);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyBeamCenter>(), beamDamage, 0f, Main.myPlayer, NPC.ai[0] + 5);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyBeamCenter>(), beamDamage, 0f, Main.myPlayer, NPC.ai[0] + 5, BasicNetType: 2);
 			}
 			NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + MathHelper.ToRadians(90);
 

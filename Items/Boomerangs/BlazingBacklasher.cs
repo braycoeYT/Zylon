@@ -9,7 +9,7 @@ namespace Zylon.Items.Boomerangs
 	public class BlazingBacklasher : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Moves around erratically\nLeaves an explosive trail behind itself\nRight click for a shorter range attack");
+			// Tooltip.SetDefault("Moves around erratically\nLeaves an explosive trail behind itself\nRight click for a shorter range attack");
 		}
 		public override void SetDefaults() {
 			Item.damage = 241;

@@ -10,8 +10,13 @@ namespace Zylon.Items.Swords
 	public class Eternia2000 : ModItem
 	{
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			DisplayName.SetDefault("Eternia 2000");
 			Tooltip.SetDefault("UNOBTAINABLE: Will probably be obtainable when I make PML content. Also severely needs a rework.\n'Not to be confused with the Eternia 995'\nReleases Vinyl Discs, LP Rockets, and World-Ending Meteors\nDamaging enemies has a chance to inflict Broken Karta (a shatter sound plays and '!!!' appear above the enemy each time this happens)\nPure melee has a much higher chance of inflicting Broken Karta than projectiles.\nInflicting Broken Karta three times will replace the debuff with Heartdaze.\nThis debuff lasts until you don't damage the enemy for a bit.\nHeartdaze has lower effect on bosses"); //I yiiked my pants creating this weapon
+=======
+			// DisplayName.SetDefault("Eternia 2000");
+			// Tooltip.SetDefault("UNOBTAINABLE: Will probably be obtainable when I make PML content. Also severely needs a rework.\n'Not to be confused with the Eternia 995'\nReleases Vinyl Discs, LP Rockets, and World-Ending Meteors\nDamaging enemies has a chance to inflict Broken Karta (a shatter sound plays and '!!!' appear above the enemy each time this happens)\nPure melee has a much higher chance of inflicting Broken Karta than projectiles.\nInflicting Broken Karta three times will replace the debuff with Heartdaze.\nThis debuff lasts until you don't damage the enemy for a bit.\nHeartdaze has lower effect on bosses"); //I yiiked my pants creating this weapon
+>>>>>>> ProjectClash
 		}
 		public override void SetDefaults()
 		{
@@ -21,17 +26,21 @@ namespace Zylon.Items.Swords
 			Item.height = 66;
 			Item.useTime = 19;
 			Item.useAnimation = 19;
-			Item.useStyle = 1;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 6.3f;
 			Item.value = 200000;
-			Item.rare = 10;
+			Item.rare = ItemRarityID.Red;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 			Item.useTurn = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Swords.VinylDisc>();
 			Item.shootSpeed = 22f;
 		}
+<<<<<<< HEAD
         public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
+=======
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
+>>>>>>> ProjectClash
 			if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>())) {
 				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>(), 90);
 			}
@@ -46,7 +55,7 @@ namespace Zylon.Items.Swords
 				CombatText.NewText(target.getRect(), Color.Crimson, "!!!");
 			}
 		}
-        public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
+        public override void OnHitPvp(Player player, Player target, Player.HurtInfo hurtInfo) {
 			if (target.HasBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>())) {
 				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Heartdaze>(), 90);
 			}

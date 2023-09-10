@@ -7,8 +7,13 @@ namespace Zylon.Items.Food
 	public class MudPie : ModItem
 	{
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			DisplayName.SetDefault("Mud Pie"); //thought about giving it some special effect but couldn't think of any good ones...
 			Tooltip.SetDefault("Minor improvements to all stats\n'Is it chocolate or mud? Only one way to find out!'");
+=======
+			// DisplayName.SetDefault("Mud Pie"); //thought about giving it some special effect but couldn't think of any good ones...
+			// Tooltip.SetDefault("Minor improvements to all stats\n'Is it chocolate or mud? Only one way to find out!'");
+>>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.width = 38;
@@ -32,7 +37,11 @@ namespace Zylon.Items.Food
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.MudBlock, 15);
             recipe.AddIngredient(ModContent.ItemType<CocoaBeans>());
+<<<<<<< HEAD
 			recipe.AddCondition(Recipe.Condition.NearWater);
+=======
+			recipe.AddCondition(Condition.NearWater);
+>>>>>>> ProjectClash
             recipe.Register();
 		}
 	}

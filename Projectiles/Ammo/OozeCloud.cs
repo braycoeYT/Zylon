@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Ammo
 	public class OozeCloud : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ooze Cloud");
+			// DisplayName.SetDefault("Ooze Cloud");
 			Main.projFrames[Projectile.type] = 5;
         }
 		public override void SetDefaults() {
@@ -22,13 +22,18 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 15;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 		    target.AddBuff(BuffID.Poisoned, Main.rand.Next(3, 8)*60);
 		}
-		public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Poisoned, Main.rand.Next(3, 8)*60);
-		}
-		public override void AI() {
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.Poisoned, Main.rand.Next(3, 8) * 60);
+			}
+        }
+        public override void AI() {
 			if (++Projectile.frameCounter >= 5) {
 				Projectile.frameCounter = 0;
 				if (++Projectile.frame >= 5)

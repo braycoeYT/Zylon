@@ -6,8 +6,8 @@ namespace Zylon.Buffs
     public class GravelyPowers : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Gravely Powers");
-            Description.SetDefault("'The powers of the dead radiate within you'");
+            // DisplayName.SetDefault("Gravely Powers");
+            // Description.SetDefault("'The powers of the dead radiate within you'");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = true;
         }

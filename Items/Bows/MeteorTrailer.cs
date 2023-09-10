@@ -10,7 +10,7 @@ namespace Zylon.Items.Bows
 	public class MeteorTrailer : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Gives arrows a small trail of meteorites");
+			// Tooltip.SetDefault("Gives arrows a small trail of meteorites");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 3, 12);
@@ -18,8 +18,8 @@ namespace Zylon.Items.Bows
 			Item.useAnimation = 49;
 			Item.useTime = 49;
 			Item.damage = 17;
-			Item.width = 12;
-			Item.height = 24;
+			Item.width = 20;
+			Item.height = 46;
 			Item.knockBack = 5f;
 			Item.shoot = ProjectileID.WoodenArrowFriendly;
 			Item.shootSpeed = 10f;

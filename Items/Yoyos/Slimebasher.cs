@@ -8,7 +8,7 @@ namespace Zylon.Items.Yoyos
 	public class Slimebasher : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Has a long reach");
+			// Tooltip.SetDefault("Has a long reach");
 			ItemID.Sets.Yoyo[Item.type] = true;
 			ItemID.Sets.GamepadExtraRange[Item.type] = 15;
 			ItemID.Sets.GamepadSmartQuickReach[Item.type] = true;

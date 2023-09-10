@@ -10,7 +10,11 @@ namespace Zylon.Items.Blowpipes
 	public class FamiliarFoamDartPistol : ModItem
 	{
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			Tooltip.SetDefault("'It's this or nothing, they said...'\nReplaces every fourth shot with a powerful Tactical Foam Dart that breaks the defense of enemies\nUses seeds as ammo");
+=======
+			// Tooltip.SetDefault("'It's this or nothing, they said...'\nReplaces every fourth shot with a powerful Tactical Foam Dart that breaks the defense of enemies\nUses seeds as ammo");
+>>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);

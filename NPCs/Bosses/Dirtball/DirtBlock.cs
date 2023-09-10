@@ -12,7 +12,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 	public class DirtBlock : ModNPC
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Dirt Block");
+			// DisplayName.SetDefault("Dirt Block");
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				ImmuneToAllBuffsThatAreNotWhips = true
 			};
@@ -33,8 +33,13 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPC.noTileCollide = true;
 			NPC.dontCountMe = true;
         }
+<<<<<<< HEAD
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
 			NPC.damage = 20;
+=======
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+            NPC.damage = 20;
+>>>>>>> ProjectClash
         }
 		int newVel;
 		float fleeRand = Main.rand.NextFloat(-0.75f, 0.75f);
@@ -65,7 +70,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 													NPC.velocity.Y = NPC.velocity.Y * 1.05f;
 													NPC.velocity.X = NPC.velocity.X * 1.05f;
 												}
-												if (Main.netMode != 1 && ((Main.expertMode && Main.rand.Next(100) == 0) || Main.rand.Next(200) == 0))
+												if (Main.netMode != NetmodeID.MultiplayerClient && ((Main.expertMode && Main.rand.NextBool(100)) || Main.rand.NextBool(200)))
 												{
 													NPC.TargetClosest(true);
 													vector100 = new Vector2(NPC.Center.X, NPC.Center.Y);

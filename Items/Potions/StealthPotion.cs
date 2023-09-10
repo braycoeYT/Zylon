@@ -7,7 +7,7 @@ namespace Zylon.Items.Potions
 	public class StealthPotion : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("Gives a small chance to dodge attacks");
+            // Tooltip.SetDefault("Gives a small chance to dodge attacks");
         }
         public override void SetDefaults() {
             Item.width = 20;

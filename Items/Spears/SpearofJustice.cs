@@ -8,8 +8,13 @@ namespace Zylon.Items.Spears
 	public class SpearofJustice : ModItem
 	{
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			DisplayName.SetDefault("Spear of Justice"); //Pretty obvious reference :P
 			Tooltip.SetDefault("'The true power of SPEAR'\nDealing 750 damage summons spear clones to attack enemies");
+=======
+			// DisplayName.SetDefault("Spear of Justice"); //Pretty obvious reference :P
+			// Tooltip.SetDefault("'The true power of SPEAR'\nDealing 750 damage summons spear clones to attack enemies");
+>>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.damage = 53;

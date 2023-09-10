@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Bosses.Dirtball
 	public class DirtBallHostile : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Dirt Ball");
+			// DisplayName.SetDefault("Dirt Ball");
         }
 		public override void SetDefaults() {
 			Projectile.hostile = true;
@@ -19,7 +19,7 @@ namespace Zylon.Projectiles.Bosses.Dirtball
 		}
         public override void PostAI() {
 			if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 0);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Dirt);
 				dust.noGravity = true;
 				dust.scale = 1f;
 			}

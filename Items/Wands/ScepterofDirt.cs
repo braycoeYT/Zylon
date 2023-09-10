@@ -9,8 +9,8 @@ namespace Zylon.Items.Wands
 	public class ScepterofDirt : ModItem
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Scepter of Dirt");
-			Tooltip.SetDefault("Rains dirt balls from above on enemies");
+			// DisplayName.SetDefault("Scepter of Dirt");
+			// Tooltip.SetDefault("Rains dirt balls from above on enemies");
             Item.staff[Item.type] = true;
         }
         public override void SetDefaults() {

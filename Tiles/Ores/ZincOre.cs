@@ -20,11 +20,12 @@ namespace Zylon.Tiles.Ores
 			Main.tileMergeDirt[Type] = true;
 			Main.tileSolid[Type] = true;
 			Main.tileBlockLight[Type] = true;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Zinc Ore");
+			Main.tileMerge[Type][TileID.Marble] = true;
+			Main.tileMerge[TileID.Marble][Type] = true;
+			TileID.Sets.ChecksForMerge[Type] = true;
+			LocalizedText name = CreateMapEntryName();
 			AddMapEntry(new Color(108, 158, 181), name);
-			DustType = DustType<Dusts.ZincDust>();
-			ItemDrop = ItemType<Items.Ores.ZincOre>();
+			DustType = DustType<Dusts.ZincOreDust>();
 			HitSound = SoundID.Tink;
 			MineResist = 1f;
 			MinPick = 0;

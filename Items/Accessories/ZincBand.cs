@@ -7,7 +7,7 @@ namespace Zylon.Items.Accessories
 	public class ZincBand : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Increases the potency of Swiftness Potions");
+			// Tooltip.SetDefault("Increases the potency of Swiftness Potions");
 		}
 		public override void SetDefaults() {
 			Item.width = 28;

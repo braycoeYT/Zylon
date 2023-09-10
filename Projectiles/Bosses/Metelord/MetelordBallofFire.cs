@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 	public class MetelordBallofFire : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ball of Fire");
+			// DisplayName.SetDefault("Ball of Fire");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.BallofFire);
@@ -16,7 +16,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 			Projectile.hostile = true;
 			Projectile.timeLeft = 120;
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(3, 6));
 		}
 		int Timer;

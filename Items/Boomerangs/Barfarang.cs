@@ -18,11 +18,13 @@ namespace Zylon.Items.Boomerangs
 			Item.value = Item.sellPrice(0, 0, 48, 0);
 			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
+			Item.noMelee = true;
 			Item.autoReuse = true;
 			Item.useTurn = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Boomerangs.Barfarang>();
 			Item.shootSpeed = 10f;
 			Item.noUseGraphic = true;
+			Item.channel = true;
 		}
 		public override bool CanUseItem(Player player) {
             for (int i = 0; i < 1000; ++i) {

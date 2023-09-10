@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Minions
 	public class FloatingStardustFragment : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Floating Stardust Fragment");
+			// DisplayName.SetDefault("Floating Stardust Fragment");
 			Main.projFrames[Projectile.type] = 1;
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;
@@ -154,7 +154,7 @@ namespace Zylon.Projectiles.Minions
 			{
 				Timer++;
 				if (Timer % 40 == rand)
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir, ProjectileType<StardustBeam>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir, ProjectileType<StardustBeam>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 			}
 
 			#endregion

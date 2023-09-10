@@ -26,7 +26,7 @@ namespace Zylon.Items.Placeables
 			recipe.AddIngredient(ItemID.StoneBlock);
 			recipe.AddIngredient(ItemType<Materials.Jade>());
 			recipe.AddTile(TileID.HeavyWorkBench);
-			recipe.AddCondition(Recipe.Condition.InGraveyardBiome);
+			recipe.AddCondition(Condition.InGraveyard);
 			recipe.Register();
 		}
 	}

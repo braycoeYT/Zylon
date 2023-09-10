@@ -6,8 +6,8 @@ namespace Zylon.Buffs.Debuffs
     public class BreathRecovery : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Breath Recovery");
-            Description.SetDefault("All this blowing takes a while to recover from!");
+            // DisplayName.SetDefault("Breath Recovery");
+            // Description.SetDefault("All this blowing takes a while to recover from!");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = true;
         }

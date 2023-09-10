@@ -6,8 +6,8 @@ namespace Zylon.Buffs.Potions
     public class Feral : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Feral");
-            Description.SetDefault("Melee speed increased by 10%");
+            // DisplayName.SetDefault("Feral");
+            // Description.SetDefault("Melee speed increased by 10%");
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = false;
         }

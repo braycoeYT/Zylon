@@ -25,10 +25,11 @@ namespace Zylon.Tiles.Banners
 			TileObjectData.addTile(Type);
 			DustType = -1;
 			//DisableSmartCursor = true;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Banner");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Banner");
 			AddMapEntry(new Color(13, 88, 130), name);
 		}
+<<<<<<< HEAD
 		public override void KillMultiTile(int i, int j, int frameX, int frameY) {
 			int style = frameX / 18;
 			int item;
@@ -103,10 +104,17 @@ namespace Zylon.Tiles.Banners
 		}
 		public override void NearbyEffects(int i, int j, bool closer) {
 			if (closer) {
+=======
+		public override void NearbyEffects(int i, int j, bool closer)
+		{
+			if (closer)
+			{
+>>>>>>> ProjectClash
 				Player player = Main.LocalPlayer;
 				int style = Main.tile[i, j].TileFrameX / 18;
 				int npcType;
-				switch (style) {
+				switch (style)
+				{
 					case 0:
 						npcType = ModContent.NPCType<NPCs.Forest.OrangeSlime>();
 						break;

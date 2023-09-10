@@ -10,7 +10,7 @@ namespace Zylon.Items.Swords
 	public class IcyGreatblade : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Shoots several rapid icy bolts");
+			// Tooltip.SetDefault("Shoots several rapid icy bolts");
 		}
 		public override void SetDefaults() {
 			Item.damage = 59;
@@ -29,11 +29,19 @@ namespace Zylon.Items.Swords
 			Item.shoot = ModContent.ProjectileType<Projectiles.IceBoltRanged>();
 			Item.shootSpeed = 23f;
 		}
+<<<<<<< HEAD
         public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
 			target.AddBuff(BuffID.Frostburn, 60 * Main.rand.Next(5, 11), false);
 		}
         public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
         target.AddBuff(BuffID.Frostburn, 60 * Main.rand.Next(5, 11), false);
+=======
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
+			target.AddBuff(BuffID.Frostburn, 60 * Main.rand.Next(5, 11), false);
+		}
+		public override void OnHitPvp(Player player, Player target, Player.HurtInfo hurtInfo) {
+			target.AddBuff(BuffID.Frostburn, 60 * Main.rand.Next(5, 11), false);
+>>>>>>> ProjectClash
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
 			int numberProjectiles = 2 + Main.rand.Next(2);
@@ -47,7 +55,7 @@ namespace Zylon.Items.Swords
 		}
         public override void PostUpdate() {
 			if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Item.position, Item.width, Item.height, 80);
+				Dust dust = Dust.NewDustDirect(Item.position, Item.width, Item.height, DustID.Ice);
 				dust.noGravity = true;
 				dust.scale = 1.5f;
 			}

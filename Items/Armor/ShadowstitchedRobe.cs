@@ -8,7 +8,7 @@ namespace Zylon.Items.Armor
 	public class ShadowstitchedRobe : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Malevolent energy jumps from its folds'\nDecreases mana usage by 8%\nIncreases magic critical strike chance and damage by 8%");
+			// Tooltip.SetDefault("'Malevolent energy jumps from its folds'\nDecreases mana usage by 8%\nIncreases magic critical strike chance and damage by 8%");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Guns
 	public class SpiritBullet : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Spirit Bullet");
+			// DisplayName.SetDefault("Spirit Bullet");
 
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 8;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
@@ -36,17 +36,24 @@ namespace Zylon.Projectiles.Guns
 		}
 
 
+<<<<<<< HEAD
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-            Player projectileOwner = Main.player[Projectile.owner];
-            projectileOwner.AddBuff(ModContent.BuffType<Buffs.GravelyPowers>(), 90, false);
-        }
-
-        public override void OnHitPvp(Player target, int damage, bool crit)
+=======
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
+>>>>>>> ProjectClash
             Player projectileOwner = Main.player[Projectile.owner];
             projectileOwner.AddBuff(ModContent.BuffType<Buffs.GravelyPowers>(), 90, false);
         }
 
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+                Player projectileOwner = Main.player[Projectile.owner];
+                projectileOwner.AddBuff(ModContent.BuffType<Buffs.GravelyPowers>(), 90, false);
+            }
+        }
 
 
         public override bool PreDraw(ref Color lightColor)

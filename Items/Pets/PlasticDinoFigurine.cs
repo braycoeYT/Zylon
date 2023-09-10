@@ -11,7 +11,7 @@ namespace Zylon.Items.Pets
 	public class PlasticDinoFigurine : ModItem
 	{
 		public override void SetStaticDefaults() { //finish
-			Tooltip.SetDefault("'Target practice!'\nSummons an extinction meteorite to follow you");
+			// Tooltip.SetDefault("'Target practice!'\nSummons an extinction meteorite to follow you");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 		public override void SetDefaults() {

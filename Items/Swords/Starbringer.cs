@@ -10,7 +10,7 @@ namespace Zylon.Items.Swords
     public class Starbringer : ModItem
     {
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Rains stars on enemies after striking them");
+			// Tooltip.SetDefault("Rains stars on enemies after striking them");
 			ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
 		}
 		public override void SetDefaults() {
@@ -28,18 +28,18 @@ namespace Zylon.Items.Swords
 			Item.autoReuse = true;
 			Item.useTurn = true;
 		}
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
             for (int i = 0; i < 3; i++) {
 				Vector2 spawn = new Vector2(target.Center.X + Main.rand.Next(-320, 321), player.position.Y - 400);
 				Vector2 target2 = spawn - target.Center;
-				Projectile.NewProjectile(Item.GetSource_FromThis(), spawn, target2*-2f*(i+1), ModContent.ProjectileType<Projectiles.FallenStarFriendly>(), damage, knockBack, Main.myPlayer);
+				Projectile.NewProjectile(Item.GetSource_FromThis(), spawn, target2*-2f*(i+1), ModContent.ProjectileType<Projectiles.FallenStarFriendly>(), damageDone, hit.Knockback, Main.myPlayer);
 			}
         }
-        public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
+        public override void OnHitPvp(Player player, Player target, Player.HurtInfo hurtInfo) {
             for (int i = 0; i < 3; i++) {
 				Vector2 spawn = new Vector2(Main.MouseWorld.X + Main.rand.Next(-320, 321), player.position.Y - 400);
 				Vector2 target2 = spawn - target.Center;
-				Projectile.NewProjectile(Item.GetSource_FromThis(), spawn, target2*-2f*(i+1), ModContent.ProjectileType<Projectiles.FallenStarFriendly>(), damage, Item.knockBack, Main.myPlayer);
+				Projectile.NewProjectile(Item.GetSource_FromThis(), spawn, target2*-2f*(i+1), ModContent.ProjectileType<Projectiles.FallenStarFriendly>(), hurtInfo.Damage, Item.knockBack, Main.myPlayer);
 			}
         }
         public override void AddRecipes() {

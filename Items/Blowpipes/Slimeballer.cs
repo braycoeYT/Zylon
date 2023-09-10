@@ -12,7 +12,11 @@ namespace Zylon.Items.Blowpipes
 	{
 		public Slimeballer() : base(115, 1.2f, new Color(0, 125, 255)) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			Tooltip.SetDefault("Converts ammo to a giant slimeball\nThe slimeball's size and pierce depends on the charge");
+=======
+			// Tooltip.SetDefault("Converts ammo to a giant slimeball\nThe slimeball's size and pierce depends on the charge");
+>>>>>>> ProjectClash
 		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);

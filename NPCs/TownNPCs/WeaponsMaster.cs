@@ -22,6 +22,8 @@ namespace Zylon.NPCs.TownNPCs
 	[AutoloadHead]
 	public class WeaponsMaster : ModNPC
 	{
+		public Dictionary<int, int> TradeValues = new();
+
 		public int NumberOfTimesTalkedTo = 0;
 		public override void SetStaticDefaults() {
 			Main.npcFrameCount[Type] = 25;
@@ -58,6 +60,8 @@ namespace Zylon.NPCs.TownNPCs
 				.SetNPCAffection(NPCID.Guide, AffectionLevel.Hate)
 				.SetNPCAffection(633, AffectionLevel.Dislike)
 			;
+
+
 		}
 		public override void SetDefaults() {
 			NPC.townNPC = true;
@@ -133,15 +137,39 @@ namespace Zylon.NPCs.TownNPCs
 		public override void SetChatButtons(ref string button, ref string button2) {
 			button = Language.GetTextValue("Give Trophy");
 		}
+<<<<<<< HEAD
         public override void OnChatButtonClicked(bool firstButton, ref bool shop) {
+=======
+
+		public void AddTradeValues()
+        {
+			TradeValues.Clear();
+
+			TradeValues.Add(ItemID.KingSlimeTrophy, ModContent.ItemType<Items.Spears.Kivasana>());
+			TradeValues.Add(ItemID.BreakerBlade, ModContent.ItemType<Items.Spears.Kivasana>());
+			TradeValues.Add(ItemID.Eggnog, ModContent.ItemType<Items.Spears.Kivasana>());
+			TradeValues.Add(ItemID.AmanitaFungifin, ModContent.ItemType<Items.Spears.Kivasana>());
+		}
+
+		public override void OnChatButtonClicked(bool firstButton, ref string shopName) {
+>>>>>>> ProjectClash
 			if (firstButton) {
-				Main.npcChatText = $"It's dangerous to go alone, take this gift of my gratitude.";
-				if (Main.LocalPlayer.HasItem(ModContent.ItemType<Items.Placeables.Trophies.DirtballTrophy>())) {
-					int wantedItemIndex = Main.LocalPlayer.FindItem(ModContent.ItemType<Items.Placeables.Trophies.DirtballTrophy>());
-					var entitySource = NPC.GetSource_GiftOrReward();
-					Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
-					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Misc.Dirtthrower>());
+				if (TradeValues.Count() <= 0)
+					AddTradeValues();
+				List<int> KeyCollection = TradeValues.Keys.ToList();
+				for (int Repeats = 0; Repeats < KeyCollection.Count(); Repeats++)
+                {
+					if (Main.LocalPlayer.HasItem(KeyCollection[Repeats]))
+                    {
+						Main.npcChatText = $"It's dangerous to go alone, take this gift of my gratitude.";
+						int wantedItemIndex = Main.LocalPlayer.FindItem(KeyCollection[Repeats]);
+						var entitySource = NPC.GetSource_GiftOrReward();
+						Main.LocalPlayer.inventory[wantedItemIndex].stack -= 1;
+						Main.LocalPlayer.QuickSpawnItem(entitySource, TradeValues[KeyCollection[Repeats]]);
+						return;
+                    }
 				}
+<<<<<<< HEAD
 				else if (Main.LocalPlayer.HasItem(ItemID.KingSlimeTrophy)) {
 					int wantedItemIndex = Main.LocalPlayer.FindItem(ItemID.KingSlimeTrophy);
 					var entitySource = NPC.GetSource_GiftOrReward();
@@ -185,6 +213,9 @@ namespace Zylon.NPCs.TownNPCs
 					Main.LocalPlayer.QuickSpawnItem(entitySource, ModContent.ItemType<Items.Minions.SpazmaticScythe>());
 				}
 				else Main.npcChatText = $"I'm afraid you don't have any trophies with you, son!";
+=======
+				Main.npcChatText = $"I'm afraid you don't have any trophies with you, son!";
+>>>>>>> ProjectClash
 			}
 		}
 		/*public override void ModifyNPCLoot(NPCLoot npcLoot) {

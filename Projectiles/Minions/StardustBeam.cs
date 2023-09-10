@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Minions
 	public class StardustBeam : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Stardust Beam");
+			// DisplayName.SetDefault("Stardust Beam");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Bullet);
@@ -17,7 +17,7 @@ namespace Zylon.Projectiles.Minions
 		}
 		public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(), ProjectileID.LunarFlare, Projectile.damage, Projectile.knockBack, Main.myPlayer);
+			ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(), ProjectileID.LunarFlare, Projectile.damage, Projectile.knockBack, Projectile.owner);
 		}
 	}   
 }

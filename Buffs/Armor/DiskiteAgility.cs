@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Armor
     public class DiskiteAgility : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Diskbringer: Agility");
-            Description.SetDefault("Increases your run acceleration and deceleration by 10%, move speed by 20%, increases the power of sprinting boots, and max jump speed");
+            // DisplayName.SetDefault("Diskbringer: Agility");
+            // Description.SetDefault("Increases your run acceleration and deceleration by 10%, move speed by 20%, increases the power of sprinting boots, and max jump speed");
             Main.debuff[Type] = false;
 			Main.pvpBuff[Type] = false;
 			Main.buffNoSave[Type] = false;

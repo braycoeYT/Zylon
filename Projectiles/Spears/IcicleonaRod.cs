@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Spears
 	public class IcicleonaRod : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Icicle on a Rod");
+			// DisplayName.SetDefault("Icicle on a Rod");
 			//Main.projFrames[Projectile.type] = 2;
 		}
 		public override void SetDefaults() {
@@ -24,13 +24,19 @@ namespace Zylon.Projectiles.Spears
 			Projectile.tileCollide = false;
 			Projectile.friendly = true;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.Frostburn, Main.rand.Next(3, 7)*60);
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Frostburn, Main.rand.Next(3, 7)*60);
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.Frostburn, Main.rand.Next(3, 7) * 60);
+			}
         }
-		public float MovementFactor {
+
+        public float MovementFactor {
 			get => Projectile.ai[0];
 			set => Projectile.ai[0] = value;
 		}

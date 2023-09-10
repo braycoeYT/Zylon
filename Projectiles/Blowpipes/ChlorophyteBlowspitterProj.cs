@@ -9,7 +9,11 @@ namespace Zylon.Projectiles.Blowpipes
 	public class ChlorophyteBlowspitterProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			DisplayName.SetDefault("Slimeblast");
+=======
+			// DisplayName.SetDefault("Slimeblast");
+>>>>>>> ProjectClash
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.ChlorophyteBullet);

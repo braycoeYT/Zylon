@@ -1,7 +1,9 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -11,12 +13,14 @@ namespace Zylon.Projectiles.Minions
 	public class DirtBlockExp : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Dirt Block");
-			Main.projFrames[Projectile.type] = 1;
+			// DisplayName.SetDefault("Dirt Block");
+			Main.projFrames[Projectile.type] = 3;
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;
 			ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
 			//ProjectileID.Sets.Homing[Projectile.type] = true;
+			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
+			ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
 		}
 		public sealed override void SetDefaults() {
 			Projectile.width = 16;
@@ -30,6 +34,7 @@ namespace Zylon.Projectiles.Minions
 			Projectile.DamageType = DamageClass.Summon;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 20;
+			Projectile.frame = Main.rand.Next(0, 3);
 		}
 		public override bool? CanCutTiles() {
 			return true;
@@ -154,5 +159,34 @@ namespace Zylon.Projectiles.Minions
 			Projectile.rotation += 0.02f;
 			#endregion
 		}
+
+		public override bool PreDraw(ref Color lightColor)
+		{
+			Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;
+			Texture2D trailTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Minions/DirtBlockExp_trail");
+
+			int frameHeight = projectileTexture.Height / Main.projFrames[Projectile.type];
+			int startY = frameHeight * Projectile.frame;
+			Rectangle sourceRectangle = new Rectangle(0, startY, projectileTexture.Width, frameHeight);
+			Vector2 drawOrigin = sourceRectangle.Size() / 2f;
+			Vector2 drawPos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
+			Color color = Projectile.GetAlpha(lightColor);
+
+
+			for (int k = 0; k < Projectile.oldPos.Length; k++)
+			{
+				Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+				Color colorAfterEffect2 = Color.White * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.25f;
+				Color colorAfterEffect = color * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.5f;
+				Main.spriteBatch.Draw(trailTexture, drawPosEffect, sourceRectangle, colorAfterEffect2, Projectile.oldRot[k], drawOrigin, (Projectile.scale - k / (float)Projectile.oldPos.Length / 3) + 0.1f, SpriteEffects.None, 0);
+				Main.spriteBatch.Draw(projectileTexture, drawPosEffect, sourceRectangle, colorAfterEffect, Projectile.oldRot[k], drawOrigin, Projectile.scale - k / (float)Projectile.oldPos.Length / 3, SpriteEffects.None, 0);
+			}
+
+			Main.spriteBatch.Draw(trailTexture, drawPos, sourceRectangle, Projectile.GetAlpha(Color.White) * 0.5f, Projectile.rotation, drawOrigin, Projectile.scale + 0.1f, SpriteEffects.None, 0f);
+			Main.spriteBatch.Draw(projectileTexture, drawPos, sourceRectangle, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
+
+			return false;
+		}
+
 	}
 }

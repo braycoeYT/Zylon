@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Pets
 	public class MiniDiskling_SpikeRing : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mini Diskling");
+			// DisplayName.SetDefault("Mini Diskling");
 			Main.projFrames[Projectile.type] = 1;
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;

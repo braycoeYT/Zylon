@@ -8,7 +8,11 @@ namespace Zylon.Items.Potions
 	public class Cabin : ModItem
 	{
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			Tooltip.SetDefault("'Sit by the fire as you melt away your worries...'\nCan only be used if there are no bosses alive, and you have not damaged anything for 30 seconds");
+=======
+			// Tooltip.SetDefault("'Sit by the fire as you melt away your worries...'\nCan only be used if there are no bosses alive, and you have not damaged anything for 30 seconds");
+>>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.width = 38;

@@ -6,7 +6,7 @@ namespace Zylon.Projectiles.Gigaslime
 	public class CrimsandballHostile : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Crimsand Ball");
+			// DisplayName.SetDefault("Crimsand Ball");
         }
 		public override void SetDefaults() {
 			Projectile.width = 14;

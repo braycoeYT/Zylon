@@ -7,7 +7,7 @@ namespace Zylon.Items.Potions
     public class ManareachPotion : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("Increases pickup range for mana stars\nDoes not stack with Celestial Magnet");
+            // Tooltip.SetDefault("Increases pickup range for mana stars\nDoes not stack with Celestial Magnet");
         }
         public override void SetDefaults() {
             Item.width = 20;

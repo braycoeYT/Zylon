@@ -18,7 +18,11 @@ namespace Zylon.NPCs.Bosses.Metelord
 		public override int BodyType => ModContent.NPCType<MetelordBody>();
 		public override int TailType => ModContent.NPCType<MetelordTail>();
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Metelord");
+
+			NPCID.Sets.BossBestiaryPriority.Add(Type);
+			NPCID.Sets.MPAllowedEnemies[Type] = true;
+
+			// DisplayName.SetDefault("Metelord");
 			//Main.npcFrameCount[NPC.type] = 2;
 			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				CustomTexturePath = "Zylon/NPCs/Bosses/Metelord/Metelord_Bestiary",
@@ -58,8 +62,13 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.lavaImmune = true;
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/BolideSerpent");
 		}
+<<<<<<< HEAD
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
         NPC.lifeMax = (int)((6500 + ((numPlayers - 1) * 4000))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+=======
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+			NPC.lifeMax = (int)((7000 + ((numPlayers - 1) * 4900))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+>>>>>>> ProjectClash
 			NPC.damage = 64;
 			if (Main.masterMode) {
 				NPC.lifeMax = (int)((7900 + ((numPlayers - 1) * 6000))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
@@ -93,10 +102,10 @@ namespace Zylon.NPCs.Bosses.Metelord
 		public override void ReceiveExtraAI(BinaryReader reader) {
 			attackCounter = reader.ReadInt32();
 		}
-        public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit) {
+        public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone) {
             if (target.ZoneMeteor) NPC.ai[0] = 1;
         }
-        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit) {
+        public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone) {
             if (target.ZoneMeteor) NPC.ai[0] = 1;
 			if (projectile.aiStyle == 1 || projectile.aiStyle == 2 || projectile.aiStyle == 3 || projectile.aiStyle == 5 || projectile.aiStyle == 8 || projectile.aiStyle == 12 || projectile.aiStyle == 13 || projectile.aiStyle == 14 || projectile.aiStyle == 15 || projectile.aiStyle == 18 || projectile.aiStyle == 23 || projectile.aiStyle == 24 || projectile.aiStyle == 27 || projectile.aiStyle == 28 || projectile.aiStyle == 29 || projectile.aiStyle == 30 || projectile.aiStyle == 33 || projectile.aiStyle == 34 || projectile.aiStyle == 36 || projectile.aiStyle == 38 || projectile.aiStyle == 39 || projectile.aiStyle == 40 || projectile.aiStyle == 41 || projectile.aiStyle == 42 || projectile.aiStyle == 43 || projectile.aiStyle == 44 || projectile.aiStyle == 45 || projectile.aiStyle == 46 || projectile.aiStyle == 47 || projectile.aiStyle == 48 || projectile.aiStyle == 50 || projectile.aiStyle == 51 || projectile.aiStyle == 57 || projectile.aiStyle == 65 || projectile.aiStyle == 69 || projectile.aiStyle == 70 || projectile.aiStyle == 71 || projectile.aiStyle == 72 || projectile.aiStyle == 73 || projectile.aiStyle == 74 || projectile.aiStyle == 75 || projectile.aiStyle == 77 || projectile.aiStyle == 78 || projectile.aiStyle == 81 || projectile.aiStyle == 84 || projectile.aiStyle == 87 || projectile.aiStyle == 91 || projectile.aiStyle == 92 || projectile.aiStyle == 93 || projectile.aiStyle == 94 || projectile.aiStyle == 95 || projectile.aiStyle == 96 || projectile.type == ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>()) //stopped before 100 because this is just getting absurd
 			if (!(projectile.DamageType == DamageClass.Summon || projectile.DamageType == DamageClass.MagicSummonHybrid) || (projectile.type == ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>())) {
@@ -189,7 +198,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				else {
 					newVel *= (0.994f-(0.002f*NPC.life/NPC.lifeMax));
 					attackTimer--;
-					if (attackTimer % 15 == 0) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireTrail>(), (int)(NPC.damage*0.2f), 0f);
+					if (attackTimer % 15 == 0) ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireTrail>(), (int)(NPC.damage*0.2f), 0f, BasicNetType: 2);
 					/*if (attackTimer == 30 && NPC.life < NPC.lifeMax*0.66f) {
 						Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 						if (Math.Abs(speed.X)+Math.Abs(speed.Y) > 128)
@@ -236,7 +245,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 					if (Main.rand.NextBool(3)) projType = ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireDrop1>();
 					else if (Main.rand.NextBool(2)) projType = ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireDrop2>();
 					else projType = ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireDrop3>();
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-6, 3)), projType, (int)(NPC.damage*0.19f), 0f);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-6, 3)), projType, (int)(NPC.damage*0.19f), 0f, BasicNetType: 2);
                 }
 				if (attackTimer > 359) attackDone = true;
 				NPC.velocity = newVel;
@@ -251,7 +260,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 					newVel = speed*(int)(-10f-(2f*NPC.life/NPC.lifeMax)); //-11.5f
                 }
 				if (attackTimer % (int)(15+(25*NPC.life/NPC.lifeMax)) == 0) {
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(Main.rand.Next(-100, 101)+(target.velocity.X*32), 0), new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordMeteoriteAttack2>(), (int)(NPC.damage*0.25f), 0f, Main.myPlayer, Main.rand.Next(0, 360), 5f-(2f*NPC.life/NPC.lifeMax));
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(Main.rand.Next(-100, 101)+(target.velocity.X*32), 0), new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordMeteoriteAttack2>(), (int)(NPC.damage*0.25f), 0f, Main.myPlayer, Main.rand.Next(0, 360), 5f-(2f*NPC.life/NPC.lifeMax), BasicNetType: 2);
                 }
 				if (attackTimer > 300) attackDone = true;
 				NPC.velocity = newVel;
@@ -266,7 +275,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				if (attackTimer % (100+(20*NPC.life/NPC.lifeMax)) <= 30) {
 					NPC.velocity = newVel;
 					newVel *= 0.992f;
-					if (attackTimer % 4 == 0) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -15).RotatedBy(NPC.rotation+Main.rand.NextFloat(-0.2f, 0.2f)), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordBallofFire>(), (int)(NPC.damage*0.22f), 0f);
+					if (attackTimer % 4 == 0) ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -15).RotatedBy(NPC.rotation+Main.rand.NextFloat(-0.2f, 0.2f)), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordBallofFire>(), (int)(NPC.damage*0.22f), 0f, BasicNetType: 2);
                 }
 				attackTimer++;
 				if (attackTimer == (290+(60*NPC.life/NPC.lifeMax))) attackDone = true;
@@ -276,8 +285,13 @@ namespace Zylon.NPCs.Bosses.Metelord
 				attackTimer++;
 				attackTimer2++;
 				if (attackTimer % (int)(5+(5*NPC.life/NPC.lifeMax)) == 0 && attackTimer2 % 180 < 90) {
+<<<<<<< HEAD
 					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -15).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireBreath>(), (int)(NPC.damage*0.33f), 0f, Main.myPlayer, 60-(60*NPC.life/NPC.lifeMax));
                 }
+=======
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -15).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFireBreath>(), (int)(NPC.damage * 0.33f), 0f, Main.myPlayer, 30 - (30 * NPC.life / NPC.lifeMax), BasicNetType: 2);
+				}
+>>>>>>> ProjectClash
 				if (attackTimer % (100+(50*NPC.life/NPC.lifeMax)) < (55+(15*NPC.life/NPC.lifeMax))) {
 					Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 					speed.Normalize();
@@ -312,17 +326,17 @@ namespace Zylon.NPCs.Bosses.Metelord
 					float boost = 1.5f-(0.5f*NPC.life/NPC.lifeMax);
 					int j = (int)(6*boost);
 					for (int i = 0; i < j; i++) {
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 5f*boost).RotatedBy(MathHelper.ToRadians(i*(360/j))+randomizer), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordDMFireball>(), (int)(NPC.damage*0.35f), 0f);
+						ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 5f*boost).RotatedBy(MathHelper.ToRadians(i*(360/j))+randomizer), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordDMFireball>(), (int)(NPC.damage*0.35f), 0f, BasicNetType: 2);
                     }
 					randomizer = Main.rand.NextFloat(MathHelper.TwoPi);
 					j = (int)(10*boost);
 					for (int i = 0; i < j; i++) {
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 7.5f*boost).RotatedBy(MathHelper.ToRadians(i*(360/j))+randomizer), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordDMFireball>(), (int)(NPC.damage*0.35f), 0f);
+						ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 7.5f*boost).RotatedBy(MathHelper.ToRadians(i*(360/j))+randomizer), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordDMFireball>(), (int)(NPC.damage*0.35f), 0f, BasicNetType: 2);
                     }
 					randomizer = Main.rand.NextFloat(MathHelper.TwoPi);
 					j = (int)(16*boost);
 					for (int i = 0; i < j; i++) {
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 10f*boost).RotatedBy(MathHelper.ToRadians(i*(360/j))+randomizer), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordDMFireball>(), (int)(NPC.damage*0.35f), 0f);
+						ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 10f*boost).RotatedBy(MathHelper.ToRadians(i*(360/j))+randomizer), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordDMFireball>(), (int)(NPC.damage*0.35f), 0f, BasicNetType: 2);
                     }
                 }
 				if (attackTimer > 30 && attackTimer < 90)
@@ -447,8 +461,13 @@ namespace Zylon.NPCs.Bosses.Metelord
 				}
 			}
 		}*/
+<<<<<<< HEAD
         public override void OnHitPlayer(Player target, int damage, bool crit) {
         target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(4, 6));
+=======
+        public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
+            target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(4, 6));
+>>>>>>> ProjectClash
         }
         public override void BossLoot(ref string name, ref int potionType) {
             potionType = ItemID.RestorationPotion;
@@ -469,7 +488,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 	internal class MetelordBody : WormBody
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Metelord");
+			// DisplayName.SetDefault("Metelord");
 
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				Hide = true
@@ -500,8 +519,13 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.height = 36;
 			NPC.noGravity = true;
 		}
+<<<<<<< HEAD
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
         NPC.damage = 60;
+=======
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+			NPC.damage = 60;
+>>>>>>> ProjectClash
 			if (Main.masterMode) {
 				NPC.damage = 88;
             }
@@ -509,10 +533,14 @@ namespace Zylon.NPCs.Bosses.Metelord
         public override void Init() {
 			MetelordHead.CommonWormInit(this);
 		}
+<<<<<<< HEAD
         public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit) {
+=======
+		public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone) {
+>>>>>>> ProjectClash
             if (target.ZoneMeteor) head.ai[0] = 1;
         }
-        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit) {
+        public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone) {
             if (target.ZoneMeteor) head.ai[0] = 1;
 			if (projectile.aiStyle == 1 || projectile.aiStyle == 2 || projectile.aiStyle == 3 || projectile.aiStyle == 5 || projectile.aiStyle == 8 || projectile.aiStyle == 12 || projectile.aiStyle == 13 || projectile.aiStyle == 14 || projectile.aiStyle == 15 || projectile.aiStyle == 18 || projectile.aiStyle == 23 || projectile.aiStyle == 24 || projectile.aiStyle == 27 || projectile.aiStyle == 28 || projectile.aiStyle == 29 || projectile.aiStyle == 30 || projectile.aiStyle == 33 || projectile.aiStyle == 34 || projectile.aiStyle == 36 || projectile.aiStyle == 38 || projectile.aiStyle == 39 || projectile.aiStyle == 40 || projectile.aiStyle == 41 || projectile.aiStyle == 42 || projectile.aiStyle == 43 || projectile.aiStyle == 44 || projectile.aiStyle == 45 || projectile.aiStyle == 46 || projectile.aiStyle == 47 || projectile.aiStyle == 48 || projectile.aiStyle == 50 || projectile.aiStyle == 51 || projectile.aiStyle == 57 || projectile.aiStyle == 65 || projectile.aiStyle == 69 || projectile.aiStyle == 70 || projectile.aiStyle == 71 || projectile.aiStyle == 72 || projectile.aiStyle == 73 || projectile.aiStyle == 74 || projectile.aiStyle == 75 || projectile.aiStyle == 77 || projectile.aiStyle == 78 || projectile.aiStyle == 81 || projectile.aiStyle == 84 || projectile.aiStyle == 87 || projectile.aiStyle == 91 || projectile.aiStyle == 92 || projectile.aiStyle == 93 || projectile.aiStyle == 94 || projectile.aiStyle == 95 || projectile.aiStyle == 96 || projectile.type == ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>()) //stopped before 100 because this is just getting absurd
 			if (!(projectile.DamageType == DamageClass.Summon || projectile.DamageType == DamageClass.MagicSummonHybrid) || (projectile.type == ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>())) {
@@ -532,7 +560,10 @@ namespace Zylon.NPCs.Bosses.Metelord
 				spawnGore = false;
             }
         }
+<<<<<<< HEAD
 		int rageTimer;
+=======
+>>>>>>> ProjectClash
 		bool spawnGore = true;
 		public override void PostAI() {
 			if (head.ai[1] == 1) NPC.Center += new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-3, 4));
@@ -573,15 +604,20 @@ namespace Zylon.NPCs.Bosses.Metelord
 				spawnGore = false;
 			}*/
         }
+<<<<<<< HEAD
         public override void OnHitPlayer(Player target, int damage, bool crit) {
         target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(3, 5));
+=======
+		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
+            target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(3, 5));
+>>>>>>> ProjectClash
         }
 	}
 
 	internal class MetelordTail : WormTail
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Metelord");
+			// DisplayName.SetDefault("Metelord");
 
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				Hide = true
@@ -612,8 +648,13 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPC.height = 46;
 			NPC.noGravity = true;
 		}
+<<<<<<< HEAD
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
         NPC.damage = 40;
+=======
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+			NPC.damage = 40;
+>>>>>>> ProjectClash
 			if (Main.masterMode) {
 				NPC.damage = 60;
             }
@@ -621,10 +662,14 @@ namespace Zylon.NPCs.Bosses.Metelord
 		public override void Init() {
 			MetelordHead.CommonWormInit(this);
 		}
+<<<<<<< HEAD
         public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit) {
+=======
+		public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone) {
+>>>>>>> ProjectClash
             if (target.ZoneMeteor) head.ai[0] = 1;
         }
-        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit) {
+        public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone) {
             if (target.ZoneMeteor) head.ai[0] = 1;
 			if (projectile.aiStyle == 1 || projectile.aiStyle == 2 || projectile.aiStyle == 3 || projectile.aiStyle == 5 || projectile.aiStyle == 8 || projectile.aiStyle == 12 || projectile.aiStyle == 13 || projectile.aiStyle == 14 || projectile.aiStyle == 15 || projectile.aiStyle == 18 || projectile.aiStyle == 23 || projectile.aiStyle == 24 || projectile.aiStyle == 27 || projectile.aiStyle == 28 || projectile.aiStyle == 29 || projectile.aiStyle == 30 || projectile.aiStyle == 33 || projectile.aiStyle == 34 || projectile.aiStyle == 36 || projectile.aiStyle == 38 || projectile.aiStyle == 39 || projectile.aiStyle == 40 || projectile.aiStyle == 41 || projectile.aiStyle == 42 || projectile.aiStyle == 43 || projectile.aiStyle == 44 || projectile.aiStyle == 45 || projectile.aiStyle == 46 || projectile.aiStyle == 47 || projectile.aiStyle == 48 || projectile.aiStyle == 50 || projectile.aiStyle == 51 || projectile.aiStyle == 57 || projectile.aiStyle == 65 || projectile.aiStyle == 69 || projectile.aiStyle == 70 || projectile.aiStyle == 71 || projectile.aiStyle == 72 || projectile.aiStyle == 73 || projectile.aiStyle == 74 || projectile.aiStyle == 75 || projectile.aiStyle == 77 || projectile.aiStyle == 78 || projectile.aiStyle == 81 || projectile.aiStyle == 84 || projectile.aiStyle == 87 || projectile.aiStyle == 91 || projectile.aiStyle == 92 || projectile.aiStyle == 93 || projectile.aiStyle == 94 || projectile.aiStyle == 95 || projectile.aiStyle == 96 || projectile.type == ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>()) //stopped before 100 because this is just getting absurd
 			if (!(projectile.DamageType == DamageClass.Summon || projectile.DamageType == DamageClass.MagicSummonHybrid) || (projectile.type == ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>())) {
@@ -643,7 +688,10 @@ namespace Zylon.NPCs.Bosses.Metelord
 				spawnGore = false;
             }
         }
+<<<<<<< HEAD
 		int rageTimer;
+=======
+>>>>>>> ProjectClash
 		bool spawnGore = true;
 		public override void PostAI() {
 			if (head.ai[1] == 1) NPC.Center += new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-3, 4));
@@ -686,8 +734,13 @@ namespace Zylon.NPCs.Bosses.Metelord
 				spawnGore = false;
 			}*/
         }
+<<<<<<< HEAD
         public override void OnHitPlayer(Player target, int damage, bool crit) {
 			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(3, 5));
+=======
+		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
+            target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(3, 5));
+>>>>>>> ProjectClash
         }
 	}
 }

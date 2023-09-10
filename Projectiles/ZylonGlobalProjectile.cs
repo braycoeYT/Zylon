@@ -64,7 +64,7 @@ namespace Zylon.Projectiles
 				}
 				if (foundTarget) {
 					Vector2 projDir = Vector2.Normalize(targetCenter - projectile.Center) * 7f;
-					Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, projDir, ProjectileType<Accessories.DirtBallAcc>(), (int)(projectile.damage*0.6f), projectile.knockBack/2, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(projectile.GetSource_FromThis(), projectile.Center, projDir, ProjectileType<Accessories.DirtBallAcc>(), (int)(projectile.damage*0.6f), projectile.knockBack/2, projectile.owner);
                 }
             }
 			if (damageCooldown > 0) { //only use this if you are sure that projectiles inflicted are friendly
@@ -73,7 +73,7 @@ namespace Zylon.Projectiles
 				if (damageCooldown == 0) projectile.friendly = true;
             }
         }
-        public override void OnHitNPC(Projectile projectile, NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPC(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone) {
             if (target.type == NPCType<NPCs.Bosses.Dirtball.DirtBlock>() && (projectile.penetrate < 0 || projectile.penetrate > 3) && projectile.minion == false && Main.expertMode)
 				projectile.penetrate = 3;
 			if (target.type == NPCType<NPCs.Bosses.Metelord.MetelordHead>() || target.type == NPCType<NPCs.Bosses.Metelord.MetelordBody>() || target.type == NPCType<NPCs.Bosses.Metelord.MetelordTail>()) {

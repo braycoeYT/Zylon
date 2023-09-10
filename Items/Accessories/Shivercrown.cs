@@ -7,7 +7,11 @@ namespace Zylon.Items.Accessories
 	public class Shivercrown : ModItem
 	{
 		public override void SetStaticDefaults() {
+<<<<<<< HEAD
 			Tooltip.SetDefault("Increases critical strike chance by 2 and critical strike damage by 10%\nCritical strikes inflict frostburn");
+=======
+			// Tooltip.SetDefault("Increases critical strike chance by 2 and critical strike damage by 10%\nCritical strikes inflict frostburn");
+>>>>>>> ProjectClash
 		}
 		public override void SetDefaults() {
 			Item.width = 42;

@@ -7,7 +7,7 @@ namespace Zylon.Items.Tomes
 	public class ChaosCaster : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Casts a chaos ball that breaks into 3 shards on impact\nChaos Ball Shards do not collide with tiles");
+			// Tooltip.SetDefault("Casts a chaos ball that hexes the hit target\nHexes collapse after 2 seconds, dealing damage\n'I can do anything!'");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 0, 54, 0);

@@ -14,7 +14,11 @@ namespace Zylon.NPCs.Bosses.Jelly
 	public class EldritchJellyfish : ModNPC
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Eldritch Jellyfish");
+
+			NPCID.Sets.BossBestiaryPriority.Add(Type);
+			NPCID.Sets.MPAllowedEnemies[Type] = true;
+
+			// DisplayName.SetDefault("Eldritch Jellyfish");
 			Main.npcFrameCount[NPC.type] = 7;
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				SpecificallyImmuneTo = new int[] {
@@ -47,8 +51,13 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPC.lavaImmune = true;
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/JellyTheme");
         }
+<<<<<<< HEAD
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
         NPC.lifeMax = (int)((11500 + ((numPlayers - 1) * 3500))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+=======
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+            NPC.lifeMax = (int)((11500 + ((numPlayers - 1) * 3500))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+>>>>>>> ProjectClash
             NPC.damage = 80;
 			NPC.value = 13750;
 			if (Main.masterMode) {
@@ -56,7 +65,11 @@ namespace Zylon.NPCs.Bosses.Jelly
 				NPC.damage = 120;
             }
         }
+<<<<<<< HEAD
         public override void HitEffect(int hitDirection, double damage) {
+=======
+		public override void HitEffect(NPC.HitInfo hit) {
+>>>>>>> ProjectClash
 			for (int i = 0; i < 4; i++) {
 				int dustType = ModContent.DustType<Dusts.JellyDust>();
 				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, dustType);
@@ -242,7 +255,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 				else {
 					if (attackTimer % 5 == 0) {
 						SoundEngine.PlaySound(SoundID.NPCHit13, NPC.Center);
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 8).RotatedBy(NPC.rotation + Main.rand.NextFloat(-0.4f - (attackBoost*0.02f), 0.4f + (attackBoost*0.02f))), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyLaser>(), 20 + attackBoost, 0f, Main.myPlayer);
+						ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 8).RotatedBy(NPC.rotation + Main.rand.NextFloat(-0.4f - (attackBoost*0.02f), 0.4f + (attackBoost*0.02f))), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyLaser>(), 20 + attackBoost, 0f, Main.myPlayer, BasicNetType: 2);
 					}
 				}
 				if (attackTimer > 299) {
@@ -254,7 +267,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 			if (attack == 2 && attackDone == false) {
 				attackTimer++;
 				if (attackTimer % 10 - attackBoost == 0 && attackTimer < 300)
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(Main.rand.Next(-600, 601), -600), new Vector2(0, 0), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyBit>(), 20 + attackBoost, 0f, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(Main.rand.Next(-600, 601), -600), new Vector2(0, 0), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyBit>(), 20 + attackBoost, 0f, Main.myPlayer, BasicNetType: 2);
 				if (attackTimer > 499) {
 					attackDone = true;
 					movement = true;
@@ -298,7 +311,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 				dust.velocity.Y = NPC.velocity.Y * -0.5f;
 				dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 				if (attackTimer % 10 - attackBoost == 0) {
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.velocity * -0.2f, ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyLaser>(), 20 + attackBoost, 0f, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.velocity * -0.2f, ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyLaser>(), 20 + attackBoost, 0f, Main.myPlayer, BasicNetType: 2);
 				}
 			}
 			if (attack == 5 && attackDone == false) {
@@ -307,7 +320,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 				else if (attackTimer < 180) attackFloat -= 0.01f + (attackBoost*0.0012f);
 				NPC.rotation += attackFloat; //if (attackTimer < 180) 
 				if (((attackTimer % 3 == 0 && NPC.life > NPC.lifeMax / 2) || (attackTimer % 2 == 0 && NPC.life <= NPC.lifeMax / 2)) && attackTimer <= 180)
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 0.3f).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyLaserFast>(), 20 + attackBoost, 0f, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 0.3f).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyLaserFast>(), 20 + attackBoost, 0f, Main.myPlayer, BasicNetType: 2);
 				if (attackTimer >= 360) {
 					attackDone = true;
 					movement = true;

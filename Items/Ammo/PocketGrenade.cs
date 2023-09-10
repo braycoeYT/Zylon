@@ -8,7 +8,7 @@ namespace Zylon.Items.Ammo
 	public class PocketGrenade : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Each year these get smaller and smaller... wasn't it already pocket enough?'\nFor use with blowpipes");
+			// Tooltip.SetDefault("'Each year these get smaller and smaller... wasn't it already pocket enough?'\nFor use with blowpipes");
         }
 		public override void SetDefaults() {
 			Item.damage = 8;

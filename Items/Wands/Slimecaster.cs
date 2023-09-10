@@ -9,7 +9,7 @@ namespace Zylon.Items.Wands
 	public class Slimecaster : ModItem
 	{
         public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Rains a slime mass from above that explodes into slime spikes upon contact");
+			// Tooltip.SetDefault("Rains a slime mass from above that explodes into slime spikes upon contact");
             Item.staff[Item.type] = true;
         }
         public override void SetDefaults() {

@@ -27,6 +27,7 @@ namespace Zylon.Items.Wands
 			Item.shoot = ModContent.ProjectileType<Projectiles.Wands.StoneBall>();
 			Item.shootSpeed = 12.75f;
 			Item.mana = 5;
+			Item.noMelee = true;
 		}
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

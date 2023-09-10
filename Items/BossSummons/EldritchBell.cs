@@ -7,16 +7,19 @@ namespace Zylon.Items.BossSummons
 {
 	public class EldritchBell : ModItem
 	{
+<<<<<<< HEAD
 		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("'It calls for the ocean...'\nSummons the Eldritch Jellyfish\nEnrages outside of the ocean\nNot Consumable");
 			ItemID.Sets.SortingPriorityBossSpawns[Item.type] = 3;
 		}
+=======
+>>>>>>> ProjectClash
 		public override void SetDefaults() {
 			Item.width = 32;
 			Item.height = 32;
 			Item.maxStack = 20;
 			Item.value = 0;
-			Item.rare = 3;
+			Item.rare = ItemRarityID.Orange;
 			Item.useAnimation = 45;
 			Item.useTime = 45;
 			Item.useStyle = ItemUseStyleID.HoldUp;
@@ -27,8 +30,20 @@ namespace Zylon.Items.BossSummons
 			return !NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Jelly.EldritchJellyfish>()) && player.ZoneBeach;
 		}
         public override bool? UseItem(Player player) {
-			NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<NPCs.Bosses.Jelly.EldritchJellyfish>());
-			SoundEngine.PlaySound(SoundID.Roar, player.position);
+			if (player.whoAmI == Main.myPlayer)
+			{
+				SoundEngine.PlaySound(SoundID.Roar, player.position);
+				int type = ModContent.NPCType<NPCs.Bosses.Jelly.EldritchJellyfish>();
+
+				if (Main.netMode != NetmodeID.MultiplayerClient)
+				{
+					NPC.SpawnOnPlayer(player.whoAmI, type);
+				}
+				else
+				{
+					NetMessage.SendData(MessageID.SpawnBossUseLicenseStartEvent, number: player.whoAmI, number2: type);
+				}
+			}
 			return true;
 		}
 		public override void AddRecipes() {

@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Minions
 	public class IcyWispBeam : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Icy Beam");
+			// DisplayName.SetDefault("Icy Beam");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Bullet);

@@ -7,7 +7,7 @@ namespace Zylon.Items.Materials
 	public class DiskiteCrumbles : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'It seems to be made of something familiar, but you can't tell what...'");
+			// Tooltip.SetDefault("'It seems to be made of something familiar, but you can't tell what...'");
 		}
 		public override void SetDefaults() {
 			Item.width = 32;

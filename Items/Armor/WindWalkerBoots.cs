@@ -8,7 +8,7 @@ namespace Zylon.Items.Armor
 	public class WindWalkerBoots : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Not to be confused with the Wind Waker'\nIncreases max run speed by 50%");
+			// Tooltip.SetDefault("'Not to be confused with the Wind Waker'\nIncreases max run speed by 50%");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

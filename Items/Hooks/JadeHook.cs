@@ -11,8 +11,7 @@ namespace Zylon.Items.Hooks
 	internal class JadeHookItem : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Jade Hook");
-			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+			// DisplayName.SetDefault("Jade Hook");
 		}
 
 		public override void SetDefaults() {
@@ -41,7 +40,8 @@ namespace Zylon.Items.Hooks
 		}
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Jade Hook");
+			// DisplayName.SetDefault("Jade Hook");
+			ProjectileID.Sets.SingleGrappleHook[Type] = true;
 		}
 
 		public override void SetDefaults() {
@@ -60,10 +60,6 @@ namespace Zylon.Items.Hooks
 			return hooksOut <= 2;
 		}*/
 
-		//Return true if it is like: Hook, CandyCaneHook, BatHook, GemHooks
-		public override bool? SingleGrappleHook(Player player) {
-			return true;
-		}
 
 		// Use this to kill oldest hook. For hooks that kill the oldest when shot, not when the newest latches on: Like SkeletronHand
 		// You can also change the projectile like: Dual Hook, Lunar Hook
