@@ -13,7 +13,7 @@ namespace Zylon.NPCs.Bosses.ADD
     public class ADD_Ankh : ModNPC
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Everlasting Ankh");
+            //DisplayName.SetDefault("Everlasting Ankh");
             NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				ImmuneToAllBuffsThatAreNotWhips = true
 			};
@@ -41,7 +41,7 @@ namespace Zylon.NPCs.Bosses.ADD
             NPC.dontCountMe = true;
             NPC.dontTakeDamage = true;
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 3200;
         }
         int Timer;

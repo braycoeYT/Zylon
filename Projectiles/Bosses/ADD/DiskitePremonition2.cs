@@ -10,7 +10,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 	public class DiskitePremonition2 : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("How did you die from this wot");
+			//DisplayName.SetDefault("How did you die from this wot");
 			Main.projFrames[Projectile.type] = 4;
         }
 		public override void SetDefaults() {

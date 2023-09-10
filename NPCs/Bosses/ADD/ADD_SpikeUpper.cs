@@ -11,7 +11,7 @@ namespace Zylon.NPCs.Bosses.ADD
     public class ADD_SpikeUpper : ModNPC
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Ancient Diskite Director");
+            //DisplayName.SetDefault("Ancient Diskite Director");
             NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				ImmuneToAllBuffsThatAreNotWhips = true
 			};

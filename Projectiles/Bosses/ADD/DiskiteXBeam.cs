@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Bosses.ADD
 	public class DiskiteXBeam : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Sun Speck"); //hole no ray
+			//DisplayName.SetDefault("Sun Speck"); //hole no ray
 			Main.projFrames[Projectile.type] = 4;
         }
 		public override void SetDefaults() {

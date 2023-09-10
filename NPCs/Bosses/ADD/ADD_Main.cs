@@ -14,7 +14,7 @@ namespace Zylon.NPCs.Bosses.ADD
     public class ADD_Main : ModNPC
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ancient Diskite Director");
+			//DisplayName.SetDefault("Ancient Diskite Director");
             //Main.npcFrameCount[NPC.type] = 3;
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				SpecificallyImmuneTo = new int[] {
@@ -52,7 +52,7 @@ namespace Zylon.NPCs.Bosses.ADD
 			NPC.lavaImmune = true;
 			//Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
         NPC.lifeMax = (int)((5200 + ((numPlayers - 1) * 1200))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 61;
 			NPC.value = 140000;
