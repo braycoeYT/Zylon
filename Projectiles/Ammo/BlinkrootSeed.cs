@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Ammo
 	public class BlinkrootSeed : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Blinkroot Seed");
+			// DisplayName.SetDefault("Blinkroot Seed");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);
@@ -16,7 +16,7 @@ namespace Zylon.Projectiles.Ammo
 		}
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 6), ModContent.ProjectileType<BlinkrootSeedFall>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+			ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 6), ModContent.ProjectileType<BlinkrootSeedFall>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 		}
 	}   
 }

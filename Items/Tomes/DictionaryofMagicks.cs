@@ -9,8 +9,8 @@ namespace Zylon.Items.Tomes
 	public class DictionaryofMagicks : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Dictionary of Magicks");
-			Tooltip.SetDefault("'There's a lot of latin in this!'\nAlternates between fireballs, snowflakes, water bolts, lightning strikes, and chaos balls");
+			// DisplayName.SetDefault("Dictionary of Magicks");
+			// Tooltip.SetDefault("'There's a lot of latin in this!'\nAlternates between fireballs, snowflakes, water bolts, lightning strikes, and chaos balls");
 		}
 		public override void SetDefaults() {
 			Item.damage = 38;

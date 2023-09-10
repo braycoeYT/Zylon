@@ -11,7 +11,7 @@ namespace Zylon.Items.Shortswords
 	public class EmeraldFalcon : ModItem
 	{
         public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Better than the diamond sword!'\nRight click to switch between legacy and modern modes\nFires an emerald wave on every fifth stab\nIn legacy mode, emerald waves chase enemies");
+			// Tooltip.SetDefault("'Better than the diamond sword!'\nRight click to switch between legacy and modern modes\nFires an emerald wave on every fifth stab\nIn legacy mode, emerald waves chase enemies");
         }
         public override void SetDefaults() {
 			Item.damage = 30;
@@ -23,7 +23,7 @@ namespace Zylon.Items.Shortswords
 			Item.useStyle = ItemUseStyleID.Rapier;
 			Item.knockBack = 4f;
 			Item.value = Item.sellPrice(0, 1, 25);
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 			Item.useTurn = false;

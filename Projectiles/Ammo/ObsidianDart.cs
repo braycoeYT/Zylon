@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Ammo
 	public class ObsidianDart : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Obsidian Dart");
+			// DisplayName.SetDefault("Obsidian Dart");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);

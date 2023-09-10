@@ -8,7 +8,7 @@ namespace Zylon.Items.Bars
 	public class CarnalliteBar : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'It looks like it would be right at home in the muds of the world...'");
+			// Tooltip.SetDefault("'It looks like it would be right at home in the jungle.'");
 		}
 		public override void SetDefaults() {
 			Item.rare = ItemRarityID.Green;

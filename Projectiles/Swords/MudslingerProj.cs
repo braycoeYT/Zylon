@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Swords
 	public class MudslingerProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mudslinger");
+			// DisplayName.SetDefault("Mudslinger");
 			Main.projFrames[Projectile.type] = 6;
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
@@ -25,8 +25,8 @@ namespace Zylon.Projectiles.Swords
 			Projectile.DamageType = DamageClass.Melee;
 			Projectile.penetrate = 3;
 		}
-        public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) {
-			damage = (int)(damage*(0.5f+(0.5f*pwr)));
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) {
+            modifiers.SourceDamage *= (0.5f + (0.5f * pwr));
         }
         int Timer;
 		bool init;
@@ -59,26 +59,32 @@ namespace Zylon.Projectiles.Swords
                 }
             }
 		}
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             if (Main.rand.NextFloat(0.75f) < pwr) {
 				target.AddBuff(BuffID.OnFire, (int)(Main.rand.Next(8, 10)*60*pwr));
             }
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-            if (Main.rand.NextFloat(0.75f) < pwr) {
-				target.AddBuff(BuffID.OnFire, (int)(Main.rand.Next(8, 10)*60*pwr));
-            }
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				if (Main.rand.NextFloat(0.75f) < pwr)
+				{
+					target.AddBuff(BuffID.OnFire, (int)(Main.rand.Next(8, 10) * 60 * pwr));
+				}
+			}
         }
+
         public override void PostAI() {
 			if (pwr < 0.3f) {
-				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 0);
+				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Dirt);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
 				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
 				dust.scale *= 0.75f + Main.rand.Next(-30, 31) * 0.01f;
 			}
 			if (pwr < 0.6f) {
-				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 0);
+				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Dirt);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
 				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;

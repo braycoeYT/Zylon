@@ -7,7 +7,7 @@ namespace Zylon.Items.Materials
 	public class Oozeberry : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Unfit and unsafe for consumption due to its strong poison'");
+			// Tooltip.SetDefault("'Unfit and unsafe for consumption due to its strong poison'");
 		}
 		public override void SetDefaults() {
 			Item.width = 24;

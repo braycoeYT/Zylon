@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Debuffs
 	public class BrokenKarta1 : ModBuff
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Broken Karta");
-			Description.SetDefault("Your Karta is broken!");
+			// DisplayName.SetDefault("Broken Karta");
+			// Description.SetDefault("Your Karta is broken!");
 			Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;

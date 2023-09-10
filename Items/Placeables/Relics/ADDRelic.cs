@@ -8,7 +8,7 @@ namespace Zylon.Items.Placeables.Relics
 	public class ADDRelic : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Ancient Diskite Director Relic");
+			// DisplayName.SetDefault("Ancient Diskite Director Relic");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 		public override void SetDefaults() {

@@ -7,7 +7,7 @@ namespace Zylon.Items.Wands
 	public class ManaSiphon : ModItem
 	{
         public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Leeches mana from struck enemies");
+			// Tooltip.SetDefault("Leeches mana from struck enemies");
             Item.staff[Item.type] = true;
         }
         public override void SetDefaults() {
@@ -31,7 +31,7 @@ namespace Zylon.Items.Wands
 			recipe.AddRecipeGroup("Zylon:AnyPHBar", 12);
 			recipe.AddIngredient(ModContent.ItemType<Materials.ObeliskShard>(), 20);
 			recipe.AddTile(TileID.Anvils);
-			recipe.AddCondition(Recipe.Condition.InGraveyardBiome);
+			recipe.AddCondition(Condition.InGraveyard);
 			recipe.Register();
 		}
 	}

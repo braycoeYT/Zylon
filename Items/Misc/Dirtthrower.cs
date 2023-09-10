@@ -10,7 +10,7 @@ namespace Zylon.Items.Misc
 	public class Dirtthrower : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Talk about terraforming!'\nUses dirt blocks as ammo");
+			// Tooltip.SetDefault("'Talk about terraforming!'\nUses dirt blocks as ammo");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 1);

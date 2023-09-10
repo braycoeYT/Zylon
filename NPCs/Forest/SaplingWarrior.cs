@@ -28,17 +28,14 @@ namespace Zylon.NPCs.Forest
 			//Banner = NPC.type;
             //BannerItem = ModContent.ItemType<Items.Banners.OrangeSlimeBanner>();
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-            NPC.lifeMax = 46;
+
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
+        {
+			NPC.lifeMax = 46;
 			NPC.damage = 16;
 			NPC.value = 100;
 			NPC.defense = 5;
-			/*if (Main.hardMode) {
-				NPC.lifeMax = 298;
-				NPC.damage = 87;
-				NPC.value = 150;
-            }*/
-        }
+		}
 		int frameID;
 		float frameCounter;
         public override void AI() {

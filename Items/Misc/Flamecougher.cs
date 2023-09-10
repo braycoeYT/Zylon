@@ -10,7 +10,7 @@ namespace Zylon.Items.Misc
 	public class Flamecougher : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("UNOBTAINABLE\nCoughs up a ball of cursed flames on use\nUses gel as ammo");
+			// Tooltip.SetDefault("UNOBTAINABLE\nCoughs up a ball of cursed flames on use\nUses gel as ammo");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 2);

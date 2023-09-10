@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Wands
 	public class HexOreStaffProj_Child : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Hexed Ore Staff");
+			// DisplayName.SetDefault("Hexed Ore Staff");
         }
 		public override void SetDefaults() {
 			Projectile.width = 8;

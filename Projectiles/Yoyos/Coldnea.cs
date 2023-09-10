@@ -16,11 +16,11 @@ namespace Zylon.Projectiles.Yoyos
 			//9-17.5 Vanilla, for future reference
 			ProjectileID.Sets.YoyosTopSpeed[Projectile.type] = 13.6f;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Frostburn, 60*Main.rand.Next(5, 11));
 		}
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-        target.AddBuff(BuffID.Frostburn, 60*Main.rand.Next(5, 11));
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+			target.AddBuff(BuffID.Frostburn, 60*Main.rand.Next(5, 11));
 		}
 		public override void SetDefaults() {
 			Projectile.extraUpdates = 0;
@@ -36,7 +36,7 @@ namespace Zylon.Projectiles.Yoyos
         public override void AI() {
             Timer++;
 			if (Timer % 5 == 0 && Timer > 20) {
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(spin)), ModContent.ProjectileType<IceLaser>(), Projectile.damage, Projectile.knockBack / 2, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(spin)), ModContent.ProjectileType<IceLaser>(), Projectile.damage, Projectile.knockBack / 2, Projectile.owner);
 				spin += 15;
             }
         }

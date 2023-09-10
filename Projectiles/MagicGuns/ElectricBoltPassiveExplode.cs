@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.MagicGuns
 	public class ElectricBoltPassiveExplode : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Electric Bolt");
+			// DisplayName.SetDefault("Electric Bolt");
 			Main.projFrames[Projectile.type] = 4;
         }
 		public override void SetDefaults() {
@@ -50,7 +50,7 @@ namespace Zylon.Projectiles.MagicGuns
 		}
 		public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 0), ModContent.ProjectileType<ElectricBoltPassiveExplodeExp>(), (int)(Projectile.damage * 0.8f), 0.1f, Main.myPlayer, 2f);
+			ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 0), ModContent.ProjectileType<ElectricBoltPassiveExplodeExp>(), (int)(Projectile.damage * 0.8f), 0.1f, Projectile.owner, 2f);
 			SoundEngine.PlaySound(SoundID.Item96, Projectile.position);
 		}
 	}   

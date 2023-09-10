@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Guns
 	public class BambooSpike : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Bamboo Spike");
+			// DisplayName.SetDefault("Bamboo Spike");
         }
 		public override void SetDefaults() {
 			Projectile.width = 14;
@@ -21,12 +21,18 @@ namespace Zylon.Projectiles.Guns
 			Projectile.extraUpdates = 1;
 			AIType = ProjectileID.Bullet;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             if (Main.rand.NextFloat() < .5f) target.AddBuff(BuffID.Poisoned, Main.rand.Next(10, 21)*60);
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			if (Main.rand.NextFloat() < .5f) target.AddBuff(BuffID.Poisoned, Main.rand.Next(10, 21)*60);
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+			if (info.PvP)
+            {
+				if (Main.rand.NextFloat() < .5f) target.AddBuff(BuffID.Poisoned, Main.rand.Next(10, 21) * 60);
+			}
         }
+
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}

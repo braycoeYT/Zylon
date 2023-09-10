@@ -8,8 +8,8 @@ namespace Zylon.Buffs.Pets
 	public class ExtinctionMeteorite : ModBuff
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Extinction Meteorite");
-			Description.SetDefault("It COULD cause another extinction, but it chooses not to...");
+			// DisplayName.SetDefault("Extinction Meteorite");
+			// Description.SetDefault("It COULD cause another extinction, but it chooses not to...");
 			Main.buffNoTimeDisplay[Type] = true;
 			Main.vanityPet[Type] = true;
 		}

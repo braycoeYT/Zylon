@@ -10,15 +10,15 @@ namespace Zylon.Items.Guns
 	public class SilverFaux : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Silver Faux");
-			Tooltip.SetDefault("'The only things burning now are your fingers'\nWhile in your inventory as you shoot, the gun's use speed will rapidly increase... if you can keep up, that is");
+			// DisplayName.SetDefault("Silver Faux");
+			// Tooltip.SetDefault("'Hot to the touch'\nShoots a flaming shard that blasts into shrapnel");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 5, 50, 0);
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.useAnimation = 15;
-			Item.useTime = 15;
-			Item.damage = 39;
+			Item.useAnimation = 23;
+			Item.useTime = 23;
+			Item.damage = 26;
 			Item.width = 42;
 			Item.height = 30;
 			Item.knockBack = 2.5f;
@@ -28,39 +28,18 @@ namespace Zylon.Items.Guns
 			Item.DamageType = DamageClass.Ranged;
 			Item.useAmmo = AmmoID.Bullet;
 			Item.UseSound = SoundID.Item41;
-			Item.autoReuse = false;
+			Item.autoReuse = true;
 			Item.rare = ItemRarityID.Pink;
 		}
 		public override Vector2? HoldoutOffset() {
 			return new Vector2(-4, 0);
 		}
-		int charge;
-        public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale) {
-			Item.autoReuse = false;
-            return true;
-        }
-        public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
-			Item.autoReuse = false;
-			Item.autoReuse = false;
-			if (type == ProjectileID.Bullet) {
-				type = 14;
-			}
-        }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-			Item.autoReuse = false;
-			charge += 28;
-            return true;
-        }
-        public override void UpdateInventory(Player player) {
-			Item.autoReuse = false;
-			charge -= 1;
-			if (charge < 0)
-				charge = 0;
-			if (charge > 400)
-				charge = 400;
-			Item.shootSpeed = 10f + (charge/40);
-			Item.useAnimation = (15 - (charge/40));
-			Item.useTime = (15 - (charge/40));
+
+			Projectile.NewProjectile(source, position, velocity.RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-2, 2))), ModContent.ProjectileType<Projectiles.Guns.SilverFauxBlast>(), damage * 3, knockback, player.whoAmI, 0f, 0f);
+
+			Gore.NewGore(source, position, (-velocity * 0.23f) + new Vector2(0f, -4f), ModContent.GoreType<Gores.Effects.Specialized.SilverFauxBulletGore>());
+			return false;
         }
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

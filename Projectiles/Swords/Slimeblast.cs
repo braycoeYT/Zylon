@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Swords
 	public class Slimeblast : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Slimeblast");
+			// DisplayName.SetDefault("Slimeblast");
         }
 		public override void SetDefaults() {
 			Projectile.width = 34;
@@ -26,11 +26,11 @@ namespace Zylon.Projectiles.Swords
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 10;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Slimed, Main.rand.Next(2, 6) * 60, false);
 		}
-        public override void OnHitPlayer(Player target, int damage, bool crit) {
-        target.AddBuff(BuffID.Slimed, Main.rand.Next(2, 6) * 60, false);
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+			target.AddBuff(BuffID.Slimed, Main.rand.Next(2, 6) * 60, false);
 		}
 		public override void AI() {
 				float num165 = (float)Math.Sqrt((double)(Projectile.velocity.X * Projectile.velocity.X + Projectile.velocity.Y * Projectile.velocity.Y));

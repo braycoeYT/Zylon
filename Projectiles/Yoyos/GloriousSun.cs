@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Yoyos
 	public class GloriousSun : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Glorious Sun");
+			// DisplayName.SetDefault("Glorious Sun");
 			//3-16 Vanilla, -1 = Infinite
 			ProjectileID.Sets.YoyosLifeTimeMultiplier[Projectile.type] = -1f;
 			//130-400 Vanilla
@@ -28,7 +28,7 @@ namespace Zylon.Projectiles.Yoyos
 		int Timer;
 		public override void AI() {
 			Timer++;
-			if (Timer % 20 == 0) Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position.X + Main.rand.Next(-150, 151), Projectile.position.Y + Main.rand.Next(-150, 151), 0, 0, ProjectileID.SolarWhipSwordExplosion, Projectile.damage, 0, Main.myPlayer);
+			if (Timer % 20 == 0) ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position.X + Main.rand.Next(-150, 151), Projectile.position.Y + Main.rand.Next(-150, 151), 0, 0, ProjectileID.SolarWhipSwordExplosion, Projectile.damage, 0, Projectile.owner);
 		}
 		public override void PostAI() {
 			if (Main.rand.NextBool()) {
@@ -37,7 +37,7 @@ namespace Zylon.Projectiles.Yoyos
 				dust.scale = 1f;
 			}
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Daybreak, 180);
 		}
 	}

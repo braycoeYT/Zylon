@@ -6,7 +6,7 @@ namespace Zylon.Projectiles.Yoyos
 	public class AmazonPackage : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Package");
+			// DisplayName.SetDefault("Package");
         }
 		public override void SetDefaults() {
 			Projectile.width = 24;

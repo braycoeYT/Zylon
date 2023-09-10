@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Swords
 	public class SpiderEggInvis : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Spider Egg");
+			// DisplayName.SetDefault("Spider Egg");
         }
 		public override void SetDefaults() {
 			Projectile.width = 20;

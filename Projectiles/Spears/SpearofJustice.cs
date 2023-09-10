@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Spears
 	public class SpearofJustice : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Spear of Justice");
+            // DisplayName.SetDefault("Spear of Justice");
         }
         public override void SetDefaults() {
 			Projectile.width = 18;

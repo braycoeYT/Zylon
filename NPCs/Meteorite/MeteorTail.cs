@@ -27,13 +27,13 @@ namespace Zylon.NPCs.Meteorite
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = 48;
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+            NPC.lifeMax = 48;
             NPC.damage = 74;
 			NPC.knockBackResist = 0.02f;
         }
-        public override void OnHitPlayer(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(6, 8));
+		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
+            target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(6, 8));
         }
 		int Timer;
 		int timeMax = 300;
@@ -44,14 +44,14 @@ namespace Zylon.NPCs.Meteorite
 				NPC.TargetClosest(true);
 				Vector2 speed = NPC.velocity;//NPC.Center - Main.player[NPC.target].Center;
 				speed.Normalize();
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*6f, ModContent.ProjectileType<Projectiles.Enemies.MeteorTailFireBlast>(), (int)(NPC.damage*0.2f), 0f);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*6f, ModContent.ProjectileType<Projectiles.Enemies.MeteorTailFireBlast>(), (int)(NPC.damage*0.2f), 0f, BasicNetType: 2);
             }
 		}
         public override void PostAI() {
             NPC.rotation = NPC.velocity.ToRotation() - MathHelper.PiOver2;
 			NPC.spriteDirection = 0;
 			for (int i = 0; i < 2; i++) {
-				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6);
+				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
 				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;

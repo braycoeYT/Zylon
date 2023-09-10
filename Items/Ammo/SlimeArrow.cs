@@ -8,7 +8,7 @@ namespace Zylon.Items.Ammo
 	public class SlimeArrow : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Slimes struck enemies");
+			// Tooltip.SetDefault("Slimes struck enemies");
 		}
 		public override void SetDefaults() {
 			Item.damage = 10;

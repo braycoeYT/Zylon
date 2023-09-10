@@ -17,7 +17,7 @@ namespace Zylon.Projectiles.Flails
 	public class TheMeteorite : ModProjectile
 	{
 		private const string ChainTexturePath = "Zylon/Projectiles/Flails/TheMeteoriteChain"; // The folder path to the flail chain sprite
-		private const string ChainTextureExtraPath = "Zylon/Projectiles/Flails/TheMeteoriteChainExtra";  // This texture and related code is optional and used for a unique effect
+		private const string ChainTextureExtraPath = "Zylon/Projectiles/Flails/TheMeteoriteChain";  // This texture and related code is optional and used for a unique effect
 
 		private enum AIState
 		{
@@ -40,7 +40,7 @@ namespace Zylon.Projectiles.Flails
 		public ref float SpinningStateTimer => ref Projectile.localAI[1];
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("The Meteorite");
+			// DisplayName.SetDefault("The Meteorite");
 
 			// These lines facilitate the trail drawing
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
@@ -58,10 +58,10 @@ namespace Zylon.Projectiles.Flails
 
 			// Vanilla flails all use aiStyle 15, but the code isn't customizable so an adaption of that aiStyle is used in the AI method
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(5, 11), false);
 		}
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(5, 11), false);
 		}
 		// This AI code was adapted from vanilla code: Terraria.Projectile.AI_015_Flails() 
@@ -314,7 +314,7 @@ namespace Zylon.Projectiles.Flails
 				dustRate = 1;
 
 			if (Main.rand.NextBool(dustRate))
-				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 1);
+				Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Stone);
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity) {
@@ -400,30 +400,27 @@ namespace Zylon.Projectiles.Flails
 			return base.Colliding(projHitbox, targetHitbox);
 		}
 
-		public override void ModifyDamageScaling(ref float damageScale) {
-			// Flails do 20% more damage while spinning
-			if (CurrentAIState == AIState.Spinning)
-				damageScale *= 1.2f;
-
-			// Flails do 100% more damage while launched or retracting. This is the damage the item tooltip for flails aim to match, as this is the most common mode of attack. This is why the item has ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
-			if (CurrentAIState == AIState.LaunchingForward || CurrentAIState == AIState.Retracting)
-				damageScale *= 2f;
-		}
-
-		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) {
+		public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+		{
 			// Flails do a few custom things, you'll want to keep these to have the same feel as vanilla flails.
 
 			// The hitDirection is always set to hit away from the player, even if the flail damages the npc while returning
-			hitDirection = (Main.player[Projectile.owner].Center.X < target.Center.X) ? 1 : (-1);
+			modifiers.HitDirectionOverride = (Main.player[Projectile.owner].Center.X < target.Center.X) ? 1 : (-1);
 
 			// Knockback is only 25% as powerful when in spin mode
 			if (CurrentAIState == AIState.Spinning)
-				knockback *= 0.25f;
+				modifiers.Knockback *= 0.25f;
 			// Knockback is only 50% as powerful when in drop down mode
 			if (CurrentAIState == AIState.Dropping)
-				knockback *= 0.5f;
+				modifiers.Knockback *= 0.5f;
 
-			base.ModifyHitNPC(target, ref damage, ref knockback, ref crit, ref hitDirection);
+			// Flails do 20% more damage while spinning
+			if (CurrentAIState == AIState.Spinning)
+				modifiers.SourceDamage *= 1.2f;
+
+			// Flails do 100% more damage while launched or retracting. This is the damage the item tooltip for flails aim to match, as this is the most common mode of attack. This is why the item has ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
+			if (CurrentAIState == AIState.LaunchingForward || CurrentAIState == AIState.Retracting)
+				modifiers.SourceDamage *= 2f;
 		}
 
 		// PreDraw is used to draw a chain and trail before the projectile is drawn normally.
@@ -484,7 +481,7 @@ namespace Zylon.Projectiles.Flails
 				}
 
 				// Here, we draw the chain texture at the coordinates
-				Main.spriteBatch.Draw(chainTextureToDraw.Value, chainDrawPosition - Main.screenPosition, chainSourceRectangle, chainDrawColor, chainRotation, chainOrigin, 1f, SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(chainTextureToDraw.Value, chainDrawPosition - Main.screenPosition, chainSourceRectangle, Projectile.GetAlpha(Color.White), chainRotation, chainOrigin, 1f, SpriteEffects.None, 0f);
 
 				// chainDrawPosition is advanced along the vector back to the player by the chainSegmentLength
 				chainDrawPosition += unitVectorFromProjectileToPlayerArms * chainSegmentLength;

@@ -12,7 +12,7 @@ namespace Zylon.Projectiles.Bosses.Jelly
 	public class JellyExpertProj : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Big Eerie Jellyfish");
+			// DisplayName.SetDefault("Big Eerie Jellyfish");
 			Main.projFrames[Projectile.type] = 3;
 		}
 		public override void SetDefaults() {
@@ -53,7 +53,7 @@ namespace Zylon.Projectiles.Bosses.Jelly
 						}
 					}
 				}
-				if (target.active && target != null && Main.maxNPCs > 0 && Main.maxNPCUpdates > 0 && Main.maxNPCTypes > 0)
+				if (target.active && target != null && Main.maxNPCs > 0 && Main.maxNPCUpdates > 0)
 				{
 					Vector2 look = target.Center - Projectile.Center;
 					if (look.X != 0f) {
@@ -74,7 +74,7 @@ namespace Zylon.Projectiles.Bosses.Jelly
 			Projectile.velocity *= 0.98f;
 			if (Projectile.timeLeft == 1) {
 				for (int i = 0; i < 4; i++)
-					Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, 10).RotatedByRandom(MathHelper.ToRadians(360)), ModContent.ProjectileType<JellyExpertProj2>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, 10).RotatedByRandom(MathHelper.ToRadians(360)), ModContent.ProjectileType<JellyExpertProj2>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, BasicNetType: 2);
 			}
 		}
 	}

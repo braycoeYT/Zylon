@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Swords
 	public class LoberaProj : ModProjectile
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Lobera");
+            // DisplayName.SetDefault("Lobera");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
@@ -31,22 +31,28 @@ namespace Zylon.Projectiles.Swords
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 5;
         }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             for (int i = 0; i < Main.rand.Next(1, 4); i++) {
                 Vector2 spawn = new Vector2(target.Center.X + Main.rand.Next(-320, 321), Main.player[Projectile.owner].position.Y - 400);
 			    Vector2 target2 = spawn - target.Center;
-			    Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawn, target2*Main.rand.NextFloat(-8f, -5f), ModContent.ProjectileType<LoberaTropicalOrb>(), damage/2, Projectile.knockBack/2, Main.myPlayer);
+			    ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), spawn, target2*Main.rand.NextFloat(-8f, -5f), ModContent.ProjectileType<LoberaTropicalOrb>(), damageDone/2, Projectile.knockBack/2, Projectile.owner);
                 if (target.boss == false) target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60 * Main.rand.Next(3, 7), false);
             }
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-            for (int i = 0; i < Main.rand.Next(1, 4); i++) {
-                Vector2 spawn = new Vector2(target.Center.X + Main.rand.Next(-320, 321), Main.player[Projectile.owner].position.Y - 400);
-			    Vector2 target2 = spawn - target.Center;
-			    Projectile.NewProjectile(Projectile.GetSource_FromThis(), spawn, target2*Main.rand.NextFloat(-8f, -5f), ModContent.ProjectileType<LoberaTropicalOrb>(), damage/2, Projectile.knockBack/2, Main.myPlayer);
-                target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60 * Main.rand.Next(3, 7), false);
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+                for (int i = 0; i < Main.rand.Next(1, 4); i++)
+                {
+                    Vector2 spawn = new Vector2(target.Center.X + Main.rand.Next(-320, 321), Main.player[Projectile.owner].position.Y - 400);
+                    Vector2 target2 = spawn - target.Center;
+                    ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), spawn, target2 * Main.rand.NextFloat(-8f, -5f), ModContent.ProjectileType<LoberaTropicalOrb>(), info.Damage / 2, Projectile.knockBack / 2, Projectile.owner);
+                    target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60 * Main.rand.Next(3, 7), false);
+                }
             }
         }
+
         float progress2;
         public override void AI() {
             Player player = Main.player[Projectile.owner];

@@ -10,7 +10,7 @@ namespace Zylon.Items.Guns
 	public class DiskanSecurityHandgun : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Every third shot is converted to an electric bolt that deals extra damage");
+			// Tooltip.SetDefault("Every third shot is converted to an electric bolt that deals extra damage");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 3, 0, 0);

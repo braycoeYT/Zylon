@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 	public class MetelordMeteoriteAttack : ModProjectile
 	{
         public override void SetStaticDefaults() { //Unused ver of proj?
-            DisplayName.SetDefault("Swarm Meteorite");
+            // DisplayName.SetDefault("Swarm Meteorite");
         }
         public override void SetDefaults() {
 			Projectile.width = 52;

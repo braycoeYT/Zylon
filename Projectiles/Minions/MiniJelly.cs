@@ -10,7 +10,7 @@ namespace Zylon.Projectiles.Minions
 	public class MiniJelly : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mini Jelly");
+			// DisplayName.SetDefault("Mini Jelly");
 			Main.projFrames[Projectile.type] = 3;
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;
@@ -201,7 +201,7 @@ namespace Zylon.Projectiles.Minions
 				else if (mode == 3) {
 					Projectile.Center = important;
 					Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 140;
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, projDir, ProjectileType<MiniJellyLaser>(), Projectile.damage, Projectile.knockBack / 3, Main.myPlayer, target, wait);
+					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, projDir, ProjectileType<MiniJellyLaser>(), Projectile.damage, Projectile.knockBack / 3, Projectile.owner, target, wait);
 					mode = 4;
 				}
 				else if (mode == 4) {

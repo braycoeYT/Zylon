@@ -14,7 +14,7 @@ namespace Zylon.Projectiles.Tomes.Carnallite
 	public class HealingFlower : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Healing Flower");
+			// DisplayName.SetDefault("Healing Flower");
 		}
 
 		public override void SetDefaults() {

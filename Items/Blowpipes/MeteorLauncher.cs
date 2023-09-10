@@ -12,7 +12,7 @@ namespace Zylon.Items.Blowpipes //play cool sound when launch, double recharge t
 	{
 		public MeteorLauncher() : base(145, 1.35f, new Color(125, 63, 0), true) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Replaces ammo with an explosive meteor whose power is affected by charge\nRight click to disable and enable this effect");
+			// Tooltip.SetDefault("Replaces ammo with an explosive meteor whose power is affected by charge\nRight click to disable and enable this effect");
 		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);

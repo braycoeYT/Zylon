@@ -6,8 +6,8 @@ namespace Zylon.Buffs
 	public class LeafBracer : ModBuff
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Leaf Bracer");
-			Description.SetDefault("You are granted protection through the power of nature");
+			// DisplayName.SetDefault("Leaf Bracer");
+			// Description.SetDefault("You are granted protection through the power of nature");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

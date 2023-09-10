@@ -10,6 +10,7 @@ namespace Zylon.Items.Placeables
 	{
 		public override void SetStaticDefaults() {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 100;
+			ItemID.Sets.Torches[Type] = true;
 		}
 
 		public override void SetDefaults() {
@@ -50,9 +51,6 @@ namespace Zylon.Items.Placeables
 			if (!Item.wet) {
 				Lighting.AddLight(Item.Center, 0.2f, 0.8f, -1f);
 			}
-		}
-		public override void AutoLightSelect(ref bool dryTorch, ref bool wetTorch, ref bool glowstick)/* tModPorter Note: Removed. Use ItemID.Sets.Torches[Type], ItemID.Sets.WaterTorches[Type], and ItemID.Sets.Glowsticks[Type] in SetStaticDefaults */ {
-			dryTorch = true; // This makes our item eligible for being selected with smart select at a short distance when not underwater.
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe(10);

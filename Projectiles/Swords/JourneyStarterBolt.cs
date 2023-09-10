@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Swords
 	public class JourneyStarterBolt : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Journey Starter");
+			// DisplayName.SetDefault("Journey Starter");
         }
 		public override void SetDefaults() {
 			Projectile.width = 8;
@@ -21,11 +21,16 @@ namespace Zylon.Projectiles.Swords
 			Projectile.alpha = 255;
 			Projectile.light = 0.25f;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             if (Projectile.ai[0] % 3 == 0) target.AddBuff(BuffID.OnFire, Main.rand.Next(8, 16)*60);
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			if (Projectile.ai[0] % 3 == 0) target.AddBuff(BuffID.OnFire, Main.rand.Next(8, 16)*60);
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				if (Projectile.ai[0] % 3 == 0) target.AddBuff(BuffID.OnFire, Main.rand.Next(8, 16) * 60);
+			}
         }
         public override void AI() {
 			if (Projectile.ai[0] % 3 == 1) Projectile.velocity *= 1.025f;

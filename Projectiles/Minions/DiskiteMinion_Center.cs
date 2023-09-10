@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Minions
 	public class DiskiteMinion_Center : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Desert Diskite");
+			// DisplayName.SetDefault("Desert Diskite");
 			Main.projFrames[Projectile.type] = 1;
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;
@@ -37,9 +37,9 @@ namespace Zylon.Projectiles.Minions
 		bool init;
 		public override void AI() {
 			if (!init && Main.player[Projectile.owner].ownedProjectileCounts[ProjectileType<DiskiteMinion_CenterDeco>()] < Main.player[Projectile.owner].ownedProjectileCounts[Projectile.type]) {
-				Projectile.NewProjectile(Projectile.GetSource_FromAI(), Projectile.Center, new Vector2(), ProjectileType<DiskiteMinion_CenterDeco>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI);
-				Projectile.NewProjectile(Projectile.GetSource_FromAI(), Projectile.Center, new Vector2(), ProjectileType<DiskiteMinion_SpikeRing>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI);
-				Projectile.NewProjectile(Projectile.GetSource_FromAI(), Projectile.Center, new Vector2(), ProjectileType<DiskiteMinion_LaserEye>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromAI(), Projectile.Center, new Vector2(), ProjectileType<DiskiteMinion_CenterDeco>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromAI(), Projectile.Center, new Vector2(), ProjectileType<DiskiteMinion_SpikeRing>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromAI(), Projectile.Center, new Vector2(), ProjectileType<DiskiteMinion_LaserEye>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI);
 				init = true;
             }
 

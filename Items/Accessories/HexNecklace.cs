@@ -7,7 +7,7 @@ namespace Zylon.Items.Accessories
 	public class HexNecklace : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Hexes the Wand of Sparking and Ore Staves with shadowy magicks");
+			// Tooltip.SetDefault("Hexes the Wand of Sparking and Ore Staves with shadowy magicks");
 		}
 		public override void SetDefaults() {
 			Item.width = 26;

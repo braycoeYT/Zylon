@@ -7,7 +7,7 @@ namespace Zylon.Items.Accessories
 	public class DirtRegalia : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'It's a royal mudallion'\nAllows minions to fire dirt balls if enemies are nearby");
+			// Tooltip.SetDefault("'It's a royal mudallion'\nAllows minions to fire dirt balls if enemies are nearby");
 		}
 		public override void SetDefaults() {
 			Item.width = 32;

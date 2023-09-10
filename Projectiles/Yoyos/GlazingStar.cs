@@ -50,7 +50,7 @@ namespace Zylon.Projectiles.Yoyos
 			Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 10;
 			if (foundTarget) {
 				Timer++;
-				if (Timer % 90 == 0) Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir, ModContent.ProjectileType<Feather>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+				if (Timer % 90 == 0) ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir, ModContent.ProjectileType<Feather>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 			}
 		}
 		public override void PostAI() {

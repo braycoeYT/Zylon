@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Blowpipes
 	public class SigilofNobodyism : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Sigil of Nobodyism");
+			// DisplayName.SetDefault("Sigil of Nobodyism");
 			Main.projFrames[Projectile.type] = 2;
         }
 		public override void SetDefaults() {

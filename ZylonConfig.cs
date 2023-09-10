@@ -7,7 +7,7 @@ namespace Zylon
 	{
 		public override ConfigScope Mode => ConfigScope.ServerSide;
 
-		[Header("General (reload may be required)")]
+		[Header("config.general")]
 
 		[Label("Advanced Blowpipe Display")]
 		[Tooltip("Replaces the usage instructions in blowpipe tooltips with even more stats!")]
@@ -32,10 +32,10 @@ namespace Zylon
 		[Tooltip("Keep this disabled unless a mod uses dirt blocks as ammo and is having major issues. Enabling this will disable the Dirtthrower.")]
 		public bool dirtAmmoFix;
 
-		/*[DefaultValue(true)]
-		[Label("Infinite Boss Summons")]
-		[Tooltip("Makes the mod's boss summons infinite.")]
-		public bool infBossSum;*/
+		//[DefaultValue(true)]
+		//[Label("Infinite Boss Summons")]
+		//[Tooltip("Makes the mod's boss summons infinite.")]
+		//public bool infBossSum;
 
 		[Range(1f, 10f)]
 		[DefaultValue(1f)]
@@ -53,5 +53,15 @@ namespace Zylon
 		[Label("Blowpipe Max Charge Noise")]
 		[Tooltip("Plays a short noise when blowpipes reach max charge.")]
 		public bool blowpipeNoise;
+
+		[Header("config.accessibility")]
+
+		[Range(0, 100)]
+		[Increment(1)]
+		[DefaultValue(100)]
+		[Slider]
+		[Label("Screenshake Amount")]
+		[Tooltip("Changes the amount of all screenshake in the mod. Reccomended for people who have trouble with it.")]
+		public int ScreenshakeAccessibilityMulti;
 	}
 }

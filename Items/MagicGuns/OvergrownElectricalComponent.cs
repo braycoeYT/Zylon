@@ -9,7 +9,7 @@ namespace Zylon.Items.MagicGuns
 	public class OvergrownElectricalComponent : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Only at 0.1% of its true power'");
+			// Tooltip.SetDefault("'Only at 0.1% of its true power'");
         }
         public override void SetDefaults()
         {
@@ -37,7 +37,7 @@ namespace Zylon.Items.MagicGuns
         }
         public override void PostUpdate() {
 			if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Item.position, Item.width, Item.height, 0);
+				Dust dust = Dust.NewDustDirect(Item.position, Item.width, Item.height, DustID.Dirt);
 				dust.noGravity = true;
 				dust.scale = 1.5f;
 			}

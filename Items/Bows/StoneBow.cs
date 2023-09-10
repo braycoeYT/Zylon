@@ -9,7 +9,7 @@ namespace Zylon.Items.Bows
     public class StoneBow : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Converts ammo to stone arrows");
+			// Tooltip.SetDefault("Converts ammo to stone arrows");
 		}
 		public override void SetDefaults() {
 			Item.damage = 6;
@@ -28,6 +28,7 @@ namespace Zylon.Items.Bows
 			Item.shootSpeed = 12.7f;
 			Item.useAmmo = AmmoID.Arrow;
 			Item.consumeAmmoOnLastShotOnly = true;
+			Item.noMelee = true;
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
 			Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<Projectiles.Bows.StoneArrow>(), (int)(damage * 0.85f), knockback, player.whoAmI);

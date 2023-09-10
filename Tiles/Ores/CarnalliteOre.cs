@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.IO;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 using static Terraria.ModLoader.ModContent;
@@ -22,11 +23,9 @@ namespace Zylon.Tiles.Ores
 			Main.tileMergeDirt[Type] = true;
 			Main.tileSolid[Type] = true;
 			Main.tileBlockLight[Type] = true;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Carnallite Ore");
+			LocalizedText name = CreateMapEntryName();
 			AddMapEntry(new Color(103, 217, 69), name); //110, 150, 98
-			DustType = DustType<Dusts.CarnalliteDust>();
-			ItemDrop = ItemType<Items.Ores.CarnalliteOre>();
+			DustType = DustType<Dusts.CarnalliteOreDust>();
 			HitSound = SoundID.Tink;
 			MineResist = 1f;
 			MinPick = 969420;
@@ -41,7 +40,7 @@ namespace Zylon.Tiles.Ores
 	}
 	public class CarnalliteOreSystem : ModSystem
 	{
-		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight) {
+		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight) {
 			int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
 			if (ShiniesIndex != -1) {
 				tasks.Insert(ShiniesIndex + 1, new CarnalliteOrePass("Sprinkling in Zylonian Ores", 237.4298f));
@@ -59,7 +58,7 @@ namespace Zylon.Tiles.Ores
 
 			for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 0.0005); k++) {
 				int x = WorldGen.genRand.Next(0, Main.maxTilesX);
-				int y = WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow, Main.maxTilesY);
+				int y = WorldGen.genRand.Next((int)GenVars.worldSurfaceLow, Main.maxTilesY);
 				Tile tile = Framing.GetTileSafely(x, y);
 				if (tile.TileType == TileID.Mud)
 					WorldGen.TileRunner(x, y, WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(2, 6), ModContent.TileType<CarnalliteOre>());

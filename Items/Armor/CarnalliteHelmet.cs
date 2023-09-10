@@ -8,7 +8,7 @@ namespace Zylon.Items.Armor
 	public class CarnalliteHelmet : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Increases damage by 4%\nIncreases run speed by 10%");
+			// Tooltip.SetDefault("Increases damage by 4%\nIncreases run speed by 10%");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

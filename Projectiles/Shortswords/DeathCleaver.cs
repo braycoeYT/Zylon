@@ -21,7 +21,7 @@ namespace Zylon.Projectiles.Shortswords
 		}
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Death Cleaver");
+			// DisplayName.SetDefault("Death Cleaver");
 		}
 		public override void SetDefaults() {
 			Projectile.Size = new Vector2(18);
@@ -37,18 +37,23 @@ namespace Zylon.Projectiles.Shortswords
 			Projectile.timeLeft = 360;
 			Projectile.hide = true;
 		}
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             if (target.life < 1)
 				for (int i = 0; i < 8; i++)
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*45)), ModContent.ProjectileType<ShadeOrb>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
-        }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-            if (target.statLife < 1)
-				for (int i = 0; i < 8; i++)
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*45)), ModContent.ProjectileType<ShadeOrb>(), Projectile.damage, Projectile.knockBack, Main.myPlayer);
+					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*45)), ModContent.ProjectileType<ShadeOrb>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
         }
 
-		public override void AI() {
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				if (target.statLife < 1)
+					for (int i = 0; i < 8; i++)
+						ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i * 45)), ModContent.ProjectileType<ShadeOrb>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+			}
+        }
+
+        public override void AI() {
 			Player player = Main.player[Projectile.owner];
 
 			Timer += 1;

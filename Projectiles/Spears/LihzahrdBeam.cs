@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Spears
 	public class LihzahrdBeam : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Lihzahrd Beam");
+			// DisplayName.SetDefault("Lihzahrd Beam");
         }
 		public override void SetDefaults() {
 			AIType = ProjectileID.Bullet;

@@ -10,7 +10,7 @@ namespace Zylon.Items.Swords
 	public class DiskanSecurityBlade : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Every third swing releases an electric bolt");
+			// Tooltip.SetDefault("Every third swing releases an electric bolt");
 		}
 		public override void SetDefaults() {
 			Item.damage = 28;

@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 	public class MetelordFireBreath : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Fire Breath");
+            // DisplayName.SetDefault("Fire Breath");
 			Main.projFrames[Projectile.type] = 2;
         }
         public override void SetDefaults() {
@@ -35,7 +35,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 			}
 			Projectile.rotation = Projectile.velocity.ToRotation() - MathHelper.PiOver2;
         }
-		public override void OnHitPlayer(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(3, 6));
 		}
     }   

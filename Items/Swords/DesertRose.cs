@@ -10,8 +10,8 @@ namespace Zylon.Items.Swords
     public class DesertRose : ModItem
     {
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Desert Rose");
-			Tooltip.SetDefault("Rains desert sigils down from the sky");
+			// DisplayName.SetDefault("Desert Rose");
+			// Tooltip.SetDefault("Rains desert sigils down from the sky");
 			ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
 		}
 		public override void SetDefaults() {

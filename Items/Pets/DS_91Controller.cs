@@ -11,8 +11,8 @@ namespace Zylon.Items.Pets
 	public class DS_91Controller : ModItem
 	{
 		public override void SetStaticDefaults() { //finish
-			DisplayName.SetDefault("DS-91 Controller");
-			Tooltip.SetDefault("Summons a forgetten and malfunctioning model of drone servant to follow you");
+			// DisplayName.SetDefault("DS-91 Controller");
+			// Tooltip.SetDefault("Summons a forgetten and malfunctioning model of drone servant to follow you");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 		public override void SetDefaults() {

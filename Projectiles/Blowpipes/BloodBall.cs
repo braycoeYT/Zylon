@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Blowpipes
 	public class BloodBall : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Blood Ball");
+			// DisplayName.SetDefault("Blood Ball");
         }
 		public override void SetDefaults() {
 			Projectile.width = 20;
@@ -23,7 +23,7 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.alpha = 255;
 			//Projectile.scale = 0.02f;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			SoundEngine.PlaySound(SoundID.NPCHit13, Projectile.Center);
 			end = true;
 			Main.player[Projectile.owner].Heal(Main.rand.Next(1, 3));

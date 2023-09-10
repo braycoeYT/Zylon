@@ -10,7 +10,7 @@ namespace Zylon.NPCs.Sky
 	public class StarpackSlime : ModNPC
 	{
 		public override void SetStaticDefaults()  {
-			DisplayName.SetDefault("Starpack Slime");
+			// DisplayName.SetDefault("Starpack Slime");
 			Main.npcFrameCount[NPC.type] = 2;
 		}
         public override void SetDefaults() {
@@ -27,7 +27,7 @@ namespace Zylon.NPCs.Sky
 			AnimationType = 1;
 			NPC.noGravity = true;
         }
-		public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 98;
             NPC.damage = 34;
 			NPC.knockBackResist = 0.5f;

@@ -8,7 +8,7 @@ namespace Zylon.Items.Ores
 	public class CarnalliteOre : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'It has a liking for the rich cultures of mud'");
+			// Tooltip.SetDefault("'It has a liking for the rich cultures of mud'");
 		}
 		public override void SetDefaults() {
 			Item.useStyle = ItemUseStyleID.Swing;

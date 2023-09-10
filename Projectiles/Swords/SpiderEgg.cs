@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Swords
 	public class SpiderEgg : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Spider Egg");
+			// DisplayName.SetDefault("Spider Egg");
         }
 		public override void SetDefaults() {
 			AIType = ProjectileID.WoodenArrowFriendly;

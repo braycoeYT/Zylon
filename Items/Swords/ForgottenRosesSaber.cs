@@ -9,10 +9,7 @@ namespace Zylon.Items.Swords
 {
 	public class ForgottenRosesSaber : ModItem
 	{
-		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Forgotten Rose's Saber"); //tooltip is reference to Queen Sectonia dialogue in Kirby
-			Tooltip.SetDefault("'Its bloom will be your doom!'\nEvery other swing releases a blossomed rose\nBlossomed roses release spore clouds after stopping\nEvery third blossomed rose also releases a ring of roses\nStriking enemies summons mini roses from afar\nRight click to toggle use turn");
-		}
+
 		public override void SetDefaults() {
 			Item.damage = 87;
 			Item.DamageType = DamageClass.Melee;
@@ -48,7 +45,7 @@ namespace Zylon.Items.Swords
 		}
 		int shootCount;
 		int rot;
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
 			if (target.type != NPCID.TargetDummy) Projectile.NewProjectile(player.GetSource_FromThis(), target.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Swords.MiniRose2>(), Item.damage/4, Item.knockBack/4, Main.myPlayer, rot, target.whoAmI);
         }
 		int shootCount2;

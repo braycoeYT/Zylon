@@ -7,8 +7,8 @@ namespace Zylon.Items.Flails
 	public class StickyHand : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Sticky Hand");
-			Tooltip.SetDefault("'Does not get dirty after 20 minutes of use, somehow'\nSticks to enemies when thrown, dealing loads of extra damage");
+			// DisplayName.SetDefault("Sticky Hand");
+			// Tooltip.SetDefault("'Does not get dirty after 20 minutes of use, somehow'\nSticks to enemies when thrown, dealing loads of extra damage");
 		}
 		public override void SetDefaults() {
 			Item.width = 56;

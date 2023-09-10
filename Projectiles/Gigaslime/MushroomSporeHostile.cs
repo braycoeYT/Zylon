@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Gigaslime
 	public class MushroomSporeHostile : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mushroom Spore");
+			// DisplayName.SetDefault("Mushroom Spore");
         }
 		public override void SetDefaults() {
 			Projectile.aiStyle = -1;

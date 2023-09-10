@@ -13,7 +13,7 @@ namespace Zylon.Projectiles.Wands
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Stone Ball");
+            // DisplayName.SetDefault("Stone Ball");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
         }

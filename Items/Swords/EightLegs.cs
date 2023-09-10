@@ -10,7 +10,7 @@ namespace Zylon.Items.Swords
 	public class EightLegs : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Every third swing releases a Spider Egg that explodes into Venom Fangs a few seconds after landing\nStriking enemies will lay Spider Eggs within them\nUp to three enemy-laid eggs can be active at once\nTrue melee hits and Venom Fangs inflict Acid Venom");
+			// Tooltip.SetDefault("Every third swing releases a Spider Egg that explodes into Venom Fangs a few seconds after landing\nStriking enemies will lay Spider Eggs within them\nUp to three enemy-laid eggs can be active at once\nTrue melee hits and Venom Fangs inflict Acid Venom");
 		}
 		public override void SetDefaults() {
 			Item.damage = 54;
@@ -38,10 +38,10 @@ namespace Zylon.Items.Swords
 			if (swingCount % 3 == 0) SoundEngine.PlaySound(SoundID.Item83, position);
 			return swingCount % 3 == 0;
         }
-        public override void OnHitPvp(Player player, Player target, int damage, bool crit) {
+        public override void OnHitPvp(Player player, Player target, Player.HurtInfo hurtInfo) {
 			target.AddBuff(BuffID.Venom, Main.rand.Next(5, 8)*60);
 		}
-        public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit) {
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Venom, Main.rand.Next(5, 8)*60);
 			int counter = 0;
 			for (int x = 0; x < Main.maxProjectiles; x++) {

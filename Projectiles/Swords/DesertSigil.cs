@@ -6,7 +6,7 @@ namespace Zylon.Projectiles.Swords
 	public class DesertSigil : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Desert Sigil");
+			// DisplayName.SetDefault("Desert Sigil");
         }
 		public override void SetDefaults() {
 			Projectile.width = 28;

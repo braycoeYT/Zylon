@@ -10,7 +10,7 @@ namespace Zylon.Projectiles.Wands
 	public class MeteorHerderProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Meteor Herder");
+			// DisplayName.SetDefault("Meteor Herder");
         }
 		public override void SetDefaults() {
 			Projectile.width = 20;
@@ -21,10 +21,10 @@ namespace Zylon.Projectiles.Wands
 			Projectile.light = 0.2f;
 			Projectile.alpha = 255;
 		}
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-        target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(2, 5));
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(2, 5));
 		}
-		public override void OnHitPvp(Player target, int damage, bool crit) {
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(2, 5));
 		}
 		public override void AI() {

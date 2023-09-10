@@ -7,7 +7,7 @@ namespace Zylon.Items.Potions
     public class FeralChemicals : ModItem
 	{
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("Increases melee speed by 10%");
+            // Tooltip.SetDefault("Increases melee speed by 10%");
         }
         public override void SetDefaults() {
             Item.width = 32;

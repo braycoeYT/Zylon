@@ -8,7 +8,8 @@ namespace Zylon.Items.Spears
 	public class CarnalliteTrident : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Fires leaves on use");
+			ItemID.Sets.Spears[Item.type] = true;
+			// Tooltip.SetDefault("'Enchanted with Loyalty I'");
 		}
 		public override void SetDefaults() {
 			Item.damage = 27;

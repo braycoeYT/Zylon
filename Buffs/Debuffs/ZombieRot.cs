@@ -8,7 +8,7 @@ namespace Zylon.Buffs.Debuffs
     public class ZombieRot : ModBuff
     {
         public override void SetStaticDefaults() {
-            Description.SetDefault("Your limbs feel like falling off...");
+            // Description.SetDefault("Your limbs feel like falling off...");
             Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;

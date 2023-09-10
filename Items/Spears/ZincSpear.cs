@@ -7,6 +7,10 @@ namespace Zylon.Items.Spears
 {
 	public class ZincSpear : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			ItemID.Sets.Spears[Item.type] = true;
+		}
 		public override void SetDefaults() {
 			Item.damage = 11;
 			Item.useStyle = ItemUseStyleID.Shoot;
@@ -21,7 +25,7 @@ namespace Zylon.Items.Spears
 			Item.DamageType = DamageClass.Melee;
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
-			Item.autoReuse = false;
+			Item.autoReuse = true;
 			Item.UseSound = SoundID.Item1;
 			Item.shoot = ProjectileType<Projectiles.Spears.ZincSpear>();
 		}

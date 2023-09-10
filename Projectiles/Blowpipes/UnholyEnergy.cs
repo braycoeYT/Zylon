@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Blowpipes
 	public class UnholyEnergy : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Unholy Energy");
+			// DisplayName.SetDefault("Unholy Energy");
         }
 		public override void SetDefaults() {
 			Projectile.width = 24;

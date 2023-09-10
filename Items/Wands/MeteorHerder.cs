@@ -9,14 +9,14 @@ namespace Zylon.Items.Wands
 	public class MeteorHerder : ModItem
 	{
         public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'We back in Meteor Herd'\nRains tiny meteors from above");
+			// Tooltip.SetDefault("'We back in Meteor Herd'\nRains tiny meteors from above");
             Item.staff[Item.type] = true;
         }
         public override void SetDefaults() {
 			Item.damage = 13;
 			Item.DamageType = DamageClass.Magic;
-			Item.width = 28;
-			Item.height = 28;
+			Item.width = 42;
+			Item.height = 46;
 			Item.useTime = 9;
 			Item.useAnimation = 9;
 			Item.useStyle = ItemUseStyleID.Shoot;
@@ -25,10 +25,11 @@ namespace Zylon.Items.Wands
 			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item43;
 			Item.autoReuse = true;
-			Item.useTurn = true;
+			Item.useTurn = false;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Wands.MeteorHerderProj>();
 			Item.shootSpeed = 18f;
 			Item.mana = 4;
+			Item.noMelee = true;
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             Vector2 spawn = new Vector2(Main.MouseWorld.X + Main.rand.Next(-260, 261), player.position.Y - 500);

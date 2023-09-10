@@ -14,7 +14,11 @@ namespace Zylon.NPCs.Bosses.Dirtball
     public class Dirtball : ModNPC
 	{
         public override void SetStaticDefaults() {
-            Main.npcFrameCount[NPC.type] = 3;
+
+			NPCID.Sets.BossBestiaryPriority.Add(Type);
+			NPCID.Sets.MPAllowedEnemies[Type] = true;
+
+			Main.npcFrameCount[NPC.type] = 3;
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				SpecificallyImmuneTo = new int[] {
 					BuffID.Poisoned,
@@ -47,8 +51,8 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPC.lavaImmune = true;
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = (int)((2100 + ((numPlayers - 1) * 900))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+            NPC.lifeMax = (int)((2100 + ((numPlayers - 1) * 900))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 46;
 			NPC.value = 20000;
 			if (Main.masterMode) {
@@ -58,9 +62,9 @@ namespace Zylon.NPCs.Bosses.Dirtball
         }
 		bool bool1;
 		bool bool2;
-        public override void HitEffect(int hitDirection, double damage) {
+		public override void HitEffect(NPC.HitInfo hit) {
 			for (int i = 0; i < (3-phase)*4; i++) {
-				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, 0);
+				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Dirt);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
 				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
@@ -86,16 +90,16 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-2, 4)), ModContent.GoreType<Gores.Bosses.Dirtball.DBDead2>());
 				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-2, 4)), ModContent.GoreType<Gores.Bosses.Dirtball.DBDead3>());
 				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-2, 4)), ModContent.GoreType<Gores.Bosses.Dirtball.DBDead4>());
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DBSpirit>(), 0, 0f);
+				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DBSpirit>(), 0, 0f, BasicNetType: 2);
 			}
 		}
-        public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit) {
+        public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone) {
             if (phase == 2) {
 				if (player.Center.Y < NPC.Center.Y) SoundEngine.PlaySound(SoundID.NPCHit1, NPC.Center);
 				else SoundEngine.PlaySound(SoundID.NPCHit4, NPC.Center);
             }
         }
-        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit) {
+        public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone) {
 			if (phase == 2) {
 				if (projectile.Center.Y < NPC.Center.Y) SoundEngine.PlaySound(SoundID.NPCHit1, NPC.Center);
 				else SoundEngine.PlaySound(SoundID.NPCHit4, NPC.Center);
@@ -103,7 +107,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
         }
         public override void PostAI() {
 			for (int i = 0; i < (3-phase); i++) {
-				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, 0);
+				int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Dirt);
 				Dust dust = Main.dust[dustIndex];
 				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
 				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
@@ -144,9 +148,8 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				}
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Dirtboi>());
 				init = true;
-				//if (Main.GameModeInfo.)//&& Main.GameModeInfo.EnemyMaxLifeMultiplier > 1) //doesn't work sadly
-				//NPC.lifeMax = (int)(NPC.lifeMax/Main.GameModeInfo.EnemyMaxLifeMultiplier);
-				//BRAYC from the future, wut is this???????
+				//if (Main.GameModeInfo.)// && Main.GameModeInfo.EnemyMaxLifeMultiplier > 1) //doesn't work sadly
+				//	NPC.lifeMax = (int)(NPC.lifeMax/Main.GameModeInfo.EnemyMaxLifeMultiplier);
             }
 
 			if (Main.player[NPC.target].statLife < 1) {
@@ -203,8 +206,8 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				movement = attackTimer % (90 + (int)(30*NPC.life/NPC.lifeMax)) < (30 + (int)(30*NPC.life/NPC.lifeMax)) || dist > 600f;
 				if (movement == false) NPC.velocity *= 0.98f;
 				if (attackTimer % (90 + (int)(30*NPC.life/NPC.lifeMax)) == 0 && attackInt < 3) {
-					if (phase == 3 || (phase == 2 && Main.rand.NextBool(2))) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*(-7-(3*NPC.life/NPC.lifeMax)), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtballLaser>(), (int)(NPC.damage*0.25f), 0f);
-					else Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*(-5-(2*NPC.life/NPC.lifeMax)), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtGlobHostile>(), (int)(NPC.damage*0.2f), 0f);
+					if (phase == 3 || (phase == 2 && Main.rand.NextBool(2))) ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*(-7-(3*NPC.life/NPC.lifeMax)), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtballLaser>(), (int)(NPC.damage*0.25f), 0f, BasicNetType: 2);
+					else ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*(-5-(2*NPC.life/NPC.lifeMax)), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtGlobHostile>(), (int)(NPC.damage*0.2f), 0f, BasicNetType: 2);
 					attackInt++;
 				}
 				if (attackInt == 3) {
@@ -233,7 +236,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				if (attackInt < (35 - (phase*5))) {
 					int proj = ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtBallHostile>();
 					if (phase == 3 || (phase == 2 && Main.rand.NextBool(2))) proj = ModContent.ProjectileType<Projectiles.Bosses.Dirtball.LaserMineHostileFall>();
-					if (attackInt % 2 == 0) Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-7, 8), Main.rand.NextFloat(-9, -7)), proj, (int)(NPC.damage * 0.2f), 0f);
+					if (attackInt % 2 == 0) ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-7, 8), Main.rand.NextFloat(-9, -7)), proj, (int)(NPC.damage * 0.2f), 0f, BasicNetType: 2);
                 }
 				else {
 					attackTimer++;
@@ -264,10 +267,10 @@ namespace Zylon.NPCs.Bosses.Dirtball
 					if (NPC.Center.Y > Main.player[NPC.target].Center.Y)
 						attackInt = 2;
 					if (Timer % (15 + (int)(15*NPC.life/NPC.lifeMax)) == 0) {
-						if (phase == 3 || (phase == 2 && Main.rand.NextBool(2))) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(10, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtballLaser>(), (int)(NPC.damage * 0.25f), 0f);
-						else Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(7, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtGlobHostile>(), (int)(NPC.damage * 0.2f), 0f);
-						if (phase == 3 || (phase == 2 && Main.rand.NextBool(2))) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-10, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtballLaser>(), (int)(NPC.damage * 0.25f), 0f);
-						else Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-7, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtGlobHostile>(), (int)(NPC.damage * 0.2f), 0f);
+						if (phase == 3 || (phase == 2 && Main.rand.NextBool(2))) ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(10, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtballLaser>(), (int)(NPC.damage * 0.25f), 0f, BasicNetType: 2);
+						else ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(7, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtGlobHostile>(), (int)(NPC.damage * 0.2f), 0f, BasicNetType: 2);
+						if (phase == 3 || (phase == 2 && Main.rand.NextBool(2))) ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-10, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtballLaser>(), (int)(NPC.damage * 0.25f), 0f, BasicNetType: 2);
+						else ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-7, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtGlobHostile>(), (int)(NPC.damage * 0.2f), 0f, BasicNetType: 2);
 					}
                 }
 				if (attackInt == 2) {
@@ -277,10 +280,10 @@ namespace Zylon.NPCs.Bosses.Dirtball
 					NPC.rotation += 0.1f;
 					if (NPC.velocity.Y > 10) NPC.velocity.Y = 10;
 					if (Timer % (15 + (int)(15*NPC.life/NPC.lifeMax)) == 0) {
-						if (phase == 3 || (phase == 2 && Main.rand.NextBool(2))) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(10, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtballLaser>(), (int)(NPC.damage * 0.25f), 0f);
-						else Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(7, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtGlobHostile>(), (int)(NPC.damage * 0.2f), 0f);
-						if (phase == 3 || (phase == 2 && Main.rand.NextBool(2))) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-10, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtballLaser>(), (int)(NPC.damage * 0.25f), 0f);
-						else Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-7, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtGlobHostile>(), (int)(NPC.damage * 0.2f), 0f);
+						if (phase == 3 || (phase == 2 && Main.rand.NextBool(2))) ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(10, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtballLaser>(), (int)(NPC.damage * 0.25f), 0f, BasicNetType: 2);
+						else ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(7, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtGlobHostile>(), (int)(NPC.damage * 0.2f), 0f, BasicNetType: 2);
+						if (phase == 3 || (phase == 2 && Main.rand.NextBool(2))) ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-10, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtballLaser>(), (int)(NPC.damage * 0.25f), 0f, BasicNetType:2);
+						else ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(-7, 0), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtGlobHostile>(), (int)(NPC.damage * 0.2f), 0f, BasicNetType: 2);
 					}
 					if (NPC.velocity.Y == 1 && attackBool == false) {
 						attackBool = true;
@@ -302,7 +305,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 								proj = ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DirtballLaser>();
 								dam = 0.25f;
 							}
-							Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, speed).RotatedBy(2*Math.PI/consV*i), proj, (int)(NPC.damage*dam), 0f);
+							ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, speed).RotatedBy(2*Math.PI/consV*i), proj, (int)(NPC.damage*dam), 0f, BasicNetType: 2);
 						}
 					}
                 }
@@ -332,7 +335,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 					NPC.velocity *= 0.95f;
 					NPC.rotation += 0.1f;
 					for (int i = 0; i < 3 - phase; i++) {
-						int dustIndex = Dust.NewDust(NPC.Center - new Vector2(4, 0), 1, 1, 0);
+						int dustIndex = Dust.NewDust(NPC.Center - new Vector2(4, 0), 1, 1, DustID.Dirt);
 						Dust dust = Main.dust[dustIndex];
 						dust.velocity = new Vector2(0, 6).RotatedByRandom(2*Math.PI);
 						if (dust.velocity.Y > 0 && phase == 2) dust.velocity.Y *= -1;
@@ -366,7 +369,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 						dust.scale *= 1.25f + Main.rand.Next(-30, 31) * 0.01f;
 					}
 					if (phase == 2) for (int i = 0; i < 1; i++) {
-						int dustIndex = Dust.NewDust(NPC.Center - new Vector2(4, 0), 1, 1, 0);
+						int dustIndex = Dust.NewDust(NPC.Center - new Vector2(4, 0), 1, 1, DustID.Dirt);
 						Dust dust = Main.dust[dustIndex];
 						dust.velocity = new Vector2(0, 6).RotatedByRandom(2*Math.PI);
 						if (dust.velocity.Y > 0) dust.velocity.Y *= -1;
@@ -534,25 +537,25 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			ZylonWorldCheckSystem.downedDirtball = true;
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
-			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeables.Relics.DirtballRelic>()));
-			npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<Items.Pets.DS_91Controller>(), 4));
-            npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<Items.Bags.DirtballBag>()));
+			if (Main.masterMode) {
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.DirtballRelic>(), 1));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.DS_91Controller>(), 4));
+            }
+			if (Main.expertMode || Main.masterMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.DirtballBag>(), 1));
+			else {
+				npcLoot.Add(new CommonDrop(ItemID.DirtBlock, 1, 25, 50));
+				npcLoot.Add(new CommonDrop(ItemID.MudBlock, 1, 15, 30));
+				npcLoot.Add(new CommonDrop(ItemID.IronBar, 1, 1, 3));
+				npcLoot.Add(new CommonDrop(ItemID.LeadBar, 1, 1, 3));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bars.ZincBar>(), 1, 1, 3));
+				npcLoot.Add(new CommonDrop(ItemID.DirtRod, 5));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Misc.Dirtthrower>(), 25));
+				npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.MuddyGreatsword>(), ModContent.ItemType<Items.Yoyos.Dirtglob>(), ModContent.ItemType<Items.Bows.Dirty3String>(), ModContent.ItemType<Items.Blowpipes.DirtFunnel>(), ModContent.ItemType<Items.Wands.ScepterofDirt>(), ModContent.ItemType<Items.Accessories.DirtRegalia>()));
+				npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.DirtballMask>(), 7));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.CreepyBlob>(), 10));
+            }
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.DirtballTrophy>(), 10));
-
-			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
-			notExpertRule.OnSuccess(ItemDropRule.Common(ItemID.DirtBlock, 1, 25, 50));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ItemID.MudBlock, 1, 15, 30));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ItemID.IronBar, 1, 1, 3));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ItemID.LeadBar, 1, 1, 3));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Bars.ZincBar>(), 1, 1, 3));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ItemID.DirtRod, 5));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Misc.Dirtthrower>(), 25));
-			notExpertRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.MuddyGreatsword>(), ModContent.ItemType<Items.Yoyos.Dirtglob>(), ModContent.ItemType<Items.Bows.Dirty3String>(), ModContent.ItemType<Items.Blowpipes.DirtFunnel>(), ModContent.ItemType<Items.Wands.ScepterofDirt>(), ModContent.ItemType<Items.Accessories.DirtRegalia>()));
-			notExpertRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Vanity.DirtballMask>(), 7));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Pets.CreepyBlob>(), 10));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Bags.BagofFruits>(), 3));
-			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Food.MudPie>(), 3));
 		}
     }
 }

@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Accessories
     public class DiscoCanisterProj_Laser : ModProjectile
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Disco Canister");
+            // DisplayName.SetDefault("Disco Canister");
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
         }

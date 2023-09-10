@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Spears
 	public class IcicleonaRodBreak : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Icicle on a Rod");
+			// DisplayName.SetDefault("Icicle on a Rod");
         }
 		public override void SetDefaults() {
 			Projectile.width = 22;
@@ -21,13 +21,18 @@ namespace Zylon.Projectiles.Spears
 			Projectile.ignoreWater = true;
 			Projectile.scale = 1.3f;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.Frostburn, Main.rand.Next(2, 4)*60);
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Frostburn, Main.rand.Next(2, 4)*60);
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.Frostburn, Main.rand.Next(2, 4) * 60);
+			}
         }
-		int Timer;
+
+        int Timer;
         public override void PostAI() {
 			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver4;
             Timer++;

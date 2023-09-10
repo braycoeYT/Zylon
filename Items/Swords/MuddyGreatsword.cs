@@ -7,7 +7,7 @@ namespace Zylon.Items.Swords
 	public class MuddyGreatsword : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'The only 'great' this thing is is greatly dirty!'");
+			// Tooltip.SetDefault("'The only 'great' this thing is is greatly dirty!'");
 		}
 		public override void SetDefaults() {
 			Item.damage = 16;

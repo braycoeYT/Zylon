@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Minions
 	public class RoyalSlime : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Floating Slime Staff");
+			// DisplayName.SetDefault("Floating Slime Staff");
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;
 			ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
@@ -124,7 +124,7 @@ namespace Zylon.Projectiles.Minions
             #region Projectile
 			Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 1;
 			if (Timer % 90 == 0 && foundTarget && Projectile.rotation > 0.3f)
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir*14f, ProjectileType<RoyalSlimeProj>(), 20, Projectile.knockBack, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir*14f, ProjectileType<RoyalSlimeProj>(), 20, Projectile.knockBack, Projectile.owner);
 
 			#endregion
 

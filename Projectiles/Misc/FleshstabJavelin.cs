@@ -19,16 +19,22 @@ namespace Zylon.Projectiles.Misc
 			Projectile.ignoreWater = true;
 			AIType = 1;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Ichor, 60*Main.rand.Next(5, 11));
 		}
-		public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Ichor, 60*Main.rand.Next(5, 11));
-		}
-		public override void Kill(int timeLeft) {
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.Ichor, 60 * Main.rand.Next(5, 11));
+			}
+        }
+
+        public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 0; i < 5; i++) {
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position, new Vector2(0, 12).RotatedByRandom(2), ProjectileID.IchorSplash, (int)(Projectile.damage*0.75f), 2.5f, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position, new Vector2(0, 12).RotatedByRandom(2), ProjectileID.IchorSplash, (int)(Projectile.damage*0.75f), 2.5f, Projectile.owner);
 			}
 		}
 	}   

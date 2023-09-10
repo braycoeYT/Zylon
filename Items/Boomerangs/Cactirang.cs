@@ -6,6 +6,10 @@ namespace Zylon.Items.Boomerangs
 {
 	public class Cactirang : ModItem
 	{
+		public override void SetStaticDefaults()
+		{
+			// Tooltip.SetDefault("Spawns damaging prickly pears on critical strikes");
+		}
 		public override void SetDefaults() {
 			Item.damage = 10;
 			Item.DamageType = DamageClass.Melee;
@@ -13,7 +17,7 @@ namespace Zylon.Items.Boomerangs
 			Item.height = 30;
 			Item.useTime = 16;
 			Item.useAnimation = 16;
-			Item.useStyle = ItemUseStyleID.Swing;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3.5f;
 			Item.value = 500;
 			Item.rare = ItemRarityID.White;
@@ -23,6 +27,8 @@ namespace Zylon.Items.Boomerangs
 			Item.shoot = ModContent.ProjectileType<Projectiles.Boomerangs.Cactirang>();
 			Item.shootSpeed = 8f;
 			Item.noUseGraphic = true;
+			Item.noMelee = true;
+			Item.channel = true;
 		}
 		public override bool CanUseItem(Player player) {
 			return player.ownedProjectileCounts[Item.shoot] < 1;

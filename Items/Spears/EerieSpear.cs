@@ -8,13 +8,14 @@ namespace Zylon.Items.Spears
 	public class EerieSpear : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Shoots otherworldly fangs on use");
+			ItemID.Sets.Spears[Item.type] = true;
+			// Tooltip.SetDefault("Shoots otherworldly fangs on use");
 		}
 		public override void SetDefaults() {
 			Item.width = 60;
 			Item.height = 60;
 			Item.damage = 39;
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 31;
 			Item.useTime = 31;
 			Item.knockBack = 6f;

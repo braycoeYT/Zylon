@@ -12,7 +12,7 @@ namespace Zylon.Projectiles.Boomerangs
 	public class XBlade_OrbofLight : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Orb of Light");
+			// DisplayName.SetDefault("Orb of Light");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }

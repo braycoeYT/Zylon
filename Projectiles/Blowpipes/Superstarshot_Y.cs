@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Blowpipes
 	public class Superstarshot_Y : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Superstarshot");
+			// DisplayName.SetDefault("Superstarshot");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.FallingStar);
@@ -17,8 +17,8 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.scale = 1f;
 			Projectile.timeLeft = 400;
 		}
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
-			Projectile.damage /= 2;
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+            Projectile.damage /= 2;
 			if (Projectile.damage < 1 && Projectile.ai[0] == 0f) Projectile.damage = 1;
         }
         int Timer;

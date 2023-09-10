@@ -14,7 +14,7 @@ namespace Zylon.NPCs.Desert
     public class DesertDiskite_Center : ModNPC
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Desert Diskite");
+			// DisplayName.SetDefault("Desert Diskite");
             //Main.npcFrameCount[NPC.type] = 2;
 			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				CustomTexturePath = "Zylon/NPCs/Desert/DesertDiskite_Bestiary",
@@ -42,13 +42,13 @@ namespace Zylon.NPCs.Desert
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.DesertDiskiteBanner>();
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = 90;
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+            NPC.lifeMax = 90;
 			NPC.damage = 32;
 			NPC.value = 200;
 			NPC.knockBackResist = 0.3f;
         }
-        public override void HitEffect(int hitDirection, double damage) {
+		public override void HitEffect(NPC.HitInfo hit) {
 			if (NPC.life > 0) {
 				for (int i = 0; i < 2; i++) {
 					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.DiskiteDust>(), Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));

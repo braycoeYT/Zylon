@@ -29,8 +29,8 @@ namespace Zylon.NPCs.Forest
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.DirtSlimeBanner>();
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = 69;
+        public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+            NPC.lifeMax = 69;
 			NPC.damage = 38;
 			NPC.value = 64;
 			NPC.defense = 0;
@@ -58,7 +58,6 @@ namespace Zylon.NPCs.Forest
 			npcLoot.Add(new CommonDrop(ItemID.DirtBlock, 1, 2, 5, 1));
 			npcLoot.Add(new CommonDrop(ItemID.MudBlock, 1, 2, 5, 1));
 			npcLoot.Add(ItemDropRule.NormalvsExpert(ItemID.SlimeStaff, 7500, 5000));
-			npcLoot.Add(ItemDropRule.NormalvsExpert(ModContent.ItemType<Items.Food.MudPie>(), 50, 45));
 		}
     }
 }

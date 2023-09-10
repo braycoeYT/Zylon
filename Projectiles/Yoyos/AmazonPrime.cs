@@ -28,7 +28,7 @@ namespace Zylon.Projectiles.Yoyos
 		int Timer;
 		public override void AI() {
 			Timer++;
-			if (Timer % 120 == 0) Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 1), ModContent.ProjectileType<AmazonPackageFall>(), Projectile.damage, 0, Main.myPlayer);
+			if (Timer % 120 == 0) ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 1), ModContent.ProjectileType<AmazonPackageFall>(), Projectile.damage, 0, Projectile.owner);
 		}
 	}
 }

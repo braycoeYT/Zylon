@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Minions
 	public class RoyalSlime : ModBuff
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Floating Slime Staff");
-			Description.SetDefault("The Floating Slime Staff will fight for you");
+			// DisplayName.SetDefault("Floating Slime Staff");
+			// Description.SetDefault("The Floating Slime Staff will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

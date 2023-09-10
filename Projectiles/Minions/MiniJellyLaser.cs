@@ -11,7 +11,7 @@ namespace Zylon.Projectiles.Minions
 	public class MiniJellyLaser : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Mini Jelly Laser");
+			// DisplayName.SetDefault("Mini Jelly Laser");
 		}
 		public override void SetDefaults() {
 			Projectile.height = 290;

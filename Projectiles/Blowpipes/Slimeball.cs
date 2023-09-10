@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Blowpipes
 	public class Slimeball : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Slimeball");
+			// DisplayName.SetDefault("Slimeball");
         }
 		public override void SetDefaults() {
 			AIType = ProjectileID.Bullet;
@@ -24,13 +24,19 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 15;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 		    target.AddBuff(BuffID.Slimed, 60*Main.rand.Next(3, 6));
 		}
-		public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.Slimed, 60*Main.rand.Next(3, 6));
-		}
-		bool init;
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				target.AddBuff(BuffID.Slimed, 60 * Main.rand.Next(3, 6));
+			}
+        }
+
+        bool init;
 		int Timer;
 		public override void AI() {
 			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;

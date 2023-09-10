@@ -21,7 +21,7 @@ namespace Zylon.Projectiles.Shortswords
 		}
 
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Zinc Shortsword");
+			// DisplayName.SetDefault("Zinc Shortsword");
 		}
 
 		public override void SetDefaults() {

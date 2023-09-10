@@ -430,7 +430,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Umbrella);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 20);
 			recipe.AddTile(TileID.Anvils);
-			recipe.AddCondition(Recipe.Condition.InGraveyardBiome);
+			recipe.AddCondition(Condition.InGraveyard);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.GoldenDelight);
@@ -611,7 +611,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Bone, 20);
 			recipe.AddIngredient(ItemID.FallenStar, 3);
 			recipe.AddTile(TileID.Anvils);
-			recipe.AddCondition(Recipe.Condition.NearWater);
+			recipe.AddCondition(Condition.NearWater);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.Handgun);
@@ -626,7 +626,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Bone, 20);
 			recipe.AddIngredient(ItemID.FallenStar, 3);
 			recipe.AddTile(TileID.Anvils);
-			recipe.AddCondition(Recipe.Condition.NearWater);
+			recipe.AddCondition(Condition.NearWater);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.MagicMissile);
@@ -642,7 +642,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Bone, 16);
 			recipe.AddIngredient(ItemID.FallenStar, 3);
 			recipe.AddTile(TileID.Anvils);
-			recipe.AddCondition(Recipe.Condition.NearWater);
+			recipe.AddCondition(Condition.NearWater);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.Muramasa);
@@ -650,7 +650,7 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Bone, 15);
 			recipe.AddIngredient(ItemID.FallenStar, 5);
 			recipe.AddTile(TileID.Anvils);
-			recipe.AddCondition(Recipe.Condition.NearWater);
+			recipe.AddCondition(Condition.NearWater);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.Valor);

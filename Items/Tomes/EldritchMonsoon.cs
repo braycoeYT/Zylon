@@ -9,7 +9,7 @@ namespace Zylon.Items.Tomes
 	public class EldritchMonsoon : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Summons three jellyfish to dash at enemies");
+			// Tooltip.SetDefault("Summons three jellyfish to dash at enemies");
 		}
 		public override void SetDefaults() {
 			Item.damage = 21;
@@ -25,7 +25,7 @@ namespace Zylon.Items.Tomes
 			Item.autoReuse = true;
 			Item.useTurn = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Tomes.MonsoonProj>();
-			Item.shootSpeed = 0f;
+			Item.shootSpeed = 0.1f;
 			Item.noMelee = true;
 			Item.mana = 14;
 			Item.stack = 1;
@@ -33,7 +33,7 @@ namespace Zylon.Items.Tomes
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
         	for (int i = 0; i < 3; i++) {
-				Projectile.NewProjectile(Item.GetSource_FromThis(), player.position + new Vector2(Main.rand.Next(-160, 161), Main.rand.Next(-160, 161)), new Vector2(), type, damage, knockback, Main.myPlayer);
+				Projectile.NewProjectile(Item.GetSource_FromThis(), player.position + new Vector2(Main.rand.Next(-160, 161), Main.rand.Next(-160, 161)), Vector2.Zero, type, damage, knockback, Main.myPlayer);
 			}
 			return false;
 		}

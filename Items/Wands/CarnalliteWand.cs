@@ -9,7 +9,7 @@ namespace Zylon.Items.Wands
 	public class CarnalliteWand : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Rains leaves from the sky at the cursor");
+			// Tooltip.SetDefault("Rains leaves from the sky at the cursor");
 			Item.staff[Item.type] = true;
 		}
 		public override void SetDefaults() {

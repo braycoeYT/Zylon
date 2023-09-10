@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Wands
 	public class DirtBallScepter : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Dirt Ball");
+            // DisplayName.SetDefault("Dirt Ball");
         }
         public override void SetDefaults() {
 			Projectile.width = 14;

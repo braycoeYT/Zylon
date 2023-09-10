@@ -9,7 +9,7 @@ namespace Zylon.Projectiles
 	public class WadofSpores : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Wad of Spores");
+			// DisplayName.SetDefault("Wad of Spores");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);
@@ -18,7 +18,7 @@ namespace Zylon.Projectiles
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 0; i < 6; i++)
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 8).RotatedByRandom(MathHelper.ToRadians(360)), ModContent.ProjectileType<JungleSporeRanged2>(), Projectile.damage, Projectile.knockBack/2, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 8).RotatedByRandom(MathHelper.ToRadians(360)), ModContent.ProjectileType<JungleSporeRanged2>(), Projectile.damage, Projectile.knockBack/2, Projectile.owner);
 		}
 	}   
 }

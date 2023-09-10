@@ -10,7 +10,7 @@ namespace Zylon.Projectiles
 	public class PlanteraElementalGel : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Elemental Goop Core");
+			// DisplayName.SetDefault("Elemental Goop Core");
         }
 		public override void SetDefaults() {
 			Projectile.width = 120;

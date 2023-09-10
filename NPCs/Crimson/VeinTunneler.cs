@@ -15,7 +15,7 @@ namespace Zylon.NPCs.Crimson
 		public override int BodyType => ModContent.NPCType<VeinTunnelerBody>();
 		public override int TailType => ModContent.NPCType<VeinTunnelerTail>();
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Vein Tunneler");
+			// DisplayName.SetDefault("Vein Tunneler");
 
 			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				CustomTexturePath = "Zylon/NPCs/Crimson/VeinTunneler_Bestiary",
@@ -41,8 +41,8 @@ namespace Zylon.NPCs.Crimson
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.VeinTunnelerBanner>();
 		}
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.lifeMax = 189;
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+			NPC.lifeMax = 189;
 			NPC.damage = 49;
 		}
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
@@ -99,7 +99,7 @@ namespace Zylon.NPCs.Crimson
 	internal class VeinTunnelerBody : WormBody
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Vein Tunneler");
+			// DisplayName.SetDefault("Vein Tunneler");
 
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				Hide = true
@@ -120,8 +120,8 @@ namespace Zylon.NPCs.Crimson
 			Banner = Item.NPCtoBanner(ModContent.NPCType<VeinTunnelerHead>());
 			BannerItem = Item.BannerToItem(Banner);
 		}
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
-        NPC.damage = 31;
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+			NPC.damage = 31;
 		}
 		public override void Init() {
 			VeinTunnelerHead.CommonWormInit(this);
@@ -131,7 +131,7 @@ namespace Zylon.NPCs.Crimson
 	internal class VeinTunnelerTail : WormTail
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Vein Tunneler");
+			// DisplayName.SetDefault("Vein Tunneler");
 
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				Hide = true
@@ -152,7 +152,7 @@ namespace Zylon.NPCs.Crimson
 			Banner = Item.NPCtoBanner(ModContent.NPCType<VeinTunnelerHead>());
 			BannerItem = Item.BannerToItem(Banner);
 		}
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale) {
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.damage = 23;
 		}
 		public override void Init() {

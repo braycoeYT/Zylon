@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 	public class MetelordMeteoriteRain : ModProjectile
 	{
         public override void SetStaticDefaults() { //Unused ver of proj?
-            DisplayName.SetDefault("Fallen Meteorite");
+            // DisplayName.SetDefault("Fallen Meteorite");
         }
         public override void SetDefaults() {
 			Projectile.width = 52;

@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.MagicGuns
 	public class ElectricBoltPassiveExplodeExp : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Electricity");
+			// DisplayName.SetDefault("Electricity");
         }
 		public override void SetDefaults() {
 			AIType = ProjectileID.Bullet;

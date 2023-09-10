@@ -9,7 +9,7 @@ namespace Zylon.Items.Misc
 	public class Neutrobliterator : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Shoots multiple short ranged Neutron Blasts that chase your enemies");
+			// Tooltip.SetDefault("Shoots multiple short ranged Neutron Blasts that chase your enemies");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 10, 0, 0);

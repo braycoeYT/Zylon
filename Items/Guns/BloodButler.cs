@@ -9,7 +9,7 @@ namespace Zylon.Items.Guns
 	public class BloodButler : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Adds a bullet with each shot until four bullets are reached, then the next shot is reset");
+			// Tooltip.SetDefault("Adds a bullet with each shot until four bullets are reached, then the next shot is reset");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 3, 56, 0);

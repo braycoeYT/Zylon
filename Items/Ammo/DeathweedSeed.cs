@@ -8,7 +8,7 @@ namespace Zylon.Items.Ammo
 	public class DeathweedSeed : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("For use with blowpipes\nGrows a deathweed flower on impact\nThe closer an enemy is to death, the more damage it deals");
+			// Tooltip.SetDefault("For use with blowpipes\nGrows a deathweed flower on impact\nThe closer an enemy is to death, the more damage it deals");
         }
 		public override void SetDefaults() {
 			Item.damage = 7;

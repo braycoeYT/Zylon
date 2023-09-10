@@ -8,7 +8,7 @@ namespace Zylon.Items.Boomerangs
 	public class Pentagram : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("\n'100% satanic!'\nSplits into five after striking an enemy");
+			// Tooltip.SetDefault("\n'100% satanic!'\nSplits into five after striking an enemy");
 		}
 		public override void SetDefaults() {
 			Item.damage = 85;

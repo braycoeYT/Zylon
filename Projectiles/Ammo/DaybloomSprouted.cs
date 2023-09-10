@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Ammo
 	public class DaybloomSprouted : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Daybloom");
+			// DisplayName.SetDefault("Daybloom");
         }
 		public override void SetDefaults() {
 			Projectile.width = 12; //16

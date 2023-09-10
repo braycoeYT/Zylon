@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.MagicGuns
 	public class EerieGloveProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Eerie Jellyfish");
+			// DisplayName.SetDefault("Eerie Jellyfish");
         }
 		public override void SetDefaults() {
 			Projectile.aiStyle = 1;

@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Bosses.Dirtball
 	public class LaserMineHostileFall : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Laser Mine");
+			// DisplayName.SetDefault("Laser Mine");
         }
 		public override void SetDefaults() {
 			Projectile.penetrate = -1;
@@ -30,7 +30,7 @@ namespace Zylon.Projectiles.Bosses.Dirtball
 		}
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 0), ModContent.ProjectileType<LaserMineHostile>(), Projectile.damage, 0f);
+			ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 0), ModContent.ProjectileType<LaserMineHostile>(), Projectile.damage, 0f, BasicNetType: 2);
 		}
 	}   
 }

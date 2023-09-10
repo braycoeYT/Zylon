@@ -8,7 +8,7 @@ namespace Zylon.Items.Yoyos
 	public class Coldnea : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Shoots ice lasers around itself when thrown");
+			// Tooltip.SetDefault("Shoots ice lasers around itself when thrown");
 			ItemID.Sets.Yoyo[Item.type] = true;
 			ItemID.Sets.GamepadExtraRange[Item.type] = 15;
 			ItemID.Sets.GamepadSmartQuickReach[Item.type] = true;

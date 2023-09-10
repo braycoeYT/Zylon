@@ -7,8 +7,8 @@ namespace Zylon.Items.Accessories
 	public class WadofSpores : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Wad of Spores");
-			Tooltip.SetDefault("Increases max blowpipe charge by 10\nAt default max blowpipe charge, releases a wad of spores that explodes into more spores on impact");
+			// DisplayName.SetDefault("Wad of Spores");
+			// Tooltip.SetDefault("Increases max blowpipe charge by 10\nAt default max blowpipe charge, releases a wad of spores that explodes into more spores on impact");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

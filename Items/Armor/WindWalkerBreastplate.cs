@@ -8,7 +8,7 @@ namespace Zylon.Items.Armor
 	public class WindWalkerBreastplate : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Not to be confused with the Wind Waker'\nIncreases attack speed by 10%\nIncreases move speed by 15%");
+			// Tooltip.SetDefault("'Not to be confused with the Wind Waker'\nIncreases attack speed by 10%\nIncreases move speed by 15%");
 		}
 		public override void SetDefaults() {
 			Item.width = 18;

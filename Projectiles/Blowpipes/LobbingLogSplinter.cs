@@ -7,7 +7,7 @@ namespace Zylon.Projectiles.Blowpipes
 	public class LobbingLogSplinter : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Splinter");
+            // DisplayName.SetDefault("Splinter");
         }
         public override void SetDefaults() {
 			Projectile.width = 14;

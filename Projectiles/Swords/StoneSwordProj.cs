@@ -13,7 +13,7 @@ namespace Zylon.Projectiles.Swords
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Stone Sword");
+            // DisplayName.SetDefault("Stone Sword");
             // These trail variables are required for the trail shenangins. Only mess with them if you know what you are doing.
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;

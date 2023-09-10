@@ -7,7 +7,7 @@ namespace Zylon.Projectiles
 	public class Feather : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Feather");
+			// DisplayName.SetDefault("Feather");
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.HarpyFeather);
@@ -17,7 +17,7 @@ namespace Zylon.Projectiles
 		}
 		public override void Kill(int timeLeft) {
 			for (int i = 0; i < 5; i++) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 116);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Skyware);
 				dust.noGravity = false;
 				dust.scale = 1f;
 			}

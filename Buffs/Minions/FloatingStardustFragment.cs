@@ -7,8 +7,8 @@ namespace Zylon.Buffs.Minions
 	public class FloatingStardustFragment : ModBuff
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Floating Stardust Fragment");
-			Description.SetDefault("The Floating Stardust Fragment will fight for you");
+			// DisplayName.SetDefault("Floating Stardust Fragment");
+			// Description.SetDefault("The Floating Stardust Fragment will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}

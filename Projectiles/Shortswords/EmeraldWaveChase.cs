@@ -9,7 +9,7 @@ namespace Zylon.Projectiles.Shortswords
 	public class EmeraldWaveChase : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Emerald Wave");
+			// DisplayName.SetDefault("Emerald Wave");
         }
 		public override void SetDefaults() {
 			Projectile.width = 30;

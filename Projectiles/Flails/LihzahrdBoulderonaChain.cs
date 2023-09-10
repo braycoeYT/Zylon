@@ -33,7 +33,7 @@ namespace Zylon.Projectiles.Flails
 		public ref float CollisionCounter => ref Projectile.localAI[0];
 		public ref float SpinningStateTimer => ref Projectile.localAI[1];
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Lihzahrd's Boulder on a Chain");
+			// DisplayName.SetDefault("Lihzahrd's Boulder on a Chain");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
 		}
@@ -274,7 +274,7 @@ namespace Zylon.Projectiles.Flails
 
 		public override bool OnTileCollide(Vector2 oldVelocity) {
 			if (!bool1) {
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center - new Vector2(0, 20), new Vector2(0, 0), ProjectileID.DD2ExplosiveTrapT3Explosion, Projectile.damage, Projectile.knockBack*1.25f, Main.myPlayer);
+				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center - new Vector2(0, 20), new Vector2(0, 0), ProjectileID.DD2ExplosiveTrapT3Explosion, Projectile.damage, Projectile.knockBack*1.25f, Projectile.owner);
 				bool1 = true;
 			}
 
@@ -346,20 +346,27 @@ namespace Zylon.Projectiles.Flails
 			return base.Colliding(projHitbox, targetHitbox);
 		}
 
-		public override void ModifyDamageScaling(ref float damageScale) {
-			if (CurrentAIState == AIState.Spinning)
-				damageScale *= 1.2f;
-			if (CurrentAIState == AIState.LaunchingForward || CurrentAIState == AIState.Retracting)
-				damageScale *= 2f;
-		}
+		public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+		{
+			// Flails do a few custom things, you'll want to keep these to have the same feel as vanilla flails.
 
-		public override void ModifyHitNPC(NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection) {
-			hitDirection = (Main.player[Projectile.owner].Center.X < target.Center.X) ? 1 : (-1);
+			// The hitDirection is always set to hit away from the player, even if the flail damages the npc while returning
+			modifiers.HitDirectionOverride = (Main.player[Projectile.owner].Center.X < target.Center.X) ? 1 : (-1);
+
+			// Knockback is only 25% as powerful when in spin mode
 			if (CurrentAIState == AIState.Spinning)
-				knockback *= 0.25f;
+				modifiers.Knockback *= 0.25f;
+			// Knockback is only 50% as powerful when in drop down mode
 			if (CurrentAIState == AIState.Dropping)
-				knockback *= 0.5f;
-			base.ModifyHitNPC(target, ref damage, ref knockback, ref crit, ref hitDirection);
+				modifiers.Knockback *= 0.5f;
+
+			// Flails do 20% more damage while spinning
+			if (CurrentAIState == AIState.Spinning)
+				modifiers.SourceDamage *= 1.2f;
+
+			// Flails do 100% more damage while launched or retracting. This is the damage the item tooltip for flails aim to match, as this is the most common mode of attack. This is why the item has ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
+			if (CurrentAIState == AIState.LaunchingForward || CurrentAIState == AIState.Retracting)
+				modifiers.SourceDamage *= 2f;
 		}
 		public override bool PreDraw(ref Color lightColor) {
 			Vector2 playerArmPosition = Main.GetPlayerArmPosition(Projectile);

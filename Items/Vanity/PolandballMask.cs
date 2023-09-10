@@ -10,7 +10,7 @@ namespace Zylon.Items.Vanity
 	public class PolandballMask : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Can Polandball into space?'");
+			// Tooltip.SetDefault("'Can Polandball into space?'");
 		}
 		public override void SetDefaults() {
 			Item.width = 22;

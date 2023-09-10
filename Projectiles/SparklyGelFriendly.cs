@@ -9,7 +9,7 @@ namespace Zylon.Projectiles
 	public class SparklyGelFriendly : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Sparkly Gel");
+			// DisplayName.SetDefault("Sparkly Gel");
         }
 		public override void SetDefaults() {
 			Projectile.width = 34;
@@ -35,14 +35,20 @@ namespace Zylon.Projectiles
 			}
 			Projectile.ai[0] = 0;
 		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			Projectile.penetrate += 1;
 			if (target.type == NPCID.TheDestroyerBody) Projectile.penetrate -= 1;
 		}
-		public override void OnHitPvp(Player target, int damage, bool crit) {
-			Projectile.penetrate += 1;
-		}
-		public override bool OnTileCollide(Vector2 oldVelocity) {
+
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+				Projectile.penetrate += 1;
+			}
+        }
+
+        public override bool OnTileCollide(Vector2 oldVelocity) {
 			Projectile.penetrate--;
 			if (Projectile.penetrate <= 0) {
 				Projectile.Kill();

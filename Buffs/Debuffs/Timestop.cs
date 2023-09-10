@@ -10,8 +10,8 @@ namespace Zylon.Buffs.Debuffs
     public class Timestop : ModBuff
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Timestop");
-            Description.SetDefault("ZA WARUDO!");
+            // DisplayName.SetDefault("Timestop");
+            // Description.SetDefault("ZA WARUDO!");
             Main.debuff[Type] = true;
 			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;

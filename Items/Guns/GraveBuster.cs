@@ -9,7 +9,7 @@ namespace Zylon.Items.Guns
 	public class GraveBuster : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("'Grave robbing for morons'\nReplaces ammo with spirit bullets\nHitting enemies will give you the 'Gravely Powers' buff, which increases your life regen");
+			// Tooltip.SetDefault("'Grave robbing for morons'\nReplaces ammo with spirit bullets\nHitting enemies will give you the 'Gravely Powers' buff, which increases your life regen");
 		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 1);
@@ -50,7 +50,7 @@ namespace Zylon.Items.Guns
 			recipe.AddRecipeGroup("Zylon:AnyPHBar", 12);
 			recipe.AddIngredient(ModContent.ItemType<Materials.ObeliskShard>(), 20);
 			recipe.AddTile(TileID.Anvils);
-			recipe.AddCondition(Recipe.Condition.InGraveyardBiome);
+			recipe.AddCondition(Condition.InGraveyard);
 			recipe.Register();
 		}
 	}

@@ -10,7 +10,7 @@ namespace Zylon.Items.Ammo
 	public class ShiverthornSeed : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("For use with blowpipes\nGrows a shiverthorn flower on impact\nThe shiverthorn shoots ice bolts upwards");
+			// Tooltip.SetDefault("For use with blowpipes\nGrows a shiverthorn flower on impact\nThe shiverthorn shoots ice bolts upwards");
         }
 		public override void SetDefaults() {
 			Item.damage = 5;

@@ -8,7 +8,7 @@ namespace Zylon.Projectiles.Wands
 	public class WandofHexingProj : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Wand of Hexing");
+			// DisplayName.SetDefault("Wand of Hexing");
         }
 		public override void SetDefaults() {
 			Projectile.width = 16;
@@ -26,11 +26,15 @@ namespace Zylon.Projectiles.Wands
         public override void ModifyHitPvp(Player target, ref int damage, ref bool crit) {
             damage = (int)(damage*1.2f);
         }*/
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit) {
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(2, 5)*60);
         }
-        public override void OnHitPvp(Player target, int damage, bool crit) {
-			target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(2, 5)*60);
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        {
+            if (info.PvP)
+            {
+                target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(2, 5) * 60);
+            }
         }
         public override void PostAI() {
             if (Main.rand.NextBool()) {
