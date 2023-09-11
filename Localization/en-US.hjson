@@ -439,6 +439,15 @@ Mods: {
 					'''
 			}
 
+			ProteinSplicer: {
+				DisplayName: Protein Splicer
+				Tooltip:
+					'''
+					'A science nerd's pair of scissors!'
+					Grants immunity to webbed
+					'''
+			}
+
 			RootGuard: {
 				DisplayName: Root Guard
 				Tooltip: Taking damage will summon roots nearby to damage enemies

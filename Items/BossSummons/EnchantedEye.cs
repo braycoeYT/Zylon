@@ -14,7 +14,7 @@ namespace Zylon.Items.BossSummons
 		public override void SetDefaults()  {
 			Item.width = 28;
 			Item.height = 28;
-			Item.maxStack = 20;
+			Item.maxStack = 1;
 			Item.value = 0;
 			Item.rare = ItemRarityID.Blue;
 			Item.useAnimation = 45;
