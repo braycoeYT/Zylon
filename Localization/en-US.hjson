@@ -338,7 +338,11 @@ Mods: {
 
 			ExtraShinyOreNugget: {
 				DisplayName: Pyrite
-				Tooltip: Emits a faint glow from within your pack
+				Tooltip:
+					'''
+					'I love miners!'
+					Emits a faint glow from within your pack
+					'''
 			}
 
 			FusionBand: {
@@ -436,6 +440,15 @@ Mods: {
 					Striking enemies has a chance to release lost nightmares, which can be absorbed by players to recover health
 					True melee attacks have a much higher chance to release lost nightmares
 					A maximum of 10 lost nightmares can be active at once
+					'''
+			}
+
+			ProteinSplicer: {
+				DisplayName: Protein Splicer
+				Tooltip:
+					'''
+					'A science nerd's pair of scissors!'
+					Grants immunity to webbed
 					'''
 			}
 

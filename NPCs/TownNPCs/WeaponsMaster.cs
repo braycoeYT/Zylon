@@ -120,18 +120,35 @@ namespace Zylon.NPCs.TownNPCs
 		public override string GetChat() {
 			WeightedRandom<string> chat = new WeightedRandom<string>();
 			chat.Add(Language.GetTextValue("You know, when I was your age, we used to take turns when fighting!"));
-			chat.Add(Language.GetTextValue("Back in my day, I used to be a protagonist... Nowadays IÕm just a side character!"));
+			chat.Add(Language.GetTextValue("Back in my day, I used to be a protagonist... Nowadays I'm just a side character!"));
 			chat.Add(Language.GetTextValue("I wonder who the main character is..."));
 			chat.Add(Language.GetTextValue("Give me your rare trophies, and I'll give you rare weapons I've collected from my time."), 2);
 			chat.Add(Language.GetTextValue("If you aren't dealing 9999 damage with each hit, you're doing something wrong."));
 			chat.Add(Language.GetTextValue("What?! There's no leveling system here?!"));
 			chat.Add(Language.GetTextValue("I've heard this world allows you to deal over 4 digits of damage, but that just feels wrong."));
+			chat.Add(Language.GetTextValue("Where I'm from, the healing potions healed ALL your HP!"));
+			chat.Add(Language.GetTextValue("What do you mean there aren't 50 cash-grab spin-offs of this world?!"));
+			chat.Add(Language.GetTextValue("Keep your eyes peeled for any narrative tropes!"));
+			chat.Add(Language.GetTextValue("Why don't I instantly recover my health while sleeping?"));
+			if (Main.netMode == NetmodeID.SinglePlayer) chat.Add(Language.GetTextValue("You need to recruit some more party members, hero!", 2));
+			if (NPC.downedMoonlord) {
+				chat.Add(Language.GetTextValue("When I came to this world, HE followed me here... HE is my nemesis, after all."));
+				chat.Add(Language.GetTextValue("Every day I fear HIS return... the moon seal didn't kill HIM after all."));
+			}
 			if (NPC.life < NPC.lifeMax / 3) {
-				chat.Add(Language.GetTextValue("My health is critically low, but I donÕt hear any obnoxious beeping... must be a glitch."), 5);
+				chat.Add(Language.GetTextValue("My health is critically low, but I don't hear any obnoxious beeping... must be a glitch."), 5);
 				chat.Add(Language.GetTextValue("Quick! Somebody cast Healaga on me!"), 5);
+				chat.Add(Language.GetTextValue("If I die, I won't receive any XP after the battle! Quick!"), 5);
             }
 			if (Main.bloodMoon)
-				chat.Add(Language.GetTextValue("It seems that every step I take, I encounter another enemy! Reminds me of my olden days."), 3);
+				chat.Add(Language.GetTextValue("It seems that every step I take, I encounter another enemy! Reminds me of my olden days."), 5);
+			if (Main.slimeRain)
+				chat.Add(Language.GetTextValue("Look at all these low-level slimes! I wonder if their boss will come as well!"), 5);
+			
+			//Add when PML content and killed someone important
+			//chat.Add(Language.GetTextValue("You and I have both slain gods at some point, no?"), 3);
+			//chat.Add(Language.GetTextValue("You remind myself of a younger me: killing abominations, swinging 20-meter swords, getting ladies... well, maybe not that last part."), 3);
+
 			return chat;
 		}
 		public override void SetChatButtons(ref string button, ref string button2) {

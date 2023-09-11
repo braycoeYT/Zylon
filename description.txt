@@ -17,6 +17,9 @@ Stats:
 
 V0.0.3: Diskite Update
 ~Fixed Metecore damaging issue.
+~Removed Test Blowpipes from the mod.
+~Boss summons no longer stack because of infinite summons.
+~Added Protein Splicer.
 
 Credits (from the previous mod versions and now):
 Owner:
