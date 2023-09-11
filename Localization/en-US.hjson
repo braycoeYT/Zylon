@@ -338,7 +338,11 @@ Mods: {
 
 			ExtraShinyOreNugget: {
 				DisplayName: Pyrite
-				Tooltip: Emits a faint glow from within your pack
+				Tooltip:
+					'''
+					'I love miners!'
+					Emits a faint glow from within your pack
+					'''
 			}
 
 			FusionBand: {
