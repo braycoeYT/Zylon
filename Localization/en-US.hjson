@@ -272,7 +272,7 @@ Mods: {
 
 			LeafBracer: {
 				DisplayName: Leaf Bracer
-				Description: Mods.Zylon.Buffs.LeafBracer.Description
+				Description: Nature is protecting you!
 			}
 		}
 
@@ -293,6 +293,15 @@ Mods: {
 					'''
 					Enemies are more likely to target you
 					Puts a shell around the owner when below 50% life that reduces damage
+					'''
+			}
+
+			BigOlBouquet: {
+				DisplayName: Big Ol' Bouquet
+				Tooltip:
+					'''
+					'Also known as the allergen unleasher'
+					Herbs spawned from blowpipe seeds have a 13% chance to steal life
 					'''
 			}
 
@@ -2499,6 +2508,18 @@ Mods: {
 					'''
 			}
 
+			DarkPrognosticus: {
+				DisplayName: Dark Prognosticus
+				Tooltip:
+					'''
+					UNOBTAINABLE: Planned for PML
+					Summons a Chaos Heart at the cursor to attack enemies
+					The Chaos Heart releases eight voids
+					Voids will leech mana from enemies on hit
+					Inflicts Timestop on enemies
+					'''
+			}
+
 			DeterminationBreaker: {
 				DisplayName: Determination Breaker
 				Tooltip:
@@ -2796,7 +2817,11 @@ Mods: {
 
 			LeafBracer: {
 				DisplayName: Leaf Bracer
-				Tooltip: You are granted protection through the power of nature
+				Tooltip:
+					'''
+					You are granted protection through the power of nature
+					Grants two seconds of invincibility after using a healing potion
+					'''
 			}
 
 			GlassBreastplate: {

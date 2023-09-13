@@ -49,6 +49,7 @@ namespace Zylon
 		public bool friendshipBracelet;
 		public bool fleKnuCheck;
 		public bool glassArmor;
+		public bool bigOlBouquet;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -110,6 +111,7 @@ namespace Zylon
 			friendshipBracelet = false;
 			fleKnuCheck = false;
 			glassArmor = false;
+			bigOlBouquet = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;

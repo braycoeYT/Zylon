@@ -20,6 +20,9 @@ V0.0.3: Diskite Update
 ~Removed Test Blowpipes from the mod.
 ~Boss summons no longer stack because of infinite summons.
 ~Added Protein Splicer.
+~Added Big Ol' Bouquet.
+~Herbs' damage from blowpipes is halved after hitting an enemy.
+~Added Dark Prognosticus (unobtainable).
 
 Credits (from the previous mod versions and now):
 Owner:

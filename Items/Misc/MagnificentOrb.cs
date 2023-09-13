@@ -34,9 +34,16 @@ namespace Zylon.Items.Misc
 			Item.noUseGraphic = true;
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-
 			Projectile.NewProjectile(source, position + (velocity * 4.5f), velocity.RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-1, 1))), type, damage, knockback, player.whoAmI, 0f, 0f);
 			return false;
+		}
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe(); //Come up with something cooler
+			recipe.AddIngredient(ItemID.Glass, 12);
+			recipe.AddIngredient(ItemID.SoulofNight, 8);
+			recipe.AddRecipeGroup("Zylon:AnyAdamantiteBar", 6);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
 		}
 	}
 }

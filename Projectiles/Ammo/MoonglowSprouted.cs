@@ -21,5 +21,17 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.penetrate = 4;
 			Projectile.rotation = 0;
 		}
-	}   
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+            ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
+			if (p.bigOlBouquet && Main.rand.NextFloat() < .13f) Main.player[Projectile.owner].Heal(Main.rand.Next(1, 3));
+			Projectile.damage /= 2;
+        }
+        public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+            if (info.PvP) {
+				ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
+				if (p.bigOlBouquet && Main.rand.NextFloat() < .13f) Main.player[Projectile.owner].Heal(Main.rand.Next(1, 3));
+				Projectile.damage /= 2;
+            }
+        }
+    }   
 }

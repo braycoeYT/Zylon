@@ -24,12 +24,18 @@ namespace Zylon.Projectiles.Ammo
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             if (target.boss == false)
 				target.velocity *= 0.25f;
+			ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
+			if (p.bigOlBouquet && Main.rand.NextFloat() < .13f) Main.player[Projectile.owner].Heal(Main.rand.Next(1, 3));
+			Projectile.damage /= 2;
         }
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
 			if (info.PvP)
             {
 				target.velocity *= 0.25f;
+				ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
+				if (p.bigOlBouquet && Main.rand.NextFloat() < .13f) Main.player[Projectile.owner].Heal(Main.rand.Next(1, 3));
+				Projectile.damage /= 2;
 			}
         }
     }   
