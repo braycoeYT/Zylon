@@ -18,11 +18,11 @@ namespace Zylon.Projectiles.Tomes
 			Projectile.height = 112;
 			Projectile.aiStyle = -1;
 			Projectile.friendly = true;
-			Projectile.timeLeft = 600;
+			Projectile.timeLeft = 220;
 			Projectile.tileCollide = false;
 			Projectile.penetrate = -1;
 			Projectile.usesLocalNPCImmunity = true;
-			Projectile.localNPCHitCooldown = 10;
+			Projectile.localNPCHitCooldown = 20;
 		}
 		bool stop;
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
@@ -37,12 +37,15 @@ namespace Zylon.Projectiles.Tomes
         bool init;
         public override void AI() {
 			Timer++;
-            if (Timer % 120 == 1) {
+			Projectile.scale = (float)Timer*0.03f;
+			if (Projectile.scale > 1f) Projectile.scale = 1f;
+            if (Timer % 60 == 0) {
 				for (int x = 0; x < 8; x++) {
 					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<DarkPrognosticusVoid>(), Projectile.damage/5, Projectile.knockBack, Main.myPlayer, x*45);
                 }
 				init = true;
             }
+			if (Projectile.timeLeft < 30) Projectile.alpha += 9;
         }
     }   
 }

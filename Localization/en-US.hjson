@@ -2514,8 +2514,8 @@ Mods: {
 					'''
 					UNOBTAINABLE: Planned for PML
 					Summons a Chaos Heart at the cursor to attack enemies
-					The Chaos Heart releases eight voids
-					Voids will leech mana from enemies on hit
+					The Chaos Heart releases rounds of voids
+					Voids have a chance to leech mana from enemies on hit
 					Inflicts Timestop on enemies
 					'''
 			}
@@ -3217,6 +3217,8 @@ Mods: {
 			ManaFlower.DisplayName: Mana Flower
 			ManaSeed.DisplayName: Mana Seed
 			ChaosBallFriendly.DisplayName: Chaos Ball
+			DarkPrognosticusChaosHeart.DisplayName: Chaos Heart
+			DarkPrognosticusVoid.DisplayName: Void
 			DeterminationBreakerProj.DisplayName: Determination Breaker
 			HexNPCDamage.DisplayName: Chaos Hex
 			MonsoonProj.DisplayName: Eldritch Monsoon
