@@ -1832,6 +1832,11 @@ Mods: {
 				Tooltip: "'Ancient tech worn by the figurative and literal sands of time...'"
 			}
 
+			SearedStone: {
+				DisplayName: Seared Stone
+				Tooltip: "'It looks like someone took a tiny nibble out of the sun'"
+			}
+
 			SlimyCore: {
 				DisplayName: Slimy Core
 				Tooltip: "'Part of a slime nucleus'"
@@ -2458,6 +2463,11 @@ Mods: {
 				Tooltip: Struck enemies are slimed
 			}
 
+			Solmelt: {
+				DisplayName: Solmelt
+				Tooltip: Every other swing shoots a fireblast that explodes into two splashes on impact
+			}
+
 			SparklySlimecutter: {
 				DisplayName: Sparkly Slimecutter
 				Tooltip:
@@ -2989,7 +2999,7 @@ Mods: {
 			WoodenDart.DisplayName: Wooden Dart
 			BallofFireRanged.DisplayName: Ball of Fire
 			BloodBall.DisplayName: Blood Ball
-			ChlorophyteBlowspitterProj.DisplayName: Slimeblast
+			ChlorophyteBlowspitterProj.DisplayName: Chlorophyte Seed
 			DeadlyToxinDart.DisplayName: Deadly Toxin Dart
 			DirtBallFunnel.DisplayName: Dirt Ball
 			IcicleMakerProj.DisplayName: Mini Icicle
@@ -3207,6 +3217,8 @@ Mods: {
 			ShatteredSword.DisplayName: Shattered Sword
 			Slimeblast.DisplayName: Slimeblast
 			SlimeblastLarge.DisplayName: Large Slimeblast
+			SolmeltFireblast.DisplayName: Solmelt Fireblast
+			SolmeltSlash.DisplayName: Solmelt Slash
 			StoneSwordProj.DisplayName: Stone Sword
 			VinylDisc.DisplayName: Vinyl Disc
 			WorldEndingMeteor.DisplayName: World-Ending Meteor
