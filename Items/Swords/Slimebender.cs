@@ -12,7 +12,7 @@ namespace Zylon.Items.Swords
 			// Tooltip.SetDefault("UNOBTAINABLE: Developer item\nShoots a large slimeblast that explodes into smaller slimeblasts");
 		}
 		public override void SetDefaults() {
-			Item.damage = 797;
+			Item.damage = 397; //797
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 33;
 			Item.height = 33;

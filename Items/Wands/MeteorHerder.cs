@@ -9,16 +9,15 @@ namespace Zylon.Items.Wands
 	public class MeteorHerder : ModItem
 	{
         public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'We back in Meteor Herd'\nRains tiny meteors from above");
             Item.staff[Item.type] = true;
         }
         public override void SetDefaults() {
-			Item.damage = 13;
+			Item.damage = 19;
 			Item.DamageType = DamageClass.Magic;
 			Item.width = 42;
 			Item.height = 46;
-			Item.useTime = 9;
-			Item.useAnimation = 9;
+			Item.useTime = 24;
+			Item.useAnimation = 24;
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3f;
 			Item.value = Item.sellPrice(0, 3, 12);
@@ -28,14 +27,13 @@ namespace Zylon.Items.Wands
 			Item.useTurn = false;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Wands.MeteorHerderProj>();
 			Item.shootSpeed = 18f;
-			Item.mana = 4;
+			Item.mana = 8;
 			Item.noMelee = true;
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-            Vector2 spawn = new Vector2(Main.MouseWorld.X + Main.rand.Next(-260, 261), player.position.Y - 500);
-			Vector2 target2 = spawn - Main.MouseWorld;
-			target2.Normalize();
-			Projectile.NewProjectile(Item.GetSource_FromThis(), spawn, target2*(Item.shootSpeed*Main.rand.NextFloat(-1.2f, -0.7f)), type, damage, knockback, Main.myPlayer);
+			for (int x = 0; x < 3; x++) {
+				Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center + new Vector2(0, 48).RotatedByRandom(MathHelper.TwoPi), Vector2.Zero, ModContent.ProjectileType<Projectiles.Wands.MeteorHerderProj>(), Item.damage, Item.knockBack, Main.myPlayer, 25*(x+1));
+            }
 			return false;
         }
 		public override void AddRecipes() {

@@ -1922,6 +1922,15 @@ Mods: {
 					'''
 			}
 
+			BombRock: {
+				DisplayName: Bomb Rock
+				Tooltip:
+					'''
+					'You feel as if you can hear a hundred spirits cry around you'
+					A medium explosion that will not destroy tiles
+					'''
+			}
+
 			CrimtaneJavelin: {
 				DisplayName: Crimtane Javelin
 				Tooltip: ""
@@ -2698,11 +2707,7 @@ Mods: {
 
 			MeteorHerder: {
 				DisplayName: Meteor Herder
-				Tooltip:
-					'''
-					'We back in Meteor Herd'
-					Rains tiny meteors from above
-					'''
+				Tooltip: Summons three meteors nearby to crash into foes
 			}
 
 			OceanWaterer: {
@@ -2737,6 +2742,15 @@ Mods: {
 			StoneStaff: {
 				DisplayName: Stone Staff
 				Tooltip: ""
+			}
+
+			WandofKindling: {
+				DisplayName: Wand of Kindling
+				Tooltip:
+					'''
+					Shoots a splitting spark
+					Affected by the Hex Necklace
+					'''
 			}
 
 			AmazonPrime: {
@@ -3166,6 +3180,7 @@ Mods: {
 			Spazsickle.DisplayName: Spazsickle
 			StardustBeam.DisplayName: Stardust Beam
 			AquaBubble.DisplayName: Aqua Bubble
+			BombRock.DisplayName: Bomb Rock
 			CrimtaneJavelin.DisplayName: Crimtane Javelin
 			CursedFlamethrower.DisplayName: Flamelicker
 			DirtPlaceBlocks.DisplayName: Dirt Ball
@@ -3269,6 +3284,8 @@ Mods: {
 			SparklySlimecasterProj.DisplayName: Sparkly Slimecaster
 			StoneBall.DisplayName: Stone Ball
 			WandofHexingProj.DisplayName: Wand of Hexing
+			WandofKindlingProj.DisplayName: Wand of Kindling
+			WandofKindlingProj_2.DisplayName: Wand of Kindling
 			WaterStreamRanged.DisplayName: Water Stream
 			AcornFriendlyMelee.DisplayName: Acorn
 			AmazonPackage.DisplayName: Package
@@ -3400,17 +3417,13 @@ Mods: {
 			StarpackSlime.DisplayName: Starpack Slime
 
 			ADD_Main: {
-				DisplayName: A D D_ Main
+				DisplayName: Ancient Desert Diskite
 
 				BossChecklistIntegration: {
 					EntryName: Ancient Diskite Director
 					SpawnInfo: Use a [i:5687] in the desert
 				}
 			}
-
-			ADD_Ankh.DisplayName: A D D_ Ankh
-			ADD_SpikeLower.DisplayName: A D D_ Spike Lower
-			ADD_SpikeUpper.DisplayName: A D D_ Spike Upper
 		}
 
 		Prefixes: {

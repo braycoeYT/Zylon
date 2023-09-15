@@ -24,6 +24,12 @@ V0.0.3: Diskite Update
 ~Added Dark Prognosticus (unobtainable).
 ~Fixed Chlorophyte Seed projectile's display name.
 ~Reworked Stardust Fragment Staff.
+~Made Slimebender more powerful, but decreased damage significantly.
+~Heavily increased Elemental Goop drop rate.
+~Fixed an issue with minion spawning.
+~Added Wand of Kindling.
+~Reworked Meteor Herder.
+kindlinghex
 
 Credits (from the previous mod versions and now):
 Owner:

@@ -31,5 +31,11 @@ namespace Zylon.Items.Bows
 			Projectile.NewProjectile(source, position, Vector2.Zero, ProjectileType<Projectiles.Bows.SunsGlareProj>(), 1, 0f, Main.myPlayer, a);
 			return false;
         }
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ModContent.ItemType<Materials.SearedStone>(), 30);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+		}
 	}
 }
