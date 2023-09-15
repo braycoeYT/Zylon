@@ -17,7 +17,7 @@ namespace Zylon.Projectiles.Swords
 			Projectile.aiStyle = 1;
 			Projectile.friendly = true;
 			Projectile.penetrate = -1;
-			Projectile.timeLeft = 60;
+			Projectile.timeLeft = 300;
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = false;
 			Projectile.light = 0.5f;
@@ -25,6 +25,7 @@ namespace Zylon.Projectiles.Swords
 			AIType = ProjectileID.Bullet;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 10;
+			Projectile.extraUpdates = 2;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Slimed, Main.rand.Next(2, 6) * 60, false);

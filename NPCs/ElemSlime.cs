@@ -118,7 +118,7 @@ namespace Zylon.NPCs
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
 			npcLoot.Add(new CommonDrop(ItemID.Gel, 1, 2, 5));
-			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.ElementalGoop>(), 2));
+			npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ModContent.ItemType<Items.Materials.ElementalGoop>(), 2, 3, 5), new CommonDrop(ModContent.ItemType<Items.Materials.ElementalGoop>(), 1, 3, 5)));
 			npcLoot.Add(ItemDropRule.NormalvsExpert(ItemID.SlimeStaff, 7500, 5000));
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Food.GalacticBrownie>(), 25));
 			npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ModContent.ItemType<Items.Accessories.SlimePendant>(), 125), new CommonDrop(ModContent.ItemType<Items.Accessories.SlimePendant>(), 100)));
