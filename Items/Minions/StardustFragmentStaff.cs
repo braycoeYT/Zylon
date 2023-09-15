@@ -15,7 +15,7 @@ namespace Zylon.Items.Minions
 			ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
 		}
 		public override void SetDefaults() {
-			Item.damage = 79;
+			Item.damage = 57;
 			Item.knockBack = 1.9f;
 			Item.mana = 10;
 			Item.width = 36;
@@ -34,8 +34,8 @@ namespace Zylon.Items.Minions
 		}
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
 			player.AddBuff(Item.buffType, 2);
-			position = Main.MouseWorld;
-			return true;
+			Projectile.NewProjectile(source, Main.MouseWorld, velocity, type, damage, knockback, Main.myPlayer);
+			return false;
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

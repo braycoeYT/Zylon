@@ -14,7 +14,7 @@ namespace Zylon.Projectiles.Swords
 			Projectile.aiStyle = -1;
 			Projectile.friendly = true;
 			Projectile.penetrate = 1;
-			Projectile.timeLeft = 40;
+			Projectile.timeLeft = 45;
 			Projectile.DamageType = DamageClass.Melee;
 			Projectile.extraUpdates = 1;
 			Projectile.scale = 0.75f;

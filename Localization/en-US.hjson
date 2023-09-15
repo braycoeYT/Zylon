@@ -1495,6 +1495,15 @@ Mods: {
 				Tooltip: Converts ammo to stone arrows
 			}
 
+			SunsGlare: {
+				DisplayName: Sun's Glare
+				Tooltip:
+					'''
+					Gives all arrows shot a Sun's Glare
+					The Sun's Glare roasts all nearby enemies
+					'''
+			}
+
 			WyvernsCall: {
 				DisplayName: Wyvern's Call
 				Tooltip: Converts arrows to powerful wyvern bolts
@@ -1904,7 +1913,13 @@ Mods: {
 
 			StardustFragmentStaff: {
 				DisplayName: Stardust Fragment Staff
-				Tooltip: Summons a floating stardust fragment to fight for you
+				Tooltip:
+					'''
+					Summons a floating stardust fragment to fight for you
+					After spotting a foe, the fragments will charge to max size
+					At max size, fragments rapidly dash into enemies, dealing massive damage
+					Fragments slowly shrink back to normal size as they dash
+					'''
 			}
 
 			CrimtaneJavelin: {
@@ -3079,6 +3094,7 @@ Mods: {
 			MiniCursorInfernoRing.DisplayName: Mini Inferno
 			SparklyArrow.DisplayName: Sparkly Arrow
 			StoneArrow.DisplayName: Stone Arrow
+			SunsGlareProj.DisplayName: Sun's Glare
 			TrailMeteorite.DisplayName: Meteor Trailer
 			WyvernGreenBolt.DisplayName: Wyvern's Bolt
 			WyvernRedBolt.DisplayName: Wyvern's Bolt

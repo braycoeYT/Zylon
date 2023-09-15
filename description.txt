@@ -23,6 +23,7 @@ V0.0.3: Diskite Update
 ~Herbs' damage from blowpipes is halved after hitting an enemy.
 ~Added Dark Prognosticus (unobtainable).
 ~Fixed Chlorophyte Seed projectile's display name.
+~Reworked Stardust Fragment Staff.
 
 Credits (from the previous mod versions and now):
 Owner:

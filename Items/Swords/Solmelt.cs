@@ -17,7 +17,7 @@ namespace Zylon.Items.Swords
 			Item.useAnimation = 36;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 6.5f;
-			Item.value = Item.sellPrice(0, 1, 37);
+			Item.value = Item.sellPrice(0, 1, 60);
 			Item.rare = ItemRarityID.Green;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
@@ -25,12 +25,12 @@ namespace Zylon.Items.Swords
 			Item.shoot = ModContent.ProjectileType<Projectiles.Swords.SolmeltFireblast>();
 			Item.shootSpeed = 5f;
 		}
-        /*public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
-            base.OnHitNPC(player, target, hit, damageDone);
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
+            target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 9)*60);
         }
         public override void OnHitPvp(Player player, Player target, Player.HurtInfo hurtInfo) {
-            base.OnHitPvp(player, target, hurtInfo);
-        }*/
+			if (hurtInfo.PvP) target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 9)*60);
+        }
 		int s;
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             s++;
