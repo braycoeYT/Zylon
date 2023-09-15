@@ -19,8 +19,8 @@ namespace Zylon.Items.Bows
 			Item.useAnimation = 31;
 			Item.useTime = 31;
 			Item.damage = 48;
-			Item.width = 20;
-			Item.height = 52;
+			Item.width = 52;
+			Item.height = 20;
 			Item.knockBack = 3.25f;
 			Item.shoot = ProjectileID.WoodenArrowFriendly;
 			Item.shootSpeed = 26f;

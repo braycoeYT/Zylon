@@ -1,4 +1,3 @@
-(currently works on 1.4.3)
 The best mod that starts with Z (I guarantee or your money back)! Zylon is a unique terraria mod full of slimes, blowpipes, references, peculiar boss fights, and much much more! Zylon is the kind of mod that makes all its boss summons infinite because who has the time to craft the same summon a billion times?!
 
 THIS MOD IS IN SEVERE NEED OF SPRITERS. If you are a fan of the mod and want to sprite, feel free to join the discord server!
@@ -23,6 +22,8 @@ V0.0.3: Diskite Update
 ~Added Big Ol' Bouquet.
 ~Herbs' damage from blowpipes is halved after hitting an enemy.
 ~Added Dark Prognosticus (unobtainable).
+~Fixed Chlorophyte Seed projectile's display name.
+~Reworked Stardust Fragment Staff.
 
 Credits (from the previous mod versions and now):
 Owner:

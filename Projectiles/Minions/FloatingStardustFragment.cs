@@ -26,16 +26,26 @@ namespace Zylon.Projectiles.Minions
 			Projectile.minion = true;
 			Projectile.minionSlots = 1f;
 			Projectile.penetrate = -1;
+			Projectile.usesLocalNPCImmunity = true;
+			Projectile.localNPCHitCooldown = 5;
 		}
 		public override bool? CanCutTiles() {
 			return true;
 		}
 		public override bool MinionContactDamage() {
-			return true;
+			return attackMode == 2;
 		}
 		int Timer;
 		int rand = Main.rand.Next(0, 40);
+		int attackMode;
+		int safeDmg;
+		bool init;
+		Vector2 tempVect;
 		public override void AI() {
+			if (!init) {
+				init = true;
+				safeDmg = Projectile.damage;
+            }
 			Player player = Main.player[Projectile.owner];
 			#region Active check
 			if (player.dead || !player.active)
@@ -51,8 +61,8 @@ namespace Zylon.Projectiles.Minions
 			#region General behavior
 			Vector2 idlePosition = player.Center;
 
-			//float minionPositionOffsetX = (10 + Projectile.minionPos * 40) * -player.direction;
-			//idlePosition.X += minionPositionOffsetX;
+			float minionPositionOffsetX = (32 + Projectile.minionPos * 20) * -player.direction; //40
+			idlePosition.X += minionPositionOffsetX;
 			
 			Vector2 vectorToIdlePosition = idlePosition - Projectile.Center;
 			float distanceToIdlePosition = vectorToIdlePosition.Length();
@@ -149,21 +159,77 @@ namespace Zylon.Projectiles.Minions
 			#endregion
 
 			#region Projectile
-			Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 40;
+			/*Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 40;
 			if (foundTarget)
 			{
 				Timer++;
 				if (Timer % 40 == rand)
 				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir, ProjectileType<StardustBeam>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
-			}
+			}*/
 
 			#endregion
 
 			#region Animation and visuals
-			Projectile.rotation += 0.02f;
+			if (attackMode == 0) Projectile.rotation += 0.03f*Projectile.scale;
 
 			Lighting.AddLight(Projectile.Center, Color.DeepSkyBlue.ToVector3() * 0.64f);
 			#endregion
+
+			if (foundTarget) {
+				Timer++;
+            }
+			else {
+				Timer = 0;
+				attackMode = 0;
+				if (Projectile.scale > 1f) {
+					Projectile.scale -= 0.1f;
+					if (Projectile.scale < 1f) Projectile.scale = 1f;
+                }
+				Projectile.damage = safeDmg;
+            }
+			if (attackMode == 0 && foundTarget) {
+				float quickInt = 15 - Timer;
+				if (quickInt < 0) quickInt = 0;
+				Projectile.velocity *= quickInt/15;
+				if (Timer > 14) attackMode = 1;
+            }
+			if (attackMode == 1 && foundTarget) {
+				Projectile.velocity = Vector2.Zero;
+				Projectile.scale += 0.05f;
+				Projectile.rotation += 0.03f*Projectile.scale;
+				if (Projectile.scale > 2.5f) {
+					Projectile.scale = 2.5f;
+					attackMode = 2;
+					Timer = 0;
+                }
+            }
+			if (attackMode == 2 && foundTarget) {
+				Projectile.damage = (int)(safeDmg*Projectile.scale);
+				Projectile.rotation += 0.03f*Projectile.scale;
+				if (Timer % 12 == 0) {
+					tempVect = Vector2.Normalize(Projectile.Center - targetCenter) * (float)(-17.5f);
+					Projectile.scale -= 0.1f;
+                }
+				Projectile.velocity = tempVect;
+				if (Projectile.scale <= 1f) {
+					Projectile.scale = 1f;
+					Timer = 0;
+					attackMode = 3;
+					Projectile.damage = safeDmg;
+                }
+            }
+			if (attackMode == 3 && foundTarget) {
+				Projectile.rotation += 0.03f;
+				/*if (Timer % 6 == 0) {
+					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -5).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<StardustBeam>(), Projectile.damage/2, Projectile.knockBack/2, Main.myPlayer);
+                }*/
+				if (Timer >= 30) {
+					Timer = 0;
+					Projectile.scale = 1f;
+					attackMode = 0;
+                }
+				Timer++;
+            }
 		}
 	}
 }

@@ -1495,6 +1495,15 @@ Mods: {
 				Tooltip: Converts ammo to stone arrows
 			}
 
+			SunsGlare: {
+				DisplayName: Sun's Glare
+				Tooltip:
+					'''
+					Gives all arrows shot a Sun's Glare
+					The Sun's Glare roasts all nearby enemies
+					'''
+			}
+
 			WyvernsCall: {
 				DisplayName: Wyvern's Call
 				Tooltip: Converts arrows to powerful wyvern bolts
@@ -1832,6 +1841,11 @@ Mods: {
 				Tooltip: "'Ancient tech worn by the figurative and literal sands of time...'"
 			}
 
+			SearedStone: {
+				DisplayName: Seared Stone
+				Tooltip: "'It looks like someone took a tiny nibble out of the sun'"
+			}
+
 			SlimyCore: {
 				DisplayName: Slimy Core
 				Tooltip: "'Part of a slime nucleus'"
@@ -1899,7 +1913,13 @@ Mods: {
 
 			StardustFragmentStaff: {
 				DisplayName: Stardust Fragment Staff
-				Tooltip: Summons a floating stardust fragment to fight for you
+				Tooltip:
+					'''
+					Summons a floating stardust fragment to fight for you
+					After spotting a foe, the fragments will charge to max size
+					At max size, fragments rapidly dash into enemies, dealing massive damage
+					Fragments slowly shrink back to normal size as they dash
+					'''
 			}
 
 			CrimtaneJavelin: {
@@ -2458,6 +2478,11 @@ Mods: {
 				Tooltip: Struck enemies are slimed
 			}
 
+			Solmelt: {
+				DisplayName: Solmelt
+				Tooltip: Every other swing shoots a fireblast that explodes into two splashes on impact
+			}
+
 			SparklySlimecutter: {
 				DisplayName: Sparkly Slimecutter
 				Tooltip:
@@ -2989,7 +3014,7 @@ Mods: {
 			WoodenDart.DisplayName: Wooden Dart
 			BallofFireRanged.DisplayName: Ball of Fire
 			BloodBall.DisplayName: Blood Ball
-			ChlorophyteBlowspitterProj.DisplayName: Slimeblast
+			ChlorophyteBlowspitterProj.DisplayName: Chlorophyte Seed
 			DeadlyToxinDart.DisplayName: Deadly Toxin Dart
 			DirtBallFunnel.DisplayName: Dirt Ball
 			IcicleMakerProj.DisplayName: Mini Icicle
@@ -3069,6 +3094,7 @@ Mods: {
 			MiniCursorInfernoRing.DisplayName: Mini Inferno
 			SparklyArrow.DisplayName: Sparkly Arrow
 			StoneArrow.DisplayName: Stone Arrow
+			SunsGlareProj.DisplayName: Sun's Glare
 			TrailMeteorite.DisplayName: Meteor Trailer
 			WyvernGreenBolt.DisplayName: Wyvern's Bolt
 			WyvernRedBolt.DisplayName: Wyvern's Bolt
@@ -3207,6 +3233,8 @@ Mods: {
 			ShatteredSword.DisplayName: Shattered Sword
 			Slimeblast.DisplayName: Slimeblast
 			SlimeblastLarge.DisplayName: Large Slimeblast
+			SolmeltFireblast.DisplayName: Solmelt Fireblast
+			SolmeltSlash.DisplayName: Solmelt Slash
 			StoneSwordProj.DisplayName: Stone Sword
 			VinylDisc.DisplayName: Vinyl Disc
 			WorldEndingMeteor.DisplayName: World-Ending Meteor
