@@ -14,9 +14,9 @@ namespace Zylon.Items.Misc
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 60;
 			Item.useTime = 60;
-			Item.knockBack = 10f;
+			Item.knockBack = 6f;
 			Item.rare = ItemRarityID.Green;
-			Item.value = Item.sellPrice(0, 0, 0, 30);
+			Item.value = Item.sellPrice(0, 2);
 			Item.DamageType = DamageClass.Ranged;
 			Item.noMelee = true;
 			Item.noUseGraphic = true;

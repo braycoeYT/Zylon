@@ -43,10 +43,10 @@ namespace Zylon.Projectiles.Wands
 			}
         }
         public override void Kill(int timeLeft) {
-            //if (timeLeft < 1) {
+            if (Main.myPlayer == Projectile.owner) {
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.ToRadians(Main.rand.Next(-30, -19))), ModContent.ProjectileType<WandofKindlingProj_2>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.75f, Main.myPlayer, Projectile.ai[0]);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.ToRadians(Main.rand.Next(20, 31))), ModContent.ProjectileType<WandofKindlingProj_2>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.75f, Main.myPlayer, Projectile.ai[0]);
-            //}
+            }
         }
     }   
 }

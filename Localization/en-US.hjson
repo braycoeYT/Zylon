@@ -2595,6 +2595,15 @@ Mods: {
 					'''
 			}
 
+			Sunburn: {
+				DisplayName: Sunburn
+				Tooltip:
+					'''
+					Fires an insanely fast spark
+					On impact, the spark explodes into a pile of flames
+					'''
+			}
+
 			VolcanicFlame: {
 				DisplayName: Volcanic Flame
 				Tooltip: Casts down a psychokinetic flame wall
@@ -3269,6 +3278,8 @@ Mods: {
 			PKFire2.DisplayName: Volcanic Flame
 			PKFireWall.DisplayName: Volcanic Flame
 			SnowfallProj.DisplayName: Snowfall
+			Sunburn_Spark.DisplayName: Sunburn
+			Sunburn_Flame.DisplayName: Sunburn
 			WadofSpores.DisplayName: Wad of Spores
 			BigBone.DisplayName: Big Bone
 			CryoWandProj.DisplayName: Cryo Wand
