@@ -44,7 +44,7 @@ namespace Zylon.Projectiles.Swords
 			}
 			Timer++;
             if (Timer == 15) {
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center - new Microsoft.Xna.Framework.Vector2(0, 40*Projectile.ai[0]), Microsoft.Xna.Framework.Vector2.Zero, ModContent.ProjectileType<SolmeltSlash>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, Projectile.ai[0]);
+				if (Main.myPlayer == Projectile.owner) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center - new Microsoft.Xna.Framework.Vector2(0, 40*Projectile.ai[0]), Microsoft.Xna.Framework.Vector2.Zero, ModContent.ProjectileType<SolmeltSlash>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, Projectile.ai[0]);
 			}
         }
         public override bool OnTileCollide(Vector2 oldVelocity) {
