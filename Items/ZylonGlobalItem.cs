@@ -86,14 +86,14 @@ namespace Zylon.Items
 				if (item.type == ItemID.FlareGun)
 					item.damage = 15;
 				if (item.type == ItemID.Zenith)
-					item.damage = 84;
+					item.damage = 98;
 				if (item.type == ItemID.Flare || item.type == ItemID.BlueFlare)
 					item.damage = 7;
 			}
 			if (!GetInstance<ZylonConfig>().dirtAmmoFix) {
 				if (item.type == ItemID.DirtBlock) {
 					item.consumable = true;
-					item.ammo = ModContent.ItemType<Misc.Dirtthrower>();
+					item.ammo = ItemType<Misc.Dirtthrower>();
 					item.notAmmo = true;
                 }
             }

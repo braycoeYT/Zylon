@@ -1317,7 +1317,11 @@ Mods: {
 
 			Barfarang: {
 				DisplayName: Barfarang
-				Tooltip: ""
+				Tooltip:
+					'''
+					Hold down to charge boomerang throw
+					Camera movement can be changed in the config
+					'''
 			}
 
 			BionicBoomer: {
@@ -1341,7 +1345,12 @@ Mods: {
 
 			Cactirang: {
 				DisplayName: Cactirang
-				Tooltip: Spawns damaging prickly pears on critical strikes
+				Tooltip:
+					'''
+					Hold down to charge boomerang throw
+					Spawns damaging prickly pears on critical strikes
+					Camera movement can be changed in the config
+					'''
 			}
 
 			FireandIce: {
@@ -1349,8 +1358,32 @@ Mods: {
 				Tooltip:
 					'''
 					'Hell's frozen over!'
+					Hold down to charge boomerang throw
 					Struck enemies are inflicted with On Fire and Frostburn
 					Before returning, releases several ice and fire balls
+					Camera movement can be changed in the config
+					'''
+			}
+
+			Iblis: {
+				DisplayName: Iblis
+				Tooltip:
+					'''
+					Sticks to enemies after striking them
+					Explodes into a barrage of burning rock after striking a tile or sticking to enemies
+					You can rethrow while stuck Iblises are still active
+					Hits have a chance to confuse enemies
+					'''
+			}
+
+			Mephiles: {
+				DisplayName: Mephiles
+				Tooltip:
+					'''
+					'Dance, my shadows, dance!'
+					On use, creates shadow replicas to assist you
+					Replicas get stuck in enemies after hitting them
+					After getting stuck, replicas create a piercing explosion
 					'''
 			}
 
@@ -1358,9 +1391,9 @@ Mods: {
 				DisplayName: Pentagram
 				Tooltip:
 					'''
-
 					'100% satanic!'
 					Splits into five after striking an enemy
+					Can be rethrown while split pentagrams are still active
 					'''
 			}
 
@@ -1373,12 +1406,30 @@ Mods: {
 					'''
 			}
 
+			Solaris: {
+				DisplayName: Solaris
+				Tooltip:
+					'''
+					'Contains a fragment of the Sun God's power'
+					After striking a foe, sometimes spawns several shots to pierce enemies
+					Has a 15% chance to get stuck in enemies after hitting them
+					The original projectile is not destroyed after getting stuck, but can only get stuck twice in one throw
+					Explodes after getting stuck, releasing powerful Flames of Hope
+					Collect green Flames of Hope to recover a small amount of health
+					'''
+			}
+
+			SolChakram: {
+				DisplayName: Sol Chakram
+				Tooltip: Splits into two mini chakrams after being thrown
+			}
+
 			XBlade: {
 				DisplayName: X-Blade
 				Tooltip:
 					'''
 					UNOBTAINABLE: Planned to be PML
-					'Pronounced keyblade, but it wouldn't save the curly x letter' - some old coot
+					'Pronounced keyblade, but it wouldn't save the curly X letter' - Some old coot
 					Hits have a chance to spawn either thirteen No Names to pierce enemies, or seven healing orbs that chase the player
 					'''
 			}
@@ -1473,11 +1524,7 @@ Mods: {
 
 			Sightseer: {
 				DisplayName: Sightseer
-				Tooltip:
-					'''
-					'So much to see... so little time.'
-					The eyes will alternate firing cursed flames and lasers with you
-					'''
+				Tooltip: The eyes will alternate firing cursed flames and lasers with you
 			}
 
 			Slimeshooter: {
@@ -1928,6 +1975,7 @@ Mods: {
 					'''
 					'You feel as if you can hear a hundred spirits cry around you'
 					A medium explosion that will not destroy tiles
+					Explosions can damage players
 					'''
 			}
 
@@ -2365,10 +2413,11 @@ Mods: {
 				DisplayName: Forgotten Rose's Saber
 				Tooltip:
 					'''
-					'The forgotten rose's bloom will be others' doom!'
-					Swings release a blossomed rose
+					'Its bloom will be your doom!'
+					Every other swing releases a blossomed rose
 					Blossomed roses release spore clouds after stopping
-					Every third swing also releases a ring of roses
+					Every third blossomed rose instead releases a ring of roses
+					True melee strikes summon more mini roses to attack foes
 					'''
 			}
 
@@ -3067,6 +3116,10 @@ Mods: {
 			FireandIce.DisplayName: Fire and Ice
 			FireandIce_1.DisplayName: Ball of Frost
 			FireandIce_2.DisplayName: Ball of Fire
+			Mephiles.DisplayName: Mephiles
+			Mephiles_Shadow.DisplayName: Mephiles
+			Mephiles_ShadowStick.DisplayName: Mephiles
+			Mephiles_ShadowExplosion.DisplayName: Mephiles
 			Mecharang.DisplayName: Mecharang
 			Pentagram.DisplayName: Pentagram
 			Pentagram_2.DisplayName: Pentagram
@@ -3318,21 +3371,31 @@ Mods: {
 			MetecoreFireball.DisplayName: Metecore Fireball
 			MetecoreMain.DisplayName: Metecore
 			MetecoreSpirit.DisplayName: Metecore Spirit
-			MeteoragaBlast.DisplayName: Meteoraga Blast
-			MeteoragaBlastFireball.DisplayName: Meteoraga Blast Fireball
+			MeteoragaBlast.DisplayName: Meteoraga
+			MeteoragaBlastFireball.DisplayName: Meteoraga
 			GlassShard.DisplayName: Glass Shard
-			SpearofJustice.DisplayName: Spearof Justice
-			SpearofJusticeClone.DisplayName: Spearof Justice Clone
+			SpearofJustice.DisplayName: Spear of Justice
+			SpearofJusticeClone.DisplayName: Spear of Justice
 			MiniRose2.DisplayName: Mini Rose2
 			SpiderEgg.DisplayName: Spider Egg
-			SpiderEggInvis.DisplayName: Spider Egg Invis
-			VenomFangMelee.DisplayName: Venom Fang Melee
-			DiskiteBigSun.DisplayName: Diskite Big Sun
-			DiskiteLaser.DisplayName: Diskite Laser
-			DiskiteLaserSpeedUp.DisplayName: Diskite Laser Speed Up
-			DiskitePremonition.DisplayName: Diskite Premonition
-			DiskitePremonition2.DisplayName: Diskite Premonition2
-			DiskiteXBeam.DisplayName: Diskite X Beam
+			SpiderEggInvis.DisplayName: Spider Egg
+			VenomFangMelee.DisplayName: Venom Fang
+			DiskiteBigSun.DisplayName: Solar Blast
+			DiskiteLaser.DisplayName: Heavenly Pierce
+			DiskiteLaserSpeedUp.DisplayName: Heavenly Pierce
+			DiskitePremonition.DisplayName: Premonition
+			DiskitePremonition2.DisplayName: Premonition
+			DiskiteXBeam.DisplayName: Solar Bomb
+			SolChakram.DisplayName: Sol Chakram
+			Iblis.DisplayName: Iblis
+			Iblis_Rock.DisplayName: Iblis Rock
+			Iblis_Stick.DisplayName: Iblis Stick
+			SolChakram_Mini.DisplayName: Mini Sol Chakram
+			Solaris.DisplayName: Solaris
+			Solaris_Shot.DisplayName: Solaris
+			Solaris_Stick.DisplayName: Solaris
+			Solaris_FlameofHope.DisplayName: Flame of Hope
+			Solaris_FlameofHopeHeal.DisplayName: Flame of Hope
 		}
 
 		NPCs: {
@@ -3530,6 +3593,11 @@ Mods: {
 				}
 
 				DisplayName: Zylon Config
+
+				boomerangCamera: {
+					Label: Boomerang Custom Camera Movement
+					Tooltip: Allows certain boomerangs to move the camera when used.
+				}
 			}
 		}
 	}

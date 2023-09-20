@@ -54,6 +54,11 @@ namespace Zylon
 		[Tooltip("Plays a short noise when blowpipes reach max charge.")]
 		public bool blowpipeNoise;
 
+		[DefaultValue(true)]
+		[Label("Boomerang Custom Camera Movement")]
+		[Tooltip("Allows certain boomerangs to move the camera when used.")]
+		public bool boomerangCamera;
+
 		[Header("config.accessibility")]
 
 		[Range(0, 100)]

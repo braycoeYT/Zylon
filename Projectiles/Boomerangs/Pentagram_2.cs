@@ -17,8 +17,8 @@ namespace Zylon.Projectiles.Boomerangs
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
 		public override void SetDefaults() {
-			Projectile.width = 38;
-			Projectile.height = 38;
+			Projectile.width = 50;
+			Projectile.height = 50;
 			Projectile.aiStyle = -1;
 			Projectile.friendly = true;
 			Projectile.penetrate = -1;

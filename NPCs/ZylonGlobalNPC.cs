@@ -108,14 +108,16 @@ namespace Zylon.NPCs
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.ObeliskShard>(), 2, 1, 2));
 			if (npc.type == NPCID.GoblinSummoner || npc.type == NPCID.RuneWizard)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.TabooEssence>(), 1, 6, 12));
+			if (npc.type == NPCID.GoblinSummoner)
+				npcLoot.Add(new CommonDrop(ItemID.TatteredCloth, 1, 5, 8));
 			if (npc.type == NPCID.GoblinSorcerer)
 				ItemDropRule.ByCondition(new Conditions.IsHardmode(), ItemType<Items.Materials.TabooEssence>(), 2, 1, 2);
 			if (npc.type == NPCID.GoblinPeon || npc.type == NPCID.GoblinArcher || npc.type == NPCID.GoblinScout || npc.type == NPCID.GoblinSorcerer || npc.type == NPCID.GoblinThief || npc.type == NPCID.GoblinWarrior)
-				npcLoot.Add(new CommonDrop(ItemID.TatteredCloth, 4));
+				npcLoot.Add(new CommonDrop(ItemID.TatteredCloth, 3));
 			if (npc.type == NPCID.ToxicSludge || npc.type == NPCID.MossHornet || npc.type == NPCID.BigMossHornet || npc.type == NPCID.TinyMossHornet || npc.type == NPCID.LittleMossHornet || npc.type == NPCID.GiantMossHornet)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.Oozeberry>(), 1, 1, 3));
 			if (npc.type == NPCID.RedDevil)
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Boomerangs.Pentagram>(), 33), new CommonDrop(ItemType<Items.Boomerangs.Pentagram>(), 25)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Boomerangs.Pentagram>(), 25), new CommonDrop(ItemType<Items.Boomerangs.Pentagram>(), 20)));
 			if (npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.IceBat)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.EnchantedIceCube>(), 1, 1, 2));
 			if (npc.type == NPCID.Werewolf || npc.type == NPCID.Wolf)

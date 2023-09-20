@@ -14,7 +14,7 @@ Stats:
 ~LOTS of new vanilla recipes and changes to help balance the game out.
 ~Several new prefixes!
 
-V0.0.3: Diskite Update
+V0.0.3: Cause to Clash Update
 ~Fixed Metecore damaging issue.
 ~Removed Test Blowpipes from the mod.
 ~Boss summons no longer stack because of infinite summons.
@@ -48,7 +48,7 @@ V0.0.3: Diskite Update
 ~Added potatoes??? (LITERALLY UNOBTAINABLE LMAO)
 ~Fixed boss summons not working in multiplayer. (I have no idea how this stayed in for so long <-- sorry tome man also)
 ~Made spear items actually count as spears to other mods. Forgot to do this ages ago for some reason.
-~Completley overhauled spears.
+~Completely overhauled spears.
 ~Added Arid Bo Staff.
 ~Added Superheated Stabber.
 ~Reworked functionality of Carnallite Trident.
@@ -70,10 +70,17 @@ V0.0.3: Diskite Update
 ~Added Glory Petals which drop from Glory Blossoms.
 ~Ported to 1.4.4.
 ~Resprited Fire and Ice.
+~Added Iblis, Mephiles, and Solaris.
+~Resprited and reworked Pentagram.
+~Increased Pentagram drop rate.
+~Increased Tattered Cloth drop rate from Goblin Army enemies.
+~Goblin Summoner now drops Tattered Cloth.
+~Removed Emerald Falcon.
+~Removed sparkly slime weapons (except the sword).
 note to self: lobera + icy greatblade rework
 
 Credits (from the previous mod versions and now):
-Owner:
+Ex-Ex-Owner:
 BraycoeYT
 
 Ideas, Sprites, Music, and General Support:
