@@ -89,6 +89,8 @@ namespace Zylon.Items
 					item.damage = 98;
 				if (item.type == ItemID.Flare || item.type == ItemID.BlueFlare)
 					item.damage = 7;
+				if (item.type == ItemID.PulseBow)
+					item.damage = 61;
 			}
 			if (!GetInstance<ZylonConfig>().dirtAmmoFix) {
 				if (item.type == ItemID.DirtBlock) {

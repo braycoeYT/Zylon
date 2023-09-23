@@ -46,6 +46,10 @@ namespace Zylon.Projectiles.Bosses.ADD
 			Projectile.ai[0]++;
 			if (Projectile.ai[0] <= ChargeUpTime) {
 
+				if (main.life < main.lifeMax / 2) { //temp fix for phase transition?
+					Projectile.Kill();
+                }
+
 				if (Projectile.ai[0] == 1)
 					SoundEngine.PlaySound(new SoundStyle($"Zylon/Sounds/Projectiles/FireCharge") { Volume = 0.7f, PitchVariance = 0.0f, MaxInstances = 2, }, Projectile.Center);
 
@@ -64,10 +68,10 @@ namespace Zylon.Projectiles.Bosses.ADD
 			} else if (Projectile.ai[0] % s == 0 && Main.netMode != NetmodeID.MultiplayerClient)
             {
 				shootCount++;
-				float nut = MathHelper.PiOver2 * -1;
-				if (shootCount % 2 == 0) nut = MathHelper.PiOver2;
+				float not = MathHelper.PiOver2 * -1;
+				if (shootCount % 2 == 0) not = MathHelper.PiOver2;
 				Vector2 oof = Vector2.Normalize(Projectile.velocity) * 0.02f;
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, oof.RotatedBy(nut), ModContent.ProjectileType<DiskiteLaserSpeedUp>(), (int)(Projectile.damage * 0.85f), 0f);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, oof.RotatedBy(not), ModContent.ProjectileType<DiskiteLaserSpeedUp>(), (int)(Projectile.damage * 0.85f), 0f);
 			}
 
 			RingRotation = Projectile.ai[0] * 0.06f;

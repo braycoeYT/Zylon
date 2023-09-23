@@ -28,14 +28,13 @@ namespace Zylon.Items.Blowpipes
         public override Vector2? HoldoutOffset() {
 			return new Vector2(4, -6);
 		}
-		/*public override void AddRecipes() {
+		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Seashell, 15);
-			recipe.AddIngredient(ItemID.Coral, 6);
-			recipe.AddIngredient(ItemID.Starfish, 6);
-			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 5);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddIngredient(ItemID.Seashell, 11);
+			recipe.AddIngredient(ItemID.Coral, 2);
+			recipe.AddIngredient(ItemID.Starfish, 2);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
-		}*/
+		}
     }
 }

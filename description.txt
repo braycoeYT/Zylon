@@ -77,6 +77,9 @@ V0.0.3: Cause to Clash Update
 ~Goblin Summoner now drops Tattered Cloth.
 ~Removed Emerald Falcon.
 ~Removed sparkly slime weapons (except the sword).
+~Shellshocker is now craftable instead of fishable once again.
+~Added Dumbbell.
+~Nerfed Pulse Bow.
 note to self: lobera + icy greatblade rework
 
 Credits (from the previous mod versions and now):

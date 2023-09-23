@@ -12,7 +12,7 @@ Mods: {
 				LoveBiome: Wow, {BiomeName} is full of farmable enemies! I'm going to get so much XP!
 				DislikeBiome: I think {BiomeName} is too underleveled for me to train properly.
 				HateBiome: "{BiomeName} has the most annoying enemies imaginable!"
-				LikeNPC: I like {NPCName}'s guts!
+				LikeNPC: I like {NPCName}'s guts stat!
 				LoveNPC: "{NPCName}'s violent tendencies would make them a great party member!"
 				DislikeNPC: "{NPCName} is too pacifist-like!"
 				HateNPC: I think {NPCName} is the antagonist of this adventure!
@@ -123,6 +123,11 @@ Mods: {
 			OutofBreath: {
 				DisplayName: Out of Breath
 				Description: You can't breathe!
+			}
+
+			SearedFlame: {
+				DisplayName: Seared Flame
+				Description: The world is burning around you!
 			}
 
 			Shroomed: {
@@ -1993,6 +1998,16 @@ Mods: {
 					'''
 			}
 
+			Dumbbell: {
+				DisplayName: Dumbbell
+				Tooltip:
+					'''
+					'They said this would help me work out my anger, but I don't think this is what they meant!'
+					Damage, knockback, and throwing speed are based on your defense
+					Inventory stats are updated accurately after item use
+					'''
+			}
+
 			Flamecougher: {
 				DisplayName: Flamecougher
 				Tooltip:
@@ -3381,8 +3396,8 @@ Mods: {
 			SpiderEggInvis.DisplayName: Spider Egg
 			VenomFangMelee.DisplayName: Venom Fang
 			DiskiteBigSun.DisplayName: Solar Blast
-			DiskiteLaser.DisplayName: Heavenly Pierce
-			DiskiteLaserSpeedUp.DisplayName: Heavenly Pierce
+			DiskiteLaser.DisplayName: Sun Ray
+			DiskiteLaserSpeedUp.DisplayName: Sun Ray
 			DiskitePremonition.DisplayName: Premonition
 			DiskitePremonition2.DisplayName: Premonition
 			DiskiteXBeam.DisplayName: Solar Bomb
@@ -3396,25 +3411,27 @@ Mods: {
 			Solaris_Stick.DisplayName: Solaris
 			Solaris_FlameofHope.DisplayName: Flame of Hope
 			Solaris_FlameofHopeHeal.DisplayName: Flame of Hope
+			Dumbell.DisplayName: Dumbell
+			Dumbbell.DisplayName: Dumbbell
 		}
 
 		NPCs: {
-			ADD_Center: {
-				DisplayName: Ancient Diskite Director
-				BossChecklistIntegration.SpawnInfo: Use a [i:5688] in the desert at night
-			}
+			ADD_Main: {
+				DisplayName: Ancient Desert Diskite
 
-			ADD_LaserEye.DisplayName: Ancient Diskite Director
-			ADD_LaserEye2.DisplayName: Ancient Diskite Director
-			ADD_Setup.DisplayName: Ancient Diskite Director
-			ADD_SideBottom.DisplayName: Ancient Diskite Director
-			ADD_SideTop.DisplayName: Ancient Diskite Director
-			ADD_SpikeRing.DisplayName: Ancient Diskite Director
-			SupportDiskite.DisplayName: Support Diskite
+				BossChecklistIntegration: {
+					EntryName: Ancient Diskite Director
+					SpawnInfo: Use a [i:Zylon/EnchantedEye] in the desert
+				}
+			}
 
 			Dirtball: {
 				DisplayName: Dirtball
-				BossChecklistIntegration.SpawnInfo: Use a [i:5686]
+
+				BossChecklistIntegration: {
+					EntryName: Dirtball
+					SpawnInfo: Use a [i:Zylon/CreepyMud] anywhere
+				}
 			}
 
 			DirtBlock.DisplayName: Dirt Block
@@ -3425,7 +3442,11 @@ Mods: {
 
 			EldritchJellyfish: {
 				DisplayName: Eldritch Jellyfish
-				BossChecklistIntegration.SpawnInfo: Use a [i:5687] in the ocean
+
+				BossChecklistIntegration: {
+					EntryName: Eldritch Jellyfish
+					SpawnInfo: Use a [i:Zylon/EldritchBell] in the ocean
+				}
 			}
 
 			ExplosiveEerieJellyfish.DisplayName: Explosive Eerie Jellyfish
@@ -3433,7 +3454,11 @@ Mods: {
 
 			MetelordHead: {
 				DisplayName: Metelord
-				BossChecklistIntegration.SpawnInfo: Use a [i:5691] in the Meteorite biome
+
+				BossChecklistIntegration: {
+					EntryName: Metelord
+					SpawnInfo: Use a [i:Zylon/StarstruckMeteorChunk] in the meteorite biome
+				}
 			}
 
 			MetelordTail.DisplayName: Metelord
@@ -3489,15 +3514,6 @@ Mods: {
 			DesertDiskite_CenterDeco.DisplayName: Desert Diskite_ Center Deco
 			SaplingWarrior.DisplayName: Sapling Warrior
 			StarpackSlime.DisplayName: Starpack Slime
-
-			ADD_Main: {
-				DisplayName: Ancient Desert Diskite
-
-				BossChecklistIntegration: {
-					EntryName: Ancient Diskite Director
-					SpawnInfo: Use a [i:5687] in the desert
-				}
-			}
 		}
 
 		Prefixes: {

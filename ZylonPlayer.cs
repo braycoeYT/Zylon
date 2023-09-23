@@ -50,6 +50,7 @@ namespace Zylon
 		public bool fleKnuCheck;
 		public bool glassArmor;
 		public bool bigOlBouquet;
+		public bool searedFlame;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -112,6 +113,7 @@ namespace Zylon
 			fleKnuCheck = false;
 			glassArmor = false;
 			bigOlBouquet = false;
+			searedFlame = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -169,7 +171,12 @@ namespace Zylon
 				Player.lifeRegenTime = 0;
 				Player.lifeRegen -= 16;
 			}
-
+			if (searedFlame) {
+				if (Player.lifeRegen > 0)
+					Player.lifeRegen = 0;
+				Player.lifeRegenTime = 0;
+				Player.lifeRegen -= 40;
+			}
 			hitTimer30 -= 1;
 			sojCooldown -= 1;
 		}
@@ -461,8 +468,8 @@ namespace Zylon
 				itemDrop = ItemType<Items.Materials.Fish.LabyrinthFish>();
 			if (owner.ZoneRockLayerHeight && Main.rand.NextFloat() < .07f && Player.HasBuff(BuffID.Hunter))
 				itemDrop = ItemType<Items.Materials.Fish.PaintedGlassTetra>();
-			if (owner.ZoneBeach && Main.rand.NextFloat() < (.04f-(.02f*check)))
-				itemDrop = ItemType<Items.Blowpipes.Shellshocker>();
+			//if (owner.ZoneBeach && Main.rand.NextFloat() < (.04f-(.02f*check)))
+			//	itemDrop = ItemType<Items.Blowpipes.Shellshocker>();
         }
     }
 }

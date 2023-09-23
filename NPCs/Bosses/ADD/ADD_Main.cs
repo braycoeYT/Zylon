@@ -27,7 +27,9 @@ namespace Zylon.NPCs.Bosses.ADD
 					BuffID.Frozen,
 					BuffID.Burning,
 					BuffID.Frostburn,
-					BuffID.CursedInferno
+					BuffID.CursedInferno,
+					BuffID.Daybreak,
+					BuffID.Ichor
 				}
 			};
 			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
@@ -67,11 +69,16 @@ namespace Zylon.NPCs.Bosses.ADD
 		int attackTimer;
 		int attackTimer2;
 		int attackInt;
+		int prevAttack;
 		float attackFloat;
 		float o;
 		bool attackDone = true;
+		bool introAttackDone;
 		int phase = 1;
-		Vector2 veloz;
+		bool transitionSetup;
+		bool drawAura;
+		Vector2 dashVelocity;
+		Vector2 tempVector;
 		Player target;
         public override void AI() {
 			/*if (NPC.CountNPCS(ModContent.NPCType<ADD_Ankh>()) > 0) {
@@ -80,54 +87,114 @@ namespace Zylon.NPCs.Bosses.ADD
 			NPC.TargetClosest();
 			target = Main.player[NPC.target];
 			ZylonGlobalNPC.diskiteBoss = NPC.whoAmI;
-			if (attackDone) { //THIS IS THE DASH ATTACK FOR BOTH PHASES BTW
 
-				//old test
-				//NPC.velocity = Vector2.Normalize(NPC.Center - Main.player[NPC.target].Center) * (float)(-5.5f);
-				//NPC.rotation += 0.03f;
-				//NPC.rotation = NPC.velocity.X * 0.08f;
-
+			if (phase == 1 && NPC.life <= NPC.lifeMax/2) {
+				NPC.dontTakeDamage = true;
+				if (!transitionSetup) { //probably screwed up some attack by cutting it off btw
+					attackDone = false;
+					attackTimer = 0;
+					attackTimer2 = 0;
+					attackFloat = 0f;
+					attackInt = 0;
+					transitionSetup = true;
+                }
 				attackTimer++;
-
-				if (attackTimer == 1) { //Note to self: change to make crazy in p2, go alterante if route
-					float h = -80f+(20f*(NPC.life-NPC.lifeMax/2)/(NPC.lifeMax/2)); //-80, 20
-					if (h < -80f) h = -80f;
-					veloz = Vector2.Normalize(NPC.Center - Main.player[NPC.target].Center) * h;
-					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center+veloz, veloz, ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskitePremonition>(), 0, 0, Main.myPlayer, 20);
-                }
-				if (attackTimer < 10) {
-					NPC.velocity /= 2;
-                }
-				if (attackTimer == 60) {
-					veloz.Normalize();
-					NPC.velocity = veloz*24f;
-					o = 0.1f;
-					if (Main.expertMode) o += 0.025f;
+				if (attackTimer < 30) { //slowdown transition pt 1
+					NPC.velocity *= 0.8f;
 				}
-				if (attackTimer > 60) {
-					NPC.velocity *= 0.95f; //0.96
-					o *= 0.972f; //0.97
-					NPC.rotation += o*3f;//*(0.1f+(0.015f*120-attackTimer));
+				else if (attackTimer < 60) { //slowdown transition pt 2
+					attackFloat += 0.25f;
 				}
-
-				if (attackTimer >= 150) { //ATTACK SETUP
-					if (attackTimer2 == 0) {
-						attackTimer2 = 1;
-						attackTimer = 0;
+				else if (attackTimer < 150) { //positioning
+					if (attackTimer % 3 == 0) {
+						if (NPC.Center.Y > target.Center.Y + 16) NPC.velocity.Y -= 1;
+						else if (NPC.Center.Y < target.Center.Y - 128) NPC.velocity.Y += 1;
+						else NPC.velocity.Y *= 0.8f;
+						if (NPC.Center.X < target.Center.X - 300) NPC.velocity.X += 1;
+						else if (NPC.Center.X > target.Center.X + 300) NPC.velocity.X -= 1;
+						else NPC.velocity.X *= 0.8f;
+					}
+					if (attackTimer == 149) tempVector = NPC.Center;
+                }
+				else if (attackTimer < 400) { //gather the players
+					NPC.velocity = Vector2.Zero;
+					if (attackTimer % 10 == 0) {
+						//start at 150, end at 400
+						if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), tempVector - new Vector2(1200-((attackTimer-150)*4), 750), new Vector2(0, 20), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteLaser>(), NPC.damage/4+5, 0f, Main.myPlayer);
+						if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), tempVector + new Vector2(1200-((attackTimer-150)*4), -750), new Vector2(0, 20), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteLaser>(), NPC.damage/4+5, 0f, Main.myPlayer);
+						//if (attackTimer)
+					}
+					if (attackTimer == 399) {
+						drawAura = true; //Feel free to change any variable stuff idrc, just doing the bare minimum to show the general idea
                     }
-					else {
-						//attack = Main.rand.Next(1);
-						attack = 2;
+                } //No attack buff when out biome in phase transition
+				else if (attackTimer < 520) {
+					//insert aura creation animation if you want, otherwise remove this grace period
+                } //Suggestion is that boss slowly begins breaking from the power after each miniphase, then finally becomes phase 2 sprite (?)
+
+
+				NPC.rotation += MathHelper.ToRadians(attackFloat); //Do whatever you want for the visuals, remove this part if you want. This is just a placeholder since I am not the wacky visual man.
+				SpikeGlobalDrawRotation = NPC.rotation;
+				OrbDrawRotation = -NPC.rotation;
+
+				if (drawAura) {
+					for (int x = 0; x < Main.maxPlayers; x++) {
+						float dist = Vector2.Distance(NPC.Center, Main.player[x].Center);
+						if (dist > 500 && dist < 3000) Main.player[x].AddBuff(ModContent.BuffType<Buffs.Debuffs.SearedFlame>(), 2);
+                    }
+                }
+
+				return;
+			}
+
+			if (attackDone) { //dash
+				if (introAttackDone) {
+					attack = Main.rand.Next(3);
+					while (prevAttack == attack) attack = Main.rand.Next(3);
+					//attack = 2;
+					attackDone = false;
+					attackTimer = 0;
+					attackTimer2 = 0;
+					attackFloat = 0f;
+					attackInt = 0;
+					prevAttack = attack;
+                }
+				else {
+					attackTimer++;
+					if (attackTimer == 1) {
+						float h = -60f;
+						dashVelocity = Vector2.Normalize(NPC.Center - Main.player[NPC.target].Center) * h;
+						if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center+dashVelocity, dashVelocity, ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskitePremonition>(), 0, 0, Main.myPlayer, 20);
+	                }
+					if (attackTimer < 10) {
+						NPC.velocity /= 2;
+	                }
+					if (attackTimer == 60) {
+						dashVelocity.Normalize();
+						NPC.velocity = dashVelocity*24f;
+						o = 0.1f;
+						if (Main.expertMode) o += 0.025f;
+					}
+					if (attackTimer > 60) {
+						NPC.velocity *= 0.965f; //0.96
+						o *= 0.978f; //0.97
+						NPC.rotation += o*3f;//*(0.1f+(0.015f*120-attackTimer));
+					}
+	
+					if (attackTimer >= 200) { //ATTACK SETUP
+						attack = Main.rand.Next(3);
 						attackDone = false;
 						attackTimer = 0;
 						attackTimer2 = 0;
 						attackFloat = 0f;
 						attackInt = 0;
+						introAttackDone = true;
+						prevAttack = attack;
 					}
-                }
+				}
             }
 			else { //See tome man? I'm doing a thing!
-				switch (attack) {
+				if (phase == 1) switch (attack) { //I need to think of one more attack for phase 1 but all my ideas are for phase 2 :P
 					case 0:
 						SpinLaser();
 						break;
@@ -137,6 +204,9 @@ namespace Zylon.NPCs.Bosses.ADD
 					case 2:
 						BigSun(); //MineRing();
 						break;
+                }
+				else switch (attack) {
+
                 }
             }
 			SpikeGlobalDrawRotation = NPC.rotation;
@@ -172,8 +242,8 @@ namespace Zylon.NPCs.Bosses.ADD
 				if (x > 9) x = 9;
 
 				if (attackTimer % x == 0 && Main.netMode != NetmodeID.MultiplayerClient) {
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(0, 70).RotatedBy(NPC.rotation), new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteLaser>(), NPC.damage/3, 0f);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, 70).RotatedBy(NPC.rotation), new Vector2(0, 10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteLaser>(), NPC.damage/3, 0f);
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(0, 70).RotatedBy(NPC.rotation), new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteLaser>(), NPC.damage/4, 0f);
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, 70).RotatedBy(NPC.rotation), new Vector2(0, 10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteLaser>(), NPC.damage/4, 0f);
                 }
             }
 			else if (attackTimer > 670) EndAttack(); //Ends attack
@@ -202,11 +272,11 @@ namespace Zylon.NPCs.Bosses.ADD
 			if (x > 80) x = 80;
 			if (attackTimer >= x) {
 				attackTimer = 0;
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, 70).RotatedBy(NPC.rotation), new Vector2(0, 10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteXBeam>(), NPC.damage/3+5, 0f);
+				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, 70).RotatedBy(NPC.rotation), new Vector2(0, 10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteXBeam>(), NPC.damage/4+2, 0f);
 				attackTimer2++;
 			}
 
-			if (attackTimer2 > 12) EndAttack();
+			if (attackTimer2 > 9) EndAttack();
         }
 		private void BigSun() {
 			//NPC.velocity /= 2;
@@ -225,7 +295,7 @@ namespace Zylon.NPCs.Bosses.ADD
 			if (attackTimer >= x) {
 				attackTimer = -120;
 				if (!Main.expertMode) attackTimer -= 30;
-				if (attackTimer2 <= attackInt) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(0, 70).RotatedBy(NPC.rotation), new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteBigSun>(), NPC.damage/3+8, 0f);
+				if (attackTimer2 <= attackInt) if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(0, 70).RotatedBy(NPC.rotation), new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskiteBigSun>(), NPC.damage/4+4, 0f);
 				attackTimer2++;
 				if (attackTimer2 > attackInt + 1) EndAttack();
             }
@@ -327,7 +397,7 @@ namespace Zylon.NPCs.Bosses.ADD
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
-				new FlavorTextBestiaryInfoElement("A forgotten civilization's adopted protector, powered by a chip connected to the sun god.")
+				new FlavorTextBestiaryInfoElement("A forgotten civilization's adopted protector, powered by a computer chip connected to the sun god.")
 			});
 		}
 
@@ -339,6 +409,7 @@ namespace Zylon.NPCs.Bosses.ADD
 			Texture2D spikeTextureTop = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/ADD/ADD_SpikeUpper");
 			Texture2D spikeTextureBottom = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/ADD/ADD_SpikeLower");
 			Texture2D ankhTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/ADD/ADD_Ankh");
+			Texture2D auraTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/ADD/ADD_Aura");
 
 			Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
 
@@ -353,6 +424,8 @@ namespace Zylon.NPCs.Bosses.ADD
 			spriteBatch.Draw(texture, drawPos, null, color, OrbDrawRotation, drawOrigin, NPC.scale, effects, 0);
 			spriteBatch.Draw(spikeTextureTop, drawPos + new Vector2(0, -80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
 			spriteBatch.Draw(ankhTexture, drawPos + new Vector2(0, -20).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, ankhOrigin, NPC.scale, effects, 0);
+
+			if (drawAura) spriteBatch.Draw(auraTexture, drawPos - new Vector2(439, 425), null, Color.White, 0f, drawOrigin, 2.5f, effects, 0);
 
 			return false;
         }

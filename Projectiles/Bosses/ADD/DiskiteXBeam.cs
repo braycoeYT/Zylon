@@ -49,7 +49,7 @@ namespace Zylon.Projectiles.Bosses.ADD
         public override void Kill(int timeLeft) {
 			speed = Projectile.Center - Main.player[Main.npc[ZylonGlobalNPC.diskiteBoss].target].Center;
 			speed.Normalize();
-			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed*-10f, ModContent.ProjectileType<DiskiteLaser>(), Projectile.damage, 0);
+			if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed*-10f, ModContent.ProjectileType<DiskiteLaser>(), Projectile.damage, 0);
 			if (Main.expertMode) {
 				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed.RotatedBy(MathHelper.ToRadians(20))*-10f, ModContent.ProjectileType<DiskiteLaser>(), Projectile.damage, 0);
 				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed.RotatedBy(MathHelper.ToRadians(-20))*-10f, ModContent.ProjectileType<DiskiteLaser>(), Projectile.damage, 0);
