@@ -49,6 +49,20 @@ namespace Zylon.Items
 					TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "This effect decreases to 5% as the player reaches max health\nDecreases mana regeneration rate");
 					tooltips.Add(line);
 				}
+				if (item.type == ItemID.AdamantiteBreastplate) {
+					foreach (var line2 in tooltips) {
+						if (line2.Mod == "Terraria" && line2.Name == "Tooltip0") {
+							line2.Text = "8% increased damage\nIncreases minion knockback by 15%";
+						}
+					}
+				}
+				if (item.type == ItemID.TitaniumBreastplate) {
+					foreach (var line2 in tooltips) {
+						if (line2.Mod == "Terraria" && line2.Name == "Tooltip1") {
+							line2.Text = "3% increased critical strike chance\nIncreases minion knockback by 23%";
+						}
+					}
+				}
             }
 			if (item.type == ItemID.ShinyRedBalloon || item.type == ItemID.BalloonPufferfish) {
 				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 4/s (does not stack with other balloons)");
@@ -185,7 +199,13 @@ namespace Zylon.Items
 				player.GetCritChance(DamageClass.Magic) += 10;
             }
 		}
-		int shootCount;
+        public override void UpdateEquip(Item item, Player player) {
+			if (GetInstance<ZylonConfig>().zylonianBalancing) {
+				if (item.type == ItemID.AdamantiteBreastplate) player.GetKnockback(DamageClass.Summon) += 0.15f;
+				if (item.type == ItemID.TitaniumBreastplate) player.GetKnockback(DamageClass.Summon) += 0.23f;
+            }
+        }
+        int shootCount;
         public override bool Shoot(Item item, Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
 			shootCount++;
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();

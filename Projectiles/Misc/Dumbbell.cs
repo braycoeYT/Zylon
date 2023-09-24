@@ -38,6 +38,7 @@ namespace Zylon.Projectiles.Misc
 			}
         }
         public override void Kill(int timeLeft) {
+			SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			if (Projectile.ai[0] == 1f) for (int x = 0; x < 8; x++) {
 				Dust dust = Dust.NewDustDirect(Projectile.position - new Vector2(Projectile.width, Projectile.height), Projectile.width*2, Projectile.height*2, DustID.RedTorch);

@@ -80,6 +80,12 @@ V0.0.3: Cause to Clash Update
 ~Shellshocker is now craftable instead of fishable once again.
 ~Added Dumbbell.
 ~Nerfed Pulse Bow.
+~Changed Blood Contract recipe.
+~Reworked Dreadclawtilus.
+~Added Kraken Blast.
+~Added Adamantite and Titanium Caps.
+~Adamantite Breastplate and Titanium Breastplate now increase minion knockback to support the summoner class.
+~Root Guard now requires Living Branches.
 note to self: lobera + icy greatblade rework
 
 Credits (from the previous mod versions and now):

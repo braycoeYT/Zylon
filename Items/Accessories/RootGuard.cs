@@ -24,6 +24,7 @@ namespace Zylon.Items.Accessories
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Wood, 18);
+			recipe.AddIngredient(ModContent.ItemType<Materials.LivingBranch>(), 9);
 			recipe.AddIngredient(ItemID.Acorn, 6);
 			recipe.AddTile(TileID.LivingLoom);
 			recipe.Register();

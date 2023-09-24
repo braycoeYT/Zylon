@@ -107,8 +107,8 @@ namespace Zylon.NPCs.Bosses.ADD
 				}
 				else if (attackTimer < 150) { //positioning
 					if (attackTimer % 3 == 0) {
-						if (NPC.Center.Y > target.Center.Y + 16) NPC.velocity.Y -= 1;
-						else if (NPC.Center.Y < target.Center.Y - 128) NPC.velocity.Y += 1;
+						if (NPC.Center.Y > target.Center.Y) NPC.velocity.Y -= 1;
+						else if (NPC.Center.Y < target.Center.Y - 144) NPC.velocity.Y += 1;
 						else NPC.velocity.Y *= 0.8f;
 						if (NPC.Center.X < target.Center.X - 300) NPC.velocity.X += 1;
 						else if (NPC.Center.X > target.Center.X + 300) NPC.velocity.X -= 1;
@@ -131,8 +131,29 @@ namespace Zylon.NPCs.Bosses.ADD
 				else if (attackTimer < 520) {
 					//insert aura creation animation if you want, otherwise remove this grace period
                 } //Suggestion is that boss slowly begins breaking from the power after each miniphase, then finally becomes phase 2 sprite (?)
-
-
+				else if (attackTimer < 900) { //Transition part 1
+					if (attackTimer % 3 == 0 && Main.netMode != NetmodeID.MultiplayerClient) {
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, -800).RotatedBy(MathHelper.ToRadians((attackTimer-520)*2)), Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskitePhaseShot>(), NPC.damage/4+1, 0f, Main.myPlayer);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, 800).RotatedBy(MathHelper.ToRadians((attackTimer-520)*2)), Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskitePhaseShot>(), NPC.damage/4+1, 0f, Main.myPlayer);
+                    }
+                }
+				else if (attackTimer < 1200) { //Transition part 2
+					if (attackTimer % 6 == 0 && attackTimer > 960 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, -800).RotatedByRandom(MathHelper.TwoPi), Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskitePhaseShot>(), NPC.damage/3, 0f, Main.myPlayer, 0.25f);   
+                }
+				else if (attackTimer < 1621) {//Transition part 3
+					float rand = Main.rand.NextFloat(0, 45);
+					if (attackTimer % 120 == 60 && Main.netMode != NetmodeID.MultiplayerClient) for (int x = 0; x < 8; x++) {
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskitePhaseSun>(), NPC.damage/3+2, 0f, Main.myPlayer, x*45+rand);
+                    }
+				}
+				else if (attackTimer < 2201) { //End of transition
+					if (attackTimer == 1800 && Main.netMode != NetmodeID.MultiplayerClient) for (int x = 0; x < 8; x++) {
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(0, 800), Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.ADD.DiskitePhaseSunBig>(), NPC.damage/3+4, 0f, Main.myPlayer, x*45);
+                    }
+					if (attackTimer == 2200) {
+						//END OF TRANSITION phase, drawaura
+                    }
+                }
 				NPC.rotation += MathHelper.ToRadians(attackFloat); //Do whatever you want for the visuals, remove this part if you want. This is just a placeholder since I am not the wacky visual man.
 				SpikeGlobalDrawRotation = NPC.rotation;
 				OrbDrawRotation = -NPC.rotation;

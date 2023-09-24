@@ -810,6 +810,15 @@ Mods: {
 				Tooltip: For use with blowpipes
 			}
 
+			AdamantiteCap: {
+				DisplayName: Adamantite Cap
+				Tooltip:
+					'''
+					Increases your max number of minions by 1
+					Increases summon damage by 8%
+					'''
+			}
+
 			CarnalliteBreastplate: {
 				DisplayName: Carnallite Breastplate
 				Tooltip:
@@ -999,6 +1008,15 @@ Mods: {
 					'It seems to be decades due for a restitching'
 					Decreases mana usage by 7%
 					Increases magic critical strike chance and damage by 4%
+					'''
+			}
+
+			TitaniumCap: {
+				DisplayName: Titanium Cap
+				Tooltip:
+					'''
+					Increases your max number of minions by 1
+					Increases summon damage by 9%
 					'''
 			}
 
@@ -1727,6 +1745,15 @@ Mods: {
 					'''
 			}
 
+			KrakenBlast: {
+				DisplayName: Kraken Blast
+				Tooltip:
+					'''
+					Fires three rounds, the third of which contains a spread of bullets
+					All three rounds consume only one bullet together
+					'''
+			}
+
 			OvergrownHandgunFragment: {
 				DisplayName: Overgrown Handgun Fragment
 				Tooltip: "'Only at 0.1% of its true power'"
@@ -2406,7 +2433,7 @@ Mods: {
 
 			Dreadclawtilus: {
 				DisplayName: Dreadclawtilus
-				Tooltip: Steals life on enemy hits
+				Tooltip: Releases claws on use
 			}
 
 			Eternia2000: {
@@ -3398,6 +3425,9 @@ Mods: {
 			DiskiteBigSun.DisplayName: Solar Blast
 			DiskiteLaser.DisplayName: Sun Ray
 			DiskiteLaserSpeedUp.DisplayName: Sun Ray
+			DiskitePhaseShot.DisplayName: Sun Shot
+			DiskitePhaseSun.DisplayName: Solar Blast
+			DiskitePhaseSunBig.DisplayName: Giant Solar Blast
 			DiskitePremonition.DisplayName: Premonition
 			DiskitePremonition2.DisplayName: Premonition
 			DiskiteXBeam.DisplayName: Solar Bomb
@@ -3413,6 +3443,7 @@ Mods: {
 			Solaris_FlameofHopeHeal.DisplayName: Flame of Hope
 			Dumbell.DisplayName: Dumbell
 			Dumbbell.DisplayName: Dumbbell
+			DreadclawtilusProj.DisplayName: Dreadclawtilus Proj
 		}
 
 		NPCs: {
