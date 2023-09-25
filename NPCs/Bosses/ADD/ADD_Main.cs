@@ -75,18 +75,56 @@ namespace Zylon.NPCs.Bosses.ADD
 		bool attackDone = true;
 		bool introAttackDone;
 		int phase = 1;
+		int angerTimer;
+		int flee;
 		bool transitionSetup;
 		bool drawAura;
 		Vector2 dashVelocity;
 		Vector2 tempVector;
+		Vector2 newVel;
 		Player target;
         public override void AI() {
-			/*if (NPC.CountNPCS(ModContent.NPCType<ADD_Ankh>()) > 0) {
-				NPC.dontTakeDamage = true;
-            }*/
 			NPC.TargetClosest();
 			target = Main.player[NPC.target];
 			ZylonGlobalNPC.diskiteBoss = NPC.whoAmI;
+
+			//enrage code
+			NPC.damage = 33;
+			NPC.defense = 18;
+			if (Main.expertMode) { NPC.damage = 61; }
+			if (Main.masterMode) { NPC.damage = 92; }
+			if (!target.ZoneDesert && !target.ZoneUndergroundDesert && !(phase == 1 && NPC.life <= NPC.lifeMax/2)) {
+				angerTimer++;
+			}
+			else angerTimer = 0;
+			if (angerTimer > 240) {
+				NPC.damage = (int)(NPC.damage*1.5f);
+				NPC.defense = 36;
+            }
+
+			//flee code
+			if (Main.player[NPC.target].statLife < 1) {
+				NPC.TargetClosest(true);
+				if (Main.player[NPC.target].statLife < 1) {
+					//if (flee == 0)
+					flee++;
+				}
+				else if (phase == 1 && NPC.life <= NPC.lifeMax/2 && Vector2.Distance(NPC.Center, Main.player[NPC.target].Center) > 1700) {
+					flee++;
+                }
+				else
+				flee = 0;
+				if (flee > 0) {
+					if (flee == 1) newVel = Vector2.Zero;
+					if (flee % 10 == 0)
+					newVel.Y += 1;
+					NPC.velocity = newVel;
+					if (phase == 1 && NPC.life <= NPC.lifeMax/2) NPC.velocity = Vector2.Zero;
+					if (flee > 300) NPC.active = false;
+					if (flee > 30 && (phase == 1 && NPC.life <= NPC.lifeMax/2)) NPC.active = false;
+					return;
+				}
+			}
 
 			if (phase == 1 && NPC.life <= NPC.lifeMax/2) {
 				NPC.dontTakeDamage = true;

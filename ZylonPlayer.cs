@@ -51,6 +51,9 @@ namespace Zylon
 		public bool glassArmor;
 		public bool bigOlBouquet;
 		public bool searedFlame;
+		public bool neutronHood;
+		public bool neutronJacket;
+		public bool neutronTracers;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -114,6 +117,9 @@ namespace Zylon
 			glassArmor = false;
 			bigOlBouquet = false;
 			searedFlame = false;
+			neutronHood = false;
+			neutronJacket = false;
+			neutronTracers = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -180,6 +186,10 @@ namespace Zylon
 			hitTimer30 -= 1;
 			sojCooldown -= 1;
 		}
+        public override bool CanConsumeAmmo(Item weapon, Item ammo) {
+			if (neutronJacket && Main.rand.NextFloat() < .15f) return false;
+            return true;
+        }
         public override void UpdateEquips() {
             if (GetInstance<ZylonConfig>().bandBuffs) {
 				if (bandofRegen && Player.HasBuff(BuffID.Regeneration))
@@ -241,6 +251,7 @@ namespace Zylon
 			trueMeleeBoost = 1f;
 			if (trueMelee10) trueMeleeBoost += 0.1f;
 			if (trueMelee15) trueMeleeBoost += 0.15f;
+			if (neutronHood) trueMeleeBoost += 0.18f;
 			modifiers.SourceDamage *= trueMeleeBoost;
 
 		}

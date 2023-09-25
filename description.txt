@@ -86,6 +86,11 @@ V0.0.3: Cause to Clash Update
 ~Added Adamantite and Titanium Caps.
 ~Adamantite Breastplate and Titanium Breastplate now increase minion knockback to support the summoner class.
 ~Root Guard now requires Living Branches.
+~All mod potions now stack to 9999.
+~Added the long overdue Neutron Armor.
+~Desert Diskites no longer causes errors.
+~Made Desert Diskites spawn much more often.
+~Added Forgotten Flame, allowing players to summon sandstorms manually.
 note to self: lobera + icy greatblade rework
 
 Credits (from the previous mod versions and now):

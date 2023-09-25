@@ -100,7 +100,7 @@ namespace Zylon.NPCs.Desert
 				NPC.velocity /= 2;*/
         }
 		public override float SpawnChance(NPCSpawnInfo spawnInfo) {
-            return (SpawnCondition.OverworldDayDesert.Chance * 0.9f) + (SpawnCondition.DesertCave.Chance * 0.08f);
+            return (SpawnCondition.OverworldDayDesert.Chance * 2.8f) + (SpawnCondition.DesertCave.Chance * 0.08f);
         }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {

@@ -97,7 +97,7 @@ Mods: {
 
 			ElementalDegeneration: {
 				DisplayName: Elemental Degeneration
-				Description: Burning, freezing, dizziness, weakness... you feel it all!
+				Description: Burning, freezing, weakness... you feel it all!
 			}
 
 			FlashPandemic: {
@@ -278,6 +278,11 @@ Mods: {
 			LeafBracer: {
 				DisplayName: Leaf Bracer
 				Description: Nature is protecting you!
+			}
+
+			BlackHoleCooldown: {
+				DisplayName: Black Hole Cooldown
+				Description: You've ripped up the fabric of the universe enough already!
 			}
 		}
 
@@ -912,6 +917,39 @@ Mods: {
 					'''
 			}
 
+			NeutronHood: {
+				DisplayName: Neutron Hood
+				Tooltip:
+					'''
+					Increases true melee damage by 18%
+					Increases ranged critical strike chance by 12%
+					Decreases mana consumption by 11%
+					Increases minion knockback by 35%
+					'''
+			}
+
+			NeutronJacket: {
+				DisplayName: Neutron Jacket
+				Tooltip:
+					'''
+					Increases melee speed by 12%
+					Gives a 15% chance not to consume ammo
+					Increases max mana by 40
+					Increases your max number of minions by 2
+					'''
+			}
+
+			NeutronTracers: {
+				DisplayName: Neutron Tracers
+				Tooltip:
+					'''
+					Increases melee critical strike chance when in critical condition (up to 13% boost)
+					Increases ranged damage while not moving (20% boost)
+					Increases mana regeneration by 2
+					Increases whip range by 25%
+					'''
+			}
+
 			ShadowstitchedBoots: {
 				DisplayName: Shadowstitched Boots
 				Tooltip:
@@ -1483,9 +1521,8 @@ Mods: {
 				Tooltip:
 					'''
 					Summons the Ancient Diskite Director
-					Can only be used in the desert at night
+					Can only be used in the desert
 					Enrages outside of the desert
-					Flees during the day
 					Not Consumable
 					'''
 			}
@@ -1496,6 +1533,15 @@ Mods: {
 					'''
 					'A suspicious looking eye summons the eye of cthulhu, but what does the eye of cthulhu summon?'
 					Not Consumable
+					'''
+			}
+
+			ForgottenFlame: {
+				DisplayName: Forgotten Flame
+				Tooltip:
+					'''
+					'The final flame of a long-forgotten civilization'
+					Summons a sandstorm in the desert
 					'''
 			}
 
@@ -3444,6 +3490,7 @@ Mods: {
 			Dumbell.DisplayName: Dumbell
 			Dumbbell.DisplayName: Dumbbell
 			DreadclawtilusProj.DisplayName: Dreadclawtilus Proj
+			BlackHole.DisplayName: Black Hole
 		}
 
 		NPCs: {
@@ -3644,6 +3691,11 @@ Mods: {
 				boomerangCamera: {
 					Label: Boomerang Custom Camera Movement
 					Tooltip: Allows certain boomerangs to move the camera when used.
+				}
+
+				blackHoleTownNPC: {
+					Label: Neutron Armor Affects Town NPCs
+					Tooltip: Allows black holes to suck up town NPCs.
 				}
 			}
 		}

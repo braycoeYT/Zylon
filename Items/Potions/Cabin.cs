@@ -21,7 +21,7 @@ namespace Zylon.Items.Potions
 			Item.autoReuse = false;
 			Item.useTurn = true;
 			Item.noMelee = true;
-			Item.maxStack = 99;
+			Item.maxStack = 9999;
 			Item.UseSound = SoundID.Item2;
 			Item.noUseGraphic = true;
 			Item.consumable = true;

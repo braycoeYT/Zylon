@@ -42,11 +42,11 @@ namespace Zylon.Items.Misc
 			Item.shootSpeed = 11f + (7f*potential);
         }
         public override void PreUpdateVanitySet(Player player) {
-            Potential(me);
+            //Potential(me);
         }
         public override void UpdateInventory(Player player) {
             me = player;
-			Potential(me);
+			//Potential(me);
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips) {
 			Potential(me);

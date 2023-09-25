@@ -152,6 +152,31 @@ namespace Zylon.NPCs
 			//if (npc.type == NPCID.Demon || npc.type == NPCID.VoodooDemon) //too similar to nightmare catcher
 			//	npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.BloodContract>(), 50), new CommonDrop(ItemType<Items.Accessories.BloodContract>(), 40)));
 		}
+
+        int Timer;
+		bool prevNoGrav;
+		public override void AI(NPC npc) {
+			if (Timer == 0)
+				prevNoGrav = npc.noGravity; //Trusting my 1.3 self here... bad idea?
+			int projectileCount;
+			for (projectileCount = 0; projectileCount < Main.maxProjectiles; projectileCount++) {
+				if (Main.projectile[projectileCount].active && Main.projectile[projectileCount].type == ProjectileType<Projectiles.BlackHole>()) {
+					if (Vector2.Distance(npc.Center, Main.projectile[projectileCount].Center) < 400 && !npc.boss && (!npc.townNPC || GetInstance<ZylonConfig>().blackHoleTownNPC) && npc.type != NPCID.TargetDummy) {
+						npc.noGravity = true;
+						if (npc.Center.X > Main.projectile[projectileCount].Center.X && npc.velocity.X > -15)
+							npc.velocity.X -= 2;
+						if (npc.Center.X < Main.projectile[projectileCount].Center.X && npc.velocity.X < 15)
+							npc.velocity.X += 2;
+						if (npc.Center.Y > Main.projectile[projectileCount].Center.Y && npc.velocity.Y > -15)
+							npc.velocity.Y -= 2;
+						if (npc.Center.Y < Main.projectile[projectileCount].Center.Y && npc.velocity.Y < 15)
+							npc.velocity.Y += 2;
+					}
+					else npc.noGravity = prevNoGrav;
+				}
+				else npc.noGravity = prevNoGrav;
+			}
+		}
         public override void ModifyGlobalLoot(GlobalLoot globalLoot) {
             //globalLoot.Add(ItemDropRule.ByCondition(new Conditions.WindyEnoughForKiteDrops(), ItemType<Items.Materials.WindEssence>(), 5));
 			globalLoot.Add(ItemDropRule.ByCondition(new Conditions.IsBloodMoonAndNotFromStatue(), ItemType<Items.Materials.BloodDroplet>(), 6));
