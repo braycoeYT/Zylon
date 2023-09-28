@@ -276,7 +276,7 @@ namespace Zylon
 			recipe = Recipe.Create(ItemID.SandstorminaBottle);
 			recipe.AddIngredient(ItemID.Bottle);
 			recipe.AddIngredient(ItemID.SandBlock, 15);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.DiskiteCrumbles>(), 15);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.AdeniteCrumbles>(), 15);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 12);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
@@ -601,7 +601,7 @@ namespace Zylon
 
 			recipe = Recipe.Create(ItemID.SandBoots);
 			recipe.AddIngredient(ItemID.HermesBoots);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.RustedTech>(), 8);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.SearedStone>(), 16);
 			recipe.AddIngredient(ItemID.SandBlock, 12);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
@@ -713,9 +713,7 @@ namespace Zylon
 				if (recipe.HasResult(ItemID.GravediggerShovel))
 					recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 20);
 				if (recipe.HasResult(ItemID.Sandgun))
-					recipe.AddIngredient(ModContent.ItemType<Items.Materials.RustedTech>(), 15);
-				//if (recipe.HasResult(ItemID.MeteorStaff))
-				//	recipe.AddIngredient(ModContent.ItemType<Items.Wands.MeteorHerder>());
+					recipe.AddIngredient(ModContent.ItemType<Items.Materials.SearedStone>(), 18);
 				if (recipe.HasResult(ItemID.EnchantedBoomerang)) {
 					recipe.RemoveIngredient(ItemID.FallenStar);
 					recipe.AddRecipeGroup("IronBar", 5);

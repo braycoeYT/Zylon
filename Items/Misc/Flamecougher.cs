@@ -9,9 +9,6 @@ namespace Zylon.Items.Misc
 {
 	public class Flamecougher : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("UNOBTAINABLE\nCoughs up a ball of cursed flames on use\nUses gel as ammo");
-		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 2);
 			Item.useStyle = ItemUseStyleID.Shoot;
@@ -36,6 +33,14 @@ namespace Zylon.Items.Misc
         }
         public override Vector2? HoldoutOffset() {
 			return new Vector2(-4, 0);
+		}
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddRecipeGroup("IronBar", 8);
+			recipe.AddIngredient(ItemID.Chain, 4);
+			recipe.AddIngredient(ItemID.ShadowScale, 12);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
 		}
 	}
 }

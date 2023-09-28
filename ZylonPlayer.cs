@@ -24,7 +24,6 @@ namespace Zylon
 		public bool gooeySetBonus;
 		public bool bandofZinc;
 		public bool jellyExpert;
-		public bool ADDExpert;
 		public bool diskbringerSet;
 		public bool slimePendant;
 		public bool glazedLens;
@@ -91,7 +90,6 @@ namespace Zylon
 			gooeySetBonus = false;
 			bandofZinc = false;
 			jellyExpert = false;
-			ADDExpert = false;
 			diskbringerSet = false;
 			slimePendant = false;
 			glazedLens = false;
@@ -394,13 +392,13 @@ namespace Zylon
 		public void DiskiteBuffs(int Bufftime, Player player) {
 			switch (Main.rand.Next(3)) {
 				case 0:
-					player.AddBuff(BuffType<Buffs.Armor.DiskiteOffense>(), Bufftime);
+					player.AddBuff(BuffType<Buffs.Armor.AdenebOffense>(), Bufftime);
 					return;
 				case 1:
-					player.AddBuff(BuffType<Buffs.Armor.DiskiteDefense>(), Bufftime);
+					player.AddBuff(BuffType<Buffs.Armor.AdenebDefense>(), Bufftime);
 					return;
 				case 2:
-					player.AddBuff(BuffType<Buffs.Armor.DiskiteAgility>(), Bufftime);
+					player.AddBuff(BuffType<Buffs.Armor.AdenebAgility>(), Bufftime);
 					return;
             }
 		}
@@ -427,7 +425,7 @@ namespace Zylon
 				}
 		}
 		/*public override void OnHitByNPC(NPC npc, int damage, bool crit) {
-            if ((npc.type == NPCType<NPCs.Bosses.ADD.ADD_SpikeRing>() || npc.type == NPCType<NPCs.Bosses.ADD.ADD_Center>()) && !Player.noKnockback) {
+            if ((npc.type == NPCType<NPCs.Bosses.Adeneb.Adeneb_SpikeRing>() || npc.type == NPCType<NPCs.Bosses.Adeneb.Adeneb_Center>()) && !Player.noKnockback) {
 				Vector2 vector1;
 				vector1 = npc.Center - Player.Center;
 				vector1.Normalize();
@@ -435,7 +433,7 @@ namespace Zylon
             }
         }
         public override void OnHitByProjectile(Projectile proj, int damage, bool crit) {
-            if ((proj.type == ProjectileType<Projectiles.Bosses.ADD.ADD_SpikeRingFriendly>()) && !Player.noKnockback) {
+            if ((proj.type == ProjectileType<Projectiles.Bosses.Adeneb.Adeneb_SpikeRingFriendly>()) && !Player.noKnockback) {
 				Vector2 vector1;
 				vector1 = proj.Center - Player.Center;
 				vector1.Normalize();

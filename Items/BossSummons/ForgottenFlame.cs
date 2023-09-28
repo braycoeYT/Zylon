@@ -29,7 +29,7 @@ namespace Zylon.Items.BossSummons
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Sandstone, 8);
 			recipe.AddIngredient(ItemID.AntlionMandible, 2);
-			recipe.AddIngredient(ModContent.ItemType<Materials.DiskiteCrumbles>(), 5);
+			recipe.AddIngredient(ModContent.ItemType<Materials.AdeniteCrumbles>(), 5);
 			recipe.AddIngredient(ItemID.FallenStar);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();

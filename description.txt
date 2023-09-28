@@ -15,6 +15,8 @@ Stats:
 ~Several new prefixes!
 
 V0.0.3: Cause to Clash Update
+~Renamed Desert Diskite to Adenite.
+~Renamed Ancient Desert Diskite to Adeneb.
 ~Fixed Metecore damaging issue.
 ~Removed Test Blowpipes from the mod.
 ~Boss summons no longer stack because of infinite summons.
@@ -39,7 +41,7 @@ V0.0.3: Cause to Clash Update
 ~Resprited Dirt Regalia and Enchanted Dirt Clump.
 ~Enchanted Dirt Clump blocks have been resprited and have more visual effects added to them.
 ~Resprited the Dirt Clump Army buff icon.
-~Resprited the Dirtball and ADD Relic.
+~Resprited the Dirtball and Adeneb Relic.
 ~Resprited Nightmare Catcher.
 ~Improved Nightmare Catchers's visual effects.
 ~Improved visual effects of Volcanic Flame.
@@ -88,9 +90,11 @@ V0.0.3: Cause to Clash Update
 ~Root Guard now requires Living Branches.
 ~All mod potions now stack to 9999.
 ~Added the long overdue Neutron Armor.
-~Desert Diskites no longer causes errors.
-~Made Desert Diskites spawn much more often.
+~Adenites no longer causes errors.
+~Made Adenites (Desert Diskites) spawn much more often.
 ~Added Forgotten Flame, allowing players to summon sandstorms manually.
+~Made Flamecougher obtainable.
+~Removed Rusted Tech (replaced by Seared Stone).
 note to self: lobera + icy greatblade rework
 
 Credits (from the previous mod versions and now):

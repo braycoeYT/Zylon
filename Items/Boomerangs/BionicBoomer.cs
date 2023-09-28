@@ -33,7 +33,7 @@ namespace Zylon.Items.Boomerangs
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddRecipeGroup("IronBar", 9);
-			recipe.AddIngredient(ItemType<Materials.RustedTech>(), 12);
+			recipe.AddRecipeGroup("Zylon:AnyShadowScale", 12);
 			recipe.AddIngredient(ItemID.WoodenBoomerang);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();

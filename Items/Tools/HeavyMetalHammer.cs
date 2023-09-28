@@ -26,7 +26,7 @@ namespace Zylon.Items.Tools
 			recipe.AddIngredient(ItemID.IronHammer);
 			recipe.AddRecipeGroup("IronBar", 8);
 			recipe.AddIngredient(ItemID.Chain, 10);
-			recipe.AddIngredient(ModContent.ItemType<Materials.RustedTech>(), 15);
+			recipe.AddRecipeGroup("Zylon:AnyShadowScale", 5);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
@@ -34,7 +34,7 @@ namespace Zylon.Items.Tools
 			recipe.AddIngredient(ItemID.LeadHammer);
 			recipe.AddRecipeGroup("IronBar", 8);
 			recipe.AddIngredient(ItemID.Chain, 10);
-			recipe.AddIngredient(ModContent.ItemType<Materials.RustedTech>(), 15);
+			recipe.AddRecipeGroup("Zylon:AnyShadowScale", 5);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
@@ -42,7 +42,7 @@ namespace Zylon.Items.Tools
 			recipe.AddIngredient(ModContent.ItemType<ZincHammer>());
 			recipe.AddRecipeGroup("IronBar", 8);
 			recipe.AddIngredient(ItemID.Chain, 10);
-			recipe.AddIngredient(ModContent.ItemType<Materials.RustedTech>(), 15);
+			recipe.AddRecipeGroup("Zylon:AnyShadowScale", 5);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

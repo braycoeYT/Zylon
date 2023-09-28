@@ -20,7 +20,7 @@ Mods: {
 		}
 
 		Buffs: {
-			ADDSpikeRing: {
+			AdenebSpikeRing: {
 				DisplayName: Spike Ring
 				Description: The spike ring will push enemies away from you
 			}
@@ -283,6 +283,21 @@ Mods: {
 			BlackHoleCooldown: {
 				DisplayName: Black Hole Cooldown
 				Description: You've ripped up the fabric of the universe enough already!
+			}
+
+			AdenebAgility: {
+				DisplayName: Adeneb Agility
+				Description: Mods.Zylon.Buffs.AdenebAgility.Description
+			}
+
+			AdenebDefense: {
+				DisplayName: Adeneb Defense
+				Description: Mods.Zylon.Buffs.AdenebDefense.Description
+			}
+
+			AdenebOffense: {
+				DisplayName: Adeneb Offense
+				Description: Mods.Zylon.Buffs.AdenebOffense.Description
 			}
 		}
 
@@ -1146,7 +1161,7 @@ Mods: {
 				Tooltip: ""
 			}
 
-			DesertDiskiteBanner: {
+			AdeniteBanner: {
 				DisplayName: Desert Diskite Banner
 				Tooltip: ""
 			}
@@ -1520,7 +1535,7 @@ Mods: {
 				DisplayName: Enchanted Eye
 				Tooltip:
 					'''
-					Summons the Ancient Diskite Director
+					Summons Adeneb
 					Can only be used in the desert
 					Enrages outside of the desert
 					Not Consumable
@@ -1574,11 +1589,6 @@ Mods: {
 			Dirty3String: {
 				DisplayName: Dirty 3-String
 				Tooltip: Has a low firerate, but fires 1-3 arrows
-			}
-
-			DiskiteCrossbow: {
-				DisplayName: Diskite Crossbow
-				Tooltip: Every third shot is supercharged, causing it to be shot with much higher damage and knockback
 			}
 
 			GoblinArchbow: {
@@ -1637,11 +1647,6 @@ Mods: {
 					'Pinky may cry'
 					Striking the ground produces a shockwave
 					'''
-			}
-
-			DiskiteonaLeash: {
-				DisplayName: Diskite on a Leash
-				Tooltip: Does not collide with tiles and fires lasers at random on use
 			}
 
 			LihzahrdBoulderonaChain: {
@@ -1766,8 +1771,8 @@ Mods: {
 				Tooltip: Fires a spread of bullets
 			}
 
-			DiskanSecurityHandgun: {
-				DisplayName: Diskan Security Handgun
+			AdeniteSecurityHandgun: {
+				DisplayName: Adenite Security Handgun
 				Tooltip: Every third shot is converted to an electric bolt that deals extra damage
 			}
 
@@ -1834,8 +1839,8 @@ Mods: {
 				Tooltip: ""
 			}
 
-			DiskanSecurityElectrifier: {
-				DisplayName: Diskan Security Electrifier
+			AdeniteSecurityElectrifier: {
+				DisplayName: Adenite Security Electrifier
 				Tooltip: Every third shot fires a bolt that explodes into electricity
 			}
 
@@ -1878,9 +1883,9 @@ Mods: {
 				Tooltip: "'Crunchy!'"
 			}
 
-			DiskiteCrumbles: {
-				DisplayName: Diskite Crumbles
-				Tooltip: "'It seems to be made of something familiar, but you can't tell what...'"
+			AdeniteCrumbles: {
+				DisplayName: Adenite Crumbles
+				Tooltip: ""
 			}
 
 			EerieBell: {
@@ -1991,11 +1996,6 @@ Mods: {
 				Tooltip: "'Resembles cotton candy, but tastes like cold air.'"
 			}
 
-			DiskiteStaff: {
-				DisplayName: Diskite Staff
-				Tooltip: Summons a desert diskite to fight for you
-			}
-
 			GlowingMushtopStaff: {
 				DisplayName: Glowing Mushtop Staff
 				Tooltip: Summons a glowing mushtop to fight for you
@@ -2085,7 +2085,6 @@ Mods: {
 				DisplayName: Flamecougher
 				Tooltip:
 					'''
-					UNOBTAINABLE
 					Coughs up a ball of cursed flames on use
 					Uses gel as ammo
 					'''
@@ -2136,11 +2135,6 @@ Mods: {
 				Tooltip: Summons the one and only Dirtboi to follow you
 			}
 
-			DiskiteDrive: {
-				DisplayName: Diskite Drive
-				Tooltip: Summons a mini diskling to follow you
-			}
-
 			DS_91Controller: {
 				DisplayName: DS-91 Controller
 				Tooltip: Summons a forgetten and malfunctioning model of drone servant to follow you
@@ -2179,8 +2173,8 @@ Mods: {
 				Tooltip: ""
 			}
 
-			ADDRelic: {
-				DisplayName: Ancient Diskite Director Relic
+			AdenebRelic: {
+				DisplayName: Adeneb Relic
 				Tooltip: ""
 			}
 
@@ -2199,8 +2193,8 @@ Mods: {
 				Tooltip: ""
 			}
 
-			ADDTrophy: {
-				DisplayName: Ancient Desert Diskite Trophy
+			AdenebTrophy: {
+				DisplayName: Adeneb Trophy
 				Tooltip: ""
 			}
 
@@ -2325,17 +2319,6 @@ Mods: {
 					Right click to switch between legacy and modern modes
 					Slain enemies explode into eight shade orbs
 					In legacy mode, stats are buffed and twelve orbs are released
-					'''
-			}
-
-			EmeraldFalcon: {
-				DisplayName: Emerald Falcon
-				Tooltip:
-					'''
-					'Better than the diamond sword!'
-					Right click to switch between legacy and modern modes
-					Fires an emerald wave on every fifth stab
-					In legacy mode, emerald waves chase enemies
 					'''
 			}
 
@@ -2472,8 +2455,8 @@ Mods: {
 					'''
 			}
 
-			DiskanSecurityBlade: {
-				DisplayName: Diskan Security Blade
+			AdeniteSecurityBlade: {
+				DisplayName: Adenite Security Blade
 				Tooltip: Every third swing releases an electric bolt
 			}
 
@@ -2806,8 +2789,8 @@ Mods: {
 				Tooltip: ""
 			}
 
-			ADDMask: {
-				DisplayName: Ancient Desert Diskite Mask
+			AdenebMask: {
+				DisplayName: Adeneb Mask
 				Tooltip: ""
 			}
 
@@ -3115,6 +3098,11 @@ Mods: {
 					True melee hits and Venom Fangs inflict Acid Venom
 					'''
 			}
+
+			AdeniteShrapnel: {
+				Tooltip: ""
+				DisplayName: Adenite Shrapnel
+			}
 		}
 
 		Projectiles: {
@@ -3215,17 +3203,6 @@ Mods: {
 			XBlade.DisplayName: X-Blade
 			XBlade_NoName.DisplayName: No Name
 			XBlade_OrbofLight.DisplayName: Orb of Light
-			ADD_LaserEye.DisplayName: Ancient Desert Diskite
-			ADD_SpikeRingFriendly.DisplayName: Spike Ring
-			ADDLaser.DisplayName: Diskite Laser
-			ADDLaser2.DisplayName: Diskite Laser
-			ADDLaser3.DisplayName: Diskite Laser
-			ADDLaser4.DisplayName: Diskite Laser
-			ADDSandBall.DisplayName: Sand Ball
-			ADDZap.DisplayName: Electric Orb
-			ADDZapChase.DisplayName: Diskite Zap
-			DiskiteShrapnelHostile.DisplayName: Diskite Shrapnel
-			ElectricalEntity.DisplayName: Electrical Entity
 			DBoiSpirit.DisplayName: Small Forest Spirit
 			DBSpirit.DisplayName: Forest Spirit
 			DirtBallHostile.DisplayName: Dirt Ball
@@ -3265,7 +3242,7 @@ Mods: {
 			CursedFlamesMelee.DisplayName: Cursed Flames
 			DirtGlobFriendly.DisplayName: Dirt Glob
 			ElectricBoltPassive.DisplayName: Electric Bolt
-			DesertDiskite_LaserEye.DisplayName: Desert Diskite
+			Adenite_LaserEye.DisplayName: Desert Diskite
 			ElemSlimeBlob.DisplayName: Elemental Slime Blob
 			ElemSlimeOrb.DisplayName: Elemental Slime Orb
 			ElemSlimeSpike.DisplayName: Elemental Slime Spike
@@ -3469,8 +3446,8 @@ Mods: {
 			SpiderEggInvis.DisplayName: Spider Egg
 			VenomFangMelee.DisplayName: Venom Fang
 			DiskiteBigSun.DisplayName: Solar Blast
-			DiskiteLaser.DisplayName: Sun Ray
-			DiskiteLaserSpeedUp.DisplayName: Sun Ray
+			AdenebLaserSpeedUp.DisplayName: Sun Ray
+			AdenebLaser.DisplayName: Adeneb Laser
 			DiskitePhaseShot.DisplayName: Sun Shot
 			DiskitePhaseSun.DisplayName: Solar Blast
 			DiskitePhaseSunBig.DisplayName: Giant Solar Blast
@@ -3491,14 +3468,22 @@ Mods: {
 			Dumbbell.DisplayName: Dumbbell
 			DreadclawtilusProj.DisplayName: Dreadclawtilus Proj
 			BlackHole.DisplayName: Black Hole
+			AdenebBigSun.DisplayName: Adeneb Big Sun
+			AdenebPhaseShot.DisplayName: Adeneb Phase Shot
+			AdenebPhaseSun.DisplayName: Adeneb Phase Sun
+			AdenebPhaseSunBig.DisplayName: Adeneb Phase Sun Big
+			AdenebPremonition.DisplayName: Adeneb Premonition
+			AdenebPremonition2.DisplayName: Adeneb Premonition2
+			AdenebXBeam.DisplayName: Adeneb X Beam
+			AdeniteShrapnel.DisplayName: Adenite Shrapnel
 		}
 
 		NPCs: {
-			ADD_Main: {
-				DisplayName: Ancient Desert Diskite
+			Adeneb: {
+				DisplayName: Adeneb
 
 				BossChecklistIntegration: {
-					EntryName: Ancient Diskite Director
+					EntryName: Adeneb
 					SpawnInfo: Use a [i:Zylon/EnchantedEye] in the desert
 				}
 			}
@@ -3547,9 +3532,9 @@ Mods: {
 			VeinTunnelerBody.DisplayName: Vein Tunneler
 			VeinTunnelerHead.DisplayName: Vein Tunneler
 			VeinTunnelerTail.DisplayName: Vein Tunneler
-			DesertDiskite_Center.DisplayName: Desert Diskite
-			DesertDiskite_LaserEye.DisplayName: Desert Diskite
-			DesertDiskite_SpikeRing.DisplayName: Desert Diskite
+			Adenite_Center.DisplayName: Desert Diskite
+			Adenite_LaserEye.DisplayName: Desert Diskite
+			Adenite_SpikeRing.DisplayName: Desert Diskite
 			DustbowlGigaslime.DisplayName: Dustbowl Gigaslime
 			BoneSlime.DisplayName: Bone Slime
 			ElemSlime.DisplayName: Elem Slime
@@ -3589,7 +3574,7 @@ Mods: {
 			}
 
 			WindElemental.DisplayName: Wind Elemental
-			DesertDiskite_CenterDeco.DisplayName: Desert Diskite_ Center Deco
+			Adenite_CenterDeco.DisplayName: Desert Diskite_ Center Deco
 			SaplingWarrior.DisplayName: Sapling Warrior
 			StarpackSlime.DisplayName: Starpack Slime
 		}

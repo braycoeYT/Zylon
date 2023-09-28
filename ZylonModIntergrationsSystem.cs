@@ -94,22 +94,22 @@ namespace Zylon
 			);
 
 
-			internalName = "ADD_Main";
+			internalName = "Adeneb";
 			weight = 4.5f;
-			downed = () => ZylonWorldCheckSystem.downedADD;
-			bossType = ModContent.NPCType<NPCs.Bosses.ADD.ADD_Main>();
+			downed = () => ZylonWorldCheckSystem.downedAdeneb;
+			bossType = ModContent.NPCType<NPCs.Bosses.Adeneb.Adeneb>();
 			spawnItem = ModContent.ItemType<Items.BossSummons.EnchantedEye>();
 			collectibles = new List<int>()
 			{
-				ModContent.ItemType<Items.Placeables.Relics.ADDRelic>(),
-				ModContent.ItemType<Items.Pets.DiskiteDrive>(),
+				ModContent.ItemType<Items.Placeables.Relics.AdenebRelic>(),
+				//ModContent.ItemType<Items.Pets.DiskiteDrive>(),
 				//ModContent.ItemType<Items.Accessories.>(),
-				//ModContent.ItemType<Items.Placeables.Trophies.ADDTrophy>(),
-				ModContent.ItemType<Items.Vanity.ADDMask>(),
+				//ModContent.ItemType<Items.Placeables.Trophies.AdenebTrophy>(),
+				ModContent.ItemType<Items.Vanity.AdenebMask>(),
 				ModContent.ItemType<Items.Vanity.PolandballMask>()
 			};
 			customPortrait = (SpriteBatch sb, Rectangle rect, Color color) => {
-				Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/ADD/ADD_Bestiary").Value;
+				Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Adeneb/Adeneb_Bestiary").Value;
 				Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
 				sb.Draw(texture, centered, color);
 			};

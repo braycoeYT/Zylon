@@ -12,7 +12,7 @@ namespace Zylon.NPCs
 	public class ZylonGlobalNPC : GlobalNPC
 	{
 		public override bool InstancePerEntity => true;
-		public static int diskiteBoss = -1;
+		public static int adenebBoss = -1;
 		public static int dirtballBoss = -1;
 		public static int metelordBoss = -1;
         public override void HitEffect(NPC npc, NPC.HitInfo hit) {
