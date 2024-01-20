@@ -64,8 +64,6 @@ namespace Zylon.NPCs.WindyDay
 					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.RainCloud, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2), 0, default, 2f);
 					dust.noGravity = true;
 				}
-				//for (int j = 0; j < 6; j++) Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-6, 6)), ModContent.GoreType<Gores.Bosses.ADD.SpikeRingDeath>());
-				//Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-2, 2), 0), ModContent.GoreType<Gores.Enemies.DesertDiskiteGore>());
 			}
 		}
 		int Timer;

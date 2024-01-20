@@ -12,7 +12,7 @@ Mods: {
 				LoveBiome: Wow, {BiomeName} is full of farmable enemies! I'm going to get so much XP!
 				DislikeBiome: I think {BiomeName} is too underleveled for me to train properly.
 				HateBiome: "{BiomeName} has the most annoying enemies imaginable!"
-				LikeNPC: I like {NPCName}'s guts!
+				LikeNPC: I like {NPCName}'s guts stat!
 				LoveNPC: "{NPCName}'s violent tendencies would make them a great party member!"
 				DislikeNPC: "{NPCName} is too pacifist-like!"
 				HateNPC: I think {NPCName} is the antagonist of this adventure!
@@ -20,7 +20,7 @@ Mods: {
 		}
 
 		Buffs: {
-			ADDSpikeRing: {
+			AdenebSpikeRing: {
 				DisplayName: Spike Ring
 				Description: The spike ring will push enemies away from you
 			}
@@ -97,7 +97,7 @@ Mods: {
 
 			ElementalDegeneration: {
 				DisplayName: Elemental Degeneration
-				Description: Burning, freezing, dizziness, weakness... you feel it all!
+				Description: Burning, freezing, weakness... you feel it all!
 			}
 
 			FlashPandemic: {
@@ -123,6 +123,11 @@ Mods: {
 			OutofBreath: {
 				DisplayName: Out of Breath
 				Description: You can't breathe!
+			}
+
+			SearedFlame: {
+				DisplayName: Seared Flame
+				Description: The world is burning around you!
 			}
 
 			Shroomed: {
@@ -273,6 +278,26 @@ Mods: {
 			LeafBracer: {
 				DisplayName: Leaf Bracer
 				Description: Nature is protecting you!
+			}
+
+			BlackHoleCooldown: {
+				DisplayName: Black Hole Cooldown
+				Description: You've ripped up the fabric of the universe enough already!
+			}
+
+			AdenebAgility: {
+				DisplayName: Adeneb Agility
+				Description: Mods.Zylon.Buffs.AdenebAgility.Description
+			}
+
+			AdenebDefense: {
+				DisplayName: Adeneb Defense
+				Description: Mods.Zylon.Buffs.AdenebDefense.Description
+			}
+
+			AdenebOffense: {
+				DisplayName: Adeneb Offense
+				Description: Mods.Zylon.Buffs.AdenebOffense.Description
 			}
 		}
 
@@ -805,6 +830,15 @@ Mods: {
 				Tooltip: For use with blowpipes
 			}
 
+			AdamantiteCap: {
+				DisplayName: Adamantite Cap
+				Tooltip:
+					'''
+					Increases your max number of minions by 1
+					Increases summon damage by 8%
+					'''
+			}
+
 			CarnalliteBreastplate: {
 				DisplayName: Carnallite Breastplate
 				Tooltip:
@@ -895,6 +929,39 @@ Mods: {
 					'''
 					Increases maximum mana by 40
 					Reduces mana usage by 8%
+					'''
+			}
+
+			NeutronHood: {
+				DisplayName: Neutron Hood
+				Tooltip:
+					'''
+					Increases true melee damage by 18%
+					Increases ranged critical strike chance by 12%
+					Decreases mana consumption by 11%
+					Increases minion knockback by 35%
+					'''
+			}
+
+			NeutronJacket: {
+				DisplayName: Neutron Jacket
+				Tooltip:
+					'''
+					Increases melee speed by 12%
+					Gives a 15% chance not to consume ammo
+					Increases max mana by 40
+					Increases your max number of minions by 2
+					'''
+			}
+
+			NeutronTracers: {
+				DisplayName: Neutron Tracers
+				Tooltip:
+					'''
+					Increases melee critical strike chance when in critical condition (up to 13% boost)
+					Increases ranged damage while not moving (20% boost)
+					Increases mana regeneration by 2
+					Increases whip range by 25%
 					'''
 			}
 
@@ -997,6 +1064,15 @@ Mods: {
 					'''
 			}
 
+			TitaniumCap: {
+				DisplayName: Titanium Cap
+				Tooltip:
+					'''
+					Increases your max number of minions by 1
+					Increases summon damage by 9%
+					'''
+			}
+
 			WindWalkerBoots: {
 				DisplayName: Wind Walker Boots
 				Tooltip:
@@ -1085,7 +1161,7 @@ Mods: {
 				Tooltip: ""
 			}
 
-			DesertDiskiteBanner: {
+			AdeniteBanner: {
 				DisplayName: Desert Diskite Banner
 				Tooltip: ""
 			}
@@ -1317,7 +1393,11 @@ Mods: {
 
 			Barfarang: {
 				DisplayName: Barfarang
-				Tooltip: ""
+				Tooltip:
+					'''
+					Hold down to charge boomerang throw
+					Camera movement can be changed in the config
+					'''
 			}
 
 			BionicBoomer: {
@@ -1341,7 +1421,12 @@ Mods: {
 
 			Cactirang: {
 				DisplayName: Cactirang
-				Tooltip: Spawns damaging prickly pears on critical strikes
+				Tooltip:
+					'''
+					Hold down to charge boomerang throw
+					Spawns damaging prickly pears on critical strikes
+					Camera movement can be changed in the config
+					'''
 			}
 
 			FireandIce: {
@@ -1349,8 +1434,32 @@ Mods: {
 				Tooltip:
 					'''
 					'Hell's frozen over!'
+					Hold down to charge boomerang throw
 					Struck enemies are inflicted with On Fire and Frostburn
 					Before returning, releases several ice and fire balls
+					Camera movement can be changed in the config
+					'''
+			}
+
+			Iblis: {
+				DisplayName: Iblis
+				Tooltip:
+					'''
+					Sticks to enemies after striking them
+					Explodes into a barrage of burning rock after striking a tile or sticking to enemies
+					You can rethrow while stuck Iblises are still active
+					Hits have a chance to confuse enemies
+					'''
+			}
+
+			Mephiles: {
+				DisplayName: Mephiles
+				Tooltip:
+					'''
+					'Dance, my shadows, dance!'
+					On use, creates shadow replicas to assist you
+					Replicas get stuck in enemies after hitting them
+					After getting stuck, replicas create a piercing explosion
 					'''
 			}
 
@@ -1358,9 +1467,9 @@ Mods: {
 				DisplayName: Pentagram
 				Tooltip:
 					'''
-
 					'100% satanic!'
 					Splits into five after striking an enemy
+					Can be rethrown while split pentagrams are still active
 					'''
 			}
 
@@ -1373,12 +1482,30 @@ Mods: {
 					'''
 			}
 
+			Solaris: {
+				DisplayName: Solaris
+				Tooltip:
+					'''
+					'Contains a fragment of the Sun God's power'
+					After striking a foe, sometimes spawns several shots to pierce enemies
+					Has a 15% chance to get stuck in enemies after hitting them
+					The original projectile is not destroyed after getting stuck, but can only get stuck twice in one throw
+					Explodes after getting stuck, releasing powerful Flames of Hope
+					Collect green Flames of Hope to recover a small amount of health
+					'''
+			}
+
+			SolChakram: {
+				DisplayName: Sol Chakram
+				Tooltip: Splits into two mini chakrams after being thrown
+			}
+
 			XBlade: {
 				DisplayName: X-Blade
 				Tooltip:
 					'''
 					UNOBTAINABLE: Planned to be PML
-					'Pronounced keyblade, but it wouldn't save the curly x letter' - some old coot
+					'Pronounced keyblade, but it wouldn't save the curly X letter' - Some old coot
 					Hits have a chance to spawn either thirteen No Names to pierce enemies, or seven healing orbs that chase the player
 					'''
 			}
@@ -1408,10 +1535,9 @@ Mods: {
 				DisplayName: Enchanted Eye
 				Tooltip:
 					'''
-					Summons the Ancient Diskite Director
-					Can only be used in the desert at night
+					Summons Adeneb
+					Can only be used in the desert
 					Enrages outside of the desert
-					Flees during the day
 					Not Consumable
 					'''
 			}
@@ -1422,6 +1548,15 @@ Mods: {
 					'''
 					'A suspicious looking eye summons the eye of cthulhu, but what does the eye of cthulhu summon?'
 					Not Consumable
+					'''
+			}
+
+			ForgottenFlame: {
+				DisplayName: Forgotten Flame
+				Tooltip:
+					'''
+					'The final flame of a long-forgotten civilization'
+					Summons a sandstorm in the desert
 					'''
 			}
 
@@ -1456,11 +1591,6 @@ Mods: {
 				Tooltip: Has a low firerate, but fires 1-3 arrows
 			}
 
-			DiskiteCrossbow: {
-				DisplayName: Diskite Crossbow
-				Tooltip: Every third shot is supercharged, causing it to be shot with much higher damage and knockback
-			}
-
 			GoblinArchbow: {
 				DisplayName: Goblin Archbow
 				Tooltip: Fires four arrows in quick succession, only consuming one ammo
@@ -1473,11 +1603,7 @@ Mods: {
 
 			Sightseer: {
 				DisplayName: Sightseer
-				Tooltip:
-					'''
-					'So much to see... so little time.'
-					The eyes will alternate firing cursed flames and lasers with you
-					'''
+				Tooltip: The eyes will alternate firing cursed flames and lasers with you
 			}
 
 			Slimeshooter: {
@@ -1521,11 +1647,6 @@ Mods: {
 					'Pinky may cry'
 					Striking the ground produces a shockwave
 					'''
-			}
-
-			DiskiteonaLeash: {
-				DisplayName: Diskite on a Leash
-				Tooltip: Does not collide with tiles and fires lasers at random on use
 			}
 
 			LihzahrdBoulderonaChain: {
@@ -1650,8 +1771,8 @@ Mods: {
 				Tooltip: Fires a spread of bullets
 			}
 
-			DiskanSecurityHandgun: {
-				DisplayName: Diskan Security Handgun
+			AdeniteSecurityHandgun: {
+				DisplayName: Adenite Security Handgun
 				Tooltip: Every third shot is converted to an electric bolt that deals extra damage
 			}
 
@@ -1672,6 +1793,15 @@ Mods: {
 					'Grave robbing for morons'
 					Replaces ammo with spirit bullets
 					Hitting enemies will give you the 'Gravely Powers' buff, which increases your life regen
+					'''
+			}
+
+			KrakenBlast: {
+				DisplayName: Kraken Blast
+				Tooltip:
+					'''
+					Fires three rounds, the third of which contains a spread of bullets
+					All three rounds consume only one bullet together
 					'''
 			}
 
@@ -1709,8 +1839,8 @@ Mods: {
 				Tooltip: ""
 			}
 
-			DiskanSecurityElectrifier: {
-				DisplayName: Diskan Security Electrifier
+			AdeniteSecurityElectrifier: {
+				DisplayName: Adenite Security Electrifier
 				Tooltip: Every third shot fires a bolt that explodes into electricity
 			}
 
@@ -1753,9 +1883,9 @@ Mods: {
 				Tooltip: "'Crunchy!'"
 			}
 
-			DiskiteCrumbles: {
-				DisplayName: Diskite Crumbles
-				Tooltip: "'It seems to be made of something familiar, but you can't tell what...'"
+			AdeniteCrumbles: {
+				DisplayName: Adenite Crumbles
+				Tooltip: ""
 			}
 
 			EerieBell: {
@@ -1866,11 +1996,6 @@ Mods: {
 				Tooltip: "'Resembles cotton candy, but tastes like cold air.'"
 			}
 
-			DiskiteStaff: {
-				DisplayName: Diskite Staff
-				Tooltip: Summons a desert diskite to fight for you
-			}
-
 			GlowingMushtopStaff: {
 				DisplayName: Glowing Mushtop Staff
 				Tooltip: Summons a glowing mushtop to fight for you
@@ -1928,6 +2053,7 @@ Mods: {
 					'''
 					'You feel as if you can hear a hundred spirits cry around you'
 					A medium explosion that will not destroy tiles
+					Explosions can damage players
 					'''
 			}
 
@@ -1945,11 +2071,20 @@ Mods: {
 					'''
 			}
 
+			Dumbbell: {
+				DisplayName: Dumbbell
+				Tooltip:
+					'''
+					'They said this would help me work out my anger, but I don't think this is what they meant!'
+					Damage, knockback, and throwing speed are based on your defense
+					Inventory stats are updated accurately after item use
+					'''
+			}
+
 			Flamecougher: {
 				DisplayName: Flamecougher
 				Tooltip:
 					'''
-					UNOBTAINABLE
 					Coughs up a ball of cursed flames on use
 					Uses gel as ammo
 					'''
@@ -2000,11 +2135,6 @@ Mods: {
 				Tooltip: Summons the one and only Dirtboi to follow you
 			}
 
-			DiskiteDrive: {
-				DisplayName: Diskite Drive
-				Tooltip: Summons a mini diskling to follow you
-			}
-
 			DS_91Controller: {
 				DisplayName: DS-91 Controller
 				Tooltip: Summons a forgetten and malfunctioning model of drone servant to follow you
@@ -2043,8 +2173,8 @@ Mods: {
 				Tooltip: ""
 			}
 
-			ADDRelic: {
-				DisplayName: Ancient Diskite Director Relic
+			AdenebRelic: {
+				DisplayName: Adeneb Relic
 				Tooltip: ""
 			}
 
@@ -2063,8 +2193,8 @@ Mods: {
 				Tooltip: ""
 			}
 
-			ADDTrophy: {
-				DisplayName: Ancient Desert Diskite Trophy
+			AdenebTrophy: {
+				DisplayName: Adeneb Trophy
 				Tooltip: ""
 			}
 
@@ -2189,17 +2319,6 @@ Mods: {
 					Right click to switch between legacy and modern modes
 					Slain enemies explode into eight shade orbs
 					In legacy mode, stats are buffed and twelve orbs are released
-					'''
-			}
-
-			EmeraldFalcon: {
-				DisplayName: Emerald Falcon
-				Tooltip:
-					'''
-					'Better than the diamond sword!'
-					Right click to switch between legacy and modern modes
-					Fires an emerald wave on every fifth stab
-					In legacy mode, emerald waves chase enemies
 					'''
 			}
 
@@ -2336,14 +2455,14 @@ Mods: {
 					'''
 			}
 
-			DiskanSecurityBlade: {
-				DisplayName: Diskan Security Blade
+			AdeniteSecurityBlade: {
+				DisplayName: Adenite Security Blade
 				Tooltip: Every third swing releases an electric bolt
 			}
 
 			Dreadclawtilus: {
 				DisplayName: Dreadclawtilus
-				Tooltip: Steals life on enemy hits
+				Tooltip: Releases claws on use
 			}
 
 			Eternia2000: {
@@ -2365,10 +2484,11 @@ Mods: {
 				DisplayName: Forgotten Rose's Saber
 				Tooltip:
 					'''
-					'The forgotten rose's bloom will be others' doom!'
-					Swings release a blossomed rose
+					'Its bloom will be your doom!'
+					Every other swing releases a blossomed rose
 					Blossomed roses release spore clouds after stopping
-					Every third swing also releases a ring of roses
+					Every third blossomed rose instead releases a ring of roses
+					True melee strikes summon more mini roses to attack foes
 					'''
 			}
 
@@ -2669,8 +2789,8 @@ Mods: {
 				Tooltip: ""
 			}
 
-			ADDMask: {
-				DisplayName: Ancient Desert Diskite Mask
+			AdenebMask: {
+				DisplayName: Adeneb Mask
 				Tooltip: ""
 			}
 
@@ -2978,6 +3098,11 @@ Mods: {
 					True melee hits and Venom Fangs inflict Acid Venom
 					'''
 			}
+
+			AdeniteShrapnel: {
+				Tooltip: ""
+				DisplayName: Adenite Shrapnel
+			}
 		}
 
 		Projectiles: {
@@ -3067,6 +3192,10 @@ Mods: {
 			FireandIce.DisplayName: Fire and Ice
 			FireandIce_1.DisplayName: Ball of Frost
 			FireandIce_2.DisplayName: Ball of Fire
+			Mephiles.DisplayName: Mephiles
+			Mephiles_Shadow.DisplayName: Mephiles
+			Mephiles_ShadowStick.DisplayName: Mephiles
+			Mephiles_ShadowExplosion.DisplayName: Mephiles
 			Mecharang.DisplayName: Mecharang
 			Pentagram.DisplayName: Pentagram
 			Pentagram_2.DisplayName: Pentagram
@@ -3074,17 +3203,6 @@ Mods: {
 			XBlade.DisplayName: X-Blade
 			XBlade_NoName.DisplayName: No Name
 			XBlade_OrbofLight.DisplayName: Orb of Light
-			ADD_LaserEye.DisplayName: Ancient Desert Diskite
-			ADD_SpikeRingFriendly.DisplayName: Spike Ring
-			ADDLaser.DisplayName: Diskite Laser
-			ADDLaser2.DisplayName: Diskite Laser
-			ADDLaser3.DisplayName: Diskite Laser
-			ADDLaser4.DisplayName: Diskite Laser
-			ADDSandBall.DisplayName: Sand Ball
-			ADDZap.DisplayName: Electric Orb
-			ADDZapChase.DisplayName: Diskite Zap
-			DiskiteShrapnelHostile.DisplayName: Diskite Shrapnel
-			ElectricalEntity.DisplayName: Electrical Entity
 			DBoiSpirit.DisplayName: Small Forest Spirit
 			DBSpirit.DisplayName: Forest Spirit
 			DirtBallHostile.DisplayName: Dirt Ball
@@ -3124,7 +3242,7 @@ Mods: {
 			CursedFlamesMelee.DisplayName: Cursed Flames
 			DirtGlobFriendly.DisplayName: Dirt Glob
 			ElectricBoltPassive.DisplayName: Electric Bolt
-			DesertDiskite_LaserEye.DisplayName: Desert Diskite
+			Adenite_LaserEye.DisplayName: Desert Diskite
 			ElemSlimeBlob.DisplayName: Elemental Slime Blob
 			ElemSlimeOrb.DisplayName: Elemental Slime Orb
 			ElemSlimeSpike.DisplayName: Elemental Slime Spike
@@ -3318,40 +3436,65 @@ Mods: {
 			MetecoreFireball.DisplayName: Metecore Fireball
 			MetecoreMain.DisplayName: Metecore
 			MetecoreSpirit.DisplayName: Metecore Spirit
-			MeteoragaBlast.DisplayName: Meteoraga Blast
-			MeteoragaBlastFireball.DisplayName: Meteoraga Blast Fireball
+			MeteoragaBlast.DisplayName: Meteoraga
+			MeteoragaBlastFireball.DisplayName: Meteoraga
 			GlassShard.DisplayName: Glass Shard
-			SpearofJustice.DisplayName: Spearof Justice
-			SpearofJusticeClone.DisplayName: Spearof Justice Clone
+			SpearofJustice.DisplayName: Spear of Justice
+			SpearofJusticeClone.DisplayName: Spear of Justice
 			MiniRose2.DisplayName: Mini Rose2
 			SpiderEgg.DisplayName: Spider Egg
-			SpiderEggInvis.DisplayName: Spider Egg Invis
-			VenomFangMelee.DisplayName: Venom Fang Melee
-			DiskiteBigSun.DisplayName: Diskite Big Sun
-			DiskiteLaser.DisplayName: Diskite Laser
-			DiskiteLaserSpeedUp.DisplayName: Diskite Laser Speed Up
-			DiskitePremonition.DisplayName: Diskite Premonition
-			DiskitePremonition2.DisplayName: Diskite Premonition2
-			DiskiteXBeam.DisplayName: Diskite X Beam
+			SpiderEggInvis.DisplayName: Spider Egg
+			VenomFangMelee.DisplayName: Venom Fang
+			DiskiteBigSun.DisplayName: Solar Blast
+			AdenebLaserSpeedUp.DisplayName: Sun Ray
+			AdenebLaser.DisplayName: Adeneb Laser
+			DiskitePhaseShot.DisplayName: Sun Shot
+			DiskitePhaseSun.DisplayName: Solar Blast
+			DiskitePhaseSunBig.DisplayName: Giant Solar Blast
+			DiskitePremonition.DisplayName: Premonition
+			DiskitePremonition2.DisplayName: Premonition
+			DiskiteXBeam.DisplayName: Solar Bomb
+			SolChakram.DisplayName: Sol Chakram
+			Iblis.DisplayName: Iblis
+			Iblis_Rock.DisplayName: Iblis Rock
+			Iblis_Stick.DisplayName: Iblis Stick
+			SolChakram_Mini.DisplayName: Mini Sol Chakram
+			Solaris.DisplayName: Solaris
+			Solaris_Shot.DisplayName: Solaris
+			Solaris_Stick.DisplayName: Solaris
+			Solaris_FlameofHope.DisplayName: Flame of Hope
+			Solaris_FlameofHopeHeal.DisplayName: Flame of Hope
+			Dumbell.DisplayName: Dumbell
+			Dumbbell.DisplayName: Dumbbell
+			DreadclawtilusProj.DisplayName: Dreadclawtilus Proj
+			BlackHole.DisplayName: Black Hole
+			AdenebBigSun.DisplayName: Adeneb Big Sun
+			AdenebPhaseShot.DisplayName: Adeneb Phase Shot
+			AdenebPhaseSun.DisplayName: Adeneb Phase Sun
+			AdenebPhaseSunBig.DisplayName: Adeneb Phase Sun Big
+			AdenebPremonition.DisplayName: Adeneb Premonition
+			AdenebPremonition2.DisplayName: Adeneb Premonition2
+			AdenebXBeam.DisplayName: Adeneb X Beam
+			AdeniteShrapnel.DisplayName: Adenite Shrapnel
 		}
 
 		NPCs: {
-			ADD_Center: {
-				DisplayName: Ancient Diskite Director
-				BossChecklistIntegration.SpawnInfo: Use a [i:5688] in the desert at night
-			}
+			Adeneb: {
+				DisplayName: Adeneb
 
-			ADD_LaserEye.DisplayName: Ancient Diskite Director
-			ADD_LaserEye2.DisplayName: Ancient Diskite Director
-			ADD_Setup.DisplayName: Ancient Diskite Director
-			ADD_SideBottom.DisplayName: Ancient Diskite Director
-			ADD_SideTop.DisplayName: Ancient Diskite Director
-			ADD_SpikeRing.DisplayName: Ancient Diskite Director
-			SupportDiskite.DisplayName: Support Diskite
+				BossChecklistIntegration: {
+					EntryName: Adeneb
+					SpawnInfo: Use a [i:Zylon/EnchantedEye] in the desert
+				}
+			}
 
 			Dirtball: {
 				DisplayName: Dirtball
-				BossChecklistIntegration.SpawnInfo: Use a [i:5686]
+
+				BossChecklistIntegration: {
+					EntryName: Dirtball
+					SpawnInfo: Use a [i:Zylon/CreepyMud] anywhere
+				}
 			}
 
 			DirtBlock.DisplayName: Dirt Block
@@ -3362,7 +3505,11 @@ Mods: {
 
 			EldritchJellyfish: {
 				DisplayName: Eldritch Jellyfish
-				BossChecklistIntegration.SpawnInfo: Use a [i:5687] in the ocean
+
+				BossChecklistIntegration: {
+					EntryName: Eldritch Jellyfish
+					SpawnInfo: Use a [i:Zylon/EldritchBell] in the ocean
+				}
 			}
 
 			ExplosiveEerieJellyfish.DisplayName: Explosive Eerie Jellyfish
@@ -3370,7 +3517,11 @@ Mods: {
 
 			MetelordHead: {
 				DisplayName: Metelord
-				BossChecklistIntegration.SpawnInfo: Use a [i:5691] in the Meteorite biome
+
+				BossChecklistIntegration: {
+					EntryName: Metelord
+					SpawnInfo: Use a [i:Zylon/StarstruckMeteorChunk] in the meteorite biome
+				}
 			}
 
 			MetelordTail.DisplayName: Metelord
@@ -3381,9 +3532,9 @@ Mods: {
 			VeinTunnelerBody.DisplayName: Vein Tunneler
 			VeinTunnelerHead.DisplayName: Vein Tunneler
 			VeinTunnelerTail.DisplayName: Vein Tunneler
-			DesertDiskite_Center.DisplayName: Desert Diskite
-			DesertDiskite_LaserEye.DisplayName: Desert Diskite
-			DesertDiskite_SpikeRing.DisplayName: Desert Diskite
+			Adenite_Center.DisplayName: Desert Diskite
+			Adenite_LaserEye.DisplayName: Desert Diskite
+			Adenite_SpikeRing.DisplayName: Desert Diskite
 			DustbowlGigaslime.DisplayName: Dustbowl Gigaslime
 			BoneSlime.DisplayName: Bone Slime
 			ElemSlime.DisplayName: Elem Slime
@@ -3423,18 +3574,9 @@ Mods: {
 			}
 
 			WindElemental.DisplayName: Wind Elemental
-			DesertDiskite_CenterDeco.DisplayName: Desert Diskite_ Center Deco
+			Adenite_CenterDeco.DisplayName: Desert Diskite_ Center Deco
 			SaplingWarrior.DisplayName: Sapling Warrior
 			StarpackSlime.DisplayName: Starpack Slime
-
-			ADD_Main: {
-				DisplayName: Ancient Desert Diskite
-
-				BossChecklistIntegration: {
-					EntryName: Ancient Diskite Director
-					SpawnInfo: Use a [i:5687] in the desert
-				}
-			}
 		}
 
 		Prefixes: {
@@ -3530,6 +3672,16 @@ Mods: {
 				}
 
 				DisplayName: Zylon Config
+
+				boomerangCamera: {
+					Label: Boomerang Custom Camera Movement
+					Tooltip: Allows certain boomerangs to move the camera when used.
+				}
+
+				blackHoleTownNPC: {
+					Label: Neutron Armor Affects Town NPCs
+					Tooltip: Allows black holes to suck up town NPCs.
+				}
 			}
 		}
 	}

@@ -78,7 +78,7 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.Ocean.EerieJellyfish>();
 						break;
 					case 13:
-						npcType = ModContent.NPCType<NPCs.Desert.DesertDiskite_Center>();
+						npcType = ModContent.NPCType<NPCs.Desert.Adenite_Center>();
 						break;
 					case 14:
 						npcType = 0; //npcType = ModContent.NPCType<NPCs.Desert.DustbowlGigaslime>();

@@ -15,20 +15,20 @@ namespace Zylon
 	{
 		public static bool carnallItemessage = false;
 		public static bool downedJelly = false;
-		public static bool downedADD = false;
+		public static bool downedAdeneb = false;
 		public static bool downedDirtball = false;
 		public static bool downedMetelord = false;
 		public override void OnWorldLoad() {
 			carnallItemessage = false;
 			downedJelly = false;
-			downedADD = false;
+			downedAdeneb = false;
 			downedDirtball = false;
 			downedMetelord = false;
 		}
 		public override void OnWorldUnload() {
 			carnallItemessage = false;
 			downedJelly = false;
-			downedADD = false;
+			downedAdeneb = false;
 			downedDirtball = false;
 			downedMetelord = false;
 		}
@@ -39,8 +39,8 @@ namespace Zylon
 			if (downedJelly) {
 				tag["downedJelly"] = true;
             }
-			if (downedADD) {
-				tag["downedADD"] = true;
+			if (downedAdeneb) {
+				tag["downedAdeneb"] = true;
 			}
 			if (downedDirtball) {
 				tag["downedDirtball"] = true;
@@ -52,7 +52,7 @@ namespace Zylon
 		public override void LoadWorldData(TagCompound tag) {
 			carnallItemessage = tag.ContainsKey("carnallItemessage");
 			downedJelly = tag.ContainsKey("downedJelly");
-			downedADD = tag.ContainsKey("downedADD");
+			downedAdeneb = tag.ContainsKey("downedAdeneb");
 			downedDirtball = tag.ContainsKey("downedDirtball");
 			downedMetelord = tag.ContainsKey("downedMetelord");
 		}
@@ -60,7 +60,7 @@ namespace Zylon
 			bool[] flags = new bool[] {
 				carnallItemessage,
 				downedJelly,
-				downedADD,
+				downedAdeneb,
 				downedDirtball,
 				downedMetelord
 			};
@@ -76,7 +76,7 @@ namespace Zylon
 			BitArray bitArray = new BitArray(bytes);
 			carnallItemessage = bitArray[0];
 			downedJelly = bitArray[1];
-			downedADD = bitArray[2];
+			downedAdeneb = bitArray[2];
 			downedDirtball = bitArray[3];
 			downedMetelord = bitArray[4];
 		}

@@ -26,7 +26,7 @@ namespace Zylon.Items.Accessories
 			recipe.AddIngredient(ItemID.TatteredCloth, 8);
 			recipe.AddIngredient(ItemID.AshBlock, 20);
 			recipe.AddIngredient(ItemID.Obsidian, 3);
-			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 5);
+			recipe.AddIngredient(ModContent.ItemType<Materials.BloodDroplet>(), 15);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

@@ -54,6 +54,16 @@ namespace Zylon
 		[Tooltip("Plays a short noise when blowpipes reach max charge.")]
 		public bool blowpipeNoise;
 
+		[DefaultValue(true)]
+		[Label("Boomerang Custom Camera Movement")]
+		[Tooltip("Allows certain boomerangs to move the camera when used.")]
+		public bool boomerangCamera;
+
+		[DefaultValue(true)]
+		[Label("Neutron Armor Affects Town NPCs")]
+		[Tooltip("Allows black holes to suck up town NPCs.")]
+		public bool blackHoleTownNPC;
+
 		[Header("config.accessibility")]
 
 		[Range(0, 100)]

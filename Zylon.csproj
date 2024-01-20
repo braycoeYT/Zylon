@@ -10,10 +10,10 @@
   <ItemGroup>
     <None Remove="Assets\Bloom\GlowSparkle.png" />
     <None Remove="Assets\Bloom\GlowStar.png" />
-    <None Remove="Projectiles\Bosses\ADD\DiskiteBigSun.png" />
-    <None Remove="Projectiles\Bosses\ADD\DiskiteBigSun_rings.png" />
-    <None Remove="Projectiles\Bosses\ADD\DiskiteLaserSpeedUp.png" />
-    <None Remove="Projectiles\Bosses\ADD\DiskiteLaserSpeedUp_overlay.png" />
+    <None Remove="Projectiles\Bosses\Adeneb\DiskiteBigSun.png" />
+    <None Remove="Projectiles\Bosses\Adeneb\DiskiteBigSun_rings.png" />
+    <None Remove="Projectiles\Bosses\Adeneb\AdenebLaserSpeedUp.png" />
+    <None Remove="Projectiles\Bosses\Adeneb\AdenebLaserSpeedUp_overlay.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />

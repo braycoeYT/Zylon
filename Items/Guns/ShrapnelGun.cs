@@ -27,8 +27,8 @@ namespace Zylon.Items.Guns
 			Item.autoReuse = false;
 			Item.rare = ItemRarityID.Blue;
 			Item.crit = 15;
-			Item.shoot = ModContent.ProjectileType<Projectiles.Ammo.DiskiteShrapnel>();
-			Item.useAmmo = ModContent.ItemType<Ammo.DiskiteShrapnel>();
+			Item.shoot = ModContent.ProjectileType<Projectiles.Ammo.AdeniteShrapnel>();
+			Item.useAmmo = ModContent.ItemType<Ammo.AdeniteShrapnel>();
 		}
         public override bool CanConsumeAmmo(Item ammo, Player player) {
             return Main.rand.NextBool(10);
@@ -57,8 +57,8 @@ namespace Zylon.Items.Guns
 			recipe.AddIngredient(ItemID.IllegalGunParts);
 			recipe.AddRecipeGroup("Zylon:AnyPHBar", 12);
 			recipe.AddRecipeGroup("Zylon:AnyShadowScale", 10);
-			recipe.AddIngredient(ModContent.ItemType<Materials.DiskiteCrumbles>(), 20);
-			recipe.AddIngredient(ModContent.ItemType<Materials.RustedTech>(), 15);
+			recipe.AddIngredient(ModContent.ItemType<Materials.AdeniteCrumbles>(), 20);
+			recipe.AddIngredient(ModContent.ItemType<Materials.SearedStone>(), 35);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

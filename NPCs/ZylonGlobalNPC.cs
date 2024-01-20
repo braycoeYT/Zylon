@@ -12,7 +12,7 @@ namespace Zylon.NPCs
 	public class ZylonGlobalNPC : GlobalNPC
 	{
 		public override bool InstancePerEntity => true;
-		public static int diskiteBoss = -1;
+		public static int adenebBoss = -1;
 		public static int dirtballBoss = -1;
 		public static int metelordBoss = -1;
         public override void HitEffect(NPC npc, NPC.HitInfo hit) {
@@ -108,14 +108,16 @@ namespace Zylon.NPCs
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.ObeliskShard>(), 2, 1, 2));
 			if (npc.type == NPCID.GoblinSummoner || npc.type == NPCID.RuneWizard)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.TabooEssence>(), 1, 6, 12));
+			if (npc.type == NPCID.GoblinSummoner)
+				npcLoot.Add(new CommonDrop(ItemID.TatteredCloth, 1, 5, 8));
 			if (npc.type == NPCID.GoblinSorcerer)
 				ItemDropRule.ByCondition(new Conditions.IsHardmode(), ItemType<Items.Materials.TabooEssence>(), 2, 1, 2);
 			if (npc.type == NPCID.GoblinPeon || npc.type == NPCID.GoblinArcher || npc.type == NPCID.GoblinScout || npc.type == NPCID.GoblinSorcerer || npc.type == NPCID.GoblinThief || npc.type == NPCID.GoblinWarrior)
-				npcLoot.Add(new CommonDrop(ItemID.TatteredCloth, 4));
+				npcLoot.Add(new CommonDrop(ItemID.TatteredCloth, 3));
 			if (npc.type == NPCID.ToxicSludge || npc.type == NPCID.MossHornet || npc.type == NPCID.BigMossHornet || npc.type == NPCID.TinyMossHornet || npc.type == NPCID.LittleMossHornet || npc.type == NPCID.GiantMossHornet)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.Oozeberry>(), 1, 1, 3));
 			if (npc.type == NPCID.RedDevil)
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Boomerangs.Pentagram>(), 33), new CommonDrop(ItemType<Items.Boomerangs.Pentagram>(), 25)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Boomerangs.Pentagram>(), 25), new CommonDrop(ItemType<Items.Boomerangs.Pentagram>(), 20)));
 			if (npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.IceBat)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.EnchantedIceCube>(), 1, 1, 2));
 			if (npc.type == NPCID.Werewolf || npc.type == NPCID.Wolf)
@@ -149,6 +151,31 @@ namespace Zylon.NPCs
             }
 			//if (npc.type == NPCID.Demon || npc.type == NPCID.VoodooDemon) //too similar to nightmare catcher
 			//	npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.BloodContract>(), 50), new CommonDrop(ItemType<Items.Accessories.BloodContract>(), 40)));
+		}
+
+        int Timer;
+		bool prevNoGrav;
+		public override void AI(NPC npc) {
+			if (Timer == 0)
+				prevNoGrav = npc.noGravity; //Trusting my 1.3 self here... bad idea?
+			int projectileCount;
+			for (projectileCount = 0; projectileCount < Main.maxProjectiles; projectileCount++) {
+				if (Main.projectile[projectileCount].active && Main.projectile[projectileCount].type == ProjectileType<Projectiles.BlackHole>()) {
+					if (Vector2.Distance(npc.Center, Main.projectile[projectileCount].Center) < 400 && !npc.boss && (!npc.townNPC || GetInstance<ZylonConfig>().blackHoleTownNPC) && npc.type != NPCID.TargetDummy) {
+						npc.noGravity = true;
+						if (npc.Center.X > Main.projectile[projectileCount].Center.X && npc.velocity.X > -15)
+							npc.velocity.X -= 2;
+						if (npc.Center.X < Main.projectile[projectileCount].Center.X && npc.velocity.X < 15)
+							npc.velocity.X += 2;
+						if (npc.Center.Y > Main.projectile[projectileCount].Center.Y && npc.velocity.Y > -15)
+							npc.velocity.Y -= 2;
+						if (npc.Center.Y < Main.projectile[projectileCount].Center.Y && npc.velocity.Y < 15)
+							npc.velocity.Y += 2;
+					}
+					else npc.noGravity = prevNoGrav;
+				}
+				else npc.noGravity = prevNoGrav;
+			}
 		}
         public override void ModifyGlobalLoot(GlobalLoot globalLoot) {
             //globalLoot.Add(ItemDropRule.ByCondition(new Conditions.WindyEnoughForKiteDrops(), ItemType<Items.Materials.WindEssence>(), 5));

@@ -222,7 +222,7 @@ namespace Zylon.Projectiles.Boomerangs
 				{
 					CameraDistance = (Main.MouseWorld + CameraController.PanLocation).Distance(Main.LocalPlayer.Center + CameraController.PanLocation) / 3f;
 				}
-				CameraController.ManualPanFunction(Main.LocalPlayer.Center, Main.LocalPlayer.Center + new Vector2(CameraDistance, 0f).RotatedBy((double)Vector2.Normalize(Main.MouseWorld - Main.LocalPlayer.Center).ToRotation(), default(Vector2)), ChannelRatio);
+				if (ModContent.GetInstance<ZylonConfig>().boomerangCamera) CameraController.ManualPanFunction(Main.LocalPlayer.Center, Main.LocalPlayer.Center + new Vector2(CameraDistance, 0f).RotatedBy((double)Vector2.Normalize(Main.MouseWorld - Main.LocalPlayer.Center).ToRotation(), default(Vector2)), ChannelRatio);
 				SetAim(MathHelper.SmoothStep(0.15f, 0.085f, ChannelRatio), ChannelRatio, player);
 			}
 		}
