@@ -19,20 +19,15 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPCID.Sets.MPAllowedEnemies[Type] = true;
 
 			Main.npcFrameCount[NPC.type] = 3;
-			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
-				SpecificallyImmuneTo = new int[] {
-					BuffID.Poisoned,
-					BuffID.Confused,
-					BuffID.OnFire,
-					BuffID.Chilled,
-					BuffID.Frozen,
-					BuffID.Burning,
-					BuffID.Frostburn,
-					BuffID.CursedInferno
-				}
-			};
-			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
-        }
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Chilled] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frozen] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.CursedInferno] = true;
+		}
         public override void SetDefaults() {
             NPC.width = 80;
 			NPC.height = 70;

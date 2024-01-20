@@ -42,11 +42,12 @@ namespace Zylon.Projectiles.Wands
 				dust.scale = 1.75f;
 			}
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
             if (Main.myPlayer == Projectile.owner) {
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.ToRadians(Main.rand.Next(-30, -19))), ModContent.ProjectileType<WandofKindlingProj_2>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.75f, Main.myPlayer, Projectile.ai[0]);
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.ToRadians(Main.rand.Next(20, 31))), ModContent.ProjectileType<WandofKindlingProj_2>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.75f, Main.myPlayer, Projectile.ai[0]);
             }
         }
+
     }   
 }

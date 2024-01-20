@@ -15,15 +15,11 @@ namespace Zylon.NPCs.WindyDay
 	{
         public override void SetStaticDefaults() {
             //Main.npcFrameCount[NPC.type] = 2;
-			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
+			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				CustomTexturePath = "Zylon/NPCs/WindyDay/WindElemental_Bestiary",
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
-			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
-				ImmuneToAllBuffsThatAreNotWhips = true,
-				ImmuneToWhips = true
-			};
-			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
+			NPCID.Sets.ImmuneToRegularBuffs[Type] = true;
         }
         public override void SetDefaults() {
             NPC.width = 26;

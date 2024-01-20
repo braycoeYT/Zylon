@@ -13,10 +13,7 @@ namespace Zylon.NPCs
 	{
         public override void SetStaticDefaults() {
             Main.npcFrameCount[NPC.type] = 2;
-			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
-				ImmuneToAllBuffsThatAreNotWhips = true
-			};
-			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
+			NPCID.Sets.ImmuneToRegularBuffs[Type] = true;
         }
         public override void SetDefaults() {
             NPC.width = 32;

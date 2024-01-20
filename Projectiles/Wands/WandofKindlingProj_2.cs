@@ -42,8 +42,5 @@ namespace Zylon.Projectiles.Wands
 				dust.scale = 1.75f;
 			}
         }
-        public override void Kill(int timeLeft) {
-            base.Kill(timeLeft);
-        }
     }   
 }

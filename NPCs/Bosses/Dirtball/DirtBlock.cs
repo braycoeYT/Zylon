@@ -13,10 +13,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 	{
 		public override void SetStaticDefaults() {
 			// DisplayName.SetDefault("Dirt Block");
-			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
-				ImmuneToAllBuffsThatAreNotWhips = true
-			};
-			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
+			NPCID.Sets.ImmuneToRegularBuffs[Type] = true;
 		}
         public override void SetDefaults() {
 			NPC.value = 0;

@@ -16,22 +16,17 @@ namespace Zylon.NPCs.Bosses.Adeneb
     public class Adeneb : ModNPC
 	{
         public override void SetStaticDefaults() {
-			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
-				SpecificallyImmuneTo = new int[] {
-					BuffID.Poisoned,
-					BuffID.Confused,
-					BuffID.OnFire,
-					BuffID.Chilled,
-					BuffID.Frozen,
-					BuffID.Burning,
-					BuffID.Frostburn,
-					BuffID.CursedInferno,
-					BuffID.Daybreak,
-					BuffID.Ichor
-				}
-			};
-			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
-			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Chilled] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frozen] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.CursedInferno] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Daybreak] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Ichor] = true;
+			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				CustomTexturePath = "Zylon/NPCs/Bosses/Adeneb/Adeneb_Bestiary",
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);

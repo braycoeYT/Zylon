@@ -13,11 +13,7 @@ namespace Zylon.NPCs.Jungle
 	{
         public override void SetStaticDefaults() {
 			Main.npcFrameCount[NPC.type] = 7;
-			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
-				ImmuneToAllBuffsThatAreNotWhips = true,
-				ImmuneToWhips = true
-			};
-			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
+			NPCID.Sets.ImmuneToRegularBuffs[Type] = true;
         }
         public override void SetDefaults() {
             NPC.width = 50;
