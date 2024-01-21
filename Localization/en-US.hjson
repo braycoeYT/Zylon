@@ -3103,6 +3103,16 @@ Mods: {
 				Tooltip: ""
 				DisplayName: Adenite Shrapnel
 			}
+
+			OnyxDye: {
+				DisplayName: Onyx Dye
+				Tooltip: ""
+			}
+
+			GloryDye: {
+				DisplayName: Glory Dye
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
