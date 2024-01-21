@@ -19,10 +19,6 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPCID.Sets.MPAllowedEnemies[Type] = true;
 
 			Main.npcFrameCount[NPC.type] = 3;
-<<<<<<< HEAD
-
-=======
->>>>>>> 326f346703fb34b35cfd658488658472ec038319
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
@@ -31,19 +27,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.CursedInferno] = true;
-<<<<<<< HEAD
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.BrainFreeze>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.DeadlyToxins>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.FlashPandemic>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.SearedFlame>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Shroomed>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.ZombieRot>()] = true;
-        }
-=======
 		}
->>>>>>> 326f346703fb34b35cfd658488658472ec038319
         public override void SetDefaults() {
             NPC.width = 80;
 			NPC.height = 70;

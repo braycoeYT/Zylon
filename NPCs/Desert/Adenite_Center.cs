@@ -20,10 +20,6 @@ namespace Zylon.NPCs.Desert
 				CustomTexturePath = "Zylon/NPCs/Desert/Adenite_Bestiary",
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
-<<<<<<< HEAD
-			
-=======
->>>>>>> 326f346703fb34b35cfd658488658472ec038319
 			NPCID.Sets.ImmuneToRegularBuffs[Type] = true;
         }
         public override void SetDefaults() {

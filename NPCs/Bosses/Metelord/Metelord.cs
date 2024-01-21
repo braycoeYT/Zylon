@@ -31,30 +31,6 @@ namespace Zylon.NPCs.Bosses.Metelord
 				PortraitPositionYOverride = 12f
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
-<<<<<<< HEAD
-
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Chilled] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frozen] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.CursedInferno] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Daybreak] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Ichor] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire3] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn2] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.BrainFreeze>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.DeadlyToxins>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.FlashPandemic>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.SearedFlame>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Shroomed>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.ZombieRot>()] = true;
-=======
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Slow] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
@@ -65,7 +41,6 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frozen] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
->>>>>>> 326f346703fb34b35cfd658488658472ec038319
 		}
 		public override void SetDefaults() {
 			NPC.CloneDefaults(NPCID.DiggerBody);
@@ -509,30 +484,6 @@ namespace Zylon.NPCs.Bosses.Metelord
 				Hide = true
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
-<<<<<<< HEAD
-
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Chilled] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frozen] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.CursedInferno] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Daybreak] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Ichor] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire3] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn2] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.BrainFreeze>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.DeadlyToxins>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.FlashPandemic>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.SearedFlame>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Shroomed>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.ZombieRot>()] = true;
-=======
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Slow] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
@@ -543,7 +494,6 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frozen] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
->>>>>>> 326f346703fb34b35cfd658488658472ec038319
 		}
 		public override void SetDefaults() {
 			NPC.CloneDefaults(NPCID.DiggerBody);
@@ -640,30 +590,6 @@ namespace Zylon.NPCs.Bosses.Metelord
 				Hide = true
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
-<<<<<<< HEAD
-
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Chilled] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frozen] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.CursedInferno] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Daybreak] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Ichor] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire3] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn2] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.BrainFreeze>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.DeadlyToxins>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.FlashPandemic>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.SearedFlame>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Shroomed>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
-			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.ZombieRot>()] = true;
-=======
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Slow] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
@@ -674,7 +600,6 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frozen] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
->>>>>>> 326f346703fb34b35cfd658488658472ec038319
 		}
 		public override void SetDefaults() {
 			NPC.CloneDefaults(NPCID.DiggerTail);

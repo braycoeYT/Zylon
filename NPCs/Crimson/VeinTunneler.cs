@@ -24,10 +24,6 @@ namespace Zylon.NPCs.Crimson
 				PortraitPositionYOverride = 12f
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
-<<<<<<< HEAD
-			
-=======
->>>>>>> 326f346703fb34b35cfd658488658472ec038319
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 		}
 		public override void SetDefaults() {
@@ -104,10 +100,6 @@ namespace Zylon.NPCs.Crimson
 				Hide = true
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
-<<<<<<< HEAD
-			
-=======
->>>>>>> 326f346703fb34b35cfd658488658472ec038319
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 		}
 		public override void SetDefaults() {
@@ -135,10 +127,6 @@ namespace Zylon.NPCs.Crimson
 				Hide = true
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
-<<<<<<< HEAD
-			
-=======
->>>>>>> 326f346703fb34b35cfd658488658472ec038319
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 		}
 		public override void SetDefaults() {

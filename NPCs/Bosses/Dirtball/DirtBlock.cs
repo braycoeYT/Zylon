@@ -12,10 +12,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 	public class DirtBlock : ModNPC
 	{
 		public override void SetStaticDefaults() {
-<<<<<<< HEAD
-=======
 			// DisplayName.SetDefault("Dirt Block");
->>>>>>> 326f346703fb34b35cfd658488658472ec038319
 			NPCID.Sets.ImmuneToRegularBuffs[Type] = true;
 		}
         public override void SetDefaults() {
