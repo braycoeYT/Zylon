@@ -54,6 +54,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				NPC.lifeMax = (int)((2700 + ((numPlayers - 1) * 1200))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 55;
             }
+			if (Main.getGoodWorld) NPC.scale = 0.75f;
         }
 		bool bool1;
 		bool bool2;
@@ -147,6 +148,8 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				//	NPC.lifeMax = (int)(NPC.lifeMax/Main.GameModeInfo.EnemyMaxLifeMultiplier);
             }
 
+			if (Main.getGoodWorld && Timer % 150 == 0 && NPC.CountNPCS(ModContent.NPCType<DirtBlock>()) < 50) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + Main.rand.Next(-60, 61), (int)NPC.Center.Y + Main.rand.Next(-60, 61), ModContent.NPCType<DirtBlock>());
+
 			if (Main.player[NPC.target].statLife < 1) {
 				NPC.TargetClosest(true);
 				if (Main.player[NPC.target].statLife < 1) {
@@ -173,6 +176,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			if (Main.expertMode) NPC.damage = 46;
 			if (Main.masterMode) NPC.damage = 55;
 			NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
+			if (Main.getGoodWorld) NPC.damage = (int)(NPC.damage*1.33f);
 			if (NPC.CountNPCS(ModContent.NPCType<Dirtboi>()) < 1) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Dirtboi>()); //Dirtboi, my boy, a true ball of dirt never runs away from battle!
 			if (attackDone) {
 				atkTotal += 1;

@@ -19,6 +19,7 @@ namespace Zylon.NPCs.Bosses.Jelly
         }
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.damage = 90;
+			if (Main.getGoodWorld) NPC.scale = 1.5f;
         }
 		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
 			for (int i = 0; i < 10; i++) {

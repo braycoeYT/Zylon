@@ -22,14 +22,14 @@ namespace Zylon.NPCs.Bosses.Jelly
 			Main.npcFrameCount[NPC.type] = 7;
 			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
 				SpecificallyImmuneTo = new int[] {
-					BuffID.Poisoned,
 					BuffID.Confused,
-					BuffID.OnFire,
 					BuffID.Chilled,
 					BuffID.Frozen,
-					BuffID.Burning,
-					BuffID.Frostburn,
-					BuffID.CursedInferno
+					ModContent.BuffType<Buffs.Debuffs.BrainFreeze>(),
+					ModContent.BuffType<Buffs.Debuffs.FlashPandemic>(),
+					ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(),
+					ModContent.BuffType<Buffs.Debuffs.Timestop>(),
+					ModContent.BuffType<Buffs.Debuffs.ZombieRot>()
 				}
 			};
 		}
@@ -59,6 +59,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 				NPC.lifeMax = (int)((15500 + ((numPlayers - 1) * 4100))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 120;
             }
+			if (Main.getGoodWorld) NPC.scale = 1.5f;
         }
 		public override void HitEffect(NPC.HitInfo hit) {
 			for (int i = 0; i < 4; i++) {
@@ -135,6 +136,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 			if (NPC.life < NPC.lifeMax * 0.2f) attackBoost = 4;
 			if (NPC.life < NPC.lifeMax * 0.08f) attackBoost = 5;
 			NPC.damage = NPC.defDamage + (attackBoost * 4);
+			if (Main.getGoodWorld) NPC.damage = (int)(NPC.damage*1.33f);
 			if (movement) {
 				movementTimer++;
 				NPC.localAI[2] = 1f;

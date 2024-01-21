@@ -50,11 +50,11 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			//Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
-        NPC.lifeMax = (int)((5200 + ((numPlayers - 1) * 1200))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+        NPC.lifeMax = (int)((5200 + ((numPlayers - 1) * 2400))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 61;
 			NPC.value = 140000;
 			if (Main.masterMode) {
-				NPC.lifeMax = (int)((3400 + ((numPlayers - 1) * 1400))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+				NPC.lifeMax = (int)((6400 + ((numPlayers - 1) * 3100))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 94;
             }
         }
@@ -72,6 +72,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 		int flee;
 		bool transitionSetup;
 		bool drawAura;
+		//bool adenebTurn = true;
 		Vector2 dashVelocity;
 		Vector2 tempVector;
 		Vector2 newVel;
@@ -81,11 +82,30 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			target = Main.player[NPC.target];
 			ZylonGlobalNPC.adenebBoss = NPC.whoAmI;
 
-			//enrage code
+			//enrage + stat manager code
 			NPC.damage = 33;
 			NPC.defense = 18;
 			if (Main.expertMode) { NPC.damage = 61; }
 			if (Main.masterMode) { NPC.damage = 92; }
+
+			if (phase == 2) {
+				NPC.damage = 45;
+				NPC.defense = 8;
+				if (Main.expertMode) { NPC.damage = 75; }
+				if (Main.masterMode) { NPC.damage = 109; }
+				if (Main.getGoodWorld) { //For the Worthy: While hands are attacking, gains lots of defense and becomes semi-invisible
+					if (NPC.ai[0] == 1f) {
+						NPC.alpha = 127;
+						NPC.defense = 36;
+                    }
+					else {
+						NPC.alpha = 0;
+						NPC.defense = 12;
+                    }
+                }
+            }
+			NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
+
 			if (!target.ZoneDesert && !target.ZoneUndergroundDesert && !(phase == 1 && NPC.life <= NPC.lifeMax/2)) {
 				angerTimer++;
 			}
@@ -94,6 +114,8 @@ namespace Zylon.NPCs.Bosses.Adeneb
 				NPC.damage = (int)(NPC.damage*1.5f);
 				NPC.defense = 36;
             }
+
+			if (Main.getGoodWorld) NPC.damage = (int)(NPC.damage*1.33f);
 
 			//flee code
 			if (Main.player[NPC.target].statLife < 1) {
@@ -183,8 +205,29 @@ namespace Zylon.NPCs.Bosses.Adeneb
                     }
 					if (attackTimer == 2200) {
 						//END OF TRANSITION phase, drawaura
+						drawAura = false;
                     }
                 }
+				else {
+					if (attackTimer == 2320) {
+						//again change the length of this to fit anim
+						phase = 2;
+						prevAttack = -1;
+						EndAttack();
+						NPC.dontTakeDamage = false;
+						NPC.rotation = 0f;
+                    }
+                }
+
+				//REMOVE THIS THIS IS JUST FOR SKIPPING THE TRANSIIOTN 4 TESTING!!!!!!!!!!!!!!!!!!!
+				phase = 2;
+				prevAttack = -1;
+				EndAttack();
+				NPC.dontTakeDamage = false;
+				NPC.rotation = 0f;
+				//REMOVE THIS THIS IS JUST FOR SKIPPING THE TRANSIIOTN 4 TESTING!!!!!!!!!!!!!!!!!!!
+
+
 				NPC.rotation += MathHelper.ToRadians(attackFloat); //Do whatever you want for the visuals, remove this part if you want. This is just a placeholder since I am not the wacky visual man.
 				SpikeGlobalDrawRotation = NPC.rotation;
 				OrbDrawRotation = -NPC.rotation;
@@ -200,10 +243,20 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			}
 
 			if (attackDone) { //dash
-				if (introAttackDone) {
-					attack = Main.rand.Next(3);
-					while (prevAttack == attack) attack = Main.rand.Next(3);
-					//attack = 2;
+				if (introAttackDone || phase == 2) {
+					if (phase == 2) {
+
+						if (Main.getGoodWorld) NPC.scale = 1.5f;
+
+						attack = Main.rand.Next(3);
+						while (prevAttack == attack) attack = Main.rand.Next(3);
+                    }
+					else {
+						attack = Main.rand.Next(3);
+						while (prevAttack == attack) attack = Main.rand.Next(3);
+                    }
+					attack = 0;
+
 					attackDone = false;
 					attackTimer = 0;
 					attackTimer2 = 0;
@@ -257,9 +310,12 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						BigSun(); //MineRing();
 						break;
                 }
-				else switch (attack) {
-
+				else if (NPC.ai[0] == 0f) switch (attack) {
+					case 0:
+						Phase2Move();
+						break;
                 }
+				else Phase2Move();
             }
 			SpikeGlobalDrawRotation = NPC.rotation;
 			OrbDrawRotation = -NPC.rotation;
@@ -352,16 +408,25 @@ namespace Zylon.NPCs.Bosses.Adeneb
 				if (attackTimer2 > attackInt + 1) EndAttack();
             }
         }
-		/*private void ElecChase() {
+		private void Phase2Move() {
 			attackTimer++;
-			if (attackTimer >= (int)(40+(30*NPC.life/(NPC.lifeMax)))) {
-				attackTimer2++;
-				if (Main.netMode != NetmodeID.MultiplayerClient) {
+			RotateTowardsPlayer();
 
-                }
-            }
-			if (attackTimer2 > 3) EndAttack();
-        }*/
+			float c = 1f;
+			if (Main.getGoodWorld) c = 1.3f;
+
+			//Vertical manager
+			if (NPC.Center.Y < target.Center.Y && attackTimer % 5 == 0) NPC.velocity.Y += c;
+			else if (attackTimer % 5 == 0) NPC.velocity.Y -= c;
+			if (NPC.velocity.Y > 13) NPC.velocity.Y = 13;
+			if (NPC.velocity.Y < -13) NPC.velocity.Y = -13;
+
+			//Horizontal manager
+			if (NPC.Center.X < target.Center.X && attackTimer % 5 == 0) NPC.velocity.X += c;
+			else if (attackTimer % 5 == 0) NPC.velocity.X -= c;
+			if (NPC.velocity.X > 13) NPC.velocity.X = 13;
+			if (NPC.velocity.X < -13) NPC.velocity.X = -13;
+        }
 		float degrees;
 		float targetRot;
 		float degTemp;
@@ -445,11 +510,12 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			attackFloat = 0f;
 			attackInt = 0;
 			start = false;
+			NPC.ai[0] = 1f;
         }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Desert,
-				new FlavorTextBestiaryInfoElement("A forgotten civilization's adopted protector, powered by a computer chip connected to the sun god.")
+				new FlavorTextBestiaryInfoElement("A forgotten civilization's adopted protector, powered by a computer chip blessed by the sun god.")
 			});
 		}
 
@@ -472,10 +538,10 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			Color color = NPC.GetAlpha(drawColor);
 			var effects = SpriteEffects.None;
 
-			spriteBatch.Draw(spikeTextureBottom, drawPos + new Vector2(0, 80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
+			if (phase == 1) spriteBatch.Draw(spikeTextureBottom, drawPos + new Vector2(0, 80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
 			spriteBatch.Draw(texture, drawPos, null, color, OrbDrawRotation, drawOrigin, NPC.scale, effects, 0);
-			spriteBatch.Draw(spikeTextureTop, drawPos + new Vector2(0, -80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
-			spriteBatch.Draw(ankhTexture, drawPos + new Vector2(0, -20).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, ankhOrigin, NPC.scale, effects, 0);
+			if (phase == 1) spriteBatch.Draw(spikeTextureTop, drawPos + new Vector2(0, -80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
+			if (phase == 1) spriteBatch.Draw(ankhTexture, drawPos + new Vector2(0, -20).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, ankhOrigin, NPC.scale, effects, 0);
 
 			if (drawAura) spriteBatch.Draw(auraTexture, drawPos - new Vector2(439, 425), null, Color.White, 0f, drawOrigin, 2.5f, effects, 0);
 

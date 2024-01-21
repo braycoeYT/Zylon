@@ -1547,6 +1547,8 @@ Mods: {
 				Tooltip:
 					'''
 					'A suspicious looking eye summons the eye of cthulhu, but what does the eye of cthulhu summon?'
+					Does not make you pregnant on use, contrary to popular belief
+					For get fixed bois only
 					Not Consumable
 					'''
 			}
@@ -1993,7 +1995,12 @@ Mods: {
 
 			WindEssence: {
 				DisplayName: Wind Essence
-				Tooltip: "'Resembles cotton candy, but tastes like cold air.'"
+				Tooltip: "'Resembles cotton candy, but tastes like cold air'"
+			}
+
+			WolfPelt: {
+				DisplayName: Wolf Pelt
+				Tooltip: "'With this, you can turn the wolf's winter coat into yours'"
 			}
 
 			GlowingMushtopStaff: {
@@ -3486,6 +3493,7 @@ Mods: {
 			AdenebPremonition2.DisplayName: Adeneb Premonition2
 			AdenebXBeam.DisplayName: Adeneb X Beam
 			AdeniteShrapnel.DisplayName: Adenite Shrapnel
+			PoopHostile.DisplayName: Poop Hostile (SUS LIKE AMONGUS)
 		}
 
 		NPCs: {
@@ -3535,6 +3543,12 @@ Mods: {
 			}
 
 			MetelordTail.DisplayName: Metelord
+			Mechatutubutt.DisplayName: Mechatutubutt
+			TerrarrarriaGod.DisplayName: Terrarrarria God
+			SupremeRetinaspazafascismDeluxe3D.DisplayName: Supreme Retinaspazafascism Deluxe3D TM
+			GenericWormofEdginessHead.DisplayName: Generic Worm of Edginess
+			GenericWormofEdginessBody.DisplayName: Generic Worm of Edginess
+			GenericWormofEdginessTail.DisplayName: Generic Worm of Edginess
 			SuspiciousLookingEye.DisplayName: Suspicious Looking Eye
 			ArteryCloggerBody.DisplayName: Artery Clogger
 			ArteryCloggerHead.DisplayName: Artery Clogger
@@ -3580,6 +3594,8 @@ Mods: {
 					FarFromHome: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.FarFromHome}"
 					NoHome: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.NoHome}"
 					Content: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.Content}"
+					LikeBiome: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.LikeBiome}"
+					HateBiome: "{$Mods.Zylon.TownNPCMood.WeaponsMaster.HateBiome}"
 				}
 			}
 
@@ -3587,6 +3603,9 @@ Mods: {
 			Adenite_CenterDeco.DisplayName: Desert Diskite_ Center Deco
 			SaplingWarrior.DisplayName: Sapling Warrior
 			StarpackSlime.DisplayName: Starpack Slime
+			SupremeLookingEyeBody.DisplayName: Supreme Looking Eye (DA SUPREME MEMELORD)
+			SupremeLookingEyeHead.DisplayName: Supreme Looking Eye (DA SUPREME MEMELORD)
+			SupremeLookingEyeTail.DisplayName: Supreme Looking Eye (DA SUPREME MEMELORD)
 		}
 
 		Prefixes: {

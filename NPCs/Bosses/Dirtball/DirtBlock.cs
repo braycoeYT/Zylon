@@ -36,6 +36,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 		int newVel;
 		float fleeRand = Main.rand.NextFloat(-0.75f, 0.75f);
 		public override void AI() {
+			if (Main.getGoodWorld) NPC.scale = 2f;
 			if (ZylonGlobalNPC.dirtballBoss < 0)
 											{
 												NPC.active = false;

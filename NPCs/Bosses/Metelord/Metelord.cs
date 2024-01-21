@@ -72,8 +72,13 @@ namespace Zylon.NPCs.Bosses.Metelord
 			});
 		}
 		public override void Init() {
-			MinSegmentLength = 6; //5
+			MinSegmentLength = 6;
 			MaxSegmentLength = 6;
+
+			if (Main.getGoodWorld) {
+				MinSegmentLength = 3;
+				MaxSegmentLength = 3;
+            }
 
 			CommonWormInit(this);
 		}
@@ -84,6 +89,10 @@ namespace Zylon.NPCs.Bosses.Metelord
 				worm.MoveSpeed = 14f;
 				worm.Acceleration = 0.125f;
 			}
+			if (Main.getGoodWorld) {
+				worm.MoveSpeed = 19f;
+				worm.Acceleration = 0.175f;
+            }
 		}
 		private int attackCounter;
 		public override void SendExtraAI(BinaryWriter writer) {
@@ -400,6 +409,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 					//dust.velocity = NPC.velocity;
 					dust.scale *= 2f + Main.rand.Next(-30, 31) * 0.01f;
 				}
+				if (Main.getGoodWorld) NPC.damage = (int)(NPC.damage*1.33f);
             }
 			else {
 				NPC.damage = 36;
@@ -415,6 +425,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 					dust.velocity = NPC.velocity;
 					dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 				}
+				if (Main.getGoodWorld) NPC.damage = (int)(NPC.damage*1.33f);
             }
 			/*if (Main.npc[ZylonGlobalNPC.metelordBoss].life < 1 && spawnGore && Main.netMode != NetmodeID.MultiplayerClient) {
 				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), 0), ModContent.GoreType<Gores.Bosses.Metelord.MetelordHeadGore>());
@@ -542,6 +553,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 					//dust.velocity = NPC.velocity;
 					dust.scale *= 2f + Main.rand.Next(-30, 31) * 0.01f;
 				}
+				if (Main.getGoodWorld) NPC.damage = (int)(NPC.damage*1.33f);
             }
 			else {
 				NPC.damage = 32;
@@ -557,6 +569,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 					dust.velocity = NPC.velocity;
 					dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 				}
+				if (Main.getGoodWorld) NPC.damage = (int)(NPC.damage*1.33f);
             }
 			/*if (Main.npc[ZylonGlobalNPC.metelordBoss].life < 1 && spawnGore && Main.netMode != NetmodeID.MultiplayerClient) {
 				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), 0), ModContent.GoreType<Gores.Bosses.Metelord.MetelordBodyGore>());
@@ -645,6 +658,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 					//dust.velocity = NPC.velocity;
 					dust.scale *= 2f + Main.rand.Next(-30, 31) * 0.01f;
 				}
+				if (Main.getGoodWorld) NPC.damage = (int)(NPC.damage*1.33f);
             }
 			else {
 				NPC.damage = 20;
@@ -660,6 +674,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 					dust.velocity = NPC.velocity;
 					dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 				}
+				if (Main.getGoodWorld) NPC.damage = (int)(NPC.damage*1.33f);
             }
 			/*if (Main.npc[ZylonGlobalNPC.metelordBoss].life < 1 && spawnGore && Main.netMode != NetmodeID.MultiplayerClient) {
 				int deezNuts = ModContent.GoreType<Gores.Bosses.Metelord.MetelordTailGore>();

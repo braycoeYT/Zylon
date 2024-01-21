@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 using Terraria.Chat;
 using Terraria.Audio;
 
-namespace Zylon.NPCs.Bosses
+namespace Zylon.NPCs.Bosses.SusEye
 {
 	[AutoloadBossHead]
 	public class SuspiciousLookingEye : ModNPC
@@ -28,28 +28,38 @@ namespace Zylon.NPCs.Bosses
 			//NPC.value = 0f;
 			//NPC.aiStyle = NPCID.DemonEye;
 			AnimationType = 1;
-			NPC.lifeMax = 2500000;
-			NPC.damage = 718;
-			NPC.defense = 400;
+			NPC.lifeMax = 100000;
+			NPC.damage = 298;
+			NPC.defense = 60;
 			NPC.noTileCollide = true;
 			//NPC.color = Color.Aqua;
 			NPC.boss = true;
 			NPC.knockBackResist = 0f;
 			NPC.value = 42069;
         }
-		public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone)
-		{
+		public override void OnHitByItem(Player player, Item item, NPC.HitInfo hit, int damageDone) {
 			if (damageDone > 99999) {
 				NPC.life += damageDone;
 				CombatText.NewText(NPC.getRect(), Color.LimeGreen, damageDone);
 				if (NPC.life < 1)
 					NPC.life = NPC.lifeMax;
 			}
+			if (NPC.life < 1 && (Main.netMode == NetmodeID.Server || Main.netMode == NetmodeID.SinglePlayer)) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<SupremeLookingEyeHead>());
 		}
-		/*public override void OnHitPlayer(Player target, int damage, bool crit) {
+        public override void OnHitByProjectile(Projectile projectile, NPC.HitInfo hit, int damageDone) {
+            if (projectile.type == ProjectileID.FinalFractal) damageDone /= 2;
+			if (damageDone > 99999) {
+				NPC.life += damageDone;
+				CombatText.NewText(NPC.getRect(), Color.LimeGreen, damageDone);
+				if (NPC.life < 1)
+					NPC.life = NPC.lifeMax;
+			}
+			if (NPC.life < 1 && (Main.netMode == NetmodeID.Server || Main.netMode == NetmodeID.SinglePlayer)) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<SupremeLookingEyeHead>());
+        }
+        /*public override void OnHitPlayer(Player target, int damage, bool crit) {
 			target.AddBuff(mod.BuffType("Scared"), Main.rand.Next(1, 4) * 60, true);
 		}*/
-		int Timer;
+        int Timer;
 		int animationTimer;
 		int attackTimer;
 		bool movement = true;
@@ -132,11 +142,12 @@ namespace Zylon.NPCs.Bosses
 		float attackTime;
 
 		public override void AI() {
+			NPC.color = Main.DiscoColor;
 			Timer++;
 
-            if (Main.dayTime) { 
+            if (!Main.zenithWorld) { 
 				Color messageColor = Color.DarkRed;
-					string chat = "I HATE LGIHT!@!! DAYTIME IS KNOT EDGY!!!";
+					string chat = "GET FIXED BOI!!!!!!!!!!!!!!!";
 					if (Main.netMode == NetmodeID.Server)
 					{
 						ChatHelper.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);
@@ -148,12 +159,16 @@ namespace Zylon.NPCs.Bosses
 				NPC.active = false;
 			}
 
+			if (NPC.CountNPCS(ModContent.NPCType<Mechatutubutt>()) > 0 || NPC.CountNPCS(ModContent.NPCType<TerrarrarriaGod>()) > 0 || NPC.CountNPCS(ModContent.NPCType<SupremeRetinaspazafascismDeluxe3D>()) > 0 || NPC.CountNPCS(ModContent.NPCType<GenericWormofEdginessHead>()) > 0) {
+				NPC.dontTakeDamage = true;
+            }
+			else NPC.dontTakeDamage = false;
 
             if ((double)(NPC.life) < (double)(NPC.lifeMax * 1f))
 				if (chat1)
 				{
 					Color messageColor = Color.DarkRed;
-					string chat = "Warning: This is a joke boss and is not meant to be taken seriously.\nI am GOING to KILL you!?!?!?1/1/1/1";
+					string chat = "I am GOING to KILL you!?!?!?1/1/1/1";
 					if (Main.netMode == NetmodeID.Server)
 					{
 						ChatHelper.BroadcastChatMessage(NetworkText.FromKey(chat), messageColor);
@@ -343,9 +358,9 @@ namespace Zylon.NPCs.Bosses
 						Main.NewText(Language.GetTextValue(chat), messageColor);
 					}
 					chat13 = false;
-					for (int i = 0; i < 30; i++) {
-						NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, NPCID.EyeofCthulhu);
-					}
+					NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, ModContent.NPCType<Mechatutubutt>());
+					NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, ModContent.NPCType<TerrarrarriaGod>());
+					NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, ModContent.NPCType<SupremeRetinaspazafascismDeluxe3D>());
 				}
 			if ((double)(NPC.life) < (double)(NPC.lifeMax * 0.72f))
 				if (chat14)
@@ -451,10 +466,7 @@ namespace Zylon.NPCs.Bosses
 						Main.NewText(Language.GetTextValue(chat), messageColor);
 					}
 					chat20 = false;
-					for (int i = 0; i < 30; i++) {
-						NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, NPCID.Retinazer);
-						NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, NPCID.Spazmatism);
-					}
+					NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, ModContent.NPCType<GenericWormofEdginessHead>());
 				}
 			if ((double)(NPC.life) < (double)(NPC.lifeMax * 0.45f))
 				if (chat21)
@@ -515,8 +527,8 @@ namespace Zylon.NPCs.Bosses
 						Main.NewText(Language.GetTextValue(chat), messageColor);
 					}
 					chat24 = false;
-					for (int i = 0; i < 30; i++) {
-						NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - Main.rand.Next(-600, 601), NPCID.SpikeBall);
+					for (int i = 0; i < 60; i++) {
+						NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - Main.rand.Next(-600, 601), NPCID.GreenSlime);
 					}
 				}
 			if ((double)(NPC.life) < (double)(NPC.lifeMax * 0.38f))
@@ -638,13 +650,13 @@ namespace Zylon.NPCs.Bosses
 						Main.NewText(Language.GetTextValue(chat), messageColor);
 					}
 					chat32 = false;
-					for (int i = 0; i < 30; i++) {
-						NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, NPCID.Plantera);
-						NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, NPCID.CultistBoss);
-						NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, NPCID.SolarCrawltipedeHead);
-					}
-				}
-			if ((double)(NPC.life) < (double)(NPC.lifeMax * 0.23f))
+					NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, ModContent.NPCType<Mechatutubutt>());
+					NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, ModContent.NPCType<TerrarrarriaGod>());
+                    NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, ModContent.NPCType<SupremeRetinaspazafascismDeluxe3D>());
+					NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, ModContent.NPCType<GenericWormofEdginessHead>());
+
+                }
+            if ((double)(NPC.life) < (double)(NPC.lifeMax * 0.23f))
 				if (chat33)
 				{
 					Color messageColor = Color.DarkRed;
@@ -915,9 +927,7 @@ namespace Zylon.NPCs.Bosses
 						Main.NewText(Language.GetTextValue(chat), messageColor);
 					}
 					chat50 = false;
-					for (int i = 0; i < 30; i++) {
-						NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, NPCID.DukeFishron);
-					}
+					for (int x = 0; x < 25; x++) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.position.X + Main.rand.Next(-600, 601), (int)NPC.position.Y - 600, NPCID.Gastropod);
 				}
 			if ((double)(NPC.life) < (double)(NPC.lifeMax * 0.025f))
 				if (chat51)
@@ -1042,7 +1052,7 @@ namespace Zylon.NPCs.Bosses
 										Dust var_9_131F5_cp_0_cp_0 = Main.dust[num380];
 										var_9_131F5_cp_0_cp_0.velocity.Y = var_9_131F5_cp_0_cp_0.velocity.Y * 0.1f;
 									}
-									if (Main.netMode != NetmodeID.MultiplayerClient && !Main.dayTime && !dead2 && NPC.timeLeft < 10)
+									if (Main.netMode != NetmodeID.MultiplayerClient && !dead2 && NPC.timeLeft < 10)
 									{
 										int num;
 										for (int num381 = 0; num381 < 200; num381 = num + 1)
@@ -1054,7 +1064,7 @@ namespace Zylon.NPCs.Bosses
 											num = num381;
 										}
 									}
-									if (Main.dayTime | dead2)
+									if (dead2)
 									{
 										NPC.velocity.Y = NPC.velocity.Y - 0.04f;
 										if (NPC.timeLeft > 10)
@@ -1362,7 +1372,7 @@ namespace Zylon.NPCs.Bosses
 												{
 													NPC.localAI[1] += 2f;
 												}
-												if (NPC.localAI[1] > 60f && Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
+												if (NPC.localAI[1] > 250f && Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
 												{
 													NPC.localAI[1] = 0f;
 													float num404 = 8.5f;
@@ -1379,7 +1389,8 @@ namespace Zylon.NPCs.Bosses
 													num402 *= num403;
 													vector42.X += num401 * 15f;
 													vector42.Y += num402 * 15f;
-													int num407 = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector42.X, vector42.Y, num401, num402, num406, num405, 0f, Main.myPlayer, 0f, 0f);
+							int num407;
+													if (Main.rand.NextBool(8)) num407 = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector42.X, vector42.Y, num401, num402, num406, num405, 0f, Main.myPlayer, 0f, 0f);
 													return;
 												}
 											}
@@ -1464,7 +1475,7 @@ namespace Zylon.NPCs.Bosses
 												{
 													NPC.localAI[1] += 1.5f;
 												}
-												if (NPC.localAI[1] > 180f && Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
+												if (NPC.localAI[1] > 300f && Collision.CanHit(NPC.position, NPC.width, NPC.height, Main.player[NPC.target].position, Main.player[NPC.target].width, Main.player[NPC.target].height))
 												{
 													NPC.localAI[1] = 0f;
 													float num414 = 9f;
@@ -1480,7 +1491,8 @@ namespace Zylon.NPCs.Bosses
 													num412 *= num413;
 													vector43.X += num411 * 15f;
 													vector43.Y += num412 * 15f;
-													int num417 = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector43.X, vector43.Y, num411, num412, num416, num415, 0f, Main.myPlayer, 0f, 0f);
+							int num417;
+													if (Main.rand.NextBool(8)) Projectile.NewProjectile(NPC.GetSource_FromThis(), vector43.X, vector43.Y, num411, num412, num416, num415, 0f, Main.myPlayer, 0f, 0f);
 												}
 											}
 											NPC.ai[2] += 1f;
@@ -1558,7 +1570,7 @@ namespace Zylon.NPCs.Bosses
 										Dust var_9_15388_cp_0_cp_0 = Main.dust[num422];
 										var_9_15388_cp_0_cp_0.velocity.Y = var_9_15388_cp_0_cp_0.velocity.Y * 0.1f;
 									}
-									if (Main.netMode != NetmodeID.MultiplayerClient && !Main.dayTime && !dead3 && NPC.timeLeft < 10)
+									if (Main.netMode != NetmodeID.MultiplayerClient && !dead3 && NPC.timeLeft < 10)
 									{
 										int num;
 										for (int num423 = 0; num423 < 200; num423 = num + 1)
@@ -1570,7 +1582,7 @@ namespace Zylon.NPCs.Bosses
 											num = num423;
 										}
 									}
-									if (Main.dayTime | dead3)
+									if (dead3)
 									{
 										NPC.velocity.Y = NPC.velocity.Y - 0.04f;
 										if (NPC.timeLeft > 10)
@@ -1910,7 +1922,7 @@ namespace Zylon.NPCs.Bosses
 													{
 														NPC.localAI[1] += 2f;
 													}
-													if (NPC.localAI[1] > 2f)
+													if (NPC.localAI[1] > 200f)
 													{
 														NPC.localAI[1] = 0f;
 														float num446 = 6f;
@@ -1933,7 +1945,8 @@ namespace Zylon.NPCs.Bosses
 														num443 += NPC.velocity.X * 0.5f;
 														vector46.X -= num443 * 1f;
 														vector46.Y -= num444 * 1f;
-														int num449 = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector46.X, vector46.Y, num443, num444, num448, num447, 0f, Main.myPlayer, 0f, 0f);
+								int num449;
+														if (Main.rand.NextBool(8)) num449 = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector46.X, vector46.Y, num443, num444, num448, num447, 0f, Main.myPlayer, 0f, 0f);
 														return;
 													}
 												}
@@ -2025,7 +2038,7 @@ namespace Zylon.NPCs.Bosses
 														num386 += (float)Main.rand.Next(-40, 41) * 0.08f;
 														vector40.X += num385 * 15f;
 														vector40.Y += num386 * 15f;
-													Projectile.NewProjectile(NPC.GetSource_FromThis(), vector40.X, vector40.Y, num385, num386, num391, num390, 0f, Main.myPlayer, 0f, 0f);
+													if (Main.rand.NextBool(8)) Projectile.NewProjectile(NPC.GetSource_FromThis(), vector40.X, vector40.Y, num385, num386, num391, num390, 0f, Main.myPlayer, 0f, 0f);
 													NPC.ai[3] = 0f;
 													Vector2 vector44 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
 													float num427 = Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2) - vector44.X;
@@ -2048,7 +2061,7 @@ namespace Zylon.NPCs.Bosses
 														num428 += (float)Main.rand.Next(-40, 41) * 0.05f;
 														vector44.X += num427 * 4f;
 														vector44.Y += num428 * 4f;
-														Projectile.NewProjectile(NPC.GetSource_FromThis(), vector44.X, vector44.Y, num427, num428, num432, num431, 0f, Main.myPlayer, 0f, 0f);
+														if (Main.rand.NextBool(8)) Projectile.NewProjectile(NPC.GetSource_FromThis(), vector44.X, vector44.Y, num427, num428, num432, num431, 0f, Main.myPlayer, 0f, 0f);
 													}
 												}
 		}
@@ -2061,18 +2074,6 @@ namespace Zylon.NPCs.Bosses
 				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
 				dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 			}
-		}
-		public override void ModifyNPCLoot(NPCLoot npcLoot) {
-			if (Timer < 3600) {
-				int playerCount;
-				for (playerCount = 0; playerCount < 255; playerCount++) {
-					if (Main.player[playerCount].active) {
-						Player target = Main.player[playerCount];
-						target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " was a BAD BOI CHEATER!?!?!?!?!?"), 9999, 0, false);
-					}
-				}
-			}
-
 		}
 	}
 }

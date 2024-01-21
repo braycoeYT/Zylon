@@ -49,7 +49,11 @@ namespace Zylon.NPCs.TownNPCs
 			NPC.Happiness
 				.SetBiomeAffection<ForestBiome>(AffectionLevel.Dislike)
 				.SetBiomeAffection<DungeonBiome>(AffectionLevel.Love)
-				//.SetBiomeAffection<HallowBiome>(AffectionLevel.Dislike)
+				.SetBiomeAffection<UndergroundBiome>(AffectionLevel.Love)
+				.SetBiomeAffection<DesertBiome>(AffectionLevel.Like)
+				.SetBiomeAffection<SnowBiome>(AffectionLevel.Like)
+				.SetBiomeAffection<JungleBiome>(AffectionLevel.Hate)
+				.SetBiomeAffection<HallowBiome>(AffectionLevel.Like)
 				.SetNPCAffection(NPCID.Merchant, AffectionLevel.Like)
 				.SetNPCAffection(NPCID.Pirate, AffectionLevel.Like)
 				.SetNPCAffection(NPCID.Demolitionist, AffectionLevel.Love)
