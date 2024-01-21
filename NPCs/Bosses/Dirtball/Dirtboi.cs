@@ -13,10 +13,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
         public override void SetStaticDefaults() {
             // DisplayName.SetDefault("Dirtboi");
             Main.npcFrameCount[NPC.type] = 4;
-            NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
-				ImmuneToAllBuffsThatAreNotWhips = true
-			};
-			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
+            NPCID.Sets.ImmuneToRegularBuffs[Type] = true;
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
 				Hide = true
 			};

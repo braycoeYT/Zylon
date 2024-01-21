@@ -5,8 +5,9 @@ DISCORD JOIN: https://discord.gg/x6G8rKduWc
 
 Stats:
 ~340 Items
-~3 Bosses:
-~~~3 Prehardmode Bosses [i:2][i:116][i:282]
+~4 Bosses:
+~~~4 Prehardmode Bosses [i:2][i:116][i:789][i:282]
+(plus a secret joke boss only fightable on getfixedboi worlds [i:43])
 ~36 total NPCs
 ~55 Buffs
 ~13 Tiles
@@ -95,6 +96,13 @@ V0.0.3: Cause to Clash Update
 ~Added Forgotten Flame, allowing players to summon sandstorms manually.
 ~Made Flamecougher obtainable.
 ~Removed Rusted Tech (replaced by Seared Stone).
+~Zylon bosses are now immune to many Zylon debuffs, and modified which debuffs Zylon bosses are immune to.
+~In FTW worlds, Dirtball is smaller, Possessed Dirt Blocks are bigger, Dirtball passively generates Possessed Dirt Blocks, Adeneb is bigger and more aggressive in phase 2, Adeneb gains super defense and becomes semi-invisible while hands are attacking, Metelord is shorter and faster, and Eldritch Jellyfish is bigger.
+~General fixes with Zylon NPC buff immunity.
+~General boss fixes for FTW worlds.
+~Reworked Suspicious Looking Eye secret boss fight, and made him fightable on getfixedboi worlds.
+~Poops now make sound effects.
+~Added Wolf Pelt.
 note to self: lobera + icy greatblade rework
 
 Credits (from the previous mod versions and now):

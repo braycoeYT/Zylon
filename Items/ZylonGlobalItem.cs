@@ -100,7 +100,7 @@ namespace Zylon.Items
 				if (item.type == ItemID.FlareGun)
 					item.damage = 15;
 				if (item.type == ItemID.Zenith)
-					item.damage = 98;
+					item.damage = 51;
 				if (item.type == ItemID.Flare || item.type == ItemID.BlueFlare)
 					item.damage = 7;
 				if (item.type == ItemID.PulseBow)

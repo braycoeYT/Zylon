@@ -12,11 +12,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 	public class DirtBlock : ModNPC
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Dirt Block");
-			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
-				ImmuneToAllBuffsThatAreNotWhips = true
-			};
-			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
+			NPCID.Sets.ImmuneToRegularBuffs[Type] = true;
 		}
         public override void SetDefaults() {
 			NPC.value = 0;
@@ -39,6 +35,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 		int newVel;
 		float fleeRand = Main.rand.NextFloat(-0.75f, 0.75f);
 		public override void AI() {
+			if (Main.getGoodWorld) NPC.scale = 2f;
 			if (ZylonGlobalNPC.dirtballBoss < 0)
 											{
 												NPC.active = false;

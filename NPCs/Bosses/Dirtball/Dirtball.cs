@@ -19,19 +19,23 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPCID.Sets.MPAllowedEnemies[Type] = true;
 
 			Main.npcFrameCount[NPC.type] = 3;
-			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
-				SpecificallyImmuneTo = new int[] {
-					BuffID.Poisoned,
-					BuffID.Confused,
-					BuffID.OnFire,
-					BuffID.Chilled,
-					BuffID.Frozen,
-					BuffID.Burning,
-					BuffID.Frostburn,
-					BuffID.CursedInferno
-				}
-			};
-			NPCID.Sets.DebuffImmunitySets[Type] = debuffData;
+
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Chilled] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frozen] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.CursedInferno] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.BrainFreeze>()] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.DeadlyToxins>()] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.FlashPandemic>()] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>()] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.SearedFlame>()] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Shroomed>()] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.ZombieRot>()] = true;
         }
         public override void SetDefaults() {
             NPC.width = 80;
@@ -59,6 +63,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				NPC.lifeMax = (int)((2700 + ((numPlayers - 1) * 1200))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 55;
             }
+			if (Main.getGoodWorld) NPC.scale = 0.75f;
         }
 		bool bool1;
 		bool bool2;
@@ -152,6 +157,8 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				//	NPC.lifeMax = (int)(NPC.lifeMax/Main.GameModeInfo.EnemyMaxLifeMultiplier);
             }
 
+			if (Main.getGoodWorld && Timer % 150 == 0 && NPC.CountNPCS(ModContent.NPCType<DirtBlock>()) < 50) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + Main.rand.Next(-60, 61), (int)NPC.Center.Y + Main.rand.Next(-60, 61), ModContent.NPCType<DirtBlock>());
+
 			if (Main.player[NPC.target].statLife < 1) {
 				NPC.TargetClosest(true);
 				if (Main.player[NPC.target].statLife < 1) {
@@ -178,6 +185,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			if (Main.expertMode) NPC.damage = 46;
 			if (Main.masterMode) NPC.damage = 55;
 			NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
+			if (Main.getGoodWorld) NPC.damage = (int)(NPC.damage*1.33f);
 			if (NPC.CountNPCS(ModContent.NPCType<Dirtboi>()) < 1) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Dirtboi>()); //Dirtboi, my boy, a true ball of dirt never runs away from battle!
 			if (attackDone) {
 				atkTotal += 1;
