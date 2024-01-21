@@ -12,7 +12,10 @@ namespace Zylon.NPCs.Ocean
 	{
 		public override void SetStaticDefaults() {
 			Main.npcFrameCount[NPC.type] = 2;
+<<<<<<< HEAD
 			
+=======
+>>>>>>> 326f346703fb34b35cfd658488658472ec038319
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 		}
         public override void SetDefaults() {

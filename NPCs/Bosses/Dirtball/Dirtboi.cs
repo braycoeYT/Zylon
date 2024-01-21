@@ -14,7 +14,11 @@ namespace Zylon.NPCs.Bosses.Dirtball
             // DisplayName.SetDefault("Dirtboi");
             Main.npcFrameCount[NPC.type] = 4;
             NPCID.Sets.ImmuneToRegularBuffs[Type] = true;
+<<<<<<< HEAD
             NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
+=======
+            NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers() {
+>>>>>>> 326f346703fb34b35cfd658488658472ec038319
 				Hide = true
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);

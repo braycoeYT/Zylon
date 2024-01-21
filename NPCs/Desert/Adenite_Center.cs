@@ -16,11 +16,14 @@ namespace Zylon.NPCs.Desert
         public override void SetStaticDefaults() {
 			// DisplayName.SetDefault("Desert Diskite");
             //Main.npcFrameCount[NPC.type] = 2;
-			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
+			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				CustomTexturePath = "Zylon/NPCs/Desert/Adenite_Bestiary",
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
+<<<<<<< HEAD
 			
+=======
+>>>>>>> 326f346703fb34b35cfd658488658472ec038319
 			NPCID.Sets.ImmuneToRegularBuffs[Type] = true;
         }
         public override void SetDefaults() {

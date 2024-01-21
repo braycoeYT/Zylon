@@ -15,7 +15,7 @@ namespace Zylon.NPCs.Desert
         public override void SetStaticDefaults() {
 			// DisplayName.SetDefault("Desert Diskite");
             //Main.npcFrameCount[NPC.type] = 2;
-			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
+			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				Hide = true
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);

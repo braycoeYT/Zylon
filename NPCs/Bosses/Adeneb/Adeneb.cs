@@ -26,6 +26,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.CursedInferno] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Daybreak] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Ichor] = true;
+<<<<<<< HEAD
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.BrainFreeze>()] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.DeadlyToxins>()] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.FlashPandemic>()] = true;
@@ -36,6 +37,9 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.ZombieRot>()] = true;
 
 			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
+=======
+			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
+>>>>>>> 326f346703fb34b35cfd658488658472ec038319
 				CustomTexturePath = "Zylon/NPCs/Bosses/Adeneb/Adeneb_Bestiary",
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);

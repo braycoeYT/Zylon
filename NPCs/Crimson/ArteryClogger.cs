@@ -17,14 +17,17 @@ namespace Zylon.NPCs.Crimson
 		public override void SetStaticDefaults() {
 			// DisplayName.SetDefault("Artery Clogger");
 
-			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
+			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				CustomTexturePath = "Zylon/NPCs/Crimson/ArteryClogger_Bestiary",
 				Position = new Vector2(40f, 24f),
 				PortraitPositionXOverride = 0f,
 				PortraitPositionYOverride = 12f
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 326f346703fb34b35cfd658488658472ec038319
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 		}
 		public override void SetDefaults() {
@@ -105,11 +108,14 @@ namespace Zylon.NPCs.Crimson
 		public override void SetStaticDefaults() {
 			// DisplayName.SetDefault("Artery Clogger");
 
-			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
+			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				Hide = true
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
+<<<<<<< HEAD
 			
+=======
+>>>>>>> 326f346703fb34b35cfd658488658472ec038319
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 		}
 		public override void SetDefaults() {
@@ -135,11 +141,14 @@ namespace Zylon.NPCs.Crimson
 		public override void SetStaticDefaults() {
 			// DisplayName.SetDefault("Artery Clogger");
 
-			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
+			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				Hide = true
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);
+<<<<<<< HEAD
 			
+=======
+>>>>>>> 326f346703fb34b35cfd658488658472ec038319
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 		}
 		public override void SetDefaults() {
