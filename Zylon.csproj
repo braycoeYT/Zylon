@@ -10,6 +10,10 @@
   <ItemGroup>
     <None Remove="Assets\Bloom\GlowSparkle.png" />
     <None Remove="Assets\Bloom\GlowStar.png" />
+    <None Remove="Assets\Effects\GloryDye.fx" />
+    <None Remove="Assets\Effects\OnyxDye.fx" />
+    <None Remove="Items\Dyes\GloryDye.png" />
+    <None Remove="Items\Dyes\OnyxDye.png" />
     <None Remove="Projectiles\Bosses\Adeneb\DiskiteBigSun.png" />
     <None Remove="Projectiles\Bosses\Adeneb\DiskiteBigSun_rings.png" />
     <None Remove="Projectiles\Bosses\Adeneb\AdenebLaserSpeedUp.png" />
