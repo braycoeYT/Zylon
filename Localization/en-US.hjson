@@ -1162,7 +1162,7 @@ Mods: {
 			}
 
 			AdeniteBanner: {
-				DisplayName: Desert Diskite Banner
+				DisplayName: Adenite Banner
 				Tooltip: ""
 			}
 
@@ -2544,20 +2544,7 @@ Mods: {
 
 			Lobera: {
 				DisplayName: Lobera
-				Tooltip:
-					'''
-					Hits will slash the enemy's soul, causing their defense to be halved
-					Striking foes will rain tropical orbs upon them
-					'''
-			}
-
-			Midpoint: {
-				DisplayName: Midpoint
-				Tooltip:
-					'''
-					'Only halfway to oblivion, and whatever lies beyond'
-					Alternates between firing different types of bolts
-					'''
+				Tooltip: ""
 			}
 
 			MuddyGreatsword: {
@@ -2640,6 +2627,11 @@ Mods: {
 
 			StoneSword: {
 				DisplayName: Stone Sword
+				Tooltip: ""
+			}
+
+			TrueLobera: {
+				DisplayName: True Lobera
 				Tooltip: ""
 			}
 
@@ -2758,6 +2750,11 @@ Mods: {
 
 			HeavyMetalHammer: {
 				DisplayName: Heavy Metal Hammer
+				Tooltip: ""
+			}
+
+			Matilda: {
+				DisplayName: Matilda
 				Tooltip: ""
 			}
 
@@ -3249,7 +3246,7 @@ Mods: {
 			CursedFlamesMelee.DisplayName: Cursed Flames
 			DirtGlobFriendly.DisplayName: Dirt Glob
 			ElectricBoltPassive.DisplayName: Electric Bolt
-			Adenite_LaserEye.DisplayName: Desert Diskite
+			Adenite_LaserEye.DisplayName: Adenite
 			ElemSlimeBlob.DisplayName: Elemental Slime Blob
 			ElemSlimeOrb.DisplayName: Elemental Slime Orb
 			ElemSlimeSpike.DisplayName: Elemental Slime Spike
@@ -3293,10 +3290,10 @@ Mods: {
 			Megawave.DisplayName: Megawave
 			SMGBlast.DisplayName: Space Machine Gun
 			DirtBlockExp.DisplayName: Dirt Clump
-			DiskiteMinion_Center.DisplayName: Desert Diskite
-			DiskiteMinion_CenterDeco.DisplayName: Desert Diskite
-			DiskiteMinion_LaserEye.DisplayName: Desert Diskite
-			DiskiteMinion_SpikeRing.DisplayName: Desert Diskite
+			DiskiteMinion_Center.DisplayName: Adenite
+			DiskiteMinion_CenterDeco.DisplayName: Adenite
+			DiskiteMinion_LaserEye.DisplayName: Adenite
+			DiskiteMinion_SpikeRing.DisplayName: Adenite
 			FloatingStardustFragment.DisplayName: Floating Stardust Fragment
 			GlowingMushroomSpore.DisplayName: Glowing Mushroom Spore
 			GlowingMushtop.DisplayName: Glowing Mushtop
@@ -3546,9 +3543,9 @@ Mods: {
 			VeinTunnelerBody.DisplayName: Vein Tunneler
 			VeinTunnelerHead.DisplayName: Vein Tunneler
 			VeinTunnelerTail.DisplayName: Vein Tunneler
-			Adenite_Center.DisplayName: Desert Diskite
-			Adenite_LaserEye.DisplayName: Desert Diskite
-			Adenite_SpikeRing.DisplayName: Desert Diskite
+			Adenite_Center.DisplayName: Adenite
+			Adenite_LaserEye.DisplayName: Adenite
+			Adenite_SpikeRing.DisplayName: Adenite
 			DustbowlGigaslime.DisplayName: Dustbowl Gigaslime
 			BoneSlime.DisplayName: Bone Slime
 			ElemSlime.DisplayName: Elem Slime
@@ -3590,7 +3587,7 @@ Mods: {
 			}
 
 			WindElemental.DisplayName: Wind Elemental
-			Adenite_CenterDeco.DisplayName: Desert Diskite_ Center Deco
+			Adenite_CenterDeco.DisplayName: Adenite
 			SaplingWarrior.DisplayName: Sapling Warrior
 			StarpackSlime.DisplayName: Starpack Slime
 			SupremeLookingEyeBody.DisplayName: Supreme Looking Eye (DA SUPREME MEMELORD)

@@ -255,7 +255,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						attack = Main.rand.Next(3);
 						while (prevAttack == attack) attack = Main.rand.Next(3);
                     }
-					attack = 0;
+					attack = 0; //Note to self: the boss isn't broken, just your brain is bc you forgot this was here.
 
 					attackDone = false;
 					attackTimer = 0;

@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using System.Collections.Generic;
 
 namespace Zylon.Items.Accessories
 {
@@ -10,6 +11,7 @@ namespace Zylon.Items.Accessories
 			// Tooltip.SetDefault("Summons a small army of dirt blocks to protect you\nDirt blocks are affected by the Dirt Regalia");
 		}
 		public override void SetDefaults() {
+			Item.CloneDefaults(ItemID.EoCShield);
 			Item.width = 28;
 			Item.height = 28;
 			Item.accessory = true;
@@ -18,8 +20,18 @@ namespace Zylon.Items.Accessories
 			Item.expert = true;
 			Item.damage = 1;
 			Item.DamageType = DamageClass.Summon;
+			Item.defense = 1;
+			//Item.knockBack = 0.5f;
 		}
-		public override void UpdateAccessory(Player player, bool hideVisual) {
+        public override void ModifyTooltips(List<TooltipLine> tooltips) {
+            foreach (var line in tooltips) {
+				if (line.Mod == "Terraria" && line.Name == "Defense") {
+					line.Hide();
+				}
+			}
+        }
+        public override void UpdateAccessory(Player player, bool hideVisual) {
+			player.statDefense -= 1;
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			p.dirtballExpert = true;
 			player.AddBuff(ModContent.BuffType<Buffs.Minions.DirtBlock>(), 60);

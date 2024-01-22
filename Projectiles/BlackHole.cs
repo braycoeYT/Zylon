@@ -22,6 +22,7 @@ namespace Zylon.Projectiles
 			Projectile.scale = 0f;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 2;
+			Projectile.hide = true;
 		}
 		public override void AI() {
 			//Lighting.AddLight(Projectile.Center, 0.2f, 0.2f, 0.2f);

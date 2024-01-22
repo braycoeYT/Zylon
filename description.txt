@@ -103,6 +103,15 @@ V0.0.3: Cause to Clash Update
 ~Reworked Suspicious Looking Eye secret boss fight, and made him fightable on getfixedboi worlds.
 ~Poops now make sound effects.
 ~Added Wolf Pelt.
+~Reworked modded spears.
+~Icicle on a Rod now actually loses its tip on use.
+~Reworked Meteor Herder (it sure needed one).
+~Now correctly draws the Neutron Armor set bonus.
+~Fixed issue with reforging Enchanted Dirt Clump.
+~Increased Spear of Justice knockback.
+~Added Matilda.
+~Meteor Tails now have the same debuff immunities as Meteor Heads.
+
 note to self: lobera + icy greatblade rework
 
 Credits (from the previous mod versions and now):
