@@ -180,6 +180,11 @@ Mods: {
 				Description: The Glowing Mushtop will fight for you
 			}
 
+			Goocat: {
+				DisplayName: Goocat
+				Description: The Goocat will cutely fight for you
+			}
+
 			IcyWisp: {
 				DisplayName: Icy Wisp
 				Description: The Icy Wisp will fight for you
@@ -2008,6 +2013,15 @@ Mods: {
 				Tooltip: Summons a glowing mushtop to fight for you
 			}
 
+			GoocatStaff: {
+				DisplayName: Goocat Staff
+				Tooltip:
+					'''
+					'Half slime, half cat, 100% adorable!'
+					Summons a goocat to fight for you
+					'''
+			}
+
 			IcyWispStaff: {
 				DisplayName: Icy Wisp Staff
 				Tooltip:
@@ -2544,7 +2558,12 @@ Mods: {
 
 			Lobera: {
 				DisplayName: Lobera
-				Tooltip: ""
+				Tooltip:
+					'''
+					Blasts a short wave every three swings
+					Increases damage, knockback, and swing speed as health decreases
+					At 25% health or lower, shoots hyper waves on every swing
+					'''
 			}
 
 			MuddyGreatsword: {
@@ -3307,6 +3326,8 @@ Mods: {
 			FloatingStardustFragment.DisplayName: Floating Stardust Fragment
 			GlowingMushroomSpore.DisplayName: Glowing Mushroom Spore
 			GlowingMushtop.DisplayName: Glowing Mushtop
+			Goocat.DisplayName: Goocat
+			GoocatBarf.DisplayName: Goocat Barf
 			IcyWisp.DisplayName: Icy Wisp
 			IcyWispBeam.DisplayName: Icy Beam
 			Meteorb.DisplayName: Meteorb
@@ -3491,6 +3512,8 @@ Mods: {
 			AdenebXBeam.DisplayName: Adeneb X Beam
 			AdeniteShrapnel.DisplayName: Adenite Shrapnel
 			PoopHostile.DisplayName: Poop Hostile (SUS LIKE AMONGUS)
+			LoberaHyperwave.DisplayName: Lobera Hyperwave
+			LoberaWave.DisplayName: Lobera Wave
 		}
 
 		NPCs: {

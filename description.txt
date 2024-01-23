@@ -111,6 +111,7 @@ V0.0.3: Cause to Clash Update
 ~Increased Spear of Justice knockback.
 ~Added Matilda.
 ~Meteor Tails now have the same debuff immunities as Meteor Heads.
+~Completely reworked Lobera, and added True Lobera.
 
 note to self: lobera + icy greatblade rework
 
