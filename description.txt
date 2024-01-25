@@ -24,7 +24,6 @@ V0.0.3: Cause to Clash Update
 ~Added Protein Splicer.
 ~Added Big Ol' Bouquet.
 ~Herbs' damage from blowpipes is halved after hitting an enemy.
-~Added Dark Prognosticus (unobtainable).
 ~Fixed Chlorophyte Seed projectile's display name.
 ~Reworked Stardust Fragment Staff.
 ~Made Slimebender more powerful, but decreased damage significantly.
@@ -94,10 +93,10 @@ V0.0.3: Cause to Clash Update
 ~Adenites no longer causes errors.
 ~Made Adenites (Desert Diskites) spawn much more often.
 ~Added Forgotten Flame, allowing players to summon sandstorms manually.
-~Made Flamecougher obtainable.
+~Made Flamecougher obtainable, and moved progression to hardmode.
 ~Removed Rusted Tech (replaced by Seared Stone).
 ~Zylon bosses are now immune to many Zylon debuffs, and modified which debuffs Zylon bosses are immune to.
-~In FTW worlds, Dirtball is smaller, Possessed Dirt Blocks are bigger, Dirtball passively generates Possessed Dirt Blocks, Adeneb is bigger and more aggressive in phase 2, Adeneb gains super defense and becomes semi-invisible while hands are attacking, Metelord is shorter and faster, and Eldritch Jellyfish is bigger.
+~In FTW worlds, Dirtball is smaller, Possessed Dirt Blocks are bigger, Dirtball passively generates Possessed Dirt Blocks, Adeneb is bigger and more aggressive in phase 2, Metelord is shorter and faster, and Eldritch Jellyfish is bigger.
 ~General fixes with Zylon NPC buff immunity.
 ~General boss fixes for FTW worlds.
 ~Reworked Suspicious Looking Eye secret boss fight, and made him fightable on getfixedboi worlds.
@@ -112,8 +111,12 @@ V0.0.3: Cause to Clash Update
 ~Added Matilda.
 ~Meteor Tails now have the same debuff immunities as Meteor Heads.
 ~Completely reworked Lobera, and added True Lobera.
+~Added Goocat Staff.
+~After Plantera is defeated, Elemental Goop is now dropped by Dirt Slime, Mechanical Slime, Starpack Slime, and Living Marshmellow.
+~Increased Enchanted Ice Cube drop rate.
+~Buffed Forgotten Rose's Saber.
 
-note to self: lobera + icy greatblade rework
+note to self: lobera + icy greatblade + matilda shoot vine attack + master mode enemy support
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

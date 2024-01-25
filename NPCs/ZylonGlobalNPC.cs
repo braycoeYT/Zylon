@@ -119,7 +119,7 @@ namespace Zylon.NPCs
 			if (npc.type == NPCID.RedDevil)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Boomerangs.Pentagram>(), 25), new CommonDrop(ItemType<Items.Boomerangs.Pentagram>(), 20)));
 			if (npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.IceBat)
-				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.EnchantedIceCube>(), 1, 1, 2));
+				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.EnchantedIceCube>(), 1, 2, 4));
 			if (npc.type == NPCID.Werewolf || npc.type == NPCID.Wolf) {
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.WolfPelt>(), 1, 1, 2));
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 100), new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 80)));

@@ -19,6 +19,8 @@ Mods: {
 			}
 		}
 
+		DropConditions.ElemGelCondition: Unleash the Elemental Goo
+
 		Buffs: {
 			AdenebSpikeRing: {
 				DisplayName: Spike Ring
@@ -2017,7 +2019,7 @@ Mods: {
 				DisplayName: Goocat Staff
 				Tooltip:
 					'''
-					'Half slime, half cat, 100% adorable!'
+					'Half slime, half cat, completely adorable!'
 					Summons a goocat to fight for you
 					'''
 			}
@@ -3480,15 +3482,17 @@ Mods: {
 			SpiderEgg.DisplayName: Spider Egg
 			SpiderEggInvis.DisplayName: Spider Egg
 			VenomFangMelee.DisplayName: Venom Fang
-			DiskiteBigSun.DisplayName: Solar Blast
+			AdenebBigSun.DisplayName: Adeneb Big Sun
 			AdenebLaserSpeedUp.DisplayName: Sun Ray
 			AdenebLaser.DisplayName: Adeneb Laser
-			DiskitePhaseShot.DisplayName: Sun Shot
-			DiskitePhaseSun.DisplayName: Solar Blast
-			DiskitePhaseSunBig.DisplayName: Giant Solar Blast
-			DiskitePremonition.DisplayName: Premonition
-			DiskitePremonition2.DisplayName: Premonition
-			DiskiteXBeam.DisplayName: Solar Bomb
+			AdenebPhaseShot.DisplayName: Adeneb Phase Shot
+			AdenebPhaseSun.DisplayName: Adeneb Phase Sun
+			AdenebPhaseSunBig.DisplayName: Adeneb Phase Sun Big
+			AdenebPremonition.DisplayName: Adeneb Premonition
+			AdenebPremonition2.DisplayName: Adeneb Premonition2
+			AdenebXBeam.DisplayName: Adeneb X Beam
+			AdenebSunShield.DisplayName: Sun Shield
+			AdenebSunShieldSplit.DisplayName: Sun Shield
 			SolChakram.DisplayName: Sol Chakram
 			Iblis.DisplayName: Iblis
 			Iblis_Rock.DisplayName: Iblis Rock
@@ -3503,13 +3507,6 @@ Mods: {
 			Dumbbell.DisplayName: Dumbbell
 			DreadclawtilusProj.DisplayName: Dreadclawtilus Proj
 			BlackHole.DisplayName: Black Hole
-			AdenebBigSun.DisplayName: Adeneb Big Sun
-			AdenebPhaseShot.DisplayName: Adeneb Phase Shot
-			AdenebPhaseSun.DisplayName: Adeneb Phase Sun
-			AdenebPhaseSunBig.DisplayName: Adeneb Phase Sun Big
-			AdenebPremonition.DisplayName: Adeneb Premonition
-			AdenebPremonition2.DisplayName: Adeneb Premonition2
-			AdenebXBeam.DisplayName: Adeneb X Beam
 			AdeniteShrapnel.DisplayName: Adenite Shrapnel
 			PoopHostile.DisplayName: Poop Hostile (SUS LIKE AMONGUS)
 			LoberaHyperwave.DisplayName: Lobera Hyperwave

@@ -31,9 +31,6 @@ namespace Zylon.Projectiles
             if (Projectile.timeLeft < 18)
 				Projectile.alpha += 15;
         }
-        public override void PostAI() {
-            base.PostAI();
-        }
         public override bool PreDraw(ref Color lightColor) {
 			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 			Texture2D texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/BlackHole");

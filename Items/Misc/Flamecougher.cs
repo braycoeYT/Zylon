@@ -10,22 +10,22 @@ namespace Zylon.Items.Misc
 	public class Flamecougher : ModItem
 	{
 		public override void SetDefaults() {
-			Item.value = Item.sellPrice(0, 2);
+			Item.value = Item.sellPrice(0, 4, 89);
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.useAnimation = 27;
-			Item.useTime = 27;
-			Item.damage = 12;
+			Item.useAnimation = 24;
+			Item.useTime = 24;
+			Item.damage = 43;
 			Item.width = 36;
 			Item.height = 22;
-			Item.knockBack = 0.1f;
+			Item.knockBack = 1f;
 			Item.shoot = ModContent.ProjectileType<Projectiles.CursedFlamesMelee>();
-			Item.shootSpeed = 13f;
+			Item.shootSpeed = 19f;
 			Item.noMelee = true;
 			Item.DamageType = DamageClass.Ranged;
 			Item.useAmmo = AmmoID.Gel;
 			Item.UseSound = SoundID.Item95;
 			Item.autoReuse = false;
-			Item.rare = ItemRarityID.Blue;
+			Item.rare = ItemRarityID.LightRed;
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer, 1f);
@@ -36,10 +36,10 @@ namespace Zylon.Items.Misc
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddRecipeGroup("IronBar", 8);
+			recipe.AddRecipeGroup("Zylon:AnyHMBar", 10);
 			recipe.AddIngredient(ItemID.Chain, 4);
-			recipe.AddIngredient(ItemID.ShadowScale, 12);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddIngredient(ItemID.CursedFlame, 15);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}

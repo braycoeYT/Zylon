@@ -78,6 +78,8 @@ namespace Zylon.NPCs.Bosses.Adeneb
 		Vector2 newVel;
 		Player target;
         public override void AI() {
+			NPC.ai[0] = phase;
+
 			NPC.TargetClosest();
 			target = Main.player[NPC.target];
 			ZylonGlobalNPC.adenebBoss = NPC.whoAmI;
@@ -206,6 +208,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					if (attackTimer == 2200) {
 						//END OF TRANSITION phase, drawaura
 						drawAura = false;
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebSunShield>(), NPC.damage/3, 0f);
                     }
                 }
 				else {
@@ -220,11 +223,12 @@ namespace Zylon.NPCs.Bosses.Adeneb
                 }
 
 				//REMOVE THIS THIS IS JUST FOR SKIPPING THE TRANSIIOTN 4 TESTING!!!!!!!!!!!!!!!!!!!
-				phase = 2;
+				if (attackTimer < 2200) attackTimer = 2199;
+				/*phase = 2;
 				prevAttack = -1;
 				EndAttack();
 				NPC.dontTakeDamage = false;
-				NPC.rotation = 0f;
+				NPC.rotation = 0f;*/
 				//REMOVE THIS THIS IS JUST FOR SKIPPING THE TRANSIIOTN 4 TESTING!!!!!!!!!!!!!!!!!!!
 
 
@@ -245,7 +249,6 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			if (attackDone) { //dash
 				if (introAttackDone || phase == 2) {
 					if (phase == 2) {
-
 						if (Main.getGoodWorld) NPC.scale = 1.5f;
 
 						attack = Main.rand.Next(3);
@@ -299,7 +302,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 				}
             }
 			else { //See tome man? I'm doing a thing!
-				if (phase == 1) switch (attack) { //I need to think of one more attack for phase 1 but all my ideas are for phase 2 :P
+				if (phase == 1) switch (attack) {
 					case 0:
 						SpinLaser();
 						break;
@@ -310,12 +313,18 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						BigSun(); //MineRing();
 						break;
                 }
-				else if (NPC.ai[0] == 0f) switch (attack) {
+				else switch (attack) { //else if (NPC.ai[0] == 0f) switch (attack) {
 					case 0:
-						Phase2Move();
+						ShieldSplit();
+						break;
+					case 1:
+						SpinLaserButBased();
+						break;
+					case 2:
+						ShieldSplit();
 						break;
                 }
-				else Phase2Move();
+				//else Phase2Move();
             }
 			SpikeGlobalDrawRotation = NPC.rotation;
 			OrbDrawRotation = -NPC.rotation;
@@ -427,6 +436,63 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			if (NPC.velocity.X > 13) NPC.velocity.X = 13;
 			if (NPC.velocity.X < -13) NPC.velocity.X = -13;
         }
+
+		float dashPower;
+		float hpLeft2;
+		private void ShieldSplit() {
+			NPC.ai[1] = 1;
+			attackTimer++;
+
+			if (attackFloat == 0f) {
+				NPC.velocity *= 0.9f;
+				if (attackTimer >= 50) {
+					attackTimer = 0;
+					attackFloat = 1f;
+                }
+            }
+			else if (attackFloat < 5f) {
+				if (attackTimer == 1) {
+					hpLeft2 = (float)NPC.life/(float)(NPC.lifeMax/2);
+					float h = -60f;
+					dashVelocity = Vector2.Normalize(NPC.Center - Main.player[NPC.target].Center) * h;
+					dashPower = Math.Abs(Vector2.Distance(NPC.Center, Main.player[NPC.target].Center));
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center+dashVelocity, dashVelocity, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebPremonition>(), 0, 0, Main.myPlayer, 20);
+				}
+				if (attackTimer < 10) {
+					NPC.velocity /= 2;
+	            }
+				if (attackTimer == 30) {
+					dashVelocity.Normalize();
+					if (Vector2.Distance(NPC.Center, Main.player[NPC.target].Center) > 450f) NPC.velocity = dashVelocity*dashPower*(0.06f + (0.015f*hpLeft2));//0.04f is reach pos;
+					else {
+						NPC.velocity = dashVelocity*(27f + (9f*hpLeft2));
+                    }
+					o = 0.1f;
+					if (Main.expertMode) o += 0.025f;
+				}
+				if (attackTimer > 30) {
+					NPC.velocity *= 0.965f; //0.96
+					o *= 0.978f; //0.97
+					NPC.rotation += o*3f;//*(0.1f+(0.015f*120-attackTimer));
+				}
+	
+				if (attackTimer >= 90) { //ATTACK SETUP
+					//if (attackFloat >= 3) EndAttack();
+					attackTimer = 0; //else attackTimer = 0;
+					attackFloat += 1f;
+				}
+            }
+			else {
+				NPC.ai[1] = 0f;
+				Phase2Move();
+				if (attackTimer >= 180) EndAttack();
+            }
+        }
+
+		private void SpinLaserButBased() {
+
+        }
+
 		float degrees;
 		float targetRot;
 		float degTemp;
@@ -510,7 +576,8 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			attackFloat = 0f;
 			attackInt = 0;
 			start = false;
-			NPC.ai[0] = 1f;
+			//NPC.ai[0] = 1f; //REMOVE
+			NPC.ai[1] = 0f;
         }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
@@ -538,10 +605,12 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			Color color = NPC.GetAlpha(drawColor);
 			var effects = SpriteEffects.None;
 
-			if (phase == 1) spriteBatch.Draw(spikeTextureBottom, drawPos + new Vector2(0, 80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
+			bool cond = phase == 1 && !(NPC.life <= NPC.lifeMax/2 && attackTimer >= 2200);
+
+			if (cond) spriteBatch.Draw(spikeTextureBottom, drawPos + new Vector2(0, 80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
 			spriteBatch.Draw(texture, drawPos, null, color, OrbDrawRotation, drawOrigin, NPC.scale, effects, 0);
-			if (phase == 1) spriteBatch.Draw(spikeTextureTop, drawPos + new Vector2(0, -80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
-			if (phase == 1) spriteBatch.Draw(ankhTexture, drawPos + new Vector2(0, -20).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, ankhOrigin, NPC.scale, effects, 0);
+			if (cond) spriteBatch.Draw(spikeTextureTop, drawPos + new Vector2(0, -80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
+			if (cond) spriteBatch.Draw(ankhTexture, drawPos + new Vector2(0, -20).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, ankhOrigin, NPC.scale, effects, 0);
 
 			if (drawAura) spriteBatch.Draw(auraTexture, drawPos - new Vector2(439, 425), null, Color.White, 0f, drawOrigin, 2.5f, effects, 0);
 

@@ -104,6 +104,17 @@ namespace Zylon
 			});
 			RecipeGroup.RegisterGroup("Zylon:AnyHerb", group);
 
+			group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Basic Hardmode Bar", new int[]
+			{
+			ItemID.CobaltBar,
+			ItemID.PalladiumBar,
+			ItemID.MythrilBar,
+			ItemID.OrichalcumBar,
+			ItemID.AdamantiteBar,
+			ItemID.TitaniumBar,
+			});
+			RecipeGroup.RegisterGroup("Zylon:AnyHMBar", group);
+
 			if (RecipeGroup.recipeGroupIDs.ContainsKey("IronBar")) {
 				int index = RecipeGroup.recipeGroupIDs["IronBar"];
 				group = RecipeGroup.recipeGroups[index];
