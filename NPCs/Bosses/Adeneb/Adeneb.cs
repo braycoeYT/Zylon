@@ -95,7 +95,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 				NPC.defense = 8;
 				if (Main.expertMode) { NPC.damage = 75; }
 				if (Main.masterMode) { NPC.damage = 109; }
-				if (Main.getGoodWorld) { //For the Worthy: While hands are attacking, gains lots of defense and becomes semi-invisible
+				/*if (Main.getGoodWorld) { //For the Worthy: While hands are attacking, gains lots of defense and becomes semi-invisible
 					if (NPC.ai[0] == 1f) {
 						NPC.alpha = 127;
 						NPC.defense = 36;
@@ -104,7 +104,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						NPC.alpha = 0;
 						NPC.defense = 12;
                     }
-                }
+                }*/
             }
 			NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
 
@@ -258,7 +258,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						attack = Main.rand.Next(3);
 						while (prevAttack == attack) attack = Main.rand.Next(3);
                     }
-					attack = 0; //Note to self: the boss isn't broken, just your brain is bc you forgot this was here.
+					attack = 1; //Note to self: the boss isn't broken, just your brain is bc you forgot this was here.
 
 					attackDone = false;
 					attackTimer = 0;
@@ -318,10 +318,10 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						ShieldSplit();
 						break;
 					case 1:
-						SpinLaserButBased();
+						SunRayRing();
 						break;
 					case 2:
-						ShieldSplit();
+						MiniSunBarrage();
 						break;
                 }
 				//else Phase2Move();
@@ -437,6 +437,29 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			if (NPC.velocity.X < -13) NPC.velocity.X = -13;
         }
 
+		private void Phase2Move2() { //Like previous but more aggressive horizontally
+			attackTimer++;
+			RotateTowardsPlayer();
+
+			float c = 1.25f;
+			if (Main.getGoodWorld) c = 1.5f;
+
+			//Vertical manager
+			if (NPC.Center.Y < target.Center.Y && attackTimer % 5 == 0) NPC.velocity.Y += c;
+			else if (attackTimer % 5 == 0) NPC.velocity.Y -= c;
+			if (NPC.velocity.Y > 10) NPC.velocity.Y = 10;
+			if (NPC.velocity.Y < -10) NPC.velocity.Y = -10;
+
+			//Horizontal manager
+			if (NPC.Center.X < target.Center.X && attackTimer % 5 == 0) NPC.velocity.X += c;
+			else if (attackTimer % 5 == 0) NPC.velocity.X -= c;
+			if (NPC.velocity.X > 20) NPC.velocity.X = 20;
+			if (NPC.velocity.X < -20) NPC.velocity.X = -20;
+
+			if (NPC.Center.X < target.Center.X - 800) NPC.velocity.X += 2;
+			if (NPC.Center.X > target.Center.X + 800) NPC.velocity.X -= 2;
+        }
+
 		float dashPower;
 		float hpLeft2;
 		private void ShieldSplit() {
@@ -463,9 +486,9 @@ namespace Zylon.NPCs.Bosses.Adeneb
 	            }
 				if (attackTimer == 30) {
 					dashVelocity.Normalize();
-					if (Vector2.Distance(NPC.Center, Main.player[NPC.target].Center) > 450f) NPC.velocity = dashVelocity*dashPower*(0.06f + (0.015f*hpLeft2));//0.04f is reach pos;
+					if (Vector2.Distance(NPC.Center, Main.player[NPC.target].Center) > 450f) NPC.velocity = dashVelocity*dashPower*(0.075f - (0.015f*hpLeft2));//0.04f is reach pos;
 					else {
-						NPC.velocity = dashVelocity*(27f + (9f*hpLeft2));
+						NPC.velocity = dashVelocity*(36f - (9f*hpLeft2));
                     }
 					o = 0.1f;
 					if (Main.expertMode) o += 0.025f;
@@ -484,14 +507,37 @@ namespace Zylon.NPCs.Bosses.Adeneb
             }
 			else {
 				NPC.ai[1] = 0f;
-				Phase2Move();
+				Phase2Move(); //attackTimer is incremented twice now but who cares
 				if (attackTimer >= 180) EndAttack();
             }
         }
+		private void SunRayRing() {
+			Phase2Move2();
+			hpLeft2 = (float)NPC.life/(float)(NPC.lifeMax/2);
+			if (attackTimer >= (90 + (15*hpLeft2))) { NPC.ai[1] = 2; attackTimer = 0; attackTimer2++; }
+			else NPC.ai[1] = 0;
 
-		private void SpinLaserButBased() {
+			//if (attackTimer % 30 == 0) Main.NewText(hpLeft2); //TESTING
 
+			if (attackTimer2 > 6 - (3*hpLeft2)) EndAttack();
         }
+		private void MiniSunBarrage() {
+			Phase2Move2();
+			NPC.ai[0] = 3;
+        }
+		private void SpinLaserButBased() { //nvm it wasn't based
+			Phase2Move();
+			NPC.velocity *= 0.97f;
+			attackTimer++;
+			if (attackTimer == 1) hpLeft2 = (float)NPC.life/(float)(NPC.lifeMax/2);
+			attackFloat += MathHelper.ToRadians(3 + (2*hpLeft2));
+			if (attackTimer % (int)(10 + (8*hpLeft2)) == 0) {
+				Vector2 tempSpd = new Vector2(0, (-12f + (2f*hpLeft2))).RotatedBy(attackFloat);
+				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, tempSpd, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebLaser>(), NPC.damage/4, 0f);
+				
+			}
+			if (attackTimer > 480) EndAttack();
+		}
 
 		float degrees;
 		float targetRot;

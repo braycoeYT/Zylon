@@ -3483,7 +3483,8 @@ Mods: {
 			SpiderEggInvis.DisplayName: Spider Egg
 			VenomFangMelee.DisplayName: Venom Fang
 			AdenebBigSun.DisplayName: Adeneb Big Sun
-			AdenebLaserSpeedUp.DisplayName: Sun Ray
+			AdenebLaserSpeedUp.DisplayName: Sunbound Sword
+			AdenebLaserSpeedUpOG.DisplayName: Sun Ray
 			AdenebLaser.DisplayName: Adeneb Laser
 			AdenebPhaseShot.DisplayName: Adeneb Phase Shot
 			AdenebPhaseSun.DisplayName: Adeneb Phase Sun
