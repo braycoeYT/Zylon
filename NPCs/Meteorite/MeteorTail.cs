@@ -15,10 +15,10 @@ namespace Zylon.NPCs.Meteorite
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire3] = true;
-			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
-				CustomTexturePath = "Zylon/NPCs/Bosses/Adeneb/Adeneb_Bestiary",
+			/*var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
+				CustomTexturePath = "Zylon/NPCs/Bosses/Adeneb/Adeneb_Bestiary", //Dark magic
 			};
-			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
+			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);*/
         }
         public override void SetDefaults() {
 			NPC.width = 40;

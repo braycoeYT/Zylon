@@ -258,7 +258,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						attack = Main.rand.Next(3);
 						while (prevAttack == attack) attack = Main.rand.Next(3);
                     }
-					attack = 1; //Note to self: the boss isn't broken, just your brain is bc you forgot this was here.
+					//attack = 2; //Note to self: the boss isn't broken, just your brain is bc you forgot this was here.
 
 					attackDone = false;
 					attackTimer = 0;
@@ -523,7 +523,10 @@ namespace Zylon.NPCs.Bosses.Adeneb
         }
 		private void MiniSunBarrage() {
 			Phase2Move2();
-			NPC.ai[0] = 3;
+			hpLeft2 = (float)NPC.life/(float)(NPC.lifeMax/2);
+			if (attackTimer == 1) NPC.ai[1] = 3;
+			else NPC.ai[1] = 0;
+			if (attackTimer > 420) EndAttack();
         }
 		private void SpinLaserButBased() { //nvm it wasn't based
 			Phase2Move();

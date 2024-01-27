@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Zylon.NPCs;
 using System.Collections.Generic;
+using System;
 
 namespace Zylon.Projectiles.Bosses.Adeneb
 {
@@ -19,7 +20,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.width = 128;
 			Projectile.height = 128;
 			Projectile.aiStyle = -1;
-			Projectile.hostile = false;
+			Projectile.hostile = true;
 			Projectile.friendly = false;
 			Projectile.timeLeft = 9999;
 			Projectile.ignoreWater = true;
@@ -29,9 +30,13 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 		float ihatescale = 0f;
 		float hpLeft2;
 		bool die;
+		bool die2;
 		bool init;
 		NPC owner;
 		int attackTimer;
+        int attackInt;
+		int attackTimer2;
+		bool atkCheck;
         public override void AI() {
 			owner = Main.npc[ZylonGlobalNPC.adenebBoss];
 			hpLeft2 = (float)owner.life/(float)(owner.lifeMax/2);
@@ -39,30 +44,29 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			if (!init) {
 				if (Projectile.ai[0] == 1f) ihatescale = Main.getGoodWorld ? 1.5f : 1f;
 				init = true;
-
-				Projectile.damage = 15;
+			}
+				Projectile.damage = 15; //Plz work and not be stupid
 				if (Main.expertMode) Projectile.damage = 25;
 				if (Main.masterMode) Projectile.damage = 35;
 				Projectile.damage = (int)(Projectile.damage*(1.2f-(0.2f*hpLeft2)));
-            }
+            //}
 
 			if (!(owner.life < 1 || !owner.active)) Projectile.timeLeft = 2; //Active check
 
 			//Init scale
-			if (owner.ai[1] != 2) {
+			if (!die && !die2) {
 				if (ihatescale < 1f || (ihatescale < 1.5f && Main.getGoodWorld)) ihatescale += 0.02f;
 				if (ihatescale < 1.5f && Main.getGoodWorld) ihatescale += 0.01f;
 			}
 			//Pos fix
-            if (owner.ai[2] != 2) Projectile.Center = owner.Center;
+            if (!die2) Projectile.Center = owner.Center;
 			Projectile.rotation += MathHelper.ToRadians(5);
 
-			//Split attack
 			if (owner.ai[1] == 99) { //Finale
 				attackTimer = 0;
 				Projectile.velocity = Vector2.Zero;
             }
-			else if (owner.ai[1] == 1) {
+			else if (owner.ai[1] == 1) { //ShieldSplit
 				if (ihatescale < 1.5f || (ihatescale < 2f && Main.getGoodWorld)) ihatescale += 0.01f;
 				else {
 					if (Main.netMode != NetmodeID.MultiplayerClient) for (int x = 0; x < 2; x++) {
@@ -71,7 +75,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 					Projectile.Kill();
                 }
             }
-			else if (owner.ai[1] == 2 || die) {
+			else if (owner.ai[1] == 2 || die) { //SunRayRing
 				die = true;
 				ihatescale -= 0.04f;
 				if (Main.getGoodWorld) ihatescale -= 0.02f;
@@ -85,12 +89,56 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 					}
                 }
             }
-			else if (owner.ai[1] == 3) {
+			else if (owner.ai[1] == 3 || die2) { //MiniSunBarrage
+				Projectile.hostile = false; //to be nice
+				die2 = true;
 				attackTimer++;
-				if (attackTimer < 10) {
-					Projectile.velocity.Y -= 1;
+				if (attackTimer > 20 && attackInt == 0) {
+					attackInt++;
+					attackTimer = 0;
                 }
-				//if (attackTimer )
+				if (attackInt > 0) {
+					attackTimer2++;
+					if (attackTimer2 > 220) ihatescale -= 0.05f;
+					if (Main.getGoodWorld && attackTimer2 > 240) ihatescale -= 0.025f;
+
+					if (ihatescale <= 0f) {
+						if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Projectile.GetSource_FromThis(), owner.Center, Vector2.Zero, ModContent.ProjectileType<AdenebSunShield>(), Projectile.damage, 0f);
+						Projectile.Kill();
+					}
+					if (attackTimer >= 12+(10*hpLeft2)) {
+						ihatescale -= 0.01f;
+						if (Main.getGoodWorld) ihatescale -= 0.005f;
+						if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 3).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<AdenebMiniSunChase>(), (int)(Projectile.damage*0.8f), 0f);
+						attackTimer = 0;
+                    }
+                }
+
+				//Rise about the player
+				float c = 1.25f;
+				if (Main.getGoodWorld) c = 1.5f;
+
+				Player target = Main.player[owner.target];
+				Vector2 tarPos = target.Center - new Vector2(0, 240);
+
+				if (Projectile.Center.Y < tarPos.Y && attackTimer % 5 == 0) Projectile.velocity.Y += c;
+				else if (attackTimer % 5 == 0) Projectile.velocity.Y -= c;
+				if (Projectile.velocity.Y > 22) Projectile.velocity.Y = 22;
+				if (Projectile.velocity.Y < -22) Projectile.velocity.Y = -22;
+	
+				//Horizontal manager
+				if (Projectile.Center.X < tarPos.X && attackTimer % 5 == 0) Projectile.velocity.X += c;
+				else if (attackTimer % 5 == 0) Projectile.velocity.X -= c;
+				if (Projectile.velocity.X > 20) Projectile.velocity.X = 20;
+				if (Projectile.velocity.X < -20) Projectile.velocity.X = -20;
+				
+				//Faster
+				if (Projectile.Center.X < tarPos.X - 600) Projectile.velocity.X += 2;
+				if (Projectile.Center.X > tarPos.X + 600) Projectile.velocity.X -= 2;
+				//if (Projectile.Center.Y < tarPos.Y - 200) Projectile.velocity.Y += 2;
+				if (Projectile.Center.Y > tarPos.Y + 100) Projectile.velocity.Y -= 2;
+
+				if (Math.Abs(Projectile.Center.Y - tarPos.Y) < 120) Projectile.velocity.Y *= 0.85f;
             }
         }
 		public override bool PreDraw(ref Color lightColor) {
