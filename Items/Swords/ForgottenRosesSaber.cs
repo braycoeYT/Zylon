@@ -65,7 +65,6 @@ namespace Zylon.Items.Swords
 			recipe.AddIngredient(ItemID.ChlorophyteSaber);
 			recipe.AddIngredient(ItemID.JungleRose);
 			recipe.AddIngredient(ItemID.ChlorophyteBar, 12);
-			recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 20);
 			recipe.AddIngredient(ItemID.BeetleHusk, 5);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

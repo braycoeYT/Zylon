@@ -20,8 +20,10 @@ namespace Zylon.NPCs
 				ProjectileHelpers.NewNetProjectile(npc.GetSource_FromThis(), npc.Center, new Vector2(0, 0), ProjectileType<Projectiles.PlanteraElementalGel>(), 0, 0, Main.myPlayer, BasicNetType: 2);
         }
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot) {
-			if (npc.type == NPCID.Harpy)
+			if (npc.type == NPCID.Harpy) {
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.SpeckledStardust>(), 1, 1, 2));
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Yoyos.GlazingStar>(), 75), new CommonDrop(ItemType<Items.Yoyos.GlazingStar>(), 65)));
+			}
 			if (npc.type == NPCID.BloodCrawler || npc.type == NPCID.BloodCrawlerWall)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Materials.BloodySpiderLeg>(), 8), new CommonDrop(ItemType<Items.Materials.BloodySpiderLeg>(), 6)));
 			if (npc.type == NPCID.KingSlime) {

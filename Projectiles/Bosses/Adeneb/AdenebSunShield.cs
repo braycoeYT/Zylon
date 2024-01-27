@@ -48,7 +48,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 				Projectile.damage = 15; //Plz work and not be stupid
 				if (Main.expertMode) Projectile.damage = 25;
 				if (Main.masterMode) Projectile.damage = 35;
-				Projectile.damage = (int)(Projectile.damage*(1.2f-(0.2f*hpLeft2)));
+				//Projectile.damage = (int)(Projectile.damage*(1.2f-(0.2f*hpLeft2)));
             //}
 
 			if (!(owner.life < 1 || !owner.active)) Projectile.timeLeft = 2; //Active check
@@ -139,6 +139,23 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 				if (Projectile.Center.Y > tarPos.Y + 100) Projectile.velocity.Y -= 2;
 
 				if (Math.Abs(Projectile.Center.Y - tarPos.Y) < 120) Projectile.velocity.Y *= 0.85f;
+            }
+			else if (owner.ai[1] == 5) { //Finale
+				if (Main.getGoodWorld) ihatescale += 0.0125f;
+				else ihatescale += 0.025f;
+				if (ihatescale > 2f) {
+					//ihatescale = 2f;
+					attackTimer++;
+					if (attackTimer >= 120) {
+						Projectile.Kill(); //Goodbye friend.
+                    }
+					else if (attackTimer > 60) {
+						Projectile.velocity.Y *= 1.05f;
+                    }
+					else if (attackTimer == 60) {
+						Projectile.velocity.Y = -1f;
+                    }
+                }
             }
         }
 		public override bool PreDraw(ref Color lightColor) {

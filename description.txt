@@ -114,7 +114,17 @@ V0.0.3: Cause to Clash Update
 ~Added Goocat Staff.
 ~After Plantera is defeated, Elemental Goop is now dropped by Dirt Slime, Mechanical Slime, Starpack Slime, and Living Marshmellow.
 ~Increased Enchanted Ice Cube drop rate.
-~Buffed Forgotten Rose's Saber.
+~Buffed Forgotten Rose's Saber and changed recipe.
+~Adenite Shrapnel is now easier to craft.
+~Removed Kivasana and Eternia 2000 (for now).
+~Harpies now drop Speckled Stardust.
+~Decreased amount of Elemental Goop needed to craft the Terra Blade.
+~Dirtball now drops Bag of Fruits and Mud Pie in normal mode.
+~Modified Rainy Days recipe.
+~Added Stairway to Heaven and The Archangel.
+~Reworked Glorious Sun.
+~Modified Starstruck Meteor Chunk recipe.
+~Metelord now spawns a swarm of stars from the sky when slain at night. The amount is boosted on expert, for the worthy, and getfixedboi worlds.
 
 note to self: lobera + icy greatblade + matilda shoot vine attack + master mode enemy support
 

@@ -1686,6 +1686,11 @@ Mods: {
 					'''
 			}
 
+			TheArchangel: {
+				DisplayName: The Archangel
+				Tooltip: Fires a ring of light bolts on throw
+			}
+
 			TheMeteorite: {
 				DisplayName: The Meteorite
 				Tooltip: Has a large range
@@ -2735,6 +2740,11 @@ Mods: {
 					'''
 			}
 
+			StairwaytoHeaven: {
+				DisplayName: Stairway to Heaven
+				Tooltip: Fires a barrage of light beams
+			}
+
 			Sunburn: {
 				DisplayName: Sunburn
 				Tooltip:
@@ -3294,6 +3304,8 @@ Mods: {
 			ShadowMoon.DisplayName: Shadow Moon
 			Sporophyte.DisplayName: Sporophyte
 			StickyHand.DisplayName: Sticky Hand
+			TheArchangel.DisplayName: The Archangel
+			TheArchangelProj.DisplayName: The Archangel
 			TheMeteorite.DisplayName: The Meteorite
 			AcornTreeGrow.DisplayName: Tree
 			AcornTreePlant.DisplayName: Acorn
@@ -3433,6 +3445,7 @@ Mods: {
 			PKFire2.DisplayName: Volcanic Flame
 			PKFireWall.DisplayName: Volcanic Flame
 			SnowfallProj.DisplayName: Snowfall
+			StairwaytoHeavenProj.DisplayName: Stairway to Heaven
 			Sunburn_Spark.DisplayName: Sunburn
 			Sunburn_Flame.DisplayName: Sunburn
 			WadofSpores.DisplayName: Wad of Spores
@@ -3486,6 +3499,7 @@ Mods: {
 			AdenebLaserSpeedUp.DisplayName: Sunbound Sword
 			AdenebLaserSpeedUpOG.DisplayName: Sun Ray
 			AdenebMiniSunChase.DisplayName: Mini Sun
+			AdenebMiniSunChaseFinale.DisplayName: Mini Sun
 			AdenebLaser.DisplayName: Adeneb Laser
 			AdenebPhaseShot.DisplayName: Adeneb Phase Shot
 			AdenebPhaseSun.DisplayName: Adeneb Phase Sun
@@ -3513,6 +3527,8 @@ Mods: {
 			PoopHostile.DisplayName: Poop Hostile (SUS LIKE AMONGUS)
 			LoberaHyperwave.DisplayName: Lobera Hyperwave
 			LoberaWave.DisplayName: Lobera Wave
+			AdenebFinaleWall.DisplayName: Adeneb Finale Wall
+			MetelordFallenStar.DisplayName: Fallen Star
 		}
 
 		NPCs: {

@@ -50,7 +50,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			//Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
-        NPC.lifeMax = (int)((5200 + ((numPlayers - 1) * 2400))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+			NPC.lifeMax = (int)((5200 + ((numPlayers - 1) * 2400))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 61;
 			NPC.value = 140000;
 			if (Main.masterMode) {
@@ -58,7 +58,16 @@ namespace Zylon.NPCs.Bosses.Adeneb
 				NPC.damage = 94;
             }
         }
-		int attack;
+        public override void HitEffect(NPC.HitInfo hit) {
+            if (NPC.life < 1) {
+				//NPC.immortal = true;
+				NPC.life = 1;
+				NPC.dontTakeDamage = true;
+				finale = true;
+				EndAttack();
+            }
+        }
+        int attack;
 		int attackTimer;
 		int attackTimer2;
 		int attackInt;
@@ -72,6 +81,8 @@ namespace Zylon.NPCs.Bosses.Adeneb
 		int flee;
 		bool transitionSetup;
 		bool drawAura;
+		bool finale;
+		int arenaSize = 1000;
 		//bool adenebTurn = true;
 		Vector2 dashVelocity;
 		Vector2 tempVector;
@@ -106,7 +117,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
                     }
                 }*/
             }
-			NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
+			//NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
 
 			if (!target.ZoneDesert && !target.ZoneUndergroundDesert && !(phase == 1 && NPC.life <= NPC.lifeMax/2)) {
 				angerTimer++;
@@ -126,7 +137,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					//if (flee == 0)
 					flee++;
 				}
-				else if (phase == 1 && NPC.life <= NPC.lifeMax/2 && Vector2.Distance(NPC.Center, Main.player[NPC.target].Center) > 1700) {
+				else if ((finale || (phase == 1 && NPC.life <= NPC.lifeMax/2)) && Vector2.Distance(NPC.Center, Main.player[NPC.target].Center) > 1700) {
 					flee++;
                 }
 				else
@@ -138,10 +149,51 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					NPC.velocity = newVel;
 					if (phase == 1 && NPC.life <= NPC.lifeMax/2) NPC.velocity = Vector2.Zero;
 					if (flee > 300) NPC.active = false;
-					if (flee > 30 && (phase == 1 && NPC.life <= NPC.lifeMax/2)) NPC.active = false;
+					if (flee > 30 && ((phase == 1 && NPC.life <= NPC.lifeMax/2) || finale)) NPC.active = false;
 					return;
 				}
 			}
+
+			if (finale) { //idk if there's some way to stabilize it above a certain level above the ground but that would be great probably
+				NPC.ai[1] = 5;
+				//NPC.velocity *= 0.95f;
+				attackTimer++;
+
+				if (attackTimer % 3 == 0 && attackTimer <= 180) {
+					if (NPC.Center.Y > target.Center.Y) NPC.velocity.Y -= 1;
+					else if (NPC.Center.Y < target.Center.Y - 144) NPC.velocity.Y += 1;
+					else NPC.velocity.Y *= 0.8f;
+					if (NPC.Center.X < target.Center.X - 300) NPC.velocity.X += 1;
+					else if (NPC.Center.X > target.Center.X + 300) NPC.velocity.X -= 1;
+					else NPC.velocity.X *= 0.8f;
+				}
+				
+				if (attackTimer == 181) { //Give players time to get closer?
+					if (Main.expertMode) arenaSize = 800;
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(arenaSize, 0), Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebFinaleWall>(), NPC.damage, 0f);
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(arenaSize, 0), Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebFinaleWall>(), NPC.damage, 0f);
+				}
+
+				if (attackTimer >= 800) {
+
+                }
+				else if (attackTimer >= 300) {
+					if (attackTimer % 6 == 0 && attackTimer < 700 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(Main.rand.Next((-1*arenaSize)+16, arenaSize-16), 600), new Vector2(0, -5), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebLaserSpeedUpOG>(), NPC.damage/3, 0f, -1, 1f);
+                }
+				/*else if (attackTimer >= 300) { //Part 1
+					//if (attackTimer % 10 == 0 && attackTimer < 700 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 3).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebMiniSunChaseFinale>(), NPC.damage/3, 0f);
+					if (attackTimer % 8 == 0 && attackTimer < 700 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(Main.rand.Next(-400, 401), 1200), new Vector2(0, 3).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebMiniSunChase>(), NPC.damage/3, 0f);
+                }*/
+
+				if (attackTimer >= 241) {
+					for (int x = 0; x < Main.maxPlayers; x++) {
+						bool dist = Math.Abs(Main.player[x].Center.X - NPC.Center.X) > arenaSize - 16;
+						bool dist2 = Math.Abs(Main.player[x].Center.Y - NPC.Center.Y) < 1600;
+						if (dist && dist2) Main.player[x].AddBuff(ModContent.BuffType<Buffs.Debuffs.SearedFlame>(), 2);
+                    }
+                }
+				return;
+            }
 
 			if (phase == 1 && NPC.life <= NPC.lifeMax/2) {
 				NPC.dontTakeDamage = true;
@@ -185,7 +237,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
                 } //No attack buff when out biome in phase transition
 				else if (attackTimer < 520) {
 					//insert aura creation animation if you want, otherwise remove this grace period
-                } //Suggestion is that boss slowly begins breaking from the power after each miniphase, then finally becomes phase 2 sprite (?)
+                }
 				else if (attackTimer < 900) { //Transition part 1
 					if (attackTimer % 3 == 0 && Main.netMode != NetmodeID.MultiplayerClient) {
 						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, -800).RotatedBy(MathHelper.ToRadians((attackTimer-520)*2)), Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebPhaseShot>(), NPC.damage/4+1, 0f, Main.myPlayer);

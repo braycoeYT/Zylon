@@ -22,6 +22,7 @@ namespace Zylon.Projectiles.Tomes
 			Projectile.scale = Main.rand.NextFloat(0.75f, 1f);
 			Projectile.usesIDStaticNPCImmunity = true;
 			Projectile.idStaticNPCHitCooldown = 10;
+			Projectile.DamageType = DamageClass.Magic;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6)*60);

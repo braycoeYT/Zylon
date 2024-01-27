@@ -163,10 +163,10 @@ namespace Zylon.NPCs.TownNPCs
         {
 			TradeValues.Clear();
 
-			TradeValues.Add(ItemID.KingSlimeTrophy, ModContent.ItemType<Items.Spears.Kivasana>());
+			/*TradeValues.Add(ItemID.KingSlimeTrophy, ModContent.ItemType<Items.Spears.Kivasana>());
 			TradeValues.Add(ItemID.BreakerBlade, ModContent.ItemType<Items.Spears.Kivasana>());
 			TradeValues.Add(ItemID.Eggnog, ModContent.ItemType<Items.Spears.Kivasana>());
-			TradeValues.Add(ItemID.AmanitaFungifin, ModContent.ItemType<Items.Spears.Kivasana>());
+			TradeValues.Add(ItemID.AmanitaFungifin, ModContent.ItemType<Items.Spears.Kivasana>());*/
 		}
 
 		public override void OnChatButtonClicked(bool firstButton, ref string shopName) {

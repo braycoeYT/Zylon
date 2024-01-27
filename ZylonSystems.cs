@@ -720,7 +720,7 @@ namespace Zylon
             for (int i = 0; i < Recipe.numRecipes; i++) {
 				Recipe recipe = Main.recipe[i];
 				if (recipe.HasResult(ItemID.TerraBlade))
-					recipe.AddIngredient(ModContent.ItemType<Items.Materials.ElementalGoop>(), 15);
+					recipe.AddIngredient(ModContent.ItemType<Items.Materials.ElementalGoop>(), 10);
 				if (recipe.HasResult(ItemID.GravediggerShovel))
 					recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 20);
 				if (recipe.HasResult(ItemID.Sandgun))

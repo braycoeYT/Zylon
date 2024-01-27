@@ -40,7 +40,13 @@ namespace Zylon.Items.BossSummons
         }
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Meteorite, 6);
+			recipe.AddIngredient(ItemID.Meteorite, 11);
+			recipe.AddIngredient(ItemID.FallenStar, 3);
+			recipe.AddTile(TileID.DemonAltar);
+			recipe.Register();
+
+			recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.MeteoriteBar, 4);
 			recipe.AddIngredient(ItemID.FallenStar, 3);
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();

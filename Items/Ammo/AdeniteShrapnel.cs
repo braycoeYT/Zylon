@@ -27,8 +27,8 @@ namespace Zylon.Items.Ammo
 			Item.crit = 10;
 		}
         public override void AddRecipes() {
-			Recipe recipe = CreateRecipe(20);
-			recipe.AddIngredient(ItemType<Materials.AdeniteCrumbles>(), 3);
+			Recipe recipe = CreateRecipe(150);
+			recipe.AddIngredient(ItemType<Materials.AdeniteCrumbles>(), 2);
 			recipe.AddRecipeGroup("IronBar");
 			recipe.AddTile(TileID.Furnaces);
 			recipe.Register();

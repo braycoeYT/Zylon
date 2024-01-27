@@ -17,6 +17,7 @@ namespace Zylon.Projectiles.Tomes
 			Projectile.timeLeft = 9999;
 			Projectile.penetrate = 1;
 			Projectile.extraUpdates = 3;
+			Projectile.DamageType = DamageClass.Magic;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 9)*60);

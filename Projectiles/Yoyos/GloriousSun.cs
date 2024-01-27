@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
 
 namespace Zylon.Projectiles.Yoyos
 {
@@ -26,9 +27,11 @@ namespace Zylon.Projectiles.Yoyos
 			Projectile.DamageType = DamageClass.MeleeNoSpeed;
 		}
 		int Timer;
+		float rot;
 		public override void AI() {
 			Timer++;
-			if (Timer % 20 == 0) ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position.X + Main.rand.Next(-150, 151), Projectile.position.Y + Main.rand.Next(-150, 151), 0, 0, ProjectileID.SolarWhipSwordExplosion, Projectile.damage, 0, Projectile.owner);
+			rot += 0.5f;
+			if (Timer % 10 == 0) for (int x = 0; x < 4; x++) ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center - new Vector2(0, 150).RotatedBy(MathHelper.ToRadians(rot+x*90)), Vector2.Zero, ProjectileID.SolarWhipSwordExplosion, Projectile.damage, 0, Projectile.owner);
 		}
 		public override void PostAI() {
 			if (Main.rand.NextBool()) {

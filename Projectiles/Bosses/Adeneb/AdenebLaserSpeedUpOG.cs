@@ -31,6 +31,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 				if (++Projectile.frame >= 2)
 					Projectile.frame = 0;
 			}
+			if (Projectile.ai[0] == 1f && Projectile.velocity.Y < -6) Projectile.velocity.Y = -6;
         }
         public override void OnSpawn(IEntitySource source) {
 			SoundEngine.PlaySound(SoundID.NPCHit5, Projectile.position);
