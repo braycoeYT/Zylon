@@ -61,7 +61,10 @@ namespace Zylon.Projectiles.Bosses.Adeneb
             rot += 3f;
             //if (Timer > 60) rot += 3f;
             //else rot += 3f*((float)Timer/60);
-
+            if (owner.life == 1 && Timer != 360)  {
+                if (Main.netMode != NetmodeID.MultiplayerClient && Projectile.ai[0] == 0) Projectile.NewProjectile(Projectile.GetSource_FromThis(), owner.Center, Vector2.Zero, ModContent.ProjectileType<AdenebSunShield>(), Projectile.damage, 0f);
+                Projectile.Kill();
+            }
 			if (!(owner.life < 1 || !owner.active)) Projectile.timeLeft = 2; //Active check
 			//Pos fix
             int quick = 1;

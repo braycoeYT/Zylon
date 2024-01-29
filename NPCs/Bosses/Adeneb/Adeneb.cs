@@ -178,7 +178,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 
                 }
 				else if (attackTimer >= 300) {
-					if (attackTimer % 6 == 0 && attackTimer < 700 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(Main.rand.Next((-1*arenaSize)+16, arenaSize-16), 600), new Vector2(0, -5), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebLaserSpeedUpOG>(), NPC.damage/3, 0f, -1, 1f);
+					if (attackTimer % 6 == 0 && attackTimer < 700 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(Main.rand.Next((-1*arenaSize)+16, arenaSize-16), 800), new Vector2(0, -5), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebLaserSpeedUpOG>(), NPC.damage/3, 0f, -1, 1f);
                 }
 				/*else if (attackTimer >= 300) { //Part 1
 					//if (attackTimer % 10 == 0 && attackTimer < 700 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 3).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebMiniSunChaseFinale>(), NPC.damage/3, 0f);
@@ -310,7 +310,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						attack = Main.rand.Next(3);
 						while (prevAttack == attack) attack = Main.rand.Next(3);
                     }
-					//attack = 2; //Note to self: the boss isn't broken, just your brain is bc you forgot this was here.
+					attack = 3; //Note to self: the boss isn't broken, just your brain is bc you forgot this was here.
 
 					attackDone = false;
 					attackTimer = 0;
@@ -374,6 +374,9 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						break;
 					case 2:
 						MiniSunBarrage();
+						break;
+					case 3:
+						FourthAttack();
 						break;
                 }
 				//else Phase2Move();
@@ -580,17 +583,9 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			else NPC.ai[1] = 0;
 			if (attackTimer > 420) EndAttack();
         }
-		private void SpinLaserButBased() { //nvm it wasn't based
+		private void FourthAttack() { //Ominous name, huh? I'm making this up as I go so idk what to call it.
 			Phase2Move();
-			NPC.velocity *= 0.97f;
-			attackTimer++;
-			if (attackTimer == 1) hpLeft2 = (float)NPC.life/(float)(NPC.lifeMax/2);
-			attackFloat += MathHelper.ToRadians(3 + (2*hpLeft2));
-			if (attackTimer % (int)(10 + (8*hpLeft2)) == 0) {
-				Vector2 tempSpd = new Vector2(0, (-12f + (2f*hpLeft2))).RotatedBy(attackFloat);
-				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, tempSpd, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebLaser>(), NPC.damage/4, 0f);
-				
-			}
+			if (attackTimer == 1) NPC.ai[1] = 4;
 			if (attackTimer > 480) EndAttack();
 		}
 
@@ -717,5 +712,22 @@ namespace Zylon.NPCs.Bosses.Adeneb
 
 			return false;
         }
+		public override void BossLoot(ref string name, ref int potionType) {
+            potionType = ItemID.RestorationPotion;
+			//ZylonWorldCheckSystem.downedAdeneb = true;
+        }
+		public override void ModifyNPCLoot(NPCLoot npcLoot) {
+			if (Main.masterMode) {
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.AdenebRelic>(), 1));
+				//npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.>(), 4));
+            }
+			if (Main.expertMode || Main.masterMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.AdenebBag>(), 1));
+			else {
+				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.AdeniteCrumbles>(), 1, 8, 12));
+				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.SearedStone>(), 1, 40, 60));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.AdenebMask>(), 7)).OnFailedRoll(npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.PolandballMask>(), 10)));
+            }
+			//npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.AdenebTrophy>(), 10));
+		}
     }
 }

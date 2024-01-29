@@ -31,6 +31,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 		float hpLeft2;
 		bool die;
 		bool die2;
+		bool die3;
 		bool init;
 		NPC owner;
 		int attackTimer;
@@ -139,6 +140,24 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 				if (Projectile.Center.Y > tarPos.Y + 100) Projectile.velocity.Y -= 2;
 
 				if (Math.Abs(Projectile.Center.Y - tarPos.Y) < 120) Projectile.velocity.Y *= 0.85f;
+            }
+			else if (owner.ai[1] == 4 || die3) {
+				die3 = true;
+				if (ihatescale < 1.5f || (ihatescale < 2f && Main.getGoodWorld)) ihatescale += 0.01f;
+				else {
+					if (Main.netMode != NetmodeID.MultiplayerClient) {
+						if (owner.active && owner.life > 1) {
+							//NO DUPLICATES
+							int var1 = Main.rand.Next(3);
+							int var2 = var1;
+							while (var1 == var2) var2 = Main.rand.Next(3);
+
+							Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<AdenebSunFourthAttack>(), Projectile.damage, 0f, -1, -1, var1);
+							Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<AdenebSunFourthAttack>(), Projectile.damage, 0f, -1, 1, var2);
+						}
+					}
+					Projectile.Kill();
+                }
             }
 			else if (owner.ai[1] == 5) { //Finale
 				if (Main.getGoodWorld) ihatescale += 0.0125f;

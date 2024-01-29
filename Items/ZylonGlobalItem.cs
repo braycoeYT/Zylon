@@ -105,6 +105,10 @@ namespace Zylon.Items
 					item.damage = 7;
 				if (item.type == ItemID.PulseBow)
 					item.damage = 61;
+				if (item.type == ItemID.AcornAxe) {
+					item.axe = 20;
+					item.useTime = 25;
+				}
 			}
 			if (!GetInstance<ZylonConfig>().dirtAmmoFix) {
 				if (item.type == ItemID.DirtBlock) {

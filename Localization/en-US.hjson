@@ -1123,12 +1123,12 @@ Mods: {
 				Tooltip: ""
 			}
 
-			DirtballBag: {
+			AdenebBag: {
 				DisplayName: Treasure Bag
 				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 			}
 
-			DiskiteBag: {
+			DirtballBag: {
 				DisplayName: Treasure Bag
 				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 			}
@@ -2786,7 +2786,11 @@ Mods: {
 
 			Matilda: {
 				DisplayName: Matilda
-				Tooltip: ""
+				Tooltip:
+					'''
+					'Hasn't been swung in decades...'
+					Fires several short-range Vine Balls on use
+					'''
 			}
 
 			StoneAxe: {
@@ -3064,16 +3068,6 @@ Mods: {
 
 			SaplingWarriorBanner: {
 				DisplayName: Sapling Warrior Banner
-				Tooltip: ""
-			}
-
-			TestBlowpipe: {
-				DisplayName: Test Blowpipe
-				Tooltip: ""
-			}
-
-			TestBlowpipe2: {
-				DisplayName: Test Blowpipe2
 				Tooltip: ""
 			}
 
@@ -3448,6 +3442,7 @@ Mods: {
 			StairwaytoHeavenProj.DisplayName: Stairway to Heaven
 			Sunburn_Spark.DisplayName: Sunburn
 			Sunburn_Flame.DisplayName: Sunburn
+			MatildaBolt.DisplayName: Matilda
 			WadofSpores.DisplayName: Wad of Spores
 			BigBone.DisplayName: Big Bone
 			CryoWandProj.DisplayName: Cryo Wand
@@ -3529,6 +3524,8 @@ Mods: {
 			LoberaWave.DisplayName: Lobera Wave
 			AdenebFinaleWall.DisplayName: Adeneb Finale Wall
 			MetelordFallenStar.DisplayName: Fallen Star
+			AdenebSunFourthAttack.DisplayName: Adeneb Sun Fourth Attack
+			AdenebBigSun2.DisplayName: Adeneb Big Sun2
 		}
 
 		NPCs: {
