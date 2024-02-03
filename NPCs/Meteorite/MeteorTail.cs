@@ -10,6 +10,16 @@ namespace Zylon.NPCs.Meteorite
 {
 	public class MeteorTail : ModNPC
 	{
+		public override void SetStaticDefaults() {
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire3] = true;
+			/*var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
+				CustomTexturePath = "Zylon/NPCs/Bosses/Adeneb/Adeneb_Bestiary", //Dark magic
+			};
+			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);*/
+        }
         public override void SetDefaults() {
 			NPC.width = 40;
 			NPC.height = 40;
@@ -70,7 +80,7 @@ namespace Zylon.NPCs.Meteorite
 			return SpawnCondition.Meteor.Chance * 0.5f;
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
-			ItemDropRule.ByCondition(new Conditions.IsPreHardmode(), ItemID.Meteorite, 50); 
+			npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsPreHardmode(), ItemID.Meteorite, 50)); 
 		}
 	}
 }

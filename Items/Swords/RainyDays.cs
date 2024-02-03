@@ -9,7 +9,7 @@ namespace Zylon.Items.Swords
 	public class RainyDays : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Don't we all?'\nShoots rain erratically"); //Haha get it this is the first item added and my existance is sad | Tome Man: Nah Braycoe, your existence is great.
+			// Tooltip.SetDefault("'Don't we all?'\nShoots rain erratically"); //Haha get it this is the first item added and my existence is sad | Tome Man: Nah Braycoe, your existence is great.
 		} //Why did I even write that? Must have been a while since I put that in, I completely forgot about that. Thanks anyway.
 		public override void SetDefaults()
 		{
@@ -51,6 +51,7 @@ namespace Zylon.Items.Swords
 		public override void AddRecipes()
 		{
 			Recipe recipe = CreateRecipe();
+			recipe.AddRecipeGroup("Zylon:AnySilverBar", 6);
 			recipe.AddIngredient(ItemID.RainCloud, 14);
 			recipe.AddIngredient(ItemID.Cloud, 8);
 			recipe.AddIngredient(ItemID.Feather, 6);

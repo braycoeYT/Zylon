@@ -11,12 +11,12 @@ namespace Zylon.Items.Swords
 	{
 
 		public override void SetDefaults() {
-			Item.damage = 87;
+			Item.damage = 101;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 42;
 			Item.height = 42;
-			Item.useTime = 51;
-			Item.useAnimation = 51;
+			Item.useTime = 43;
+			Item.useAnimation = 43;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 7.6f;
 			Item.value = Item.sellPrice(0, 16, 50);
@@ -65,7 +65,6 @@ namespace Zylon.Items.Swords
 			recipe.AddIngredient(ItemID.ChlorophyteSaber);
 			recipe.AddIngredient(ItemID.JungleRose);
 			recipe.AddIngredient(ItemID.ChlorophyteBar, 12);
-			recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 20);
 			recipe.AddIngredient(ItemID.BeetleHusk, 5);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

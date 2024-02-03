@@ -1,92 +1,67 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Zylon.Projectiles.Spears
 {
-	public class IcicleonaRod : ModProjectile
+	public class IcicleonaRod : SpearProj
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Icicle on a Rod");
-			//Main.projFrames[Projectile.type] = 2;
-		}
-		public override void SetDefaults() {
-			Projectile.width = 18;
-			Projectile.height = 18;
-			Projectile.aiStyle = 19;
-			Projectile.penetrate = -1;
-			Projectile.scale = 1.3f;
-			Projectile.alpha = 0;
-			Projectile.hide = true;
-			Projectile.ownerHitCheck = true;
-			Projectile.DamageType = DamageClass.Melee;
-			Projectile.tileCollide = false;
-			Projectile.friendly = true;
-		}
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-            target.AddBuff(BuffID.Frostburn, Main.rand.Next(3, 7)*60);
+			Main.projFrames[Projectile.type] = 2;
         }
-
-        public override void OnHitPlayer(Player target, Player.HurtInfo info)
+        public override void SpearDefaultsSafe()
         {
-            if (info.PvP)
-            {
-				target.AddBuff(BuffID.Frostburn, Main.rand.Next(3, 7) * 60);
+            Projectile.width = 54;
+            Projectile.height = 54;
+        }
+        public IcicleonaRod() : base(-23f, 24, 10.8f, 65f, 2, 30, 60f, 0f, 1.5f, false, false, false) { }
+		public override void SpearInRadianSwing() {
+			if (Duration == (RadianSwingFrames/2)) {
+				for (int i = 0; i < 4; i++) {
+					Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.IceGolem);
+					dust.noGravity = true;
+					dust.scale = 1.2f;
+					dust.velocity = Projectile.velocity * 8f;
+				}
+				Vector2 speed = Projectile.velocity;
+						speed.Normalize();
+				if (Main.myPlayer == Projectile.owner) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center+(speed*50f), speed*9f, ModContent.ProjectileType<IcicleonaRodBreak>(), (int)(Projectile.damage*0.5f), Projectile.knockBack*0.33f, Projectile.owner);
+				Projectile.frame = 1;
 			}
         }
-
-        public float MovementFactor {
-			get => Projectile.ai[0];
-			set => Projectile.ai[0] = value;
-		}
-		bool change;
-		public override void AI() {
-			Player projOwner = Main.player[Projectile.owner];
-			Vector2 ownerMountedCenter = projOwner.RotatedRelativePoint(projOwner.MountedCenter, true);
-			Projectile.direction = projOwner.direction;
-			projOwner.heldProj = Projectile.whoAmI;
-			projOwner.itemTime = projOwner.itemAnimation;
-			Projectile.position.X = ownerMountedCenter.X - (float)(Projectile.width / 2);
-			Projectile.position.Y = ownerMountedCenter.Y - (float)(Projectile.height / 2);
-			//As long as the player isn't frozen, the spear can move
-			if (!projOwner.frozen) {
-				if (MovementFactor == 0f)
-				{
-					MovementFactor = 2f;
-					Projectile.netUpdate = true;
+		public override void SpearInThrustSwing() {
+			if (Duration == (ThrustFrames/2)) {
+				for (int i = 0; i < 4; i++) {
+					Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.IceGolem);
+					dust.noGravity = true;
+					dust.scale = 1.2f;
+					dust.velocity = Projectile.velocity * 8f;
 				}
-				if (projOwner.itemAnimation < projOwner.itemAnimationMax / 3)
-				{
-					MovementFactor -= 1.6f;
-					if (!change) {
-						//Projectile.frame = 1;
-						Vector2 speed = Projectile.velocity;
+				Vector2 speed = Projectile.velocity;
 						speed.Normalize();
-						if (Main.myPlayer == Projectile.owner) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center+(speed*50f), speed*9f, ModContent.ProjectileType<IcicleonaRodBreak>(), (int)(Projectile.damage*0.5f), Projectile.knockBack*0.33f, Projectile.owner);
-						change = true;
-					}
-				}
-				else //Otherwise, increase the movement factor
-				{
-					MovementFactor += 1.4f;
-				}
-			}
-			Projectile.position += Projectile.velocity * MovementFactor;
-			if (projOwner.itemAnimation == 0) {
-				Projectile.Kill();
-			}
-			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(135f);
-			if (Projectile.spriteDirection == -1) {
-				Projectile.rotation -= MathHelper.ToRadians(90f);
+				if (Main.myPlayer == Projectile.owner) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center+(speed*50f), speed*9f, ModContent.ProjectileType<IcicleonaRodBreak>(), (int)(Projectile.damage*0.5f), Projectile.knockBack*0.33f, Projectile.owner);
+				Projectile.frame = 1;
 			}
 		}
 		public override void PostAI() {
-			if (Main.rand.NextBool()) {
+			if (Main.rand.NextBool(2)) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.IceGolem);
 				dust.noGravity = true;
 				dust.scale = 1f;
+				dust.velocity = Projectile.velocity * 3f;
 			}
+		}
+		public override bool PreDraw(ref Color lightColor) {
+			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+			Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+			int frameHeight = texture.Height / Main.projFrames[Projectile.type];
+			int spriteSheetOffset = frameHeight * Projectile.frame;
+			Vector2 sheetInsertPosition = (Projectile.Center + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition).Floor();
+			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), lightColor, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
+			return false;
 		}
 	}
 }

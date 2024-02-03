@@ -21,7 +21,7 @@ namespace Zylon.Items.Yoyos
 			Item.useTime = 25;
 			Item.shootSpeed = 16f;
 			Item.knockBack = 4.2f;
-			Item.damage = 167;
+			Item.damage = 151;
 			Item.rare = ItemRarityID.Red;
 			Item.DamageType = DamageClass.MeleeNoSpeed;
 			Item.channel = true;

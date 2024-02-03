@@ -22,6 +22,7 @@ namespace Zylon.Projectiles
 			Projectile.scale = 0f;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 2;
+			Projectile.hide = true;
 		}
 		public override void AI() {
 			//Lighting.AddLight(Projectile.Center, 0.2f, 0.2f, 0.2f);
@@ -29,9 +30,6 @@ namespace Zylon.Projectiles
 			if (Projectile.scale > 1f) Projectile.scale = 1f;
             if (Projectile.timeLeft < 18)
 				Projectile.alpha += 15;
-        }
-        public override void PostAI() {
-            base.PostAI();
         }
         public override bool PreDraw(ref Color lightColor) {
 			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;

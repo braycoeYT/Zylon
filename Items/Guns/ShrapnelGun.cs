@@ -55,10 +55,9 @@ namespace Zylon.Items.Guns
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.IllegalGunParts);
-			recipe.AddRecipeGroup("Zylon:AnyPHBar", 12);
-			recipe.AddRecipeGroup("Zylon:AnyShadowScale", 10);
-			recipe.AddIngredient(ModContent.ItemType<Materials.AdeniteCrumbles>(), 20);
-			recipe.AddIngredient(ModContent.ItemType<Materials.SearedStone>(), 35);
+			recipe.AddRecipeGroup("Zylon:AnyPHBar", 8);
+			recipe.AddIngredient(ModContent.ItemType<Materials.AdeniteCrumbles>(), 15);
+			recipe.AddIngredient(ModContent.ItemType<Materials.SearedStone>(), 40);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

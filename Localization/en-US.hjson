@@ -19,6 +19,8 @@ Mods: {
 			}
 		}
 
+		DropConditions.ElemGelCondition: Unleash the Elemental Goo
+
 		Buffs: {
 			AdenebSpikeRing: {
 				DisplayName: Spike Ring
@@ -178,6 +180,11 @@ Mods: {
 			GlowingMushtop: {
 				DisplayName: Glowing Mushtop
 				Description: The Glowing Mushtop will fight for you
+			}
+
+			Goocat: {
+				DisplayName: Goocat
+				Description: The Goocat will cutely fight for you
 			}
 
 			IcyWisp: {
@@ -394,10 +401,9 @@ Mods: {
 				DisplayName: Glazed Lens
 				Tooltip:
 					'''
-					'Eye can see!'
 					Increases crit chance by 4
-					Critical strikes spawn temporary eyes to rotate around the player, damaging enemies
-					The higher the player's crit chance, the faster the eyes move
+					Critical strikes spawn temporary Lens Blasts to rotate around the player, damaging enemies
+					The higher the player's crit chance, the faster the Lens Blasts move
 					'''
 			}
 
@@ -1116,12 +1122,12 @@ Mods: {
 				Tooltip: ""
 			}
 
-			DirtballBag: {
+			AdenebBag: {
 				DisplayName: Treasure Bag
 				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 			}
 
-			DiskiteBag: {
+			DirtballBag: {
 				DisplayName: Treasure Bag
 				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 			}
@@ -1162,7 +1168,7 @@ Mods: {
 			}
 
 			AdeniteBanner: {
-				DisplayName: Desert Diskite Banner
+				DisplayName: Adenite Banner
 				Tooltip: ""
 			}
 
@@ -1679,6 +1685,11 @@ Mods: {
 					'''
 			}
 
+			TheArchangel: {
+				DisplayName: The Archangel
+				Tooltip: Fires a ring of light bolts on throw
+			}
+
 			TheMeteorite: {
 				DisplayName: The Meteorite
 				Tooltip: Has a large range
@@ -2006,6 +2017,15 @@ Mods: {
 			GlowingMushtopStaff: {
 				DisplayName: Glowing Mushtop Staff
 				Tooltip: Summons a glowing mushtop to fight for you
+			}
+
+			GoocatStaff: {
+				DisplayName: Goocat Staff
+				Tooltip:
+					'''
+					'Half slime, half cat, completely adorable!'
+					Summons a goocat to fight for you
+					'''
 			}
 
 			IcyWispStaff: {
@@ -2499,6 +2519,11 @@ Mods: {
 					'''
 			}
 
+			Frostbite: {
+				DisplayName: Frostbite
+				Tooltip: Every other swing fires a splitting short range snowflake bolt
+			}
+
 			HBDeusGreatsword: {
 				DisplayName: HBDeus's Greatsword
 				Tooltip:
@@ -2516,11 +2541,6 @@ Mods: {
 					All true melee attacks leech life
 					Shoots life crystals
 					'''
-			}
-
-			IcyGreatblade: {
-				DisplayName: Icy Greatblade
-				Tooltip: Shoots several rapid icy bolts
 			}
 
 			JourneyStarter: {
@@ -2546,17 +2566,9 @@ Mods: {
 				DisplayName: Lobera
 				Tooltip:
 					'''
-					Hits will slash the enemy's soul, causing their defense to be halved
-					Striking foes will rain tropical orbs upon them
-					'''
-			}
-
-			Midpoint: {
-				DisplayName: Midpoint
-				Tooltip:
-					'''
-					'Only halfway to oblivion, and whatever lies beyond'
-					Alternates between firing different types of bolts
+					Blasts a short wave every three swings
+					Increases damage, knockback, and swing speed as health decreases
+					At 25% health or lower, shoots hyper waves on every swing
 					'''
 			}
 
@@ -2643,6 +2655,11 @@ Mods: {
 				Tooltip: ""
 			}
 
+			TrueLobera: {
+				DisplayName: True Lobera
+				Tooltip: ""
+			}
+
 			ZincBroadsword: {
 				DisplayName: Zinc Broadsword
 				Tooltip: ""
@@ -2722,6 +2739,11 @@ Mods: {
 					'''
 			}
 
+			StairwaytoHeaven: {
+				DisplayName: Stairway to Heaven
+				Tooltip: Fires a barrage of light beams
+			}
+
 			Sunburn: {
 				DisplayName: Sunburn
 				Tooltip:
@@ -2759,6 +2781,15 @@ Mods: {
 			HeavyMetalHammer: {
 				DisplayName: Heavy Metal Hammer
 				Tooltip: ""
+			}
+
+			Matilda: {
+				DisplayName: Matilda
+				Tooltip:
+					'''
+					'Hasn't been swung in decades...'
+					Fires several short-range Vine Balls on use
+					'''
 			}
 
 			StoneAxe: {
@@ -2945,8 +2976,8 @@ Mods: {
 				DisplayName: Insomnia
 				Tooltip:
 					'''
-					'Definitely didn't come up with this item at 2:44 am!'
-					Shoots lasers at nearby enemies
+					'What? Me? Up at 3 A.M.? Nonsense!'
+					Shoots Lens Blasts at nearby enemies
 					'''
 			}
 
@@ -3039,16 +3070,6 @@ Mods: {
 				Tooltip: ""
 			}
 
-			TestBlowpipe: {
-				DisplayName: Test Blowpipe
-				Tooltip: ""
-			}
-
-			TestBlowpipe2: {
-				DisplayName: Test Blowpipe2
-				Tooltip: ""
-			}
-
 			MudPie: {
 				DisplayName: Mud Pie
 				Tooltip:
@@ -3125,7 +3146,7 @@ Mods: {
 		Projectiles: {
 			JadeHookProj.DisplayName: Jade Hook
 			BloodContractProj.DisplayName: Blood Contract
-			DemonEyeRotate.DisplayName: Demon Eye
+			GlazedLensProj.DisplayName: Lens Blast
 			DirtBallAcc.DisplayName: Dirt Ball
 			DiscoCanisterProj.DisplayName: Disco Canister Proj
 			DiscoCanisterProj_Laser.DisplayName: Disco Canister
@@ -3259,7 +3280,7 @@ Mods: {
 			CursedFlamesMelee.DisplayName: Cursed Flames
 			DirtGlobFriendly.DisplayName: Dirt Glob
 			ElectricBoltPassive.DisplayName: Electric Bolt
-			Adenite_LaserEye.DisplayName: Desert Diskite
+			Adenite_LaserEye.DisplayName: Adenite
 			ElemSlimeBlob.DisplayName: Elemental Slime Blob
 			ElemSlimeOrb.DisplayName: Elemental Slime Orb
 			ElemSlimeSpike.DisplayName: Elemental Slime Spike
@@ -3276,6 +3297,8 @@ Mods: {
 			ShadowMoon.DisplayName: Shadow Moon
 			Sporophyte.DisplayName: Sporophyte
 			StickyHand.DisplayName: Sticky Hand
+			TheArchangel.DisplayName: The Archangel
+			TheArchangelProj.DisplayName: The Archangel
 			TheMeteorite.DisplayName: The Meteorite
 			AcornTreeGrow.DisplayName: Tree
 			AcornTreePlant.DisplayName: Acorn
@@ -3303,13 +3326,15 @@ Mods: {
 			Megawave.DisplayName: Megawave
 			SMGBlast.DisplayName: Space Machine Gun
 			DirtBlockExp.DisplayName: Dirt Clump
-			DiskiteMinion_Center.DisplayName: Desert Diskite
-			DiskiteMinion_CenterDeco.DisplayName: Desert Diskite
-			DiskiteMinion_LaserEye.DisplayName: Desert Diskite
-			DiskiteMinion_SpikeRing.DisplayName: Desert Diskite
+			DiskiteMinion_Center.DisplayName: Adenite
+			DiskiteMinion_CenterDeco.DisplayName: Adenite
+			DiskiteMinion_LaserEye.DisplayName: Adenite
+			DiskiteMinion_SpikeRing.DisplayName: Adenite
 			FloatingStardustFragment.DisplayName: Floating Stardust Fragment
 			GlowingMushroomSpore.DisplayName: Glowing Mushroom Spore
 			GlowingMushtop.DisplayName: Glowing Mushtop
+			Goocat.DisplayName: Goocat
+			GoocatBarf.DisplayName: Goocat Barf
 			IcyWisp.DisplayName: Icy Wisp
 			IcyWispBeam.DisplayName: Icy Beam
 			Meteorb.DisplayName: Meteorb
@@ -3413,8 +3438,10 @@ Mods: {
 			PKFire2.DisplayName: Volcanic Flame
 			PKFireWall.DisplayName: Volcanic Flame
 			SnowfallProj.DisplayName: Snowfall
+			StairwaytoHeavenProj.DisplayName: Stairway to Heaven
 			Sunburn_Spark.DisplayName: Sunburn
 			Sunburn_Flame.DisplayName: Sunburn
+			MatildaBolt.DisplayName: Matilda
 			WadofSpores.DisplayName: Wad of Spores
 			BigBone.DisplayName: Big Bone
 			CryoWandProj.DisplayName: Cryo Wand
@@ -3446,6 +3473,7 @@ Mods: {
 			GloriousSun.DisplayName: Glorious Sun
 			IceLaser.DisplayName: Ice Laser
 			Insomnia.DisplayName: Insomnia
+			InsomniaProj.DisplayName: Lens Blast
 			MiniMeteoroid.DisplayName: Mini Meteoroid
 			MiniMiniMeteoroid.DisplayName: Mini Mini Meteoroid
 			Slimebasher.DisplayName: Slimebasher
@@ -3462,15 +3490,21 @@ Mods: {
 			SpiderEgg.DisplayName: Spider Egg
 			SpiderEggInvis.DisplayName: Spider Egg
 			VenomFangMelee.DisplayName: Venom Fang
-			DiskiteBigSun.DisplayName: Solar Blast
-			AdenebLaserSpeedUp.DisplayName: Sun Ray
-			AdenebLaser.DisplayName: Adeneb Laser
-			DiskitePhaseShot.DisplayName: Sun Shot
-			DiskitePhaseSun.DisplayName: Solar Blast
-			DiskitePhaseSunBig.DisplayName: Giant Solar Blast
-			DiskitePremonition.DisplayName: Premonition
-			DiskitePremonition2.DisplayName: Premonition
-			DiskiteXBeam.DisplayName: Solar Bomb
+			AdenebBigSun.DisplayName: Gigasun
+			AdenebLaserSpeedUp.DisplayName: Sunbound Sword
+			AdenebLaserSpeedUpOG.DisplayName: Sun Ray
+			AdenebMiniSunChase.DisplayName: Mini Sun
+			AdenebMiniSunChaseFinale.DisplayName: Mini Sun
+			AdenebLaser.DisplayName: Sun Ray
+			AdenebPhaseShot.DisplayName: Sun Blast
+			AdenebPhaseShotFinale.DisplayName: Sun Blast
+			AdenebPhaseSun.DisplayName: Pocket Sun
+			AdenebPhaseSunBig.DisplayName: Pocket Sun
+			AdenebPremonition.DisplayName: Adeneb Premonition
+			AdenebPremonition2.DisplayName: Adeneb Premonition
+			AdenebXBeam.DisplayName: Sun Mine
+			AdenebSunShield.DisplayName: Sun Shield
+			AdenebSunShieldSplit.DisplayName: Sun Shield
 			SolChakram.DisplayName: Sol Chakram
 			Iblis.DisplayName: Iblis
 			Iblis_Rock.DisplayName: Iblis Rock
@@ -3481,19 +3515,20 @@ Mods: {
 			Solaris_Stick.DisplayName: Solaris
 			Solaris_FlameofHope.DisplayName: Flame of Hope
 			Solaris_FlameofHopeHeal.DisplayName: Flame of Hope
-			Dumbell.DisplayName: Dumbell
 			Dumbbell.DisplayName: Dumbbell
-			DreadclawtilusProj.DisplayName: Dreadclawtilus Proj
+			DreadclawtilusProj.DisplayName: Dreadclawtilus
 			BlackHole.DisplayName: Black Hole
-			AdenebBigSun.DisplayName: Adeneb Big Sun
-			AdenebPhaseShot.DisplayName: Adeneb Phase Shot
-			AdenebPhaseSun.DisplayName: Adeneb Phase Sun
-			AdenebPhaseSunBig.DisplayName: Adeneb Phase Sun Big
-			AdenebPremonition.DisplayName: Adeneb Premonition
-			AdenebPremonition2.DisplayName: Adeneb Premonition2
-			AdenebXBeam.DisplayName: Adeneb X Beam
 			AdeniteShrapnel.DisplayName: Adenite Shrapnel
 			PoopHostile.DisplayName: Poop Hostile (SUS LIKE AMONGUS)
+			LoberaHyperwave.DisplayName: Lobera Hyperwave
+			LoberaWave.DisplayName: Lobera Wave
+			AdenebFinaleWall.DisplayName: Adeneb Finale Wall
+			MetelordFallenStar.DisplayName: Fallen Star
+			AdenebSunFourthAttack.DisplayName: Sun Shield
+			AdenebBigSun2.DisplayName: Gigasun
+			AdenebFinaleSunRing.DisplayName: Pocket Sun
+			FrostbiteProj.DisplayName: Frostbite
+			FrostbiteProj2.DisplayName: Frostbite
 		}
 
 		NPCs: {
@@ -3556,9 +3591,9 @@ Mods: {
 			VeinTunnelerBody.DisplayName: Vein Tunneler
 			VeinTunnelerHead.DisplayName: Vein Tunneler
 			VeinTunnelerTail.DisplayName: Vein Tunneler
-			Adenite_Center.DisplayName: Desert Diskite
-			Adenite_LaserEye.DisplayName: Desert Diskite
-			Adenite_SpikeRing.DisplayName: Desert Diskite
+			Adenite_Center.DisplayName: Adenite
+			Adenite_LaserEye.DisplayName: Adenite
+			Adenite_SpikeRing.DisplayName: Adenite
 			DustbowlGigaslime.DisplayName: Dustbowl Gigaslime
 			BoneSlime.DisplayName: Bone Slime
 			ElemSlime.DisplayName: Elem Slime
@@ -3600,7 +3635,7 @@ Mods: {
 			}
 
 			WindElemental.DisplayName: Wind Elemental
-			Adenite_CenterDeco.DisplayName: Desert Diskite_ Center Deco
+			Adenite_CenterDeco.DisplayName: Adenite
 			SaplingWarrior.DisplayName: Sapling Warrior
 			StarpackSlime.DisplayName: Starpack Slime
 			SupremeLookingEyeBody.DisplayName: Supreme Looking Eye (DA SUPREME MEMELORD)

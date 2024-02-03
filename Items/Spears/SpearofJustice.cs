@@ -14,10 +14,10 @@ namespace Zylon.Items.Spears
 		public override void SetDefaults() {
 			Item.damage = 53;
 			Item.useStyle = ItemUseStyleID.Thrust;
-			Item.useAnimation = 28;
-			Item.useTime = 37;
+			Item.useAnimation = 20;
+			Item.useTime = 20;
 			Item.shootSpeed = 3.5f;
-			Item.knockBack = 4.2f;
+			Item.knockBack = 5.75f;
 			Item.width = 32;
 			Item.height = 32;
 			Item.rare = ItemRarityID.Pink;

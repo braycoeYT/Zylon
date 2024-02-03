@@ -7,7 +7,6 @@ namespace Zylon.Items.Yoyos
 	public class Insomnia : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Definitely didn't come up with this item at 2:44 am!'\nShoots lasers at nearby enemies");
 			ItemID.Sets.Yoyo[Item.type] = true;
 			ItemID.Sets.GamepadExtraRange[Item.type] = 15;
 			ItemID.Sets.GamepadSmartQuickReach[Item.type] = true;

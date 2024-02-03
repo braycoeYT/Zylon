@@ -1,64 +1,15 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace Zylon.Projectiles.Spears
 {
-	public class SpearofJustice : ModProjectile
+	public class SpearofJustice : SpearProj
 	{
-        public override void SetStaticDefaults() {
-            // DisplayName.SetDefault("Spear of Justice");
+        public override void SpearDefaultsSafe() {
+            Projectile.width = 120;
+            Projectile.height = 120;
         }
-        public override void SetDefaults() {
-			Projectile.width = 18;
-			Projectile.height = 18;
-			Projectile.aiStyle = 19;
-			Projectile.penetrate = -1;
-			Projectile.scale = 1.3f;
-			Projectile.alpha = 0;
-			Projectile.hide = true;
-			Projectile.ownerHitCheck = true;
-			Projectile.DamageType = DamageClass.Melee;
-			Projectile.tileCollide = false;
-			Projectile.friendly = true;
-		}
-        public float MovementFactor {
-			get => Projectile.ai[0];
-			set => Projectile.ai[0] = value;
-		}
-		public override void AI() {
-			Player projOwner = Main.player[Projectile.owner];
-			Vector2 ownerMountedCenter = projOwner.RotatedRelativePoint(projOwner.MountedCenter, true);
-			Projectile.direction = projOwner.direction;
-			projOwner.heldProj = Projectile.whoAmI;
-			projOwner.itemTime = projOwner.itemAnimation;
-			Projectile.position.X = ownerMountedCenter.X - (float)(Projectile.width / 2);
-			Projectile.position.Y = ownerMountedCenter.Y - (float)(Projectile.height / 2);
-			if (!projOwner.frozen) {
-				if (MovementFactor == 0f)
-				{
-					MovementFactor = 3f; //3
-					Projectile.netUpdate = true;
-				}
-				if (projOwner.itemAnimation < projOwner.itemAnimationMax / 3)
-				{
-					MovementFactor -= 3f; //2.4
-				}
-				else
-				{
-					MovementFactor += 2.5f; //2.1
-				}
-			}
-			Projectile.position += Projectile.velocity * MovementFactor;
-			if (projOwner.itemAnimation == 0) {
-				Projectile.Kill();
-			}
-			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(135f);
-			if (Projectile.spriteDirection == -1) {
-				Projectile.rotation -= MathHelper.ToRadians(90f);
-			}
-		}
+        public SpearofJustice() : base(-23f, 16, 5f, 110f, 2, 20, 115f, 0f, 1.5f, false, false, false) { }
 		public override void PostAI() {
 			if (Main.rand.NextBool()) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.DungeonSpirit);

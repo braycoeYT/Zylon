@@ -50,7 +50,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			//Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
-        NPC.lifeMax = (int)((5200 + ((numPlayers - 1) * 2400))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+			NPC.lifeMax = (int)((5200 + ((numPlayers - 1) * 2400))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 61;
 			NPC.value = 140000;
 			if (Main.masterMode) {
@@ -58,12 +58,22 @@ namespace Zylon.NPCs.Bosses.Adeneb
 				NPC.damage = 94;
             }
         }
-		int attack;
+        public override void HitEffect(NPC.HitInfo hit) {
+            if (NPC.life < 1 && (Main.expertMode || Main.masterMode)) {
+				//NPC.immortal = true;
+				NPC.life = 1;
+				NPC.dontTakeDamage = true;
+				finale = true;
+				EndAttack();
+            }
+        }
+        int attack;
 		int attackTimer;
 		int attackTimer2;
 		int attackInt;
 		int prevAttack;
 		float attackFloat;
+		float attackFloatFinale;
 		float o;
 		bool attackDone = true;
 		bool introAttackDone;
@@ -72,12 +82,16 @@ namespace Zylon.NPCs.Bosses.Adeneb
 		int flee;
 		bool transitionSetup;
 		bool drawAura;
+		bool finale;
+		int arenaSize = 800; //1000
 		//bool adenebTurn = true;
 		Vector2 dashVelocity;
 		Vector2 tempVector;
 		Vector2 newVel;
 		Player target;
         public override void AI() {
+			NPC.ai[0] = phase;
+
 			NPC.TargetClosest();
 			target = Main.player[NPC.target];
 			ZylonGlobalNPC.adenebBoss = NPC.whoAmI;
@@ -93,7 +107,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 				NPC.defense = 8;
 				if (Main.expertMode) { NPC.damage = 75; }
 				if (Main.masterMode) { NPC.damage = 109; }
-				if (Main.getGoodWorld) { //For the Worthy: While hands are attacking, gains lots of defense and becomes semi-invisible
+				/*if (Main.getGoodWorld) { //For the Worthy: While hands are attacking, gains lots of defense and becomes semi-invisible
 					if (NPC.ai[0] == 1f) {
 						NPC.alpha = 127;
 						NPC.defense = 36;
@@ -102,11 +116,11 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						NPC.alpha = 0;
 						NPC.defense = 12;
                     }
-                }
+                }*/
             }
-			NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
+			//NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
 
-			if (!target.ZoneDesert && !target.ZoneUndergroundDesert && !(phase == 1 && NPC.life <= NPC.lifeMax/2)) {
+			if (!target.ZoneDesert && !target.ZoneUndergroundDesert && !(phase == 1 && NPC.life <= NPC.lifeMax/2) && !finale) {
 				angerTimer++;
 			}
 			else angerTimer = 0;
@@ -124,7 +138,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					//if (flee == 0)
 					flee++;
 				}
-				else if (phase == 1 && NPC.life <= NPC.lifeMax/2 && Vector2.Distance(NPC.Center, Main.player[NPC.target].Center) > 1700) {
+				else if ((finale || (phase == 1 && NPC.life <= NPC.lifeMax/2)) && Vector2.Distance(NPC.Center, Main.player[NPC.target].Center) > 1700) {
 					flee++;
                 }
 				else
@@ -136,10 +150,124 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					NPC.velocity = newVel;
 					if (phase == 1 && NPC.life <= NPC.lifeMax/2) NPC.velocity = Vector2.Zero;
 					if (flee > 300) NPC.active = false;
-					if (flee > 30 && (phase == 1 && NPC.life <= NPC.lifeMax/2)) NPC.active = false;
+					if (flee > 30 && ((phase == 1 && NPC.life <= NPC.lifeMax/2) || finale)) NPC.active = false;
 					return;
 				}
 			}
+
+			if (finale) { //idk if there's some way to stabilize it above a certain level above the ground but that would be great probably, I just went and used the same ai as the half hp dm which worked well
+				
+				NPC.ai[1] = 5;
+				//NPC.velocity *= 0.95f;
+				attackTimer++;
+
+				if (attackTimer % 3 == 0 && attackTimer <= 180) {
+					if (NPC.Center.Y > target.Center.Y) NPC.velocity.Y -= 1;
+					else if (NPC.Center.Y < target.Center.Y - 144) NPC.velocity.Y += 1;
+					else NPC.velocity.Y *= 0.8f;
+					if (NPC.Center.X < target.Center.X - 300) NPC.velocity.X += 1;
+					else if (NPC.Center.X > target.Center.X + 300) NPC.velocity.X -= 1;
+					else NPC.velocity.X *= 0.8f;
+				}
+				else if (attackTimer > 180) NPC.velocity = Vector2.Zero; //NPC.velocity *= 0.9f;
+				
+				if (attackTimer == 181) { //Give players time to get in position?
+					//if (Main.expertMode) arenaSize = 800;
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(arenaSize, 0), Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebFinaleWall>(), NPC.damage, 0f);
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(arenaSize, 0), Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebFinaleWall>(), NPC.damage, 0f);
+				}
+
+				/*if (attackTimer >= 3200 && attackTimer < 3360) { //I wanted this to work, but the projectiles are too big.
+					attackFloatFinale += 0.1f;
+                }*/
+				if (attackTimer >= 5000) { NPC.immortal = false; NPC.dontTakeDamage = false; Main.player[NPC.target].ApplyDamageToNPC(NPC, 13, 0f, 0); }
+				//TOME MAN PLZ FIX ABOVE I AM DUMB
+				
+				if (attackTimer == 3900 && Main.netMode != NetmodeID.MultiplayerClient) { //Final sun ring big x1
+					attackFloatFinale = Main.rand.NextFloat(360f);
+					for (int i = 0; i < 12; i++) {
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebPhaseSunBig>(), NPC.damage/3, 0f, -1, attackFloatFinale+i*30, -200f);
+                    }
+                }
+				if (attackTimer >= 3400 && attackTimer < 3800) { //Final sun ring small x4
+					attackFloatFinale = Main.rand.NextFloat(360f);
+					if (attackTimer % 100 == 0 && Main.netMode != NetmodeID.MultiplayerClient) for (int i = 0; i < 12; i++) {
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebPhaseSun>(), NPC.damage/3, 0f, -1, attackFloatFinale+i*30, -200f);
+                    }
+                }
+				if (attackTimer >= 2800 && attackTimer < 3400) { //Laser rain final
+					if (attackTimer % 36 == 0 && Main.netMode != NetmodeID.MultiplayerClient)
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(Main.rand.Next(-100, 101), 600), new Vector2(0, 7), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebLaser>(), NPC.damage/3, 0f);
+                }
+				if (attackTimer >= 2550 && attackTimer < 3400) { //Ring attack cool
+					if (attackTimer == 2550) attackFloat = 0f;
+					if (attackTimer % 5 == 0 && Main.netMode != NetmodeID.MultiplayerClient) for (int i = 0; i < 4; i++) {
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(0, 1000).RotatedBy(MathHelper.ToRadians((i*90)+attackFloat)), Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebPhaseShotFinale>(), NPC.damage/3, 0f);
+                    }
+					attackFloat += 0.2f;// + attackFloatFinale;
+                }
+				if (attackTimer >= 2400 && attackTimer < 3400) { //Big Sun pt2
+					if (attackTimer % 300 == 0 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(-600, 600), new Vector2(0, 10), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebBigSun2>(), NPC.damage/3, 0f, -1, 0, 0, 1);
+					if (attackTimer % 300 == 150 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(600, 600), new Vector2(0, 10), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebBigSun2>(), NPC.damage/3, 0f, -1, 0, 0, 1);
+					//if (attackTimer == 2400 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(-600, 400), new Vector2(0, 10), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebBigSun2>(), NPC.damage/3, 0f, -1, 0, 0, 1);
+					//if (attackTimer == 2550 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(600, 400), new Vector2(0, 10), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebBigSun2>(), NPC.damage/3, 0f, -1, 0, 0, 1);
+					//if (attackTimer == 2700 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(-600, 400), new Vector2(0, 10), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebBigSun2>(), NPC.damage/3, 0f, -1, 0, 0, 1);
+					//if (attackTimer == 2850 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(600, 400), new Vector2(0, 10), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebBigSun2>(), NPC.damage/3, 0f, -1, 0, 0, 1);
+                }
+				if (attackTimer >= 2100) { //Sun rings at player pt2
+					if (attackTimer == 2100) attackInt = 0;
+					if (attackTimer % 100 == 0 && attackTimer < 2400) {
+						attackInt++;
+						int rotMult = 1;
+						int rand = Main.rand.Next(360);
+						if (attackInt % 200 == 0) rotMult = -1;
+						for (int i = 0; i < 8; i++) {
+							if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebFinaleSunRing>(), NPC.damage/3, 0f, -1, rotMult*(i*45)+rand);
+                        }
+                    }
+                }
+				if (attackTimer >= 1860 && attackTimer < 2060) { //Laser rain pt2 - both up and down
+					if (attackTimer % 10 == 0 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(Main.rand.Next((-1*arenaSize)+16, arenaSize-16), 800), new Vector2(0, 7), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebLaser>(), NPC.damage/3, 0f, -1, 1f);
+					if (attackTimer % 10 == 5 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(Main.rand.Next((-1*arenaSize)+16, arenaSize-16), -800), new Vector2(0, -7), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebLaser>(), NPC.damage/3, 0f, -1, 1f);
+					
+					//if (attackTimer % 10 == 0 && attackTimer < 2100 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(0, 400), new Vector2(0, 10), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebPhaseShotFinale>(), NPC.damage/3, 0f, -1, 0, 0, 1);
+                }
+				if (attackTimer >= 1400) { //Big Sun pt1
+					if (attackTimer == 1400 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(0, 400), new Vector2(0, 10), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebBigSun2>(), NPC.damage/3, 0f, -1, 0, 0, 1);
+					if (attackTimer == 1500 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(-600, 400), new Vector2(0, 10), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebBigSun2>(), NPC.damage/3, 0f, -1, 0, 0, 1);
+					if (attackTimer == 1600 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(600, 400), new Vector2(0, 10), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebBigSun2>(), NPC.damage/3, 0f, -1, 0, 0, 1);
+					if (attackTimer == 1700 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(0, 400), new Vector2(0, 10), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebBigSun2>(), NPC.damage/3, 0f, -1, 0, 0, 1);
+					//if (attackTimer % 20 == 0 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center - new Vector2(Main.rand.Next(-100, 101), 400), Vector2.Zero, ModContent.ProjectileType<>());
+                }
+				if (attackTimer >= 760) { //Sun rings at player pt1
+					if (attackTimer == 760) attackInt = 0;
+					if (attackTimer % 120 == 0 && attackTimer < 1360) {
+						attackInt++;
+						int rotMult = 1;
+						int rand = Main.rand.Next(360);
+						if (attackInt % 2 == 0) rotMult = -1;
+						for (int i = 0; i < 8; i++) {
+							if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebFinaleSunRing>(), NPC.damage/3, 0f, -1, rotMult*(i*45)+rand);
+                        }
+                    }
+                }
+				if (attackTimer >= 300 && attackTimer < 800) { //Laser rain pt1
+					if (attackTimer % 5 == 0 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(Main.rand.Next((-1*arenaSize)+16, arenaSize-16), 800), new Vector2(0, 7), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebLaser>(), NPC.damage/3, 0f, -1, 1f);
+                }
+				/*else if (attackTimer >= 300) { //Part 1 old
+					//if (attackTimer % 10 == 0 && attackTimer < 700 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, 3).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebMiniSunChaseFinale>(), NPC.damage/3, 0f);
+					if (attackTimer % 8 == 0 && attackTimer < 700 && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(Main.rand.Next(-400, 401), 1200), new Vector2(0, 3).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebMiniSunChase>(), NPC.damage/3, 0f);
+                }*/
+
+				if (attackTimer >= 241) {
+					for (int x = 0; x < Main.maxPlayers; x++) {
+						bool dist = Math.Abs(Main.player[x].Center.X - NPC.Center.X) > arenaSize - 16;
+						bool dist2 = Math.Abs(Main.player[x].Center.Y - NPC.Center.Y) < 1600;
+						if (dist && dist2) Main.player[x].AddBuff(ModContent.BuffType<Buffs.Debuffs.SearedFlame>(), 2);
+                    }
+                }
+				return;
+            }
 
 			if (phase == 1 && NPC.life <= NPC.lifeMax/2) {
 				NPC.dontTakeDamage = true;
@@ -183,7 +311,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
                 } //No attack buff when out biome in phase transition
 				else if (attackTimer < 520) {
 					//insert aura creation animation if you want, otherwise remove this grace period
-                } //Suggestion is that boss slowly begins breaking from the power after each miniphase, then finally becomes phase 2 sprite (?)
+                }
 				else if (attackTimer < 900) { //Transition part 1
 					if (attackTimer % 3 == 0 && Main.netMode != NetmodeID.MultiplayerClient) {
 						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, -800).RotatedBy(MathHelper.ToRadians((attackTimer-520)*2)), Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebPhaseShot>(), NPC.damage/4+1, 0f, Main.myPlayer);
@@ -206,6 +334,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					if (attackTimer == 2200) {
 						//END OF TRANSITION phase, drawaura
 						drawAura = false;
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebSunShield>(), NPC.damage/3, 0f);
                     }
                 }
 				else {
@@ -220,11 +349,12 @@ namespace Zylon.NPCs.Bosses.Adeneb
                 }
 
 				//REMOVE THIS THIS IS JUST FOR SKIPPING THE TRANSIIOTN 4 TESTING!!!!!!!!!!!!!!!!!!!
-				phase = 2;
+				if (attackTimer < 2200) attackTimer = 2199;
+				/*phase = 2;
 				prevAttack = -1;
 				EndAttack();
 				NPC.dontTakeDamage = false;
-				NPC.rotation = 0f;
+				NPC.rotation = 0f;*/
 				//REMOVE THIS THIS IS JUST FOR SKIPPING THE TRANSIIOTN 4 TESTING!!!!!!!!!!!!!!!!!!!
 
 
@@ -245,7 +375,6 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			if (attackDone) { //dash
 				if (introAttackDone || phase == 2) {
 					if (phase == 2) {
-
 						if (Main.getGoodWorld) NPC.scale = 1.5f;
 
 						attack = Main.rand.Next(3);
@@ -255,7 +384,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						attack = Main.rand.Next(3);
 						while (prevAttack == attack) attack = Main.rand.Next(3);
                     }
-					attack = 0;
+					//attack = 3; //Use this to set attacks to specific ones.
 
 					attackDone = false;
 					attackTimer = 0;
@@ -299,7 +428,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 				}
             }
 			else { //See tome man? I'm doing a thing!
-				if (phase == 1) switch (attack) { //I need to think of one more attack for phase 1 but all my ideas are for phase 2 :P
+				if (phase == 1) switch (attack) {
 					case 0:
 						SpinLaser();
 						break;
@@ -310,12 +439,21 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						BigSun(); //MineRing();
 						break;
                 }
-				else if (NPC.ai[0] == 0f) switch (attack) {
+				else switch (attack) { //else if (NPC.ai[0] == 0f) switch (attack) {
 					case 0:
-						Phase2Move();
+						ShieldSplit();
+						break;
+					case 1:
+						SunRayRing();
+						break;
+					case 2:
+						MiniSunBarrage();
+						break;
+					case 3:
+						FourthAttack();
 						break;
                 }
-				else Phase2Move();
+				//else Phase2Move();
             }
 			SpikeGlobalDrawRotation = NPC.rotation;
 			OrbDrawRotation = -NPC.rotation;
@@ -427,6 +565,104 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			if (NPC.velocity.X > 13) NPC.velocity.X = 13;
 			if (NPC.velocity.X < -13) NPC.velocity.X = -13;
         }
+
+		private void Phase2Move2() { //Like previous but more aggressive horizontally
+			attackTimer++;
+			RotateTowardsPlayer();
+
+			float c = 1.25f;
+			if (Main.getGoodWorld) c = 1.5f;
+
+			//Vertical manager
+			if (NPC.Center.Y < target.Center.Y && attackTimer % 5 == 0) NPC.velocity.Y += c;
+			else if (attackTimer % 5 == 0) NPC.velocity.Y -= c;
+			if (NPC.velocity.Y > 10) NPC.velocity.Y = 10;
+			if (NPC.velocity.Y < -10) NPC.velocity.Y = -10;
+
+			//Horizontal manager
+			if (NPC.Center.X < target.Center.X && attackTimer % 5 == 0) NPC.velocity.X += c;
+			else if (attackTimer % 5 == 0) NPC.velocity.X -= c;
+			if (NPC.velocity.X > 20) NPC.velocity.X = 20;
+			if (NPC.velocity.X < -20) NPC.velocity.X = -20;
+
+			if (NPC.Center.X < target.Center.X - 800) NPC.velocity.X += 2;
+			if (NPC.Center.X > target.Center.X + 800) NPC.velocity.X -= 2;
+        }
+
+		float dashPower;
+		float hpLeft2;
+		private void ShieldSplit() {
+			NPC.ai[1] = 1;
+			attackTimer++;
+
+			if (attackFloat == 0f) {
+				NPC.velocity *= 0.9f;
+				if (attackTimer >= 50) {
+					attackTimer = 0;
+					attackFloat = 1f;
+                }
+            }
+			else if (attackFloat < 5f) {
+				if (attackTimer == 1) {
+					hpLeft2 = (float)NPC.life/(float)(NPC.lifeMax/2);
+					float h = -60f;
+					dashVelocity = Vector2.Normalize(NPC.Center - Main.player[NPC.target].Center) * h;
+					dashPower = Math.Abs(Vector2.Distance(NPC.Center, Main.player[NPC.target].Center));
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center+dashVelocity, dashVelocity, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebPremonition>(), 0, 0, Main.myPlayer, 20);
+				}
+				if (attackTimer < 10) {
+					NPC.velocity /= 2;
+	            }
+				if (attackTimer == 30) {
+					dashVelocity.Normalize();
+					if (Vector2.Distance(NPC.Center, Main.player[NPC.target].Center) > 450f) NPC.velocity = dashVelocity*dashPower*(0.075f - (0.015f*hpLeft2));//0.04f is reach pos;
+					else {
+						NPC.velocity = dashVelocity*(36f - (9f*hpLeft2));
+                    }
+					o = 0.1f;
+					if (Main.expertMode) o += 0.025f;
+				}
+				if (attackTimer > 30) {
+					NPC.velocity *= 0.965f; //0.96
+					o *= 0.978f; //0.97
+					NPC.rotation += o*3f;//*(0.1f+(0.015f*120-attackTimer));
+				}
+	
+				if (attackTimer >= 90) { //ATTACK SETUP
+					//if (attackFloat >= 3) EndAttack();
+					attackTimer = 0; //else attackTimer = 0;
+					attackFloat += 1f;
+				}
+            }
+			else {
+				NPC.ai[1] = 0f;
+				Phase2Move(); //attackTimer is incremented twice now but who cares
+				if (attackTimer >= 180) EndAttack();
+            }
+        }
+		private void SunRayRing() {
+			Phase2Move2();
+			hpLeft2 = (float)NPC.life/(float)(NPC.lifeMax/2);
+			if (attackTimer >= (90 + (15*hpLeft2))) { NPC.ai[1] = 2; attackTimer = 0; attackTimer2++; }
+			else NPC.ai[1] = 0;
+
+			//if (attackTimer % 30 == 0) Main.NewText(hpLeft2); //TESTING
+
+			if (attackTimer2 > 6 - (3*hpLeft2)) EndAttack();
+        }
+		private void MiniSunBarrage() {
+			Phase2Move2();
+			hpLeft2 = (float)NPC.life/(float)(NPC.lifeMax/2);
+			if (attackTimer == 1) NPC.ai[1] = 3;
+			else NPC.ai[1] = 0;
+			if (attackTimer > 420) EndAttack();
+        }
+		private void FourthAttack() { //Ominous name, huh? I'm making this up as I go so idk what to call it.
+			Phase2Move();
+			if (attackTimer == 1) NPC.ai[1] = 4;
+			if (attackTimer > 480) EndAttack();
+		}
+
 		float degrees;
 		float targetRot;
 		float degTemp;
@@ -510,7 +746,8 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			attackFloat = 0f;
 			attackInt = 0;
 			start = false;
-			NPC.ai[0] = 1f;
+			//NPC.ai[0] = 1f; //REMOVE
+			NPC.ai[1] = 0f;
         }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
@@ -538,14 +775,33 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			Color color = NPC.GetAlpha(drawColor);
 			var effects = SpriteEffects.None;
 
-			if (phase == 1) spriteBatch.Draw(spikeTextureBottom, drawPos + new Vector2(0, 80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
+			bool cond = phase == 1 && !(NPC.life <= NPC.lifeMax/2 && attackTimer >= 2200);
+
+			if (cond) spriteBatch.Draw(spikeTextureBottom, drawPos + new Vector2(0, 80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
 			spriteBatch.Draw(texture, drawPos, null, color, OrbDrawRotation, drawOrigin, NPC.scale, effects, 0);
-			if (phase == 1) spriteBatch.Draw(spikeTextureTop, drawPos + new Vector2(0, -80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
-			if (phase == 1) spriteBatch.Draw(ankhTexture, drawPos + new Vector2(0, -20).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, ankhOrigin, NPC.scale, effects, 0);
+			if (cond) spriteBatch.Draw(spikeTextureTop, drawPos + new Vector2(0, -80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
+			if (cond) spriteBatch.Draw(ankhTexture, drawPos + new Vector2(0, -20).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, ankhOrigin, NPC.scale, effects, 0);
 
 			if (drawAura) spriteBatch.Draw(auraTexture, drawPos - new Vector2(439, 425), null, Color.White, 0f, drawOrigin, 2.5f, effects, 0);
 
 			return false;
         }
+		public override void BossLoot(ref string name, ref int potionType) {
+            potionType = ItemID.RestorationPotion;
+			//ZylonWorldCheckSystem.downedAdeneb = true;
+        }
+		public override void ModifyNPCLoot(NPCLoot npcLoot) {
+			if (Main.masterMode) {
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.AdenebRelic>(), 1));
+				//npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.>(), 4));
+            }
+			if (Main.expertMode || Main.masterMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.AdenebBag>(), 1));
+			else {
+				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.AdeniteCrumbles>(), 1, 8, 12));
+				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.SearedStone>(), 1, 40, 60));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.AdenebMask>(), 7)).OnFailedRoll(npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.PolandballMask>(), 10)));
+            }
+			//npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.AdenebTrophy>(), 10));
+		}
     }
 }

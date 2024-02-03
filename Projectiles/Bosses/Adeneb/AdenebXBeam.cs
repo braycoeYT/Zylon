@@ -20,11 +20,15 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.aiStyle = -1;
 			Projectile.hostile = true;
 			Projectile.friendly = false;
-			Projectile.timeLeft = Main.rand.Next(120, 241);
+			Projectile.timeLeft = Main.rand.Next(90, 151);
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = false;
 		}
         public override void AI() {
+			NPC owner = Main.npc[ZylonGlobalNPC.adenebBoss];
+			float hpLeft = (float)owner.life/(float)(owner.lifeMax);
+			if (hpLeft <= 0.5f && Projectile.timeLeft > 90) Projectile.timeLeft = 90;
+			
 			if (++Projectile.frameCounter >= 5) {
 				Projectile.frameCounter = 0;
 				if (++Projectile.frame >= 4)

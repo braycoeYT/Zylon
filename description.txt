@@ -1,6 +1,6 @@
-The best mod that starts with Z (I guarantee or your money back)! Zylon is a unique terraria mod full of slimes, blowpipes, references, peculiar boss fights, and much much more! Zylon is the kind of mod that makes all its boss summons infinite because who has the time to craft the same summon a billion times?!
+The best mod that starts with Z (I guarantee or your money back)! Zylon is the kind of mod that makes all its boss summons infinite because who has the time to craft the same summon a billion times?!
 
-THIS MOD IS IN SEVERE NEED OF SPRITERS. If you are a fan of the mod and want to sprite, feel free to join the discord server!
+THIS MOD IS IN SEVERE NEED OF SPRITERS!! If you are a fan of the mod and want to sprite, feel free to join the discord server!
 DISCORD JOIN: https://discord.gg/x6G8rKduWc
 
 Stats:
@@ -24,7 +24,6 @@ V0.0.3: Cause to Clash Update
 ~Added Protein Splicer.
 ~Added Big Ol' Bouquet.
 ~Herbs' damage from blowpipes is halved after hitting an enemy.
-~Added Dark Prognosticus (unobtainable).
 ~Fixed Chlorophyte Seed projectile's display name.
 ~Reworked Stardust Fragment Staff.
 ~Made Slimebender more powerful, but decreased damage significantly.
@@ -94,16 +93,53 @@ V0.0.3: Cause to Clash Update
 ~Adenites no longer causes errors.
 ~Made Adenites (Desert Diskites) spawn much more often.
 ~Added Forgotten Flame, allowing players to summon sandstorms manually.
-~Made Flamecougher obtainable.
+~Made Flamecougher obtainable, and moved progression to hardmode.
 ~Removed Rusted Tech (replaced by Seared Stone).
 ~Zylon bosses are now immune to many Zylon debuffs, and modified which debuffs Zylon bosses are immune to.
-~In FTW worlds, Dirtball is smaller, Possessed Dirt Blocks are bigger, Dirtball passively generates Possessed Dirt Blocks, Adeneb is bigger and more aggressive in phase 2, Adeneb gains super defense and becomes semi-invisible while hands are attacking, Metelord is shorter and faster, and Eldritch Jellyfish is bigger.
+~In FTW worlds, Dirtball is smaller, Possessed Dirt Blocks are bigger, Dirtball passively generates Possessed Dirt Blocks, Adeneb is bigger and more aggressive in phase 2, Metelord is shorter and faster, and Eldritch Jellyfish is bigger.
 ~General fixes with Zylon NPC buff immunity.
 ~General boss fixes for FTW worlds.
 ~Reworked Suspicious Looking Eye secret boss fight, and made him fightable on getfixedboi worlds.
 ~Poops now make sound effects.
 ~Added Wolf Pelt.
-note to self: lobera + icy greatblade rework
+~Reworked modded spears.
+~Icicle on a Rod now actually loses its tip on use.
+~Reworked Meteor Herder (it sure needed one).
+~Now correctly draws the Neutron Armor set bonus.
+~Fixed issue with reforging Enchanted Dirt Clump.
+~Increased Spear of Justice knockback.
+~Added Matilda.
+~Meteor Tails now have the same debuff immunities as Meteor Heads.
+~Completely reworked Lobera, and added True Lobera.
+~Added Goocat Staff.
+~After Plantera is defeated, Elemental Goop is now dropped by Dirt Slime, Mechanical Slime, Starpack Slime, and Living Marshmellow.
+~Increased Enchanted Ice Cube drop rate.
+~Buffed Forgotten Rose's Saber and changed recipe.
+~Adenite Shrapnel and Shrapnel Gun are now easier to craft.
+~Removed Kivasana and Eternia 2000 (for now).
+~Harpies now drop Speckled Stardust.
+~Decreased amount of Elemental Goop needed to craft the Terra Blade.
+~Dirtball now drops Bag of Fruits and Mud Pie in normal mode.
+~Modified Rainy Days recipe.
+~Added Stairway to Heaven and The Archangel.
+~Reworked Glorious Sun.
+~Modified Starstruck Meteor Chunk recipe.
+~Metelord now spawns a swarm of stars from the sky when slain at night. The amount is boosted on expert, for the worthy, and getfixedboi worlds.
+~Nerfed Axe of Regrowth.
+~Minor changes to description.
+~Added "Azercadmium Reborn" to the title of the mod. The 1.3 version of the mod was horrible, but perhaps a couple people remember it fondly.
+~Decreased the amount of mushrooms needed to craft the Mushtop Staff.
+~Changed Space Machine Gun's recipe.
+~Increased Spare Leg drop rate.
+~Reworked Insomnia and Glazed Lens to be more consistent and MUCH more appealing visually.
+~Made Glazed Lens drop more often.
+~Made Glazing Star drop more often.
+~Fixed Meteor Tails not dropping meteorite.
+~Fixed issue with Eye of Cthulhu dropping Bloodied Arrows.
+~Vanilla bosses now drop Zylon items in treasure bags. Long overdue.
+~Reworked and renamed Icy Greatblade to Frostbite.
+
+note to self: lobera + master mode enemy support
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:
@@ -112,13 +148,11 @@ BraycoeYT
 Ideas, Sprites, Music, and General Support:
 Skymanisbtman (Composer)
 Tome Man (Coder and Spriter)
-Mafia_Cheezstick (Spriter)
-Mjoon (Spriter)
-Mr.Gerd26 (Minor Spriter and General Support)
 
-Slimelad (General Support and Ideas)
-Pufferfisher77 (General Support and Ideas)
+Azercadmium (1.3 version of Zylon) Major Devs:
+Mjoon (Spriter)
 HBDeus (Spriter and Composer)
+Astrum (Spriter and Ideas)
 
 Quit:
 CrazySapling1
@@ -128,7 +162,11 @@ Anonymous Coder
 Funk.It
 
 Minor Help:
+Ebon <-- Play Ebonian Mod!!
+Mr.Gerd26 <-- Play Gerd's Lab!!
 Jabon
-Ebon
+Slimelad
 Juice/Slayer
+Pufferfisher77
 STiML
+Mafia_Cheezstick

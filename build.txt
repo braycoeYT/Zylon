@@ -1,4 +1,4 @@
-displayName = [c/0000FF:Zy][c/00C6FF:lo][c/00FFA6:n]
+displayName = [c/0000FF:Zy][c/00C6FF:lo][c/00FFA6:n] (Azercadmium Reborn)
 author = BraycoeYT and the Devs
 version = 0.0.2.9
 hideCode = true

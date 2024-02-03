@@ -88,7 +88,10 @@ namespace Zylon.Items.Blowpipes
 			Item.autoReuse = true;
 			//Item.rare = 1;
 		}
-		public Vector2 vel;
+        public override void Update(ref float gravity, ref float maxFallSpeed) {
+            charge = 0;
+        }
+        public Vector2 vel;
 		public int tempDmg;
 		public float tempKb;
 		public float tempSpd;
@@ -145,7 +148,7 @@ namespace Zylon.Items.Blowpipes
 			return false;
         }
         public override bool CanConsumeAmmo(Item ammo, Player player) {
-            return shootCount == 0;
+            return shootCount == 0; //this doesn't work
         }
         public override void UpdateInventory(Player player) {
 			reuseCounter--;

@@ -553,6 +553,8 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.DirtballMask>(), 7));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.CreepyBlob>(), 10));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.BagofFruits>(), 3));
+				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Food.MudPie>(), 3));
             }
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.DirtballTrophy>(), 10));
 		}
