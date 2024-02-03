@@ -302,7 +302,7 @@ namespace Zylon
 					}
 					if (crit) {
 						if (glazedLens)
-							Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
+							Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.GlazedLensProj>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
 						if (bloodContract) for (int x = 0; x < Main.rand.Next(1, 4); x++)
 							if (item.crit + Player.GetCritChance(item.DamageType) < Main.rand.NextFloat(30f, 130f))
 								Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-9, -5)), ProjectileType<Projectiles.Accessories.BloodContractProj>(), 0, 0, Main.myPlayer);
@@ -320,7 +320,7 @@ namespace Zylon
 					}
 					if (crit) {
 						if (glazedLens)
-							Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, proj.CritChance);
+							Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.GlazedLensProj>(), 20, 5f, Main.myPlayer, proj.CritChance);
 						if (bloodContract) for (int x = 0; x < Main.rand.Next(1, 3); x++)
 							if (proj.CritChance < Main.rand.NextFloat(30f, 130f))
 								Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-9, -5)), ProjectileType<Projectiles.Accessories.BloodContractProj>(), 0, 0, Main.myPlayer);
@@ -372,13 +372,13 @@ namespace Zylon
 				if (diskbringerSet)
 					DiskiteBuffs(90, Player);
 				if (glazedLens && crit)
-					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
+					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.GlazedLensProj>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
 			} else {
 				// To encourage more true melee play, this only has a 75% chance of applying instead of 100
 				if (diskbringerSet)
 					DiskiteBuffs(60, Player, 75);
 				if (glazedLens && crit)
-					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.DemonEyeRotate>(), 20, 5f, Main.myPlayer, proj.CritChance);
+					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.GlazedLensProj>(), 20, 5f, Main.myPlayer, proj.CritChance);
 			}
 			if (bloodVial && Main.rand.NextFloat() < .1f)
 				Player.Heal(1);

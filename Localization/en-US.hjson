@@ -401,10 +401,9 @@ Mods: {
 				DisplayName: Glazed Lens
 				Tooltip:
 					'''
-					'Eye can see!'
 					Increases crit chance by 4
-					Critical strikes spawn temporary eyes to rotate around the player, damaging enemies
-					The higher the player's crit chance, the faster the eyes move
+					Critical strikes spawn temporary Lens Blasts to rotate around the player, damaging enemies
+					The higher the player's crit chance, the faster the Lens Blasts move
 					'''
 			}
 
@@ -2520,6 +2519,11 @@ Mods: {
 					'''
 			}
 
+			Frostbite: {
+				DisplayName: Frostbite
+				Tooltip: Every other swing fires a splitting short range snowflake bolt
+			}
+
 			HBDeusGreatsword: {
 				DisplayName: HBDeus's Greatsword
 				Tooltip:
@@ -2537,11 +2541,6 @@ Mods: {
 					All true melee attacks leech life
 					Shoots life crystals
 					'''
-			}
-
-			IcyGreatblade: {
-				DisplayName: Icy Greatblade
-				Tooltip: Shoots several rapid icy bolts
 			}
 
 			JourneyStarter: {
@@ -2977,8 +2976,8 @@ Mods: {
 				DisplayName: Insomnia
 				Tooltip:
 					'''
-					'Definitely didn't come up with this item at 2:44 am!'
-					Shoots lasers at nearby enemies
+					'What? Me? Up at 3 A.M.? Nonsense!'
+					Shoots Lens Blasts at nearby enemies
 					'''
 			}
 
@@ -3147,7 +3146,7 @@ Mods: {
 		Projectiles: {
 			JadeHookProj.DisplayName: Jade Hook
 			BloodContractProj.DisplayName: Blood Contract
-			DemonEyeRotate.DisplayName: Demon Eye
+			GlazedLensProj.DisplayName: Lens Blast
 			DirtBallAcc.DisplayName: Dirt Ball
 			DiscoCanisterProj.DisplayName: Disco Canister Proj
 			DiscoCanisterProj_Laser.DisplayName: Disco Canister
@@ -3474,6 +3473,7 @@ Mods: {
 			GloriousSun.DisplayName: Glorious Sun
 			IceLaser.DisplayName: Ice Laser
 			Insomnia.DisplayName: Insomnia
+			InsomniaProj.DisplayName: Lens Blast
 			MiniMeteoroid.DisplayName: Mini Meteoroid
 			MiniMiniMeteoroid.DisplayName: Mini Mini Meteoroid
 			Slimebasher.DisplayName: Slimebasher
@@ -3490,18 +3490,19 @@ Mods: {
 			SpiderEgg.DisplayName: Spider Egg
 			SpiderEggInvis.DisplayName: Spider Egg
 			VenomFangMelee.DisplayName: Venom Fang
-			AdenebBigSun.DisplayName: Adeneb Big Sun
+			AdenebBigSun.DisplayName: Gigasun
 			AdenebLaserSpeedUp.DisplayName: Sunbound Sword
 			AdenebLaserSpeedUpOG.DisplayName: Sun Ray
 			AdenebMiniSunChase.DisplayName: Mini Sun
 			AdenebMiniSunChaseFinale.DisplayName: Mini Sun
-			AdenebLaser.DisplayName: Adeneb Laser
-			AdenebPhaseShot.DisplayName: Adeneb Phase Shot
-			AdenebPhaseSun.DisplayName: Adeneb Phase Sun
-			AdenebPhaseSunBig.DisplayName: Adeneb Phase Sun Big
+			AdenebLaser.DisplayName: Sun Ray
+			AdenebPhaseShot.DisplayName: Sun Blast
+			AdenebPhaseShotFinale.DisplayName: Sun Blast
+			AdenebPhaseSun.DisplayName: Pocket Sun
+			AdenebPhaseSunBig.DisplayName: Pocket Sun
 			AdenebPremonition.DisplayName: Adeneb Premonition
-			AdenebPremonition2.DisplayName: Adeneb Premonition2
-			AdenebXBeam.DisplayName: Adeneb X Beam
+			AdenebPremonition2.DisplayName: Adeneb Premonition
+			AdenebXBeam.DisplayName: Sun Mine
 			AdenebSunShield.DisplayName: Sun Shield
 			AdenebSunShieldSplit.DisplayName: Sun Shield
 			SolChakram.DisplayName: Sol Chakram
@@ -3514,9 +3515,8 @@ Mods: {
 			Solaris_Stick.DisplayName: Solaris
 			Solaris_FlameofHope.DisplayName: Flame of Hope
 			Solaris_FlameofHopeHeal.DisplayName: Flame of Hope
-			Dumbell.DisplayName: Dumbell
 			Dumbbell.DisplayName: Dumbbell
-			DreadclawtilusProj.DisplayName: Dreadclawtilus Proj
+			DreadclawtilusProj.DisplayName: Dreadclawtilus
 			BlackHole.DisplayName: Black Hole
 			AdeniteShrapnel.DisplayName: Adenite Shrapnel
 			PoopHostile.DisplayName: Poop Hostile (SUS LIKE AMONGUS)
@@ -3524,8 +3524,11 @@ Mods: {
 			LoberaWave.DisplayName: Lobera Wave
 			AdenebFinaleWall.DisplayName: Adeneb Finale Wall
 			MetelordFallenStar.DisplayName: Fallen Star
-			AdenebSunFourthAttack.DisplayName: Adeneb Sun Fourth Attack
-			AdenebBigSun2.DisplayName: Adeneb Big Sun2
+			AdenebSunFourthAttack.DisplayName: Sun Shield
+			AdenebBigSun2.DisplayName: Gigasun
+			AdenebFinaleSunRing.DisplayName: Pocket Sun
+			FrostbiteProj.DisplayName: Frostbite
+			FrostbiteProj2.DisplayName: Frostbite
 		}
 
 		NPCs: {

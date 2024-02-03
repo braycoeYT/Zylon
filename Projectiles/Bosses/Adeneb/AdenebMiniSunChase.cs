@@ -39,6 +39,8 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 				Projectile.velocity += Vector2.Normalize(Projectile.Center - rand) * -0.2f;
             }
 			else if (Timer < 140) Projectile.velocity *= 1.03f; //1.04 og
+
+			if (owner.life < 2) Projectile.Kill();
         }
         public override void OnSpawn(IEntitySource source) {
 			SoundEngine.PlaySound(SoundID.NPCHit5, Projectile.position);

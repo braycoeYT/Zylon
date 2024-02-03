@@ -49,8 +49,7 @@ namespace Zylon.Items.Swords
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Materials.WolfPelt>(), 9);
-			recipe.AddRecipeGroup("Zylon:AnyMythrilBar", 7);
+			recipe.AddIngredient(ModContent.ItemType<Materials.WolfPelt>(), 15);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

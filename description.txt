@@ -115,7 +115,7 @@ V0.0.3: Cause to Clash Update
 ~After Plantera is defeated, Elemental Goop is now dropped by Dirt Slime, Mechanical Slime, Starpack Slime, and Living Marshmellow.
 ~Increased Enchanted Ice Cube drop rate.
 ~Buffed Forgotten Rose's Saber and changed recipe.
-~Adenite Shrapnel is now easier to craft.
+~Adenite Shrapnel and Shrapnel Gun are now easier to craft.
 ~Removed Kivasana and Eternia 2000 (for now).
 ~Harpies now drop Speckled Stardust.
 ~Decreased amount of Elemental Goop needed to craft the Terra Blade.
@@ -127,9 +127,19 @@ V0.0.3: Cause to Clash Update
 ~Metelord now spawns a swarm of stars from the sky when slain at night. The amount is boosted on expert, for the worthy, and getfixedboi worlds.
 ~Nerfed Axe of Regrowth.
 ~Minor changes to description.
-~Added "Azercadmium Reborn" to the title of the mod. The 1.3 version of the mod was horrible, but perhaps a couple people remember it.
+~Added "Azercadmium Reborn" to the title of the mod. The 1.3 version of the mod was horrible, but perhaps a couple people remember it fondly.
+~Decreased the amount of mushrooms needed to craft the Mushtop Staff.
+~Changed Space Machine Gun's recipe.
+~Increased Spare Leg drop rate.
+~Reworked Insomnia and Glazed Lens to be more consistent and MUCH more appealing visually.
+~Made Glazed Lens drop more often.
+~Made Glazing Star drop more often.
+~Fixed Meteor Tails not dropping meteorite.
+~Fixed issue with Eye of Cthulhu dropping Bloodied Arrows.
+~Vanilla bosses now drop Zylon items in treasure bags. Long overdue.
+~Reworked and renamed Icy Greatblade to Frostbite.
 
-note to self: lobera + icy greatblade + master mode enemy support
+note to self: lobera + master mode enemy support
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:
@@ -150,13 +160,13 @@ Koolaidlemonade
 ULTIMATEDQVID
 Anonymous Coder
 Funk.It
-Mafia_Cheezstick
 
 Minor Help:
-Ebon
-Mr.Gerd26
+Ebon <-- Play Ebonian Mod!!
+Mr.Gerd26 <-- Play Gerd's Lab!!
 Jabon
 Slimelad
 Juice/Slayer
 Pufferfisher77
 STiML
+Mafia_Cheezstick

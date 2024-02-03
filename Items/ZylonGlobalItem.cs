@@ -186,7 +186,37 @@ namespace Zylon.Items
 				p.fleKnuCheck = true;
             }
 		}
-		public override string IsArmorSet(Item head, Item body, Item legs) {
+        public override void RightClick(Item item, Player player) {
+            if (item.type == ItemID.KingSlimeBossBag) {
+				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.GoldCrown);
+				player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.Gel, Main.rand.Next(15, 36));
+				player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<Materials.SlimyCore>(), Main.rand.Next(10, 16));
+            }
+			if (item.type == ItemID.EyeOfCthulhuBossBag) {
+				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<Yoyos.Insomnia>());
+				player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.Lens, Main.rand.Next(4, 7));
+				player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<Ammo.BloodiedArrow>(), Main.rand.Next(20, 51));
+            }
+			if (item.type == ItemID.QueenBeeBossBag) {
+				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<Blowpipes.Beepipe>());
+				player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.Stinger, Main.rand.Next(4, 8));
+            }
+			if (item.type == ItemID.SkeletronBossBag) {
+				player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.Bone, Main.rand.Next(15, 21));
+            }
+			if (item.type == ItemID.TwinsBossBag) {
+				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<Minions.SpazmaticScythe>());
+            }
+			if (item.type == ItemID.PlanteraBossBag) {
+				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.JungleRose);
+				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.NaturesGift);
+				player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.ChlorophyteOre, Main.rand.Next(30, 41));
+            }
+			if (item.type == ItemID.GolemBossBag) {
+				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<Spears.LihzahrdLance>());
+            }
+        }
+        public override string IsArmorSet(Item head, Item body, Item legs) {
 			if (head.type == ItemID.MagicHat && body.type == ItemType<Armor.JadeRobe>())
 				return "JadeRobe1";
 			if (head.type == ItemID.WizardHat && body.type == ItemType<Armor.JadeRobe>())

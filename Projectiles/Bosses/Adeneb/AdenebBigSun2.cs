@@ -31,11 +31,17 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 		}
 		int s;
 		int shootCount;
-
+		bool init;
+		Vector2 initSpot;
 		const int ChargeUpTime = 100;
         public override void AI() {
 			NPC main = Main.npc[ZylonGlobalNPC.adenebBoss];
 			Projectile follow = Main.projectile[(int)Projectile.ai[1]];
+
+			if (!init && Projectile.ai[2] == 1) {
+				initSpot = Projectile.Center;
+				init = true;
+            }
 
 			Projectile.oldPos[0] = Projectile.Center;
 			for (int i = Projectile.oldPos.Length - 1; i > 0; i--)
@@ -46,7 +52,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.ai[0]++;
 			if (Projectile.ai[0] <= ChargeUpTime) {
 
-				if (main.life < 2) { //temp fix for phase transition? Again.
+				if (main.life < 2 && Projectile.ai[2] == 0) { //temp fix for phase transition? Again.
 					Projectile.Kill();
                 }
 
@@ -54,13 +60,17 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 					SoundEngine.PlaySound(new SoundStyle($"Zylon/Sounds/Projectiles/FireCharge") { Volume = 0.7f, PitchVariance = 0.0f, MaxInstances = 2, }, Projectile.Center);
 
 				GlobalFakeScale = Projectile.ai[0] * (1f/(float)ChargeUpTime);
-				Projectile.Center = follow.Center - new Vector2(-100*follow.ai[0], 0);
+				if (Projectile.ai[2] == 0f) Projectile.Center = follow.Center - new Vector2(-100*follow.ai[0], 0);
+				else Projectile.Center = initSpot;
 
 				if (Projectile.ai[0] == ChargeUpTime)
 				{
-					Projectile.velocity = new Vector2(12*follow.ai[0], 0); //10 og
+					if (Projectile.ai[2] == 1) Projectile.velocity = new Vector2(0, 10);
+					else Projectile.velocity = new Vector2(12*follow.ai[0], 0); //10 og
 					s = 8 + (int)(6 * (main.life) / (main.lifeMax / 2));
 					if (s < 8) s = 8;
+
+					if (Projectile.ai[2] == 1) s = 11;
 
 					Systems.Camera.CameraController.ScreenshakePoints(30, 1000, Main.player[Main.myPlayer].Center, Projectile.Center, 1.5f);
 					SoundEngine.PlaySound(new SoundStyle($"Zylon/Sounds/Projectiles/FireBoom") { Volume = 1.2f, PitchVariance = 0.2f, MaxInstances = 2, }, Projectile.Center);

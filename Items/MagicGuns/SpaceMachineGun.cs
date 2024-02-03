@@ -40,10 +40,8 @@ namespace Zylon.Items.MagicGuns
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SpaceGun);
-			recipe.AddIngredient(ItemID.ZapinatorGray);
-			recipe.AddIngredient(ItemID.IllegalGunParts);
-			recipe.AddIngredient(ModContent.ItemType<Bars.HaxoniteBar>(), 16);
-			recipe.AddIngredient(ItemID.FallenStar, 8);
+			recipe.AddIngredient(ModContent.ItemType<Bars.HaxoniteBar>(), 12);
+			recipe.AddIngredient(ItemID.FallenStar, 9);
             recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

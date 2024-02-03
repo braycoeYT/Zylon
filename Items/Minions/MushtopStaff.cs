@@ -40,7 +40,7 @@ namespace Zylon.Items.Minions
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Wood, 10);
-			recipe.AddIngredient(ItemID.Mushroom, 12);
+			recipe.AddIngredient(ItemID.Mushroom, 9);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 		}

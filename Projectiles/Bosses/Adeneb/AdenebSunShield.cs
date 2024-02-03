@@ -38,6 +38,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
         int attackInt;
 		int attackTimer2;
 		bool atkCheck;
+		bool ultima;
         public override void AI() {
 			owner = Main.npc[ZylonGlobalNPC.adenebBoss];
 			hpLeft2 = (float)owner.life/(float)(owner.lifeMax/2);
@@ -63,9 +64,31 @@ namespace Zylon.Projectiles.Bosses.Adeneb
             if (!die2) Projectile.Center = owner.Center;
 			Projectile.rotation += MathHelper.ToRadians(5);
 
-			if (owner.ai[1] == 99) { //Finale
-				attackTimer = 0;
-				Projectile.velocity = Vector2.Zero;
+			if (owner.ai[1] == 5) { //Finale, override all other actions
+				if (!ultima) { //Double check that cancelled attacks are indeed cancelled, you can add a fancy transition if you want
+					ihatescale = 1f;
+					if (Main.getGoodWorld) ihatescale = 1.5f;
+					ultima = true;
+					die = false;
+					die2 = false;
+					die3 = false;
+					attackTimer = 0;
+                }
+				if (Main.getGoodWorld) ihatescale += 0.0125f;
+				else ihatescale += 0.025f;
+				if (ihatescale >= 2f) {
+					ihatescale = 2f;
+					attackTimer++;
+					if (attackTimer >= 120) {
+						Projectile.Kill(); //Goodbye friend.
+                    }
+					else if (attackTimer > 60) {
+						Projectile.velocity.Y *= 1.05f;
+                    }
+					else if (attackTimer == 60) {
+						Projectile.velocity.Y = -1f;
+                    }
+                }
             }
 			else if (owner.ai[1] == 1) { //ShieldSplit
 				if (ihatescale < 1.5f || (ihatescale < 2f && Main.getGoodWorld)) ihatescale += 0.01f;
@@ -159,23 +182,9 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 					Projectile.Kill();
                 }
             }
-			else if (owner.ai[1] == 5) { //Finale
-				if (Main.getGoodWorld) ihatescale += 0.0125f;
-				else ihatescale += 0.025f;
-				if (ihatescale > 2f) {
-					//ihatescale = 2f;
-					attackTimer++;
-					if (attackTimer >= 120) {
-						Projectile.Kill(); //Goodbye friend.
-                    }
-					else if (attackTimer > 60) {
-						Projectile.velocity.Y *= 1.05f;
-                    }
-					else if (attackTimer == 60) {
-						Projectile.velocity.Y = -1f;
-                    }
-                }
-            }
+			/*else if (owner.ai[1] == 5) { //Finale
+				
+            }*/
         }
 		public override bool PreDraw(ref Color lightColor) {
             Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;

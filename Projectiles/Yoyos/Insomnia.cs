@@ -56,7 +56,7 @@ namespace Zylon.Projectiles.Yoyos
 			if (foundTarget) {
 				Timer++;
 				if (Timer % 60 == 0)
-				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir, ModContent.ProjectileType<EyeLaserFriendly>(), Projectile.damage, Projectile.knockBack / 4, Projectile.owner);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, projDir, ModContent.ProjectileType<InsomniaProj>(), Projectile.damage, Projectile.knockBack / 4, Projectile.owner);
 			}
 		}
     }
