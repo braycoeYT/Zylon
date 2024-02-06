@@ -106,7 +106,7 @@ V0.0.3: Cause to Clash Update
 ~Icicle on a Rod now actually loses its tip on use.
 ~Reworked Meteor Herder (it sure needed one).
 ~Now correctly draws the Neutron Armor set bonus.
-~Fixed issue with reforging Enchanted Dirt Clump.
+~Fixed issue with reforging Enchanted Dirt Clump and Disco Canister.
 ~Increased Spear of Justice knockback.
 ~Added Matilda.
 ~Meteor Tails now have the same debuff immunities as Meteor Heads.
@@ -138,6 +138,11 @@ V0.0.3: Cause to Clash Update
 ~Fixed issue with Eye of Cthulhu dropping Bloodied Arrows.
 ~Vanilla bosses now drop Zylon items in treasure bags. Long overdue.
 ~Reworked and renamed Icy Greatblade to Frostbite.
+~Added Eye Lash and Starweaver.
+~Fixed Cotton Candy sell price and rarity.
+~Added Chocolate Macaron.
+~Hornets now drop Cocoa Beans more often, and Moss Hornets now drop them as well.
+~Changed "BraycoeYT and the Devs" to "Braycoe and Co." because it's funnier.
 
 note to self: lobera + master mode enemy support
 

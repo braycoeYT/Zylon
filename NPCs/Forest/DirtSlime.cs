@@ -58,6 +58,7 @@ namespace Zylon.NPCs.Forest
 			npcLoot.Add(new CommonDrop(ItemID.DirtBlock, 1, 2, 5, 1));
 			npcLoot.Add(new CommonDrop(ItemID.MudBlock, 1, 2, 5, 1));
 			npcLoot.Add(ItemDropRule.NormalvsExpert(ItemID.SlimeStaff, 7500, 5000));
+			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Food.ChocolateMacaron>(), 75));
 			npcLoot.Add(ItemDropRule.ByCondition(new ElemGelCondition(), ModContent.ItemType<Items.Materials.ElementalGoop>(), 2, 1, 3));
 		}
     }

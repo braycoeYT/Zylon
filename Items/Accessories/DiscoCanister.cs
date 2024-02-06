@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,8 +18,17 @@ namespace Zylon.Items.Accessories
 			Item.rare = ItemRarityID.LightRed;
 			Item.damage = 60;
 			Item.DamageType = DamageClass.Summon;
+			Item.defense = 1;
 		}
+		public override void ModifyTooltips(List<TooltipLine> tooltips) {
+            foreach (var line in tooltips) {
+				if (line.Mod == "Terraria" && line.Name == "Defense") {
+					line.Hide();
+				}
+			}
+        }
 		public override void UpdateAccessory(Player player, bool hideVisual) {
+			player.statDefense -= 1;
 			player.GetCritChance(DamageClass.Generic) += 5;
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			p.discoCanister = true;

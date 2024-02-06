@@ -30,7 +30,7 @@ namespace Zylon.Projectiles.Swords
         public override void Kill(int timeLeft) {
             SoundEngine.PlaySound(SoundID.Item30, Projectile.position);
 			float rand = Main.rand.NextFloat(60f);
-            for (int i = 0; i < 6; i++) {
+            if (Main.myPlayer == Projectile.owner) for (int i = 0; i < 6; i++) {
 				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 16).RotatedBy(MathHelper.ToRadians(i*60+rand)), ModContent.ProjectileType<FrostbiteProj2>(), Projectile.damage/2, Projectile.knockBack/2, Projectile.owner);
             }
         }

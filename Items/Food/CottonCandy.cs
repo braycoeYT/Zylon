@@ -15,8 +15,8 @@ namespace Zylon.Items.Food
 			Item.useTime = 17;
 			Item.useAnimation = 17;
 			Item.useStyle = ItemUseStyleID.EatFood;
-			Item.value = Item.sellPrice(0, 0, 30);
-			Item.rare = ItemRarityID.Lime;
+			Item.value = Item.sellPrice(0, 0, 2);
+			Item.rare = ItemRarityID.Blue;
 			Item.autoReuse = false;
 			Item.useTurn = true;
 			Item.noMelee = true;

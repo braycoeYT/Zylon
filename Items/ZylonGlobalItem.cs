@@ -194,6 +194,7 @@ namespace Zylon.Items
             }
 			if (item.type == ItemID.EyeOfCthulhuBossBag) {
 				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<Yoyos.Insomnia>());
+				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<Whips.EyeLash>());
 				player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.Lens, Main.rand.Next(4, 7));
 				player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<Ammo.BloodiedArrow>(), Main.rand.Next(20, 51));
             }

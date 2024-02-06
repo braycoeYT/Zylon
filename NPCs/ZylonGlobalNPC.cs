@@ -33,6 +33,7 @@ namespace Zylon.NPCs
             }
 			if (npc.type == NPCID.EyeofCthulhu) {
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemType<Items.Yoyos.Insomnia>(), 3));
+				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemType<Items.Whips.EyeLash>(), 3));
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.Lens, 1, 3, 5));
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsCrimsonAndNotExpert(), ItemType<Items.Ammo.BloodiedArrow>(), 1, 20, 50, 1)); //Weirdly convienient condition but alright
             }
@@ -74,6 +75,7 @@ namespace Zylon.NPCs
 			if (npc.type == NPCID.MossHornet) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Stinger, 2), new CommonDrop(ItemID.Stinger, 1)));
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Vine, 5), new CommonDrop(ItemID.Vine, 4)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Food.CocoaBeans>(), 15), new CommonDrop(ItemType<Items.Food.CocoaBeans>(), 10)));
             }
 			if (npc.type == NPCID.SeekerHead) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.RottenChunk, 1, 1, 3), new CommonDrop(ItemID.RottenChunk, 1, 2, 4)));
@@ -86,7 +88,7 @@ namespace Zylon.NPCs
 			if (npc.type == NPCID.IceBat || npc.type == NPCID.SnowFlinx || npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.UndeadViking)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Tomes.Snowfall>(), 100), new CommonDrop(ItemType<Items.Tomes.Snowfall>(), 90)));
 			if ((npc.type == NPCID.Hornet) || (npc.type >= NPCID.HornetFatty && npc.type <= NPCID.HornetStingy) || (npc.type >= -56 && npc.type <= -65) || (npc.type == -16) || (npc.type == -17))
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Food.CocoaBeans>(), 30), new CommonDrop(ItemType<Items.Food.CocoaBeans>(), 25)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Food.CocoaBeans>(), 15), new CommonDrop(ItemType<Items.Food.CocoaBeans>(), 10)));
 			if (npc.type == NPCID.GreenSlime || npc.type == NPCID.BlueSlime || npc.type == NPCID.RedSlime || npc.type == NPCID.YellowSlime || npc.type == NPCID.BlackSlime || npc.type == NPCID.MotherSlime)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SlimePendant>(), 150), new CommonDrop(ItemType<Items.Accessories.SlimePendant>(), 125)));
 			if (npc.type == NPCID.WindyBalloon || npc.type == NPCID.Dandelion)

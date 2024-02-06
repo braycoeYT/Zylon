@@ -306,6 +306,26 @@ Mods: {
 				DisplayName: Adeneb Offense
 				Description: Mods.Zylon.Buffs.AdenebOffense.Description
 			}
+
+			EyeLashDebuff: {
+				Description: Mods.Zylon.Buffs.EyeLashDebuff.Description
+				DisplayName: Eye Lash Debuff
+			}
+
+			EyeLashAdvancedDebuff: {
+				Description: Mods.Zylon.Buffs.EyeLashAdvancedDebuff.Description
+				DisplayName: Eye Lash Advanced Debuff
+			}
+
+			StarweaverAdvancedDebuff: {
+				DisplayName: Starweaver Advanced Debuff
+				Description: Mods.Zylon.Buffs.StarweaverAdvancedDebuff.Description
+			}
+
+			StarweaverDebuff: {
+				DisplayName: Starweaver Debuff
+				Description: Mods.Zylon.Buffs.StarweaverDebuff.Description
+			}
 		}
 
 		Items: {
@@ -1700,6 +1720,11 @@ Mods: {
 				Tooltip: Used to make Brown Dye
 			}
 
+			ChocolateMacaron: {
+				DisplayName: Chocolate Macaron
+				Tooltip: Minor improvements to all stats
+			}
+
 			CottonCandy: {
 				DisplayName: Cotton Candy
 				Tooltip:
@@ -2920,6 +2945,27 @@ Mods: {
 					'''
 			}
 
+			EyeLash: {
+				DisplayName: Eye Lash
+				Tooltip:
+					'''
+					'Gross, but useful!'
+					Summons servants of cthulhu upon striking foes
+					{$CommonItemTooltip.SummonTagDamage}
+					{$CommonItemTooltip.Whips}
+					'''
+			}
+
+			Starweaver: {
+				DisplayName: Starweaver
+				Tooltip:
+					'''
+					Creates a powerful trail of stardust fragments behind the whip
+					{$CommonItemTooltip.SummonTagDamage}
+					{$CommonItemTooltip.Whips}
+					'''
+			}
+
 			AmazonPrime: {
 				DisplayName: Amazon Prime
 				Tooltip:
@@ -3128,7 +3174,7 @@ Mods: {
 			}
 
 			AdeniteShrapnel: {
-				Tooltip: ""
+				Tooltip: To be used with the Shrapnel Gun
 				DisplayName: Adenite Shrapnel
 			}
 
@@ -3461,6 +3507,7 @@ Mods: {
 			WandofKindlingProj_2.DisplayName: Wand of Kindling
 			WaterStreamRanged.DisplayName: Water Stream
 			AcornFriendlyMelee.DisplayName: Acorn
+			EyeLash.DisplayName: Eye Lash
 			AmazonPackage.DisplayName: Package
 			AmazonPackageFall.DisplayName: Package
 			AmazonPrime.DisplayName: Amazon Prime
@@ -3529,6 +3576,10 @@ Mods: {
 			AdenebFinaleSunRing.DisplayName: Pocket Sun
 			FrostbiteProj.DisplayName: Frostbite
 			FrostbiteProj2.DisplayName: Frostbite
+			EyeLashProj.DisplayName: Eye Lash
+			Starweaver.DisplayName: Starweaver
+			StarweaverTrace.DisplayName: Starweaver Trace
+			StarweaverTrail.DisplayName: Starweaver Trail
 		}
 
 		NPCs: {
