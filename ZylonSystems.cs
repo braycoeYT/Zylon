@@ -242,15 +242,6 @@ namespace Zylon
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
-			recipe = Recipe.Create(ItemID.ThornsPotion);
-			recipe.AddIngredient(ItemID.BottledWater);
-			recipe.AddIngredient(ItemID.Deathweed);
-			recipe.AddIngredient(ItemID.Cactus);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.BloodySpiderLeg>());
-			recipe.AddIngredient(ItemID.Stinger);
-			recipe.AddTile(TileID.Bottles);
-			recipe.Register();
-
 			recipe = Recipe.Create(ItemID.BloodMoonStarter);
 			recipe.AddIngredient(ItemID.Lens);
 			recipe.AddRecipeGroup("Zylon:AnyPHBar", 3);
@@ -715,12 +706,38 @@ namespace Zylon
 			recipe.AddRecipeGroup("Zylon:AnyGem");
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.LifeFruit);
+			recipe.AddIngredient(ItemID.ChlorophyteBar, 4);
+			recipe.AddIngredient(ItemID.SoulofLight);
+			recipe.AddIngredient(ItemID.SoulofNight);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.CombatWrench);
+			recipe.AddIngredient(ItemID.Wrench);
+			recipe.AddIngredient(ItemID.Wire, 10);
+			recipe.AddIngredient(ItemID.Bone, 12);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.LesserManaPotion, 2);
+			recipe.AddIngredient(ItemID.Bottle, 2);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.EnchantedIceCube>());
+			recipe.AddIngredient(ItemID.Gel, 2);
+			recipe.AddTile(TileID.Bottles);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.RestorationPotion, 3);
+			recipe.AddIngredient(ModContent.ItemType<Items.Potions.LesserRestorationPotion>(), 3);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.EerieBell>());
+			recipe.AddIngredient(ItemID.JungleSpores);
+			recipe.AddTile(TileID.Bottles);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
-            for (int i = 0; i < Recipe.numRecipes; i++) {
+            if (ModContent.GetInstance<ZylonConfig>().zylonianBalancing) for (int i = 0; i < Recipe.numRecipes; i++) {
 				Recipe recipe = Main.recipe[i];
-				if (recipe.HasResult(ItemID.TerraBlade))
-					recipe.AddIngredient(ModContent.ItemType<Items.Materials.ElementalGoop>(), 10);
 				if (recipe.HasResult(ItemID.GravediggerShovel))
 					recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 20);
 				if (recipe.HasResult(ItemID.Sandgun))
@@ -731,6 +748,8 @@ namespace Zylon
 					recipe.AddIngredient(ItemID.ManaCrystal);
 					recipe.AddTile(TileID.Anvils);
 				}
+				if (recipe.HasResult(ItemID.RestorationPotion) && recipe.HasIngredient(ItemID.Mushroom))
+					recipe.DisableRecipe();
 			}
         }
     }

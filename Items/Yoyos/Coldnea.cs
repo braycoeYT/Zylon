@@ -34,8 +34,9 @@ namespace Zylon.Items.Yoyos
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Amarok);
+			recipe.AddIngredient(ItemID.IceBlock, 25);
 			recipe.AddIngredient(ItemType<Materials.ElementalGoop>(), 10);
-			recipe.AddIngredient(ItemID.FrostCore, 2);
+			recipe.AddIngredient(ItemID.FrostCore);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

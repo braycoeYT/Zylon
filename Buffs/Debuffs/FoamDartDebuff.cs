@@ -19,7 +19,8 @@ namespace Zylon.Buffs.Debuffs
 			player.statDefense -= 15;
 		}
 		public override void Update(NPC npc, ref int buffIndex) {
-			npc.defense -= 15;
+			npc.defense = npc.defDefense - 15;
+			if (npc.buffTime[buffIndex] <= 1) npc.defense = npc.defDefense;
 		}
 	}
 }

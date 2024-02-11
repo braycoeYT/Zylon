@@ -21,7 +21,7 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.scale = 0.75f;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.FoamDartDebuff>(), 300);
+            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.FoamDartDebuff>(), 600);
 			for (int i = 0; i < 24; i++) {
 				Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width, Projectile.height, DustID.Silver);
 				dust.noGravity = true;
@@ -34,7 +34,7 @@ namespace Zylon.Projectiles.Blowpipes
         {
             if (info.PvP)
             {
-				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.FoamDartDebuff>(), 300);
+				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.FoamDartDebuff>(), 600);
 				for (int i = 0; i < 24; i++)
 				{
 					Dust dust = Dust.NewDustDirect(Projectile.Center, Projectile.width, Projectile.height, DustID.Silver);

@@ -63,6 +63,24 @@ namespace Zylon.Items
 						}
 					}
 				}
+				if (item.type == ItemID.TitaniumBreastplate) {
+					foreach (var line2 in tooltips) {
+						if (line2.Mod == "Terraria" && line2.Name == "Tooltip1") {
+							line2.Text = "3% increased critical strike chance\nIncreases minion knockback by 23%";
+						}
+					}
+				}
+				if (item.type == ItemID.TitaniumBreastplate) {
+					foreach (var line2 in tooltips) {
+						if (line2.Mod == "Terraria" && line2.Name == "Tooltip0") {
+							line2.Text = "Restores 90 life and mana";
+						}
+					}
+				}
+				/*if (item.type == ItemID.RestorationPotion) {
+					TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "No mana sickness");
+					tooltips.Add(line);
+				}*/
             }
 			if (item.type == ItemID.ShinyRedBalloon || item.type == ItemID.BalloonPufferfish) {
 				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 4/s (does not stack with other balloons)");
@@ -109,6 +127,9 @@ namespace Zylon.Items
 					item.axe = 20;
 					item.useTime = 25;
 				}
+				if (item.type == ItemID.RestorationPotion) {
+					item.healMana = 90;
+                }
 			}
 			if (!GetInstance<ZylonConfig>().dirtAmmoFix) {
 				if (item.type == ItemID.DirtBlock) {
@@ -204,6 +225,9 @@ namespace Zylon.Items
             }
 			if (item.type == ItemID.SkeletronBossBag) {
 				player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.Bone, Main.rand.Next(15, 21));
+            }
+			if (item.type == ItemID.WallOfFleshBossBag) {
+				player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.Bone, Main.rand.Next(20, 31));
             }
 			if (item.type == ItemID.TwinsBossBag) {
 				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<Minions.SpazmaticScythe>());

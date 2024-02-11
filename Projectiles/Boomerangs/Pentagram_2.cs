@@ -65,6 +65,8 @@ namespace Zylon.Projectiles.Boomerangs
 				dust.noGravity = false;
 				dust.scale = 2f;
 			}
+			Projectile.damage = (int)(Projectile.damage*0.5f); //multihit penalty
+			if (Projectile.damage < 1) Projectile.damage = 1;
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)

@@ -45,7 +45,7 @@ namespace Zylon.Projectiles.Boomerangs
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.Ichor, Main.rand.Next(5, 15) * 60);
 			target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(5, 15) * 60);
-			if (Main.rand.NextBool(10)) {
+			/*if (Main.rand.NextBool(10)) {
 				if (Main.rand.NextBool()) {
 					for (int i = 0; i < 13; i++) {
 						Vector2 cool = new Vector2(0, 1).RotatedBy(MathHelper.ToRadians(i*360/13));
@@ -58,7 +58,7 @@ namespace Zylon.Projectiles.Boomerangs
 						ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center-160*cool, cool*12f, ModContent.ProjectileType<XBlade_OrbofLight>(), 0, 0f, Projectile.owner);
 				    }
 				}
-			}
+			}*/
 		}
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
@@ -67,7 +67,7 @@ namespace Zylon.Projectiles.Boomerangs
             {
 				target.AddBuff(BuffID.Ichor, Main.rand.Next(5, 15) * 60);
 				target.AddBuff(BuffID.Blackout, Main.rand.Next(5, 15) * 60);
-				if (Main.rand.NextBool(10))
+				/*if (Main.rand.NextBool(10))
 				{
 					if (Main.rand.NextBool())
 					{
@@ -85,7 +85,7 @@ namespace Zylon.Projectiles.Boomerangs
 							ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), target.Center - 160 * cool, cool * 12f, ModContent.ProjectileType<XBlade_OrbofLight>(), 0, 0f, Projectile.owner);
 						}
 					}
-				}
+				}*/
 			}
         }
 

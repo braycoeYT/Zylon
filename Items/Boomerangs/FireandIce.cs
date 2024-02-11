@@ -2,14 +2,15 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+using System.Collections.Generic;
 
 namespace Zylon.Items.Boomerangs
 {
 	public class FireandIce : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Fire and Ice");
-			// Tooltip.SetDefault("'Hell's frozen over!'\nStruck enemies are inflicted with On Fire and Frostburn\nBefore returning, releases several ice and fire balls");
+		public override void ModifyTooltips(List<TooltipLine> tooltips) {
+            TooltipLine xline = new TooltipLine(Mod, "Tooltip#0", "Hold down to charge boomerang throw\nCamera movement can be changed in the config");
+			if (ModContent.GetInstance<ZylonConfig>().experimentalBoomerangs) tooltips.Add(xline);
 		}
 		public override void SetDefaults() {
 			Item.damage = 41;
@@ -27,7 +28,8 @@ namespace Zylon.Items.Boomerangs
 			Item.noUseGraphic = true;
 			Item.autoReuse = true;
 			Item.UseSound = SoundID.Item1;
-			Item.shoot = ProjectileType<Projectiles.Boomerangs.FireandIce>();
+			if (GetInstance<ZylonConfig>().experimentalBoomerangs) Item.shoot = ModContent.ProjectileType<Projectiles.Boomerangs.FireandIce>();
+			else Item.shoot = ProjectileType<Projectiles.Boomerangs.FireandIceOG>();
 			Item.channel = true;
 		}
 		public override bool CanUseItem(Player player) {
@@ -38,7 +40,7 @@ namespace Zylon.Items.Boomerangs
 			recipe.AddIngredient(ItemID.AshBlock, 50);
 			recipe.AddIngredient(ItemID.IceBlock, 50);
 			recipe.AddIngredient(ItemID.Bone, 25);
-			recipe.AddRecipeGroup("Zylon:AnyGem", 4);
+			recipe.AddIngredient(ItemID.HellstoneBar, 6);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

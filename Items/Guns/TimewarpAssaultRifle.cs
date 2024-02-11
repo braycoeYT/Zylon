@@ -15,9 +15,9 @@ namespace Zylon.Items.Guns
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 16;
 			Item.useTime = 4;
-			Item.damage = 31;
-			Item.width = 56;
-			Item.height = 20;
+			Item.damage = 26;
+			Item.width = 86;
+			Item.height = 26;
 			Item.knockBack = 1f;
 			Item.shoot = ProjectileID.Bullet;
 			Item.shootSpeed = 10.5f;
@@ -43,19 +43,17 @@ namespace Zylon.Items.Guns
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ClockworkAssaultRifle);
-			recipe.AddIngredient(ItemID.HallowedBar, 16);
-			recipe.AddIngredient(ItemID.Cog, 100);
+			recipe.AddIngredient(ItemID.HallowedBar, 13);
+			recipe.AddIngredient(ItemID.Cog, 50);
 			recipe.AddIngredient(ItemID.GoldWatch);
-			recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 20);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 
 			recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ClockworkAssaultRifle);
-			recipe.AddIngredient(ItemID.HallowedBar, 16);
-			recipe.AddIngredient(ItemID.Cog, 100);
+			recipe.AddIngredient(ItemID.HallowedBar, 13);
+			recipe.AddIngredient(ItemID.Cog, 50);
 			recipe.AddIngredient(ItemID.PlatinumWatch);
-			recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 20);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

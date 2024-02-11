@@ -7,18 +7,15 @@ namespace Zylon.Items.Misc
 {
 	public class FleshstabJavelin : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("On impact, explodes into multiple ichor splashes");
-		}
 		public override void SetDefaults() {
 			Item.width = 26;
 			Item.height = 26;
-			Item.damage = 71;
+			Item.damage = 39;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 41;
 			Item.useTime = 41;
-			Item.knockBack = 5.1f;
-			Item.rare = ItemRarityID.Pink;
+			Item.knockBack = 6.3f;
+			Item.rare = ItemRarityID.LightRed;
 			Item.value = Item.sellPrice(0, 3, 56);
 			Item.DamageType = DamageClass.Ranged;
 			Item.noMelee = true;
@@ -26,22 +23,13 @@ namespace Zylon.Items.Misc
 			Item.autoReuse = true;
 			Item.UseSound = SoundID.Item1;
 			Item.shoot = ProjectileType<Projectiles.Misc.FleshstabJavelin>();
-			Item.shootSpeed = 31f;
+			Item.shootSpeed = 16f;
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<CrimtaneJavelin>());
+			recipe.AddIngredient(ItemType<CrimtaneJavelin>());
 			recipe.AddIngredient(ItemID.Ichor, 15);
-			recipe.AddIngredient(ItemID.SoulofNight, 5);
-			recipe.AddIngredient(ItemID.AdamantiteBar, 8);
-			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.Register();
-
-			recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<CrimtaneJavelin>());
-			recipe.AddIngredient(ItemID.Ichor, 15);
-			recipe.AddIngredient(ItemID.SoulofNight, 5);
-			recipe.AddIngredient(ItemID.TitaniumBar, 8);
+			recipe.AddIngredient(ItemID.SoulofNight, 6);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

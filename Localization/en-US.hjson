@@ -446,6 +446,15 @@ Mods: {
 				Tooltip: Hexes the Wand of Sparking and Ore Staves with shadowy magicks
 			}
 
+			Inhaler: {
+				DisplayName: Inhaler
+				Tooltip:
+					'''
+					Increases blowpipe charge speed as the player moves faster
+					This caps out at 15/s
+					'''
+			}
+
 			IronBand: {
 				DisplayName: Iron Band
 				Tooltip: Increases the potency of Ironskin Potions
@@ -1419,11 +1428,7 @@ Mods: {
 
 			Barfarang: {
 				DisplayName: Barfarang
-				Tooltip:
-					'''
-					Hold down to charge boomerang throw
-					Camera movement can be changed in the config
-					'''
+				Tooltip: ""
 			}
 
 			BionicBoomer: {
@@ -1439,20 +1444,15 @@ Mods: {
 				DisplayName: Blazing Backlasher
 				Tooltip:
 					'''
-					Moves around erratically
-					Leaves an explosive trail behind itself
-					Right click for a shorter range attack
+					Pauses before returning to reach ultra speed
+					While returning to the player, leaves a trail of explosions
+					Is able to be rethrown after velocity peak
 					'''
 			}
 
 			Cactirang: {
 				DisplayName: Cactirang
-				Tooltip:
-					'''
-					Hold down to charge boomerang throw
-					Spawns damaging prickly pears on critical strikes
-					Camera movement can be changed in the config
-					'''
+				Tooltip: Spawns damaging prickly pears on critical strikes
 			}
 
 			FireandIce: {
@@ -1460,10 +1460,8 @@ Mods: {
 				Tooltip:
 					'''
 					'Hell's frozen over!'
-					Hold down to charge boomerang throw
 					Struck enemies are inflicted with On Fire and Frostburn
 					Before returning, releases several ice and fire balls
-					Camera movement can be changed in the config
 					'''
 			}
 
@@ -1475,6 +1473,16 @@ Mods: {
 					Explodes into a barrage of burning rock after striking a tile or sticking to enemies
 					You can rethrow while stuck Iblises are still active
 					Hits have a chance to confuse enemies
+					'''
+			}
+
+			Mecharang: {
+				DisplayName: Mecharang
+				Tooltip:
+					'''
+					Explodes after striking an enemy
+					Instead of returning normally, falls to the ground and explodes
+					You can rethrow while fallen Mecharangs are still active
 					'''
 			}
 
@@ -1505,6 +1513,7 @@ Mods: {
 					'''
 					Inflicts cursed inferno on struck enemies
 					Shoots cursed flames at nearby enemies
+					Is able to be rethrown after velocity peak
 					'''
 			}
 
@@ -1526,13 +1535,22 @@ Mods: {
 				Tooltip: Splits into two mini chakrams after being thrown
 			}
 
+			WretchedWrench: {
+				DisplayName: Wretched Wrench
+				Tooltip:
+					'''
+					'Its original use has long been corrupted'
+					Has a 20% chance to get stuck to struck enemies, dealing massive damage
+					Is able to be rethrown after velocity peak or getting stuck
+					'''
+			}
+
 			XBlade: {
 				DisplayName: X-Blade
 				Tooltip:
 					'''
 					UNOBTAINABLE: Planned to be PML
 					'Pronounced keyblade, but it wouldn't save the curly X letter' - Some old coot
-					Hits have a chance to spawn either thirteen No Names to pierce enemies, or seven healing orbs that chase the player
 					'''
 			}
 
@@ -2325,9 +2343,19 @@ Mods: {
 					'''
 			}
 
+			GreaterRestorationPotion: {
+				DisplayName: Greater Restoration Potion
+				Tooltip: Reduced potion cooldown
+			}
+
 			HeavyHitterPotion: {
 				DisplayName: Heavy Hitter Potion
 				Tooltip: Increases critical strike damage by 20%
+			}
+
+			LesserRestorationPotion: {
+				DisplayName: Lesser Restoration Potion
+				Tooltip: Reduced potion cooldown
 			}
 
 			ManareachPotion: {
@@ -2357,6 +2385,11 @@ Mods: {
 			StealthPotion: {
 				DisplayName: Stealth Potion
 				Tooltip: Gives a small chance to dodge attacks
+			}
+
+			SuperRestorationPotion: {
+				DisplayName: Super Restoration Potion
+				Tooltip: Reduced potion cooldown
 			}
 
 			SoulInfusedPotato: {
@@ -3269,11 +3302,15 @@ Mods: {
 			WindpipeofthePhoenixProj.DisplayName: Phoenix Breath
 			BoneFriendlyMagic.DisplayName: Bone
 			Barfarang.DisplayName: Barfarang
+			BarfarangOG.DisplayName: Barfarang
 			BionicBoomerRang.DisplayName: Bionic Boomer
 			BlazingBacklasher.DisplayName: Blazing Backlasher
+			BlazingBacklasherProj.DisplayName: Blazing Backlasher
 			Cactirang.DisplayName: Cactirang
 			CactirangPricklyPear.DisplayName: Prickly Pear
+			CactirangOG.DisplayName: Cactirang
 			FireandIce.DisplayName: Fire and Ice
+			FireandIceOG.DisplayName: Fire and Ice
 			FireandIce_1.DisplayName: Ball of Frost
 			FireandIce_2.DisplayName: Ball of Fire
 			Mephiles.DisplayName: Mephiles
@@ -3580,6 +3617,7 @@ Mods: {
 			Starweaver.DisplayName: Starweaver
 			StarweaverTrace.DisplayName: Starweaver Trace
 			StarweaverTrail.DisplayName: Starweaver Trail
+			WretchedWrench.DisplayName: Wretched Wrench
 		}
 
 		NPCs: {
@@ -3796,6 +3834,11 @@ Mods: {
 				blackHoleTownNPC: {
 					Label: Neutron Armor Affects Town NPCs
 					Tooltip: Allows black holes to suck up town NPCs.
+				}
+
+				experimentalBoomerangs: {
+					Label: Experimental Boomerangs
+					Tooltip: Allows some boomerangs to have special AI.
 				}
 			}
 		}

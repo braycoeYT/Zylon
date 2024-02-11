@@ -1,4 +1,5 @@
-The best mod that starts with Z (I guarantee or your money back)! Zylon is the kind of mod that makes all its boss summons infinite because who has the time to craft the same summon a billion times?!
+The best mod that starts with Z - I guarantee or your money back!
+Zylon is the kind of mod that makes all its boss summons infinite because who has the time to craft the same summon a billion times?!
 
 THIS MOD IS IN SEVERE NEED OF SPRITERS!! If you are a fan of the mod and want to sprite, feel free to join the discord server!
 DISCORD JOIN: https://discord.gg/x6G8rKduWc
@@ -143,6 +144,25 @@ V0.0.3: Cause to Clash Update
 ~Added Chocolate Macaron.
 ~Hornets now drop Cocoa Beans more often, and Moss Hornets now drop them as well.
 ~Changed "BraycoeYT and the Devs" to "Braycoe and Co." because it's funnier.
+~Changed Volcanic Flame recipe.
+~Wall of Flesh now drops Hellstone.
+~Removed Wind Walker armor.
+~Resprited Bloodshed (I am so sorry Gerd idk why I forgot to add this one).
+~Readded Inhaler and Mecharang. Welcome back, old friends!
+~Resprited Timewarp Assault Rifle, nerfed recipe, and moved it to post-mech instead of post-Plantera.
+~Fixed a catastrophic error where the Familiar Foam Dart Pistol decreased the defense of enemies by 15 every FRAME. Also increased Tactical Foam Dart debuff time from 5 to 10 seconds.
+~Terra Blade and Code 3 recipes no longer require Elemental Goop.
+~Added more vanilla recipes.
+~Added Experimental Boomerangs config, allowing players to use new or old AI for some boomerangs.
+~Changed Fire and Ice recipe.
+~Reworked several of the mod's older boomerangs.
+~Added multihit penalties for some modded boomerangs.
+~Heavily nerfed Fleshstab Javelin and changed recipe.
+~X-Blade no longer spawns additional projectiles.
+~Added Wretched Wrench.
+~Reworked, expanded, and readded the Restoration Potion family. Vanilla did them dirty.
+~Changed Recipes are no longer modified if Zylon Balancing is disabled.
+~Changed Coldnea recipe.
 
 note to self: lobera + master mode enemy support
 

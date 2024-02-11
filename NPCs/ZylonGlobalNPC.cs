@@ -51,6 +51,9 @@ namespace Zylon.NPCs
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.Bone, 1, 10, 15));
 			//if (NPC.downedBoss3 && (npc.type == NPCID.Skeleton || npc.type == NPCID.SkeletonAlien || npc.type == NPCID.SkeletonArcher || npc.type == NPCID.SkeletonAstonaut || npc.type == NPCID.SkeletonSniper || npc.type == NPCID.ArmoredSkeleton || npc.type == NPCID.BigHeadacheSkeleton || npc.type == NPCID.BigMisassembledSkeleton || npc.type == NPCID.BigPantlessSkeleton || npc.type == NPCID.BigSkeleton || npc.type == NPCID.HeadacheSkeleton || npc.type == NPCID.HeadacheSkeleton|| npc.type == NPCID.MisassembledSkeleton || npc.type == NPCID.PantlessSkeleton || npc.type == NPCID.SmallHeadacheSkeleton || npc.type == NPCID.SmallMisassembledSkeleton || npc.type == NPCID.SmallPantlessSkeleton|| npc.type == NPCID.SmallSkeleton || npc.type == NPCID.SporeSkeleton))
 			//	npcLoot.Add(new CommonDrop(ItemID.Bone, 1, 1, 3));
+			if (npc.type == NPCID.WallofFlesh) {
+				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.Hellstone, 1, 15, 25));
+            }
 			/*if (npc.type == NPCID.WallofFlesh) {
 				npcLoot.Add(ItemDropRule.OneFromOptions(2, ItemType<Items.Blowpipes.FamiliarFoamDartPistol>(), ItemType<Items.Misc.MagnificentOrb>()));
             }*/

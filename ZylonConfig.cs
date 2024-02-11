@@ -32,11 +32,6 @@ namespace Zylon
 		[Tooltip("Keep this disabled unless a mod uses dirt blocks as ammo and is having major issues. Enabling this will disable the Dirtthrower.")]
 		public bool dirtAmmoFix;
 
-		//[DefaultValue(true)]
-		//[Label("Infinite Boss Summons")]
-		//[Tooltip("Makes the mod's boss summons infinite.")]
-		//public bool infBossSum;
-
 		[Range(1f, 10f)]
 		[DefaultValue(1f)]
 		[Slider]
@@ -54,9 +49,13 @@ namespace Zylon
 		[Tooltip("Plays a short noise when blowpipes reach max charge.")]
 		public bool blowpipeNoise;
 
+		[Label("Experimental Boomerangs")]
+		[Tooltip("Allows some boomerangs to have special AI.")]
+		public bool experimentalBoomerangs;
+
 		[DefaultValue(true)]
 		[Label("Boomerang Custom Camera Movement")]
-		[Tooltip("Allows certain boomerangs to move the camera when used.")]
+		[Tooltip("Allows certain boomerangs to move the camera when used (for experimental boomerangs).")]
 		public bool boomerangCamera;
 
 		[DefaultValue(true)]

@@ -32,8 +32,7 @@ namespace Zylon.Items.Tomes
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Book);
-			recipe.AddIngredient(ItemID.HellstoneBar, 12);
+			recipe.AddIngredient(ItemID.HellstoneBar, 15);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

@@ -8,9 +8,6 @@ namespace Zylon.Items.Boomerangs
 {
 	public class BlazingBacklasher : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Moves around erratically\nLeaves an explosive trail behind itself\nRight click for a shorter range attack");
-		}
 		public override void SetDefaults() {
 			Item.damage = 241;
 			Item.DamageType = DamageClass.MeleeNoSpeed;
@@ -29,24 +26,16 @@ namespace Zylon.Items.Boomerangs
 			Item.shootSpeed = 18f;
 			Item.noUseGraphic = true;
 		}
-		public override bool AltFunctionUse(Player player) {
-            return true;
-        }
-		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-			if (player.altFunctionUse == 2) {
-				Projectile.NewProjectile(source, player.Center, player.DirectionTo(Main.MouseWorld) * 7f, type, damage, knockback, Main.myPlayer);
-				return false;
-			}
-			return true;
-		}
 		public override bool CanUseItem(Player player) {
-            for (int i = 0; i < 1000; ++i) {
-                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == Item.shoot) {
-                    return false;
-                }
-            }
-            return true;
-        }
+			int total = 0;
+			for (int i = 0; i < Main.maxProjectiles; i++) {
+				if (Main.projectile[i].type == Item.shoot && Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer) { 
+					if (Main.projectile[i].ai[0] == 0f) return false;
+					total++;
+				}
+			}
+			return total < 10;
+		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.FragmentSolar, 18);
