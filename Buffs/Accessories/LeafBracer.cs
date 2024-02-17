@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace Zylon.Buffs
+namespace Zylon.Buffs.Accessories
 {
 	public class LeafBracer : ModBuff
 	{

@@ -282,6 +282,11 @@ Mods: {
 				Description: Gives a small chance to dodge attacks
 			}
 
+			GraniteEnergyBoost: {
+				DisplayName: Granite Energy Boost
+				Description: The granite energy flows through you
+			}
+
 			LeafBracer: {
 				DisplayName: Leaf Bracer
 				Description: Nature is protecting you!
@@ -325,6 +330,11 @@ Mods: {
 			StarweaverDebuff: {
 				DisplayName: Starweaver Debuff
 				Description: Mods.Zylon.Buffs.StarweaverDebuff.Description
+			}
+
+			ManaRechargeCooldown: {
+				DisplayName: Mana Recharge Cooldown
+				Description: Gathering static electricity...
 			}
 		}
 
@@ -490,6 +500,25 @@ Mods: {
 					'''
 			}
 
+			ManaBattery: {
+				DisplayName: Mana Battery
+				Tooltip:
+					'''
+					After going under 20 mana, completely refills your mana to the maximum
+					30 second cooldown
+					'''
+			}
+
+			ManaPod: {
+				DisplayName: Mana Pod
+				Tooltip:
+					'''
+					Increases max mana by 40 during the day at the surface
+					Otherwise increases max mana by 10
+					Increases mana regeneration while standing still
+					'''
+			}
+
 			Metecore: {
 				DisplayName: Metecore
 				Tooltip:
@@ -501,6 +530,17 @@ Mods: {
 					'''
 			}
 
+			MysticComet: {
+				DisplayName: Mystic Comet
+				Tooltip:
+					'''
+					'Make a wish!'
+					Having under 25% max mana causes giant mana stars to rain from the sky
+					Mana stars can damage enemies and have a 25% chance to explode into collectable versions
+					Collectable versions are worth 20 mana
+					'''
+			}
+
 			NightmareCatcher: {
 				DisplayName: Nightmare Catcher
 				Tooltip:
@@ -509,6 +549,20 @@ Mods: {
 					Striking enemies has a chance to release lost nightmares, which can be absorbed by players to recover health
 					True melee attacks have a much higher chance to release lost nightmares
 					A maximum of 10 lost nightmares can be active at once
+					'''
+			}
+
+			OverchargedManaCapsule: {
+				DisplayName: Overcharged Mana Capsule
+				Tooltip:
+					'''
+					Increases max mana by 40 during the day at the surface
+					Otherwise increases max mana by 10
+					Increases mana regeneration while standing still
+					Killing enemies with magic spawns granite energy wisps for the owner
+					Collect granite energy wisps to boost mana regeneration for a few seconds
+					After going under 20 mana, completely refills your mana to the maximum
+					Mana refill has a 30 second cooldown
 					'''
 			}
 
@@ -524,6 +578,17 @@ Mods: {
 			RootGuard: {
 				DisplayName: Root Guard
 				Tooltip: Taking damage will summon roots nearby to damage enemies
+			}
+
+			RuneofMultiplicity: {
+				DisplayName: Rune of Multiplicity
+				Tooltip:
+					'''
+					'The latest in duplication magicks'
+					Grants an additional minion slot for every extra slot the player has 
+					This caps after three extra slots
+					Decreases minion damage by 40%
+					'''
 			}
 
 			SaberTooth: {
@@ -557,10 +622,15 @@ Mods: {
 
 			SlimePendant: {
 				DisplayName: Slime Pendant
+				Tooltip: Slightly increases max jump height and fall speed
+			}
+
+			SparkingCore: {
+				DisplayName: Sparking Core
 				Tooltip:
 					'''
-					Slightly increases max jump height
-					Releases slime spikes after taking damage
+					Killing enemies with magic spawns granite energy wisps for the owner
+					Collect granite energy wisps to boost mana regeneration for a few seconds
 					'''
 			}
 
@@ -734,6 +804,15 @@ Mods: {
 					'''
 					For use with blowpipes
 					May poison struck enemies
+					'''
+			}
+
+			LuminiteDart: {
+				DisplayName: Luminite Dart
+				Tooltip:
+					'''
+					For use with blowpipes
+					Summons replicas to attack struck enemies
 					'''
 			}
 
@@ -1627,6 +1706,20 @@ Mods: {
 					'''
 			}
 
+			Cartilage: {
+				DisplayName: Cartilage
+				Tooltip: Has a 33% chance to convert arrows to bone arrows
+			}
+
+			Crystalizer: {
+				DisplayName: Crystalizer
+				Tooltip:
+					'''
+					Replaces every third shot with a crystal shard
+					Crystal shards split multiple times before dissipating
+					'''
+			}
+
 			CarnalliteBow: {
 				DisplayName: Carnallite Bow
 				Tooltip: Every third shot releases a leaf with each arrow
@@ -2178,6 +2271,15 @@ Mods: {
 			MagnificentOrb: {
 				DisplayName: Magnificent Orb
 				Tooltip: "'Warning: May cause spatial anomalies.'"
+			}
+
+			MysticCometStar: {
+				DisplayName: Star
+				Tooltip:
+					'''
+					Heals 20 mana
+					(This is for the Mystic Comet accessory and upgrades)
+					'''
 			}
 
 			Neutrobliterator: {
@@ -2912,7 +3014,7 @@ Mods: {
 
 			CarnalliteWand: {
 				DisplayName: Carnallite Wand
-				Tooltip: Rains leaves from the sky at the cursor
+				Tooltip: Creates a line of leaves near the player
 			}
 
 			CryoWand: {
@@ -2946,7 +3048,11 @@ Mods: {
 
 			ScepterofDirt: {
 				DisplayName: Scepter of Dirt
-				Tooltip: Rains dirt balls from above on enemies
+				Tooltip:
+					'''
+					Fires dirt balls at enemies
+					After collision, collapses into dirt clumps which continue to deal damage over time
+					'''
 			}
 
 			Slimecaster: {
@@ -3252,6 +3358,8 @@ Mods: {
 			GrassSeed.DisplayName: Grass Seed
 			HallowedSeed.DisplayName: Hallowed Seed
 			JungleGrassSeed.DisplayName: Jungle Grass Seed
+			LuminiteDart.DisplayName: Luminite Dart
+			LuminiteDartReplica.DisplayName: Luminite Dart Replica
 			MoltenSeed.DisplayName: Molten Seed
 			MoonglowSeed.DisplayName: Moonglow Seed
 			MoonglowSeedFall.DisplayName: Moonglow Seed
@@ -3530,6 +3638,7 @@ Mods: {
 			CryoWandProj.DisplayName: Cryo Wand
 			CryoWandProjShard.DisplayName: Cryo Wand
 			DirtBallScepter.DisplayName: Dirt Ball
+			DirtBallScepter2.DisplayName: Dirt Ball
 			HexOreStaffProj.DisplayName: Hexed Ore Staff
 			HexOreStaffProj_Child.DisplayName: Hexed Ore Staff
 			JadeBolt.DisplayName: Jade Bolt
@@ -3618,6 +3727,11 @@ Mods: {
 			StarweaverTrace.DisplayName: Starweaver Trace
 			StarweaverTrail.DisplayName: Starweaver Trail
 			WretchedWrench.DisplayName: Wretched Wrench
+			BoneArrowProj.DisplayName: Bone Arrow
+			CrystalizerProj.DisplayName: Crystalizer
+			MysticCometProj.DisplayName: Mystic Comet
+			SparkingCoreProj.DisplayName: Sparking Core
+			CarnalliteWandProj.DisplayName: Carnallite Wand Proj
 		}
 
 		NPCs: {

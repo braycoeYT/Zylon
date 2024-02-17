@@ -13,7 +13,7 @@ namespace Zylon.Items.Wands
             Item.staff[Item.type] = true;
         }
         public override void SetDefaults() {
-			Item.damage = 10;
+			Item.damage = 14;
 			Item.DamageType = DamageClass.Magic;
 			Item.width = 44;
 			Item.height = 44;
@@ -27,7 +27,7 @@ namespace Zylon.Items.Wands
 			Item.autoReuse = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Wands.CryoWandProj>();
 			Item.shootSpeed = 9f;
-			Item.mana = 8;
+			Item.mana = 7;
 		}
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

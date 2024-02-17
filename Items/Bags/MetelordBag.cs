@@ -37,6 +37,7 @@ namespace Zylon.Items.Bags
 			itemLoot.Add(ItemDropRule.Common(ItemType<Ores.HaxoniteOre>(), 1, 90, 120));
 			itemLoot.Add(ItemDropRule.Common(ItemID.Meteorite, 1, 30, 45));
 			//itemLoot.Add(ItemDropRule.Common(ItemID.FallenStar, 1, 7, 10));
+			itemLoot.Add(new CommonDrop(ItemType<Accessories.MysticComet>(), 4));
 			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(NPCType<NPCs.Bosses.Metelord.MetelordHead>()));
 			itemLoot.Add(new CommonDrop(ItemType<Vanity.MetelordMask>(), 7));
 		}

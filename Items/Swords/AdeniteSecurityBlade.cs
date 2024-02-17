@@ -52,7 +52,6 @@ namespace Zylon.Items.Swords
 			recipe.AddIngredient(ModContent.ItemType<Materials.AdeniteCrumbles>(), 16);
             recipe.AddIngredient(ModContent.ItemType<Materials.SearedStone>(), 27);
 			recipe.AddIngredient(ItemID.Obsidian, 12);
-			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 8);
             recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

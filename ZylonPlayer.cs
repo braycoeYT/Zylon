@@ -25,7 +25,6 @@ namespace Zylon
 		public bool bandofZinc;
 		public bool jellyExpert;
 		public bool diskbringerSet;
-		public bool slimePendant;
 		public bool glazedLens;
 		public bool deadlyToxins;
 		public bool trueMelee10;
@@ -53,6 +52,8 @@ namespace Zylon
 		public bool neutronHood;
 		public bool neutronJacket;
 		public bool neutronTracers;
+		public bool runeofMultiplicity;
+		public bool sparkingCore;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -91,7 +92,6 @@ namespace Zylon
 			bandofZinc = false;
 			jellyExpert = false;
 			diskbringerSet = false;
-			slimePendant = false;
 			glazedLens = false;
 			deadlyToxins = false;
 			trueMelee10 = false;
@@ -118,6 +118,8 @@ namespace Zylon
 			neutronHood = false;
 			neutronJacket = false;
 			neutronTracers = false;
+			runeofMultiplicity = false;
+			sparkingCore = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -236,7 +238,7 @@ namespace Zylon
 			if (leafBracer) {
 				if (!Player.HasBuff(BuffID.PotionSickness) && !leafBracerTempBool) leafBracerTempBool = true;
 				if (Player.HasBuff(BuffID.PotionSickness) && leafBracerTempBool) {
-					Player.AddBuff(BuffType<Buffs.LeafBracer>(), 120);
+					Player.AddBuff(BuffType<Buffs.Accessories.LeafBracer>(), 120);
 					leafBracerTempBool = false;
                 }
             }
@@ -269,7 +271,7 @@ namespace Zylon
 			hitTimer30 = 1800;
 			if (proj != null)
 			{
-				if (proj.type == ProjectileType<Projectiles.Spears.SpearofJustice>() && sojCooldown < 1)
+				if (proj.type == ProjectileType<Projectiles.Spears.SpearofJustice>() && sojCooldown < 1 && Player.whoAmI == Main.myPlayer)
 				{
 					sojDamageCount += damage;
 					sojCooldown = 6;
@@ -328,27 +330,35 @@ namespace Zylon
 				}
 				if (bloodVial && Main.rand.NextFloat() < .1f)
 					Player.Heal(1);
-				if (metelordExpert && Player.ownedProjectileCounts[ProjectileType<Projectiles.Accessories.MetecoreSpirit>()] < 20 && metecoreFloat < 3f)
+				if (metelordExpert && Player.ownedProjectileCounts[ProjectileType<Projectiles.Accessories.MetecoreSpirit>()] < 20 && metecoreFloat < 3f && Player.whoAmI == Main.myPlayer)
 				{
 					Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.MetecoreSpirit>(), 0, 0, Main.myPlayer);
 				}
 			}
 			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
 				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Player.whoAmI);
-			if (shadowflameMagic) {
+			if (shadowflameMagic && Player.whoAmI == Main.myPlayer) {
 				if (item != null)
-					if (item.DamageType == DamageClass.Magic)
+					if (item.DamageType == DamageClass.Magic || item.DamageType == DamageClass.MagicSummonHybrid)
 						target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(5, 11)*60);
 				if (proj != null)
-					if (proj.DamageType == DamageClass.Magic)
+					if (proj.DamageType == DamageClass.Magic || item.DamageType == DamageClass.MagicSummonHybrid)
 						target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(5, 11)*60);
+            }
+			if (sparkingCore && target.life < 1 && Player.whoAmI == Main.myPlayer) {
+				if (item != null)
+					if (item.DamageType == DamageClass.Magic || item.DamageType == DamageClass.MagicSummonHybrid)
+						Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.SparkingCoreProj>(), 0, 0f, Player.whoAmI);
+				if (proj != null)
+					if (proj.DamageType == DamageClass.Magic || proj.DamageType == DamageClass.MagicSummonHybrid)
+						Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.SparkingCoreProj>(), 0, 0f, Player.whoAmI);
             }
 		}
 		public void OnHitPVPGlobal(Item item, Projectile proj, Player target, int damage, bool crit, bool TrueMelee) {
 			hitTimer30 = 1800;
 			if (proj != null)
 			{
-				if (proj.type == ProjectileType<Projectiles.Spears.SpearofJustice>() && sojCooldown < 1)
+				if (proj.type == ProjectileType<Projectiles.Spears.SpearofJustice>() && sojCooldown < 1 && Player.whoAmI == Main.myPlayer)
 				{
 					sojDamageCount += damage;
 					sojCooldown = 6;
@@ -408,7 +418,7 @@ namespace Zylon
         }
 		public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
 		{
-			if (rootGuard) for (int x = 0; x < 3; x++)
+			if (rootGuard && Player.whoAmI == Main.myPlayer) for (int x = 0; x < 3; x++)
 				{ //FINISH
 					int pos = Main.rand.Next(16, 49);
 					if (Main.rand.NextBool()) pos *= -1;
@@ -417,7 +427,7 @@ namespace Zylon
 		}
 		public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo)
 		{
-			if (rootGuard) for (int x = 0; x < 3; x++)
+			if (rootGuard && Player.whoAmI == Main.myPlayer) for (int x = 0; x < 3; x++)
 				{ //FINISH
 					int pos = Main.rand.Next(32, 65);
 					if (Main.rand.NextBool()) pos *= -1;
@@ -448,13 +458,7 @@ namespace Zylon
 				Player.NinjaDodge();
 				return true;
 			}
-			if (slimePendant) {
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(-4.5f, -3), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(-1.5f, -5), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(1.5f, -5), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(4.5f, -3), ProjectileType<Projectiles.Accessories.SlimeSpikeFriendly>(), 15, 2f, Main.myPlayer);
-            }
-			if (glassArmor)
+			if (glassArmor && Player.whoAmI == Main.myPlayer)
 			{
 				int temp = info.Damage / 10;
 				if (temp < 3) temp = 3;
@@ -479,6 +483,14 @@ namespace Zylon
 				itemDrop = ItemType<Items.Materials.Fish.PaintedGlassTetra>();
 			//if (owner.ZoneBeach && Main.rand.NextFloat() < (.04f-(.02f*check)))
 			//	itemDrop = ItemType<Items.Blowpipes.Shellshocker>();
+        }
+        public override void PostUpdateEquips() {
+            if (runeofMultiplicity) { //Don't move this anywhere else, otherwise it might not work correctly
+				int dupli = Player.maxMinions - 1;
+				if (dupli > 3) dupli = 3;
+				Player.maxMinions += dupli;
+				//Main.NewText((Player.maxMinions-dupli)+" --> "+Player.maxMinions); //Testing
+            }
         }
     }
 }

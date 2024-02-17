@@ -28,7 +28,7 @@ namespace Zylon.Items.Bars
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemType<Ores.CarnalliteOre>(), 4);
-			recipe.AddTile(TileID.WorkBenches);
+			recipe.AddTile(TileID.Hellforge);
 			recipe.Register();
 		}
 	}

@@ -47,7 +47,6 @@ namespace Zylon.Items.Swords
 			recipe.AddIngredient(ItemID.MeteoriteBar, 20);
 			recipe.AddIngredient(ItemID.FallenStar, 10);
 			recipe.AddIngredient(ModContent.ItemType<Materials.SpeckledStardust>(), 15);
-			recipe.AddRecipeGroup("Zylon:AnyPHBar", 8);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

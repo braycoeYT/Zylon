@@ -17,7 +17,7 @@ namespace Zylon.Items.Minions
 		}
 
 		public override void SetDefaults() {
-			Item.damage = 9;
+			Item.damage = 13;
 			Item.knockBack = 0.5f;
 			Item.mana = 10;
 			Item.width = 46;

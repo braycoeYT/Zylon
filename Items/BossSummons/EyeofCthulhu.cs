@@ -39,7 +39,7 @@ namespace Zylon.Items.BossSummons
 			return true;
         }
 		public override void AddRecipes() {
-			Recipe recipe = CreateRecipe(5);
+			Recipe recipe = CreateRecipe(7);
 			recipe.AddIngredient(ItemID.SuspiciousLookingEye);
 			recipe.AddIngredient(ItemID.LunarBar, 69);
 			recipe.AddIngredient(ItemID.PlatinumCoin, 5);
@@ -51,9 +51,10 @@ namespace Zylon.Items.BossSummons
 			recipe.AddIngredient(ItemID.TerraToilet);
 			recipe.AddIngredient(ModContent.ItemType<Materials.BloodDroplet>(), 25);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.AddTile(TileID.Dirt);
+			recipe.AddTile(TileID.CookingPots);
 			recipe.AddTile(TileID.RubyBunnyCage);
-			recipe.AddTile(TileID.Emerald);
+			recipe.AddTile(TileID.BubblegumBlock);
+			recipe.AddTile(TileID.GardenGnome);
 			recipe.Register();
 		}
 	}

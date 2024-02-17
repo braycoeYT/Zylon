@@ -23,7 +23,6 @@ V0.0.3: Cause to Clash Update
 ~Removed Test Blowpipes from the mod.
 ~Boss summons no longer stack because of infinite summons.
 ~Added Protein Splicer.
-~Added Big Ol' Bouquet.
 ~Herbs' damage from blowpipes is halved after hitting an enemy.
 ~Fixed Chlorophyte Seed projectile's display name.
 ~Reworked Stardust Fragment Staff.
@@ -163,8 +162,34 @@ V0.0.3: Cause to Clash Update
 ~Reworked, expanded, and readded the Restoration Potion family. Vanilla did them dirty.
 ~Changed Recipes are no longer modified if Zylon Balancing is disabled.
 ~Changed Coldnea recipe.
+~Removed Demonite Bar from Adenite Security item recipes, and buffed the Handgun and Electrifier.
+~Attempted to rebalance the mod's magic weapons.
+~Added Cartilage and Crystalizer.
+~Reworked Bone Arrows.
+~Any Basic Prehardmode Bar removed from a couple recipes.
+~Modified Blood Butler and Bloodshed recipes.
+~Modified joke boss summon recipe.
+~Added Luminite Dart.
+~Horseshoe Bundle of Balloons now buffs blowpipes.
+~Added Rune of Multiplicity.
+~Buffed Icy Wisp Staff.
+~Modified and added new Travelling Merchant items.
+~Nerfed Coldnea.
+~Added Mana Battery, Mystic Comet, Sparking Core, Mana Capsule, and Mana Charging Pack.
+~Reworked Scepter of Dirt and Carnallite Wand.
+~Increased Saber Tooth drop rate.
+~Updated Lime Phasesaber to match the others.
+~Fixed Chlorophyte Blowspitter recipe.
+~Changed Kraken Blast recipe.
+~Carnallite now generates after Queen Bee is defeated.
+~Rebalanced Carnallite due to the above change.
+~Minor fix with Carnallite Armor set bonus display.
+~Fixed Volcanic Flame projectiles not being magic.
+~Leaf Bracer now requires Carnallite Bars to craft.
+~Live Obelisks can no longer go through tiles.
+~Carnallite Bar now requires a Hellforge to craft instead of a Workbench.
 
-note to self: lobera + master mode enemy support
+note to self: lobera + slimecaster + yoyo fix + obsidian dart + scepter of dirt + master mode enemy support
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:
@@ -178,13 +203,12 @@ Azercadmium (1.3 version of Zylon) Major Devs:
 Mjoon (Spriter)
 HBDeus (Spriter and Composer)
 Astrum (Spriter and Ideas)
+Funk.It (Spriter)
 
 Quit:
 CrazySapling1
 Koolaidlemonade
 ULTIMATEDQVID
-Anonymous Coder
-Funk.It
 
 Minor Help:
 Ebon <-- Play Ebonian Mod!!

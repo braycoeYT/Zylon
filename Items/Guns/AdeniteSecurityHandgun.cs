@@ -14,7 +14,7 @@ namespace Zylon.Items.Guns
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 24;
 			Item.useTime = 24;
-			Item.damage = 18;
+			Item.damage = 22;
 			Item.width = 26;
 			Item.height = 24;
 			Item.knockBack = 2f;
@@ -49,7 +49,6 @@ namespace Zylon.Items.Guns
 			recipe.AddIngredient(ModContent.ItemType<Materials.AdeniteCrumbles>(), 16);
             recipe.AddIngredient(ModContent.ItemType<Materials.SearedStone>(), 27);
 			recipe.AddIngredient(ItemID.Obsidian, 12);
-			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 8);
             recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

@@ -19,6 +19,7 @@ namespace Zylon.Projectiles.Tomes
 			Projectile.timeLeft = 15;
 			Projectile.ignoreWater = true;
 			AIType = ProjectileID.Bullet;
+			Projectile.DamageType = DamageClass.Magic;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6), false);

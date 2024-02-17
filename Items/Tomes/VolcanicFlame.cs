@@ -17,7 +17,7 @@ namespace Zylon.Items.Tomes
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 34;
 			Item.useTime = 34;
-			Item.damage = 19;
+			Item.damage = 29;
 			Item.width = 30;
 			Item.height = 36;
 			Item.knockBack = 0.5f;

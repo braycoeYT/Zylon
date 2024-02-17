@@ -27,7 +27,7 @@ namespace Zylon.NPCs.Jungle
 			NPC.aiStyle = 44;
 			NPC.knockBackResist = 0.3f;
 			NPC.noGravity = true;
-            NPC.noTileCollide = true;
+            //NPC.noTileCollide = true;
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.LiveObeliskBanner>();
         }

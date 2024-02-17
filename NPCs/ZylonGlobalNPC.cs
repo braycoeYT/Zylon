@@ -47,8 +47,10 @@ namespace Zylon.NPCs
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.Stinger, 1, 3, 5));
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemType<Items.Blowpipes.Beepipe>(), 3));
 			}
-			if (npc.type == NPCID.SkeletronHead)
+			if (npc.type == NPCID.SkeletronHead) {
+				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemType<Items.Accessories.RuneofMultiplicity>(), 6));
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.Bone, 1, 10, 15));
+			}
 			//if (NPC.downedBoss3 && (npc.type == NPCID.Skeleton || npc.type == NPCID.SkeletonAlien || npc.type == NPCID.SkeletonArcher || npc.type == NPCID.SkeletonAstonaut || npc.type == NPCID.SkeletonSniper || npc.type == NPCID.ArmoredSkeleton || npc.type == NPCID.BigHeadacheSkeleton || npc.type == NPCID.BigMisassembledSkeleton || npc.type == NPCID.BigPantlessSkeleton || npc.type == NPCID.BigSkeleton || npc.type == NPCID.HeadacheSkeleton || npc.type == NPCID.HeadacheSkeleton|| npc.type == NPCID.MisassembledSkeleton || npc.type == NPCID.PantlessSkeleton || npc.type == NPCID.SmallHeadacheSkeleton || npc.type == NPCID.SmallMisassembledSkeleton || npc.type == NPCID.SmallPantlessSkeleton|| npc.type == NPCID.SmallSkeleton || npc.type == NPCID.SporeSkeleton))
 			//	npcLoot.Add(new CommonDrop(ItemID.Bone, 1, 1, 3));
 			if (npc.type == NPCID.WallofFlesh) {
@@ -130,7 +132,7 @@ namespace Zylon.NPCs
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.EnchantedIceCube>(), 1, 2, 4));
 			if (npc.type == NPCID.Werewolf || npc.type == NPCID.Wolf) {
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.WolfPelt>(), 1, 1, 2));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 100), new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 80)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 75), new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 50)));
 			}
 			if (npc.type == NPCID.GoblinScout)
 				npcLoot.Add(new CommonDrop(ItemID.Goggles, 5));
@@ -158,6 +160,12 @@ namespace Zylon.NPCs
             }
 			if (npc.type == NPCID.WallCreeperWall || npc.type == NPCID.WallCreeper) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.ProteinSplicer>(), 75), new CommonDrop(ItemType<Items.Accessories.ProteinSplicer>(), 90)));
+            }
+			if (npc.type == NPCID.DarkCaster || npc.type == NPCID.CursedSkull) {
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.RuneofMultiplicity>(), 125), new CommonDrop(ItemType<Items.Accessories.RuneofMultiplicity>(), 100)));
+            }
+			if (npc.type == NPCID.GraniteFlyer) {
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SparkingCore>(), 30), new CommonDrop(ItemType<Items.Accessories.SparkingCore>(), 20)));
             }
 			//if (npc.type == NPCID.Demon || npc.type == NPCID.VoodooDemon) //too similar to nightmare catcher
 			//	npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.BloodContract>(), 50), new CommonDrop(ItemType<Items.Accessories.BloodContract>(), 40)));
@@ -267,12 +275,21 @@ namespace Zylon.NPCs
 			}*/
         }
         public override void SetupTravelShop(int[] shop, ref int nextSlot) {
-            if (Main.rand.NextFloat() < .5f) {
-				if (Main.rand.NextBool()) shop[nextSlot] = ItemType<Items.Ammo.OverclockArrow>();
-				else shop[nextSlot] = ItemType<Items.Accessories.IronfistMedal>();
+            if (Main.rand.NextFloat() < .75f) {
+				switch (Main.rand.Next(3)) {
+					case 0:
+						shop[nextSlot] = ItemType<Items.Ammo.OverclockArrow>();
+						break;
+					case 1:
+						shop[nextSlot] = ItemType<Items.Accessories.IronfistMedal>();
+						break;
+					case 2:
+						shop[nextSlot] = ItemType<Items.Accessories.ManaBattery>();
+						break;
+                }
 				nextSlot++;
 			}
-			if (Main.rand.NextFloat() < .5f && Main.hardMode) {
+			if (Main.rand.NextFloat() < .75f && Main.hardMode) {
 				if (Main.rand.NextBool()) shop[nextSlot] = ItemType<Items.Flails.StickyHand>();
 				else shop[nextSlot] = ItemType<Items.Accessories.AirTank>();
 				nextSlot++;

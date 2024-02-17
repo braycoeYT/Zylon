@@ -8,9 +8,6 @@ namespace Zylon.Items.Guns
 {
 	public class BloodButler : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Adds a bullet with each shot until four bullets are reached, then the next shot is reset");
-		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 3, 56, 0);
 			Item.useStyle = ItemUseStyleID.Shoot;
@@ -46,9 +43,8 @@ namespace Zylon.Items.Guns
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.IllegalGunParts);
-			recipe.AddRecipeGroup("Zylon:AnyPHBar", 12);
-			recipe.AddIngredient(ModContent.ItemType<Materials.BloodDroplet>(), 10);
-			recipe.AddIngredient(ItemID.Bone, 35);
+			recipe.AddIngredient(ModContent.ItemType<Materials.BloodDroplet>(), 15);
+			recipe.AddIngredient(ItemID.Bone, 45);
 			recipe.AddIngredient(ModContent.ItemType<Materials.OtherworldlyFang>(), 5);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();

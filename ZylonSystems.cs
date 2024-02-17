@@ -349,9 +349,9 @@ namespace Zylon
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.BoneSword);
-			recipe.AddIngredient(ItemID.Bone, 18);
-			recipe.AddRecipeGroup("Zylon:AnyCopperBar", 10);
-			recipe.AddTile(TileID.BoneWelder);
+			recipe.AddIngredient(ItemID.Bone, 45);
+			recipe.AddIngredient(ItemID.Cobweb, 50);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.ThunderStaff);
@@ -734,6 +734,37 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.JungleSpores);
 			recipe.AddTile(TileID.Bottles);
 			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.BoneArrow, 25);
+			recipe.AddIngredient(ItemID.WoodenArrow, 25);
+			recipe.AddIngredient(ItemID.Bone);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.CelestialMagnet);
+			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 9);
+			recipe.AddIngredient(ItemID.ManaCrystal);
+			recipe.AddIngredient(ItemID.SunplateBlock, 12);
+			recipe.AddTile(TileID.SkyMill);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.TurtleHelmet);
+			recipe.AddIngredient(ItemID.ChlorophyteMask);
+			recipe.AddIngredient(ItemID.TurtleShell);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.TurtleScaleMail);
+			recipe.AddIngredient(ItemID.ChlorophytePlateMail);
+			recipe.AddIngredient(ItemID.TurtleShell);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.TurtleLeggings);
+			recipe.AddIngredient(ItemID.ChlorophyteGreaves);
+			recipe.AddIngredient(ItemID.TurtleShell);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
             if (ModContent.GetInstance<ZylonConfig>().zylonianBalancing) for (int i = 0; i < Recipe.numRecipes; i++) {
@@ -749,6 +780,8 @@ namespace Zylon
 					recipe.AddTile(TileID.Anvils);
 				}
 				if (recipe.HasResult(ItemID.RestorationPotion) && recipe.HasIngredient(ItemID.Mushroom))
+					recipe.DisableRecipe();
+				if (recipe.HasResult(ItemID.UnholyArrow) && recipe.HasIngredient(ItemID.Vertebrae))
 					recipe.DisableRecipe();
 			}
         }

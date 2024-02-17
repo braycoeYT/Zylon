@@ -70,12 +70,9 @@ namespace Zylon.Items
 						}
 					}
 				}
-				if (item.type == ItemID.TitaniumBreastplate) {
-					foreach (var line2 in tooltips) {
-						if (line2.Mod == "Terraria" && line2.Name == "Tooltip0") {
-							line2.Text = "Restores 90 life and mana";
-						}
-					}
+				if (item.type == ItemID.BoneArrow) {
+					TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Has a low chance to explode into piercing bones on impact");
+					tooltips.Add(line);
 				}
 				/*if (item.type == ItemID.RestorationPotion) {
 					TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "No mana sickness");
@@ -94,7 +91,7 @@ namespace Zylon.Items
 				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 8/s (does not stack with other balloons)");
 				tooltips.Add(line);
 			}
-			if (item.type == ItemID.BundleofBalloons) {
+			if (item.type == ItemID.BundleofBalloons || item.type == ItemID.HorseshoeBundle) {
 				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 10/s (does not stack with other balloons)");
 				tooltips.Add(line);
 			}
@@ -196,7 +193,7 @@ namespace Zylon.Items
 				}
 				p.balloonCheck = true;
 			}
-			if (item.type == ItemID.BundleofBalloons) {
+			if (item.type == ItemID.BundleofBalloons || item.type == ItemID.HorseshoeBundle) {
 				if (!p.balloonCheck) { 
 					p.blowpipeChargeInc += 0.3333333333f;
 				}
@@ -224,6 +221,7 @@ namespace Zylon.Items
 				player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.Stinger, Main.rand.Next(4, 8));
             }
 			if (item.type == ItemID.SkeletronBossBag) {
+				if (Main.rand.NextBool(5)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<Accessories.RuneofMultiplicity>());
 				player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.Bone, Main.rand.Next(15, 21));
             }
 			if (item.type == ItemID.WallOfFleshBossBag) {

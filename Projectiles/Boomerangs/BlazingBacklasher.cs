@@ -46,7 +46,7 @@ namespace Zylon.Projectiles.Boomerangs
 
 				if (Timer % 5 == 0 && Projectile.owner == Main.myPlayer) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<BlazingBacklasherProj>(), Projectile.originalDamage, Projectile.knockBack/2, Main.myPlayer);
 			}
-			else if (Timer >= 15) Projectile.velocity *= 0.8f;
+			else if (Timer >= 20) Projectile.velocity *= 0.8f;
 		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             Projectile.damage = (int)(Projectile.damage*0.9f); //multihit penalty

@@ -12,7 +12,7 @@ namespace Zylon.Items.Tomes
 			// Tooltip.SetDefault("Summons three jellyfish to dash at enemies");
 		}
 		public override void SetDefaults() {
-			Item.damage = 21;
+			Item.damage = 30;
 			Item.DamageType = DamageClass.Magic;
 			Item.width = 40;
 			Item.height = 40;

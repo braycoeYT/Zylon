@@ -8,7 +8,7 @@ namespace Zylon.Items.Swords
 	public class LimePhasesaber : ModItem
 	{
 		public override void SetDefaults() {
-			Item.damage = 42;
+			Item.damage = 48;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 48;
 			Item.height = 48;
@@ -32,7 +32,7 @@ namespace Zylon.Items.Swords
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<LimePhaseblade>());
-			recipe.AddIngredient(ItemID.CrystalShard, 50);
+			recipe.AddIngredient(ItemID.CrystalShard, 25);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

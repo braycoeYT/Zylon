@@ -12,7 +12,7 @@ namespace Zylon.Items.MagicGuns
 			// Tooltip.SetDefault("'Unethically tactical, for your pleasure.'\nProjectile slowly gains size for every struck enemy");
 		}
 		public override void SetDefaults() {
-			Item.damage = 62;
+			Item.damage = 41;
 			Item.DamageType = DamageClass.Magic;
 			Item.width = 30;
 			Item.height = 36;
@@ -20,14 +20,14 @@ namespace Zylon.Items.MagicGuns
 			Item.useAnimation = 21;
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 3.4f;
-			Item.value = Item.sellPrice(0, 4, 0, 0);
+			Item.value = Item.sellPrice(0, 3, 21, 0);
 			Item.rare = ItemRarityID.Pink;
 			Item.autoReuse = true;
 			Item.useTurn = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.MagicGuns.Megawave>();
 			Item.shootSpeed = 15f;
 			Item.noMelee = true;
-			Item.mana = 11;
+			Item.mana = 9;
 			Item.UseSound = SoundID.Item47;
 			//Item.UseSound = new SoundStyle("Zylon/Sounds/MegaphoneNoise.ogg");
 		}

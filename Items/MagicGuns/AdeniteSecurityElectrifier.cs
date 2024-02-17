@@ -9,7 +9,7 @@ namespace Zylon.Items.MagicGuns
 	public class AdeniteSecurityElectrifier : ModItem
 	{
 		public override void SetDefaults() {
-			Item.damage = 18;
+			Item.damage = 22;
 			Item.DamageType = DamageClass.Magic;
 			Item.width = 33;
 			Item.height = 33;
@@ -50,7 +50,6 @@ namespace Zylon.Items.MagicGuns
 			recipe.AddIngredient(ModContent.ItemType<Materials.AdeniteCrumbles>(), 16);
             recipe.AddIngredient(ModContent.ItemType<Materials.SearedStone>(), 27);
 			recipe.AddIngredient(ItemID.Obsidian, 12);
-			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 8);
             recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
