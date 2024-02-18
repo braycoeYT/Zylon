@@ -16,10 +16,10 @@ namespace Zylon.Projectiles.Tomes
 			Projectile.DamageType = DamageClass.Magic;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-			target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6), false);
+			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(4, 9), false);
 		}
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
-			target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6), false);
+			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(4, 9), false);
 		}
 		public override void AI() {
 			for (int i = 0; i < 4; i++) {
@@ -33,7 +33,7 @@ namespace Zylon.Projectiles.Tomes
 		}
 		public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center.X, Projectile.Center.Y - 30, 0, 0, ModContent.ProjectileType<PKFireWall>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+			ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y - 30, 0, 0, ModContent.ProjectileType<PKFireWall>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 			for (int i = 0; i < 4; i++) {
 				int dustType = 127;
 				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType);

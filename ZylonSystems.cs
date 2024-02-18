@@ -765,6 +765,21 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.TurtleShell);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.Uzi);
+			recipe.AddIngredient(ItemID.HallowedBar, 8);
+			recipe.AddIngredient(ItemID.ChlorophyteBar, 6);
+			recipe.AddIngredient(ItemID.Vine, 2);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.IceSickle);
+			recipe.AddRecipeGroup("Zylon:AnyAdamantiteBar", 10);
+			recipe.AddIngredient(ItemID.FrostCore);
+			recipe.AddIngredient(ItemID.SoulofLight, 3);
+			recipe.AddIngredient(ItemID.SoulofNight, 3);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
             if (ModContent.GetInstance<ZylonConfig>().zylonianBalancing) for (int i = 0; i < Recipe.numRecipes; i++) {

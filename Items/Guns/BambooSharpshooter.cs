@@ -49,8 +49,6 @@ namespace Zylon.Items.Guns
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Boomstick);
 			recipe.AddIngredient(ItemID.BambooBlock, 30);
-			recipe.AddIngredient(ItemID.JungleSpores, 8);
-			recipe.AddIngredient(ItemID.Vine, 3);
 			recipe.AddRecipeGroup("Zylon:AnyShadowScale");
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();

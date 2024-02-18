@@ -42,7 +42,7 @@ namespace Zylon.Projectiles.Accessories
         }
         public override void OnKill(int timeLeft) {
             if (manaBoost) {
-                SoundEngine.PlaySound(SoundID.Item29.WithVolumeScale(0.5f), Projectile.position);
+                SoundEngine.PlaySound(SoundID.Item29.WithVolumeScale(0.25f), Projectile.position);
                 Main.player[Projectile.owner].AddBuff(ModContent.BuffType<Buffs.Accessories.GraniteEnergyBoost>(), 300);
                 for (int i = 0; i < 5; i++) {
 				    Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.IceTorch);

@@ -32,7 +32,7 @@ namespace Zylon.NPCs.Bosses.SusEye
 			NPC.defense = 80;
 			NPC.noTileCollide = true;
 			//NPC.color = Color.Aqua;
-			NPC.boss = true;
+			//NPC.boss = true;
 			NPC.knockBackResist = 0f;
 			NPC.value = 42069;
 			NPC.netAlways = true;

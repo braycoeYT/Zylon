@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
 
 namespace Zylon.Items.Swords
 {
@@ -12,8 +13,8 @@ namespace Zylon.Items.Swords
 		public override void SetDefaults() {
 			Item.damage = 1;
 			Item.DamageType = DamageClass.Melee;
-			Item.width = 48;
-			Item.height = 48;
+			Item.width = 26;
+			Item.height = 28;
 			Item.useTime = 14;
 			Item.useAnimation = 14;
 			Item.useStyle = ItemUseStyleID.Swing;
@@ -24,12 +25,37 @@ namespace Zylon.Items.Swords
 			Item.autoReuse = true;
 			Item.useTurn = true;
 		}
+        public override void UpdateInventory(Player player) {
+            if (Main.remixWorld) {
+				Item.damage = 174;
+				Item.knockBack = 10f;
+				Item.shoot = ModContent.ProjectileType<Projectiles.DirtGlobFriendly>();
+				Item.shootSpeed = 20f;
+				Item.rare = ItemRarityID.Yellow;
+				Item.value = Item.sellPrice(0, 5);
+            }
+        }
+        public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
+            if (Main.remixWorld) {
+				damage /= 2;
+				knockback /= 4;
+			}
+        }
 		public override void PostUpdate() {
 			if (Main.rand.NextBool()) {
 				Dust dust = Dust.NewDustDirect(Item.position, Item.width, Item.height, DustID.Dirt);
 				dust.noGravity = true;
 				dust.scale = 1.5f;
 			}
+		}
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ModContent.ItemType<AdeniteSecurityBlade>());
+			recipe.AddIngredient(ItemID.DirtBlock, 100);
+            recipe.AddIngredient(ItemID.Ectoplasm, 13);
+            recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddCondition(Condition.RemixWorld);
+			recipe.Register();
 		}
 	}
 }

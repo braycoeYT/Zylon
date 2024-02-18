@@ -10,6 +10,7 @@ namespace Zylon.Items.Accessories
 	{
 		public override void SetStaticDefaults() {
             Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4)); //first is speed, second is amount of frames
+			ItemID.Sets.AnimatesAsSoul[Item.type] = true;
         }
 		public override void SetDefaults() {
 			Item.width = 50;

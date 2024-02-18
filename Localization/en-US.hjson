@@ -44,12 +44,12 @@ Mods: {
 
 			LeafShield: {
 				DisplayName: Leaf Shield
-				Description: "'The leaves are empowering you'"
+				Description: The leaves are empowering you
 			}
 
 			NaturesPrayer: {
 				DisplayName: Nature's Prayer
-				Description: "'Nature cares for all'"
+				Description: Nature cares for all
 			}
 
 			ShadowstitchedBlitz: {
@@ -80,16 +80,6 @@ Mods: {
 			BreathRecovery: {
 				DisplayName: Breath Recovery
 				Description: All this blowing takes a while to recover from!
-			}
-
-			BrokenKarta1: {
-				DisplayName: Broken Karta
-				Description: Your Karta is broken!
-			}
-
-			BrokenKarta2: {
-				DisplayName: Broken Karta
-				Description: Your Karta is broken!
 			}
 
 			DeadlyToxins: {
@@ -335,6 +325,21 @@ Mods: {
 			ManaRechargeCooldown: {
 				DisplayName: Mana Recharge Cooldown
 				Description: Gathering static electricity...
+			}
+
+			GiegueAdvancedDebuff: {
+				DisplayName: Giegue Advanced Debuff
+				Description: Mods.Zylon.Buffs.GiegueAdvancedDebuff.Description
+			}
+
+			GiegueDebuff: {
+				DisplayName: Giegue Debuff
+				Description: Mods.Zylon.Buffs.GiegueDebuff.Description
+			}
+
+			GieguePsiBoost: {
+				DisplayName: PSI Boost
+				Description: The psychic power of an advanced alien race flows through you
 			}
 		}
 
@@ -957,7 +962,7 @@ Mods: {
 				DisplayName: Carnallite Breastplate
 				Tooltip:
 					'''
-					Increases run speed by 10%
+					Increases run acceleration by 6%
 					Increases max life by 20
 					'''
 			}
@@ -966,8 +971,8 @@ Mods: {
 				DisplayName: Carnallite Helmet
 				Tooltip:
 					'''
+					Increases max life by 20
 					Increases damage by 4%
-					Increases run speed by 10%
 					'''
 			}
 
@@ -975,8 +980,8 @@ Mods: {
 				DisplayName: Carnallite Leggings
 				Tooltip:
 					'''
-					Increases max life by 20
 					Increases damage by 4%
+					Increases run acceleration by 6%
 					'''
 			}
 
@@ -1024,7 +1029,7 @@ Mods: {
 
 			HaxoniteBreastplate: {
 				DisplayName: Haxonite Breastplate
-				Tooltip: Increases life and mana regeneration by 1
+				Tooltip: Increases damage reduction by 4%
 			}
 
 			HaxoniteHelmet: {
@@ -1945,6 +1950,15 @@ Mods: {
 					'''
 			}
 
+			HeavyLobster: {
+				DisplayName: Heavy Lobster
+				Tooltip:
+					'''
+					Replaces every third shot with a special projectile
+					Alternates between splitting paint blobs and flame blasts
+					'''
+			}
+
 			KrakenBlast: {
 				DisplayName: Kraken Blast
 				Tooltip:
@@ -1980,6 +1994,15 @@ Mods: {
 					'''
 					'Hot to the touch'
 					Shoots a flaming shard that blasts into shrapnel
+					'''
+			}
+
+			TempleEqualizer: {
+				DisplayName: Temple Equalizer
+				Tooltip:
+					'''
+					Fires a barrage of bullets on foes
+					Every third shot is replaced with an equal spread of Temple Blasts
 					'''
 			}
 
@@ -2817,7 +2840,11 @@ Mods: {
 
 			TrueLobera: {
 				DisplayName: True Lobera
-				Tooltip: ""
+				Tooltip:
+					'''
+					Struck enemies are sparkly slimed
+					Every few swings releases bouncy sparkly gel
+					'''
 			}
 
 			ZincBroadsword: {
@@ -3075,6 +3102,15 @@ Mods: {
 				Tooltip: ""
 			}
 
+			TreeTruncheon: {
+				DisplayName: TreeTruncheon
+				Tooltip:
+					'''
+					Shoots a splitting spark
+					Affected by the Hex Necklace
+					'''
+			}
+
 			WandofKindling: {
 				DisplayName: Wand of Kindling
 				Tooltip:
@@ -3090,6 +3126,18 @@ Mods: {
 					'''
 					'Gross, but useful!'
 					Summons servants of cthulhu upon striking foes
+					{$CommonItemTooltip.SummonTagDamage}
+					{$CommonItemTooltip.Whips}
+					'''
+			}
+
+			Giegue: {
+				DisplayName: Giegue
+				Tooltip:
+					'''
+					'Go home now! Perish with the rest of the ugly Earth People.'
+					Striking foes will grant the user the 'PSI Boost' buff
+					PSI Boost increases magic damage by 15%, and mana regeneration by 1
 					{$CommonItemTooltip.SummonTagDamage}
 					{$CommonItemTooltip.Whips}
 					'''
@@ -3502,9 +3550,12 @@ Mods: {
 			WaterStreamHostile.DisplayName: Water Stream
 			BambooSpike.DisplayName: Bamboo Spike
 			ClockworkBit.DisplayName: Clockwork Bit
+			HeavyLobsterProjBlob.DisplayName: Heavy Lobster
+			HeavyLobsterProjFlame.DisplayName: Heavy Lobster
 			MoltenBullet.DisplayName: Molten Bullet
 			SilverFauxBlast.DisplayName: Faux Blast
 			SpiritBullet.DisplayName: Spirit Bullet
+			TempleEqualizer.DisplayName: Temple Equalizer
 			HaxoniteTrail.DisplayName: Flame Orb
 			IceBoltRanged.DisplayName: Ice Bolt
 			JungleSporeRanged.DisplayName: Jungle Spore
@@ -3731,7 +3782,10 @@ Mods: {
 			CrystalizerProj.DisplayName: Crystalizer
 			MysticCometProj.DisplayName: Mystic Comet
 			SparkingCoreProj.DisplayName: Sparking Core
-			CarnalliteWandProj.DisplayName: Carnallite Wand Proj
+			CarnalliteWandProj.DisplayName: Carnallite Wand
+			TempleEqualizerProj.DisplayName: Temple Equalizer
+			Giegue.DisplayName: Giegue
+			HeavyLobsterProjBlobMini.DisplayName: Heavy Lobster
 		}
 
 		NPCs: {

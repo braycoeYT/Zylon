@@ -18,8 +18,7 @@ namespace Zylon.Items.Armor
 			Item.defense = 10;
 		}
 		public override void UpdateEquip(Player player) {
-			player.lifeRegen += 1;
-			player.manaRegen += 1;
+			player.endurance += 0.04f;
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

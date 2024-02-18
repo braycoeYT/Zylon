@@ -15,15 +15,14 @@ namespace Zylon.Items.Armor
 			Item.height = 18;
 			Item.value = Item.sellPrice(0, 1);
 			Item.rare = ItemRarityID.Green;
-			Item.defense = 7;
+			Item.defense = 6;
 		}
 		public override bool IsArmorSet(Item head, Item body, Item legs) {
 			return body.type == ModContent.ItemType<CarnalliteBreastplate>() && legs.type == ModContent.ItemType<CarnalliteLeggings>();
 		}
         public override void UpdateEquip(Player player) {
 			player.GetDamage(DamageClass.Generic) += 0.04f;
-			player.runAcceleration += 0.02f;
-			player.maxRunSpeed += 0.1f;
+			player.statLifeMax2 += 20;
         }
         public override void UpdateArmorSet(Player player) {
 			player.setBonus = "When at max health, increases your defense by 10 and damage by 12%\nWhen below 25% health, increases your life regen by 3";

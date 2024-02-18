@@ -27,7 +27,7 @@ namespace Zylon.Items.Tomes
 			Item.DamageType = DamageClass.Magic;
 			Item.autoReuse = true;
 			Item.rare = ItemRarityID.Orange;
-			Item.mana = 14;
+			Item.mana = 10;
 			Item.UseSound = SoundID.Item116;
 		}
 		public override void AddRecipes() {

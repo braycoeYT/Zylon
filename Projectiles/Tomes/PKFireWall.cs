@@ -10,10 +10,9 @@ namespace Zylon.Projectiles.Tomes
 			// DisplayName.SetDefault("Volcanic Flame");
         }
 		public override void SetDefaults() {
-			AIType = ProjectileID.Bullet;
 			Projectile.width = 20;
 			Projectile.height = 60;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = -1;
 			Projectile.hostile = false;
 			Projectile.friendly = true;
 			Projectile.timeLeft = 240;
@@ -22,16 +21,18 @@ namespace Zylon.Projectiles.Tomes
 			Projectile.penetrate = -1;
 			Projectile.rotation = 0;
 			Projectile.DamageType = DamageClass.Magic;
+			Projectile.tileCollide = false;
 			//Projectile.usesLocalNPCImmunity = true;
 			//Projectile.localNPCHitCooldown = 10;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-			target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 5), false);
+			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(4, 9), false);
 		}
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
-			target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 5), false);
+			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(4, 9), false);
 		}
 		public override void AI() {
+			Projectile.velocity = Microsoft.Xna.Framework.Vector2.Zero;
 			for (int i = 0; i < 4; i++) {
 				int dustType = 127;
 				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType);

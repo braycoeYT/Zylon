@@ -43,7 +43,13 @@ namespace Zylon.Items.Bags
 			itemLoot.Add(new CommonDrop(ItemID.DirtRod, 4));
 			itemLoot.Add(new CommonDrop(ModContent.ItemType<Items.Misc.Dirtthrower>(), 20));
 			itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.MuddyGreatsword>(), ModContent.ItemType<Items.Yoyos.Dirtglob>(), ModContent.ItemType<Items.Bows.Dirty3String>(), ModContent.ItemType<Items.Blowpipes.DirtFunnel>(), ModContent.ItemType<Items.Wands.ScepterofDirt>(), ModContent.ItemType<Items.Accessories.DirtRegalia>()));
-			itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()));
+			
+			//Remix and getfixedboi change item progression, so don't drop on those
+			LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.NotRemixSeed());
+			LeadingConditionRule leadingConditionRule2 = new LeadingConditionRule(new Conditions.ZenithSeedIsNotUp());
+
+			leadingConditionRule.OnSuccess(leadingConditionRule2.OnSuccess(itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()))));
+			
 			itemLoot.Add(new CommonDrop(ItemType<Vanity.DirtballMask>(), 7));
 			itemLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.CreepyBlob>(), 8));
 			itemLoot.Add(new CommonDrop(ModContent.ItemType<Bags.BagofFruits>(), 2));

@@ -6,9 +6,6 @@ namespace Zylon.Projectiles.Blowpipes
 {
 	public class WindpipeofthePhoenixProj : ModProjectile
 	{
-        public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Phoenix Breath");
-        }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Flames);
 			AIType = ProjectileID.Flames;

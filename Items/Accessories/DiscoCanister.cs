@@ -37,7 +37,6 @@ namespace Zylon.Items.Accessories
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<GlazedLens>());
 			recipe.AddIngredient(ItemID.DiscoBall, 5);
 			recipe.AddIngredient(ItemID.Glass, 20);
 			recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 15);

@@ -13,8 +13,6 @@ namespace Zylon.Items.Bags
 	public class BagofFruits : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Bag of Fruits");
-			// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 15;
 		}
 		public override void SetDefaults() {

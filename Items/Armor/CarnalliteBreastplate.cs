@@ -15,12 +15,11 @@ namespace Zylon.Items.Armor
 			Item.height = 18;
 			Item.value = Item.sellPrice(0, 1);
 			Item.rare = ItemRarityID.Green;
-			Item.defense = 8;
+			Item.defense = 7;
 		}
 		public override void UpdateEquip(Player player) {
 			player.statLifeMax2 += 20;
-			player.runAcceleration += 0.02f;
-			player.maxRunSpeed += 0.1f;
+			player.runAcceleration += 0.06f;
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

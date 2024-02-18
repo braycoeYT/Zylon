@@ -147,7 +147,7 @@ V0.0.3: Cause to Clash Update
 ~Wall of Flesh now drops Hellstone.
 ~Removed Wind Walker armor.
 ~Resprited Bloodshed (I am so sorry Gerd idk why I forgot to add this one).
-~Readded Inhaler and Mecharang. Welcome back, old friends!
+~Readded Inhaler and Mecharang, with reworks. Welcome back, old friends!
 ~Resprited Timewarp Assault Rifle, nerfed recipe, and moved it to post-mech instead of post-Plantera.
 ~Fixed a catastrophic error where the Familiar Foam Dart Pistol decreased the defense of enemies by 15 every FRAME. Also increased Tactical Foam Dart debuff time from 5 to 10 seconds.
 ~Terra Blade and Code 3 recipes no longer require Elemental Goop.
@@ -180,7 +180,7 @@ V0.0.3: Cause to Clash Update
 ~Increased Saber Tooth drop rate.
 ~Updated Lime Phasesaber to match the others.
 ~Fixed Chlorophyte Blowspitter recipe.
-~Changed Kraken Blast recipe.
+~Changed Kraken Blast and Bamboo Sharpshooter recipe.
 ~Carnallite now generates after Queen Bee is defeated.
 ~Rebalanced Carnallite due to the above change.
 ~Minor fix with Carnallite Armor set bonus display.
@@ -188,8 +188,18 @@ V0.0.3: Cause to Clash Update
 ~Leaf Bracer now requires Carnallite Bars to craft.
 ~Live Obelisks can no longer go through tiles.
 ~Carnallite Bar now requires a Hellforge to craft instead of a Workbench.
+~Added Temple Equalizer.
+~Disco Canister no longer requires Glazed Lens to craft.
+~Modified effects of Carnallite and Haxonite Armor.
+~In Remix and getfixedboi seeds, the progression of Overgrown and Adenite Security weapons is now completely different, and their roles are swapped.
+~Readded Giygaclaw, but renamed it to Giegue and changed it into a whip.
+~Resprited Bottomless Sack of Seeds and Bottomless Sack of Worms.
+~Fixed issue with Volcanic Flame debuff time.
+~Volcanic Flame projectile now flies out for longer before falling, and doesn't fall if it strikes a foe.
+~Decreased mana use of Volcanic Flame.
+~Removed Dictionary of Magicks (for now).
 
-note to self: lobera + slimecaster + yoyo fix + obsidian dart + scepter of dirt + master mode enemy support
+note to self: lobera + slimecaster + yoyo fix + obsidian dart + master mode enemy support
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:
