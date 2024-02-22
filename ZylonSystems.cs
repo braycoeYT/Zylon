@@ -780,6 +780,13 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.SoulofNight, 3);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.DeerThing);
+			recipe.AddIngredient(ItemID.FlinxFur, 3);
+			recipe.AddIngredient(ItemID.DemoniteBar, 2);
+			recipe.AddIngredient(ItemID.Lens);
+			recipe.AddTile(TileID.DemonAltar);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
             if (ModContent.GetInstance<ZylonConfig>().zylonianBalancing) for (int i = 0; i < Recipe.numRecipes; i++) {

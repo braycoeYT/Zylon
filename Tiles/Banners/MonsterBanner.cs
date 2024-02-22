@@ -42,13 +42,13 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.Forest.OrangeSlime>();
 						break;
 					case 1:
-						npcType = 0; //npcType = ModContent.NPCType<NPCs.Ocean.CyanSlime>();
+						npcType = ModContent.NPCType<NPCs.Forest.SaplingWarrior>();
 						break;
 					case 2:
 						npcType = ModContent.NPCType<NPCs.Forest.DirtSlime>();
 						break;
 					case 3:
-						npcType = 0; //npcType = ModContent.NPCType<NPCs.Forest.VerdureGigaslime>();
+						npcType = ModContent.NPCType<NPCs.Cavern.CerussiteBat>();
 						break;
 					case 4:
 						npcType = 0; //npcType = ModContent.NPCType<NPCs.Ocean.LittoralGigaslime>();
@@ -66,7 +66,7 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.Forest.MechanicalSlime>();
 						break;
 					case 9:
-						npcType = 0; //npcType = ModContent.NPCType<NPCs.Sky.StarpackSlime>();
+						npcType = ModContent.NPCType<NPCs.Sky.StarpackSlime>();
 						break;
 					case 10:
 						npcType = ModContent.NPCType<NPCs.Snow.LivingMarshmallow>();

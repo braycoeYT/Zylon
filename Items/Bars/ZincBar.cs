@@ -14,7 +14,7 @@ namespace Zylon.Items.Bars
 			Item.rare = ItemRarityID.White;
 			Item.width = 20;
 			Item.height = 20;
-			Item.maxStack = 999;
+			Item.maxStack = 9999;
 			Item.value = Item.sellPrice(0, 0, 4, 80);
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

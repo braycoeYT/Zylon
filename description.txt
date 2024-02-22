@@ -195,9 +195,20 @@ V0.0.3: Cause to Clash Update
 ~Readded Giygaclaw, but renamed it to Giegue and changed it into a whip.
 ~Resprited Bottomless Sack of Seeds and Bottomless Sack of Worms.
 ~Fixed issue with Volcanic Flame debuff time.
-~Volcanic Flame projectile now flies out for longer before falling, and doesn't fall if it strikes a foe.
-~Decreased mana use of Volcanic Flame.
+~Volcanic Flame projectile now flies out for longer before falling, and doesn't fall if it strikes a foe midair.
+~Decreased mana cost of Volcanic Flame.
 ~Removed Dictionary of Magicks (for now).
+~Gooey Armor now correctly has quotation marks in its tooltip.
+~Buffed Spear of Justice.
+~Increased minimum pickaxe required to mine Haxonite Ore.
+~Modded bars now stack to 9999.
+~Fixed Starpack Slime and Sapling Warrior banners not working correctly.
+~Buffed Forgotten Rose's Saber damage by a lot, and decreased sell price.
+~Shrapnel now has a multihit penalty.
+~Added Cerussite, Bi Disc,
+~Added Cerussite Bat.
+~Decreased Starpack Slime spawn rate.
+~Added Rai Stone.
 
 note to self: lobera + slimecaster + yoyo fix + obsidian dart + master mode enemy support
 

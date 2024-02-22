@@ -27,26 +27,26 @@ namespace Zylon.Items
         }
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips) {
             if (item.type == ItemID.GillsPotion) {
-				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Stops blowpipe breath loss while in water");
+				TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Stops blowpipe breath loss while in water");
 				tooltips.Add(line);
 			}
 			if (GetInstance<ZylonConfig>().bandBuffs) {
 				if (item.type == ItemID.BandofRegeneration || item.type == ItemID.CharmofMyths) {
-					TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases the potency of regeneration potions");
+					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Increases the potency of regeneration potions");
 					tooltips.Add(line);
 				}
 				if (item.type == ItemID.BandofStarpower || item.type == ItemID.ManaRegenerationBand || item.type == ItemID.MagicCuffs || item.type == ItemID.CelestialCuffs) {
-					TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases the potency of magic power potions");
+					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Increases the potency of magic power potions");
 					tooltips.Add(line);
 				}
 				if (item.type == ItemID.ManaRegenerationBand) {
-					TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases the potency of mana regeneration potions");
+					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Increases the potency of mana regeneration potions");
 					tooltips.Add(line);
 				}
             }
 			if (GetInstance<ZylonConfig>().zylonianBalancing) {
 				if (item.type == ItemID.MagicPowerPotion) {
-					TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "This effect decreases to 5% as the player reaches max health\nDecreases mana regeneration rate");
+					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "This effect decreases to 5% as the player reaches max health\nDecreases mana regeneration rate");
 					tooltips.Add(line);
 				}
 				if (item.type == ItemID.AdamantiteBreastplate) {
@@ -63,40 +63,44 @@ namespace Zylon.Items
 						}
 					}
 				}
-				if (item.type == ItemID.TitaniumBreastplate) {
-					foreach (var line2 in tooltips) {
-						if (line2.Mod == "Terraria" && line2.Name == "Tooltip1") {
-							line2.Text = "3% increased critical strike chance\nIncreases minion knockback by 23%";
-						}
-					}
-				}
 				if (item.type == ItemID.BoneArrow) {
-					TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Has a low chance to explode into piercing bones on impact");
+					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Has a low chance to explode into piercing bones on impact");
 					tooltips.Add(line);
 				}
 				/*if (item.type == ItemID.RestorationPotion) {
-					TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "No mana sickness");
+					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "No mana sickness");
 					tooltips.Add(line);
 				}*/
             }
+			if (item.type == ItemID.TungstenPickaxe) {
+				foreach (var line2 in tooltips) {
+					if (line2.Mod == "Terraria" && line2.Name == "Tooltip0") {
+						line2.Text = "Can mine Meteorite and Cerussite";
+					}
+				}
+			}
+			if (item.type == ItemID.SilverPickaxe) {
+				TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Can mine Cerussite");
+				tooltips.Add(line);
+			}
 			if (item.type == ItemID.ShinyRedBalloon || item.type == ItemID.BalloonPufferfish) {
-				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 4/s (does not stack with other balloons)");
+				TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Increases blowpipe charge speed by 4/s (does not stack with other balloons)");
 				tooltips.Add(line);
 			}
 			if (item.type == ItemID.BlizzardinaBalloon || item.type == ItemID.CloudinaBalloon || item.type == ItemID.FartInABalloon || item.type == ItemID.SandstorminaBalloon || item.type == ItemID.SharkronBalloon || item.type == ItemID.HoneyBalloon) {
-				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 6/s (does not stack with other balloons)");
+				TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Increases blowpipe charge speed by 6/s (does not stack with other balloons)");
 				tooltips.Add(line);
 			}
 			if (item.type == ItemID.BalloonHorseshoeFart || item.type == ItemID.BalloonHorseshoeHoney || item.type == ItemID.BalloonHorseshoeSharkron || item.type == ItemID.BlueHorseshoeBalloon || item.type == ItemID.WhiteHorseshoeBalloon || item.type == ItemID.YellowHorseshoeBalloon) {
-				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 8/s (does not stack with other balloons)");
+				TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Increases blowpipe charge speed by 8/s (does not stack with other balloons)");
 				tooltips.Add(line);
 			}
 			if (item.type == ItemID.BundleofBalloons || item.type == ItemID.HorseshoeBundle) {
-				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Increases blowpipe charge speed by 10/s (does not stack with other balloons)");
+				TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Increases blowpipe charge speed by 10/s (does not stack with other balloons)");
 				tooltips.Add(line);
 			}
 			/*if (item.type == ItemID.Minishark || item.type == ItemID.Shotgun || item.type == ItemID.PainterPaintballGun) {
-				TooltipLine line = new TooltipLine(Mod, "Tooltip#1", "Slightly weakened until Eater of Worlds or Brain of Cthulhu is defeated");
+				TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Slightly weakened until Eater of Worlds or Brain of Cthulhu is defeated");
 				tooltips.Add(line);
 			}*/
         }

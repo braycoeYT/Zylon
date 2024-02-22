@@ -580,6 +580,11 @@ Mods: {
 					'''
 			}
 
+			RaiStone: {
+				DisplayName: Rai Stone
+				Tooltip: Increases defense by 8 while standing stillbi dis
+			}
+
 			RootGuard: {
 				DisplayName: Root Guard
 				Tooltip: Taking damage will summon roots nearby to damage enemies
@@ -1004,7 +1009,7 @@ Mods: {
 				DisplayName: Gooey Cover
 				Tooltip:
 					'''
-					Somehow just as strong as metal, but I wouldn't question it
+					'Somehow just as strong as metal, but I wouldn't question it'
 					Increases melee speed by 8%, ranged critical strike chance by 5, max mana by 20, and minion knockback by 20%
 					'''
 			}
@@ -1013,7 +1018,7 @@ Mods: {
 				DisplayName: Gooey Cowl
 				Tooltip:
 					'''
-					Somehow just as strong as metal, but I wouldn't question it
+					'Somehow just as strong as metal, but I wouldn't question it'
 					Increases damage by 3%
 					'''
 			}
@@ -1022,7 +1027,7 @@ Mods: {
 				DisplayName: Gooey Leggings
 				Tooltip:
 					'''
-					Somehow just as strong as metal, but I wouldn't question it
+					'Somehow just as strong as metal, but I wouldn't question it'
 					Increases damage by 4%
 					'''
 			}
@@ -3374,6 +3379,21 @@ Mods: {
 				DisplayName: Glory Dye
 				Tooltip: ""
 			}
+
+			Cerussite: {
+				Tooltip: "'Filled to the brim with microscopic gem shards'"
+				DisplayName: Cerussite
+			}
+
+			CerussiteBatBanner: {
+				Tooltip: ""
+				DisplayName: Cerussite Bat Banner
+			}
+
+			BiDisc: {
+				Tooltip: "'Dragons are inscribed on this'"
+				DisplayName: Bi Disc
+			}
 		}
 
 		Projectiles: {
@@ -3786,6 +3806,8 @@ Mods: {
 			TempleEqualizerProj.DisplayName: Temple Equalizer
 			Giegue.DisplayName: Giegue
 			HeavyLobsterProjBlobMini.DisplayName: Heavy Lobster
+			CerussiteBatProj.DisplayName: Cerussite Bat Proj
+			BiDisc.DisplayName: Bi Disc
 		}
 
 		NPCs: {
@@ -3898,6 +3920,7 @@ Mods: {
 			SupremeLookingEyeBody.DisplayName: Supreme Looking Eye (DA SUPREME MEMELORD)
 			SupremeLookingEyeHead.DisplayName: Supreme Looking Eye (DA SUPREME MEMELORD)
 			SupremeLookingEyeTail.DisplayName: Supreme Looking Eye (DA SUPREME MEMELORD)
+			CerussiteBat.DisplayName: Cerussite Bat
 		}
 
 		Prefixes: {
@@ -3929,6 +3952,7 @@ Mods: {
 			GloryGrasses.MapEntry: Glory Grass
 			GloryVines.MapEntry: Glory Vine
 			CarnalliteOre.MapEntry: Carnallite Ore
+			Cerussite.MapEntry: Cerussite
 			HaxoniteOre.MapEntry: Haxonite Ore
 			ZincOre.MapEntry: Zinc Ore
 		}

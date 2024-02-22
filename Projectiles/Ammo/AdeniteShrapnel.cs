@@ -20,6 +20,9 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 10;
 		}
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+            Projectile.damage = (int)(Projectile.damage*0.75f);
+        }
         public override void AI() {
             Projectile.rotation += 0.05f;
         }

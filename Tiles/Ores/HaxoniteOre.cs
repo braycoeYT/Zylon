@@ -25,7 +25,7 @@ namespace Zylon.Tiles.Ores
 			DustType = DustType<Dusts.HaxoniteOreDust>();
 			HitSound = SoundID.Tink;
 			MineResist = 2f;
-			MinPick = 50;
+			MinPick = 65;
 		}
 	}
 }

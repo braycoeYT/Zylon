@@ -170,6 +170,10 @@ namespace Zylon.NPCs
 			if (npc.type == NPCID.Scutlix || npc.type == NPCID.ScutlixRider || npc.type == NPCID.MartianWalker || npc.type == NPCID.GigaZapper || npc.type == NPCID.MartianEngineer || npc.type == NPCID.MartianOfficer || npc.type == NPCID.RayGunner || npc.type == NPCID.GrayGrunt || npc.type == NPCID.BrainScrambler) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Whips.Giegue>(), 50), new CommonDrop(ItemType<Items.Whips.Giegue>(), 100, 1, 1, 3)));
             }
+			if (npc.type == NPCID.BlackSlime)
+				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.Cerussite>(), 1, 1, 2));
+			if (npc.type == NPCID.BabySlime)
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Materials.Cerussite>(), 3), new CommonDrop(ItemType<Items.Materials.Cerussite>(), 2)));
 			//if (npc.type == NPCID.Demon || npc.type == NPCID.VoodooDemon) //too similar to nightmare catcher
 			//	npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.BloodContract>(), 50), new CommonDrop(ItemType<Items.Accessories.BloodContract>(), 40)));
 		}

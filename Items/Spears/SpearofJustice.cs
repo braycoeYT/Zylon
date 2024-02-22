@@ -12,7 +12,7 @@ namespace Zylon.Items.Spears
 			// Tooltip.SetDefault("'The true power of SPEAR'\nDealing 750 damage summons spear clones to attack enemies");
 		}
 		public override void SetDefaults() {
-			Item.damage = 53;
+			Item.damage = 61;
 			Item.useStyle = ItemUseStyleID.Thrust;
 			Item.useAnimation = 20;
 			Item.useTime = 20;
