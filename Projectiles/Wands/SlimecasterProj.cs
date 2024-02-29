@@ -31,10 +31,12 @@ namespace Zylon.Projectiles.Wands
 				target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11) * 60);
 			}
         }
-
+		int Timer;
         public override void AI() {
 			Projectile.alpha -= 17;
-			Projectile.rotation += 0.15f;
+			Projectile.rotation += 0.25f;
+			Timer++;
+			if (Timer % 3 == 0) Projectile.velocity.Y += 1;
 		}
         public override void Kill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);

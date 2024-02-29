@@ -11,6 +11,7 @@ namespace Zylon.Projectiles.Boomerangs
 {
 	public class BiDisc : ModProjectile
 	{
+		//og proj is 0f, clones are 1f
 		public override void SetDefaults() {
 			Projectile.width = 32;
 			Projectile.height = 32;
@@ -23,6 +24,7 @@ namespace Zylon.Projectiles.Boomerangs
 		int Timer;
 		float speedAcc;
 		bool goBack;
+		bool clone;
 		public override void AI() {
 			Timer++;
 			Projectile.rotation += 0.2f;
@@ -48,6 +50,13 @@ namespace Zylon.Projectiles.Boomerangs
 				dust.scale = 2f;
 			}
 			SoundEngine.PlaySound(SoundID.Item25);
+			if (Projectile.ai[0] == 0f && Main.myPlayer == Projectile.owner && Main.rand.NextBool(10) && !clone) {
+				float rand = Main.rand.NextFloat(MathHelper.TwoPi);
+				for (int i = 0; i < 4; i++) {
+					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 20).RotatedBy(MathHelper.ToRadians(i*90)+rand), Projectile.type, (int)(Projectile.originalDamage*0.75f), Projectile.knockBack*0.75f, Projectile.owner, 1f);
+                }
+				clone = true;
+            }
         }
         public override bool OnTileCollide(Vector2 oldVelocity) {
 			//goBack = true;

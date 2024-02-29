@@ -341,6 +341,11 @@ Mods: {
 				DisplayName: PSI Boost
 				Description: The psychic power of an advanced alien race flows through you
 			}
+
+			PossessedDiamond: {
+				DisplayName: Possessed Diamond
+				Description: The Possessed Diamond will fight for you
+			}
 		}
 
 		Items: {
@@ -582,7 +587,7 @@ Mods: {
 
 			RaiStone: {
 				DisplayName: Rai Stone
-				Tooltip: Increases defense by 8 while standing stillbi dis
+				Tooltip: Increases defense by 8 while standing still
 			}
 
 			RootGuard: {
@@ -675,6 +680,11 @@ Mods: {
 					Heavily increases critical strike chance and damage as health decreases
 					This maxes out at 15% increased chance and 25% increased damage
 					'''
+			}
+
+			ArchangelWings: {
+				DisplayName: Archangel Wings
+				Tooltip: Allows flight and extremely slow fall
 			}
 
 			EldritchTentacles: {
@@ -1716,6 +1726,19 @@ Mods: {
 					'''
 			}
 
+			Caeruleus: {
+				DisplayName: Caeruleus
+				Tooltip:
+					'''
+					Fires four arrows in a row at a time
+					Has a 25% chance to convert ammo to Cerulean Arrows
+					Cerulean Arrows obliterate enemy immunity frames
+					They also inflict Frostburn, Shroomed, Slimed, and Wet
+					Cerulean Arrows split into three upon hitting an enemy
+					Splitting occurs once per arrow
+					'''
+			}
+
 			Cartilage: {
 				DisplayName: Cartilage
 				Tooltip: Has a 33% chance to convert arrows to bone arrows
@@ -1748,6 +1771,11 @@ Mods: {
 			MeteorTrailer: {
 				DisplayName: Meteor Trailer
 				Tooltip: Gives arrows a small trail of meteorites
+			}
+
+			RubyBow: {
+				DisplayName: Ruby Bow
+				Tooltip: Has a 25% chance to replace ammo with a splitting Ruby Arrow
 			}
 
 			Sightseer: {
@@ -1885,6 +1913,11 @@ Mods: {
 					Minor improvements to all stats
 					'Alchemists have been known to use potatoes for soul infusions.'
 					'''
+			}
+
+			RedVelvetMacaron: {
+				DisplayName: Red Velvet Macaron
+				Tooltip: Minor improvements to all stats
 			}
 
 			Smore: {
@@ -2115,7 +2148,7 @@ Mods: {
 
 			MetallicBell: {
 				DisplayName: Metallic Bell
-				Tooltip: Not to be confused with the Bell, Fairy Bell, Reindeer Bells, Eerie Bell, or Eldritch Bell
+				Tooltip: Rings when swung
 			}
 
 			NeutronFragment: {
@@ -2163,6 +2196,11 @@ Mods: {
 				Tooltip: "'It looks as if it fell from heaven (not to be confused with glitter, which rose from hell)'"
 			}
 
+			SpectralPixieDust: {
+				DisplayName: Spectral Pixie Dust
+				Tooltip: "'Extra magical!e'"
+			}
+
 			TabooEssence: {
 				DisplayName: Taboo Essence
 				Tooltip: "'It dances unevenly on your hand'"
@@ -2176,6 +2214,15 @@ Mods: {
 			WolfPelt: {
 				DisplayName: Wolf Pelt
 				Tooltip: "'With this, you can turn the wolf's winter coat into yours'"
+			}
+
+			DiamondCane: {
+				DisplayName: Diamond Cane
+				Tooltip:
+					'''
+					Summons a possessed diamond to fight for you
+					Diamonds alternate between dashing and shooting bolts
+					'''
 			}
 
 			GlowingMushtopStaff: {
@@ -2714,11 +2761,7 @@ Mods: {
 
 			HBDeusGreatsword: {
 				DisplayName: HBDeus's Greatsword
-				Tooltip:
-					'''
-					UNOBTAINABLE: Developer Item
-					Surrounds the cursor with shattered swords
-					'''
+				Tooltip: Surrounds the cursor with shattered swords
 			}
 
 			Heartbreaker: {
@@ -2802,11 +2845,7 @@ Mods: {
 
 			Slimebender: {
 				DisplayName: Slimebender
-				Tooltip:
-					'''
-					UNOBTAINABLE: Developer item
-					Shoots a large slimeblast that explodes into smaller slimeblasts
-					'''
+				Tooltip: Every third swing shoots a large slimeblast that explodes into smaller slimeblasts
 			}
 
 			Slimecutter: {
@@ -2878,15 +2917,12 @@ Mods: {
 					'''
 			}
 
-			DarkPrognosticus: {
-				DisplayName: Dark Prognosticus
+			CrystalTsunami: {
+				DisplayName: Crystal Tsunami
 				Tooltip:
 					'''
-					UNOBTAINABLE: Planned for PML
-					Summons a Chaos Heart at the cursor to attack enemies
-					The Chaos Heart releases rounds of voids
-					Voids have a chance to leech mana from enemies on hit
-					Inflicts Timestop on enemies
+					Barrages foes with countless crystals
+					Large crystals split into smaller bits upon dissipation
 					'''
 			}
 
@@ -2920,6 +2956,20 @@ Mods: {
 					Casts down a psychokinetic flame wall
 					'Reminds you of something, although you don't know what.'
 					'''
+			}
+
+			NeedleSpitter: {
+				DisplayName: Needle Spitter
+				Tooltip:
+					'''
+					Casts a cascade of poisonous cactus needles
+					Needles have a 25% chance to get stuck in enemies, dealing extra damage
+					'''
+			}
+
+			SapphireSpellbook: {
+				DisplayName: Sapphire Spellbook
+				Tooltip: Erratically fires short-range sapphire blasts
 			}
 
 			Snowfall: {
@@ -3044,6 +3094,11 @@ Mods: {
 				Tooltip: "'Can Polandball into space?'"
 			}
 
+			ArchangelsWand: {
+				DisplayName: Archangel's Wand
+				Tooltip: Blasts an accelerating Archangel Shot
+			}
+
 			CarnalliteWand: {
 				DisplayName: Carnallite Wand
 				Tooltip: Creates a line of leaves near the player
@@ -3069,15 +3124,6 @@ Mods: {
 				Tooltip: Summons three meteors nearby to crash into foes
 			}
 
-			OceanWaterer: {
-				DisplayName: Ocean Waterer
-				Tooltip:
-					'''
-					'Seems a little much for just winning a water gun fight...'
-					Waterboards enemies with a barrage of water splashes
-					'''
-			}
-
 			ScepterofDirt: {
 				DisplayName: Scepter of Dirt
 				Tooltip:
@@ -3089,7 +3135,7 @@ Mods: {
 
 			Slimecaster: {
 				DisplayName: Slimecaster
-				Tooltip: Rains a slime mass from above that explodes into slime spikes upon contact
+				Tooltip: Casts a slime mass that explodes into slime spikes upon contact
 			}
 
 			SpareLeg: {
@@ -3113,6 +3159,17 @@ Mods: {
 					'''
 					Shoots a splitting spark
 					Affected by the Hex Necklace
+					'''
+			}
+
+			VaporsEon: {
+				DisplayName: Vapor's Eon
+				Tooltip:
+					'''
+					'Represents the cutest water elemental of them all'
+					Sprays both water showers and splitting blasts
+					Has a 20% chance to fire multiple water showers
+					Has a 10% chance to replace water blasts with massive versions that split even further
 					'''
 			}
 
@@ -3391,8 +3448,24 @@ Mods: {
 			}
 
 			BiDisc: {
-				Tooltip: "'Dragons are inscribed on this'"
+				Tooltip:
+					'''
+					'Dragons are inscribed on this'
+					Has a 10% chance to unleash four duplicate boomerangs after striking a foe
+					Can only unleash duplicates once per throw
+					Can be rethrown while duplicates are still active
+					'''
 				DisplayName: Bi Disc
+			}
+
+			PixieArchangelBanner: {
+				DisplayName: Pixie Archangel Banner
+				Tooltip: ""
+			}
+
+			SpectralFairyDust: {
+				DisplayName: Spectral Fairy Dust
+				Tooltip: ""
 			}
 		}
 
@@ -3606,6 +3679,8 @@ Mods: {
 			MiniJellyLaser.DisplayName: Mini Jelly Laser
 			MushroomSpore.DisplayName: Mushroom Spore
 			Mushtop.DisplayName: Mushtop
+			PossessedDiamond.DisplayName: Possessed Diamond
+			PossessedDiamondProj.DisplayName: Possessed Diamond
 			RoyalSlime.DisplayName: Floating Slime Staff
 			RoyalSlimeProj.DisplayName: Gel
 			Spazsickle.DisplayName: Spazsickle
@@ -3691,6 +3766,7 @@ Mods: {
 			ManaFlower.DisplayName: Mana Flower
 			ManaSeed.DisplayName: Mana Seed
 			ChaosBallFriendly.DisplayName: Chaos Ball
+			CrystalTsunamiProj.DisplayName: Crystal Tsunami
 			DarkPrognosticusChaosHeart.DisplayName: Chaos Heart
 			DarkPrognosticusVoid.DisplayName: Void
 			DeterminationBreakerProj.DisplayName: Determination Breaker
@@ -3806,8 +3882,17 @@ Mods: {
 			TempleEqualizerProj.DisplayName: Temple Equalizer
 			Giegue.DisplayName: Giegue
 			HeavyLobsterProjBlobMini.DisplayName: Heavy Lobster
-			CerussiteBatProj.DisplayName: Cerussite Bat Proj
+			CerussiteBatProj.DisplayName: Falling Gem
 			BiDisc.DisplayName: Bi Disc
+			NeedleSpitterProj.DisplayName: Needle Spitter
+			PixieArchangelProj.DisplayName: Pixie Archangel
+			ArchangelsWandProj.DisplayName: Archangels Wand Proj
+			RubyArrow.DisplayName: Ruby Arrow
+			SapphireSpellbookProj.DisplayName: Sapphire Spellbook Proj
+			CrystalTsunamiProj2.DisplayName: Crystal Tsunami Proj2
+			VaporsEonShower.DisplayName: Vapor's Eon
+			VaporsEonBlast.DisplayName: Vapor's Eon
+			CeruleanArrow.DisplayName: Cerulean Arrow
 		}
 
 		NPCs: {
@@ -3921,6 +4006,7 @@ Mods: {
 			SupremeLookingEyeHead.DisplayName: Supreme Looking Eye (DA SUPREME MEMELORD)
 			SupremeLookingEyeTail.DisplayName: Supreme Looking Eye (DA SUPREME MEMELORD)
 			CerussiteBat.DisplayName: Cerussite Bat
+			PixieArchangel.DisplayName: Pixie Archangel
 		}
 
 		Prefixes: {

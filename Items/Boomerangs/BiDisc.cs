@@ -8,7 +8,7 @@ namespace Zylon.Items.Boomerangs
 	public class BiDisc : ModItem
 	{
         public override void SetDefaults() {
-			Item.damage = 17;
+			Item.damage = 15;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 38;
 			Item.height = 38;
@@ -29,7 +29,7 @@ namespace Zylon.Items.Boomerangs
 		}
 		public override bool CanUseItem(Player player) {
             for (int i = 0; i < 1000; ++i) {
-                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == Item.shoot) {
+                if (Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer && Main.projectile[i].type == Item.shoot && Main.projectile[i].ai[0] == 0f) {
                     return false;
                 }
             }

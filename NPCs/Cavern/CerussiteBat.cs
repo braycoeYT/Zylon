@@ -21,7 +21,7 @@ namespace Zylon.NPCs.Cavern
 			NPC.lifeMax = 14;
 			NPC.HitSound = SoundID.NPCHit5;
 			NPC.DeathSound = SoundID.NPCDeath4;
-			NPC.value = 125;
+			NPC.value = Item.buyPrice(0, 0, 1, 25);
 			NPC.aiStyle = 14;
 			NPC.lavaImmune = true;
 			AIType = NPCID.CaveBat;
@@ -32,16 +32,16 @@ namespace Zylon.NPCs.Cavern
         }
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment) {
 			NPC.knockBackResist = 1.5f;
-			NPC.value = 250;
+			NPC.value = Item.buyPrice(0, 0, 2, 50);
 			if (Main.hardMode) {
 				NPC.lifeMax = 128;
 				NPC.damage = 101;
-				NPC.value = 750;
+				Item.buyPrice(0, 0, 7, 50);
             }
 			if (NPC.downedPlantBoss) {
 				NPC.lifeMax = 156;
 				NPC.damage = 126;
-				NPC.value = 800;
+				Item.buyPrice(0, 0, 8);
             }
 			if (Main.masterMode) {
 				if (Main.hardMode) {
@@ -90,6 +90,7 @@ namespace Zylon.NPCs.Cavern
 			npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(2, ItemID.Amethyst, ItemID.Topaz, ItemID.Sapphire, ItemID.Emerald, ItemID.Ruby, ItemID.Diamond, ModContent.ItemType<Items.Materials.Jade>()));
 			npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(4, ItemID.Amethyst, ItemID.Topaz, ItemID.Sapphire, ItemID.Emerald, ItemID.Ruby, ItemID.Diamond, ModContent.ItemType<Items.Materials.Jade>()));
 			npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(6, ItemID.Amethyst, ItemID.Topaz, ItemID.Sapphire, ItemID.Emerald, ItemID.Ruby, ItemID.Diamond, ModContent.ItemType<Items.Materials.Jade>()));
+			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Food.RedVelvetMacaron>(), 50));
 		}
 	}
 }

@@ -39,7 +39,7 @@ namespace Zylon.NPCs.Sky
 			});
 		}
 		public override float SpawnChance(NPCSpawnInfo spawnInfo) {
-			return SpawnCondition.Sky.Chance * 0.07f;
+			return SpawnCondition.Sky.Chance * 0.05f;
         }
 	    public override void ModifyNPCLoot(NPCLoot npcLoot) {
 			npcLoot.Add(new CommonDrop(ItemID.Gel, 1, 1, 3));

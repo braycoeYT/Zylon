@@ -51,7 +51,7 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.Cavern.CerussiteBat>();
 						break;
 					case 4:
-						npcType = 0; //npcType = ModContent.NPCType<NPCs.Ocean.LittoralGigaslime>();
+						npcType = ModContent.NPCType<NPCs.Hallow.PixieArchangel>();
 						break;
 					case 5:
 						npcType = ModContent.NPCType<NPCs.Crimson.VeinTunnelerHead>();

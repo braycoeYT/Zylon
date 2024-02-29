@@ -23,7 +23,9 @@ namespace Zylon.Projectiles.Enemies
 			Projectile.aiStyle = -1;
 		}
 		int Timer;
+		float rand = Main.rand.NextFloat(0.05f, 0.15f);
         public override void AI() {
+			Projectile.rotation += rand;
             Timer++;
 			if (Timer % 3 == 0 && Projectile.velocity.Y < 16) Projectile.velocity.Y += 1;
         }

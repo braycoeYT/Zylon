@@ -12,7 +12,7 @@ namespace Zylon.Items.Accessories
 			Item.accessory = true;
 			Item.value = Item.sellPrice(0, 0, 20);
 			Item.rare = ItemRarityID.Blue;
-			Item.defense = 2;
+			Item.defense = 1;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
 			if (player.velocity.X < 0.01f && player.velocity.Y < 0.01f) player.statDefense += 8;

@@ -11,9 +11,6 @@ namespace Zylon.Items.Tomes
 {
 	public class DeterminationBreaker : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Does not give you a blue eye on use'\nBegins spinning and firing skulls after striking a foe");
-		}
 		public override void SetDefaults() {
 			Item.damage = 65;
 			Item.width = 44;
@@ -30,8 +27,7 @@ namespace Zylon.Items.Tomes
 			Item.shoot = ModContent.ProjectileType<Projectiles.Tomes.DeterminationBreakerProj>();
 			Item.shootSpeed = 10f;
 			Item.noMelee = true;
-			Item.mana = 17;
-			Item.stack = 1;
+			Item.mana = 11;
 			Item.UseSound = SoundID.Item8;
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {

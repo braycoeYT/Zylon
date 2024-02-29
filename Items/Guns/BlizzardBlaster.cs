@@ -8,9 +8,6 @@ namespace Zylon.Items.Guns
 {
 	public class BlizzardBlaster : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("33% chance not to consume ammo\nRapidly blasts snowballs");
-		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 6);
 			Item.useStyle = ItemUseStyleID.Shoot;
@@ -28,6 +25,9 @@ namespace Zylon.Items.Guns
 			Item.UseSound = SoundID.Item11;
 			Item.autoReuse = false;
 			Item.rare = ItemRarityID.Lime;
+		}
+		public override Vector2? HoldoutOffset() {
+			return new Vector2(-4, 0);
 		}
         public override bool CanConsumeAmmo(Item ammo, Player player) {
             return !Main.rand.NextBool(3);

@@ -27,6 +27,9 @@ namespace Zylon.Items.Guns
 			Item.autoReuse = true;
 			Item.rare = ItemRarityID.Green;
 		}
+		public override Vector2? HoldoutOffset() {
+			return new Vector2(-4, 0);
+		}
         public override void UpdateInventory(Player player) {
             if (Main.remixWorld) {
 				Item.damage = 5;

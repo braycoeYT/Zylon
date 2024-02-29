@@ -34,7 +34,6 @@ namespace Zylon.Items.Tomes
 			Item.shootSpeed = 9.6f;
 			Item.noMelee = true;
 			Item.mana = 56;
-			Item.stack = 1;
 			Item.UseSound = SoundID.Item8;
 		}
 

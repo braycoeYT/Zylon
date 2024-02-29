@@ -33,7 +33,7 @@ namespace Zylon.Items.Food
 			recipe.AddIngredient(ItemID.RockLobster);
 			recipe.AddIngredient(ItemID.PixieDust);
 			recipe.AddIngredient(ModContent.ItemType<Materials.SpeckledStardust>());
-			recipe.AddIngredient(ItemID.Coral);
+			recipe.AddIngredient(ModContent.ItemType<Materials.SpectralFairyDust>());
 			recipe.AddTile(TileID.CookingPots);
 			recipe.Register();
 		}

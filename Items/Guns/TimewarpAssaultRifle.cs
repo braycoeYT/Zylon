@@ -26,7 +26,7 @@ namespace Zylon.Items.Guns
 			Item.useAmmo = AmmoID.Bullet;
 			//Item.UseSound = SoundID.Item41;
 			Item.autoReuse = false;
-			Item.rare = ItemRarityID.Lime;
+			Item.rare = ItemRarityID.Pink;
 			Item.reuseDelay = 12;
 			Item.consumeAmmoOnLastShotOnly = true;
 		}

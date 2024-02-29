@@ -38,7 +38,7 @@ namespace Zylon.Items.Potions
 			Recipe recipe = CreateRecipe(3);
 			recipe.AddIngredient(ItemID.RestorationPotion, 3);
 			recipe.AddIngredient(ModContent.ItemType<Materials.TabooEssence>());
-			recipe.AddIngredient(ItemID.SoulofFlight);
+			recipe.AddIngredient(ModContent.ItemType<Materials.SpectralFairyDust>());
 			recipe.AddTile(TileID.Bottles);
 			recipe.Register();
 		}

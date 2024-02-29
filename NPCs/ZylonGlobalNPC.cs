@@ -170,14 +170,20 @@ namespace Zylon.NPCs
 			if (npc.type == NPCID.Scutlix || npc.type == NPCID.ScutlixRider || npc.type == NPCID.MartianWalker || npc.type == NPCID.GigaZapper || npc.type == NPCID.MartianEngineer || npc.type == NPCID.MartianOfficer || npc.type == NPCID.RayGunner || npc.type == NPCID.GrayGrunt || npc.type == NPCID.BrainScrambler) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Whips.Giegue>(), 50), new CommonDrop(ItemType<Items.Whips.Giegue>(), 100, 1, 1, 3)));
             }
-			if (npc.type == NPCID.BlackSlime)
+			if (npc.type == -6)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.Cerussite>(), 1, 1, 2));
-			if (npc.type == NPCID.BabySlime)
+			if (npc.type == -5)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Materials.Cerussite>(), 3), new CommonDrop(ItemType<Items.Materials.Cerussite>(), 2)));
-			//if (npc.type == NPCID.Demon || npc.type == NPCID.VoodooDemon) //too similar to nightmare catcher
-			//	npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.BloodContract>(), 50), new CommonDrop(ItemType<Items.Accessories.BloodContract>(), 40)));
+			if (npc.type == NPCID.RainbowSlime) {
+				npcLoot.Add(ItemDropRule.ByCondition(new ElemGelCondition(), ItemType<Items.Materials.ElementalGoop>(), 1, 2, 4));
+            }
+			if (npc.type == NPCID.LavaSlime || npc.type == NPCID.SpikedJungleSlime || npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.ShimmerSlime || npc.type == NPCID.ToxicSludge || npc.type == NPCID.CorruptSlime || npc.type == NPCID.Crimslime || npc.type == NPCID.BigCrimslime || npc.type == NPCID.LittleCrimslime || npc.type == NPCID.IlluminantSlime) {
+				npcLoot.Add(ItemDropRule.ByCondition(new ElemGelCondition(), ItemType<Items.Materials.ElementalGoop>(), 2, 1, 2));
+            }
+			if (npc.type == NPCID.JungleSlime || npc.type == NPCID.IceSlime || npc.type == NPCID.SandSlime) {
+				npcLoot.Add(ItemDropRule.ByCondition(new ElemGelCondition(), ItemType<Items.Materials.ElementalGoop>(), 3, 1, 2));
+            }
 		}
-
         int Timer;
 		bool prevNoGrav;
 		public override void AI(NPC npc) {

@@ -43,7 +43,7 @@ namespace Zylon.Items.BossSummons
 			recipe.AddIngredient(ItemID.SuspiciousLookingEye);
 			recipe.AddIngredient(ItemID.LunarBar, 69);
 			recipe.AddIngredient(ItemID.PlatinumCoin, 5);
-			recipe.AddIngredient(ItemID.Gel);
+			recipe.AddIngredient(ItemID.GelBalloon, 50);
 			recipe.AddIngredient(ItemID.TopHat);
 			recipe.AddIngredient(ItemID.Diamond);
 			recipe.AddIngredient(ItemID.Ruler);

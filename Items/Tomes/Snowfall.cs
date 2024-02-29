@@ -27,7 +27,6 @@ namespace Zylon.Items.Tomes
 			Item.shootSpeed = 10f;
 			Item.noMelee = true;
 			Item.mana = 10;
-			Item.stack = 1;
 			Item.UseSound = SoundID.Item8;
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {

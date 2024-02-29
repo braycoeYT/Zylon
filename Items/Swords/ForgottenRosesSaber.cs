@@ -11,7 +11,7 @@ namespace Zylon.Items.Swords
 	{
 
 		public override void SetDefaults() {
-			Item.damage = 167;
+			Item.damage = 191;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 42;
 			Item.height = 42;

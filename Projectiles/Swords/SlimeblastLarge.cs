@@ -43,7 +43,7 @@ namespace Zylon.Projectiles.Swords
 		}
 		public override void Kill(int timeLeft) {
 			for (int i = 0; i < num; i++) {
-				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 7.5f).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<Slimeblast>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 7.5f).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<Slimeblast>(), Projectile.damage/3, Projectile.knockBack, Projectile.owner);
 			}
 		}
 		public override void PostAI() {

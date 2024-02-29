@@ -6,9 +6,6 @@ namespace Zylon.Items.Swords
 {
 	public class OreTour : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Fires a ring of ores on use");
-		}
 		public override void SetDefaults() {
 			Item.damage = 26;
 			Item.DamageType = DamageClass.Melee;
@@ -28,11 +25,11 @@ namespace Zylon.Items.Swords
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddRecipeGroup("Zylon:AnyCopperBar", 12);
-			recipe.AddRecipeGroup("IronBar", 12);
-			recipe.AddRecipeGroup("Zylon:AnySilverBar", 12);
-			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 12);
-			recipe.AddRecipeGroup("Zylon:AnyShadowScale", 15);
+			recipe.AddRecipeGroup("Zylon:AnyCopperBar", 6);
+			recipe.AddRecipeGroup("IronBar", 8);
+			recipe.AddRecipeGroup("Zylon:AnySilverBar", 8);
+			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 8);
+			recipe.AddRecipeGroup("Zylon:AnyShadowScale", 10);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

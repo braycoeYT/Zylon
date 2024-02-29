@@ -114,7 +114,7 @@ V0.0.3: Cause to Clash Update
 ~Added Goocat Staff.
 ~After Plantera is defeated, Elemental Goop is now dropped by Dirt Slime, Mechanical Slime, Starpack Slime, and Living Marshmellow.
 ~Increased Enchanted Ice Cube drop rate.
-~Buffed Forgotten Rose's Saber and changed recipe.
+~Buffed Forgotten Rose's Saber, decreased sell price, and changed recipe.
 ~Adenite Shrapnel and Shrapnel Gun are now easier to craft.
 ~Removed Kivasana and Eternia 2000 (for now).
 ~Harpies now drop Speckled Stardust.
@@ -140,7 +140,7 @@ V0.0.3: Cause to Clash Update
 ~Reworked and renamed Icy Greatblade to Frostbite.
 ~Added Eye Lash and Starweaver.
 ~Fixed Cotton Candy sell price and rarity.
-~Added Chocolate Macaron.
+~Added Chocolate Macaron and Red Velvet Macaron.
 ~Hornets now drop Cocoa Beans more often, and Moss Hornets now drop them as well.
 ~Changed "BraycoeYT and the Devs" to "Braycoe and Co." because it's funnier.
 ~Changed Volcanic Flame recipe.
@@ -203,14 +203,34 @@ V0.0.3: Cause to Clash Update
 ~Increased minimum pickaxe required to mine Haxonite Ore.
 ~Modded bars now stack to 9999.
 ~Fixed Starpack Slime and Sapling Warrior banners not working correctly.
-~Buffed Forgotten Rose's Saber damage by a lot, and decreased sell price.
 ~Shrapnel now has a multihit penalty.
-~Added Cerussite, Bi Disc,
+~Added Cerussite, Bi Disc, Ruby Bow, Diamond Cane, Sapphire Spellbook,
 ~Added Cerussite Bat.
 ~Decreased Starpack Slime spawn rate.
 ~Added Rai Stone.
+~Modified Timestop dust.
+~Added multihit penalty for Silver Faux.
+~Fixed Timewarp Assault Rifle rarity.
+~Made developer item tooltips cooler.
+~Added Needle Spitter.
+~Reworked Slimecaster.
+~Increased Amber drop rate from Adenites.
+~Added Pixie Archangel, Spectral Fairy Dust, Archangel Wings, and Archangel's Wand.
+~Changed Lobster Bisque and Floater Potion recipe.
+~Buffed Bionic Boomer.
+~Increased Floater Potion buff time.
+~Nerfed Heartbreaker and changed recipe.
+~Changed Metallic Bell tooltip.
+~Changed Ore Tour recipe.
+~Fixed a small issue with tome code.
+~Added Crystal Tsunami.
+~A wide variety of vanilla slimes now drop Elemental Goop.
+~Reworked Disco Canister recipe, and fixed rarity.
+~Added Caeruleus and Vapor's Eon (finally, dev weapons that aren't swords).
+~Slimebender now only shoots a projectile every third swing, mini projectiles are much less powerful, and modified stats.
+~Fixed hold offset of Adenite Security Handgun and Blizzard Blaster.
 
-note to self: lobera + slimecaster + yoyo fix + obsidian dart + master mode enemy support
+blizzard launcher and dev weapon hold fix + finish cerussite + finish wolf and ooze (ooze dart) + tree truncheon + lobera + yoyo fix + obsidian dart + master mode enemy support + npc money drop fix + water gun funny change + dirt clump social slot + no more ammo drop + replace ADD aura and make circle inferno potion
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

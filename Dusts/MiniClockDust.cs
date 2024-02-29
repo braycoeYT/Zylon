@@ -6,14 +6,14 @@ namespace Zylon.Dusts
 {
 	public class MiniClockDust : ModDust
 	{
-        public override void OnSpawn(Dust dust) { //Tome man I am sorry for breaking this dust. In case you want to know what I was trying to do, I wanted the full clock to show.
+        public override void OnSpawn(Dust dust) { //Edit: I knew there was some way to fix the frames but I forgot how. Thanks! I also added the fourth clock.
 			dust.noLight = true;
 			//dust.color = new Color(22, 104, 108);
 			dust.scale = 1.8f;
 			dust.noGravity = true;
 			dust.velocity /= 2f;
 			//dust.alpha = 100;
-			dust.frame = new Rectangle(0, Main.rand.Next(3) * 18, 18, 18);
+			dust.frame = new Rectangle(0, Main.rand.Next(4) * 18, 18, 18);
 		}
 		public override bool Update(Dust dust) {
 			dust.position += dust.velocity;
