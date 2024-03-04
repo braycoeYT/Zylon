@@ -55,7 +55,7 @@ namespace Zylon.Projectiles.Guns
             Main.spriteBatch.Draw(projectileTexture, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
             return false;
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
             Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
         }
     }

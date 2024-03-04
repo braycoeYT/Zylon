@@ -1,5 +1,4 @@
 The best mod that starts with Z - I guarantee or your money back!
-Zylon is the kind of mod that makes all its boss summons infinite because who has the time to craft the same summon a billion times?!
 
 THIS MOD IS IN SEVERE NEED OF SPRITERS!! If you are a fan of the mod and want to sprite, feel free to join the discord server!
 DISCORD JOIN: https://discord.gg/x6G8rKduWc
@@ -204,7 +203,7 @@ V0.0.3: Cause to Clash Update
 ~Modded bars now stack to 9999.
 ~Fixed Starpack Slime and Sapling Warrior banners not working correctly.
 ~Shrapnel now has a multihit penalty.
-~Added Cerussite, Bi Disc, Ruby Bow, Diamond Cane, Sapphire Spellbook,
+~Added Cerussite, Bi Disc, Ruby Bow, Diamond Cane, Sapphire Spellbook, Topaz Pike,
 ~Added Cerussite Bat.
 ~Decreased Starpack Slime spawn rate.
 ~Added Rai Stone.
@@ -229,8 +228,18 @@ V0.0.3: Cause to Clash Update
 ~Added Caeruleus and Vapor's Eon (finally, dev weapons that aren't swords).
 ~Slimebender now only shoots a projectile every third swing, mini projectiles are much less powerful, and modified stats.
 ~Fixed hold offset of Adenite Security Handgun and Blizzard Blaster.
+~Decreased power of Death Cleaver and Grave Buster. Also removed Grave Buster tooltip.
+~Readded and completely reworked Tree Truncheon and Enchanted Tree Truncheon. Welcome back!
+~Chlorophyte armor can now be crafted into Shroomite and Spectre armor.
+~Added Chlorophyte Cutter.
+~Added, modified, removed, and renamed Zylon Prefixes.
+~Added Experimental Syringe.
+~Reworked Coldnea, and renamed it to Amaguq.
+~Removed Dirtglob tooltip.
+~Fixed a couple small code issues with some older mod projectiles.
+~Added Journey Mode support for the entire mod. Better late than never?
 
-blizzard launcher and dev weapon hold fix + finish cerussite + finish wolf and ooze (ooze dart) + tree truncheon + lobera + yoyo fix + obsidian dart + master mode enemy support + npc money drop fix + water gun funny change + dirt clump social slot + no more ammo drop + replace ADD aura and make circle inferno potion
+finish cerussite + creative mode support + finish wolf and ooze (ooze dart) + living wood + obsidian dart + master mode enemy support + npc money drop fix + water gun funny change + dirt clump social slot + no more ammo drop + dartshark fix
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

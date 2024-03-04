@@ -13,7 +13,7 @@ namespace Zylon.Items.Bags
 	public class BagofFruits : ModItem
 	{
 		public override void SetStaticDefaults() {
-			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 15;
+			Item.ResearchUnlockCount = 10;
 		}
 		public override void SetDefaults() {
 			Item.maxStack = 999;

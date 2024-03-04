@@ -8,9 +8,6 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Head)]
 	public class HaxoniteHelmet : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Increases armor penetration and critical strike chance by 2");
-		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;

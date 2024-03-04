@@ -32,7 +32,7 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.Center = own.Center;
 			Projectile.rotation = own.rotation;
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

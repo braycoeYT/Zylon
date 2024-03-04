@@ -17,6 +17,7 @@ namespace Zylon.Items.Misc
 			ItemID.Sets.AnimatesAsSoul[Item.type] = true;
 			ItemID.Sets.ItemIconPulse[Item.type] = true;
 			ItemID.Sets.ItemNoGravity[Item.type] = true;
+            Item.ResearchUnlockCount = 0;
 		}
 		public override void SetDefaults() {
 			Item.width = 14;

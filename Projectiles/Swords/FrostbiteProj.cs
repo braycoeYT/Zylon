@@ -27,7 +27,7 @@ namespace Zylon.Projectiles.Swords
             Projectile.rotation += MathHelper.ToRadians(5);
 			Projectile.velocity *= 0.95f;
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
             SoundEngine.PlaySound(SoundID.Item30, Projectile.position);
 			float rand = Main.rand.NextFloat(60f);
             if (Main.myPlayer == Projectile.owner) for (int i = 0; i < 6; i++) {

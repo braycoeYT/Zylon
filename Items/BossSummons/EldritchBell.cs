@@ -7,6 +7,9 @@ namespace Zylon.Items.BossSummons
 {
 	public class EldritchBell : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 3;
+		}
 		public override void SetDefaults() {
 			Item.width = 32;
 			Item.height = 32;

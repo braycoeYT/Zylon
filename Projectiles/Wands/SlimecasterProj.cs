@@ -38,7 +38,7 @@ namespace Zylon.Projectiles.Wands
 			Timer++;
 			if (Timer % 3 == 0) Projectile.velocity.Y += 1;
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 0; i < 12; i++)
 					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*30)), ModContent.ProjectileType<SlimecasterSlimeSpike>(), (int)(Projectile.damage*0.8f), Projectile.knockBack/2, Projectile.owner);

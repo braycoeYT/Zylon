@@ -31,7 +31,7 @@ namespace Zylon.Projectiles.Tomes
 				dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 			}
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y - 30, 0, 0, ModContent.ProjectileType<PKFireWall>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 			for (int i = 0; i < 4; i++) {

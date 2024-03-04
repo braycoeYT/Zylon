@@ -7,7 +7,7 @@ namespace Zylon.Items.Accessories
 	public class SaberTooth : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Fresh from the maw of a slain canine'\nIncreases critical strike chance by 6\nCritical strikes deal 33% more damage");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 		public override void SetDefaults() {
 			Item.width = 16;

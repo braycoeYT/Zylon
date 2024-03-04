@@ -46,7 +46,7 @@ namespace Zylon.Projectiles.Swords
 			Projectile.Center = main.Center - new Vector2(0, 32).RotatedBy(MathHelper.ToRadians((360/9*Projectile.ai[1])+rot));
 			if (main.active == false) dead = true;
         }
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Item10, Projectile.Center);
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 0; i < 4; i++) {

@@ -8,8 +8,8 @@ namespace Zylon.Items.Ammo
 	public class Starshot : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("For use with blowpipes\nPierces infinitely and ignores gravity");
-        }
+			Item.ResearchUnlockCount = 99;
+		}
 		public override void SetDefaults() {
 			Item.damage = 5;
 			Item.DamageType = DamageClass.Ranged;

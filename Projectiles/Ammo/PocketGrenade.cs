@@ -43,7 +43,7 @@ namespace Zylon.Projectiles.Ammo
 			}
         }
 
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
 			for (int i = 0; i < 10; i++) {
 				int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X+60, Projectile.position.Y+30), Projectile.width/4, Projectile.height/4, DustID.Smoke, 0f, 0f, 100, default(Color), 2f);

@@ -8,7 +8,7 @@ namespace Zylon.Items.Ammo
 	public class BloodiedArrow : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Pierces multiple times");
+			Item.ResearchUnlockCount = 99;
 		}
 		public override void SetDefaults() {
 			Item.damage = 14;

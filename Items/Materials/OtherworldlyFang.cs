@@ -6,6 +6,9 @@ namespace Zylon.Items.Materials
 {
 	public class OtherworldlyFang : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 25;
+		}
 		public override void SetDefaults() {
 			Item.width = 26;
 			Item.height = 22;

@@ -7,9 +7,6 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Legs)]
 	public class CarnalliteLeggings : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Increases max life by 20\nIncreases damage by 4%");
-		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;

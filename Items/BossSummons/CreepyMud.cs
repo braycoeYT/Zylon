@@ -7,6 +7,9 @@ namespace Zylon.Items.BossSummons
 {
 	public class CreepyMud : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 3;
+		}
 		public override void SetDefaults() {
 			Item.width = 38;
 			Item.height = 68;

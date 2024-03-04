@@ -6,6 +6,9 @@ namespace Zylon.Items.Accessories
 {
 	public class SlimePendant : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+		}
 		public override void SetDefaults() {
 			Item.width = 26;
 			Item.height = 28;

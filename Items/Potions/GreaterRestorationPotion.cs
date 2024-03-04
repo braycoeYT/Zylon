@@ -7,6 +7,9 @@ namespace Zylon.Items.Potions
 {
 	public class GreaterRestorationPotion : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 20;
+		}
 		public override void SetDefaults() {
 			Item.width = 20;
 			Item.height = 28;

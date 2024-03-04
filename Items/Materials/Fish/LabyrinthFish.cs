@@ -7,7 +7,7 @@ namespace Zylon.Items.Materials.Fish
 	public class LabyrinthFish : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Its scales are beautifully complex'");
+			Item.ResearchUnlockCount = 3;
 		}
 		public override void SetDefaults() {
 			Item.width = 32;

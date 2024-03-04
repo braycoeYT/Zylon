@@ -6,7 +6,7 @@ namespace Zylon.Items.Accessories
 {
 	public class Inhaler : ModItem
 	{
-		public override void SetDefaults() {
+        public override void SetDefaults() {
 			Item.width = 20;
 			Item.height = 30;
 			Item.accessory = true;

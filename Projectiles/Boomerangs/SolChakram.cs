@@ -91,7 +91,7 @@ namespace Zylon.Projectiles.Boomerangs
 			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
 			return false;
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Vector2 temp = Projectile.velocity;
 			temp.Normalize();
 			temp *= 8f;

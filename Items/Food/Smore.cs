@@ -7,8 +7,7 @@ namespace Zylon.Items.Food
 	public class Smore : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("S'more");
-			// Tooltip.SetDefault("Medium improvements to all stats\n'I'd get s'more puns, but there are none left...'"); //Still the best smore pun
+			Item.ResearchUnlockCount = 5;
 		}
 		public override void SetDefaults() {
 			Item.width = 32;

@@ -7,7 +7,7 @@ namespace Zylon.Items.Food
 	public class CottonCandy : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Minor improvements to all stats\n'Now this is FLUFFY!'");
+			Item.ResearchUnlockCount = 5;
 		}
 		public override void SetDefaults() {
 			Item.width = 34;

@@ -7,9 +7,6 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Legs)]
 	public class GlassLeggings : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("-4 Defense\n'Make sure no one throws any stones at you'\nIncreases weapon speed by 5%");
-		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;

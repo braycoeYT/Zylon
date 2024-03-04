@@ -748,22 +748,34 @@ namespace Zylon
 			recipe.AddTile(TileID.SkyMill);
 			recipe.Register();
 
-			recipe = Recipe.Create(ItemID.TurtleHelmet);
-			recipe.AddIngredient(ItemID.ChlorophyteMask);
-			recipe.AddIngredient(ItemID.TurtleShell);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe = Recipe.Create(ItemID.ShroomiteHeadgear);
+			recipe.AddIngredient(ItemID.ChlorophyteHelmet);
+			recipe.AddIngredient(ItemID.GlowingMushroom, 180);
+			recipe.AddTile(TileID.Autohammer);
 			recipe.Register();
 
-			recipe = Recipe.Create(ItemID.TurtleScaleMail);
+			recipe = Recipe.Create(ItemID.ShroomiteMask);
+			recipe.AddIngredient(ItemID.ChlorophyteHelmet);
+			recipe.AddIngredient(ItemID.GlowingMushroom, 180);
+			recipe.AddTile(TileID.Autohammer);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.ShroomiteHeadgear);
+			recipe.AddIngredient(ItemID.ChlorophyteHelmet);
+			recipe.AddIngredient(ItemID.GlowingMushroom, 180);
+			recipe.AddTile(TileID.Autohammer);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.ShroomiteBreastplate);
 			recipe.AddIngredient(ItemID.ChlorophytePlateMail);
-			recipe.AddIngredient(ItemID.TurtleShell);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddIngredient(ItemID.GlowingMushroom, 360);
+			recipe.AddTile(TileID.Autohammer);
 			recipe.Register();
 
-			recipe = Recipe.Create(ItemID.TurtleLeggings);
+			recipe = Recipe.Create(ItemID.ShroomiteLeggings);
 			recipe.AddIngredient(ItemID.ChlorophyteGreaves);
-			recipe.AddIngredient(ItemID.TurtleShell);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddIngredient(ItemID.GlowingMushroom, 270);
+			recipe.AddTile(TileID.Autohammer);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.Uzi);
@@ -786,6 +798,37 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.DemoniteBar, 2);
 			recipe.AddIngredient(ItemID.Lens);
 			recipe.AddTile(TileID.DemonAltar);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.SpectreMask);
+			recipe.AddIngredient(ItemID.ChlorophyteHeadgear);
+			recipe.AddIngredient(ItemID.Ectoplasm, 6);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.SpectreHood);
+			recipe.AddIngredient(ItemID.ChlorophyteHeadgear);
+			recipe.AddIngredient(ItemID.Ectoplasm, 6);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.SpectreRobe);
+			recipe.AddIngredient(ItemID.ChlorophytePlateMail);
+			recipe.AddIngredient(ItemID.Ectoplasm, 12);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.SpectrePants);
+			recipe.AddIngredient(ItemID.ChlorophyteGreaves);
+			recipe.AddIngredient(ItemID.Ectoplasm, 9);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.Nazar);
+			recipe.AddRecipeGroup("Zylon:AnyPHBar", 8);
+			recipe.AddIngredient(ItemID.Bone, 50);
+			recipe.AddIngredient(ItemID.Lens);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
         }
         public override void PostAddRecipes() {

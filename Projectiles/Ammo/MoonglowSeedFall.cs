@@ -22,9 +22,9 @@ namespace Zylon.Projectiles.Ammo
         public override bool CanHitPvp(Player target) {
             return false;
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center - new Vector2 (0, 0), new Vector2 (0, 0), ModContent.ProjectileType<MoonglowSprouted>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+			ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center - new Vector2 (0, 0), new Vector2 (0, 0), ModContent.ProjectileType<MoonglowSprouted>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 		}
 	}   
 }

@@ -6,10 +6,6 @@ namespace Zylon.Items.Ammo
 {
 	public class EndlessWormPouch : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Bottomless Sack of Worms");
-			// Tooltip.SetDefault("'The angler would love this, though he'd probably just leave them in peoples' beds.'");
-        }
 		public override void SetDefaults() {
 			Item.width = 24;
 			Item.height = 32;

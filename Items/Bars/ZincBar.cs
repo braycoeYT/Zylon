@@ -8,7 +8,7 @@ namespace Zylon.Items.Bars
 	public class ZincBar : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Can be used in Any Iron Bar recipes");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 25;
 		}
 		public override void SetDefaults() {
 			Item.rare = ItemRarityID.White;

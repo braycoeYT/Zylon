@@ -7,6 +7,9 @@ namespace Zylon.Items.BossSummons
 {
 	public class EyeofCthulhu : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 69;
+		}
 		public override void SetDefaults()  {
 			Item.width = 152;
 			Item.height = 110;

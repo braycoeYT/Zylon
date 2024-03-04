@@ -7,9 +7,6 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Body)]
 	public class CarnalliteBreastplate : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Increases run speed by 10%\nIncreases max life by 20");
-		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;

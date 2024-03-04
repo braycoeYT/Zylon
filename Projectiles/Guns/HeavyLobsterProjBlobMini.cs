@@ -60,7 +60,7 @@ namespace Zylon.Projectiles.Guns
 				dust.scale *= 0.75f + Main.rand.Next(-30, 31) * 0.01f;
 			}
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Item95, Projectile.position);
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 0; i < 3; i++) {

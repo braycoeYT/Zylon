@@ -37,7 +37,7 @@ namespace Zylon.Projectiles.Boomerangs
 			speed.Normalize();
 			Projectile.velocity = speed*-20f;
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
             Player player = Main.player[Projectile.owner];
             player.statLife += 1;
 			player.HealEffect(1, true);

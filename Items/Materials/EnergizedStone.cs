@@ -7,6 +7,9 @@ namespace Zylon.Items.Materials
 {
 	public class EnergizedStone : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 5;
+		}
 		public override void SetDefaults()
 		{
 			Item.useStyle = ItemUseStyleID.Swing;

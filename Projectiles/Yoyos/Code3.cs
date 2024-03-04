@@ -21,7 +21,7 @@ namespace Zylon.Projectiles.Yoyos
 			Projectile.aiStyle = 99;
 			Projectile.friendly = true;
 			Projectile.penetrate = -1;
-			Projectile.DamageType = DamageClass.MeleeNoSpeed;
+			Projectile.DamageType = DamageClass.Melee;
 			Projectile.scale = 1f;
 		}
     }

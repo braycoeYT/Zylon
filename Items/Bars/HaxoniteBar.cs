@@ -7,6 +7,9 @@ namespace Zylon.Items.Bars
 {
 	public class HaxoniteBar : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 25;
+		}
 		public override void SetDefaults() {
 			Item.rare = ItemRarityID.Green;
 			Item.width = 20;

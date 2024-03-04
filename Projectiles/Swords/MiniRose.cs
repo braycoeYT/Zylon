@@ -33,7 +33,7 @@ namespace Zylon.Projectiles.Swords
 			if (Projectile.timeLeft < 28)
 				Projectile.alpha += 10;
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

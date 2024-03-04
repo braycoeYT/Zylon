@@ -9,9 +9,6 @@ namespace Zylon.Items.Bows
 {
 	public class GoblinArchbow : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Fires four arrows in quick succession, only consuming one ammo");
-		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 1, 75);
 			Item.useStyle = ItemUseStyleID.Shoot;

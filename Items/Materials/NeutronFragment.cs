@@ -7,8 +7,7 @@ namespace Zylon.Items.Materials
 	public class NeutronFragment : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Neutron Fragment");
-			// Tooltip.SetDefault("'The manifestations of death and intensity inhabit this heavily dense fragment'");
+			Item.ResearchUnlockCount = 25;
 			ItemID.Sets.ItemIconPulse[Item.type] = true;
 			ItemID.Sets.ItemNoGravity[Item.type] = true;
 		}

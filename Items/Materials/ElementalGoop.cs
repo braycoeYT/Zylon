@@ -7,7 +7,7 @@ namespace Zylon.Items.Materials
 	public class ElementalGoop : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Looks extra tasty!'");
+			Item.ResearchUnlockCount = 25;
 		}
 		public override void SetDefaults() {
 			Item.width = 40;

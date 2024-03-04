@@ -41,7 +41,7 @@ namespace Zylon.Projectiles.Ammo
 			}
 			if (Projectile.timeLeft < 18) Projectile.alpha += 15;
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

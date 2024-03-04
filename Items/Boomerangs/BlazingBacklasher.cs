@@ -9,7 +9,7 @@ namespace Zylon.Items.Boomerangs
 	public class BlazingBacklasher : ModItem
 	{
 		public override void SetDefaults() {
-			Item.damage = 241;
+			Item.damage = 212;
 			Item.DamageType = DamageClass.MeleeNoSpeed;
 			Item.width = 30;
 			Item.height = 42;

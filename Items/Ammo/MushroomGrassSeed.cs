@@ -8,8 +8,8 @@ namespace Zylon.Items.Ammo
 	public class MushroomGrassSeed : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("For use with blowpipes\nMay shroomify struck enemies");
-        }
+			Item.ResearchUnlockCount = 99;
+		}
 		public override void SetDefaults() {
 			Item.damage = 7;
 			Item.DamageType = DamageClass.Ranged;

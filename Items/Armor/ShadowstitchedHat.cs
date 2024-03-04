@@ -9,9 +9,6 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Head)]
 	public class ShadowstitchedHat : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Malevolent energy jumps from its folds'\nDecreases mana usage by 6%\nIncreases magic critical strike chance and damage by 7%");
-		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;

@@ -7,9 +7,6 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Legs)]
 	public class HaxoniteLeggings : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Decreases movement speed by 8%");
-		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;

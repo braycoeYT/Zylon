@@ -42,7 +42,7 @@ namespace Zylon.Projectiles.Swords
 			Projectile.timeLeft = 180;
             return false;
         }
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.position);
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			float rand = Main.rand.NextFloat(MathHelper.Pi); //maybe base on proj rotation but idk which is better

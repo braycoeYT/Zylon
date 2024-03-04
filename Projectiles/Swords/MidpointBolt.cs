@@ -60,7 +60,7 @@ namespace Zylon.Projectiles.Swords
 				dust.scale = 1f;
 			}
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			if (Projectile.ai[0] % 5 == 4) for (int i = 0; i < 6; i++)
 				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*60)), ModContent.ProjectileType<MidpointBolt2>(), (int)(Projectile.damage * 0.65f), Projectile.knockBack / 2, Projectile.owner);

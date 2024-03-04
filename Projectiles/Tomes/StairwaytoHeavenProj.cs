@@ -32,7 +32,7 @@ namespace Zylon.Projectiles.Tomes
 				dust.scale = 1.2f;
 			}
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			for (int i = 0; i < 3; i++) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.YellowStarDust);
 				dust.noGravity = true;

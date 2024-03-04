@@ -29,7 +29,7 @@ namespace Zylon.Projectiles.Blowpipes
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			if (Main.rand.NextFloat() <= .1f && target.type != NPCID.TargetDummy)
-				Item.NewItem(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.getRect(), ItemID.Heart);
+				Item.NewItem(Projectile.GetSource_FromThis(), Projectile.getRect(), ItemID.Heart);
 		}
         public override void AI() {
 				float num165 = (float)Math.Sqrt((double)(Projectile.velocity.X * Projectile.velocity.X + Projectile.velocity.Y * Projectile.velocity.Y));
@@ -123,7 +123,7 @@ namespace Zylon.Projectiles.Blowpipes
 				dust.scale = 0.5f;
 			}
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
 			for (int i = 0; i < 30; i++) { //50
 				int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Smoke, 0f, 0f, 100, default(Color), 2f);
@@ -137,19 +137,19 @@ namespace Zylon.Projectiles.Blowpipes
 				Main.dust[dustIndex].velocity *= 3f;
 			}
 			for (int g = 0; g < 2; g++) { //2
-				int goreIndex = Gore.NewGore(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), new Vector2(Projectile.position.X + (float)(Projectile.width / 2) - 24f, Projectile.position.Y + (float)(Projectile.height / 2) - 24f), default(Vector2), Main.rand.Next(61, 64), 1f);
+				int goreIndex = Gore.NewGore(Projectile.GetSource_FromThis(), new Vector2(Projectile.position.X + (float)(Projectile.width / 2) - 24f, Projectile.position.Y + (float)(Projectile.height / 2) - 24f), default(Vector2), Main.rand.Next(61, 64), 1f);
 				Main.gore[goreIndex].scale = 1.5f;
 				Main.gore[goreIndex].velocity.X = Main.gore[goreIndex].velocity.X + 1.5f;
 				Main.gore[goreIndex].velocity.Y = Main.gore[goreIndex].velocity.Y + 1.5f;
-				goreIndex = Gore.NewGore(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), new Vector2(Projectile.position.X + (float)(Projectile.width / 2) - 24f, Projectile.position.Y + (float)(Projectile.height / 2) - 24f), default(Vector2), Main.rand.Next(61, 64), 1f);
+				goreIndex = Gore.NewGore(Projectile.GetSource_FromThis(), new Vector2(Projectile.position.X + (float)(Projectile.width / 2) - 24f, Projectile.position.Y + (float)(Projectile.height / 2) - 24f), default(Vector2), Main.rand.Next(61, 64), 1f);
 				Main.gore[goreIndex].scale = 1.5f;
 				Main.gore[goreIndex].velocity.X = Main.gore[goreIndex].velocity.X - 1.5f;
 				Main.gore[goreIndex].velocity.Y = Main.gore[goreIndex].velocity.Y + 1.5f;
-				goreIndex = Gore.NewGore(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), new Vector2(Projectile.position.X + (float)(Projectile.width / 2) - 24f, Projectile.position.Y + (float)(Projectile.height / 2) - 24f), default(Vector2), Main.rand.Next(61, 64), 1f);
+				goreIndex = Gore.NewGore(Projectile.GetSource_FromThis(), new Vector2(Projectile.position.X + (float)(Projectile.width / 2) - 24f, Projectile.position.Y + (float)(Projectile.height / 2) - 24f), default(Vector2), Main.rand.Next(61, 64), 1f);
 				Main.gore[goreIndex].scale = 1.5f;
 				Main.gore[goreIndex].velocity.X = Main.gore[goreIndex].velocity.X + 1.5f;
 				Main.gore[goreIndex].velocity.Y = Main.gore[goreIndex].velocity.Y - 1.5f;
-				goreIndex = Gore.NewGore(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), new Vector2(Projectile.position.X + (float)(Projectile.width / 2) - 24f, Projectile.position.Y + (float)(Projectile.height / 2) - 24f), default(Vector2), Main.rand.Next(61, 64), 1f);
+				goreIndex = Gore.NewGore(Projectile.GetSource_FromThis(), new Vector2(Projectile.position.X + (float)(Projectile.width / 2) - 24f, Projectile.position.Y + (float)(Projectile.height / 2) - 24f), default(Vector2), Main.rand.Next(61, 64), 1f);
 				Main.gore[goreIndex].scale = 1.5f;
 				Main.gore[goreIndex].velocity.X = Main.gore[goreIndex].velocity.X - 1.5f;
 				Main.gore[goreIndex].velocity.Y = Main.gore[goreIndex].velocity.Y - 1.5f;

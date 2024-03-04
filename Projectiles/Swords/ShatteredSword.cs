@@ -27,7 +27,7 @@ namespace Zylon.Projectiles.Swords
 				dust.scale = 1f;
 			}
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			for (int i = 0; i < 10; i++) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.YellowTorch);
 				dust.noGravity = true;

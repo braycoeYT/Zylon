@@ -49,7 +49,7 @@ namespace Zylon.Projectiles.Accessories
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
             Lighting.AddLight(Projectile.Center, 0.5f, 0.5f, 0.5f);
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
             Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
             SoundEngine.PlaySound(SoundID.Item127, Projectile.position);
         }

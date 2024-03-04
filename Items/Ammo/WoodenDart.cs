@@ -8,8 +8,8 @@ namespace Zylon.Items.Ammo
 	public class WoodenDart : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("For use with blowpipes");
-        }
+			Item.ResearchUnlockCount = 99;
+		}
 		public override void SetDefaults() {
 			Item.damage = 4;
 			Item.DamageType = DamageClass.Ranged;

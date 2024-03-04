@@ -6,6 +6,9 @@ namespace Zylon.Items.Materials
 {
 	public class SpectralFairyDust : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 5;
+		}
 		public override void SetDefaults() {
 			Item.width = 26;
 			Item.height = 14;

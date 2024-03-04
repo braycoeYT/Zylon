@@ -6,7 +6,7 @@ namespace Zylon.Items.Accessories
 {
 	public class AirTank : ModItem
 	{
-		public override void SetDefaults() {
+        public override void SetDefaults() {
 			Item.width = 32;
 			Item.height = 60;
 			Item.accessory = true;

@@ -14,8 +14,8 @@ namespace Zylon.Projectiles.Bosses.Jelly
 			Projectile.timeLeft = 60;
 			Projectile.tileCollide = false;
 		}
-		public override void Kill(int timeLeft) {
-			ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position - (Projectile.velocity*-Projectile.timeLeft), Projectile.velocity, ModContent.ProjectileType<JellyLaser>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, BasicNetType: 2);
+		public override void OnKill(int timeLeft) {
+			ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.position - (Projectile.velocity*-Projectile.timeLeft), Projectile.velocity, ModContent.ProjectileType<JellyLaser>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, BasicNetType: 2);
 		}
 	}
 }

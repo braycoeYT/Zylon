@@ -10,8 +10,8 @@ namespace Zylon.Items.Ammo
 	public class AdeniteShrapnel : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("For use with the shrapnel gun");
-        }
+			Item.ResearchUnlockCount = 99;
+		}
 		public override void SetDefaults() {
 			Item.damage = 3;
 			Item.DamageType = DamageClass.Ranged;

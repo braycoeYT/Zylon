@@ -1554,6 +1554,15 @@ Mods: {
 				Tooltip: Spawns damaging prickly pears on critical strikes
 			}
 
+			ChlorophyteCutter: {
+				DisplayName: Chlorophyte Cutter
+				Tooltip:
+					'''
+					Creates a ring of spore clouds on enemy collision and before returning
+					Is able to be rethrown after velocity peak
+					'''
+			}
+
 			FireandIce: {
 				DisplayName: Fire and Ice
 				Tooltip:
@@ -1982,7 +1991,6 @@ Mods: {
 				DisplayName: Grave Buster
 				Tooltip:
 					'''
-					'Grave robbing for morons'
 					Replaces ammo with spirit bullets
 					Hitting enemies will give you the 'Gravely Powers' buff, which increases your life regen
 					'''
@@ -2886,8 +2894,9 @@ Mods: {
 				DisplayName: True Lobera
 				Tooltip:
 					'''
-					Struck enemies are sparkly slimed
-					Every few swings releases bouncy sparkly gel
+					Every other swing creates tiny rings of orbs
+					Increases damage, knockback, and swing speed as health decreases
+					At max or under 25% health, fires powerful sword beams with massive orb rings
 					'''
 			}
 
@@ -3109,6 +3118,27 @@ Mods: {
 				Tooltip: Fires a chunk of ice that splits into several shards on impact
 			}
 
+			EnchantedTreeTruncheon: {
+				DisplayName: Enchanted Tree Truncheon
+				Tooltip:
+					'''
+					'The forest winds quietly whisper in your ear...'
+					Fires high-gravity logs of wood
+					Has a 25% chance to replace logs with an array of leaves
+					Leaves track the closest enemy
+					'''
+			}
+
+			ExperimentalSyringe: {
+				DisplayName: Experimental Syringe
+				Tooltip:
+					'''
+					'Is this what Conspiracy Joe was blabbering on about?'
+					Fires multi-colored shots of an unknown substance
+					Different colors inflict different debuffs
+					'''
+			}
+
 			JadeStaff: {
 				DisplayName: Jade Staff
 				Tooltip: ""
@@ -3154,11 +3184,12 @@ Mods: {
 			}
 
 			TreeTruncheon: {
-				DisplayName: TreeTruncheon
+				DisplayName: Tree Truncheon
 				Tooltip:
 					'''
-					Shoots a splitting spark
-					Affected by the Hex Necklace
+					Fires high-gravity logs of wood
+					Has a 20% chance to replace logs with acorns
+					Acorns create damaging saplings upon tile collision
 					'''
 			}
 
@@ -3215,6 +3246,16 @@ Mods: {
 					'''
 			}
 
+			Amaguq: {
+				DisplayName: Amaguq
+				Tooltip:
+					'''
+					'Forged by the cold Alaskan night...'
+					Inflicts Frostburn and Brain Freeze on non-boss enemies, slowing them down
+					Leaves a short damaging trail of replicas behind itself
+					'''
+			}
+
 			AmazonPrime: {
 				DisplayName: Amazon Prime
 				Tooltip:
@@ -3233,18 +3274,9 @@ Mods: {
 					'''
 			}
 
-			Coldnea: {
-				DisplayName: Coldnea
-				Tooltip: Shoots ice lasers around itself when thrown
-			}
-
 			Dirtglob: {
 				DisplayName: Dirtglob
-				Tooltip:
-					'''
-					'Become one with the dirt'
-					On use, surrounds itself with dirt blocks
-					'''
+				Tooltip: On use, surrounds itself with dirt blocks
 			}
 
 			EarthDay: {
@@ -3264,7 +3296,7 @@ Mods: {
 
 			GloriousSun: {
 				DisplayName: Glorious Sun
-				Tooltip: Creates explosions nearby itself
+				Tooltip: Envelops itself in two rotating solar flare rings
 			}
 
 			Insomnia: {
@@ -3466,6 +3498,11 @@ Mods: {
 			SpectralFairyDust: {
 				DisplayName: Spectral Fairy Dust
 				Tooltip: ""
+			}
+
+			TopazPike: {
+				DisplayName: Topaz Pike
+				Tooltip: Thrusts fire a short range Topaz Bolt
 			}
 		}
 
@@ -3731,6 +3768,7 @@ Mods: {
 			SuperheatedStabber.DisplayName: Superheated Stabber
 			SuperheatedStabberThrown.DisplayName: Superheated Stabber
 			SuperheatedStabberThrownBoom.DisplayName: Superheated Stabber
+			TopazPike.DisplayName: Topaz Pike
 			ZincSpear.DisplayName: Zinc Spear
 			StingerPassive.DisplayName: Stinger
 			BloodOrb.DisplayName: Blood Orb
@@ -3801,11 +3839,12 @@ Mods: {
 			WaterStreamRanged.DisplayName: Water Stream
 			AcornFriendlyMelee.DisplayName: Acorn
 			EyeLash.DisplayName: Eye Lash
+			AmaguqProj.DisplayName: Amaguq
+			AmaguqTrail.DisplayName: Amaguq
 			AmazonPackage.DisplayName: Package
 			AmazonPackageFall.DisplayName: Package
 			AmazonPrime.DisplayName: Amazon Prime
 			Code3.DisplayName: Code3
-			Coldnea.DisplayName: Coldnea
 			DirtBlockYoyo.DisplayName: Dirt Block
 			Dirtglob.DisplayName: Dirtglob
 			EarthDay.DisplayName: Earth Day
@@ -3886,13 +3925,27 @@ Mods: {
 			BiDisc.DisplayName: Bi Disc
 			NeedleSpitterProj.DisplayName: Needle Spitter
 			PixieArchangelProj.DisplayName: Pixie Archangel
-			ArchangelsWandProj.DisplayName: Archangels Wand Proj
+			ArchangelsWandProj.DisplayName: Archangels Wand
 			RubyArrow.DisplayName: Ruby Arrow
-			SapphireSpellbookProj.DisplayName: Sapphire Spellbook Proj
-			CrystalTsunamiProj2.DisplayName: Crystal Tsunami Proj2
+			SapphireSpellbookProj.DisplayName: Sapphire Spellbook
+			CrystalTsunamiProj2.DisplayName: Crystal Tsunami
 			VaporsEonShower.DisplayName: Vapor's Eon
 			VaporsEonBlast.DisplayName: Vapor's Eon
 			CeruleanArrow.DisplayName: Cerulean Arrow
+			TreeTruncheonAcorn.DisplayName: Tree Truncheon
+			TreeTruncheonProj.DisplayName: Tree Truncheon
+			TreeTruncheonSapling.DisplayName: Tree Truncheon
+			EnchantedTreeTruncheonAcorn.DisplayName: Enchanted Tree Truncheon
+			EnchantedTreeTruncheonProj.DisplayName: Enchanted Tree Truncheon
+			EnchantedTreeTruncheonSapling.DisplayName: Enchanted Tree Truncheon
+			EnchantedTreeTruncheonLeaf.DisplayName: Enchanted Tree Truncheon
+			TopazPikeProj.DisplayName: Topaz Pike
+			GloriousSunProj.DisplayName: Glorious Sun
+			ChlorophyteCutter.DisplayName: Chlorophyte Cutter
+			ExperimentalSyringeProj.DisplayName: Experimental Syringe
+			TrueLoberaRing.DisplayName: True Lobera
+			TrueLoberaOrb.DisplayName: True Lobera
+			TrueLoberaBeam.DisplayName: True Lobera
 		}
 
 		NPCs: {
@@ -4024,6 +4077,8 @@ Mods: {
 			Standard.DisplayName: Standard
 			Supernatural.DisplayName: Supernatural
 			Ultimate.DisplayName: Ultimate
+			Exalted.DisplayName: Exalted
+			Unhesitating.DisplayName: Unhesitating
 		}
 
 		Tiles: {

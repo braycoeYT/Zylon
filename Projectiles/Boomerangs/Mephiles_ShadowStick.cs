@@ -56,7 +56,7 @@ namespace Zylon.Projectiles.Boomerangs
 			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
 			return false;
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
             if (Main.myPlayer == Projectile.owner) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<Mephiles_ShadowExplosion>(), (int)(Projectile.damage*0.3f), 0.25f, Projectile.owner);
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 		}

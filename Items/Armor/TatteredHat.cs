@@ -9,9 +9,6 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Head)]
 	public class TatteredHat : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'It seems to be decades due for a restitching'\nDecreases mana usage by 5%\nIncreases magic critical strike chance and damage by 4%");
-		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;

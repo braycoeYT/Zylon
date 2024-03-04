@@ -8,8 +8,8 @@ namespace Zylon.Items.Ammo
 	public class HallowedSeed : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("For use with blowpipes\nCan pierce up to three times, with each hit sometimes raining a holy star");
-        }
+			Item.ResearchUnlockCount = 99;
+		}
 		public override void SetDefaults() {
 			Item.damage = 10;
 			Item.DamageType = DamageClass.Ranged;

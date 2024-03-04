@@ -7,9 +7,6 @@ namespace Zylon.Items.Guns
 {
 	public class EerieStakeLauncher : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Uses stakes as ammo");
-		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 2);
 			Item.useStyle = ItemUseStyleID.Shoot;

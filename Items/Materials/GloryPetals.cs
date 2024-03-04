@@ -7,11 +7,9 @@ namespace Zylon.Items.Materials
 {
 	public class GloryPetals : ModItem
 	{
-		public override void SetStaticDefaults()
-		{
-			// Tooltip.SetDefault("'Glorious!'");
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 25;
 		}
-
 		public override void SetDefaults()
 		{
 			Item.width = 20;

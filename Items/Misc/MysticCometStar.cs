@@ -6,7 +6,10 @@ namespace Zylon.Items.Misc
 {
 	public class MysticCometStar : ModItem
 	{
-		public override void SetDefaults() {
+        public override void SetStaticDefaults() {
+            Item.ResearchUnlockCount = 0;
+        }
+        public override void SetDefaults() {
 			Item.width = 32;
 			Item.height = 32;
 			Item.maxStack = 999;

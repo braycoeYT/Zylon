@@ -9,9 +9,6 @@ namespace Zylon.Items.Bows
 {
 	public class MeteorTrailer : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Gives arrows a small trail of meteorites");
-		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 3, 12);
 			Item.useStyle = ItemUseStyleID.Shoot;

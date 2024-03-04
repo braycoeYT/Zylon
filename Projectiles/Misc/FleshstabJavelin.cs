@@ -31,7 +31,7 @@ namespace Zylon.Projectiles.Misc
 			}
         }
 
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 0; i < Main.rand.Next(1, 4); i++) {
 				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.position, new Vector2(0, 7).RotatedByRandom(2), ProjectileID.IchorSplash, (int)(Projectile.damage*0.5f), 2.5f, Projectile.owner);

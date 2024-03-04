@@ -8,7 +8,7 @@ namespace Zylon.Items.Materials
 	public class EnchantedIceCube : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Keeps your drinks nice and cool!'\nMinor improvements to all stats");
+			Item.ResearchUnlockCount = 25;
 		}
 		public override void SetDefaults() {
 			Item.width = 30;

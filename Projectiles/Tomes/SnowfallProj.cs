@@ -69,7 +69,7 @@ namespace Zylon.Projectiles.Tomes
             }
 
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			for (int d = 0; d < 4; d++)
 			{
 				Dust.NewDust(Projectile.Center, 0, 0, ModContent.DustType<Dusts.SnowfallDust>(), Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-6, 6), 0, Color.White, 1.3f);

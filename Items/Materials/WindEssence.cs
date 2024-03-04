@@ -7,8 +7,8 @@ namespace Zylon.Items.Materials
 	public class WindEssence : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Resembles cotton candy, but tastes like cold air.'");
-        }
+			Item.ResearchUnlockCount = 25;
+		}
 		public override void SetDefaults() {
 			Item.width = 36;
 			Item.height = 28;

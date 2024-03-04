@@ -7,9 +7,6 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Legs)]
 	public class GooeyLeggings : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Somehow just as strong as metal, but I wouldn't question it\nIncreases damage by 4%");
-		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;

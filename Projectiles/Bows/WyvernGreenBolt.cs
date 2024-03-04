@@ -31,7 +31,7 @@ namespace Zylon.Projectiles.Bows
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
             Lighting.AddLight(Projectile.Center, 0.1f, 0.7f, 0.1f);
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
             Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
             SoundEngine.PlaySound(SoundID.Item127, Projectile.position);
         }

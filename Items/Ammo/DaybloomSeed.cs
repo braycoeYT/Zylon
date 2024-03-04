@@ -10,8 +10,8 @@ namespace Zylon.Items.Ammo
 	public class DaybloomSeed : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("For use with blowpipes\nGrows a daybloom flower on impact\nDeals more damage during the day");
-        }
+			Item.ResearchUnlockCount = 99;
+		}
 		public override void SetDefaults() {
 			Item.damage = 4;
 			Item.DamageType = DamageClass.Ranged;

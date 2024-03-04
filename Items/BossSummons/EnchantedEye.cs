@@ -9,7 +9,7 @@ namespace Zylon.Items.BossSummons
 	public class EnchantedEye : ModItem
 	{
 		public override void SetStaticDefaults() {
-			//Tooltip.SetDefault("Summons the Ancient Diskite Director\nCan only be used in the desert\nNot consumable");
+			Item.ResearchUnlockCount = 3;
 		}
 		public override void SetDefaults()  {
 			Item.width = 28;

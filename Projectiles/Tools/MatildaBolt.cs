@@ -31,7 +31,7 @@ namespace Zylon.Projectiles.Tools
 
 			if (Timer == Projectile.ai[0]) Projectile.Center = Main.player[Projectile.owner].Center; //fix offset
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

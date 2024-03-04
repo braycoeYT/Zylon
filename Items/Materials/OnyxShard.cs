@@ -7,11 +7,9 @@ namespace Zylon.Items.Materials
 {
 	public class OnyxShard : ModItem
 	{
-		public override void SetStaticDefaults()
-		{
-			// Tooltip.SetDefault("'I don't think that is how it works'");
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 25;
 		}
-
 		public override void SetDefaults()
 		{
 			Item.width = 24;

@@ -41,7 +41,7 @@ namespace Zylon.Projectiles.Swords
 		public override void AI() {
 			Projectile.rotation += 0.05f;
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			for (int i = 0; i < num; i++) {
 				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 7.5f).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<Slimeblast>(), Projectile.damage/3, Projectile.knockBack, Projectile.owner);
 			}

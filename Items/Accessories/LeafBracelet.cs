@@ -6,9 +6,6 @@ namespace Zylon.Items.Accessories
 {
 	public class LeafBracelet : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Grants two seconds of invincibility after using a healing potion\nIncreases invincibility time after taking damage\nReduces the cooldown of healing potions by 25%\nIncreases life regen slightly");
-		}
 		public override void SetDefaults() {
 			Item.width = 28;
 			Item.height = 22;

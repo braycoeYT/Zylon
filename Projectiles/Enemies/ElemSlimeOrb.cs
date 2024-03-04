@@ -34,7 +34,7 @@ namespace Zylon.Projectiles.Enemies
 				dust.scale = 1f;
 			}
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

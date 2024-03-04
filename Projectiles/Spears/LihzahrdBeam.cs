@@ -28,7 +28,7 @@ namespace Zylon.Projectiles.Spears
 				dust.scale *= 0.5f + Main.rand.Next(-30, 31) * 0.01f;
 			}
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

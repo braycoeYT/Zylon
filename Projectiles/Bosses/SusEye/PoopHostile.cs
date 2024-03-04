@@ -53,7 +53,7 @@ namespace Zylon.Projectiles.Bosses.SusEye
 			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Shroomed>(), 69);
 			target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 69);
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 		public override bool PreDraw(ref Color lightColor) {

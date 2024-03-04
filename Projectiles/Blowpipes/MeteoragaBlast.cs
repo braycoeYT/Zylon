@@ -32,7 +32,7 @@ namespace Zylon.Projectiles.Blowpipes
 				target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(5, 11), false);
 			}
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			for (int i = 0; i < 8; i++) {
 				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 8).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<Projectiles.Blowpipes.MeteoragaBlastFireball>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.5f, Main.myPlayer);
             }

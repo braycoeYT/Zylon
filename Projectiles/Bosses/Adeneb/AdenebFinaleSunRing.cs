@@ -47,7 +47,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.Center = startPos + new Vector2(0, newpos).RotatedBy(MathHelper.ToRadians(totalSpin+Projectile.ai[0])); //og is x0.5
 
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
             for (int i = 0; i < 3; i++) {
 				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.OrangeTorch);
 				Dust dust = Main.dust[dustIndex];

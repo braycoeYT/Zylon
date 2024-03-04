@@ -9,10 +9,6 @@ namespace Zylon.Items.Bows
 {
 	public class WyvernsCall : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Wyvern's Call");
-			// Tooltip.SetDefault("Converts arrows to powerful wyvern bolts");
-		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 5);
 			Item.useStyle = ItemUseStyleID.Shoot;

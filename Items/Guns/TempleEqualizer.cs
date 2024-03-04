@@ -16,8 +16,8 @@ namespace Zylon.Items.Guns
 			Item.useAnimation = 35;
 			Item.useTime = 35;
 			Item.damage = 52;
-			Item.width = 54;
-			Item.height = 34;
+			Item.width = 80;
+			Item.height = 28;
 			Item.knockBack = 1f;
 			Item.shoot = ProjectileID.Bullet;
 			Item.shootSpeed = 12f;

@@ -7,7 +7,7 @@ namespace Zylon.Items.Food
 	public class CocoaBeans : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Used to make Brown Dye");
+			Item.ResearchUnlockCount = 5;
 		}
 		public override void SetDefaults() {
 			Item.width = 24;

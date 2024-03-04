@@ -44,7 +44,7 @@ namespace Zylon.Projectiles.Misc
 			target.AddBuff(BuffID.OnFire, Main.rand.Next(5, 11)*60);
         }
 
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Projectile.width *= 4;
 			Projectile.height *= 4;
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);

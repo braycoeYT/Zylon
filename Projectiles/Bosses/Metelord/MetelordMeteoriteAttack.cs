@@ -36,7 +36,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 			Projectile.Center = spawn - new Vector2(0, dist).RotatedBy(MathHelper.ToRadians((Timer*0*Projectile.ai[1])+Projectile.ai[0]*30f));//((float)Math.Pow(Timer*2, 1.1f))+Projectile.ai[0]*45));
 			if (Timer > 7) Projectile.hostile = true;
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Meteorite);
 			dust.scale = 1.5f;

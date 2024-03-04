@@ -6,9 +6,6 @@ namespace Zylon.Items.Accessories
 {
 	public class TitanfistMedal : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Increases true melee damage by 25%\nDoes not stack with Ironfist Medal");
-		}
 		public override void SetDefaults() {
 			Item.width = 30;
 			Item.height = 30;

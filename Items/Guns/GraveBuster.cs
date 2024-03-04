@@ -8,15 +8,12 @@ namespace Zylon.Items.Guns
 {
 	public class GraveBuster : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Grave robbing for morons'\nReplaces ammo with spirit bullets\nHitting enemies will give you the 'Gravely Powers' buff, which increases your life regen");
-		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 1);
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.useAnimation = 29;
-			Item.useTime = 29;
-			Item.damage = 13;
+			Item.useAnimation = 47;
+			Item.useTime = 47;
+			Item.damage = 9;
 			Item.width = 22;
 			Item.height = 54;
 			Item.knockBack = 1.8f;

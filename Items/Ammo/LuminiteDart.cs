@@ -7,6 +7,9 @@ namespace Zylon.Items.Ammo
 {
 	public class LuminiteDart : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 99;
+		}
 		public override void SetDefaults() {
 			Item.damage = 18;
 			Item.DamageType = DamageClass.Ranged;

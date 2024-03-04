@@ -7,7 +7,7 @@ namespace Zylon.Items.Accessories
 	public class SaberToothNecklace : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Increases critical strike chance and armor penetration by 8\nCritical strikes deal 33% more damage\nDoes not stack with downgrades");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 		public override void SetDefaults() {
 			Item.width = 16;

@@ -26,7 +26,7 @@ namespace Zylon.Projectiles.Ammo
         public override void AI() {
             Timer++;
 			if (Timer % 60 == 0)
-				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2 (Main.rand.NextFloat(-8, 8), Main.rand.NextFloat(-8, -4)), ModContent.ProjectileType<BallofFireRanged>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2 (Main.rand.NextFloat(-8, 8), Main.rand.NextFloat(-8, -4)), ModContent.ProjectileType<BallofFireRanged>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
         }
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();

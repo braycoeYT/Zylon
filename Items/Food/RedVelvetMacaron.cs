@@ -6,6 +6,9 @@ namespace Zylon.Items.Food
 {
 	public class RedVelvetMacaron : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 5;
+		}
 		public override void SetDefaults() {
 			Item.width = 28;
 			Item.height = 26;

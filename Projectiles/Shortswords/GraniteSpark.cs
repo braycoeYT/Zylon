@@ -24,7 +24,7 @@ namespace Zylon.Projectiles.Shortswords
 				dust.scale = 1f;
 			}
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			for (int i = 0; i < 4; i++) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Electric);
 				dust.noGravity = true;

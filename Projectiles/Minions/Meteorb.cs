@@ -152,7 +152,7 @@ namespace Zylon.Projectiles.Minions
 			if (foundTarget && Vector2.Distance(targetCenter, Projectile.Center) < 80) {
 				Timer++;
 				if (Timer % 15 == 0)
-				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir, ProjectileType<MeteorbProtect>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, projDir, ProjectileType<MeteorbProtect>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI);
 			}
 
 			#endregion

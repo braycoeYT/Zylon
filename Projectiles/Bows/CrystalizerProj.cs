@@ -51,7 +51,7 @@ namespace Zylon.Projectiles.Bows
 				dust.scale = 0.75f;
 			}
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Shatter.WithVolumeScale(0.5f).WithPitchOffset(Main.rand.NextFloat(-2f, 2f)), Projectile.position);
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			if (Projectile.ai[0] < 3 && Main.myPlayer == Projectile.owner) {
