@@ -10,8 +10,9 @@ namespace Zylon.NPCs.Dungeon
 	public class BoneSlime : ModNPC
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Bone Slime");
 			Main.npcFrameCount[NPC.type] = 2;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
 		}
         public override void SetDefaults() {
 			NPC.width = 38;
@@ -21,7 +22,7 @@ namespace Zylon.NPCs.Dungeon
 			NPC.lifeMax = 91;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath3;
-			NPC.value = Item.buyPrice(0, 0, 0, 75);
+			NPC.value = Item.buyPrice(0, 0, 1, 50);
 			NPC.aiStyle = 1;
 			NPC.knockBackResist = 1f;
 			AnimationType = 1;
@@ -32,6 +33,23 @@ namespace Zylon.NPCs.Dungeon
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 189;
             NPC.damage = 71;
+			NPC.knockBackResist = 0.8f;
+			NPC.value = Item.buyPrice(0, 0, 3);
+			if (Main.hardMode) {
+				NPC.lifeMax = 249;
+				NPC.damage = 82;
+				NPC.value = Item.buyPrice(0, 0, 3, 25);
+            }
+			if (NPC.downedPlantBoss) {
+				NPC.lifeMax = 301;
+				NPC.damage = 95;
+				NPC.value = Item.buyPrice(0, 0, 4);
+            }
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
+				NPC.damage = (int)(NPC.damage*1.5f);
+				NPC.knockBackResist = 0.6f;
+            }
         }
 		public override void AI() {
 			NPC.spriteDirection = NPC.direction;

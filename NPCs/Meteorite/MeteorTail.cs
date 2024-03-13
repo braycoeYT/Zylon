@@ -15,10 +15,6 @@ namespace Zylon.NPCs.Meteorite
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire3] = true;
-			/*var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
-				CustomTexturePath = "Zylon/NPCs/Bosses/Adeneb/Adeneb_Bestiary", //Dark magic
-			};
-			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);*/
         }
         public override void SetDefaults() {
 			NPC.width = 40;
@@ -39,8 +35,29 @@ namespace Zylon.NPCs.Meteorite
         }
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 48;
-            NPC.damage = 74;
-			NPC.knockBackResist = 0.02f;
+			NPC.damage = 71;
+			NPC.knockBackResist = 0.05f;
+			NPC.value = Item.buyPrice(0, 0, 4);
+			if (ZylonWorldCheckSystem.downedMetelord) {
+				NPC.lifeMax = 72;
+				NPC.damage = 74;
+				NPC.value = Item.buyPrice(0, 0, 5);
+            }
+			if (Main.hardMode) {
+				NPC.lifeMax = 619;
+				NPC.damage = 110;
+				NPC.value = Item.buyPrice(0, 0, 7);
+            }
+			if (NPC.downedPlantBoss) {
+				NPC.lifeMax = 752;
+				NPC.damage = 156;
+				NPC.value = Item.buyPrice(0, 0, 8);
+            }
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
+				NPC.damage = (int)(NPC.damage*1.5f);
+				NPC.knockBackResist = 0.025f;
+            }
         }
 		public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
             target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(6, 8));

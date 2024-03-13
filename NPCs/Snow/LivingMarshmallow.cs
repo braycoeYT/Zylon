@@ -27,14 +27,30 @@ namespace Zylon.NPCs.Snow
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.LivingMarshmallowBanner>();
         }
-		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment) {
             NPC.lifeMax = 82;
             NPC.damage = 28;
-			NPC.knockBackResist = 0.25f;
+			NPC.knockBackResist = 0.35f;
+			NPC.value = Item.buyPrice(0, 0, 1, 50);
+			if (Main.hardMode) {
+				NPC.lifeMax = 211;
+				NPC.damage = 79;
+				NPC.value = Item.buyPrice(0, 0, 3);
+            }
+			if (NPC.downedPlantBoss) {
+				NPC.lifeMax = 298;
+				NPC.damage = 89;
+				NPC.value = Item.buyPrice(0, 0, 3, 50);
+            }
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
+				NPC.damage = (int)(NPC.damage*1.5f);
+				NPC.knockBackResist = 0.25f;
+            }
         }
 		public override void AI() {
 			if (NPC.HasBuff(BuffID.OnFire) || NPC.HasBuff(BuffID.CursedInferno) || NPC.HasBuff(BuffID.Frostburn) || NPC.HasBuff(BuffID.ShadowFlame) || NPC.HasBuff(BuffID.Daybreak))
-				NPC.Transform(ModContent.NPCType<NPCs.Snow.RoastedLivingMarshmallow>());
+				NPC.Transform(ModContent.NPCType<RoastedLivingMarshmallow>());
 		}
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {

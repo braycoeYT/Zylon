@@ -47,5 +47,13 @@ namespace Zylon.Projectiles.Swords
             Main.spriteBatch.Draw(projectileTexture, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
             return false;
         }
+		public override void OnKill(int timeLeft) {
+			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
+			for (int i = 0; i < 9; i++) {
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.LoberaDust>());
+				dust.noGravity = true;
+				dust.scale = 1.5f;
+			}
+		}
     }   
 }

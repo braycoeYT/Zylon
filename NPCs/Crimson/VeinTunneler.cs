@@ -15,8 +15,6 @@ namespace Zylon.NPCs.Crimson
 		public override int BodyType => ModContent.NPCType<VeinTunnelerBody>();
 		public override int TailType => ModContent.NPCType<VeinTunnelerTail>();
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Vein Tunneler");
-
 			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				CustomTexturePath = "Zylon/NPCs/Crimson/VeinTunneler_Bestiary",
 				Position = new Vector2(40f, 24f),
@@ -25,6 +23,7 @@ namespace Zylon.NPCs.Crimson
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.BrainFreeze>()] = true;
 		}
 		public override void SetDefaults() {
 			NPC.CloneDefaults(NPCID.DiggerBody);
@@ -32,13 +31,25 @@ namespace Zylon.NPCs.Crimson
 			NPC.lifeMax = 92;
 			NPC.damage = 25;
 			NPC.defense = 6;
-			NPC.value = 600;
+			NPC.value = NPC.value = Item.buyPrice(0, 0, 1, 30);
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.VeinTunnelerBanner>();
 		}
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.lifeMax = 189;
 			NPC.damage = 49;
+			if (Main.hardMode) {
+				NPC.damage = 63;
+				NPC.value = Item.buyPrice(0, 0, 2, 60);
+            }
+			if (NPC.downedPlantBoss) {
+				NPC.damage = 74;
+				NPC.value = Item.buyPrice(0, 0, 3, 20);
+            }
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
+				NPC.damage = (int)(NPC.damage*1.5f);
+            }
 		}
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
@@ -94,8 +105,6 @@ namespace Zylon.NPCs.Crimson
 	internal class VeinTunnelerBody : WormBody
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Vein Tunneler");
-
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				Hide = true
 			};
@@ -112,6 +121,16 @@ namespace Zylon.NPCs.Crimson
 		}
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.damage = 31;
+			if (Main.hardMode) {
+				NPC.damage = 39;
+			}
+			if (NPC.downedPlantBoss) {
+				NPC.damage = 47;
+				NPC.defense = 16;
+			}
+			if (Main.masterMode) {
+				NPC.damage = (int)(NPC.damage*1.5f);
+            }
 		}
 		public override void Init() {
 			VeinTunnelerHead.CommonWormInit(this);
@@ -139,6 +158,16 @@ namespace Zylon.NPCs.Crimson
 		}
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.damage = 23;
+			if (Main.hardMode) {
+				NPC.damage = 29;
+			}
+			if (NPC.downedPlantBoss) {
+				NPC.damage = 37;
+				NPC.defense = 24;
+			}
+			if (Main.masterMode) {
+				NPC.damage = (int)(NPC.damage*1.5f);
+            }
 		}
 		public override void Init() {
 			VeinTunnelerHead.CommonWormInit(this);

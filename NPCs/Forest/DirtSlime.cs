@@ -11,6 +11,8 @@ namespace Zylon.NPCs.Forest
 	{
         public override void SetStaticDefaults() {
             Main.npcFrameCount[NPC.type] = 2;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
         }
         public override void SetDefaults() {
             NPC.width = 32;
@@ -20,7 +22,7 @@ namespace Zylon.NPCs.Forest
 			NPC.lifeMax = 35;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
-			NPC.value = 32;
+			NPC.value = Item.buyPrice(0, 0, 0, 15);
 			NPC.aiStyle = 1;
 			NPC.knockBackResist = 1f;
 			AnimationType = 1;
@@ -31,13 +33,28 @@ namespace Zylon.NPCs.Forest
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 69;
-			NPC.damage = 38;
-			NPC.value = 64;
-			NPC.defense = 0;
+			NPC.damage = 36;
+			NPC.knockBackResist = 0.8f;
+			NPC.value = Item.buyPrice(0, 0, 0, 30);
+			if (ZylonWorldCheckSystem.downedDirtball) {
+				NPC.lifeMax = 98;
+				NPC.damage = 48;
+				NPC.value = Item.buyPrice(0, 0, 35);
+            }
 			if (Main.hardMode) {
-				NPC.lifeMax = 289;
-				NPC.damage = 118;
-				NPC.value = 128;
+				NPC.lifeMax = 312;
+				NPC.damage = 92;
+				NPC.value = Item.buyPrice(0, 0, 60);
+            }
+			if (NPC.downedPlantBoss) {
+				NPC.lifeMax = 398;
+				NPC.damage = 131;
+				NPC.value = Item.buyPrice(0, 0, 70);
+            }
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
+				NPC.damage = (int)(NPC.damage*1.5f);
+				NPC.knockBackResist = 0.6f;
             }
         }
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {

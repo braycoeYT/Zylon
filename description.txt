@@ -5,8 +5,9 @@ DISCORD JOIN: https://discord.gg/x6G8rKduWc
 
 Stats:
 ~340 Items
-~4 Bosses:
+~5 Bosses:
 ~~~4 Prehardmode Bosses [i:2][i:116][i:789][i:282]
+~~~1 Post-Moon Lord Boss [i:5130]
 (plus a secret joke boss only fightable on getfixedboi worlds [i:43])
 ~36 total NPCs
 ~55 Buffs
@@ -238,8 +239,20 @@ V0.0.3: Cause to Clash Update
 ~Removed Dirtglob tooltip.
 ~Fixed a couple small code issues with some older mod projectiles.
 ~Added Journey Mode support for the entire mod. Better late than never?
+~Fixed bugs related to all mod NPC money drops and higher difficulty stat values.
+~Mechanical Slime now has different hit and death sounds, and now spawns dust on death.
+~Mechanical Slime now only shoots lasers when angry.
+~Fixed issues with Zylon NPCs being immune to debuffs, and added some new debuff immunities.
+~Orange Slime now only spawns after King Slime is defeated.
+~Rebalanced several mod NPC stats.
+~Sapling Warriors and Dryads can no longer deal damage to each other.
+~Increased Live Obelisk Vine drop rate.
+~Fixed Eerie Jellyfish Banner not having any effects.
+~Heavily optimized Adenites so that they no longer use 4 NPCs to work.
+~Mod bosses are now immune to the Shimmer debuff.
+~Made Zylon multiplayer boss health scale at the same rate as vanilla.
 
-finish cerussite + creative mode support + finish wolf and ooze (ooze dart) + living wood + obsidian dart + master mode enemy support + npc money drop fix + water gun funny change + dirt clump social slot + no more ammo drop + dartshark fix
+finish cerussite + finish wolf and ooze (ooze dart) + living wood + obsidian dart + water gun funny change + dirt clump social slot + no more ammo drop + dartshark fix + rework starpack slime and obelisk
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

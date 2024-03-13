@@ -12,6 +12,7 @@ namespace Zylon.NPCs.Forest
 	{
         public override void SetStaticDefaults() {
             Main.npcFrameCount[NPC.type] = 5;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.DryadsWardDebuff] = true;
         }
         public override void SetDefaults() {
             NPC.width = 36;
@@ -21,22 +22,38 @@ namespace Zylon.NPCs.Forest
 			NPC.lifeMax = 23;
 			NPC.HitSound = SoundID.NPCHit1;
 			NPC.DeathSound = SoundID.NPCDeath1;
-			NPC.value = 50;
+			NPC.value = Item.buyPrice(0, 0, 75);
 			NPC.aiStyle = 3;
 			AIType = NPCID.GiantWalkingAntlion;
 			NPC.knockBackResist = 0.75f;
-			//Banner = NPC.type;
-            //BannerItem = ModContent.ItemType<Items.Banners.OrangeSlimeBanner>();
+			Banner = NPC.type;
+            BannerItem = ModContent.ItemType<Items.Banners.SaplingWarriorBanner>();
         }
-
-		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
-        {
-			NPC.lifeMax = 46;
-			NPC.damage = 16;
-			NPC.value = 100;
-			NPC.defense = 5;
+		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment) {
+			NPC.lifeMax = 47;
+			NPC.damage = 15;
+			NPC.knockBackResist = 0.55f;
+			NPC.value = Item.buyPrice(0, 0, 1, 50);
+			if (Main.hardMode) {
+				NPC.lifeMax = 157;
+				NPC.damage = 96;
+				NPC.value = Item.buyPrice(0, 0, 5);
+            }
+			if (NPC.downedPlantBoss) {
+				NPC.lifeMax = 243;
+				NPC.damage = 112;
+				NPC.value = Item.buyPrice(0, 0, 5, 75);
+            }
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
+				NPC.damage = (int)(NPC.damage*1.5f);
+				NPC.knockBackResist = 0.35f;
+            }
 		}
-		int frameID;
+        public override bool CanHitNPC(NPC target) {
+            return target.type != NPCID.Dryad;
+        }
+        int frameID;
 		float frameCounter;
         public override void AI() {
 			NPC.spriteDirection = NPC.direction;
@@ -56,7 +73,7 @@ namespace Zylon.NPCs.Forest
 				new FlavorTextBestiaryInfoElement("A strange creature born from the roots of giant trees, created to protect the forests.")
 			});
 		}
-        public override float SpawnChance(NPCSpawnInfo spawnInfo) {
+        public override float SpawnChance(NPCSpawnInfo spawnInfo) { //I wanna make them only spawn if a block of living wood is near the player but idk how to do that (NOT spawn on the living wood, just nearby)
 			if (!Main.dayTime) return 0f;
 			if ((SpawnCondition.Ocean.Chance + SpawnCondition.OverworldDayDesert.Chance + SpawnCondition.Corruption.Chance + SpawnCondition.Crimson.Chance + SpawnCondition.SurfaceJungle.Chance + SpawnCondition.OverworldDaySnowCritter.Chance) > 0) return 0f;
             return SpawnCondition.OverworldDay.Chance * 0.07f;

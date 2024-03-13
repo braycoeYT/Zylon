@@ -26,6 +26,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.CursedInferno] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Daybreak] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Ichor] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Shimmer] = true;
 			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				CustomTexturePath = "Zylon/NPCs/Bosses/Adeneb/Adeneb_Bestiary",
 			};
@@ -50,11 +51,11 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			//Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
-			NPC.lifeMax = (int)((5200 + ((numPlayers - 1) * 2400))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+			NPC.lifeMax = (int)(5200*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 61;
 			NPC.value = 140000;
 			if (Main.masterMode) {
-				NPC.lifeMax = (int)((6400 + ((numPlayers - 1) * 3100))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+				NPC.lifeMax = (int)(6400*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 94;
             }
         }

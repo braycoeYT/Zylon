@@ -12,6 +12,9 @@ namespace Zylon.NPCs.Cavern
 	{
 		public override void SetStaticDefaults() {
 			Main.npcFrameCount[NPC.type] = 4;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frozen] = true;
 		}
         public override void SetDefaults() {
 			NPC.width = 38;
@@ -36,18 +39,16 @@ namespace Zylon.NPCs.Cavern
 			if (Main.hardMode) {
 				NPC.lifeMax = 128;
 				NPC.damage = 101;
-				Item.buyPrice(0, 0, 7, 50);
+				NPC.value = Item.buyPrice(0, 0, 7, 50);
             }
 			if (NPC.downedPlantBoss) {
 				NPC.lifeMax = 156;
 				NPC.damage = 126;
-				Item.buyPrice(0, 0, 8);
+				NPC.value = Item.buyPrice(0, 0, 8);
             }
 			if (Main.masterMode) {
-				if (Main.hardMode) {
-					NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
-					NPC.damage = (int)(NPC.damage*1.5f);
-                }
+				NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
+				NPC.damage = (int)(NPC.damage*1.5f);
 				NPC.knockBackResist = 1.25f;
             }
         }

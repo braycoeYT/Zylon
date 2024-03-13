@@ -15,6 +15,7 @@ namespace Zylon.NPCs
 		public static int adenebBoss = -1;
 		public static int dirtballBoss = -1;
 		public static int metelordBoss = -1;
+		public static int saburBoss = -1;
         public override void HitEffect(NPC npc, NPC.HitInfo hit) {
             if (npc.type == NPCID.Plantera && npc.life < 1 && !NPC.downedPlantBoss)
 				ProjectileHelpers.NewNetProjectile(npc.GetSource_FromThis(), npc.Center, new Vector2(0, 0), ProjectileType<Projectiles.PlanteraElementalGel>(), 0, 0, Main.myPlayer, BasicNetType: 2);

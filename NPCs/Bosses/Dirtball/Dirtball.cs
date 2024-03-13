@@ -27,6 +27,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.CursedInferno] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Shimmer] = true;
 		}
         public override void SetDefaults() {
             NPC.width = 80;
@@ -47,11 +48,11 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
-            NPC.lifeMax = (int)((2100 + ((numPlayers - 1) * 900))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+            NPC.lifeMax = (int)(2100*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 46;
 			NPC.value = 20000;
 			if (Main.masterMode) {
-				NPC.lifeMax = (int)((2700 + ((numPlayers - 1) * 1200))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+				NPC.lifeMax = (int)(2700*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 55;
             }
 			if (Main.getGoodWorld) NPC.scale = 0.75f;

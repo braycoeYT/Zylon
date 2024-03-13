@@ -11,12 +11,16 @@ namespace Zylon.NPCs.Hallow
 	public class PixieArchangel : ModNPC
 	{
 		public override void SetStaticDefaults() {
-			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 			Main.npcFrameCount[NPC.type] = 2;
 			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				CustomTexturePath = "Zylon/NPCs/Hallow/PixieArchangelBestiary",
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.OnFire] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Shroomed>()] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.BrainFreeze>()] = true;
         }
         public override void SetDefaults() {
 			NPC.width = 68;
@@ -33,7 +37,6 @@ namespace Zylon.NPCs.Hallow
             BannerItem = ModContent.ItemType<Items.Banners.PixieArchangelBanner>();
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
-			//AIType = NPCID.Pixie;
         }
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 560;
@@ -50,12 +53,9 @@ namespace Zylon.NPCs.Hallow
 				NPC.damage = 200;
 				NPC.value = Item.buyPrice(0, 0, 16);
             }
-
 			if (Main.masterMode) {
-				if (Main.hardMode) {
-					NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
-					NPC.damage = (int)(NPC.damage*1.5f);
-                }
+				NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
+				NPC.damage = (int)(NPC.damage*1.5f);
 				NPC.knockBackResist = 0.15f;
             }
         }
