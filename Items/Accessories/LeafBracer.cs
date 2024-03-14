@@ -6,9 +6,6 @@ namespace Zylon.Items.Accessories
 {
 	public class LeafBracer : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Grants two seconds of invincibility after using a healing potion");
-		}
 		public override void SetDefaults() {
 			Item.width = 32;
 			Item.height = 32;
@@ -22,6 +19,7 @@ namespace Zylon.Items.Accessories
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ModContent.ItemType<Bars.CarnalliteBar>(), 15);
 			recipe.AddIngredient(ModContent.ItemType<Materials.LivingBranch>(), 20);
 			recipe.AddIngredient(ItemID.SoulofLight, 3);
 			recipe.AddIngredient(ItemID.Ectoplasm, 12);

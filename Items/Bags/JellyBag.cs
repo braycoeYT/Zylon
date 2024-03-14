@@ -13,9 +13,6 @@ namespace Zylon.Items.Bags
 	public class JellyBag : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Treasure Bag");
-			// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
-
 			ItemID.Sets.BossBag[Type] = true;
 			ItemID.Sets.PreHardmodeLikeBossBag[Type] = true;
 

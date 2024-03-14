@@ -7,7 +7,7 @@ namespace Zylon.Items.Materials
 	public class MetallicBell : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Not to be confused with the Bell, Fairy Bell, Reindeer Bells, Eerie Bell, or Eldritch Bell");
+			Item.ResearchUnlockCount = 25;
 		}
 		public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Bell);

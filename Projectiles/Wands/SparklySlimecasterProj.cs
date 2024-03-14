@@ -34,7 +34,7 @@ namespace Zylon.Projectiles.Wands
 			Projectile.alpha -= 17;
 			Projectile.rotation += 0.15f;
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 0; i < 12; i++)
 					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -9).RotatedBy(MathHelper.ToRadians(i*30)), ModContent.ProjectileType<SparklyGelFriendly>(), (int)(Projectile.damage*0.75f), Projectile.knockBack/2, Projectile.owner, 2f);

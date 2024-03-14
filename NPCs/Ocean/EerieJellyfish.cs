@@ -22,15 +22,38 @@ namespace Zylon.NPCs.Ocean
 			NPC.lifeMax = 105;
 			NPC.HitSound = SoundID.NPCHit25;
 			NPC.DeathSound = SoundID.NPCDeath28;
-			NPC.value = Item.sellPrice(0, 0, 1);
+			NPC.value = Item.buyPrice(0, 0, 5);
 			NPC.aiStyle = 18;
 			AnimationType = 1;
 			NPC.noGravity = true;
+			Banner = NPC.type;
+            BannerItem = ModContent.ItemType<Items.Banners.EerieJellyfishBanner>();
         }
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
-            NPC.lifeMax = 210;
-            NPC.damage = 70;
-			NPC.knockBackResist = 0.9f;
+            NPC.lifeMax = 199;
+			NPC.damage = 69;
+			NPC.knockBackResist = 0.8f;
+			NPC.value = Item.buyPrice(0, 0, 7);
+			if (ZylonWorldCheckSystem.downedJelly) {
+				NPC.lifeMax = 253;
+				NPC.damage = 76;
+				NPC.value = Item.buyPrice(0, 0, 9);
+            }
+			if (Main.hardMode) {
+				NPC.lifeMax = 453;
+				NPC.damage = 101;
+				NPC.value = Item.buyPrice(0, 0, 12);
+            }
+			if (NPC.downedPlantBoss) {
+				NPC.lifeMax = 595;
+				NPC.damage = 122;
+				NPC.value = Item.buyPrice(0, 0, 13);
+            }
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
+				NPC.damage = (int)(NPC.damage*1.5f);
+				NPC.knockBackResist = 0.6f;
+            }
         }
 		public override void HitEffect(NPC.HitInfo hit) {
 			for (int i = 0; i < 4; i++) {

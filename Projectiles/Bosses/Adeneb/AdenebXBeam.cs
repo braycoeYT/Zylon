@@ -50,7 +50,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			}
 		}
 		Vector2 speed;
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			speed = Projectile.Center - Main.player[Main.npc[ZylonGlobalNPC.adenebBoss].target].Center;
 			speed.Normalize();
 			if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed*-10f, ModContent.ProjectileType<AdenebLaser>(), Projectile.damage, 0);

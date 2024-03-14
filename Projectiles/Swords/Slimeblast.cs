@@ -24,7 +24,7 @@ namespace Zylon.Projectiles.Swords
 			Projectile.DamageType = DamageClass.Melee;
 			AIType = ProjectileID.Bullet;
 			Projectile.usesLocalNPCImmunity = true;
-			Projectile.localNPCHitCooldown = 10;
+			Projectile.localNPCHitCooldown = 30;
 			Projectile.extraUpdates = 2;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {

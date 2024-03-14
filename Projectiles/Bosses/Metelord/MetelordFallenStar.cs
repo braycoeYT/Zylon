@@ -33,7 +33,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 				dust.scale = 1f;
 			}
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			for (int i = 0; i < 5; i++) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.YellowStarDust);
 				dust.noGravity = false;

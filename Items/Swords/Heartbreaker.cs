@@ -11,7 +11,7 @@ namespace Zylon.Items.Swords
 			// Tooltip.SetDefault("'Don't go breaking my heart'\nAll true melee attacks leech life\nShoots life crystals");
 		}
 		public override void SetDefaults() {
-			Item.damage = 21;
+			Item.damage = 17;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 56;
 			Item.height = 56;
@@ -40,21 +40,14 @@ namespace Zylon.Items.Swords
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.IronBroadsword);
-			recipe.AddIngredient(ItemID.LifeCrystal, 3);
+			recipe.AddIngredient(ItemID.LifeCrystal, 2);
 			recipe.AddRecipeGroup("Zylon:AnyGem", 8);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
 			recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.LeadBroadsword);
-			recipe.AddIngredient(ItemID.LifeCrystal, 3);
-			recipe.AddRecipeGroup("Zylon:AnyGem", 8);
-			recipe.AddTile(TileID.Anvils);
-			recipe.Register();
-
-			recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<ZincBroadsword>());
-			recipe.AddIngredient(ItemID.LifeCrystal, 3);
+			recipe.AddIngredient(ItemID.LifeCrystal, 2);
 			recipe.AddRecipeGroup("Zylon:AnyGem", 8);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();

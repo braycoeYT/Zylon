@@ -8,8 +8,8 @@ namespace Zylon.Items.Ammo
 	public class ObsidianDart : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("For use with blowpipes");
-        }
+			Item.ResearchUnlockCount = 99;
+		}
 		public override void SetDefaults() {
 			Item.damage = 10;
 			Item.DamageType = DamageClass.Ranged;

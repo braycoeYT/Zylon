@@ -6,9 +6,6 @@ namespace Zylon.Items.Flails
 {
 	public class TheMeteorite : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Has a large range");
-		}
 		public override void SetDefaults() {
 			Item.width = 32;
 			Item.height = 32;

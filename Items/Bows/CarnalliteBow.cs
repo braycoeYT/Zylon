@@ -8,14 +8,11 @@ namespace Zylon.Items.Bows
 {
 	public class CarnalliteBow : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Every third shot releases a leaf with each arrow");
-		}
 		public override void SetDefaults()  {
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 18;
 			Item.useTime = 18;
-			Item.damage = 28;
+			Item.damage = 24;
 			Item.width = 42;
 			Item.height = 42;
 			Item.knockBack = 1f;

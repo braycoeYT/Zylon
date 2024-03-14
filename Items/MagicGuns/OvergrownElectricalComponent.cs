@@ -11,8 +11,7 @@ namespace Zylon.Items.MagicGuns
 		public override void SetStaticDefaults() {
 			// Tooltip.SetDefault("'Only at 0.1% of its true power'");
         }
-        public override void SetDefaults()
-        {
+        public override void SetDefaults() {
             Item.damage = 1;
             Item.DamageType = DamageClass.Magic;
             Item.width = 26;
@@ -31,6 +30,17 @@ namespace Zylon.Items.MagicGuns
             Item.mana = 1;
             Item.UseSound = SoundID.Item91;
         }
+        public override void UpdateInventory(Player player) {
+            if (Main.remixWorld) {
+				Item.damage = 109;
+				Item.knockBack = 5.5f;
+				Item.shoot = ModContent.ProjectileType<Projectiles.DirtGlobFriendly>();
+				Item.shootSpeed = 20f;
+				Item.rare = ItemRarityID.Yellow;
+				Item.value = Item.sellPrice(0, 5);
+                Item.mana = 7;
+            }
+        }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer, 2f);
             return false;
@@ -41,6 +51,15 @@ namespace Zylon.Items.MagicGuns
 				dust.noGravity = true;
 				dust.scale = 1.5f;
 			}
+		}
+        public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ModContent.ItemType<AdeniteSecurityElectrifier>());
+			recipe.AddIngredient(ItemID.DirtBlock, 100);
+            recipe.AddIngredient(ItemID.Ectoplasm, 13);
+            recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddCondition(Condition.RemixWorld);
+			recipe.Register();
 		}
 	}
 }

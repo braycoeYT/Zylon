@@ -7,9 +7,6 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Body)]
 	public class JadeRobe : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Increases maximum mana by 40\nReduces mana usage by 8%");
-		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;

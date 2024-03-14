@@ -7,9 +7,6 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Body)]
 	public class SlimePrinceBreastplate : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Only second to the king himself'\nIncreases summoner damage by 4%\nIncreases your max number of minions by 1");
-		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;

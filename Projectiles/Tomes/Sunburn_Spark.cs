@@ -38,7 +38,8 @@ namespace Zylon.Projectiles.Tomes
 				dust.scale = 1.75f;
 			}
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
+			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			if (Main.myPlayer == Projectile.owner) for (int x = 0; x < Main.rand.Next(3, 5); x++) {
 				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-6, -2)), ModContent.ProjectileType<Sunburn_Flame>(), Projectile.damage/3, 0f, Main.myPlayer);
             }

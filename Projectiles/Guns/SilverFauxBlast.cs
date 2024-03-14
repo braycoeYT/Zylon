@@ -44,6 +44,7 @@ namespace Zylon.Projectiles.Guns
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             target.AddBuff(BuffID.OnFire, 260);
+            Projectile.damage = (int)(Projectile.damage*0.7f);
         }
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
@@ -56,13 +57,13 @@ namespace Zylon.Projectiles.Guns
         {
             for (int i = 0; i < 3; i++)
             {
-                ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-7, 7))), ModContent.ProjectileType<MoltenBullet>(), (int)(Projectile.damage / 3.1f), Projectile.knockBack, Projectile.owner, 0f, 0f);
+                ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-7, 7))), ModContent.ProjectileType<MoltenBullet>(), (int)(Projectile.originalDamage / 3.1f), Projectile.knockBack, Projectile.owner, 0f, 0f);
             }
 
             Projectile.Kill();
         }
 
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
             for (int d = 0; d < 30; d++)
             {

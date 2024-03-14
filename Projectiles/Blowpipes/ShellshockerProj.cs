@@ -37,7 +37,7 @@ namespace Zylon.Projectiles.Blowpipes
             totalRot += 0.03f;
 			Projectile.rotation = totalRot;
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

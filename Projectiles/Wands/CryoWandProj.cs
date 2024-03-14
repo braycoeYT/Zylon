@@ -42,7 +42,7 @@ namespace Zylon.Projectiles.Wands
 			}
         }
 
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Shatter, Projectile.Center);
 			Vector2 newVel = Projectile.velocity*-1f;
 			newVel.Normalize();

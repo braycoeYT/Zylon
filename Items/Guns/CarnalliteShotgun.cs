@@ -8,15 +8,12 @@ namespace Zylon.Items.Guns
 {
 	public class CarnalliteShotgun : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Fires a spread of leaves with every shot");
-		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 0, 56, 0);
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 58;
 			Item.useTime = 58;
-			Item.damage = 45;
+			Item.damage = 41;
 			Item.width = 40;
 			Item.height = 16;
 			Item.knockBack = 3f;

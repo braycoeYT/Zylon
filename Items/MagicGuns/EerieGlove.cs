@@ -16,7 +16,7 @@ namespace Zylon.Items.MagicGuns
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 9;
 			Item.useTime = 9;
-			Item.damage = 19;
+			Item.damage = 23;
 			Item.width = 28;
 			Item.height = 32;
 			Item.knockBack = 1.6f;

@@ -6,9 +6,6 @@ namespace Zylon.Items.Accessories
 {
 	public class MagicalVaccine : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Scares those flat-earthers outta town!'\nGrants immunity to feral bite");
-		}
 		public override void SetDefaults() {
 			Item.width = 40;
 			Item.height = 40;

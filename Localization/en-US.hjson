@@ -44,12 +44,12 @@ Mods: {
 
 			LeafShield: {
 				DisplayName: Leaf Shield
-				Description: "'The leaves are empowering you'"
+				Description: The leaves are empowering you
 			}
 
 			NaturesPrayer: {
 				DisplayName: Nature's Prayer
-				Description: "'Nature cares for all'"
+				Description: Nature cares for all
 			}
 
 			ShadowstitchedBlitz: {
@@ -80,16 +80,6 @@ Mods: {
 			BreathRecovery: {
 				DisplayName: Breath Recovery
 				Description: All this blowing takes a while to recover from!
-			}
-
-			BrokenKarta1: {
-				DisplayName: Broken Karta
-				Description: Your Karta is broken!
-			}
-
-			BrokenKarta2: {
-				DisplayName: Broken Karta
-				Description: Your Karta is broken!
 			}
 
 			DeadlyToxins: {
@@ -282,6 +272,11 @@ Mods: {
 				Description: Gives a small chance to dodge attacks
 			}
 
+			GraniteEnergyBoost: {
+				DisplayName: Granite Energy Boost
+				Description: The granite energy flows through you
+			}
+
 			LeafBracer: {
 				DisplayName: Leaf Bracer
 				Description: Nature is protecting you!
@@ -305,6 +300,51 @@ Mods: {
 			AdenebOffense: {
 				DisplayName: Adeneb Offense
 				Description: Mods.Zylon.Buffs.AdenebOffense.Description
+			}
+
+			EyeLashDebuff: {
+				Description: Mods.Zylon.Buffs.EyeLashDebuff.Description
+				DisplayName: Eye Lash Debuff
+			}
+
+			EyeLashAdvancedDebuff: {
+				Description: Mods.Zylon.Buffs.EyeLashAdvancedDebuff.Description
+				DisplayName: Eye Lash Advanced Debuff
+			}
+
+			StarweaverAdvancedDebuff: {
+				DisplayName: Starweaver Advanced Debuff
+				Description: Mods.Zylon.Buffs.StarweaverAdvancedDebuff.Description
+			}
+
+			StarweaverDebuff: {
+				DisplayName: Starweaver Debuff
+				Description: Mods.Zylon.Buffs.StarweaverDebuff.Description
+			}
+
+			ManaRechargeCooldown: {
+				DisplayName: Mana Recharge Cooldown
+				Description: Gathering static electricity...
+			}
+
+			GiegueAdvancedDebuff: {
+				DisplayName: Giegue Advanced Debuff
+				Description: Mods.Zylon.Buffs.GiegueAdvancedDebuff.Description
+			}
+
+			GiegueDebuff: {
+				DisplayName: Giegue Debuff
+				Description: Mods.Zylon.Buffs.GiegueDebuff.Description
+			}
+
+			GieguePsiBoost: {
+				DisplayName: PSI Boost
+				Description: The psychic power of an advanced alien race flows through you
+			}
+
+			PossessedDiamond: {
+				DisplayName: Possessed Diamond
+				Description: The Possessed Diamond will fight for you
 			}
 		}
 
@@ -426,6 +466,15 @@ Mods: {
 				Tooltip: Hexes the Wand of Sparking and Ore Staves with shadowy magicks
 			}
 
+			Inhaler: {
+				DisplayName: Inhaler
+				Tooltip:
+					'''
+					Increases blowpipe charge speed as the player moves faster
+					This caps out at 15/s
+					'''
+			}
+
 			IronBand: {
 				DisplayName: Iron Band
 				Tooltip: Increases the potency of Ironskin Potions
@@ -461,6 +510,25 @@ Mods: {
 					'''
 			}
 
+			ManaBattery: {
+				DisplayName: Mana Battery
+				Tooltip:
+					'''
+					After going under 20 mana, completely refills your mana to the maximum
+					30 second cooldown
+					'''
+			}
+
+			ManaPod: {
+				DisplayName: Mana Pod
+				Tooltip:
+					'''
+					Increases max mana by 40 during the day at the surface
+					Otherwise increases max mana by 10
+					Increases mana regeneration while standing still
+					'''
+			}
+
 			Metecore: {
 				DisplayName: Metecore
 				Tooltip:
@@ -469,6 +537,17 @@ Mods: {
 					Damaging enemies summons meteor spirits
 					As you collect meteor spirits, your friendly meteor will grow
 					At max size, the friendly meteor explodes into a flurry of fireballs
+					'''
+			}
+
+			MysticComet: {
+				DisplayName: Mystic Comet
+				Tooltip:
+					'''
+					'Make a wish!'
+					Having under 25% max mana causes giant mana stars to rain from the sky
+					Mana stars can damage enemies and have a 25% chance to explode into collectable versions
+					Collectable versions are worth 20 mana
 					'''
 			}
 
@@ -483,6 +562,20 @@ Mods: {
 					'''
 			}
 
+			OverchargedManaCapsule: {
+				DisplayName: Overcharged Mana Capsule
+				Tooltip:
+					'''
+					Increases max mana by 40 during the day at the surface
+					Otherwise increases max mana by 10
+					Increases mana regeneration while standing still
+					Killing enemies with magic spawns granite energy wisps for the owner
+					Collect granite energy wisps to boost mana regeneration for a few seconds
+					After going under 20 mana, completely refills your mana to the maximum
+					Mana refill has a 30 second cooldown
+					'''
+			}
+
 			ProteinSplicer: {
 				DisplayName: Protein Splicer
 				Tooltip:
@@ -492,9 +585,25 @@ Mods: {
 					'''
 			}
 
+			RaiStone: {
+				DisplayName: Rai Stone
+				Tooltip: Increases defense by 8 while standing still
+			}
+
 			RootGuard: {
 				DisplayName: Root Guard
 				Tooltip: Taking damage will summon roots nearby to damage enemies
+			}
+
+			RuneofMultiplicity: {
+				DisplayName: Rune of Multiplicity
+				Tooltip:
+					'''
+					'The latest in duplication magicks'
+					Grants an additional minion slot for every extra slot the player has 
+					This caps after three extra slots
+					Decreases minion damage by 40%
+					'''
 			}
 
 			SaberTooth: {
@@ -528,10 +637,15 @@ Mods: {
 
 			SlimePendant: {
 				DisplayName: Slime Pendant
+				Tooltip: Slightly increases max jump height and fall speed
+			}
+
+			SparkingCore: {
+				DisplayName: Sparking Core
 				Tooltip:
 					'''
-					Slightly increases max jump height
-					Releases slime spikes after taking damage
+					Killing enemies with magic spawns granite energy wisps for the owner
+					Collect granite energy wisps to boost mana regeneration for a few seconds
 					'''
 			}
 
@@ -566,6 +680,11 @@ Mods: {
 					Heavily increases critical strike chance and damage as health decreases
 					This maxes out at 15% increased chance and 25% increased damage
 					'''
+			}
+
+			ArchangelWings: {
+				DisplayName: Archangel Wings
+				Tooltip: Allows flight and extremely slow fall
 			}
 
 			EldritchTentacles: {
@@ -705,6 +824,15 @@ Mods: {
 					'''
 					For use with blowpipes
 					May poison struck enemies
+					'''
+			}
+
+			LuminiteDart: {
+				DisplayName: Luminite Dart
+				Tooltip:
+					'''
+					For use with blowpipes
+					Summons replicas to attack struck enemies
 					'''
 			}
 
@@ -849,7 +977,7 @@ Mods: {
 				DisplayName: Carnallite Breastplate
 				Tooltip:
 					'''
-					Increases run speed by 10%
+					Increases run acceleration by 6%
 					Increases max life by 20
 					'''
 			}
@@ -858,8 +986,8 @@ Mods: {
 				DisplayName: Carnallite Helmet
 				Tooltip:
 					'''
+					Increases max life by 20
 					Increases damage by 4%
-					Increases run speed by 10%
 					'''
 			}
 
@@ -867,8 +995,8 @@ Mods: {
 				DisplayName: Carnallite Leggings
 				Tooltip:
 					'''
-					Increases max life by 20
 					Increases damage by 4%
+					Increases run acceleration by 6%
 					'''
 			}
 
@@ -891,7 +1019,7 @@ Mods: {
 				DisplayName: Gooey Cover
 				Tooltip:
 					'''
-					Somehow just as strong as metal, but I wouldn't question it
+					'Somehow just as strong as metal, but I wouldn't question it'
 					Increases melee speed by 8%, ranged critical strike chance by 5, max mana by 20, and minion knockback by 20%
 					'''
 			}
@@ -900,7 +1028,7 @@ Mods: {
 				DisplayName: Gooey Cowl
 				Tooltip:
 					'''
-					Somehow just as strong as metal, but I wouldn't question it
+					'Somehow just as strong as metal, but I wouldn't question it'
 					Increases damage by 3%
 					'''
 			}
@@ -909,14 +1037,14 @@ Mods: {
 				DisplayName: Gooey Leggings
 				Tooltip:
 					'''
-					Somehow just as strong as metal, but I wouldn't question it
+					'Somehow just as strong as metal, but I wouldn't question it'
 					Increases damage by 4%
 					'''
 			}
 
 			HaxoniteBreastplate: {
 				DisplayName: Haxonite Breastplate
-				Tooltip: Increases life and mana regeneration by 1
+				Tooltip: Increases damage reduction by 4%
 			}
 
 			HaxoniteHelmet: {
@@ -1399,11 +1527,7 @@ Mods: {
 
 			Barfarang: {
 				DisplayName: Barfarang
-				Tooltip:
-					'''
-					Hold down to charge boomerang throw
-					Camera movement can be changed in the config
-					'''
+				Tooltip: ""
 			}
 
 			BionicBoomer: {
@@ -1419,19 +1543,23 @@ Mods: {
 				DisplayName: Blazing Backlasher
 				Tooltip:
 					'''
-					Moves around erratically
-					Leaves an explosive trail behind itself
-					Right click for a shorter range attack
+					Pauses before returning to reach ultra speed
+					While returning to the player, leaves a trail of explosions
+					Is able to be rethrown after velocity peak
 					'''
 			}
 
 			Cactirang: {
 				DisplayName: Cactirang
+				Tooltip: Spawns damaging prickly pears on critical strikes
+			}
+
+			ChlorophyteCutter: {
+				DisplayName: Chlorophyte Cutter
 				Tooltip:
 					'''
-					Hold down to charge boomerang throw
-					Spawns damaging prickly pears on critical strikes
-					Camera movement can be changed in the config
+					Creates a ring of spore clouds on enemy collision and before returning
+					Is able to be rethrown after velocity peak
 					'''
 			}
 
@@ -1440,10 +1568,8 @@ Mods: {
 				Tooltip:
 					'''
 					'Hell's frozen over!'
-					Hold down to charge boomerang throw
 					Struck enemies are inflicted with On Fire and Frostburn
 					Before returning, releases several ice and fire balls
-					Camera movement can be changed in the config
 					'''
 			}
 
@@ -1455,6 +1581,16 @@ Mods: {
 					Explodes into a barrage of burning rock after striking a tile or sticking to enemies
 					You can rethrow while stuck Iblises are still active
 					Hits have a chance to confuse enemies
+					'''
+			}
+
+			Mecharang: {
+				DisplayName: Mecharang
+				Tooltip:
+					'''
+					Explodes after striking an enemy
+					Instead of returning normally, falls to the ground and explodes
+					You can rethrow while fallen Mecharangs are still active
 					'''
 			}
 
@@ -1485,6 +1621,7 @@ Mods: {
 					'''
 					Inflicts cursed inferno on struck enemies
 					Shoots cursed flames at nearby enemies
+					Is able to be rethrown after velocity peak
 					'''
 			}
 
@@ -1506,13 +1643,31 @@ Mods: {
 				Tooltip: Splits into two mini chakrams after being thrown
 			}
 
+			WretchedWrench: {
+				DisplayName: Wretched Wrench
+				Tooltip:
+					'''
+					'Its original use has long been corrupted'
+					Has a 20% chance to get stuck to struck enemies, dealing massive damage
+					Is able to be rethrown after velocity peak or getting stuck
+					'''
+			}
+
 			XBlade: {
 				DisplayName: X-Blade
 				Tooltip:
 					'''
 					UNOBTAINABLE: Planned to be PML
 					'Pronounced keyblade, but it wouldn't save the curly X letter' - Some old coot
-					Hits have a chance to spawn either thirteen No Names to pierce enemies, or seven healing orbs that chase the player
+					'''
+			}
+
+			AwakenedRiftCalibrator: {
+				DisplayName: Awakened Rift Calibrator
+				Tooltip:
+					'''
+					Summons Sabur Rex
+					Not Consumable
 					'''
 			}
 
@@ -1589,6 +1744,33 @@ Mods: {
 					'''
 			}
 
+			Caeruleus: {
+				DisplayName: Caeruleus
+				Tooltip:
+					'''
+					Fires four arrows in a row at a time
+					Has a 25% chance to convert ammo to Cerulean Arrows
+					Cerulean Arrows obliterate enemy immunity frames
+					They also inflict Frostburn, Shroomed, Slimed, and Wet
+					Cerulean Arrows split into three upon hitting an enemy
+					Splitting occurs once per arrow
+					'''
+			}
+
+			Cartilage: {
+				DisplayName: Cartilage
+				Tooltip: Has a 33% chance to convert arrows to bone arrows
+			}
+
+			Crystalizer: {
+				DisplayName: Crystalizer
+				Tooltip:
+					'''
+					Replaces every third shot with a crystal shard
+					Crystal shards split multiple times before dissipating
+					'''
+			}
+
 			CarnalliteBow: {
 				DisplayName: Carnallite Bow
 				Tooltip: Every third shot releases a leaf with each arrow
@@ -1607,6 +1789,11 @@ Mods: {
 			MeteorTrailer: {
 				DisplayName: Meteor Trailer
 				Tooltip: Gives arrows a small trail of meteorites
+			}
+
+			RubyBow: {
+				DisplayName: Ruby Bow
+				Tooltip: Has a 25% chance to replace ammo with a splitting Ruby Arrow
 			}
 
 			Sightseer: {
@@ -1700,6 +1887,11 @@ Mods: {
 				Tooltip: Used to make Brown Dye
 			}
 
+			ChocolateMacaron: {
+				DisplayName: Chocolate Macaron
+				Tooltip: Minor improvements to all stats
+			}
+
 			CottonCandy: {
 				DisplayName: Cotton Candy
 				Tooltip:
@@ -1739,6 +1931,11 @@ Mods: {
 					Minor improvements to all stats
 					'Alchemists have been known to use potatoes for soul infusions.'
 					'''
+			}
+
+			RedVelvetMacaron: {
+				DisplayName: Red Velvet Macaron
+				Tooltip: Minor improvements to all stats
 			}
 
 			Smore: {
@@ -1803,9 +2000,17 @@ Mods: {
 				DisplayName: Grave Buster
 				Tooltip:
 					'''
-					'Grave robbing for morons'
 					Replaces ammo with spirit bullets
 					Hitting enemies will give you the 'Gravely Powers' buff, which increases your life regen
+					'''
+			}
+
+			HeavyLobster: {
+				DisplayName: Heavy Lobster
+				Tooltip:
+					'''
+					Replaces every third shot with a special projectile
+					Alternates between splitting paint blobs and flame blasts
 					'''
 			}
 
@@ -1844,6 +2049,15 @@ Mods: {
 					'''
 					'Hot to the touch'
 					Shoots a flaming shard that blasts into shrapnel
+					'''
+			}
+
+			TempleEqualizer: {
+				DisplayName: Temple Equalizer
+				Tooltip:
+					'''
+					Fires a barrage of bullets on foes
+					Every third shot is replaced with an equal spread of Temple Blasts
 					'''
 			}
 
@@ -1951,7 +2165,7 @@ Mods: {
 
 			MetallicBell: {
 				DisplayName: Metallic Bell
-				Tooltip: Not to be confused with the Bell, Fairy Bell, Reindeer Bells, Eerie Bell, or Eldritch Bell
+				Tooltip: Rings when swung
 			}
 
 			NeutronFragment: {
@@ -1999,6 +2213,11 @@ Mods: {
 				Tooltip: "'It looks as if it fell from heaven (not to be confused with glitter, which rose from hell)'"
 			}
 
+			SpectralPixieDust: {
+				DisplayName: Spectral Pixie Dust
+				Tooltip: "'Extra magical!e'"
+			}
+
 			TabooEssence: {
 				DisplayName: Taboo Essence
 				Tooltip: "'It dances unevenly on your hand'"
@@ -2012,6 +2231,15 @@ Mods: {
 			WolfPelt: {
 				DisplayName: Wolf Pelt
 				Tooltip: "'With this, you can turn the wolf's winter coat into yours'"
+			}
+
+			DiamondCane: {
+				DisplayName: Diamond Cane
+				Tooltip:
+					'''
+					Summons a possessed diamond to fight for you
+					Diamonds alternate between dashing and shooting bolts
+					'''
 			}
 
 			GlowingMushtopStaff: {
@@ -2135,6 +2363,15 @@ Mods: {
 			MagnificentOrb: {
 				DisplayName: Magnificent Orb
 				Tooltip: "'Warning: May cause spatial anomalies.'"
+			}
+
+			MysticCometStar: {
+				DisplayName: Star
+				Tooltip:
+					'''
+					Heals 20 mana
+					(This is for the Mystic Comet accessory and upgrades)
+					'''
 			}
 
 			Neutrobliterator: {
@@ -2300,9 +2537,19 @@ Mods: {
 					'''
 			}
 
+			GreaterRestorationPotion: {
+				DisplayName: Greater Restoration Potion
+				Tooltip: Reduced potion cooldown
+			}
+
 			HeavyHitterPotion: {
 				DisplayName: Heavy Hitter Potion
 				Tooltip: Increases critical strike damage by 20%
+			}
+
+			LesserRestorationPotion: {
+				DisplayName: Lesser Restoration Potion
+				Tooltip: Reduced potion cooldown
 			}
 
 			ManareachPotion: {
@@ -2332,6 +2579,11 @@ Mods: {
 			StealthPotion: {
 				DisplayName: Stealth Potion
 				Tooltip: Gives a small chance to dodge attacks
+			}
+
+			SuperRestorationPotion: {
+				DisplayName: Super Restoration Potion
+				Tooltip: Reduced potion cooldown
 			}
 
 			SoulInfusedPotato: {
@@ -2526,11 +2778,7 @@ Mods: {
 
 			HBDeusGreatsword: {
 				DisplayName: HBDeus's Greatsword
-				Tooltip:
-					'''
-					UNOBTAINABLE: Developer Item
-					Surrounds the cursor with shattered swords
-					'''
+				Tooltip: Surrounds the cursor with shattered swords
 			}
 
 			Heartbreaker: {
@@ -2614,11 +2862,7 @@ Mods: {
 
 			Slimebender: {
 				DisplayName: Slimebender
-				Tooltip:
-					'''
-					UNOBTAINABLE: Developer item
-					Shoots a large slimeblast that explodes into smaller slimeblasts
-					'''
+				Tooltip: Every third swing shoots a large slimeblast that explodes into smaller slimeblasts
 			}
 
 			Slimecutter: {
@@ -2657,7 +2901,12 @@ Mods: {
 
 			TrueLobera: {
 				DisplayName: True Lobera
-				Tooltip: ""
+				Tooltip:
+					'''
+					Every other swing creates tiny rings of orbs
+					Increases damage, knockback, and swing speed as health decreases
+					At max or under 25% health, fires powerful sword beams with massive orb rings
+					'''
 			}
 
 			ZincBroadsword: {
@@ -2686,15 +2935,12 @@ Mods: {
 					'''
 			}
 
-			DarkPrognosticus: {
-				DisplayName: Dark Prognosticus
+			CrystalTsunami: {
+				DisplayName: Crystal Tsunami
 				Tooltip:
 					'''
-					UNOBTAINABLE: Planned for PML
-					Summons a Chaos Heart at the cursor to attack enemies
-					The Chaos Heart releases rounds of voids
-					Voids have a chance to leech mana from enemies on hit
-					Inflicts Timestop on enemies
+					Barrages foes with countless crystals
+					Large crystals split into smaller bits upon dissipation
 					'''
 			}
 
@@ -2728,6 +2974,20 @@ Mods: {
 					Casts down a psychokinetic flame wall
 					'Reminds you of something, although you don't know what.'
 					'''
+			}
+
+			NeedleSpitter: {
+				DisplayName: Needle Spitter
+				Tooltip:
+					'''
+					Casts a cascade of poisonous cactus needles
+					Needles have a 25% chance to get stuck in enemies, dealing extra damage
+					'''
+			}
+
+			SapphireSpellbook: {
+				DisplayName: Sapphire Spellbook
+				Tooltip: Erratically fires short-range sapphire blasts
 			}
 
 			Snowfall: {
@@ -2852,14 +3112,40 @@ Mods: {
 				Tooltip: "'Can Polandball into space?'"
 			}
 
+			ArchangelsWand: {
+				DisplayName: Archangel's Wand
+				Tooltip: Blasts an accelerating Archangel Shot
+			}
+
 			CarnalliteWand: {
 				DisplayName: Carnallite Wand
-				Tooltip: Rains leaves from the sky at the cursor
+				Tooltip: Creates a line of leaves near the player
 			}
 
 			CryoWand: {
 				DisplayName: Cryo Wand
 				Tooltip: Fires a chunk of ice that splits into several shards on impact
+			}
+
+			EnchantedTreeTruncheon: {
+				DisplayName: Enchanted Tree Truncheon
+				Tooltip:
+					'''
+					'The forest winds quietly whisper in your ear...'
+					Fires high-gravity logs of wood
+					Has a 25% chance to replace logs with an array of leaves
+					Leaves track the closest enemy
+					'''
+			}
+
+			ExperimentalSyringe: {
+				DisplayName: Experimental Syringe
+				Tooltip:
+					'''
+					'Is this what Conspiracy Joe was blabbering on about?'
+					Fires multi-colored shots of an unknown substance
+					Different colors inflict different debuffs
+					'''
 			}
 
 			JadeStaff: {
@@ -2877,23 +3163,18 @@ Mods: {
 				Tooltip: Summons three meteors nearby to crash into foes
 			}
 
-			OceanWaterer: {
-				DisplayName: Ocean Waterer
-				Tooltip:
-					'''
-					'Seems a little much for just winning a water gun fight...'
-					Waterboards enemies with a barrage of water splashes
-					'''
-			}
-
 			ScepterofDirt: {
 				DisplayName: Scepter of Dirt
-				Tooltip: Rains dirt balls from above on enemies
+				Tooltip:
+					'''
+					Fires dirt balls at enemies
+					After collision, collapses into dirt clumps which continue to deal damage over time
+					'''
 			}
 
 			Slimecaster: {
 				DisplayName: Slimecaster
-				Tooltip: Rains a slime mass from above that explodes into slime spikes upon contact
+				Tooltip: Casts a slime mass that explodes into slime spikes upon contact
 			}
 
 			SpareLeg: {
@@ -2911,12 +3192,76 @@ Mods: {
 				Tooltip: ""
 			}
 
+			TreeTruncheon: {
+				DisplayName: Tree Truncheon
+				Tooltip:
+					'''
+					Fires high-gravity logs of wood
+					Has a 20% chance to replace logs with acorns
+					Acorns create damaging saplings upon tile collision
+					'''
+			}
+
+			VaporsEon: {
+				DisplayName: Vapor's Eon
+				Tooltip:
+					'''
+					'Represents the cutest water elemental of them all'
+					Sprays both water showers and splitting blasts
+					Has a 20% chance to fire multiple water showers
+					Has a 10% chance to replace water blasts with massive versions that split even further
+					'''
+			}
+
 			WandofKindling: {
 				DisplayName: Wand of Kindling
 				Tooltip:
 					'''
 					Shoots a splitting spark
 					Affected by the Hex Necklace
+					'''
+			}
+
+			EyeLash: {
+				DisplayName: Eye Lash
+				Tooltip:
+					'''
+					'Gross, but useful!'
+					Summons servants of cthulhu upon striking foes
+					{$CommonItemTooltip.SummonTagDamage}
+					{$CommonItemTooltip.Whips}
+					'''
+			}
+
+			Giegue: {
+				DisplayName: Giegue
+				Tooltip:
+					'''
+					'Go home now! Perish with the rest of the ugly Earth People.'
+					Striking foes will grant the user the 'PSI Boost' buff
+					PSI Boost increases magic damage by 15%, and mana regeneration by 1
+					{$CommonItemTooltip.SummonTagDamage}
+					{$CommonItemTooltip.Whips}
+					'''
+			}
+
+			Starweaver: {
+				DisplayName: Starweaver
+				Tooltip:
+					'''
+					Creates a powerful trail of stardust fragments behind the whip
+					{$CommonItemTooltip.SummonTagDamage}
+					{$CommonItemTooltip.Whips}
+					'''
+			}
+
+			Amaguq: {
+				DisplayName: Amaguq
+				Tooltip:
+					'''
+					'Forged by the cold Alaskan night...'
+					Inflicts Frostburn and Brain Freeze on non-boss enemies, slowing them down
+					Leaves a short damaging trail of replicas behind itself
 					'''
 			}
 
@@ -2938,18 +3283,9 @@ Mods: {
 					'''
 			}
 
-			Coldnea: {
-				DisplayName: Coldnea
-				Tooltip: Shoots ice lasers around itself when thrown
-			}
-
 			Dirtglob: {
 				DisplayName: Dirtglob
-				Tooltip:
-					'''
-					'Become one with the dirt'
-					On use, surrounds itself with dirt blocks
-					'''
+				Tooltip: On use, surrounds itself with dirt blocks
 			}
 
 			EarthDay: {
@@ -2969,7 +3305,7 @@ Mods: {
 
 			GloriousSun: {
 				DisplayName: Glorious Sun
-				Tooltip: Creates explosions nearby itself
+				Tooltip: Envelops itself in two rotating solar flare rings
 			}
 
 			Insomnia: {
@@ -3128,7 +3464,7 @@ Mods: {
 			}
 
 			AdeniteShrapnel: {
-				Tooltip: ""
+				Tooltip: To be used with the Shrapnel Gun
 				DisplayName: Adenite Shrapnel
 			}
 
@@ -3140,6 +3476,42 @@ Mods: {
 			GloryDye: {
 				DisplayName: Glory Dye
 				Tooltip: ""
+			}
+
+			Cerussite: {
+				Tooltip: "'Filled to the brim with microscopic gem shards'"
+				DisplayName: Cerussite
+			}
+
+			CerussiteBatBanner: {
+				Tooltip: ""
+				DisplayName: Cerussite Bat Banner
+			}
+
+			BiDisc: {
+				Tooltip:
+					'''
+					'Dragons are inscribed on this'
+					Has a 10% chance to unleash four duplicate boomerangs after striking a foe
+					Can only unleash duplicates once per throw
+					Can be rethrown while duplicates are still active
+					'''
+				DisplayName: Bi Disc
+			}
+
+			PixieArchangelBanner: {
+				DisplayName: Pixie Archangel Banner
+				Tooltip: ""
+			}
+
+			SpectralFairyDust: {
+				DisplayName: Spectral Fairy Dust
+				Tooltip: ""
+			}
+
+			TopazPike: {
+				DisplayName: Topaz Pike
+				Tooltip: Thrusts fire a short range Topaz Bolt
 			}
 		}
 
@@ -3173,6 +3545,8 @@ Mods: {
 			GrassSeed.DisplayName: Grass Seed
 			HallowedSeed.DisplayName: Hallowed Seed
 			JungleGrassSeed.DisplayName: Jungle Grass Seed
+			LuminiteDart.DisplayName: Luminite Dart
+			LuminiteDartReplica.DisplayName: Luminite Dart Replica
 			MoltenSeed.DisplayName: Molten Seed
 			MoonglowSeed.DisplayName: Moonglow Seed
 			MoonglowSeedFall.DisplayName: Moonglow Seed
@@ -3223,11 +3597,15 @@ Mods: {
 			WindpipeofthePhoenixProj.DisplayName: Phoenix Breath
 			BoneFriendlyMagic.DisplayName: Bone
 			Barfarang.DisplayName: Barfarang
+			BarfarangOG.DisplayName: Barfarang
 			BionicBoomerRang.DisplayName: Bionic Boomer
 			BlazingBacklasher.DisplayName: Blazing Backlasher
+			BlazingBacklasherProj.DisplayName: Blazing Backlasher
 			Cactirang.DisplayName: Cactirang
 			CactirangPricklyPear.DisplayName: Prickly Pear
+			CactirangOG.DisplayName: Cactirang
 			FireandIce.DisplayName: Fire and Ice
+			FireandIceOG.DisplayName: Fire and Ice
 			FireandIce_1.DisplayName: Ball of Frost
 			FireandIce_2.DisplayName: Ball of Fire
 			Mephiles.DisplayName: Mephiles
@@ -3271,6 +3649,8 @@ Mods: {
 			MetelordMeteoriteAttack2.DisplayName: Swarm Meteorite
 			MetelordMeteoriteRain.DisplayName: Fallen Meteorite
 			MiniCursorInfernoRing.DisplayName: Mini Inferno
+			SaburRexSwordActive.DisplayName: Sabur Rex
+			SaburRexSwordFollow.DisplayName: Sabur Rex
 			SparklyArrow.DisplayName: Sparkly Arrow
 			StoneArrow.DisplayName: Stone Arrow
 			SunsGlareProj.DisplayName: Sun's Glare
@@ -3311,9 +3691,12 @@ Mods: {
 			WaterStreamHostile.DisplayName: Water Stream
 			BambooSpike.DisplayName: Bamboo Spike
 			ClockworkBit.DisplayName: Clockwork Bit
+			HeavyLobsterProjBlob.DisplayName: Heavy Lobster
+			HeavyLobsterProjFlame.DisplayName: Heavy Lobster
 			MoltenBullet.DisplayName: Molten Bullet
 			SilverFauxBlast.DisplayName: Faux Blast
 			SpiritBullet.DisplayName: Spirit Bullet
+			TempleEqualizer.DisplayName: Temple Equalizer
 			HaxoniteTrail.DisplayName: Flame Orb
 			IceBoltRanged.DisplayName: Ice Bolt
 			JungleSporeRanged.DisplayName: Jungle Spore
@@ -3344,6 +3727,8 @@ Mods: {
 			MiniJellyLaser.DisplayName: Mini Jelly Laser
 			MushroomSpore.DisplayName: Mushroom Spore
 			Mushtop.DisplayName: Mushtop
+			PossessedDiamond.DisplayName: Possessed Diamond
+			PossessedDiamondProj.DisplayName: Possessed Diamond
 			RoyalSlime.DisplayName: Floating Slime Staff
 			RoyalSlimeProj.DisplayName: Gel
 			Spazsickle.DisplayName: Spazsickle
@@ -3394,6 +3779,7 @@ Mods: {
 			SuperheatedStabber.DisplayName: Superheated Stabber
 			SuperheatedStabberThrown.DisplayName: Superheated Stabber
 			SuperheatedStabberThrownBoom.DisplayName: Superheated Stabber
+			TopazPike.DisplayName: Topaz Pike
 			ZincSpear.DisplayName: Zinc Spear
 			StingerPassive.DisplayName: Stinger
 			BloodOrb.DisplayName: Blood Orb
@@ -3429,6 +3815,7 @@ Mods: {
 			ManaFlower.DisplayName: Mana Flower
 			ManaSeed.DisplayName: Mana Seed
 			ChaosBallFriendly.DisplayName: Chaos Ball
+			CrystalTsunamiProj.DisplayName: Crystal Tsunami
 			DarkPrognosticusChaosHeart.DisplayName: Chaos Heart
 			DarkPrognosticusVoid.DisplayName: Void
 			DeterminationBreakerProj.DisplayName: Determination Breaker
@@ -3447,6 +3834,7 @@ Mods: {
 			CryoWandProj.DisplayName: Cryo Wand
 			CryoWandProjShard.DisplayName: Cryo Wand
 			DirtBallScepter.DisplayName: Dirt Ball
+			DirtBallScepter2.DisplayName: Dirt Ball
 			HexOreStaffProj.DisplayName: Hexed Ore Staff
 			HexOreStaffProj_Child.DisplayName: Hexed Ore Staff
 			JadeBolt.DisplayName: Jade Bolt
@@ -3461,11 +3849,13 @@ Mods: {
 			WandofKindlingProj_2.DisplayName: Wand of Kindling
 			WaterStreamRanged.DisplayName: Water Stream
 			AcornFriendlyMelee.DisplayName: Acorn
+			EyeLash.DisplayName: Eye Lash
+			AmaguqProj.DisplayName: Amaguq
+			AmaguqTrail.DisplayName: Amaguq
 			AmazonPackage.DisplayName: Package
 			AmazonPackageFall.DisplayName: Package
 			AmazonPrime.DisplayName: Amazon Prime
 			Code3.DisplayName: Code3
-			Coldnea.DisplayName: Coldnea
 			DirtBlockYoyo.DisplayName: Dirt Block
 			Dirtglob.DisplayName: Dirtglob
 			EarthDay.DisplayName: Earth Day
@@ -3529,6 +3919,44 @@ Mods: {
 			AdenebFinaleSunRing.DisplayName: Pocket Sun
 			FrostbiteProj.DisplayName: Frostbite
 			FrostbiteProj2.DisplayName: Frostbite
+			EyeLashProj.DisplayName: Eye Lash
+			Starweaver.DisplayName: Starweaver
+			StarweaverTrace.DisplayName: Starweaver Trace
+			StarweaverTrail.DisplayName: Starweaver Trail
+			WretchedWrench.DisplayName: Wretched Wrench
+			BoneArrowProj.DisplayName: Bone Arrow
+			CrystalizerProj.DisplayName: Crystalizer
+			MysticCometProj.DisplayName: Mystic Comet
+			SparkingCoreProj.DisplayName: Sparking Core
+			CarnalliteWandProj.DisplayName: Carnallite Wand
+			TempleEqualizerProj.DisplayName: Temple Equalizer
+			Giegue.DisplayName: Giegue
+			HeavyLobsterProjBlobMini.DisplayName: Heavy Lobster
+			CerussiteBatProj.DisplayName: Falling Gem
+			BiDisc.DisplayName: Bi Disc
+			NeedleSpitterProj.DisplayName: Needle Spitter
+			PixieArchangelProj.DisplayName: Pixie Archangel
+			ArchangelsWandProj.DisplayName: Archangels Wand
+			RubyArrow.DisplayName: Ruby Arrow
+			SapphireSpellbookProj.DisplayName: Sapphire Spellbook
+			CrystalTsunamiProj2.DisplayName: Crystal Tsunami
+			VaporsEonShower.DisplayName: Vapor's Eon
+			VaporsEonBlast.DisplayName: Vapor's Eon
+			CeruleanArrow.DisplayName: Cerulean Arrow
+			TreeTruncheonAcorn.DisplayName: Tree Truncheon
+			TreeTruncheonProj.DisplayName: Tree Truncheon
+			TreeTruncheonSapling.DisplayName: Tree Truncheon
+			EnchantedTreeTruncheonAcorn.DisplayName: Enchanted Tree Truncheon
+			EnchantedTreeTruncheonProj.DisplayName: Enchanted Tree Truncheon
+			EnchantedTreeTruncheonSapling.DisplayName: Enchanted Tree Truncheon
+			EnchantedTreeTruncheonLeaf.DisplayName: Enchanted Tree Truncheon
+			TopazPikeProj.DisplayName: Topaz Pike
+			GloriousSunProj.DisplayName: Glorious Sun
+			ChlorophyteCutter.DisplayName: Chlorophyte Cutter
+			ExperimentalSyringeProj.DisplayName: Experimental Syringe
+			TrueLoberaRing.DisplayName: True Lobera
+			TrueLoberaOrb.DisplayName: True Lobera
+			TrueLoberaBeam.DisplayName: True Lobera
 		}
 
 		NPCs: {
@@ -3577,6 +4005,7 @@ Mods: {
 				}
 			}
 
+			SaburRex.DisplayName: Sabur Rex
 			MetelordTail.DisplayName: Metelord
 			Mechatutubutt.DisplayName: Mechatutubutt
 			TerrarrarriaGod.DisplayName: Terrarrarria God
@@ -3641,6 +4070,8 @@ Mods: {
 			SupremeLookingEyeBody.DisplayName: Supreme Looking Eye (DA SUPREME MEMELORD)
 			SupremeLookingEyeHead.DisplayName: Supreme Looking Eye (DA SUPREME MEMELORD)
 			SupremeLookingEyeTail.DisplayName: Supreme Looking Eye (DA SUPREME MEMELORD)
+			CerussiteBat.DisplayName: Cerussite Bat
+			PixieArchangel.DisplayName: Pixie Archangel
 		}
 
 		Prefixes: {
@@ -3658,6 +4089,8 @@ Mods: {
 			Standard.DisplayName: Standard
 			Supernatural.DisplayName: Supernatural
 			Ultimate.DisplayName: Ultimate
+			Exalted.DisplayName: Exalted
+			Unhesitating.DisplayName: Unhesitating
 		}
 
 		Tiles: {
@@ -3672,6 +4105,7 @@ Mods: {
 			GloryGrasses.MapEntry: Glory Grass
 			GloryVines.MapEntry: Glory Vine
 			CarnalliteOre.MapEntry: Carnallite Ore
+			Cerussite.MapEntry: Cerussite
 			HaxoniteOre.MapEntry: Haxonite Ore
 			ZincOre.MapEntry: Zinc Ore
 		}
@@ -3745,6 +4179,11 @@ Mods: {
 				blackHoleTownNPC: {
 					Label: Neutron Armor Affects Town NPCs
 					Tooltip: Allows black holes to suck up town NPCs.
+				}
+
+				experimentalBoomerangs: {
+					Label: Experimental Boomerangs
+					Tooltip: Allows some boomerangs to have special AI.
 				}
 			}
 		}

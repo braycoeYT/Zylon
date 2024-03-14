@@ -105,7 +105,7 @@ namespace Zylon.Projectiles.MagicGuns
 					Projectile.velocity.Y = (Projectile.velocity.Y * (float)(num181 - 1) + num179) / (float)num181;
 				}
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

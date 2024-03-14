@@ -41,6 +41,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frozen] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Shimmer] = true;
 		}
 		public override void SetDefaults() {
 			NPC.CloneDefaults(NPCID.DiggerBody);
@@ -58,10 +59,10 @@ namespace Zylon.NPCs.Bosses.Metelord
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/BolideSerpent");
 		}
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
-			NPC.lifeMax = (int)((7000 + ((numPlayers - 1) * 4900))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+			NPC.lifeMax = (int)(7000*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 64;
 			if (Main.masterMode) {
-				NPC.lifeMax = (int)((8500 + ((numPlayers - 1) * 6400))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+				NPC.lifeMax = (int)(8500*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 92;
             }
 		}
@@ -477,6 +478,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 			else {
 				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Ores.HaxoniteOre>(), 1, 80, 100));
 				npcLoot.Add(ItemDropRule.Common(ItemID.Meteorite, 1, 15, 30));
+				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accessories.MysticComet>(), 5));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.MetelordMask>(), 7));
             }
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.MetelordTrophy>(), 10));
@@ -501,6 +503,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frozen] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Shimmer] = true;
 		}
 		public override void SetDefaults() {
 			NPC.CloneDefaults(NPCID.DiggerBody);
@@ -607,6 +610,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frozen] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.ShadowFlame] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Shimmer] = true;
 		}
 		public override void SetDefaults() {
 			NPC.CloneDefaults(NPCID.DiggerTail);

@@ -20,7 +20,7 @@ namespace Zylon.Projectiles.Ammo
             Projectile.damage /= 2;
 			if (Projectile.damage < 1) Projectile.damage = 1;
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

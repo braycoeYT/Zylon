@@ -6,9 +6,6 @@ namespace Zylon.Items.Ammo
 {
 	public class GiantGelCluster : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("For use with flamethrowers and other gel-consuming weapons");
-        }
 		public override void SetDefaults() {
 			Item.damage = 1;
 			Item.DamageType = DamageClass.Ranged;

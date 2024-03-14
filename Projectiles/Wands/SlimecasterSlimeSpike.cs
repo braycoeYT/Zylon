@@ -29,7 +29,7 @@ namespace Zylon.Projectiles.Wands
 				target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11) * 60);
 			}
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

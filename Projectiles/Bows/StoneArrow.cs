@@ -42,7 +42,7 @@ namespace Zylon.Projectiles.Bows
                 Projectile.velocity.Y = 16f;
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
             for (int a = 0; a < 21; a++) {
                 Dust killDust = Dust.NewDustDirect(Projectile.Center, Projectile.width, Projectile.height, ModContent.DustType<Dusts.StoneDust>());
                 killDust.velocity *= 1.8f;

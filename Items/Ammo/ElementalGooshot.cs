@@ -8,8 +8,8 @@ namespace Zylon.Items.Ammo
 	public class ElementalGooshot : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("For use with blowpipes\nInflicts Elemental Degeneration upon striking a foe");
-        }
+			Item.ResearchUnlockCount = 99;
+		}
 		public override void SetDefaults() {
 			Item.damage = 17;
 			Item.DamageType = DamageClass.Ranged;

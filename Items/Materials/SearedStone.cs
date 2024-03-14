@@ -6,6 +6,9 @@ namespace Zylon.Items.Materials
 {
 	public class SearedStone : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 25;
+		}
 		public override void SetDefaults() { //Add cool glow effect?
 			Item.width = 26;
 			Item.height = 26;

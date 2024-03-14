@@ -11,9 +11,6 @@ namespace Zylon.Items.Blowpipes
 	public class DirtFunnel : ZylonBlowpipe
 	{
 		public DirtFunnel() : base(125, 1.4f, new Color(125, 63, 0)) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Converts ammo to up to four dirt balls (depending on charge), of which only the first consumes ammo");
-		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);
             Item.damage = 6;

@@ -11,9 +11,6 @@ namespace Zylon.Items.Blowpipes
 	public class Starshooter : ZylonBlowpipe
 	{
 		public Starshooter() : base(145, 1.65f, new Color(127, 116, 194), true) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Supercharges starshots based on charge if they are used as ammo");
-		}
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);
             Item.damage = 18;

@@ -7,8 +7,7 @@ namespace Zylon.Items.Materials
 	public class SlimyCore : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Slimy Core");
-			// Tooltip.SetDefault("'Part of a slime nucleus'");
+			Item.ResearchUnlockCount = 25;
 		}
 		public override void SetDefaults() {
 			Item.width = 20;

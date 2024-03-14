@@ -27,11 +27,18 @@ namespace Zylon.NPCs.Bosses.Jelly
 					BuffID.Frozen,
 					ModContent.BuffType<Buffs.Debuffs.BrainFreeze>(),
 					ModContent.BuffType<Buffs.Debuffs.FlashPandemic>(),
-					ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(),
 					ModContent.BuffType<Buffs.Debuffs.Timestop>(),
 					ModContent.BuffType<Buffs.Debuffs.ZombieRot>()
 				}
 			};
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.BrainFreeze>()] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.FlashPandemic>()] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Chilled] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frozen] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.ZombieRot>()] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Shimmer] = true;
 		}
         public override void SetDefaults() {
 			NPC.width = 200;
@@ -52,11 +59,11 @@ namespace Zylon.NPCs.Bosses.Jelly
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/JellyTheme");
         }
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
-            NPC.lifeMax = (int)((11500 + ((numPlayers - 1) * 3500))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+            NPC.lifeMax = (int)(11500*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
             NPC.damage = 80;
 			NPC.value = 13750;
 			if (Main.masterMode) {
-				NPC.lifeMax = (int)((15500 + ((numPlayers - 1) * 4100))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+				NPC.lifeMax = (int)(15500*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 120;
             }
 			if (Main.getGoodWorld) NPC.scale = 1.5f;

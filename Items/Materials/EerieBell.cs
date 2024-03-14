@@ -6,6 +6,9 @@ namespace Zylon.Items.Materials
 {
 	public class EerieBell : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 25;
+		}
 		public override void SetDefaults() {
 			Item.width = 34;
 			Item.height = 20;

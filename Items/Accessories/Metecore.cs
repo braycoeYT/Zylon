@@ -6,9 +6,6 @@ namespace Zylon.Items.Accessories
 {
 	public class Metecore : ModItem
 	{
-		public override void SetStaticDefaults() { //Heavily increases your life regen and defense while on fire\n <-- scrapped
-			// Tooltip.SetDefault("Spawns a friendly meteor above your head\nDamaging enemies summons meteor spirits\nAs you collect meteor spirits, your friendly meteor will grow\nAt max size, the friendly meteor explodes into a flurry of fireballs");
-		}
 		public override void SetDefaults() {
 			Item.width = 28;
 			Item.height = 20;

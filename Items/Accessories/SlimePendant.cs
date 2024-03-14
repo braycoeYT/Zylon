@@ -7,7 +7,7 @@ namespace Zylon.Items.Accessories
 	public class SlimePendant : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Slightly increases max jump height\nReleases slime spikes after taking damage");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 		public override void SetDefaults() {
 			Item.width = 26;
@@ -17,9 +17,8 @@ namespace Zylon.Items.Accessories
 			Item.rare = ItemRarityID.Blue;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
-			player.jumpSpeedBoost += 0.5f;
-			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			p.slimePendant = true;
+			player.jumpSpeedBoost += 1.25f;
+			player.maxFallSpeed += 3f;
 		}
 	}
 }

@@ -14,7 +14,7 @@ namespace Zylon.Projectiles.Yoyos
 			Projectile.aiStyle = -1;
 			Projectile.friendly = true;
 			Projectile.penetrate = -1;
-			Projectile.DamageType = DamageClass.MeleeNoSpeed;
+			Projectile.DamageType = DamageClass.Melee;
 			Projectile.timeLeft = 180;
 			Projectile.ignoreWater = true;
 			//Projectile.position.Y -= 12;

@@ -7,8 +7,8 @@ namespace Zylon.Items.Potions
     public class FloaterPotion : ModItem
 	{
         public override void SetStaticDefaults() {
-            // Tooltip.SetDefault("Increases max wingtime by a second");
-        }
+			Item.ResearchUnlockCount = 20;
+		}
         public override void SetDefaults() {
             Item.width = 32;
             Item.height = 30;
@@ -22,12 +22,12 @@ namespace Zylon.Items.Potions
             Item.rare = ItemRarityID.Blue;
             Item.value = 200;
             Item.buffType = ModContent.BuffType<Buffs.Potions.Floater>();
-            Item.buffTime = 43200;
+            Item.buffTime = 15*3600;
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.BottledWater);
-            recipe.AddIngredient(ItemID.Waterleaf);
+            recipe.AddIngredient(ModContent.ItemType<Materials.SpectralFairyDust>());
             recipe.AddIngredient(ModContent.ItemType<Materials.WindEssence>());
 			recipe.AddIngredient(ItemID.Feather);
 			recipe.AddIngredient(ItemID.SoulofFlight);

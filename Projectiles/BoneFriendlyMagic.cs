@@ -18,7 +18,7 @@ namespace Zylon.Projectiles
             if (target.type == NPCID.WallofFleshEye || target.type == NPCID.WallofFlesh)
 				modifiers.FinalDamage *= 0.65f;
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

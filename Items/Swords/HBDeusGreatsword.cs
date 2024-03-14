@@ -9,10 +9,6 @@ namespace Zylon.Items.Swords
 {
 	public class HBDeusGreatsword : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("HBDeus's Greatsword");
-			// Tooltip.SetDefault("UNOBTAINABLE: Developer Item\nSurrounds the cursor with shattered swords");
-		}
 		public override void SetDefaults() {
 			Item.damage = 819;
 			Item.DamageType = DamageClass.Melee;
@@ -36,6 +32,9 @@ namespace Zylon.Items.Swords
                     tooltipLine.OverrideColor = new Color(224, 153, 0);
                 }
             }
+			TooltipLine xline = new TooltipLine(Mod, "Tooltip0", "~Developer Item (HBDeus)~");
+			xline.OverrideColor = new Color(224, 153, 0);
+			list.Add(xline);
         }
 		float spin;
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {

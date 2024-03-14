@@ -26,9 +26,9 @@ namespace Zylon.Projectiles.Ammo
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(BuffID.Slimed, 60 * Main.rand.Next(3, 6), false);
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			if (Main.rand.NextFloat() < .25f) Item.NewItem(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.getRect(), ModContent.ItemType<Items.Ammo.SlimeArrow>());
+			if (Main.rand.NextFloat() < .25f) Item.NewItem(Projectile.GetSource_FromThis(), Projectile.getRect(), ModContent.ItemType<Items.Ammo.SlimeArrow>());
 		}
 	}   
 }

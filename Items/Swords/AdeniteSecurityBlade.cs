@@ -29,6 +29,14 @@ namespace Zylon.Items.Swords
 			Item.shoot = ModContent.ProjectileType<Projectiles.ElectricBoltPassive>();
 			Item.shootSpeed = 15f;
 		}
+        public override void UpdateInventory(Player player) {
+            if (Main.remixWorld) {
+				Item.damage = 7;
+				Item.knockBack = 1f;
+				Item.rare = ItemRarityID.Gray;
+				Item.value = Item.sellPrice(0, 0, 0, 1);
+            }
+        }
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
             knockback /= 2;
         }
@@ -52,8 +60,8 @@ namespace Zylon.Items.Swords
 			recipe.AddIngredient(ModContent.ItemType<Materials.AdeniteCrumbles>(), 16);
             recipe.AddIngredient(ModContent.ItemType<Materials.SearedStone>(), 27);
 			recipe.AddIngredient(ItemID.Obsidian, 12);
-			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 8);
             recipe.AddTile(TileID.Anvils);
+			recipe.AddCondition(Condition.NotRemixWorld);
 			recipe.Register();
 		}
 	}

@@ -9,11 +9,8 @@ namespace Zylon.Items.Shortswords
 {
 	public class DeathCleaver : ModItem
 	{
-        public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Right click to switch between legacy and modern modes\nSlain enemies explode into eight shade orbs\nIn legacy mode, stats are buffed and twelve orbs are released");
-        }
         public override void SetDefaults() {
-			Item.damage = 21;
+			Item.damage = 17;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 32;
 			Item.height = 32;
@@ -53,7 +50,7 @@ namespace Zylon.Items.Shortswords
                 }
                 else {
                     Item.shoot = ProjectileType<Projectiles.Shortswords.DeathCleaver>();
-					Item.damage = 21;
+					Item.damage = 17;
 					Item.useTime = 8;
 					Item.useAnimation = 8;
 					Item.knockBack = 3.4f;

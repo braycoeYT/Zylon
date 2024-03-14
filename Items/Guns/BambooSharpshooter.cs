@@ -8,9 +8,6 @@ namespace Zylon.Items.Guns
 {
 	public class BambooSharpshooter : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Fires a spread of bullets and poisonous bamboo spikes");
-		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 3, 23);
 			Item.useStyle = ItemUseStyleID.Shoot;
@@ -49,8 +46,6 @@ namespace Zylon.Items.Guns
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Boomstick);
 			recipe.AddIngredient(ItemID.BambooBlock, 30);
-			recipe.AddIngredient(ItemID.JungleSpores, 8);
-			recipe.AddIngredient(ItemID.Vine, 3);
 			recipe.AddRecipeGroup("Zylon:AnyShadowScale");
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();

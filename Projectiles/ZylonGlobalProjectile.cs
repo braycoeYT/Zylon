@@ -81,5 +81,11 @@ namespace Zylon.Projectiles
 					damageCooldown = 30;
             }
         }
+        public override void OnKill(Projectile projectile, int timeLeft) {
+            if (GetInstance<ZylonConfig>().zylonianBalancing) {
+				if (projectile.type == ProjectileID.BoneArrow && Main.rand.NextBool(5) && Main.myPlayer == projectile.owner)
+					for (int i = 0; i < 3; i++) Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center - new Vector2(0, 4), new Vector2(Main.rand.NextFloat(-2f, 2f), Main.rand.NextFloat(-9f, -7f)), ProjectileType<Ammo.BoneArrowProj>(), projectile.damage/2, projectile.knockBack/2, projectile.owner);
+            }
+        }
     }
 }

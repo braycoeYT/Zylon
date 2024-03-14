@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,7 +7,11 @@ namespace Zylon.Items.Boomerangs
 {
 	public class Barfarang : ModItem
 	{
-		public override void SetDefaults() {
+        public override void ModifyTooltips(List<TooltipLine> tooltips) {
+            TooltipLine xline = new TooltipLine(Mod, "Tooltip#0", "Hold down to charge boomerang throw\nCamera movement can be changed in the config");
+			if (ModContent.GetInstance<ZylonConfig>().experimentalBoomerangs) tooltips.Add(xline);
+		}
+        public override void SetDefaults() {
 			Item.damage = 25;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 30;
@@ -21,8 +26,9 @@ namespace Zylon.Items.Boomerangs
 			Item.noMelee = true;
 			Item.autoReuse = true;
 			Item.useTurn = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.Boomerangs.Barfarang>();
-			Item.shootSpeed = 10f;
+			if (ModContent.GetInstance<ZylonConfig>().experimentalBoomerangs) Item.shoot = ModContent.ProjectileType<Projectiles.Boomerangs.Barfarang>();
+			else Item.shoot = ModContent.ProjectileType<Projectiles.Boomerangs.BarfarangOG>();
+			Item.shootSpeed = 13f;
 			Item.noUseGraphic = true;
 			Item.channel = true;
 		}

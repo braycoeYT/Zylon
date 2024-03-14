@@ -33,7 +33,7 @@ namespace Zylon.Projectiles.Blowpipes
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(5, 11), false);
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			for (int i = 0; i < (int)Projectile.ai[0]*2; i++) {
 				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 8).RotatedByRandom(MathHelper.TwoPi), ModContent.ProjectileType<MeteorLauncherProjFire>(), (int)(Projectile.damage*0.2f), Projectile.knockBack*0.25f, Projectile.owner);
             }

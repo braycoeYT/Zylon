@@ -7,7 +7,7 @@ namespace Zylon.Items.Materials
 	public class LivingBranch : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Enchanted with an ancient forest magic'");
+			Item.ResearchUnlockCount = 25;
 		}
 		public override void SetDefaults() {
 			Item.width = 44;

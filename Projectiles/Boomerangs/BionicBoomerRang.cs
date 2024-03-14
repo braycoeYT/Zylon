@@ -42,6 +42,10 @@ namespace Zylon.Projectiles.Boomerangs
 			}
 			else if (Timer >= 15) Projectile.velocity *= 0.95f;
 		}
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+            Projectile.damage = (int)(Projectile.damage*0.5f); //multihit penalty
+			if (Projectile.damage < 1) Projectile.damage = 1;
+        }
         public override bool OnTileCollide(Vector2 oldVelocity) {
 			goBack = true;
 			Projectile.tileCollide = false;

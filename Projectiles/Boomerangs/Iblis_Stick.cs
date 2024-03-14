@@ -56,7 +56,7 @@ namespace Zylon.Projectiles.Boomerangs
 			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
 			return false;
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
             if (Main.myPlayer == Projectile.owner) for (int x = 0; x < 5; x++) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-20f, -12f)), ModContent.ProjectileType<Iblis_Rock>(), (int)(Projectile.damage*0.6f), Projectile.knockBack*0.4f, Projectile.owner);
         }
     }   

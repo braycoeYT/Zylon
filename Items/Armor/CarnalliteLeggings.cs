@@ -7,9 +7,6 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Legs)]
 	public class CarnalliteLeggings : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Increases max life by 20\nIncreases damage by 4%");
-		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;
@@ -18,7 +15,7 @@ namespace Zylon.Items.Armor
 			Item.defense = 7;
 		}
 		public override void UpdateEquip(Player player) {
-			player.statLifeMax2 += 20;
+			player.runAcceleration += 0.06f;
 			player.GetDamage(DamageClass.Generic) += 0.04f;
         }
 		public override void AddRecipes() {

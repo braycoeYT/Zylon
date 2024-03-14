@@ -10,8 +10,8 @@ namespace Zylon.Items.Ammo
 	public class OozingArrow : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("On death, leaves a lasting ooze cloud");
-        }
+			Item.ResearchUnlockCount = 99;
+		}
 		public override void SetDefaults() {
 			Item.damage = 15;
 			Item.DamageType = DamageClass.Ranged;

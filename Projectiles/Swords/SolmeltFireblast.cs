@@ -43,10 +43,12 @@ namespace Zylon.Projectiles.Swords
 			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
 			return false;
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<SolmeltSlash>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, -1);
-			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<SolmeltSlash>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 1);
+			if (Main.myPlayer == Projectile.owner) {
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<SolmeltSlash>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, -1);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<SolmeltSlash>(), Projectile.damage, Projectile.knockBack, Main.myPlayer, 1);
+			}
 		}
 	}   
 }

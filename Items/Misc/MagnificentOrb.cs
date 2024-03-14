@@ -13,7 +13,7 @@ namespace Zylon.Items.Misc
 			// Tooltip.SetDefault("'Warning: May cause spatial anomalies.'");
 		}
 		public override void SetDefaults() {
-			Item.damage = 23;
+			Item.damage = 27;
 			Item.DamageType = DamageClass.Magic;
 			Item.width = 40;
 			Item.height = 40;

@@ -26,6 +26,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.CursedInferno] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Daybreak] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Ichor] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Shimmer] = true;
 			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				CustomTexturePath = "Zylon/NPCs/Bosses/Adeneb/Adeneb_Bestiary",
 			};
@@ -50,11 +51,11 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			//Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
-			NPC.lifeMax = (int)((5200 + ((numPlayers - 1) * 2400))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+			NPC.lifeMax = (int)(5200*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 61;
 			NPC.value = 140000;
 			if (Main.masterMode) {
-				NPC.lifeMax = (int)((6400 + ((numPlayers - 1) * 3100))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+				NPC.lifeMax = (int)(6400*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 94;
             }
         }
@@ -899,6 +900,14 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			else {
 				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.AdeniteCrumbles>(), 1, 8, 12));
 				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.SearedStone>(), 1, 40, 60));
+
+				//Only drop these weapons if in Remix or getfixedboi worlds
+				LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.RemixSeed());
+				LeadingConditionRule leadingConditionRule2 = new LeadingConditionRule(new Conditions.ZenithSeedIsUp());
+
+				leadingConditionRule.OnSuccess(npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>())));
+				leadingConditionRule2.OnSuccess(npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>())));
+
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.AdenebMask>(), 7)).OnFailedRoll(npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.PolandballMask>(), 10)));
             }
 			//npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.AdenebTrophy>(), 10));

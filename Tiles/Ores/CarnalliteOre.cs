@@ -28,17 +28,16 @@ namespace Zylon.Tiles.Ores
 			DustType = DustType<Dusts.CarnalliteOreDust>();
 			HitSound = SoundID.Tink;
 			MineResist = 1f;
-			MinPick = 969420;
+			MinPick = 65;
 		}
 		public override void PostDraw(int i, int j, SpriteBatch spriteBatch) {
-			if (NPC.downedBoss3) MinPick = 40;
-			else MinPick = 969420;
+			MinPick = 65;
 		}
 		public override bool CanExplode(int i, int j) {
-			return NPC.downedBoss3;
+			return true;
 		}
 	}
-	public class CarnalliteOreSystem : ModSystem
+	/*public class CarnalliteOreSystem : ModSystem
 	{
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight) {
 			int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
@@ -64,5 +63,5 @@ namespace Zylon.Tiles.Ores
 					WorldGen.TileRunner(x, y, WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(2, 6), ModContent.TileType<CarnalliteOre>());
 			}
 		}
-	}
+	}*/
 }

@@ -19,9 +19,9 @@ namespace Zylon.Projectiles.Yoyos
 			Projectile.timeLeft = 9999;
 			Projectile.ignoreWater = true;
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 0), ModContent.ProjectileType<AmazonPackage>(), Projectile.damage, 0, Projectile.owner);
+			ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 0), ModContent.ProjectileType<AmazonPackage>(), Projectile.damage, 0, Projectile.owner);
 		}
 	}   
 }

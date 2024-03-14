@@ -32,7 +32,7 @@ namespace Zylon.Projectiles.Bosses.Dirtball
 				dust.scale = 1f;
 			}
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -11), ModContent.ProjectileType<DirtballLaser>(), Projectile.damage, 0f, BasicNetType: 2);
 		}

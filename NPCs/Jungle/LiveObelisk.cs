@@ -23,19 +23,34 @@ namespace Zylon.NPCs.Jungle
 			NPC.lifeMax = 78;
 			NPC.HitSound = SoundID.NPCHit4;
 			NPC.DeathSound = SoundID.NPCDeath14;
-			NPC.value = 250;
+			NPC.value = Item.buyPrice(0, 0, 3);
 			NPC.aiStyle = 44;
 			NPC.knockBackResist = 0.3f;
 			NPC.noGravity = true;
-            NPC.noTileCollide = true;
+            //NPC.noTileCollide = true;
 			Banner = NPC.type;
             BannerItem = ModContent.ItemType<Items.Banners.LiveObeliskBanner>();
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
-            NPC.lifeMax = 134;
-			NPC.damage = 48;
-			NPC.value = 500;
-			NPC.knockBackResist = 0.15f;
+            NPC.lifeMax = 151;
+			NPC.damage = 45;
+			NPC.knockBackResist = 0.2f;
+			NPC.value = Item.buyPrice(0, 0, 4, 50);
+			if (Main.hardMode) {
+				NPC.lifeMax = 619;
+				NPC.damage = 110;
+				NPC.value = Item.buyPrice(0, 0, 6);
+            }
+			if (NPC.downedPlantBoss) {
+				NPC.lifeMax = 752;
+				NPC.damage = 156;
+				NPC.value = Item.buyPrice(0, 0, 7);
+            }
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
+				NPC.damage = (int)(NPC.damage*1.5f);
+				NPC.knockBackResist = 0.1f;
+            }
         }
 		public override void HitEffect(NPC.HitInfo hit) {
 			if (NPC.life > 0) {
@@ -73,7 +88,7 @@ namespace Zylon.NPCs.Jungle
 		}
 		public override void ModifyNPCLoot(NPCLoot NPCLoot) {
 			NPCLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ModContent.ItemType<Items.Materials.ObeliskShard>(), 1, 1, 4), new CommonDrop(ModContent.ItemType<Items.Materials.ObeliskShard>(), 1, 2, 5)));
-			NPCLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Vine, 5), new CommonDrop(ItemID.Vine, 4)));
+			NPCLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Vine, 3), new CommonDrop(ItemID.Vine, 2)));
 		}
     }
 }

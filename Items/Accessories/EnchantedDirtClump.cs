@@ -7,9 +7,6 @@ namespace Zylon.Items.Accessories
 {
 	public class EnchantedDirtClump : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Summons a small army of dirt blocks to protect you\nDirt blocks are affected by the Dirt Regalia");
-		}
 		public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.EoCShield);
 			Item.width = 28;

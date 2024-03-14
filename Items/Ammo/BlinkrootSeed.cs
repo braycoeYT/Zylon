@@ -10,8 +10,8 @@ namespace Zylon.Items.Ammo
 	public class BlinkrootSeed : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("For use with blowpipes\nGrows a blinkroot flower on impact\nThe blinkroot slows non-boss enemies");
-        }
+			Item.ResearchUnlockCount = 99;
+		}
 		public override void SetDefaults() {
 			Item.damage = 7;
 			Item.DamageType = DamageClass.Ranged;

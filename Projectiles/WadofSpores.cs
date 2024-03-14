@@ -15,10 +15,10 @@ namespace Zylon.Projectiles
 			Projectile.CloneDefaults(ProjectileID.Seed);
 			AIType = ProjectileID.Seed;
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 0; i < 6; i++)
-				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 8).RotatedByRandom(MathHelper.ToRadians(360)), ModContent.ProjectileType<JungleSporeRanged2>(), Projectile.damage, Projectile.knockBack/2, Projectile.owner);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 8).RotatedByRandom(MathHelper.ToRadians(360)), ModContent.ProjectileType<JungleSporeRanged2>(), Projectile.damage, Projectile.knockBack/2, Projectile.owner);
 		}
 	}   
 }

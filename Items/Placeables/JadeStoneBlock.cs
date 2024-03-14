@@ -7,6 +7,9 @@ namespace Zylon.Items.Placeables
 {
 	public class JadeStoneBlock : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 100;
+		}
 		public override void SetDefaults() {
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

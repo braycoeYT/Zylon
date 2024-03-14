@@ -242,15 +242,6 @@ namespace Zylon
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
-			recipe = Recipe.Create(ItemID.ThornsPotion);
-			recipe.AddIngredient(ItemID.BottledWater);
-			recipe.AddIngredient(ItemID.Deathweed);
-			recipe.AddIngredient(ItemID.Cactus);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.BloodySpiderLeg>());
-			recipe.AddIngredient(ItemID.Stinger);
-			recipe.AddTile(TileID.Bottles);
-			recipe.Register();
-
 			recipe = Recipe.Create(ItemID.BloodMoonStarter);
 			recipe.AddIngredient(ItemID.Lens);
 			recipe.AddRecipeGroup("Zylon:AnyPHBar", 3);
@@ -358,9 +349,9 @@ namespace Zylon
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.BoneSword);
-			recipe.AddIngredient(ItemID.Bone, 18);
-			recipe.AddRecipeGroup("Zylon:AnyCopperBar", 10);
-			recipe.AddTile(TileID.BoneWelder);
+			recipe.AddIngredient(ItemID.Bone, 45);
+			recipe.AddIngredient(ItemID.Cobweb, 50);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.ThunderStaff);
@@ -715,12 +706,134 @@ namespace Zylon
 			recipe.AddRecipeGroup("Zylon:AnyGem");
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.LifeFruit);
+			recipe.AddIngredient(ItemID.ChlorophyteBar, 4);
+			recipe.AddIngredient(ItemID.SoulofLight);
+			recipe.AddIngredient(ItemID.SoulofNight);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.CombatWrench);
+			recipe.AddIngredient(ItemID.Wrench);
+			recipe.AddIngredient(ItemID.Wire, 10);
+			recipe.AddIngredient(ItemID.Bone, 12);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.LesserManaPotion, 2);
+			recipe.AddIngredient(ItemID.Bottle, 2);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.EnchantedIceCube>());
+			recipe.AddIngredient(ItemID.Gel, 2);
+			recipe.AddTile(TileID.Bottles);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.RestorationPotion, 3);
+			recipe.AddIngredient(ModContent.ItemType<Items.Potions.LesserRestorationPotion>(), 3);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.EerieBell>());
+			recipe.AddIngredient(ItemID.JungleSpores);
+			recipe.AddTile(TileID.Bottles);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.BoneArrow, 25);
+			recipe.AddIngredient(ItemID.WoodenArrow, 25);
+			recipe.AddIngredient(ItemID.Bone);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.CelestialMagnet);
+			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 9);
+			recipe.AddIngredient(ItemID.ManaCrystal);
+			recipe.AddIngredient(ItemID.SunplateBlock, 12);
+			recipe.AddTile(TileID.SkyMill);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.ShroomiteHeadgear);
+			recipe.AddIngredient(ItemID.ChlorophyteHelmet);
+			recipe.AddIngredient(ItemID.GlowingMushroom, 180);
+			recipe.AddTile(TileID.Autohammer);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.ShroomiteMask);
+			recipe.AddIngredient(ItemID.ChlorophyteHelmet);
+			recipe.AddIngredient(ItemID.GlowingMushroom, 180);
+			recipe.AddTile(TileID.Autohammer);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.ShroomiteHeadgear);
+			recipe.AddIngredient(ItemID.ChlorophyteHelmet);
+			recipe.AddIngredient(ItemID.GlowingMushroom, 180);
+			recipe.AddTile(TileID.Autohammer);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.ShroomiteBreastplate);
+			recipe.AddIngredient(ItemID.ChlorophytePlateMail);
+			recipe.AddIngredient(ItemID.GlowingMushroom, 360);
+			recipe.AddTile(TileID.Autohammer);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.ShroomiteLeggings);
+			recipe.AddIngredient(ItemID.ChlorophyteGreaves);
+			recipe.AddIngredient(ItemID.GlowingMushroom, 270);
+			recipe.AddTile(TileID.Autohammer);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.Uzi);
+			recipe.AddIngredient(ItemID.HallowedBar, 8);
+			recipe.AddIngredient(ItemID.ChlorophyteBar, 6);
+			recipe.AddIngredient(ItemID.Vine, 2);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.IceSickle);
+			recipe.AddRecipeGroup("Zylon:AnyAdamantiteBar", 10);
+			recipe.AddIngredient(ItemID.FrostCore);
+			recipe.AddIngredient(ItemID.SoulofLight, 3);
+			recipe.AddIngredient(ItemID.SoulofNight, 3);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.DeerThing);
+			recipe.AddIngredient(ItemID.FlinxFur, 3);
+			recipe.AddIngredient(ItemID.DemoniteBar, 2);
+			recipe.AddIngredient(ItemID.Lens);
+			recipe.AddTile(TileID.DemonAltar);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.SpectreMask);
+			recipe.AddIngredient(ItemID.ChlorophyteHeadgear);
+			recipe.AddIngredient(ItemID.Ectoplasm, 6);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.SpectreHood);
+			recipe.AddIngredient(ItemID.ChlorophyteHeadgear);
+			recipe.AddIngredient(ItemID.Ectoplasm, 6);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.SpectreRobe);
+			recipe.AddIngredient(ItemID.ChlorophytePlateMail);
+			recipe.AddIngredient(ItemID.Ectoplasm, 12);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.SpectrePants);
+			recipe.AddIngredient(ItemID.ChlorophyteGreaves);
+			recipe.AddIngredient(ItemID.Ectoplasm, 9);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.Nazar);
+			recipe.AddRecipeGroup("Zylon:AnyPHBar", 8);
+			recipe.AddIngredient(ItemID.Bone, 50);
+			recipe.AddIngredient(ItemID.Lens);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
-            for (int i = 0; i < Recipe.numRecipes; i++) {
+            if (ModContent.GetInstance<ZylonConfig>().zylonianBalancing) for (int i = 0; i < Recipe.numRecipes; i++) {
 				Recipe recipe = Main.recipe[i];
-				if (recipe.HasResult(ItemID.TerraBlade))
-					recipe.AddIngredient(ModContent.ItemType<Items.Materials.ElementalGoop>(), 10);
 				if (recipe.HasResult(ItemID.GravediggerShovel))
 					recipe.AddIngredient(ModContent.ItemType<Items.Materials.ObeliskShard>(), 20);
 				if (recipe.HasResult(ItemID.Sandgun))
@@ -731,6 +844,10 @@ namespace Zylon
 					recipe.AddIngredient(ItemID.ManaCrystal);
 					recipe.AddTile(TileID.Anvils);
 				}
+				if (recipe.HasResult(ItemID.RestorationPotion) && recipe.HasIngredient(ItemID.Mushroom))
+					recipe.DisableRecipe();
+				if (recipe.HasResult(ItemID.UnholyArrow) && recipe.HasIngredient(ItemID.Vertebrae))
+					recipe.DisableRecipe();
 			}
         }
     }

@@ -50,7 +50,7 @@ namespace Zylon.Projectiles.Wands
 			Projectile.alpha -= 15;
 			Projectile.rotation += 0.06f*((255-Projectile.alpha)/255);
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

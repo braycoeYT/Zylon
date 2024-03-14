@@ -22,13 +22,13 @@ namespace Zylon.Projectiles.Yoyos
 			Projectile.aiStyle = 99;
 			Projectile.friendly = true;
 			Projectile.penetrate = -1;
-			Projectile.DamageType = DamageClass.MeleeNoSpeed;
+			Projectile.DamageType = DamageClass.Melee;
 			Projectile.scale = 1f;
 		}
 		int Timer;
 		public override void AI() {
 			Timer++;
-			if (Timer % 120 == 0) ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 1), ModContent.ProjectileType<AmazonPackageFall>(), Projectile.damage, 0, Projectile.owner);
+			if (Timer % 120 == 0) ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 1), ModContent.ProjectileType<AmazonPackageFall>(), Projectile.damage, 0, Projectile.owner);
 		}
 	}
 }

@@ -6,6 +6,9 @@ namespace Zylon.Items.Materials
 {
 	public class AdeniteCrumbles : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 25;
+		}
 		public override void SetDefaults() {
 			Item.width = 32;
 			Item.height = 32;

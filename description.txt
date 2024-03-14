@@ -1,12 +1,13 @@
-The best mod that starts with Z (I guarantee or your money back)! Zylon is the kind of mod that makes all its boss summons infinite because who has the time to craft the same summon a billion times?!
+The best mod that starts with Z - I guarantee or your money back!
 
 THIS MOD IS IN SEVERE NEED OF SPRITERS!! If you are a fan of the mod and want to sprite, feel free to join the discord server!
 DISCORD JOIN: https://discord.gg/x6G8rKduWc
 
 Stats:
 ~340 Items
-~4 Bosses:
+~5 Bosses:
 ~~~4 Prehardmode Bosses [i:2][i:116][i:789][i:282]
+~~~1 Post-Moon Lord Boss [i:5130]
 (plus a secret joke boss only fightable on getfixedboi worlds [i:43])
 ~36 total NPCs
 ~55 Buffs
@@ -22,7 +23,6 @@ V0.0.3: Cause to Clash Update
 ~Removed Test Blowpipes from the mod.
 ~Boss summons no longer stack because of infinite summons.
 ~Added Protein Splicer.
-~Added Big Ol' Bouquet.
 ~Herbs' damage from blowpipes is halved after hitting an enemy.
 ~Fixed Chlorophyte Seed projectile's display name.
 ~Reworked Stardust Fragment Staff.
@@ -106,7 +106,7 @@ V0.0.3: Cause to Clash Update
 ~Icicle on a Rod now actually loses its tip on use.
 ~Reworked Meteor Herder (it sure needed one).
 ~Now correctly draws the Neutron Armor set bonus.
-~Fixed issue with reforging Enchanted Dirt Clump.
+~Fixed issue with reforging Enchanted Dirt Clump and Disco Canister.
 ~Increased Spear of Justice knockback.
 ~Added Matilda.
 ~Meteor Tails now have the same debuff immunities as Meteor Heads.
@@ -114,7 +114,7 @@ V0.0.3: Cause to Clash Update
 ~Added Goocat Staff.
 ~After Plantera is defeated, Elemental Goop is now dropped by Dirt Slime, Mechanical Slime, Starpack Slime, and Living Marshmellow.
 ~Increased Enchanted Ice Cube drop rate.
-~Buffed Forgotten Rose's Saber and changed recipe.
+~Buffed Forgotten Rose's Saber, decreased sell price, and changed recipe.
 ~Adenite Shrapnel and Shrapnel Gun are now easier to craft.
 ~Removed Kivasana and Eternia 2000 (for now).
 ~Harpies now drop Speckled Stardust.
@@ -138,8 +138,121 @@ V0.0.3: Cause to Clash Update
 ~Fixed issue with Eye of Cthulhu dropping Bloodied Arrows.
 ~Vanilla bosses now drop Zylon items in treasure bags. Long overdue.
 ~Reworked and renamed Icy Greatblade to Frostbite.
+~Added Eye Lash and Starweaver.
+~Fixed Cotton Candy sell price and rarity.
+~Added Chocolate Macaron and Red Velvet Macaron.
+~Hornets now drop Cocoa Beans more often, and Moss Hornets now drop them as well.
+~Changed "BraycoeYT and the Devs" to "Braycoe and Co." because it's funnier.
+~Changed Volcanic Flame recipe.
+~Wall of Flesh now drops Hellstone.
+~Removed Wind Walker armor.
+~Resprited Bloodshed (I am so sorry Gerd idk why I forgot to add this one).
+~Readded Inhaler and Mecharang, with reworks. Welcome back, old friends!
+~Resprited Timewarp Assault Rifle, nerfed recipe, and moved it to post-mech instead of post-Plantera.
+~Fixed a catastrophic error where the Familiar Foam Dart Pistol decreased the defense of enemies by 15 every FRAME. Also increased Tactical Foam Dart debuff time from 5 to 10 seconds.
+~Terra Blade and Code 3 recipes no longer require Elemental Goop.
+~Added more vanilla recipes.
+~Added Experimental Boomerangs config, allowing players to use new or old AI for some boomerangs.
+~Changed Fire and Ice recipe.
+~Reworked several of the mod's older boomerangs.
+~Added multihit penalties for some modded boomerangs.
+~Heavily nerfed Fleshstab Javelin and changed recipe.
+~X-Blade no longer spawns additional projectiles.
+~Added Wretched Wrench.
+~Reworked, expanded, and readded the Restoration Potion family. Vanilla did them dirty.
+~Changed Recipes are no longer modified if Zylon Balancing is disabled.
+~Changed Coldnea recipe.
+~Removed Demonite Bar from Adenite Security item recipes, and buffed the Handgun and Electrifier.
+~Attempted to rebalance the mod's magic weapons.
+~Added Cartilage and Crystalizer.
+~Reworked Bone Arrows.
+~Any Basic Prehardmode Bar removed from a couple recipes.
+~Modified Blood Butler and Bloodshed recipes.
+~Modified joke boss summon recipe.
+~Added Luminite Dart.
+~Horseshoe Bundle of Balloons now buffs blowpipes.
+~Added Rune of Multiplicity.
+~Buffed Icy Wisp Staff.
+~Modified and added new Travelling Merchant items.
+~Nerfed Coldnea.
+~Added Mana Battery, Mystic Comet, Sparking Core, Mana Capsule, and Mana Charging Pack.
+~Reworked Scepter of Dirt and Carnallite Wand.
+~Increased Saber Tooth drop rate.
+~Updated Lime Phasesaber to match the others.
+~Fixed Chlorophyte Blowspitter recipe.
+~Changed Kraken Blast and Bamboo Sharpshooter recipe.
+~Carnallite now generates after Queen Bee is defeated.
+~Rebalanced Carnallite due to the above change.
+~Minor fix with Carnallite Armor set bonus display.
+~Fixed Volcanic Flame projectiles not being magic.
+~Leaf Bracer now requires Carnallite Bars to craft.
+~Live Obelisks can no longer go through tiles.
+~Carnallite Bar now requires a Hellforge to craft instead of a Workbench.
+~Added Temple Equalizer.
+~Disco Canister no longer requires Glazed Lens to craft.
+~Modified effects of Carnallite and Haxonite Armor.
+~In Remix and getfixedboi seeds, the progression of Overgrown and Adenite Security weapons is now completely different, and their roles are swapped.
+~Readded Giygaclaw, but renamed it to Giegue and changed it into a whip.
+~Resprited Bottomless Sack of Seeds and Bottomless Sack of Worms.
+~Fixed issue with Volcanic Flame debuff time.
+~Volcanic Flame projectile now flies out for longer before falling, and doesn't fall if it strikes a foe midair.
+~Decreased mana cost of Volcanic Flame.
+~Removed Dictionary of Magicks (for now).
+~Gooey Armor now correctly has quotation marks in its tooltip.
+~Buffed Spear of Justice.
+~Increased minimum pickaxe required to mine Haxonite Ore.
+~Modded bars now stack to 9999.
+~Fixed Starpack Slime and Sapling Warrior banners not working correctly.
+~Shrapnel now has a multihit penalty.
+~Added Cerussite, Bi Disc, Ruby Bow, Diamond Cane, Sapphire Spellbook, Topaz Pike,
+~Added Cerussite Bat.
+~Decreased Starpack Slime spawn rate.
+~Added Rai Stone.
+~Modified Timestop dust.
+~Added multihit penalty for Silver Faux.
+~Fixed Timewarp Assault Rifle rarity.
+~Made developer item tooltips cooler.
+~Added Needle Spitter.
+~Reworked Slimecaster.
+~Increased Amber drop rate from Adenites.
+~Added Pixie Archangel, Spectral Fairy Dust, Archangel Wings, and Archangel's Wand.
+~Changed Lobster Bisque and Floater Potion recipe.
+~Buffed Bionic Boomer.
+~Increased Floater Potion buff time.
+~Nerfed Heartbreaker and changed recipe.
+~Changed Metallic Bell tooltip.
+~Changed Ore Tour recipe.
+~Fixed a small issue with tome code.
+~Added Crystal Tsunami.
+~A wide variety of vanilla slimes now drop Elemental Goop.
+~Reworked Disco Canister recipe, and fixed rarity.
+~Added Caeruleus and Vapor's Eon (finally, dev weapons that aren't swords).
+~Slimebender now only shoots a projectile every third swing, mini projectiles are much less powerful, and modified stats.
+~Fixed hold offset of Adenite Security Handgun and Blizzard Blaster.
+~Decreased power of Death Cleaver and Grave Buster. Also removed Grave Buster tooltip.
+~Readded and completely reworked Tree Truncheon and Enchanted Tree Truncheon. Welcome back!
+~Chlorophyte armor can now be crafted into Shroomite and Spectre armor.
+~Added Chlorophyte Cutter.
+~Added, modified, removed, and renamed Zylon Prefixes.
+~Added Experimental Syringe.
+~Reworked Coldnea, and renamed it to Amaguq.
+~Removed Dirtglob tooltip.
+~Fixed a couple small code issues with some older mod projectiles.
+~Added Journey Mode support for the entire mod. Better late than never?
+~Fixed bugs related to all mod NPC money drops and higher difficulty stat values.
+~Mechanical Slime now has different hit and death sounds, and now spawns dust on death.
+~Mechanical Slime now only shoots lasers when angry.
+~Fixed issues with Zylon NPCs being immune to debuffs, and added some new debuff immunities.
+~Orange Slime now only spawns after King Slime is defeated.
+~Rebalanced several mod NPC stats.
+~Sapling Warriors and Dryads can no longer deal damage to each other.
+~Increased Live Obelisk Vine drop rate.
+~Fixed Eerie Jellyfish Banner not having any effects.
+~Heavily optimized Adenites so that they no longer use 4 NPCs to work.
+~Mod bosses are now immune to the Shimmer debuff.
+~Made Zylon multiplayer boss health scale at the same rate as vanilla.
 
-note to self: lobera + master mode enemy support
+finish cerussite + finish wolf and ooze (ooze dart) + living wood + obsidian dart + water gun funny change + dirt clump social slot + no more ammo drop + dartshark fix + rework starpack slime and obelisk
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:
@@ -153,13 +266,12 @@ Azercadmium (1.3 version of Zylon) Major Devs:
 Mjoon (Spriter)
 HBDeus (Spriter and Composer)
 Astrum (Spriter and Ideas)
+Funk.It (Spriter)
 
 Quit:
 CrazySapling1
 Koolaidlemonade
 ULTIMATEDQVID
-Anonymous Coder
-Funk.It
 
 Minor Help:
 Ebon <-- Play Ebonian Mod!!

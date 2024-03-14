@@ -52,7 +52,7 @@ namespace Zylon.Projectiles.Blowpipes
 			//if (Projectile.scale < 0.25f) Projectile.scale = 0.25f;
 			Projectile.tileCollide = Timer > (int)(5f*Projectile.ai[0]);
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

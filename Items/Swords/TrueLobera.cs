@@ -3,52 +3,47 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 namespace Zylon.Items.Swords
 {
 	public class TrueLobera : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Hits will slash the enemy's soul, causing their defense to be halved\nStriking foes will rain tropical orbs upon them");
-		}
 		public override void SetDefaults() {
-			Item.damage = 67;
-			Item.DamageType = DamageClass.MeleeNoSpeed;
-			Item.width = 58;
-			Item.height = 58;
-			Item.useTime = 25;
-			Item.useAnimation = 25;
-			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.knockBack = 7.1f;
-			Item.value = Item.sellPrice(0, 18, 0, 0);
-			Item.rare = ItemRarityID.Yellow;
-			Item.UseSound = SoundID.Item93;
+			Item.damage = 96;
+			Item.DamageType = DamageClass.Melee;
+			Item.width = 34;
+			Item.height = 60;
+			Item.useTime = 30;
+			Item.useAnimation = 30;
+			Item.useStyle = ItemUseStyleID.Swing;
+			Item.knockBack = 5.5f;
+			Item.value = Item.sellPrice(0, 7, 19);
+			Item.rare = ItemRarityID.Lime;
+			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 			Item.useTurn = false;
-			Item.noUseGraphic = true;
-			Item.noMelee = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.Swords.LoberaProj>();
-			Item.shootSpeed = 6f;
+			Item.shoot = ModContent.ProjectileType<Projectiles.Swords.TrueLoberaRing>();
+			Item.shootSpeed = 11f;
 		}
-		bool SwingSide = false;
-		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-			if (SwingSide == true)
-            {
-				Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<Projectiles.Swords.LoberaProj>(), damage, knockback, player.whoAmI, 0, 0);
-			} else
-            {
-				Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<Projectiles.Swords.LoberaProj>(), damage, knockback, player.whoAmI, 0, 1);
-			}
-
-			SwingSide = !SwingSide;
-
-			return false;
+		public override void UpdateInventory(Player player) {
+            float hp = (float)player.statLife/(float)player.statLifeMax2;
+			Item.damage = 126 - (int)(30*hp);
+			Item.knockBack = 10f - 4.5f*hp;
+			Item.useTime = 12 + (int)(18*hp);
+			Item.useAnimation = 12 + (int)(18*hp);
         }
-        /*public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-            if (player.direction == 0) position.X -= 6;
-			else position.X += 6;
-			return true;
-        }*/
+        int shootCount;
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
+			shootCount++;
+			float hp = (float)player.statLife/(float)player.statLifeMax2;
+			if (shootCount % 2 == 0) {
+				if (hp <= 0.25f || hp == 1f) type = ModContent.ProjectileType<Projectiles.Swords.TrueLoberaBeam>();
+				SoundEngine.PlaySound(SoundID.Item71, position);
+				Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+            }
+			return false;
+		}
         public override void PostUpdate() {
 			if (Main.rand.NextBool()) {
 				Dust dust = Dust.NewDustDirect(Item.position, Item.width, Item.height, ModContent.DustType<Dusts.LoberaDust>());
@@ -58,10 +53,9 @@ namespace Zylon.Items.Swords
 		}
 		public override void AddRecipes()  {
 			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ModContent.ItemType<Lobera>());
 			recipe.AddIngredient(ItemID.BrokenHeroSword);
-			recipe.AddIngredient(ItemID.PixieDust, 30);
-			recipe.AddIngredient(ItemID.SoulofMight, 8);
-			recipe.AddIngredient(ItemID.AncientBattleArmorMaterial);
+			recipe.AddIngredient(ItemID.PixieDust, 23);
 			recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 20);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

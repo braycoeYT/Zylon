@@ -35,7 +35,7 @@ namespace Zylon.Projectiles.Swords
 				dust.scale = 1f;
 			}
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Shatter, Projectile.Center);
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 0; i < 4; i++) {

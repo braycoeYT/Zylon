@@ -11,7 +11,6 @@ namespace Zylon.Items.Blowpipes
 	public class Dartshark : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Uses seeds as ammo\n33% chance to not consume ammo\n'Minishark's cousin. Part of the Telumcetus family.'");
 			if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges) {
 				// DisplayName.SetDefault("Dartshart");
 				// Tooltip.SetDefault("Barrages enemies with taco bell\nUses seeds as ammo (symbolizes the seeds of intestinal damage sown by the taco bell)");

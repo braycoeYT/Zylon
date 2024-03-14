@@ -15,8 +15,6 @@ namespace Zylon.NPCs.Crimson
 		public override int BodyType => ModContent.NPCType<ArteryCloggerBody>();
 		public override int TailType => ModContent.NPCType<ArteryCloggerTail>();
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Artery Clogger");
-
 			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				CustomTexturePath = "Zylon/NPCs/Crimson/ArteryClogger_Bestiary",
 				Position = new Vector2(40f, 24f),
@@ -25,6 +23,7 @@ namespace Zylon.NPCs.Crimson
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.BrainFreeze>()] = true;
 		}
 		public override void SetDefaults() {
 			NPC.CloneDefaults(NPCID.DiggerBody);
@@ -32,7 +31,7 @@ namespace Zylon.NPCs.Crimson
 			NPC.lifeMax = 475;
 			NPC.damage = 78;
 			NPC.defense = 30;
-			NPC.value = 1000;
+			NPC.value = Item.buyPrice(0, 0, 7);
 			NPC.height = 106;
 			NPC.width = 68;
 			Banner = NPC.type;
@@ -41,6 +40,11 @@ namespace Zylon.NPCs.Crimson
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.lifeMax = 950;
 			NPC.damage = 156;
+			NPC.value = Item.buyPrice(0, 0, 17);
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
+				NPC.damage = (int)(NPC.damage*1.5f);
+            }
 		}
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
@@ -102,8 +106,6 @@ namespace Zylon.NPCs.Crimson
 	internal class ArteryCloggerBody : WormBody
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Artery Clogger");
-
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				Hide = true
 			};
@@ -121,7 +123,10 @@ namespace Zylon.NPCs.Crimson
 			BannerItem = Item.BannerToItem(Banner);
 		}
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
-			NPC.damage = 96;
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
+				NPC.damage = (int)(NPC.damage*1.5f);
+            }
 		}
 		public override void Init() {
 			ArteryCloggerHead.CommonWormInit(this);
@@ -131,8 +136,6 @@ namespace Zylon.NPCs.Crimson
 	internal class ArteryCloggerTail : WormTail
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Artery Clogger");
-
 			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				Hide = true
 			};
@@ -150,7 +153,10 @@ namespace Zylon.NPCs.Crimson
 			BannerItem = Item.BannerToItem(Banner);
 		}
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
-			NPC.damage = 92;
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
+				NPC.damage = (int)(NPC.damage*1.5f);
+            }
 		}
 		public override void Init() {
 			ArteryCloggerHead.CommonWormInit(this);

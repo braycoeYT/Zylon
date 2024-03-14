@@ -7,6 +7,9 @@ namespace Zylon.Items.Materials
 {
 	public class Jade : ModItem
 	{
+		public override void SetStaticDefaults() {
+			Item.ResearchUnlockCount = 15;
+		}
 		public override void SetDefaults() {
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;

@@ -6,9 +6,6 @@ namespace Zylon.Items.Flails
 {
 	public class ShadowMoon : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Shoots a barrage of fangs on throw");
-		}
 		public override void SetDefaults() {
 			Item.width = 42;
 			Item.height = 38;

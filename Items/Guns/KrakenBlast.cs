@@ -54,10 +54,10 @@ namespace Zylon.Items.Guns
 		}*/
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Boomstick);
 			recipe.AddIngredient(ModContent.ItemType<DeadlockPistol>());
 			recipe.AddIngredient(ModContent.ItemType<Materials.OtherworldlyFang>(), 13);
-			recipe.AddIngredient(ModContent.ItemType<Bars.CarnalliteBar>(), 8);
+			recipe.AddIngredient(ModContent.ItemType<Materials.EerieBell>(), 9);
+			recipe.AddIngredient(ItemID.Coral, 3);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

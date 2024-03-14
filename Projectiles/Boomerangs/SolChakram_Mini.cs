@@ -57,6 +57,8 @@ namespace Zylon.Projectiles.Boomerangs
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6)*60);
+			Projectile.damage = (int)(Projectile.damage*0.5f); //multihit penalty
+			if (Projectile.damage < 1) Projectile.damage = 1;
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info) {

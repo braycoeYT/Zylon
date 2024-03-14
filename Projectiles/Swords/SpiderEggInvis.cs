@@ -35,7 +35,7 @@ namespace Zylon.Projectiles.Swords
 				dust.scale = 1f;
 			}
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.NPCDeath1, Projectile.position);
 			Projectile.rotation = Main.rand.NextFloat(MathHelper.Pi);
 			float rand = Main.rand.NextFloat(MathHelper.Pi); //maybe base on proj rotation but idk which is better

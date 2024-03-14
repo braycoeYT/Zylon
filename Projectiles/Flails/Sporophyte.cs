@@ -65,7 +65,7 @@ namespace Zylon.Projectiles.Flails
 			Timer++;
 			if (Timer % 20 == 0) {
 				//SoundEngine.PlaySound(SoundID.Grass);
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Vector2(0, -5).RotatedByRandom(1f), ModContent.ProjectileType<StingerPassive>(), (int)(Projectile.damage * 0.5f), (int)(Projectile.knockBack / 3), Main.myPlayer);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -5).RotatedByRandom(1f), ModContent.ProjectileType<StingerPassive>(), (int)(Projectile.damage * 0.5f), (int)(Projectile.knockBack / 3), Main.myPlayer);
 			}
 
 			Player player = Main.player[Projectile.owner];

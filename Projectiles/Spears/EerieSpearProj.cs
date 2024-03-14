@@ -20,7 +20,7 @@ namespace Zylon.Projectiles.Spears
 			Projectile.ignoreWater = true;
 			AIType = 1;
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

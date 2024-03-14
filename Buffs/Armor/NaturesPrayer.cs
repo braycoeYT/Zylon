@@ -6,9 +6,7 @@ namespace Zylon.Buffs.Armor
     public class NaturesPrayer : ModBuff
     {
         public override void SetStaticDefaults() {
-            // DisplayName.SetDefault("Nature's Prayer");
-            // Description.SetDefault("'Nature cares for all'");
-            Main.buffNoTimeDisplay[Type] = false;
+            Main.buffNoTimeDisplay[Type] = true;
             Main.debuff[Type] = true;
         }
         public override void Update(Player player, ref int buffIndex) {

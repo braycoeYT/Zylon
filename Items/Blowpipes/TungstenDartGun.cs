@@ -9,9 +9,6 @@ namespace Zylon.Items.Blowpipes
 {
 	public class TungstenDartGun : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Uses seeds as ammo");
-		}
 		public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);
 			Item.damage = 12;

@@ -7,9 +7,6 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Body)]
 	public class GooeyCover : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Somehow just as strong as metal, but I wouldn't question it\nIncreases melee speed by 8%, ranged critical strike chance by 5, max mana by 20, and minion knockback by 20%");
-		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;

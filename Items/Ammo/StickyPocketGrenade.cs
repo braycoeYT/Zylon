@@ -8,8 +8,8 @@ namespace Zylon.Items.Ammo
 	public class StickyPocketGrenade : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'I could barely throw the normal size ones!'\nFor use with blowpipes");
-        }
+			Item.ResearchUnlockCount = 99;
+		}
 		public override void SetDefaults() {
 			Item.damage = 8;
 			Item.DamageType = DamageClass.Ranged;

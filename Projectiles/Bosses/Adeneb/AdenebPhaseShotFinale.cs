@@ -51,7 +51,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
         public override void OnSpawn(IEntitySource source) {
 			SoundEngine.PlaySound(SoundID.NPCHit5, Projectile.position);
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
             for (int i = 0; i < (int)(3*Projectile.scale); i++) {
 				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.OrangeTorch);
 				Dust dust = Main.dust[dustIndex];

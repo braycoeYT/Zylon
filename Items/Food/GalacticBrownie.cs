@@ -7,7 +7,7 @@ namespace Zylon.Items.Food
 	public class GalacticBrownie : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Medium improvements to all stats\n'The rainbow bits, oh, the rainbow bits...'");
+			Item.ResearchUnlockCount = 5;
 		}
 		public override void SetDefaults() {
 			Item.width = 34;

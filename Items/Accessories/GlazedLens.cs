@@ -6,9 +6,6 @@ namespace Zylon.Items.Accessories
 {
 	public class GlazedLens : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Eye can see!'\nIncreases crit chance by 4\nCritical strikes spawn temporary eyes to rotate around the player, damaging enemies\nThe higher the player's crit chance, the faster the eyes move");
-		}
 		public override void SetDefaults() {
 			Item.width = 16;
 			Item.height = 22;

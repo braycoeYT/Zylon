@@ -17,7 +17,7 @@ namespace Zylon.Items.Tomes
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 34;
 			Item.useTime = 34;
-			Item.damage = 19;
+			Item.damage = 29;
 			Item.width = 30;
 			Item.height = 36;
 			Item.knockBack = 0.5f;
@@ -27,13 +27,12 @@ namespace Zylon.Items.Tomes
 			Item.DamageType = DamageClass.Magic;
 			Item.autoReuse = true;
 			Item.rare = ItemRarityID.Orange;
-			Item.mana = 14;
+			Item.mana = 10;
 			Item.UseSound = SoundID.Item116;
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Book);
-			recipe.AddIngredient(ItemID.HellstoneBar, 12);
+			recipe.AddIngredient(ItemID.HellstoneBar, 15);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

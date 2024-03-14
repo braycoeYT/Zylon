@@ -7,10 +7,6 @@ namespace Zylon.Items.Accessories
 {
 	public class HarpysCrest : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Harpy's Crest");
-			// Tooltip.SetDefault("When equipped, hold the W key to fall slower");
-		}
 		public override void SetDefaults() {
 			Item.width = 58;
 			Item.height = 28;

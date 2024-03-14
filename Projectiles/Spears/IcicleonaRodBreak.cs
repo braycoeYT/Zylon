@@ -42,7 +42,7 @@ namespace Zylon.Projectiles.Spears
 			if (Timer > 9) Projectile.alpha += 18;
 			if (Projectile.alpha > 254) Projectile.Kill();
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			for (int i = 0; i < 4; i++) {
 				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.IceGolem);

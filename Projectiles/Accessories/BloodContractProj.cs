@@ -37,7 +37,7 @@ namespace Zylon.Projectiles.Accessories
 				dust.scale = 1f;
 			}
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
             if (timeLeft > 0) SoundEngine.PlaySound(SoundID.NPCHit13, Projectile.position);
 			for (int i = 0; i < 8; i++) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Blood);

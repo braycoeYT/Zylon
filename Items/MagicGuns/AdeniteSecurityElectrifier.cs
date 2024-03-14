@@ -9,7 +9,7 @@ namespace Zylon.Items.MagicGuns
 	public class AdeniteSecurityElectrifier : ModItem
 	{
 		public override void SetDefaults() {
-			Item.damage = 18;
+			Item.damage = 22;
 			Item.DamageType = DamageClass.Magic;
 			Item.width = 33;
 			Item.height = 33;
@@ -27,7 +27,16 @@ namespace Zylon.Items.MagicGuns
 			Item.mana = 6;
 			Item.UseSound = SoundID.Item91;
 		}
-		int shootNum;
+        public override void UpdateInventory(Player player) {
+            if (Main.remixWorld) {
+				Item.damage = 4;
+				Item.knockBack = 0.5f;
+				Item.rare = ItemRarityID.Gray;
+				Item.value = Item.sellPrice(0, 0, 0, 1);
+				Item.mana = 1;
+            }
+        }
+        int shootNum;
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
             if (shootNum % 3 == 2)
 				type = ModContent.ProjectileType<Projectiles.MagicGuns.ElectricBoltPassiveExplode>();
@@ -50,8 +59,8 @@ namespace Zylon.Items.MagicGuns
 			recipe.AddIngredient(ModContent.ItemType<Materials.AdeniteCrumbles>(), 16);
             recipe.AddIngredient(ModContent.ItemType<Materials.SearedStone>(), 27);
 			recipe.AddIngredient(ItemID.Obsidian, 12);
-			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 8);
             recipe.AddTile(TileID.Anvils);
+			recipe.AddCondition(Condition.NotRemixWorld);
 			recipe.Register();
 		}
 	}

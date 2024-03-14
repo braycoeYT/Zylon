@@ -26,7 +26,7 @@ namespace Zylon.Projectiles.Ammo
 			}
         }
 
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			for (int i = 0; i < 6; i++)
 			Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, (int)(Projectile.velocity.X*Main.rand.NextFloat(-0.8f, -1.2f)), (float)(Projectile.velocity.Y*Main.rand.NextFloat(-0.8f, -1.2f)));
 		}

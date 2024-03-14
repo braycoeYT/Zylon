@@ -6,10 +6,6 @@ namespace Zylon.Items.Ammo
 {
 	public class EndlessSeedPouch : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Bottomless Sack of Seeds");
-			// Tooltip.SetDefault("For use with blowpipes");
-        }
 		public override void SetDefaults() {
 			Item.damage = 6; //3
 			Item.DamageType = DamageClass.Ranged;

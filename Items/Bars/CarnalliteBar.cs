@@ -8,13 +8,13 @@ namespace Zylon.Items.Bars
 	public class CarnalliteBar : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'It looks like it would be right at home in the jungle.'");
+			Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 25;
 		}
 		public override void SetDefaults() {
 			Item.rare = ItemRarityID.Green;
 			Item.width = 30;
 			Item.height = 24;
-			Item.maxStack = 999;
+			Item.maxStack = 9999;
 			Item.value = Item.sellPrice(0, 0, 8, 0);
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;
@@ -28,7 +28,7 @@ namespace Zylon.Items.Bars
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemType<Ores.CarnalliteOre>(), 4);
-			recipe.AddTile(TileID.WorkBenches);
+			recipe.AddTile(TileID.Hellforge);
 			recipe.Register();
 		}
 	}

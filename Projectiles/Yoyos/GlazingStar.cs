@@ -23,7 +23,7 @@ namespace Zylon.Projectiles.Yoyos
 			Projectile.aiStyle = 99;
 			Projectile.friendly = true;
 			Projectile.penetrate = -1;
-			Projectile.DamageType = DamageClass.MeleeNoSpeed;
+			Projectile.DamageType = DamageClass.Melee;
 		}
 		int Timer;
 		public override void AI() {
@@ -50,7 +50,7 @@ namespace Zylon.Projectiles.Yoyos
 			Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 10;
 			if (foundTarget) {
 				Timer++;
-				if (Timer % 90 == 0) ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, projDir, ModContent.ProjectileType<Feather>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+				if (Timer % 90 == 0) ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, projDir, ModContent.ProjectileType<Feather>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
 			}
 		}
 		public override void PostAI() {

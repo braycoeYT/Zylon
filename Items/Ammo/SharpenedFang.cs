@@ -7,9 +7,8 @@ namespace Zylon.Items.Ammo
     public class SharpenedFang : ModItem
     {
         public override void SetStaticDefaults() {
-            // DisplayName.SetDefault("Sharpened Fang");
-            // Tooltip.SetDefault("Inflicts bleeding on enemies\nCan be used with stake launchers");
-        }
+			Item.ResearchUnlockCount = 99;
+		}
         public override void SetDefaults() {
             Item.CloneDefaults(ItemID.Stake);
             Item.damage = 11;

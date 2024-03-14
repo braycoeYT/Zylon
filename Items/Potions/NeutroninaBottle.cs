@@ -7,9 +7,8 @@ namespace Zylon.Items.Potions
     public class NeutroninaBottle : ModItem
 	{
         public override void SetStaticDefaults() {
-            // DisplayName.SetDefault("Neutron in a Bottle");
-            // Tooltip.SetDefault("When above half life, increases damage by 10% but decreases defense by 10\nWhen below half life, increases defense by 10 but decreases damage by 10%\nPositive effects are halved if an ironskin or wrath/rage potion is active (to their respective stats)");
-        }
+			Item.ResearchUnlockCount = 20;
+		}
         public override void SetDefaults() {
             Item.width = 20;
             Item.height = 28;

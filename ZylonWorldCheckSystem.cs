@@ -8,33 +8,34 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
+using Terraria.WorldBuilding;
 
 namespace Zylon
 {
 	public class ZylonWorldCheckSystem : ModSystem
 	{
-		public static bool carnallItemessage = false;
+		public static bool carnalliteMessage = false;
 		public static bool downedJelly = false;
 		public static bool downedAdeneb = false;
 		public static bool downedDirtball = false;
 		public static bool downedMetelord = false;
 		public override void OnWorldLoad() {
-			carnallItemessage = false;
+			carnalliteMessage = false;
 			downedJelly = false;
 			downedAdeneb = false;
 			downedDirtball = false;
 			downedMetelord = false;
 		}
 		public override void OnWorldUnload() {
-			carnallItemessage = false;
+			carnalliteMessage = false;
 			downedJelly = false;
 			downedAdeneb = false;
 			downedDirtball = false;
 			downedMetelord = false;
 		}
 		public override void SaveWorldData(TagCompound tag) {
-			if (carnallItemessage) {
-				tag["carnallItemessage"] = true;
+			if (carnalliteMessage) {
+				tag["carnalliteMessage"] = true;
 			}
 			if (downedJelly) {
 				tag["downedJelly"] = true;
@@ -50,7 +51,7 @@ namespace Zylon
 			}
 		}
 		public override void LoadWorldData(TagCompound tag) {
-			carnallItemessage = tag.ContainsKey("carnallItemessage");
+			carnalliteMessage = tag.ContainsKey("carnalliteMessage");
 			downedJelly = tag.ContainsKey("downedJelly");
 			downedAdeneb = tag.ContainsKey("downedAdeneb");
 			downedDirtball = tag.ContainsKey("downedDirtball");
@@ -58,7 +59,7 @@ namespace Zylon
 		}
 		public override void NetSend(BinaryWriter writer) {
 			bool[] flags = new bool[] {
-				carnallItemessage,
+				carnalliteMessage,
 				downedJelly,
 				downedAdeneb,
 				downedDirtball,
@@ -74,14 +75,14 @@ namespace Zylon
 			int length = reader.ReadInt32();
 			byte[] bytes = reader.ReadBytes(length);
 			BitArray bitArray = new BitArray(bytes);
-			carnallItemessage = bitArray[0];
+			carnalliteMessage = bitArray[0];
 			downedJelly = bitArray[1];
 			downedAdeneb = bitArray[2];
 			downedDirtball = bitArray[3];
 			downedMetelord = bitArray[4];
 		}
         public override void PostUpdateNPCs() {
-            if (NPC.downedBoss3 && !carnallItemessage) {
+            if (NPC.downedQueenBee && !carnalliteMessage) {
 				Color messageColor = Color.MediumSpringGreen;
 					string chat = "A green light shimmers from the muds of this world!";
 					if (Main.netMode == NetmodeID.Server)
@@ -92,7 +93,15 @@ namespace Zylon
 					{
 						Main.NewText(Language.GetTextValue(chat), messageColor);
 					}
-				carnallItemessage = true;
+				carnalliteMessage = true;
+
+				for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 0.0004); k++) { //0.0005
+					int x = WorldGen.genRand.Next(0, Main.maxTilesX);
+					int y = WorldGen.genRand.Next((int)GenVars.worldSurfaceLow, Main.maxTilesY);
+					Tile tile = Framing.GetTileSafely(x, y);
+					if (tile.TileType == TileID.Mud)
+						WorldGen.TileRunner(x, y, WorldGen.genRand.Next(7, 11), WorldGen.genRand.Next(3, 6), ModContent.TileType<Tiles.Ores.CarnalliteOre>());
+				}
             }
         }
     }

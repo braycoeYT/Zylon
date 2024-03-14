@@ -8,10 +8,6 @@ namespace Zylon.Items.Guns
 {
 	public class DeadlockPistol : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Deadlock Pistol");
-			// Tooltip.SetDefault("Fires a spread of bullets");
-		}
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 1, 75, 0);
 			Item.useStyle = ItemUseStyleID.Shoot;

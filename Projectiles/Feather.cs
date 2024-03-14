@@ -15,7 +15,7 @@ namespace Zylon.Projectiles
 			Projectile.friendly = true;
 			Projectile.DamageType = DamageClass.Melee;
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			for (int i = 0; i < 5; i++) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Skyware);
 				dust.noGravity = false;

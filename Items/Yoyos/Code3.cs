@@ -42,8 +42,7 @@ namespace Zylon.Items.Yoyos
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.Code1);
 			recipe.AddIngredient(ItemID.Code2);
-			recipe.AddIngredient(ItemType<Materials.ElementalGoop>(), 10);
-			recipe.AddIngredient(ItemID.BeetleHusk, 5);
+			recipe.AddIngredient(ItemID.BeetleHusk, 6);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

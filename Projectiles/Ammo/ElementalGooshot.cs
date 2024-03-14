@@ -24,7 +24,7 @@ namespace Zylon.Projectiles.Ammo
 				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.ElementalDegeneration>(), 60 * Main.rand.Next(5, 11));
 			}
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			if (Main.rand.NextFloat() < .1f) Item.NewItem(Projectile.GetSource_FromThis(), Projectile.getRect(), ModContent.ItemType<Items.Ammo.ElementalGooshot>());
 		}

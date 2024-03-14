@@ -30,7 +30,7 @@ namespace Zylon.Projectiles.Bosses.Metelord
 			Projectile.rotation += 0.05f;
 			if (Timer > 7) Projectile.hostile = true;
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Meteorite);
 			dust.scale = 1.5f;

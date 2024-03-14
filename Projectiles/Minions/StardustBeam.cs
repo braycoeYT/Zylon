@@ -23,9 +23,9 @@ namespace Zylon.Projectiles.Minions
             //Projectile.velocity *= 1.01f;
 			//Projectile.rotation = Projectile.velocity.ToRotation();
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(), ProjectileID.LunarFlare, Projectile.damage, Projectile.knockBack, Projectile.owner);
+			ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Microsoft.Xna.Framework.Vector2(), ProjectileID.LunarFlare, Projectile.damage, Projectile.knockBack, Projectile.owner);
 		}
 	}   
 }

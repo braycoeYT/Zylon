@@ -7,9 +7,6 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Body)]
 	public class HaxoniteBreastplate : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Increases life and mana regeneration by 1");
-		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;
@@ -18,8 +15,7 @@ namespace Zylon.Items.Armor
 			Item.defense = 10;
 		}
 		public override void UpdateEquip(Player player) {
-			player.lifeRegen += 1;
-			player.manaRegen += 1;
+			player.endurance += 0.04f;
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

@@ -8,9 +8,6 @@ namespace Zylon.Items.Swords
 {
 	public class Bloodshed : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'There will be'\nSpawns four blood orbs after striking a foe");
-		}
 		public override void SetDefaults() {
 			Item.damage = 39;
 			Item.DamageType = DamageClass.Melee;
@@ -37,10 +34,9 @@ namespace Zylon.Items.Swords
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.BoneSword);
-			recipe.AddIngredient(ModContent.ItemType<Materials.BloodDroplet>(), 30);
-			recipe.AddIngredient(ModContent.ItemType<Bars.CarnalliteBar>(), 10);
-			recipe.AddIngredient(ItemID.HellstoneBar, 10);
+			recipe.AddIngredient(ItemID.Bone, 55);
+			recipe.AddIngredient(ModContent.ItemType<Materials.BloodDroplet>(), 20);
+			recipe.AddIngredient(ItemID.HellstoneBar, 12);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

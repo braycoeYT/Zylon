@@ -24,15 +24,11 @@ namespace Zylon.Projectiles.MagicGuns
 			AIType = ProjectileID.Bullet;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-			grow += 0.5f;
+			grow += 0.75f;
 		}
 
-        public override void OnHitPlayer(Player target, Player.HurtInfo info)
-        {
-            if (info.PvP)
-            {
-				grow += 0.5f;
-			}
+        public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+            if (info.PvP) grow += 0.75f;
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity) {
@@ -55,8 +51,8 @@ namespace Zylon.Projectiles.MagicGuns
 		float grow;
 		public override void AI() {
 			if (grow > 0) {
-				grow -= 0.01f;
-				Projectile.scale += 0.01f;
+				grow -= 0.015f;
+				Projectile.scale += 0.015f;
 			}
 			Projectile.width = (int)(20 * Projectile.scale);
 			Projectile.height = (int)(20 * Projectile.scale);
@@ -68,7 +64,7 @@ namespace Zylon.Projectiles.MagicGuns
 				dust.scale = 1f;
 			}
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

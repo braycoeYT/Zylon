@@ -7,9 +7,6 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Legs)]
 	public class ShadowstitchedBoots : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Malevolent energy jumps from its folds'\nDecreases mana usage by 7%\nIncreases magic critical strike chance and damage by 8%");
-		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;

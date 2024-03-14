@@ -25,7 +25,6 @@ namespace Zylon.Items.Tomes
 			Item.shootSpeed = 7f;
 			Item.noMelee = true;
 			Item.mana = 9;
-			Item.stack = 1;
 			Item.UseSound = SoundID.Item20;
 		}
 		public override void AddRecipes() {

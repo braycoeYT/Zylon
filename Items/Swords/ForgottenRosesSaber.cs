@@ -11,7 +11,7 @@ namespace Zylon.Items.Swords
 	{
 
 		public override void SetDefaults() {
-			Item.damage = 101;
+			Item.damage = 191;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 42;
 			Item.height = 42;
@@ -19,7 +19,7 @@ namespace Zylon.Items.Swords
 			Item.useAnimation = 43;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 7.6f;
-			Item.value = Item.sellPrice(0, 16, 50);
+			Item.value = Item.sellPrice(0, 10, 27);
 			Item.rare = ItemRarityID.Lime;
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;

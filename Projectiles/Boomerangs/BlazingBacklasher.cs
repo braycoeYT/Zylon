@@ -1,148 +1,79 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
+using Terraria;
 using Terraria.DataStructures;
+using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Zylon.Projectiles.Boomerangs
 {
 	public class BlazingBacklasher : ModProjectile
 	{
-        public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Blazing Backlasher");
-        }
 		public override void SetDefaults() {
-			Projectile.width = 8;
-			Projectile.height = 8;
-			Projectile.aiStyle = 3;
+			Projectile.width = 32;
+			Projectile.height = 32;
+			Projectile.aiStyle = -1;
 			Projectile.friendly = true;
 			Projectile.penetrate = -1;
-			Projectile.DamageType = DamageClass.MeleeNoSpeed;
+			Projectile.DamageType = DamageClass.Melee;
 			Projectile.timeLeft = 9999;
-			Projectile.ignoreWater = true;
-		}
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-			target.AddBuff(BuffID.Daybreak, 300);
-		}
-		public override void PostAI() {
-			if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.SolarFlare);
-				dust.noGravity = true;
-				dust.scale = 1f;
-			}
 		}
 		int Timer;
-		float num31;
-		float num32;
-		float num38 = 0.25f; //0.25f
-		Vector2 vector;
-		float num39;
-		float num40;
-		float num42 = 12f; //18f
-		float num43 = 0.6f; //0.4f
-		Vector2 vector2; 
-		float num44;
-		float num45; 
-		float num46;
+		float speedAcc;
+		bool goBack;
+		float rotSpeed = 0.15f;
 		public override void AI() {
-			num31 = Projectile.position.X + (float)(Projectile.width / 2) + Projectile.velocity.X * 100f;
-			num32 = Projectile.position.Y + (float)(Projectile.height / 2) + Projectile.velocity.Y * 100f;
-			vector = new Vector2(Projectile.position.X + (float)Projectile.width * 0.5f, Projectile.position.Y + (float)Projectile.height * 0.5f);
-			num39 = num31 - vector.X;
-			num40 = num32 - vector.Y;
-			vector2 = new Vector2(Projectile.position.X + (float)Projectile.width * 0.5f, Projectile.position.Y + (float)Projectile.height * 0.5f);
-			num44 = Main.player[Projectile.owner].position.X + (float)(Main.player[Projectile.owner].width / 2) - vector2.X;
-			num45 = Main.player[Projectile.owner].position.Y + (float)(Main.player[Projectile.owner].height / 2) - vector2.Y;
-			num46 = (float)Math.Sqrt((double)(num44 * num44 + num45 * num45));
 			Timer++;
-			if (Timer % 20 == 0) 
-				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position + Projectile.velocity * -5, new Vector2(0, 0), ProjectileID.SolarWhipSwordExplosion, Projectile.damage, 0, Projectile.owner);
-			else if (Timer > 10) {
-				Projectile.width = 32;
-				Projectile.height = 32;
+			Projectile.rotation += rotSpeed;
+			if (Timer >= 35 || goBack) {
+				Projectile.ai[0] = 1f; //Allows boomerang to be rethrown
+				if (rotSpeed < 0.75f) { //This is the speedup anim
+					rotSpeed += 0.01f;
+					if (rotSpeed > 0.75f) rotSpeed = 0.75f; //Just in case I change this
+					return;
+                }
+				Projectile.tileCollide = false;
+				Vector2 speed = Projectile.Center - Main.player[Projectile.owner].Center;
+				if (Math.Abs(speed.X)+Math.Abs(speed.Y) < Projectile.height) {
+					Projectile.Kill();
+				}
+				speed.Normalize();
+				speedAcc += 0.03f;
+				if (speedAcc > 1f) speedAcc = 1f;
+				Projectile.velocity = speed*-30f*speedAcc;
+
+				if (Timer % 5 == 0 && Projectile.owner == Main.myPlayer) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<BlazingBacklasherProj>(), Projectile.originalDamage, Projectile.knockBack/2, Main.myPlayer);
 			}
-			if (Projectile.ai[0] == 0f) {
-				if (Projectile.velocity.X < num39)
-						{
-							Projectile.velocity.X = Projectile.velocity.X + num38;
-							if (Projectile.velocity.X < 0f && num39 > 0f)
-							{
-								Projectile.velocity.X = Projectile.velocity.X + num38 * 2f;
-							}
-						}
-						else if (Projectile.velocity.X > num39)
-						{
-							Projectile.velocity.X = Projectile.velocity.X - num38;
-							if (Projectile.velocity.X > 0f && num39 < 0f)
-							{
-								Projectile.velocity.X = Projectile.velocity.X - num38 * 2f;
-							}
-						}
-						if (Projectile.velocity.Y < num40)
-						{
-							Projectile.velocity.Y = Projectile.velocity.Y + num38;
-							if (Projectile.velocity.Y < 0f && num40 > 0f)
-							{
-								Projectile.velocity.Y = Projectile.velocity.Y + num38 * 2f;
-							}
-						}
-						else if (Projectile.velocity.Y > num40)
-						{
-							Projectile.velocity.Y = Projectile.velocity.Y - num38;
-							if (Projectile.velocity.Y > 0f && num40 < 0f)
-							{
-								Projectile.velocity.Y = Projectile.velocity.Y - num38 * 2f;
-							}
-						}
+			else if (Timer >= 20) Projectile.velocity *= 0.8f;
+		}
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+            Projectile.damage = (int)(Projectile.damage*0.9f); //multihit penalty
+			if (Projectile.damage < 1) Projectile.damage = 1;
+			target.AddBuff(BuffID.Daybreak, 60*Main.rand.Next(5, 8));
+        }
+        public override bool OnTileCollide(Vector2 oldVelocity) {
+			//goBack = true;
+			Projectile.tileCollide = false;
+			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
+            if (Projectile.velocity.X != oldVelocity.X) {
+				Projectile.velocity.X = -oldVelocity.X;
 			}
-			else {
-				if (Projectile.type == 383)
-					{
-						Vector2 vector3 = new Vector2(num44, num45) - Projectile.velocity;
-						if (vector3 != Vector2.Zero)
-						{
-							Vector2 value = vector3;
-							value.Normalize();
-							Projectile.velocity += value * Math.Min(num43, vector3.Length());
-						}
-					}
-					else
-					{
-						if (Projectile.velocity.X < num44)
-						{
-							Projectile.velocity.X = Projectile.velocity.X + num43;
-							if (Projectile.velocity.X < 0f && num44 > 0f)
-							{
-								Projectile.velocity.X = Projectile.velocity.X + num43;
-							}
-						}
-						else if (Projectile.velocity.X > num44)
-						{
-							Projectile.velocity.X = Projectile.velocity.X - num43;
-							if (Projectile.velocity.X > 0f && num44 < 0f)
-							{
-								Projectile.velocity.X = Projectile.velocity.X - num43;
-							}
-						}
-						if (Projectile.velocity.Y < num45)
-						{
-							Projectile.velocity.Y = Projectile.velocity.Y + num43;
-							if (Projectile.velocity.Y < 0f && num45 > 0f)
-							{
-								Projectile.velocity.Y = Projectile.velocity.Y + num43;
-							}
-						}
-						else if (Projectile.velocity.Y > num45)
-						{
-							Projectile.velocity.Y = Projectile.velocity.Y - num43;
-							if (Projectile.velocity.Y > 0f && num45 < 0f)
-							{
-								Projectile.velocity.Y = Projectile.velocity.Y - num43;
-							}
-						}
-					}
+			if (Projectile.velocity.Y != oldVelocity.Y) {
+				Projectile.velocity.Y = -oldVelocity.Y;
 			}
+			Projectile.velocity *= 0.92f;
+			return false;
+        }
+		public override bool PreDraw(ref Color lightColor) {
+			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+			Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+			int frameHeight = texture.Height / Main.projFrames[Projectile.type];
+			int spriteSheetOffset = frameHeight * Projectile.frame;
+			Vector2 sheetInsertPosition = (Projectile.Center + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition).Floor();
+			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
+			return false;
 		}
 	}   
 }

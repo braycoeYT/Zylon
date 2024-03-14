@@ -32,7 +32,7 @@ namespace Zylon.Projectiles.Guns
         public override void AI() {
             Projectile.rotation += 0.1f;
         }
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   

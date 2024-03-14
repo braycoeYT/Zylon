@@ -8,9 +8,6 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Head)]
 	public class GooeyCowl : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Somehow just as strong as metal, but I wouldn't question it\nIncreases damage by 3%");
-		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;

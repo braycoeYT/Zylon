@@ -45,7 +45,7 @@ namespace Zylon.Projectiles.Minions
 			}
 			Projectile.rotation += 0.05f;
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
             for (int i = 0; i < 15; i++) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.CursedTorch);
 				dust.noGravity = true;

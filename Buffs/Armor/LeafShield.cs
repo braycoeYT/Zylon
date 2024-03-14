@@ -6,9 +6,7 @@ namespace Zylon.Buffs.Armor
     public class LeafShield : ModBuff
     {
         public override void SetStaticDefaults() {
-            // DisplayName.SetDefault("Leaf Shield");
-            // Description.SetDefault("'The leaves are empowering you'");
-            Main.buffNoTimeDisplay[Type] = false;
+            Main.buffNoTimeDisplay[Type] = true;
             Main.debuff[Type] = true;
         }
         public override void Update(Player player, ref int buffIndex) {

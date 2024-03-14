@@ -72,6 +72,8 @@ namespace Zylon.Projectiles.Boomerangs
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.OnFire, Main.rand.Next(5, 9)*60);
 			Projectile.ai[0] = 1f;
+			Projectile.damage = (int)(Projectile.damage*0.5f); //multihit penalty
+			if (Projectile.damage < 1) Projectile.damage = 1;
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info) {
@@ -89,12 +91,14 @@ namespace Zylon.Projectiles.Boomerangs
 			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
 			return false;
 		}
-        public override void Kill(int timeLeft) {
+        public override void OnKill(int timeLeft) {
 			Vector2 temp = Projectile.velocity;
 			temp.Normalize();
 			temp *= 8f;
-			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, temp.RotatedBy(MathHelper.ToRadians(90)), ModContent.ProjectileType<SolChakram_Mini>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.5f, Main.myPlayer);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, temp.RotatedBy(MathHelper.ToRadians(-90)), ModContent.ProjectileType<SolChakram_Mini>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.5f, Main.myPlayer);
+			if (Main.myPlayer == Projectile.owner) {
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, temp.RotatedBy(MathHelper.ToRadians(90)), ModContent.ProjectileType<SolChakram_Mini>(), (int)(Projectile.originalDamage*0.75f), Projectile.knockBack*0.5f, Main.myPlayer);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, temp.RotatedBy(MathHelper.ToRadians(-90)), ModContent.ProjectileType<SolChakram_Mini>(), (int)(Projectile.originalDamage*0.75f), Projectile.knockBack*0.5f, Main.myPlayer);
+			}
 			SoundEngine.PlaySound(SoundID.Item9, Projectile.position);
 		}
     }   

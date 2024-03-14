@@ -7,11 +7,8 @@ namespace Zylon.Items.Boomerangs
 {
 	public class BionicBoomer : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Suited for a cyborg monkey's hand, but still fits!'\nHas short range, but multiple can be shot at once");
-		}
 		public override void SetDefaults() {
-			Item.damage = 11;
+			Item.damage = 20;
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 19;
 			Item.useTime = 19;

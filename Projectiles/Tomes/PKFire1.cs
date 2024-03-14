@@ -16,15 +16,22 @@ namespace Zylon.Projectiles.Tomes
 			Projectile.aiStyle = 1;
 			Projectile.friendly = true;
 			Projectile.penetrate = 1;
-			Projectile.timeLeft = 15;
+			Projectile.timeLeft = 30;
 			Projectile.ignoreWater = true;
 			AIType = ProjectileID.Bullet;
+			Projectile.DamageType = DamageClass.Magic;
 		}
+		int child = ModContent.ProjectileType<PKFire2>();
+		int offset = 0;
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-			target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6), false);
+			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(4, 9), false);
+			child = ModContent.ProjectileType<PKFireWall>();
+			offset = 30;
 		}
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
-			target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6), false);
+			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(4, 9), false);
+			child = ModContent.ProjectileType<PKFireWall>();
+			offset = 30;
 		}
 		public override void AI() {
 			for (int i = 0; i < 4; i++) {
@@ -36,9 +43,9 @@ namespace Zylon.Projectiles.Tomes
 				dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 			}
 		}
-		public override void Kill(int timeLeft) {
+		public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-				ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.Center, new Microsoft.Xna.Framework.Vector2(0, 12), ModContent.ProjectileType<PKFire2>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center - new Microsoft.Xna.Framework.Vector2(0, offset), new Microsoft.Xna.Framework.Vector2(0, 12), child, Projectile.damage, Projectile.knockBack, Projectile.owner);
 			for (int i = 0; i < 4; i++) {
 				int dustType = 127;
 				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType);

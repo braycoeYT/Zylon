@@ -29,7 +29,7 @@ namespace Zylon.NPCs.WindyDay
 			NPC.lifeMax = 61;
 			NPC.HitSound = SoundID.NPCHit44;
 			NPC.DeathSound = SoundID.NPCDeath6;
-			NPC.value = 75;
+			NPC.value = Item.buyPrice(0, 0, 1, 50);
 			NPC.aiStyle = 44;
 			NPC.knockBackResist = 0.8f;
 			NPC.noGravity = true;
@@ -40,12 +40,22 @@ namespace Zylon.NPCs.WindyDay
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 101;
 			NPC.damage = 36;
-			NPC.value = 150;
-			NPC.knockBackResist = 0.5f;
+			NPC.knockBackResist = 0.7f;
+			NPC.value = Item.buyPrice(0, 0, 2, 75);
 			if (Main.hardMode) {
-				NPC.lifeMax = 268;
-				NPC.damage = 54;
-				NPC.value = 250;
+				NPC.lifeMax = 332;
+				NPC.damage = 92;
+				NPC.value = Item.buyPrice(0, 0, 4);
+            }
+			if (NPC.downedPlantBoss) {
+				NPC.lifeMax = 401;
+				NPC.damage = 105;
+				NPC.value = Item.buyPrice(0, 0, 4, 40);
+            }
+			if (Main.masterMode) {
+				NPC.lifeMax = (int)(NPC.lifeMax*1.5f);
+				NPC.damage = (int)(NPC.damage*1.5f);
+				NPC.knockBackResist = 0.6f;
             }
         }
 		public override void HitEffect(NPC.HitInfo hit) {

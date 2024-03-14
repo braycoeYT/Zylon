@@ -8,8 +8,8 @@ namespace Zylon.Items.Ammo
 	public class BouncyPocketGrenade : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'Nothing's more painful than spilling them all over the floor...'\nFor use with blowpipes");
-        }
+			Item.ResearchUnlockCount = 99;
+		}
 		public override void SetDefaults() {
 			Item.damage = 8;
 			Item.DamageType = DamageClass.Ranged;

@@ -14,7 +14,7 @@ namespace Zylon.Items.Guns
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 24;
 			Item.useTime = 24;
-			Item.damage = 18;
+			Item.damage = 22;
 			Item.width = 26;
 			Item.height = 24;
 			Item.knockBack = 2f;
@@ -27,7 +27,19 @@ namespace Zylon.Items.Guns
 			Item.autoReuse = true;
 			Item.rare = ItemRarityID.Green;
 		}
-		int shootNum;
+		public override Vector2? HoldoutOffset() {
+			return new Vector2(-4, 0);
+		}
+        public override void UpdateInventory(Player player) {
+            if (Main.remixWorld) {
+				Item.damage = 5;
+				Item.knockBack = 0.5f;
+				Item.rare = ItemRarityID.Gray;
+				Item.value = Item.sellPrice(0, 0, 0, 1);
+				Item.shootSpeed = 12f;
+            }
+        }
+        int shootNum;
 		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
 			shootNum++;
 			if (shootNum % 3 == 0) {
@@ -49,8 +61,8 @@ namespace Zylon.Items.Guns
 			recipe.AddIngredient(ModContent.ItemType<Materials.AdeniteCrumbles>(), 16);
             recipe.AddIngredient(ModContent.ItemType<Materials.SearedStone>(), 27);
 			recipe.AddIngredient(ItemID.Obsidian, 12);
-			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 8);
             recipe.AddTile(TileID.Anvils);
+			recipe.AddCondition(Condition.NotRemixWorld);
 			recipe.Register();
 		}
 	}

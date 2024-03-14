@@ -21,7 +21,7 @@ namespace Zylon.Projectiles.Bosses.Jelly
 		public override void AI() {
 			if (!spawn) {
 				for (int i = 0; i < 4; i++) {
-					ProjectileHelpers.NewNetProjectile(new EntitySource_TileBreak((int)Projectile.position.X, (int)Projectile.position.Y), Projectile.position, new Microsoft.Xna.Framework.Vector2(), ModContent.ProjectileType<JellyBeamBody>(), Projectile.damage, 0f, Main.myPlayer, Projectile.ai[0], i, 2);
+					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.position, new Microsoft.Xna.Framework.Vector2(), ModContent.ProjectileType<JellyBeamBody>(), Projectile.damage, 0f, Main.myPlayer, Projectile.ai[0], i, 2);
 				}
 				spawn = true;
 			}

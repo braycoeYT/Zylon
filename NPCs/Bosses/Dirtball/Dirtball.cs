@@ -27,6 +27,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Burning] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Frostburn] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.CursedInferno] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Shimmer] = true;
 		}
         public override void SetDefaults() {
             NPC.width = 80;
@@ -47,11 +48,11 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
-            NPC.lifeMax = (int)((2100 + ((numPlayers - 1) * 900))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+            NPC.lifeMax = (int)(2100*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 46;
 			NPC.value = 20000;
 			if (Main.masterMode) {
-				NPC.lifeMax = (int)((2700 + ((numPlayers - 1) * 1200))*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+				NPC.lifeMax = (int)(2700*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 55;
             }
 			if (Main.getGoodWorld) NPC.scale = 0.75f;
@@ -550,7 +551,13 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				npcLoot.Add(new CommonDrop(ItemID.DirtRod, 5));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Misc.Dirtthrower>(), 25));
 				npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.MuddyGreatsword>(), ModContent.ItemType<Items.Yoyos.Dirtglob>(), ModContent.ItemType<Items.Bows.Dirty3String>(), ModContent.ItemType<Items.Blowpipes.DirtFunnel>(), ModContent.ItemType<Items.Wands.ScepterofDirt>(), ModContent.ItemType<Items.Accessories.DirtRegalia>()));
-				npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()));
+				
+				//Remix and getfixedboi change item progression, so don't drop on those
+				LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.NotRemixSeed());
+				LeadingConditionRule leadingConditionRule2 = new LeadingConditionRule(new Conditions.ZenithSeedIsNotUp());
+
+				leadingConditionRule.OnSuccess(leadingConditionRule2.OnSuccess(npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()))));
+				
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.DirtballMask>(), 7));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.CreepyBlob>(), 10));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.BagofFruits>(), 3));
