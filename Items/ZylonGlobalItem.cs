@@ -119,9 +119,13 @@ namespace Zylon.Items
 				if (item.type == ItemID.FlareGun)
 					item.damage = 15;
 				if (item.type == ItemID.Zenith)
-					item.damage = 51;
-				if (item.type == ItemID.Flare || item.type == ItemID.BlueFlare)
+					item.damage = 63;
+				if (item.type == ItemID.Flare || item.type == ItemID.BlueFlare || item.type == ItemID.SpelunkerFlare || item.type == ItemID.ShimmerFlare)
 					item.damage = 7;
+				if (item.type == ItemID.CursedFlare)
+					item.damage = 13;
+				if (item.type == ItemID.RainbowFlare)
+					item.damage = 22;
 				if (item.type == ItemID.PulseBow)
 					item.damage = 61;
 				if (item.type == ItemID.AcornAxe) {

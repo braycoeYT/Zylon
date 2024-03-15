@@ -27,21 +27,6 @@ Mods: {
 				Description: The spike ring will push enemies away from you
 			}
 
-			DiskiteAgility: {
-				DisplayName: Diskbringer: Agility
-				Description: Increases your run acceleration and deceleration by 10%, move speed by 20%, increases the power of sprinting boots, and max jump speed
-			}
-
-			DiskiteDefense: {
-				DisplayName: Diskbringer: Defense
-				Description: Increases your defense by 10 and damage reduction by 5%
-			}
-
-			DiskiteOffense: {
-				DisplayName: Diskbringer: Offense
-				Description: Increases your damage by 10%, critical strike chance by 5, and weapon speed by 8%
-			}
-
 			LeafShield: {
 				DisplayName: Leaf Shield
 				Description: The leaves are empowering you
@@ -83,8 +68,13 @@ Mods: {
 			}
 
 			DeadlyToxins: {
-				DisplayName: Mods.Zylon.BuffName.DeadlyToxins
+				DisplayName: Deadly Toxins
 				Description: Deadly toxins are rapidly draining your life!
+			}
+
+			Dishonored: {
+				DisplayName: Dishonored
+				Description: You aren't worth fighting.
 			}
 
 			ElementalDegeneration: {
@@ -2620,6 +2610,15 @@ Mods: {
 					'''
 			}
 
+			Yardstick: {
+				DisplayName: Yardstick
+				Tooltip:
+					'''
+					'Corporal punishment at its finest'
+					Upon hitting enemies, has a 10% chance to snap
+					'''
+			}
+
 			ZincShortsword: {
 				DisplayName: Zinc Shortsword
 				Tooltip:
@@ -3957,6 +3956,13 @@ Mods: {
 			TrueLoberaRing.DisplayName: True Lobera
 			TrueLoberaOrb.DisplayName: True Lobera
 			TrueLoberaBeam.DisplayName: True Lobera
+			SaburRexMartianSaucer.DisplayName: Martian Saucer
+			SaburRexMartianSaucerDeathray.DisplayName: Martian Saucer
+			SaburRexMartianSaucerDeathray2.DisplayName: Martian Saucer
+			SaburRexMartianSaucerWarning.DisplayName: Martian Saucer
+			SaburRexMartianSaucerWarning2.DisplayName: Martian Saucer
+			SaburRexBoneProj.DisplayName: Bone
+			SaburRexBoneProjOutside.DisplayName: Bone
 		}
 
 		NPCs: {

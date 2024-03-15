@@ -70,6 +70,11 @@ namespace Zylon.Projectiles.Boomerangs
 		}
         public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
+			for (int i = 0; i < 6; i++) {
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.CursedTorch);
+				dust.noGravity = true;
+				dust.scale = 1.5f;
+			}
 		}
 	}   
 }

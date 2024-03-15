@@ -12,7 +12,7 @@ namespace Zylon.Projectiles
 		public override bool InstancePerEntity => true;
 		public override void SetDefaults(Projectile projectile) {
 			if (GetInstance<ZylonConfig>().zylonianBalancing) {
-				if (projectile.type == ProjectileID.Flare || projectile.type == ProjectileID.BlueFlare)
+				if (projectile.type == ProjectileID.Flare || projectile.type == ProjectileID.BlueFlare || projectile.type == ProjectileID.SpelunkerFlare || projectile.type == ProjectileID.CursedFlare || projectile.type == ProjectileID.RainbowFlare || projectile.type == ProjectileID.ShimmerFlare)
 					projectile.timeLeft = 3600;
 			}
 		}

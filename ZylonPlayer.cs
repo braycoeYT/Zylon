@@ -293,8 +293,8 @@ namespace Zylon
 			}
 			if (!isDummy && Main.myPlayer == Player.whoAmI) {
 				if (TrueMelee) {
-					if (diskbringerSet)
-						DiskiteBuffs(90, Player);
+					/*if (diskbringerSet)
+						DiskiteBuffs(90, Player);*/
 					if (nightmareCatcher && Main.rand.NextFloat() < .2f) {
 						int y = 0;
 						for (int x = 0; x < Main.maxItems; x++) {
@@ -311,8 +311,8 @@ namespace Zylon
 					}
 				} else {
 					// To encourage more true melee play, this only has a 75% chance of applying instead of 100
-					if (diskbringerSet)
-						DiskiteBuffs(60, Player, 75);
+					/*if (diskbringerSet)
+						DiskiteBuffs(60, Player, 75);*/
 					if (nightmareCatcher && Main.rand.NextFloat() < .07f) {
 						int y = 0;
 						for (int x = 0; x < Main.maxItems; x++) {
@@ -379,14 +379,14 @@ namespace Zylon
 				critCount++;
 			}
 			if (TrueMelee) {
-				if (diskbringerSet)
-					DiskiteBuffs(90, Player);
+				/*if (diskbringerSet)
+					DiskiteBuffs(90, Player);*/
 				if (glazedLens && crit)
 					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.GlazedLensProj>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
 			} else {
 				// To encourage more true melee play, this only has a 75% chance of applying instead of 100
-				if (diskbringerSet)
-					DiskiteBuffs(60, Player, 75);
+				/*if (diskbringerSet)
+					DiskiteBuffs(60, Player, 75);*/
 				if (glazedLens && crit)
 					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.GlazedLensProj>(), 20, 5f, Main.myPlayer, proj.CritChance);
 			}
@@ -399,7 +399,7 @@ namespace Zylon
 				Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.MetecoreSpirit>(), 0, 0, Main.myPlayer);
 			}
 		}
-		public void DiskiteBuffs(int Bufftime, Player player) {
+		/*public void DiskiteBuffs(int Bufftime, Player player) {
 			switch (Main.rand.Next(3)) {
 				case 0:
 					player.AddBuff(BuffType<Buffs.Armor.AdenebOffense>(), Bufftime);
@@ -411,11 +411,11 @@ namespace Zylon
 					player.AddBuff(BuffType<Buffs.Armor.AdenebAgility>(), Bufftime);
 					return;
             }
-		}
-		public void DiskiteBuffs(int Bufftime, Player player, int PercentChance) {
+		}*/
+		/*public void DiskiteBuffs(int Bufftime, Player player, int PercentChance) {
 			if (Main.rand.Next(1, 100) <= PercentChance)
 				DiskiteBuffs(Bufftime, player);
-        }
+        }*/
 		public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
 		{
 			if (rootGuard && Player.whoAmI == Main.myPlayer) for (int x = 0; x < 3; x++)

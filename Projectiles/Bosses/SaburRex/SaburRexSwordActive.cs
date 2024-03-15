@@ -5,13 +5,14 @@ using Microsoft.Xna.Framework;
 using Zylon.NPCs;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
+using Terraria.DataStructures;
 
 namespace Zylon.Projectiles.Bosses.SaburRex
 {
 	public class SaburRexSwordActive : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            Main.projFrames[Projectile.type] = 1;
+            Main.projFrames[Projectile.type] = 2;
         }
         public override void SetDefaults() {
 			Projectile.width = 50;
@@ -22,8 +23,12 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 			Projectile.tileCollide = false;
 			Projectile.ignoreWater = true;
 		}
+        public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+            if (Main.expertMode && owner.ai[0] == 1f && owner.ai[3] == 1f) target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " was sent to the dungeon."), 999, 1); //We are NOT messing around.
+        }
+		NPC owner;
         public override void AI() {
-			NPC owner = Main.npc[ZylonGlobalNPC.saburBoss];
+			owner = Main.npc[ZylonGlobalNPC.saburBoss];
 			if (owner.active && owner.life > 0) Projectile.timeLeft = 2;
 			Projectile.rotation = owner.ai[2]*owner.direction - MathHelper.PiOver4; //Projectile rot for facing right
 
@@ -37,7 +42,7 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 			Projectile.Center = owner.Center - new Vector2(8*owner.direction, 0) + posChange; //- new Vector2(8*owner.direction, 0)
 
 			Projectile.spriteDirection = owner.direction;
-			Projectile.frame = (int)owner.ai[1];
+			Projectile.frame = (int)owner.ai[0];
         }
 		public override bool PreDraw(ref Color lightColor) {
 			SpriteEffects effects = SpriteEffects.None;//Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;

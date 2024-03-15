@@ -25,7 +25,7 @@ namespace Zylon.Items.Accessories
 			recipe.AddIngredient(ModContent.ItemType<LeafBracer>());
 			recipe.AddIngredient(ItemID.CharmofMyths);
 			recipe.AddIngredient(ItemID.CrossNecklace);
-			recipe.AddIngredient(ItemID.BeetleHusk, 8);
+			recipe.AddIngredient(ItemID.LunarBar, 8);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

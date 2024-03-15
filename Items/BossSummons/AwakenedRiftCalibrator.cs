@@ -25,13 +25,7 @@ namespace Zylon.Items.BossSummons
 			Item.consumable = false;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {
-            foreach (TooltipLine tooltipLine in list) {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName") {
-                    tooltipLine.OverrideColor = Zylon.Magenta;
-                }
-            }
-
-			string temp = "He will not hold back.";
+			/*string temp = "He will not hold back.";
 			int a = Convert.ToInt32(Main.GameUpdateCount) - (Convert.ToInt32(Main.GameUpdateCount) % 20);
 			//Main.rand.SetSeed(a);
 			for (int i = 0; i < temp.Length; i++) {
@@ -51,8 +45,8 @@ namespace Zylon.Items.BossSummons
 						break;
                 }
 				if (Main.rand.NextBool(3)) temp = temp.Remove(i, 1).Insert(i, randChar); //Cool text effect.
-			}
-			TooltipLine xline = new TooltipLine(Mod, "Tooltip0", temp);
+			}*/
+			TooltipLine xline = new TooltipLine(Mod, "Tooltip0", "He will not hold back.");
 			xline.OverrideColor = new Color(127, 127, 127);
 			list.Add(xline);
         }

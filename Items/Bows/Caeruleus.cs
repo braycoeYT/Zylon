@@ -15,7 +15,7 @@ namespace Zylon.Items.Bows
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 30;
 			Item.useTime = 30;
-			Item.damage = 867;
+			Item.damage = 8670; //Temp buff so I can actually speed up the battle
 			Item.width = 48;
 			Item.height = 92;
 			Item.knockBack = 3.5f;

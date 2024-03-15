@@ -157,7 +157,6 @@ V0.0.3: Cause to Clash Update
 ~Reworked several of the mod's older boomerangs.
 ~Added multihit penalties for some modded boomerangs.
 ~Heavily nerfed Fleshstab Javelin and changed recipe.
-~X-Blade no longer spawns additional projectiles.
 ~Added Wretched Wrench.
 ~Reworked, expanded, and readded the Restoration Potion family. Vanilla did them dirty.
 ~Changed Recipes are no longer modified if Zylon Balancing is disabled.
@@ -251,8 +250,14 @@ V0.0.3: Cause to Clash Update
 ~Heavily optimized Adenites so that they no longer use 4 NPCs to work.
 ~Mod bosses are now immune to the Shimmer debuff.
 ~Made Zylon multiplayer boss health scale at the same rate as vanilla.
+~New vanilla flares now deal more damage, and despawn after a minute.
+~Added death dust effects to Solaris Flames of Hope.
+~Buffed Solaris damage, but decreased damage rate of Flames of Hope.
+~Increased Solaris sell price.
+~Leaf Bracelet is now Post-Moon Lord instead of Post-Golem.
+~Removed X-Blade (for now).
 
-finish cerussite + finish wolf and ooze (ooze dart) + living wood + obsidian dart + water gun funny change + dirt clump social slot + no more ammo drop + dartshark fix + rework starpack slime and obelisk
+yardstick + finish cerussite + finish wolf and ooze (ooze dart) + living wood + obsidian dart + water gun funny change + dirt clump social slot + no more ammo drop + dartshark fix + rework starpack slime and obelisk
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:
