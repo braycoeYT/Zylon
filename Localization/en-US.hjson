@@ -1123,10 +1123,8 @@ Mods: {
 				DisplayName: Shroomite Headdress
 				Tooltip:
 					'''
-					8% increased ranged damage
-					5% increased ranged critical strike chance
 					Increases max blowpipe charge by 50
-					Increases max blowpipe charge by 37.5/s
+					Increases max blowpipe charge by 30/s
 					'''
 			}
 
@@ -2018,6 +2016,15 @@ Mods: {
 				Tooltip: "'Only at 0.1% of its true power'"
 			}
 
+			PlutoMagnum: {
+				DisplayName: Pluto Magnum
+				Tooltip:
+					'''
+					Replaces musket balls with ultra high velocity bullets
+					50% chance not to consume ammo
+					'''
+			}
+
 			Sandstormgun: {
 				DisplayName: Sandstormgun
 				Tooltip: "'Spread the sand!'"
@@ -2616,6 +2623,7 @@ Mods: {
 					'''
 					'Corporal punishment at its finest'
 					Upon hitting enemies, has a 10% chance to snap
+					Snapped yardsticks roll onto the ground to damage enemies further
 					'''
 			}
 
@@ -3237,8 +3245,8 @@ Mods: {
 				Tooltip:
 					'''
 					'Go home now! Perish with the rest of the ugly Earth People.'
-					Striking foes will grant the user the 'PSI Boost' buff
-					PSI Boost increases magic damage by 15%, and mana regeneration by 1
+					Striking foes will steal mana from enemies
+					If the player has at least 40 mana, will use mana to cast psychokinetic attacks
 					{$CommonItemTooltip.SummonTagDamage}
 					{$CommonItemTooltip.Whips}
 					'''
@@ -3930,6 +3938,8 @@ Mods: {
 			CarnalliteWandProj.DisplayName: Carnallite Wand
 			TempleEqualizerProj.DisplayName: Temple Equalizer
 			Giegue.DisplayName: Giegue
+			GiegueBrainCyclone.DisplayName: Giegue
+			GieguePKBeam.DisplayName: Giegue
 			HeavyLobsterProjBlobMini.DisplayName: Heavy Lobster
 			CerussiteBatProj.DisplayName: Falling Gem
 			BiDisc.DisplayName: Bi Disc
@@ -3963,6 +3973,9 @@ Mods: {
 			SaburRexMartianSaucerWarning2.DisplayName: Martian Saucer
 			SaburRexBoneProj.DisplayName: Bone
 			SaburRexBoneProjOutside.DisplayName: Bone
+			Yardstick.DisplayName: Yardstick
+			YardstickBroken.DisplayName: Yardstick
+			UltraHighVelocityBullet.DisplayName: Ultra High Velocity Bullet
 		}
 
 		NPCs: {
@@ -4097,6 +4110,9 @@ Mods: {
 			Ultimate.DisplayName: Ultimate
 			Exalted.DisplayName: Exalted
 			Unhesitating.DisplayName: Unhesitating
+			Fabled.DisplayName: Fabled
+			Pushy.DisplayName: Pushy
+			Relaxed.DisplayName: Relaxed
 		}
 
 		Tiles: {

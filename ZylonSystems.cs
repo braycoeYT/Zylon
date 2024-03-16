@@ -760,7 +760,7 @@ namespace Zylon
 			recipe.AddTile(TileID.Autohammer);
 			recipe.Register();
 
-			recipe = Recipe.Create(ItemID.ShroomiteHeadgear);
+			recipe = Recipe.Create(ItemID.ShroomiteHelmet);
 			recipe.AddIngredient(ItemID.ChlorophyteHelmet);
 			recipe.AddIngredient(ItemID.GlowingMushroom, 180);
 			recipe.AddTile(TileID.Autohammer);

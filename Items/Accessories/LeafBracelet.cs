@@ -26,7 +26,7 @@ namespace Zylon.Items.Accessories
 			recipe.AddIngredient(ItemID.CharmofMyths);
 			recipe.AddIngredient(ItemID.CrossNecklace);
 			recipe.AddIngredient(ItemID.LunarBar, 8);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

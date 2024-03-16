@@ -12,8 +12,10 @@ namespace Zylon.Projectiles.Tomes
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);
-			AIType = ProjectileID.Seed;
+			Projectile.aiStyle = -1;
+			//AIType = ProjectileID.Seed;
 			Projectile.DamageType = DamageClass.Magic;
+			if (Projectile.ai[0] == 1f) Projectile.DamageType = DamageClass.Summon;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(4, 9), false);
@@ -22,6 +24,7 @@ namespace Zylon.Projectiles.Tomes
 			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(4, 9), false);
 		}
 		public override void AI() {
+			Projectile.velocity.Y = 5;
 			for (int i = 0; i < 4; i++) {
 				int dustType = 127;
 				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType);
@@ -33,7 +36,7 @@ namespace Zylon.Projectiles.Tomes
 		}
 		public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y - 30, 0, 0, ModContent.ProjectileType<PKFireWall>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+			ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y - 30, 0, 0, ModContent.ProjectileType<PKFireWall>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0]);
 			for (int i = 0; i < 4; i++) {
 				int dustType = 127;
 				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType);

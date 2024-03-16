@@ -239,7 +239,7 @@ V0.0.3: Cause to Clash Update
 ~Fixed a couple small code issues with some older mod projectiles.
 ~Added Journey Mode support for the entire mod. Better late than never?
 ~Fixed bugs related to all mod NPC money drops and higher difficulty stat values.
-~Mechanical Slime now has different hit and death sounds, and now spawns dust on death.
+~Mechanical Slime now has different hit and death sounds, and spawns dust on death.
 ~Mechanical Slime now only shoots lasers when angry.
 ~Fixed issues with Zylon NPCs being immune to debuffs, and added some new debuff immunities.
 ~Orange Slime now only spawns after King Slime is defeated.
@@ -256,8 +256,12 @@ V0.0.3: Cause to Clash Update
 ~Increased Solaris sell price.
 ~Leaf Bracelet is now Post-Moon Lord instead of Post-Golem.
 ~Removed X-Blade (for now).
+~Added Yardstick.
+~Modified effects of Shroomite Headdress.
+~Slightly nerfed S.D.M.G.
+~Added Pluto Magnum.
 
-yardstick + finish cerussite + finish wolf and ooze (ooze dart) + living wood + obsidian dart + water gun funny change + dirt clump social slot + no more ammo drop + dartshark fix + rework starpack slime and obelisk
+nebula tome + finish cerussite + finish wolf and ooze (ooze dart) + living wood + obsidian dart + water gun funny change + dirt clump social slot + no more ammo drop + dartshark fix + rework starpack slime and obelisk
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

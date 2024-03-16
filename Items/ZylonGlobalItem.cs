@@ -128,6 +128,8 @@ namespace Zylon.Items
 					item.damage = 22;
 				if (item.type == ItemID.PulseBow)
 					item.damage = 61;
+				if (item.type == ItemID.SDMG)
+					item.damage = 76;
 				if (item.type == ItemID.AcornAxe) {
 					item.axe = 20;
 					item.useTime = 25;

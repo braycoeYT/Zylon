@@ -21,6 +21,7 @@ namespace Zylon.Projectiles.Tomes
 			Projectile.penetrate = -1;
 			Projectile.rotation = 0;
 			Projectile.DamageType = DamageClass.Magic;
+			if (Projectile.ai[0] == 1f) Projectile.DamageType = DamageClass.Summon;
 			Projectile.tileCollide = false;
 			//Projectile.usesLocalNPCImmunity = true;
 			//Projectile.localNPCHitCooldown = 10;

@@ -7,7 +7,6 @@ namespace Zylon.Projectiles
 	public class HaxoniteTrail : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Flame Orb");
 			Main.projFrames[Projectile.type] = 4;
         }
 		public override void SetDefaults() {
