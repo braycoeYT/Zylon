@@ -184,6 +184,8 @@ namespace Zylon.NPCs
 			if (npc.type == NPCID.JungleSlime || npc.type == NPCID.IceSlime || npc.type == NPCID.SandSlime) {
 				npcLoot.Add(ItemDropRule.ByCondition(new ElemGelCondition(), ItemType<Items.Materials.ElementalGoop>(), 3, 1, 2));
             }
+			if (npc.type == NPCID.MartianTurret)
+				npcLoot.Add(new CommonDrop(ItemType<Items.Accessories.DoublePluggedCord>(), 20));
 		}
         int Timer;
 		bool prevNoGrav;

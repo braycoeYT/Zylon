@@ -12,17 +12,21 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 	public class SaburRexSwordActive : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            Main.projFrames[Projectile.type] = 2;
+            Main.projFrames[Projectile.type] = 4;
         }
         public override void SetDefaults() {
-			Projectile.width = 50;
-			Projectile.height = 50;
+			Projectile.width = 54;
+			Projectile.height = 54;
 			Projectile.hostile = true;
 			Projectile.aiStyle = -1;
 			Projectile.timeLeft = 9999;
 			Projectile.tileCollide = false;
 			Projectile.ignoreWater = true;
 		}
+        public override bool CanHitPlayer(Player target) {
+            if (owner.ai[0] == 0 && owner.ai[3] == 1) return false; //See influx weaver code - prevent frustration.
+            return true;
+        }
         public override void OnHitPlayer(Player target, Player.HurtInfo info) {
             if (Main.expertMode && owner.ai[0] == 1f && owner.ai[3] == 1f) target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " was sent to the dungeon."), 999, 1); //We are NOT messing around.
         }
@@ -32,10 +36,16 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 			if (owner.active && owner.life > 0) Projectile.timeLeft = 2;
 			Projectile.rotation = owner.ai[2]*owner.direction - MathHelper.PiOver4; //Projectile rot for facing right
 
+			//Special rotation for beekeeper dash attack
+			//if (owner.ai[0] == 2f && owner.ai[3] == 0f) Projectile.rotation = owner.ai[2] - MathHelper.PiOver2;
+
 			Vector2 posChange = new Vector2(0, -64).RotatedBy(owner.ai[2]);
 			if (owner.direction == -1) {
 				posChange.X *= -1; //If Sabur is flipped, reflect across Y axis
 				
+				
+					//Projectile.rotation += MathHelper.Pi;
+
 				//Projectile.rotation = owner.ai[2]*-1f - MathHelper.PiOver4; //Projectile rotation fix as well.
 			}
 			posChange.X *= 0.75f;

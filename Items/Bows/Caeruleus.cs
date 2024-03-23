@@ -25,7 +25,7 @@ namespace Zylon.Items.Bows
 			Item.DamageType = DamageClass.Ranged;
 			Item.useAmmo = AmmoID.Arrow;
 			Item.UseSound = SoundID.Item5;
-			Item.rare = ItemRarityID.Purple;
+			Item.rare = RarityType<BraycoeDev>();
 		}
 		public override Vector2? HoldoutOffset() {
 			return new Vector2(-8, 0);

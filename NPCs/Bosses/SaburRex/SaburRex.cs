@@ -9,6 +9,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
+using Zylon.Projectiles.Whips;
 
 namespace Zylon.NPCs.Bosses.SaburRex
 {
@@ -51,6 +52,10 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				NPC.damage = 390;
             }
         }
+        public override bool CanHitPlayer(Player target, ref int cooldownSlot) {
+			if (NPC.ai[0] == 0 && NPC.ai[3] == 1) return false; //See influx weaver code - prevent frustration.
+            return true;
+        }
         public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers) {
             if (projectile.type == ProjectileID.FinalFractal) modifiers.FinalDamage *= 0.66f; //I wanted to unnerf Zenith a little but not let it obliterate the mod's final boss
         }
@@ -80,6 +85,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 		Player target;
 		int attackNum4;
 		int attackNum5;
+		float attackFloat3;
         public override void AI() { //ai0 - current attack | ai1 - next attack | ai2 - current rotation | ai3 - other important communication w/ sword proj
 
 			Zylon.hasFoughtSabur = true; //REMOVE WHEN BOSS FINISHED - JUST TO SKIP DIALOGUE
@@ -149,6 +155,9 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				case 1f:
 					BoneSword();
 					break;
+				case 2f:
+					Katana();
+					break;
             }
 
 			UpdateFrame();
@@ -176,11 +185,15 @@ namespace Zylon.NPCs.Bosses.SaburRex
 
 			//Spawn UFO projectiles
 			int normal = 5;
-			if (Main.expertMode) normal = 0;
-			if (attackTimer >= 25+(int)(20*hpLeft)+normal && Main.netMode != NetmodeID.MultiplayerClient && attackTimer < 370+(int)(200*hpLeft)) {
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(Main.rand.Next(-200, 201), Main.rand.Next(0, 50)), Vector2.Zero, ModContent.ProjectileType<SaburRexMartianSaucer>(), (int)(NPC.damage*0.15f), 0f);
+			if (Main.expertMode) normal = 0; //og below 25 + 20
+			if (attackTimer >= 20+(int)(20*hpLeft)+normal && Main.netMode != NetmodeID.MultiplayerClient && attackTimer < 370+(int)(200*hpLeft)) {
+				if (attackTotalTime <= 400+(int)(200*hpLeft)-30) //Decreases the amount of UFOs that appear in the next attack to reduce frustration
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(Main.rand.Next(-200, 201), Main.rand.Next(0, 50)), Vector2.Zero, ModContent.ProjectileType<SaburRexMartianSaucer>(), (int)(NPC.damage*0.15f), 0f);
 				attackTimer = 0;
 			}
+
+			//Removing frustration from attack transitions
+			NPC.ai[3] = attackTotalTime < 60 ? 1f : 0f;
 
 			//End attack
 			if (attackTotalTime >= 400+(int)(200*hpLeft)) attackDone = true;
@@ -241,6 +254,83 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			//Main.NewText(MathHelper.ToDegrees(attackFloat) + " | " + (MathHelper.ToDegrees(attackFloat)-13f)/10f);
 			//Main.NewText(NPC.ai[2] + " | " + MathHelper.ToDegrees(attackFloat));
 		}
+		private void Katana() { //NPC direction code in UpdateFrame is disabled for this attack, also I feel so braindead after making this so not that many comments
+			if (attackTotalTime == 1) attackNum5 = (int)(10+(30*hpLeft));
+			if (attackTotalTime < attackNum5) {
+				Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.RedTorch);
+				dust.velocity = new Vector2(0, -3).RotatedBy(MathHelper.TwoPi*(attackTotalTime/attackNum5));
+				dust.noGravity = true;
+				dust.scale = 2f;
+				return; //Giving time for players to prepare, but they won't listen of course.
+			} //It takes until at least the third attempt for them to integrate this dust sequence into their nightmares. Happy dreaming, players!
+			else if (attackTotalTime < 40) attackNum5 = 0;
+			attackTimer++;
+			if (attackNum2 % 4 == 3) {
+				NPC.velocity *= 0.9f;
+				if (attackTimer == 1) {
+					attackFloat = 0f;
+
+					if (NPC.DirectionTo(target.Center).X > 0) NPC.direction = 1;
+					else NPC.direction = -1;
+					attackNum5 = NPC.direction;
+					attackNum4 = Main.rand.Next(360);
+					attackNum3 = 0;
+				}
+				NPC.direction = attackNum5;
+
+				attackFloat += MathHelper.ToRadians(3.2f+(0.8f*hpLeft));
+
+				//The eternal struggle to syncketh thy blade with thy projectiles.
+				if (attackNum5 == 1) NPC.ai[2] = attackFloat; //+ MathHelper.ToRadians(attackNum4);
+					else NPC.ai[2] = -1*attackFloat; //- MathHelper.ToRadians(attackNum4);
+				NPC.ai[2] += MathHelper.Pi;
+				
+				//if (NPC.direction == 1) NPC.ai[2] = NPC.DirectionTo(target.Center).ToRotation() + MathHelper.PiOver2;
+				//	else NPC.ai[2] = -1*NPC.DirectionTo(target.Center).ToRotation() - MathHelper.PiOver2;
+
+				if (attackTimer % 3 == 0 && attackNum3 < 1) {
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, 48).RotatedBy(attackFloat), new Vector2(0, 5).RotatedBy(attackFloat), ModContent.ProjectileType<SaburRexKatanaDuplicate>(), (int)(NPC.damage*0.2f), 0f, -1, ringPos.X, ringPos.Y, attackNum4);
+				}
+				if (Math.Abs(attackFloat) >= MathHelper.TwoPi*2) {
+					attackNum3++;
+					if (attackNum3 > 20 && attackNum2 < 11) {
+						attackNum2++;
+						attackTimer = 0;
+					}
+					else if (attackNum3 > 40 && attackNum2 == 11) {
+						attackDone = true;
+					}
+				}
+			}
+			else {
+				if (attackTimer <= 15) {
+					//Gets sword to point at the player correctly. Much easier to do it here than in the sword code, trust me.
+					if (NPC.direction == 1) NPC.ai[2] = NPC.DirectionTo(target.Center).ToRotation() + MathHelper.PiOver2;
+					else NPC.ai[2] = -1*NPC.DirectionTo(target.Center).ToRotation() - MathHelper.PiOver2;
+					
+					if (NPC.DirectionTo(target.Center).X > 0) NPC.direction = 1;
+					else NPC.direction = -1;
+					attackNum = NPC.direction;
+					if (attackTimer == 15) {
+						NPC.velocity = NPC.DirectionTo(target.Center)*(45f-(12f*hpLeft)); //og 45 - 15
+					}
+				}
+				else if (attackTimer < 45) {
+					NPC.direction = attackNum; //Don't allow him to flip directions while dashing.
+					NPC.velocity *= 0.94f; //og 0.96
+	
+					//Katana duplicates
+					if (Main.netMode != NetmodeID.MultiplayerClient && (attackTimer % (2+(int)(3*hpLeft)) == 0) && attackTimer < (50+(int)(25*hpLeft))) {
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(target.Center).RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-3f, 3f))), ModContent.ProjectileType<SaburRexKatanaDuplicate>(), (int)(NPC.damage*0.2f), 0f, -1, ringPos.X, ringPos.Y);
+					}
+				}
+				else {
+					attackTimer = 0;
+					attackNum2++;
+					attackNum5 = 0;
+				}
+			}
+		}
 		private void PlayerSwingEffect(float swingSpeed) { //For any attacks that it should look like the sword swings like a player.
 			NPC.ai[2] += MathHelper.ToRadians(swingSpeed); //Swings at the requested rate.
 
@@ -272,17 +362,24 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			if (!init) NPC.frame.Y = 0; //STOP NOT MATCHING YOU DUMMY
 
 			//NPC direction
-			if (Math.Abs(NPC.velocity.X) > 0.05f) {
-				if (NPC.velocity.X < 0) NPC.direction = -1;
-				else NPC.direction = 1;
-            }
+			if (NPC.ai[0] != 2) { //Don't automate the process during the Katana attack.
+				if (Math.Abs(NPC.velocity.X) > 0.05f) {
+					if (NPC.velocity.X < 0) NPC.direction = -1;
+					else NPC.direction = 1;
+				}
+			}
 			NPC.spriteDirection = NPC.direction;
 			ringTotalRot += ringRotSpeed; //Rotate the boss ring.
 			//Main.NewText(NPC.direction); //test
 
 			if (init) for (int i = 0;  i < Main.maxPlayers; i++) {
-				if ((Vector2.Distance(Main.player[i].Center, ringPos) > 750 && Vector2.Distance(Main.player[i].Center, ringPos) < 2000) || Main.player[i].HasBuff(BuffID.Shimmer))
+				if ((Vector2.Distance(Main.player[i].Center, ringPos) > 750 && Vector2.Distance(Main.player[i].Center, ringPos) < 2000) || Main.player[i].HasBuff(BuffID.Shimmer)) {
 					Main.player[i].AddBuff(ModContent.BuffType<Buffs.Debuffs.Dishonored>(), 2);
+
+					//Possibly add later with visuals? Idk
+					//if (init && NPC.ai[0] == 0f) //Leaving the arena is banned during the influx waver attack
+					//	Main.player[i].AddBuff(BuffID.Electrified, 2);
+				}
 			}
 
 			NPC.dontTakeDamage = !init; //No hitting early!
@@ -297,9 +394,9 @@ namespace Zylon.NPCs.Bosses.SaburRex
 
 			//Determine new attack (testing)
 			NPC.ai[1] = NPC.ai[0]; //Forces the while loop to run at least once
-			while (NPC.ai[1] == NPC.ai[0]) NPC.ai[1] = Main.rand.Next(2);
+			while (NPC.ai[1] == NPC.ai[0] || NPC.ai[1] == prevAttack) NPC.ai[1] = Main.rand.Next(3);
 
-			//NPC.ai[0] = 1f;
+			//NPC.ai[0] = 2f;
 			
 			//Reset stats and rotation.
 			attackTimer = 0;
@@ -314,6 +411,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			attackNum3 = 0;
 			attackNum4 = 0;
 			attackNum5 = 0;
+			attackFloat3 = 0f;
         }
 		public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) {
 			Texture2D whiteTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/SaburRex/SaburRex_Light");

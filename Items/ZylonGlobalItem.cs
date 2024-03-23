@@ -72,7 +72,7 @@ namespace Zylon.Items
 					tooltips.Add(line);
 				}*/
             }
-			if (item.type == ItemID.TungstenPickaxe) {
+			/*if (item.type == ItemID.TungstenPickaxe) {
 				foreach (var line2 in tooltips) {
 					if (line2.Mod == "Terraria" && line2.Name == "Tooltip0") {
 						line2.Text = "Can mine Meteorite and Cerussite";
@@ -82,7 +82,7 @@ namespace Zylon.Items
 			if (item.type == ItemID.SilverPickaxe) {
 				TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Can mine Cerussite");
 				tooltips.Add(line);
-			}
+			}*/
 			if (item.type == ItemID.ShinyRedBalloon || item.type == ItemID.BalloonPufferfish) {
 				TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Increases blowpipe charge speed by 4/s (does not stack with other balloons)");
 				tooltips.Add(line);
@@ -105,9 +105,9 @@ namespace Zylon.Items
 			}*/
         }
         public override void SetDefaults(Item item) {
-			if (item.type == ItemID.PoisonDart)
-				item.damage = 7;
 			if (GetInstance<ZylonConfig>().zylonianBalancing) {
+				if (item.type == ItemID.PoisonDart)
+					item.damage = 7;
 				if (item.type == ItemID.BoneArrow)
 					item.damage = 10;
 				if (item.type == ItemID.CookedMarshmallow)
@@ -128,8 +128,11 @@ namespace Zylon.Items
 					item.damage = 22;
 				if (item.type == ItemID.PulseBow)
 					item.damage = 61;
-				if (item.type == ItemID.SDMG)
-					item.damage = 76;
+				if (item.type == ItemID.SDMG) {
+					item.damage = 84;
+					item.useTime = 7;
+					item.useAnimation = 7;
+				}
 				if (item.type == ItemID.AcornAxe) {
 					item.axe = 20;
 					item.useTime = 25;

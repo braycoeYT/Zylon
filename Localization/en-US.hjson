@@ -20,6 +20,7 @@ Mods: {
 		}
 
 		DropConditions.ElemGelCondition: Unleash the Elemental Goo
+		Keybinds.DoublePluggedCord.DisplayName: Double-Plugged Cord Acitivation
 
 		Buffs: {
 			AdenebSpikeRing: {
@@ -317,6 +318,11 @@ Mods: {
 				Description: Gathering static electricity...
 			}
 
+			DoublePluggedCord: {
+				DisplayName: Double Plugged Cord
+				Description: Exploiting the infinite electricity glitch
+			}
+
 			GiegueAdvancedDebuff: {
 				DisplayName: Giegue Advanced Debuff
 				Description: Mods.Zylon.Buffs.GiegueAdvancedDebuff.Description
@@ -395,6 +401,15 @@ Mods: {
 					'Let's get the party started!'
 					Increases crit chance by 5
 					Summons four disco balls to rotate around the player and shoot at enemies on critical strikes
+					'''
+			}
+
+			DoublePluggedCord: {
+				DisplayName: Double-Plugged Cord
+				Tooltip:
+					'''
+					'Humans simply cannot comprehend this level of genius'
+
 					'''
 			}
 
@@ -1655,6 +1670,7 @@ Mods: {
 				Tooltip:
 					'''
 					Summons Sabur Rex
+					Creates an arena around the player
 					Not Consumable
 					'''
 			}
@@ -3976,6 +3992,7 @@ Mods: {
 			Yardstick.DisplayName: Yardstick
 			YardstickBroken.DisplayName: Yardstick
 			UltraHighVelocityBullet.DisplayName: Ultra High Velocity Bullet
+			SaburRexKatanaDuplicate.DisplayName: Replikatana
 		}
 
 		NPCs: {

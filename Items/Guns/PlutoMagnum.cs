@@ -12,12 +12,12 @@ namespace Zylon.Items.Guns
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 13);
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.useAnimation = 6;
-			Item.useTime = 6;
-			Item.damage = 97;
+			Item.useAnimation = 13;
+			Item.useTime = 13;
+			Item.damage = 191;
 			Item.width = 62;
 			Item.height = 28;
-			Item.knockBack = 3.75f;
+			Item.knockBack = 4.25f;
 			Item.shoot = ProjectileID.Bullet;
 			Item.shootSpeed = 15f;
 			Item.noMelee = true;
@@ -25,7 +25,7 @@ namespace Zylon.Items.Guns
 			Item.useAmmo = AmmoID.Bullet;
 			Item.UseSound = SoundID.Item38;
 			Item.autoReuse = true;
-			Item.rare = ItemRarityID.Purple;
+			Item.rare = ModContent.RarityType<PurpleModded>();
 		}
         public override bool CanConsumeAmmo(Item ammo, Player player) {
             return Main.rand.NextBool();

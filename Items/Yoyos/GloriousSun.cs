@@ -22,7 +22,7 @@ namespace Zylon.Items.Yoyos
 			Item.shootSpeed = 16f;
 			Item.knockBack = 4.2f;
 			Item.damage = 178;
-			Item.rare = ItemRarityID.Red;
+			Item.rare = RarityType<RedModded>();
 			Item.DamageType = DamageClass.MeleeNoSpeed;
 			Item.channel = true;
 			Item.noMelee = true;

@@ -22,7 +22,7 @@ namespace Zylon.Items.Wands
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 5.1f;
 			Item.value = Item.sellPrice(0, 35);
-			Item.rare = ItemRarityID.Purple;
+			Item.rare = ModContent.RarityType<BraycoeDev>();
 			Item.autoReuse = true;
 			Item.useTurn = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Wands.VaporsEonBlast>();

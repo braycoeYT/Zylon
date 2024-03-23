@@ -11,7 +11,7 @@ namespace Zylon.Items.Accessories
 			Item.height = 22;
 			Item.accessory = true;
 			Item.value = Item.sellPrice(0, 10, 81);
-			Item.rare = ItemRarityID.Yellow;
+			Item.rare = ModContent.RarityType<PurpleModded>();
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();

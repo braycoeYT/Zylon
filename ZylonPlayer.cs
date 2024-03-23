@@ -5,6 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using static Terraria.ModLoader.ModContent;
+using Terraria.GameInput;
+using Terraria.Audio;
 
 namespace Zylon
 {
@@ -54,6 +56,7 @@ namespace Zylon
 		public bool neutronTracers;
 		public bool runeofMultiplicity;
 		public bool sparkingCore;
+		public bool doublePluggedCord;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -120,6 +123,7 @@ namespace Zylon
 			neutronTracers = false;
 			runeofMultiplicity = false;
 			sparkingCore = false;
+			doublePluggedCord = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -492,5 +496,36 @@ namespace Zylon
 				//Main.NewText((Player.maxMinions-dupli)+" --> "+Player.maxMinions); //Testing
             }
         }
+		public override void ProcessTriggers(TriggersSet triggersSet) {
+			if (ZylonKeybindSystem.DoublePluggedCordKeybind.JustPressed && doublePluggedCord) SoundEngine.PlaySound(SoundID.Item93, Player.Center);
+			if (ZylonKeybindSystem.DoublePluggedCordKeybind.Current && doublePluggedCord && Player.active && Player.statLife > 0) {
+				
+				if (Main.GameUpdateCount % 2 == 0) Player.statLife -= 1;
+				if (Main.GameUpdateCount % 8 == 0) {
+					int healCount = Main.rand.Next(8, 14);
+					Player.statMana += healCount;
+					Player.ManaEffect(healCount);
+				}
+				Player.AddBuff(BuffType<Buffs.Accessories.DoublePluggedCord>(), 1);
+
+				if (Player.statLife < 1) { 
+					String deathMessage = "";
+					switch (Main.rand.Next(3)) {
+						case 0:
+							deathMessage = " plugged themselves in.";
+							break;
+						case 1:
+							deathMessage = " reinvented the electric chair.";
+							break;
+						case 2:
+							deathMessage = " stuck their fingers in the outlet.";
+							break;
+					}
+					if (Main.rand.NextBool(4) && (Player.HasItem(ItemID.CellPhone) || Player.HasItem(ItemID.Shellphone) || Player.HasItem(ItemID.ShellphoneDummy) || Player.HasItem(ItemID.ShellphoneHell) || Player.HasItem(ItemID.ShellphoneOcean) || Player.HasItem(ItemID.ShellphoneSpawn)))
+						deathMessage = "'s phone reached 125% charge.";
+					Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + deathMessage), 1, 0);
+				}
+			}
+		}
     }
 }

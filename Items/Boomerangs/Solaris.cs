@@ -18,7 +18,7 @@ namespace Zylon.Items.Boomerangs
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 8.2f;
 			Item.value = Item.sellPrice(0, 20);
-			Item.rare = ItemRarityID.Purple;
+			Item.rare = ModContent.RarityType<PurpleModded>();
 			Item.UseSound = SoundID.Item71;
 			Item.autoReuse = true;
 			Item.useTurn = true;

@@ -260,8 +260,12 @@ V0.0.3: Cause to Clash Update
 ~Modified effects of Shroomite Headdress.
 ~Slightly nerfed S.D.M.G.
 ~Added Pluto Magnum.
+~Added Magenta and Forest Green Rarities for post-Moon Lord content.
+~Modded rarities now display properly. Finally...
+~Modded weapons and accessories of Red and Purple rarities can now receive PML rarities when reforged.
+~Added Double-Plugged Cord (and the mod's first keybind!).
 
-nebula tome + finish cerussite + finish wolf and ooze (ooze dart) + living wood + obsidian dart + water gun funny change + dirt clump social slot + no more ammo drop + dartshark fix + rework starpack slime and obelisk
+rework harpy's crest + nebula tome + finish cerussite + finish wolf and ooze (ooze dart) + living wood + obsidian dart + water gun funny change + dirt clump social slot + no more ammo drop + dartshark fix + rework starpack slime and obelisk
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

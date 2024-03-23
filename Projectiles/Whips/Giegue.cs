@@ -38,7 +38,11 @@ namespace Zylon.Projectiles.Whips
 			Main.player[Projectile.owner].MinionAttackTargetNPC = target.whoAmI;
 			Projectile.damage = (int)(Projectile.damage * 0.75f); // Multihit penalty. Decrease the damage the more enemies the whip hits.
 			if (Main.myPlayer == Projectile.owner) {
-				if (target.type != NPCID.TargetDummy) Main.player[Projectile.owner].ManaEffect(Main.rand.Next(2, 5));
+				if (target.type != NPCID.TargetDummy) {
+					int rand = Main.rand.Next(3, 7);
+					Main.player[Projectile.owner].statMana += rand;
+					Main.player[Projectile.owner].ManaEffect(rand);
+				}
 			}
 		}
 		int atkTimer;
