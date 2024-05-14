@@ -830,6 +830,30 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Lens);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.CandyCaneSword);
+			recipe.AddIngredient(ItemID.CandyCaneBlock, 32);
+			recipe.AddRecipeGroup("Zylon:AnyPHBar", 10);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.CnadyCanePickaxe);
+			recipe.AddIngredient(ItemID.CandyCaneBlock, 36);
+			recipe.AddRecipeGroup("Zylon:AnyPHBar", 12);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.CandyCaneHook);
+			recipe.AddIngredient(ItemID.CandyCaneBlock, 50);
+			recipe.AddRecipeGroup("Zylon:AnyPHBar", 7);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.BloodyMachete);
+			recipe.AddRecipeGroup("Zylon:AnyPHBar", 10);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.BloodDroplet>(), 18);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
             if (ModContent.GetInstance<ZylonConfig>().zylonianBalancing) for (int i = 0; i < Recipe.numRecipes; i++) {

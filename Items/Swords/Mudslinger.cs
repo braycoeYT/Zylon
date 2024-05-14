@@ -41,7 +41,6 @@ namespace Zylon.Items.Swords
 			recipe.AddIngredient(ItemID.MudBlock, 100);
 			recipe.AddIngredient(ModContent.ItemType<Bars.HaxoniteBar>(), 8);
 			recipe.AddIngredient(ItemID.HellstoneBar, 6);
-			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 5);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

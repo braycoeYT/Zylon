@@ -18,15 +18,14 @@ namespace Zylon.Items.Ammo
 			Item.maxStack = 999;
 			Item.consumable = true;
 			Item.knockBack = 2.25f;
-			Item.value = 0;
+			Item.value = 2;
 			Item.rare = ItemRarityID.White;
 			Item.shoot = ProjectileType<Projectiles.Ammo.ObsidianDart>();
-			//Item.shootSpeed = 3f;
 			Item.ammo = AmmoID.Dart;
 			Item.crit = 8;
 		}
 		public override void AddRecipes() {
-			Recipe recipe = CreateRecipe(50);
+			Recipe recipe = CreateRecipe(75);
 			recipe.AddIngredient(ItemID.Obsidian);
 			recipe.Register();
 		}

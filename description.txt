@@ -264,8 +264,17 @@ V0.0.3: Cause to Clash Update
 ~Modded rarities now display properly. Finally...
 ~Modded weapons and accessories of Red and Purple rarities can now receive PML rarities when reforged.
 ~Added Double-Plugged Cord (and the mod's first keybind!).
+~Readded Candy Cane Pike.
+~Resprited Taboo Essence.
+~Added Foxtrot and Arctic Vixen.
+~Added Lazy Cap.
+~Increased Goblin item drop rates to make Goblins actually useful.
+~Reworked Obsidian Dart, and increased amount per craft.
+~Mudslinger no longer requires Any Demonite Bar to craft.
+~Revel's max charge effect can now be toggled with the right click.
+~Buffed Glass Leggings.
 
-rework harpy's crest + nebula tome + finish cerussite + finish wolf and ooze (ooze dart) + living wood + obsidian dart + water gun funny change + dirt clump social slot + no more ammo drop + dartshark fix + rework starpack slime and obelisk
+rework harpy's crest + nebula tome + finish cerussite + finish wolf and ooze (ooze dart) + living wood + obsidian dart + water gun funny change + dirt clump social slot + no more ammo drop + dartshark fix + rework starpack slime and obelisk + slimy slosher
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:
@@ -295,3 +304,4 @@ Juice/Slayer
 Pufferfisher77
 STiML
 Mafia_Cheezstick
+Jeff the murderer

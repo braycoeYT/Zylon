@@ -490,6 +490,15 @@ Mods: {
 				Tooltip: Increases true melee damage by 15%
 			}
 
+			LazyCap: {
+				DisplayName: Lazy Cap
+				Tooltip:
+					'''
+					'Stop standing there and fight me like a real man!'
+					Increases critical strike chance by 12 while standing still
+					'''
+			}
+
 			LeadBalloon: {
 				DisplayName: Lead Balloon
 				Tooltip:
@@ -862,7 +871,12 @@ Mods: {
 
 			ObsidianDart: {
 				DisplayName: Obsidian Dart
-				Tooltip: For use with blowpipes
+				Tooltip:
+					'''
+					For use with blowpipes
+					Has a chance to shatter upon impact
+					The chance of shattering increases with shoot speed
+					'''
 			}
 
 			OozingArrow: {
@@ -1477,6 +1491,7 @@ Mods: {
 					'''
 					Fire two seeds at once and for the price of one
 					At max charge, replaces ammo with deadly toxin darts
+					Right click to disable and enable this effect
 					'''
 			}
 
@@ -1990,14 +2005,27 @@ Mods: {
 				Tooltip: Every third shot is converted to an electric bolt that deals extra damage
 			}
 
+			ArcticVixen: {
+				DisplayName: Arctic Vixen
+				Tooltip:
+					'''
+					Alternates between slow shots and a barrage of snowballs
+					Only the first snowball consumes ammo
+					'''
+			}
+
 			EerieStakeLauncher: {
 				DisplayName: Eerie Stake Launcher
 				Tooltip: Uses stakes as ammo
 			}
 
-			FatherofTime: {
-				DisplayName: Father of Time
-				Tooltip: Fires a four round burst of small clockwork bits, which have a small chance to inflict Timestop on enemies
+			Foxtrot: {
+				DisplayName: Foxtrot
+				Tooltip:
+					'''
+					Alternates between slow and fast modes
+					In fast mode, only the last bullet consumes ammo
+					'''
 			}
 
 			GraveBuster: {
@@ -3415,7 +3443,7 @@ Mods: {
 					'''
 					-4 Defense
 					'Make sure no one throws any stones at you'
-					Increases weapon speed by 5%
+					Increases weapon speed by 8%
 					'''
 			}
 
@@ -3535,6 +3563,11 @@ Mods: {
 			TopazPike: {
 				DisplayName: Topaz Pike
 				Tooltip: Thrusts fire a short range Topaz Bolt
+			}
+
+			CandyCanePike: {
+				DisplayName: Candy Cane Pike
+				Tooltip: ""
 			}
 		}
 
@@ -3993,6 +4026,8 @@ Mods: {
 			YardstickBroken.DisplayName: Yardstick
 			UltraHighVelocityBullet.DisplayName: Ultra High Velocity Bullet
 			SaburRexKatanaDuplicate.DisplayName: Replikatana
+			CandyCanePike.DisplayName: Candy Cane Pike
+			ObsidianDartShard.DisplayName: Obsidian Dart Shard
 		}
 
 		NPCs: {

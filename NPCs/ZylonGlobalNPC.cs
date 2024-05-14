@@ -138,23 +138,24 @@ namespace Zylon.NPCs
 			if (npc.type == NPCID.GoblinScout)
 				npcLoot.Add(new CommonDrop(ItemID.Goggles, 5));
 			if (npc.type == NPCID.GoblinThief) {
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Aglet, 60), new CommonDrop(ItemID.Aglet, 50)));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.AnkletoftheWind, 90), new CommonDrop(ItemID.AnkletoftheWind, 75)));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.HermesBoots, 120), new CommonDrop(ItemID.HermesBoots, 100)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Aglet, 15), new CommonDrop(ItemID.Aglet, 10)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.AnkletoftheWind, 20), new CommonDrop(ItemID.AnkletoftheWind, 15)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.HermesBoots, 20), new CommonDrop(ItemID.HermesBoots, 15)));
             }
 			if (npc.type == NPCID.GoblinPeon) {
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Compass, 100), new CommonDrop(ItemID.Compass, 80)));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.DepthMeter, 100), new CommonDrop(ItemID.DepthMeter, 80)));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.GoldWatch, 100), new CommonDrop(ItemID.GoldWatch, 80)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Compass, 30), new CommonDrop(ItemID.Compass, 20)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.DepthMeter, 30), new CommonDrop(ItemID.DepthMeter, 20)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.GoldWatch, 30), new CommonDrop(ItemID.GoldWatch, 20)));
             }
 			if (npc.type == NPCID.GoblinWarrior) {
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.IronBand>(), 100), new CommonDrop(ItemType<Items.Accessories.IronBand>(), 75)));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.WarriorsRibbon>(), 35), new CommonDrop(ItemType<Items.Accessories.WarriorsRibbon>(), 20)));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Shackle, 60), new CommonDrop(ItemID.Shackle, 50)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.IronBand>(), 15), new CommonDrop(ItemType<Items.Accessories.IronBand>(), 10)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.WarriorsRibbon>(), 15), new CommonDrop(ItemType<Items.Accessories.WarriorsRibbon>(), 10)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Shackle, 30), new CommonDrop(ItemID.Shackle, 20)));
             }
 			if (npc.type == NPCID.GoblinArcher) {
 				npcLoot.Add(new CommonDrop(ItemID.WoodenArrow, 1, 3, 7));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Bows.GoblinArchbow>(), 30), new CommonDrop(ItemType<Items.Bows.GoblinArchbow>(), 20)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Bows.GoblinArchbow>(), 15), new CommonDrop(ItemType<Items.Bows.GoblinArchbow>(), 10)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.LazyCap>(), 15), new CommonDrop(ItemType<Items.Accessories.LazyCap>(), 10)));
             }
 			if (npc.type == NPCID.BlackRecluse || npc.type == NPCID.BlackRecluseWall || npc.type == NPCID.JungleCreeper || npc.type == NPCID.JungleCreeperWall) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.ProteinSplicer>(), 50), new CommonDrop(ItemType<Items.Accessories.ProteinSplicer>(), 60)));

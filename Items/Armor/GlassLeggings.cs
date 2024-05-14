@@ -15,7 +15,7 @@ namespace Zylon.Items.Armor
 			Item.defense = -4;
 		}
 		public override void UpdateEquip(Player player) {
-			player.GetAttackSpeed(DamageClass.Generic) += 0.05f;
+			player.GetAttackSpeed(DamageClass.Generic) += 0.08f;
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
