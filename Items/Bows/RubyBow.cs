@@ -10,9 +10,9 @@ namespace Zylon.Items.Bows
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 1);
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.useAnimation = 34;
-			Item.useTime = 34;
-			Item.damage = 12;
+			Item.useAnimation = 31;
+			Item.useTime = 31;
+			Item.damage = 19;
 			Item.width = 22;
 			Item.height = 38;
 			Item.knockBack = 0.75f;

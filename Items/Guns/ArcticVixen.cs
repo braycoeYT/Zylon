@@ -38,22 +38,22 @@ namespace Zylon.Items.Guns
 			if (shootCount % 15 == 0) {
 				Item.damage = 109;
 				Item.UseSound = SoundID.Item41;
+				Item.shootSpeed = 12f;
 			}
 			if (shootCount % 15 == 2) {
 				Item.knockBack = 1.25f;
-				Item.shootSpeed = 10f;
 			}
 			if (shootCount % 15 == 3) {
 				Item.damage = 12;
 				Item.useAnimation = 6;
 				Item.useTime = 6;
 				Item.UseSound = SoundID.Item11;
+				Item.shootSpeed = 10f;
 			}
 			if (shootCount % 15 == 14) {
 				Item.knockBack = 7f;
 				Item.useAnimation = 41;
 				Item.useTime = 41;
-				Item.shootSpeed = 12f;
 			}
 			if (shootCount % 15 > 3 || shootCount % 15 == 0) {
 				Projectile.NewProjectile(source, position, velocity, ProjectileID.SnowBallFriendly, damage, knockback, Main.myPlayer);

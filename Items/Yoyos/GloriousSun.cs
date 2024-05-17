@@ -28,7 +28,7 @@ namespace Zylon.Items.Yoyos
 			Item.noMelee = true;
 			Item.noUseGraphic = true;
 			Item.UseSound = SoundID.Item1;
-			Item.value = Item.sellPrice(0, 10, 0, 0);
+			Item.value = Item.sellPrice(0, 10);
 			Item.shoot = ProjectileType<Projectiles.Yoyos.GloriousSun>();
 		}
 		public override void AddRecipes() {

@@ -214,8 +214,24 @@ namespace Zylon.NPCs
 		}
         public override void ModifyGlobalLoot(GlobalLoot globalLoot) {
             //globalLoot.Add(ItemDropRule.ByCondition(new Conditions.WindyEnoughForKiteDrops(), ItemType<Items.Materials.WindEssence>(), 5));
-			globalLoot.Add(ItemDropRule.ByCondition(new Conditions.IsBloodMoonAndNotFromStatue(), ItemType<Items.Materials.BloodDroplet>(), 6));
+			globalLoot.Add(ItemDropRule.ByCondition(new Conditions.IsBloodMoonAndNotFromStatue(), ItemType<Items.Materials.BloodDroplet>(), 2));
 		}
+		float scaleAdd;
+        public override void OnHitByProjectile(NPC npc, Projectile projectile, NPC.HitInfo hit, int damageDone) {
+            if (projectile.type == ProjectileID.SlimeGun || projectile.type == ProjectileID.WaterGun) {
+				if (npc.type == -25 || npc.type == -24 || (npc.type > -11 && npc.type < 0) || npc.type == NPCID.BlueSlime || npc.type == NPCID.IceSlime || npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.SandSlime || npc.type == NPCID.SpikedJungleSlime || npc.type == NPCID.BabySlime || npc.type == NPCID.LavaSlime || npc.type == NPCID.GoldenSlime || npc.type == NPCID.SlimeSpiked || npc.type == NPCID.ShimmerSlime || npc.type == NPCID.SlimeMasked || (npc.type > 332 && npc.type < 337) || npc.type == NPCID.Slimeling || npc.type == NPCID.Crimslime || npc.type == NPCID.IlluminantSlime || npc.type == NPCID.RainbowSlime || npc.type == NPCID.QueenSlimeMinionBlue || npc.type == NPCID.QueenSlimeMinionPink || npc.type == NPCID.QueenSlimeMinionPurple || npc.type == ModContent.NPCType<Forest.DirtSlime>() || npc.type == ModContent.NPCType<Forest.OrangeSlime>() || npc.type == ModContent.NPCType<ElemSlime>() || npc.type == ModContent.NPCType<Sky.StarpackSlime>() || npc.type == NPCID.Slimer2) {
+					scaleAdd += 0.1f;
+					if (scaleAdd > 2.5f) scaleAdd = 2.5f;
+				}
+				if (npc.type == NPCID.MotherSlime || npc.type == NPCID.DungeonSlime || npc.type == NPCID.UmbrellaSlime || npc.type == NPCID.ToxicSludge || npc.type == NPCID.CorruptSlime || npc.type == NPCID.Slimer || npc.type == NPCID.HoppinJack) {
+					scaleAdd += 0.075f;
+					if (scaleAdd > 1.5f) scaleAdd = 1.5f;
+				}
+			}
+        }
+        public override void PostAI(NPC npc) { //Please don't break anything... please...
+            npc.scale += scaleAdd;
+        }
         public override void ModifyActiveShop(NPC npc, string shopName, Item[] items) {
 
             if (npc.type == NPCID.Dryad) {

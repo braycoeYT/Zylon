@@ -26,10 +26,10 @@ namespace Zylon.Items
             return item;
         }
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips) {
-            if (item.type == ItemID.GillsPotion) {
+            /*if (item.type == ItemID.GillsPotion) { //I don't think this is needed.
 				TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Stops blowpipe breath loss while in water");
 				tooltips.Add(line);
-			}
+			}*/
 			if (GetInstance<ZylonConfig>().bandBuffs) {
 				if (item.type == ItemID.BandofRegeneration || item.type == ItemID.CharmofMyths) {
 					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Increases the potency of regeneration potions");
@@ -65,6 +65,14 @@ namespace Zylon.Items
 				}
 				if (item.type == ItemID.BoneArrow) {
 					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Has a low chance to explode into piercing bones on impact");
+					tooltips.Add(line);
+				}
+				if (item.type == ItemID.WaterGun || item.type == ItemID.SlimeGun) {
+					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Squirt most slimes with this to make them grow");
+					tooltips.Add(line);
+				}
+				if (item.type == ItemID.EyeoftheGolem) {
+					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Increases critical strike damage by 25%\nCritical strikes rain Lihzahrd Beams from above");
 					tooltips.Add(line);
 				}
 				/*if (item.type == ItemID.RestorationPotion) {
@@ -171,6 +179,12 @@ namespace Zylon.Items
          }*/
         public override void UpdateAccessory(Item item, Player player, bool hideVisual) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+			if (GetInstance<ZylonConfig>().zylonianBalancing) {
+				if (item.type == ItemID.EyeoftheGolem) {
+					p.critExtraDmg += 0.25f;
+					p.golemEyeEffect = true;
+				}
+			}
 			if (GetInstance<ZylonConfig>().bandBuffs) {
 				if (item.type == ItemID.BandofRegeneration || item.type == ItemID.CharmofMyths) {
 					p.bandofRegen = true;

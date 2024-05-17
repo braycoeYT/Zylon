@@ -38,22 +38,23 @@ namespace Zylon.Items.Guns
 			if (shootCount % 9 == 0) {
 				Item.damage = 43;
 				Item.UseSound = SoundID.Item41;
+				Item.shootSpeed = 10f;
 			}
 			if (shootCount % 9 == 1) {
 				Item.knockBack = 1.25f;
-				Item.shootSpeed = 8f;
 			}
 			if (shootCount % 9 == 2) {
 				Item.damage = 9;
 				Item.useAnimation = 9;
 				Item.useTime = 9;
 				Item.UseSound = SoundID.Item11;
+				Item.shootSpeed = 8f;
 			}
 			if (shootCount % 9 == 8) {
 				Item.knockBack = 6f;
 				Item.useAnimation = 37;
 				Item.useTime = 37;
-				Item.shootSpeed = 10f;
+				
 			}
 			return true;
         }

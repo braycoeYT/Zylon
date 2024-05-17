@@ -5,16 +5,14 @@ using Terraria.DataStructures;
 
 namespace Zylon.Projectiles.Ammo
 {
-	public class OozingSeed : ModProjectile
+	public class OozingDart : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Oozebit");
+			// DisplayName.SetDefault("Oozing Arrow");
         }
 		public override void SetDefaults() {
-			Projectile.CloneDefaults(ProjectileID.Seed);
-			Projectile.width = 12;
-			Projectile.height = 12;
-			AIType = ProjectileID.Seed;
+			Projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
+			AIType = ProjectileID.WoodenArrowFriendly;
 		}
         public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);

@@ -35,5 +35,12 @@ namespace Zylon.Items.Accessories
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>()] < 5 && player.whoAmI == Main.myPlayer)
 				Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center, new Microsoft.Xna.Framework.Vector2(0, 0), ModContent.ProjectileType<Projectiles.Minions.DirtBlockExp>(), Item.damage, 0.5f, Main.myPlayer);
 		}
-	}
+        public override void UpdateVanity(Player player) { //No buff needed for visual only.
+            ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+			p.dirtballExpertVanity = true;
+			//player.AddBuff(ModContent.BuffType<Buffs.Minions.DirtBlock>(), 60);
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.DirtBlockVanity>()] < 5 && player.whoAmI == Main.myPlayer)
+				Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center, new Microsoft.Xna.Framework.Vector2(0, 0), ModContent.ProjectileType<Projectiles.Minions.DirtBlockVanity>(), 0, 0f, Main.myPlayer);
+        }
+    }
 }

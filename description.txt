@@ -203,7 +203,7 @@ V0.0.3: Cause to Clash Update
 ~Modded bars now stack to 9999.
 ~Fixed Starpack Slime and Sapling Warrior banners not working correctly.
 ~Shrapnel now has a multihit penalty.
-~Added Cerussite, Bi Disc, Ruby Bow, Diamond Cane, Sapphire Spellbook, Topaz Pike,
+~Added Cerussite, Bi Disc, Ruby Bow, Diamond Cane, Sapphire Spellbook, Topaz Pike, Amethyst Pistol,
 ~Added Cerussite Bat.
 ~Decreased Starpack Slime spawn rate.
 ~Added Rai Stone.
@@ -273,8 +273,25 @@ V0.0.3: Cause to Clash Update
 ~Mudslinger no longer requires Any Demonite Bar to craft.
 ~Revel's max charge effect can now be toggled with the right click.
 ~Buffed Glass Leggings.
+~Increased Blood Droplet drop rate.
+~Slime Gun and Water Gun now make slimes grow when they are squirted.
+~Modded ammo no longer drops after being shot.
+~Fixed ammo consumption bug with Dartshark.
+~Brought back Dartshark's April Fool's Day changes.
+~Replaced Ooze Seed with Ooze Dart.
+~Changed all mod ammo to stack to 9999 instead of 999.
+~Enchanted Dirt Clump now works when in the vanity slot.
+~Added Trifid.
+~Resprited Meteorb Staff (finally).
+~Added new effects to Eye of the Golem to make it actually useful.
+~Added Poltergeist.
+~Readded Vortex Blowpipe.
 
-rework harpy's crest + nebula tome + finish cerussite + finish wolf and ooze (ooze dart) + living wood + obsidian dart + water gun funny change + dirt clump social slot + no more ammo drop + dartshark fix + rework starpack slime and obelisk + slimy slosher
+rework harpy's crest + finish cerussite (emerald, amber) + finish wolf and ooze + living wood + rework starpack slime and obelisk + sabur rex
+
+
+
+
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

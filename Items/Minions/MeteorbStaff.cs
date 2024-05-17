@@ -10,7 +10,6 @@ namespace Zylon.Items.Minions
 	public class MeteorbStaff : ModItem
 	{
 		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("Summons a meteorb to fight for you");
 			ItemID.Sets.GamepadWholeScreenUseRange[Item.type] = true;
 			ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
 		}
@@ -19,8 +18,8 @@ namespace Zylon.Items.Minions
 			Item.damage = 10;
 			Item.knockBack = 2f;
 			Item.mana = 10;
-			Item.width = 46;
-			Item.height = 46;
+			Item.width = 54;
+			Item.height = 54;
 			Item.useTime = 36;
 			Item.useAnimation = 36;
 			Item.useStyle = ItemUseStyleID.Swing;

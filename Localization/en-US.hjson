@@ -20,7 +20,7 @@ Mods: {
 		}
 
 		DropConditions.ElemGelCondition: Unleash the Elemental Goo
-		Keybinds.DoublePluggedCord.DisplayName: Double-Plugged Cord Acitivation
+		Keybinds.DoublePluggedCord.DisplayName: Double-Plugged Cord Activation
 
 		Buffs: {
 			AdenebSpikeRing: {
@@ -889,8 +889,8 @@ Mods: {
 				Tooltip: On death, leaves a lasting ooze cloud
 			}
 
-			OozingSeed: {
-				DisplayName: Oozing Seed
+			OozingDart: {
+				DisplayName: Oozing Dart
 				Tooltip:
 					'''
 					For use with blowpipes
@@ -1534,6 +1534,15 @@ Mods: {
 				Tooltip: Fires dark energies (amount depending on the charge) at the cursor on use
 			}
 
+			VortexBlowpipe: {
+				DisplayName: Vortex Blowpipe
+				Tooltip:
+					'''
+					At max charge, replaces ammo with a burst of flames
+					Right click to disable and enable this effect
+					'''
+			}
+
 			WindpipeofthePhoenix: {
 				DisplayName: Windpipe of the Phoenix
 				Tooltip:
@@ -2005,6 +2014,11 @@ Mods: {
 				Tooltip: Every third shot is converted to an electric bolt that deals extra damage
 			}
 
+			AmethystPistol: {
+				DisplayName: Amethyst Pistol
+				Tooltip: Has a 25% chance to replace ammo with a high damage and velocity amethyst
+			}
+
 			ArcticVixen: {
 				DisplayName: Arctic Vixen
 				Tooltip:
@@ -2066,6 +2080,15 @@ Mods: {
 					'''
 					Replaces musket balls with ultra high velocity bullets
 					50% chance not to consume ammo
+					'''
+			}
+
+			Poltergeist: {
+				DisplayName: Poltergeist
+				Tooltip:
+					'''
+					As you shoot, spawns Phantom Bullets around the player
+					Phantom Bullets linger for some time before sprinting forward
 					'''
 			}
 
@@ -3064,6 +3087,17 @@ Mods: {
 					'''
 			}
 
+			Trifid: {
+				DisplayName: Trifid
+				Tooltip:
+					'''
+					Smothers enemies in Nebula Beams
+					Nebula Beams bounce off of walls and enemies
+					After existing for long enough, Nebula Beams collapse into orbs
+					Nebula Orbs will chase after nearby foes
+					'''
+			}
+
 			VolcanicFlame: {
 				DisplayName: Volcanic Flame
 				Tooltip: Casts down a psychokinetic flame wall
@@ -3576,7 +3610,7 @@ Mods: {
 			BloodContractProj.DisplayName: Blood Contract
 			GlazedLensProj.DisplayName: Lens Blast
 			DirtBallAcc.DisplayName: Dirt Ball
-			DiscoCanisterProj.DisplayName: Disco Canister Proj
+			DiscoCanisterProj.DisplayName: Disco Canister
 			DiscoCanisterProj_Laser.DisplayName: Disco Canister
 			RootGuardProj.DisplayName: Root Guard
 			SlimeSpikeFriendly.DisplayName: Slime Spike
@@ -3612,7 +3646,7 @@ Mods: {
 			OozeCloud.DisplayName: Ooze Cloud
 			OozingArrow.DisplayName: Oozing Arrow
 			OozingBullet.DisplayName: Oozing Bullet
-			OozingSeed.DisplayName: Oozebit
+			OozingDart.DisplayName: Ooze Dart
 			OverclockArrow.DisplayName: Overclock Arrow
 			Pebble.DisplayName: Pebble
 			PocketGrenade.DisplayName: Pocket Grenade
@@ -4028,6 +4062,13 @@ Mods: {
 			SaburRexKatanaDuplicate.DisplayName: Replikatana
 			CandyCanePike.DisplayName: Candy Cane Pike
 			ObsidianDartShard.DisplayName: Obsidian Dart Shard
+			DirtBlockVanity.DisplayName: Dirt Block
+			TrifidProj.DisplayName: Trifid
+			TrifidOrb.DisplayName: Trifid
+			GolemEyeProj.DisplayName: Lihzahrd Beam
+			AmethystPistolProj.DisplayName: Amethyst Pistol
+			PoltergeistProj.DisplayName: Poltergeist
+			VortexMiniRocket.DisplayName: Vortex Mini Rocket
 		}
 
 		NPCs: {

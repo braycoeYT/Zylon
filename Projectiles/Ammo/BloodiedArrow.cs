@@ -22,7 +22,6 @@ namespace Zylon.Projectiles.Ammo
 		}
         public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			if (Main.rand.NextFloat() < .25f) Item.NewItem(Projectile.GetSource_FromThis(), Projectile.getRect(), ModContent.ItemType<Items.Ammo.BloodiedArrow>());
 		}
 	}   
 }

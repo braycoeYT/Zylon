@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -10,13 +11,20 @@ namespace Zylon.Items.Blowpipes
 {
 	public class Dartshark : ModItem
 	{
-		public override void SetStaticDefaults() {
-			if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges) {
-				// DisplayName.SetDefault("Dartshart");
-				// Tooltip.SetDefault("Barrages enemies with taco bell\nUses seeds as ammo (symbolizes the seeds of intestinal damage sown by the taco bell)");
-            }
-		}
-		public override void SetDefaults() {
+        public override void ModifyTooltips(List<TooltipLine> tooltips) {
+            if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges) {
+				foreach (var line3 in tooltips) {
+					if (line3.Mod == "Terraria" && line3.Name == "ItemName") {
+						line3.Text = "Dartshart";
+					}
+				}
+				TooltipLine line = new TooltipLine(Mod, "Tooltip0", "Barrages enemies with taco bell");
+				TooltipLine line2 = new TooltipLine(Mod, "Tooltip1", "The seeds as ammo symbolize the seeds of intestinal damage sown by the taco bell");
+				tooltips.Add(line);
+				tooltips.Add(line2);
+			}
+        }
+        public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);
 			Item.damage = 11;
 			Item.knockBack = 1f;
@@ -31,11 +39,15 @@ namespace Zylon.Items.Blowpipes
 			}
 			Item.rare = ItemRarityID.Orange;
 		}
-		public override bool AltFunctionUse(Player player) {
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
+            if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges) {
+				Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<Projectiles.Blowpipes.PoopFriendly>(), damage, knockback, Main.myPlayer);
+				return false;
+			}
 			return true;
-		}
+        }
         public override bool CanConsumeAmmo(Item ammo, Player player) {
-            return Main.rand.Next(3) < 2;
+            return Main.rand.NextBool(3);
         }
         public override Vector2? HoldoutOffset() {
 			return new Vector2(4, -4);

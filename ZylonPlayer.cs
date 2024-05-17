@@ -57,6 +57,8 @@ namespace Zylon
 		public bool runeofMultiplicity;
 		public bool sparkingCore;
 		public bool doublePluggedCord;
+		public bool dirtballExpertVanity;
+		public bool golemEyeEffect;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -124,6 +126,8 @@ namespace Zylon
 			runeofMultiplicity = false;
 			sparkingCore = false;
 			doublePluggedCord = false;
+			dirtballExpertVanity = false;
+			golemEyeEffect = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -332,6 +336,16 @@ namespace Zylon
 								Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-9, -5)), ProjectileType<Projectiles.Accessories.BloodContractProj>(), 0, 0, Main.myPlayer);
 					}
 				}
+				if (crit) {
+					if (golemEyeEffect) {
+						if (proj != null) {
+							if (proj.type != ModContent.ProjectileType<Projectiles.Accessories.GolemEyeProj>()) for (int i = 0; i < Main.rand.Next(1, 4); i++)
+							Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center - new Vector2(Main.rand.Next(-40, 41), 600), new Vector2(Main.rand.NextFloat(-2f, 2f), 20), ModContent.ProjectileType<Projectiles.Accessories.GolemEyeProj>(), 100, 0f, Main.myPlayer);
+						}
+						else for (int i = 0; i < Main.rand.Next(1, 4); i++)
+							Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center - new Vector2(Main.rand.Next(-40, 41), 600), new Vector2(Main.rand.NextFloat(-2f, 2f), 20), ModContent.ProjectileType<Projectiles.Accessories.GolemEyeProj>(), 100, 0f, Main.myPlayer);
+					}	
+				}
 				if (bloodVial && Main.rand.NextFloat() < .1f)
 					Player.Heal(1);
 				if (metelordExpert && Player.ownedProjectileCounts[ProjectileType<Projectiles.Accessories.MetecoreSpirit>()] < 20 && metecoreFloat < 3f && Player.whoAmI == Main.myPlayer)
@@ -393,6 +407,16 @@ namespace Zylon
 					DiskiteBuffs(60, Player, 75);*/
 				if (glazedLens && crit)
 					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.GlazedLensProj>(), 20, 5f, Main.myPlayer, proj.CritChance);
+			}
+			if (crit) {
+				if (golemEyeEffect) {
+					if (proj != null) {
+						if (proj.type != ModContent.ProjectileType<Projectiles.Accessories.GolemEyeProj>()) for (int i = 0; i < Main.rand.Next(1, 4); i++)
+						Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center - new Vector2(Main.rand.Next(-40, 41), 480), new Vector2(Main.rand.NextFloat(-2f, 2f), 20), ModContent.ProjectileType<Projectiles.Accessories.GolemEyeProj>(), 100, 0f, Main.myPlayer);
+					}
+					else for (int i = 0; i < Main.rand.Next(1, 4); i++)
+						Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center - new Vector2(Main.rand.Next(-40, 41), 480), new Vector2(Main.rand.NextFloat(-2f, 2f), 20), ModContent.ProjectileType<Projectiles.Accessories.GolemEyeProj>(), 100, 0f, Main.myPlayer);
+				}	
 			}
 			if (bloodVial && Main.rand.NextFloat() < .1f)
 				Player.Heal(1);
