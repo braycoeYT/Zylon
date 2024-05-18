@@ -86,6 +86,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 		int attackNum4;
 		int attackNum5;
 		float attackFloat3;
+		int attackNum6;
         public override void AI() { //ai0 - current attack | ai1 - next attack | ai2 - current rotation | ai3 - other important communication w/ sword proj
 
 			Zylon.hasFoughtSabur = true; //REMOVE WHEN BOSS FINISHED - JUST TO SKIP DIALOGUE
@@ -157,6 +158,12 @@ namespace Zylon.NPCs.Bosses.SaburRex
 					break;
 				case 2f:
 					Katana();
+					break;
+				case 3f:
+					BeeKeeper();
+					break;
+				case 4f:
+					Tizona();
 					break;
             }
 
@@ -331,6 +338,91 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				}
 			}
 		}
+		private void BeeKeeper() {
+			//Dashing and whatnot.
+			attackTimer++;
+			if (attackTimer == 1) {
+				//What direction to dash? -1 = goes to left side to dash right, 1 = goes to right side to dash left.
+				if (NPC.Center.X > target.Center.X) attackNum2 = 1;
+				else attackNum2 = -1;
+
+				attackNum3 = 0; //Don't draw the queen bee thing.
+			}
+			else if (attackNum5 < 10) {
+				NPC.direction = attackNum2*-1;
+				NPC.ai[2] = MathHelper.ToRadians(90);
+				if (attackNum2 == -1) {
+					//Horizontal
+					if (NPC.Center.X < target.Center.X - 600) NPC.velocity.X += 3f-2f*hpLeft;
+					else if (NPC.Center.X > target.Center.X - 540) NPC.velocity.X -= 3;
+					else {
+						if (Math.Abs(NPC.velocity.X) > 0.5f) NPC.velocity.X *= 0.96f;
+						if (Math.Abs(NPC.Center.Y-target.Center.Y) < 150) attackNum5++; //Sweet spot.
+					}
+					if (Math.Abs(NPC.velocity.X) > 15f) NPC.velocity *= 0.9f; //Please don't accidentally stumble over the player.
+
+					//Vertical
+					if (NPC.Center.Y < target.Center.Y - 50) NPC.velocity.Y += 4f-2f*hpLeft;
+					else if (NPC.Center.Y > target.Center.Y + 50) NPC.velocity.Y -= 4f-2f*hpLeft;
+					else if (Math.Abs(NPC.velocity.Y) > 0.5f) NPC.velocity.Y *= 0.93f;
+
+					if (Math.Abs(NPC.velocity.Y) > 18f) NPC.velocity *= 0.93f; //og 0.9
+				}
+				else {
+					//Horizontal
+					if (NPC.Center.X > target.Center.X + 600) NPC.velocity.X -= 3f-2f*hpLeft;
+					else if (NPC.Center.X < target.Center.X + 540) NPC.velocity.X += 3;
+					else {
+						if (Math.Abs(NPC.velocity.X) > 0.5f) NPC.velocity.X *= 0.96f;
+						if (Math.Abs(NPC.Center.Y-target.Center.Y) < 150) attackNum5++; //Sweet spot.
+					}
+					if (Math.Abs(NPC.velocity.X) > 15f) NPC.velocity *= 0.9f; //Please don't accidentally stumble over the player.
+
+					//Vertical
+					if (NPC.Center.Y < target.Center.Y - 50) NPC.velocity.Y += 4f-2f*hpLeft;
+					else if (NPC.Center.Y > target.Center.Y + 50) NPC.velocity.Y -= 4f-2f*hpLeft;
+					else if (Math.Abs(NPC.velocity.Y) > 0.5f) NPC.velocity.Y *= 0.93f;
+
+					if (Math.Abs(NPC.velocity.Y) > 18f) NPC.velocity *= 0.93f; //og 0.9
+				}
+			}
+			else {
+				NPC.direction = attackNum2*-1; //This here is really important for npc direction to work, for some reason.
+				attackNum3 = 1; //You should draw the queen bee.
+				if (attackNum2 == -1) {
+					NPC.velocity.X = 32-(int)(8f*hpLeft); //og 36, 16 - too easy then too hard?
+					NPC.velocity.Y = 0; //*= 0.92f;
+					if (NPC.Center.X > target.Center.X + 400) {
+						attackTimer = 0;
+						NPC.velocity = Vector2.Zero;
+						attackNum5 = 0;
+
+						attackNum4++; //Will end the attack once high enough.
+					}
+				}
+				else {
+					NPC.velocity.X = -32+(int)(8f*hpLeft); //og 36, 16 - too easy then too hard?
+					NPC.velocity.Y = 0; //*= 0.92f;
+					if (NPC.Center.X < target.Center.X - 400) {
+						attackTimer = 0;
+						NPC.velocity = Vector2.Zero;
+						attackNum5 = 0;
+
+						attackNum4++; //Will end the attack once high enough.
+					}
+				}
+			}
+
+			//Honeypot projectiles
+			attackNum6++;
+			if (attackNum6 > 90+(int)(180*hpLeft)) {
+				attackNum6 = 0;
+				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.SaburRex.SaburRexHoneyPot>(), (int)(NPC.damage/3), 0f, -1, NPC.target, hpLeft);
+			}
+		}
+		private void Tizona() {
+
+		}
 		private void PlayerSwingEffect(float swingSpeed) { //For any attacks that it should look like the sword swings like a player.
 			NPC.ai[2] += MathHelper.ToRadians(swingSpeed); //Swings at the requested rate.
 
@@ -362,7 +454,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			if (!init) NPC.frame.Y = 0; //STOP NOT MATCHING YOU DUMMY
 
 			//NPC direction
-			if (NPC.ai[0] != 2) { //Don't automate the process during the Katana attack.
+			if (NPC.ai[0] != 2 && NPC.ai[0] != 3) { //Don't automate the process during the Katana and Bee Keeper attacks.
 				if (Math.Abs(NPC.velocity.X) > 0.05f) {
 					if (NPC.velocity.X < 0) NPC.direction = -1;
 					else NPC.direction = 1;
@@ -394,9 +486,9 @@ namespace Zylon.NPCs.Bosses.SaburRex
 
 			//Determine new attack (testing)
 			NPC.ai[1] = NPC.ai[0]; //Forces the while loop to run at least once
-			while (NPC.ai[1] == NPC.ai[0] || NPC.ai[1] == prevAttack) NPC.ai[1] = Main.rand.Next(3);
+			while (NPC.ai[1] == NPC.ai[0] || NPC.ai[1] == prevAttack) NPC.ai[1] = Main.rand.Next(5);
 
-			//NPC.ai[0] = 2f;
+			NPC.ai[0] = 3f; //TESTING - force a certain attack.
 			
 			//Reset stats and rotation.
 			attackTimer = 0;
@@ -411,13 +503,16 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			attackNum3 = 0;
 			attackNum4 = 0;
 			attackNum5 = 0;
+			attackNum6 = 0;
 			attackFloat3 = 0f;
         }
 		public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) {
+			int QBframe = (int)(Main.GameUpdateCount/5) % 4;
 			Texture2D whiteTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/SaburRex/SaburRex_Light");
 			Texture2D texture = TextureAssets.Npc[Type].Value;
 			Texture2D borderTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/SaburRex/SaburRex_Border");
 			Texture2D guardianTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/SaburRex/SaburRex_DungeonGuardian");
+			Texture2D queenBeeTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/SaburRex/SaburRex_QueenBee" + QBframe);
 
 			Vector2 drawPos = NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY); //For main
 			Vector2 ringDrawPos = ringPos - screenPos + new Vector2(0f, NPC.gfxOffY); //Permanent pos for ring (see for loop below)
@@ -428,6 +523,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			Vector2 whiteOrigin = new Vector2(whiteTexture.Width * 0.5f, whiteTexture.Height * 0.5f);
 			Vector2 borderOrigin = new Vector2(borderTexture.Width * 0.5f, borderTexture.Height * 0.5f);
 			Vector2 guardianOrigin = new Vector2(guardianTexture.Width * 0.5f, guardianTexture.Height * 0.5f);
+			Vector2 QBOrigin = new Vector2(queenBeeTexture.Width * 0.5f, queenBeeTexture.Height * 0.5f);
 
 			//Stolen from projectile code so that multiple frames can be drawn
 			int frameHeight = texture.Height / 6;
@@ -436,7 +532,21 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			//Dungeon guardian draw for the bone sword attack
 			if (NPC.ai[0] == 1f && MathHelper.ToDegrees(attackFloat) >= 13f) { //I seriously used NPC.ai[2] at first and wondered why this wasn't working...
 				float guardianVisibility = (MathHelper.ToDegrees(attackFloat)-11.5f)/10f; //minValue is 0%, maxValue is 75% (0.75f)
-				spriteBatch.Draw(guardianTexture, drawPos, null, Color.White*guardianVisibility, attackFloat2, guardianOrigin, 1.5f, SpriteEffects.None, 0); //Draw main boss
+				spriteBatch.Draw(guardianTexture, drawPos, null, Color.White*guardianVisibility, attackFloat2, guardianOrigin, 1.5f, SpriteEffects.None, 0);
+			}
+
+			//Queen Bee draw for the Bee Keeper attack
+			if (NPC.ai[0] == 3f) {
+				if (attackNum == 0) attackFloat += 0.05f;
+				else attackFloat -= 0.05f;
+
+				if (attackFloat > 0.5f) attackFloat = 0.5f;
+				if (attackFloat < 0f) attackFloat = 0f;
+			}
+			if (NPC.ai[0] == 3f && attackNum3 == 1) {
+				SpriteEffects QBeffects = SpriteEffects.None;
+				if (attackNum2 == -1) QBeffects = SpriteEffects.FlipHorizontally;
+				spriteBatch.Draw(queenBeeTexture, drawPos, null, Color.White*attackFloat, 0f, QBOrigin, 1.5f, QBeffects, 0);
 			}
 
 			//Tome man please explain why I'm dumb and have to manually set the main texture to be lower positioned but not the light sprite (160 is 2.5 frames)

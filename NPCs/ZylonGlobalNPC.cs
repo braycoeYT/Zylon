@@ -187,6 +187,8 @@ namespace Zylon.NPCs
             }
 			if (npc.type == NPCID.MartianTurret)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Accessories.DoublePluggedCord>(), 20));
+			if (npc.type == NPCID.Parrot)
+				npcLoot.Add(new CommonDrop(ItemType<Items.Food.Cracker>(), 20));
 		}
         int Timer;
 		bool prevNoGrav;

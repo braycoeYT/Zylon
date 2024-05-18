@@ -436,9 +436,9 @@ Mods: {
 				Tooltip:
 					'''
 					'It's too big for anyone's arm, let alone yours'
-					Increases life and mana regeneration
+					Increases life and mana regeneration moderately
 					Increases max mana by 20
-					Increases the power of regeneration, magic power, magic regeneration, ironskin, and swiftness potions
+					Increases the potency of regeneration, magic power, magic regeneration, ironskin, and swiftness potions
 					'''
 			}
 
@@ -1929,6 +1929,15 @@ Mods: {
 					'''
 			}
 
+			Cracker: {
+				DisplayName: Cracker
+				Tooltip:
+					'''
+					Minor improvements to all stats
+					'Something tells me that parrot was named Polly.'
+					'''
+			}
+
 			GalacticBrownie: {
 				DisplayName: Galactic Brownie
 				Tooltip:
@@ -3197,6 +3206,11 @@ Mods: {
 				Tooltip: "'Can Polandball into space?'"
 			}
 
+			AmberScepter: {
+				DisplayName: Amber Scepter
+				Tooltip: Fires amber bolts towards the cursor
+			}
+
 			ArchangelsWand: {
 				DisplayName: Archangel's Wand
 				Tooltip: Blasts an accelerating Archangel Shot
@@ -4068,7 +4082,10 @@ Mods: {
 			GolemEyeProj.DisplayName: Lihzahrd Beam
 			AmethystPistolProj.DisplayName: Amethyst Pistol
 			PoltergeistProj.DisplayName: Poltergeist
-			VortexMiniRocket.DisplayName: Vortex Mini Rocket
+			VortexMiniRocket.DisplayName: Vortex Blowpipe
+			AmberScepterProj.DisplayName: Amber Scepter
+			SaburRexHoneyPot.DisplayName: Honey Pot
+			SaburRexBee.DisplayName: Bee
 		}
 
 		NPCs: {

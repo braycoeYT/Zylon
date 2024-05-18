@@ -35,7 +35,7 @@ namespace Zylon.Projectiles.Blowpipes
 				Projectile.width *= 3;
 				Projectile.height *= 3;
 			}
-			if (Timer < 60) return;
+			if (Timer < 20) return;
             float num165 = (float)Math.Sqrt((double)(Projectile.velocity.X * Projectile.velocity.X + Projectile.velocity.Y * Projectile.velocity.Y));
 				float num166 = Projectile.localAI[0];
 				if (num166 == 0f)

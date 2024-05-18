@@ -203,7 +203,7 @@ V0.0.3: Cause to Clash Update
 ~Modded bars now stack to 9999.
 ~Fixed Starpack Slime and Sapling Warrior banners not working correctly.
 ~Shrapnel now has a multihit penalty.
-~Added Cerussite, Bi Disc, Ruby Bow, Diamond Cane, Sapphire Spellbook, Topaz Pike, Amethyst Pistol,
+~Added Cerussite, Bi Disc, Ruby Bow, Diamond Cane, Sapphire Spellbook, Topaz Pike, Amethyst Pistol, Amber Scepter,
 ~Added Cerussite Bat.
 ~Decreased Starpack Slime spawn rate.
 ~Added Rai Stone.
@@ -286,8 +286,10 @@ V0.0.3: Cause to Clash Update
 ~Added new effects to Eye of the Golem to make it actually useful.
 ~Added Poltergeist.
 ~Readded Vortex Blowpipe.
+~Added Cracker.
+~Changed Fusion Band tooltip slightly.
 
-rework harpy's crest + finish cerussite (emerald, amber) + finish wolf and ooze + living wood + rework starpack slime and obelisk + sabur rex
+rework harpy's crest + finish cerussite (emerald) + finish wolf and ooze + living wood + rework starpack slime and obelisk + sabur rex
 
 
 
