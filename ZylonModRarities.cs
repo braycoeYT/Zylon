@@ -22,6 +22,14 @@ namespace Zylon
 			_ => Type,
 		};
 	}
+	public class ExcalipoorRarity : ModRarity
+	{
+		//For HBDeus's sword and the other swords I haven't added yet.
+		public override Color RarityColor => new Color(Main.DiscoG, Main.DiscoG, Main.DiscoG);
+		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
+			_ => Type,
+		};
+	}
 	public class RedModded : ModRarity
 	{
 		//Modified version of vanilla's red rarity so that it goes into modded pml rarities.
@@ -46,11 +54,11 @@ namespace Zylon
 			_ => Type,
 		};
 	}
-	public class Magenta : ModRarity
+	public class Magenta : ModRarity //
 	{
 		//Tier 12 - All PML banners and trophies. All items that are post PML miniboss, Sabur, and Mineral.
 		//Powerful/tedious items obtained after Moonlord but before any PML bosses. Summons for tier 13 bosses.
-		public override Color RarityColor => new Color(255, 0, 255);
+		public override Color RarityColor => new Color(255, 160*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt(), 255-(12*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt()));
 		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
 			-2 => ItemRarityID.Red,
 			-1 => ItemRarityID.Purple,

@@ -66,7 +66,7 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.Forest.MechanicalSlime>();
 						break;
 					case 9:
-						npcType = ModContent.NPCType<NPCs.Sky.StarpackSlime>();
+						npcType = ModContent.NPCType<NPCs.Sky.Stratoslime>();
 						break;
 					case 10:
 						npcType = ModContent.NPCType<NPCs.Snow.LivingMarshmallow>();

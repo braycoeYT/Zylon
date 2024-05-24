@@ -288,8 +288,22 @@ V0.0.3: Cause to Clash Update
 ~Readded Vortex Blowpipe.
 ~Added Cracker.
 ~Changed Fusion Band tooltip slightly.
+~Completely reworked Starpack Slime and renamed it to Stratoslime.
+~Stratoslime now drops more Speckled Stardust.
+~Harpies no longer drop Speckled Stardust.
+~Stratoslimes spawn much more often now.
+~Added Fahrenheit.
+~Fixed grammatical error in the "Zylonian Balancing" config.
+~Added Night Light Rarity config.
 
-rework harpy's crest + finish cerussite (emerald) + finish wolf and ooze + living wood + rework starpack slime and obelisk + sabur rex
+~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
+~Added Excalipoor (FIX), Aussie Dagger,
+
+rework harpy's crest + finish cerussite (emerald) + finish wolf and ooze + living wood + sabur rex + dirt slime reworks
+
+
+
+
 
 
 

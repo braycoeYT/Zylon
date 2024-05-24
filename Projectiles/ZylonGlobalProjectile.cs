@@ -1,4 +1,6 @@
+using Microsoft.Build.Execution;
 using Microsoft.Xna.Framework;
+using Steamworks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -90,7 +92,7 @@ namespace Zylon.Projectiles
 				//The funny
 				if (projectile.type == ProjectileID.SlimeGun || projectile.type == ProjectileID.WaterGun) {
 					NPC target = Main.npc[0];
-					float distanceFromTarget = 10f;
+					float distanceFromTarget = 26f;
 					bool foundTarget = false;
 					Vector2 targetCenter = projectile.position;
 					if (!foundTarget) {
@@ -101,8 +103,8 @@ namespace Zylon.Projectiles
 								bool closest = Vector2.Distance(projectile.Center, targetCenter) > between;
 								bool inRange = between < distanceFromTarget;
 								bool lineOfSight = Collision.CanHitLine(projectile.position, projectile.width, projectile.height, npc.position, npc.width, npc.height);
-								bool closeThroughWall = between < 100f;
-								if (((closest && inRange) || !foundTarget) && (lineOfSight || closeThroughWall) && npc.life > 0 && npc.type != NPCID.TargetDummy && npc.friendly == false) {
+								bool closeThroughWall = between < 100f; //closest &&            || !foundTarget
+								if ((( inRange) ) && (lineOfSight || closeThroughWall) && npc.life > 0 && npc.type != NPCID.TargetDummy && npc.friendly == false) {
 									distanceFromTarget = between;
 									target = npc;
 									targetCenter = npc.Center;
@@ -114,13 +116,35 @@ namespace Zylon.Projectiles
 					if (foundTarget == false) return;
 
 					//Note: DO NOT include slimeling bc on death they will spawn more slimelings if they are big.
-					if (target.type == -25 || target.type == -24 || (target.type > -11 && target.type < 0) || target.type == NPCID.BlueSlime || target.type == NPCID.IceSlime || target.type == NPCID.SpikedIceSlime || target.type == NPCID.SandSlime || target.type == NPCID.SpikedJungleSlime || target.type == NPCID.BabySlime || target.type == NPCID.LavaSlime || target.type == NPCID.GoldenSlime || target.type == NPCID.SlimeSpiked || target.type == NPCID.ShimmerSlime || target.type == NPCID.SlimeMasked || (target.type > 332 && target.type < 337) || target.type == NPCID.Crimslime || target.type == NPCID.IlluminantSlime || target.type == NPCID.RainbowSlime || target.type == NPCID.QueenSlimeMinionBlue || target.type == NPCID.QueenSlimeMinionPink || target.type == NPCID.QueenSlimeMinionPurple || target.type == ModContent.NPCType<NPCs.Forest.DirtSlime>() || target.type == ModContent.NPCType<NPCs.Forest.OrangeSlime>() || target.type == ModContent.NPCType<ElemSlime>() || target.type == ModContent.NPCType<NPCs.Sky.StarpackSlime>() || target.type == NPCID.Slimer2) {
+					if (target.type == -25 || target.type == -24 || (target.type > -11 && target.type < 0) || target.type == NPCID.BlueSlime || target.type == NPCID.IceSlime || target.type == NPCID.SpikedIceSlime || target.type == NPCID.SandSlime || target.type == NPCID.SpikedJungleSlime || target.type == NPCID.BabySlime || target.type == NPCID.LavaSlime || target.type == NPCID.GoldenSlime || target.type == NPCID.SlimeSpiked || target.type == NPCID.ShimmerSlime || target.type == NPCID.SlimeMasked || (target.type > 332 && target.type < 337) || target.type == NPCID.Crimslime || target.type == NPCID.IlluminantSlime || target.type == NPCID.RainbowSlime || target.type == NPCID.QueenSlimeMinionBlue || target.type == NPCID.QueenSlimeMinionPink || target.type == NPCID.QueenSlimeMinionPurple || target.type == ModContent.NPCType<NPCs.Forest.DirtSlime>() || target.type == ModContent.NPCType<NPCs.Forest.OrangeSlime>() || target.type == ModContent.NPCType<ElemSlime>() || target.type == ModContent.NPCType<NPCs.Sky.Stratoslime>() || target.type == NPCID.Slimer2 || target.type == ModContent.NPCType<NPCs.Dungeon.BoneSlime>()) {
+						/*int tempHeight = (int)(target.height/target.scale);
+						int tempWidth = (int)(target.width/target.scale);
+
+						int tempHeight2 = target.height;*/
+						
 						target.scale += 0.1f;
 						if (target.scale > 2.5f) target.scale = 2.5f;
+						//else target.position.Y -= target.height*target.scale;
+
+						/*target.height = (int)(tempHeight*target.scale);
+						target.width = (int)(tempWidth*target.scale);
+
+						target.position.Y -= target.height - tempHeight2;*/
 					}
 					if (target.type == NPCID.MotherSlime || target.type == NPCID.DungeonSlime || target.type == NPCID.UmbrellaSlime || target.type == NPCID.ToxicSludge || target.type == NPCID.CorruptSlime || target.type == NPCID.Slimer || target.type == NPCID.HoppinJack) {
+						/*int tempHeight = (int)(target.height/target.scale);
+						int tempWidth = (int)(target.width/target.scale);
+
+						int tempHeight2 = target.height;*/
+
 						target.scale += 0.075f;
 						if (target.scale > 2f) target.scale = 2f;
+						//else target.position.Y -= target.height*target.scale;
+
+						/*target.height = (int)(tempHeight*target.scale);
+						target.width = (int)(tempWidth*target.scale);
+
+						target.position.Y -= target.height - tempHeight2;*/
 					}
 				}
 			}

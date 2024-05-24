@@ -1552,6 +1552,17 @@ Mods: {
 					'''
 			}
 
+			AussieDagger: {
+				DisplayName: Aussie Dagger
+				Tooltip:
+					'''
+					'This is how we roll down under, built for wrestling with three-meter spiders'
+					Releases shadow daggers as it flies forwards
+					Shadow daggers chase after nearby enemies
+					Can be rethrown after velocity peak
+					'''
+			}
+
 			Barfarang: {
 				DisplayName: Barfarang
 				Tooltip: ""
@@ -2842,6 +2853,11 @@ Mods: {
 					'''
 			}
 
+			Excalipoor: {
+				DisplayName: Excalipoor
+				Tooltip: "'The worst weapon. Can only deal 1 damage.'"
+			}
+
 			ForgottenRosesSaber: {
 				DisplayName: Forgotten Rose's Saber
 				Tooltip:
@@ -3048,6 +3064,17 @@ Mods: {
 			EldritchMonsoon: {
 				DisplayName: Eldritch Monsoon
 				Tooltip: Summons three jellyfish to dash at enemies
+			}
+
+			Fahrenheit: {
+				DisplayName: Fahrenheit
+				Tooltip:
+					'''
+					'It was a pleasure to burn.'
+					Releases heat blasts towards the cursor
+					Upon collision, heat blasts collapse into six other blasts
+					Other blasts drop fire below when dissipating
+					'''
 			}
 
 			FamiliarBook: {
@@ -4086,6 +4113,15 @@ Mods: {
 			AmberScepterProj.DisplayName: Amber Scepter
 			SaburRexHoneyPot.DisplayName: Honey Pot
 			SaburRexBee.DisplayName: Bee
+			FahrenheitProj.DisplayName: Fahrenheit
+			FahrenheitFlame.DisplayName: Fahrenheit
+			ExcalipoorProj1.DisplayName: Excalipoor
+			ExcalipoorProj2.DisplayName: Excalipoor
+			ExcalipoorProj3.DisplayName: Excalipoor
+			ExcalipoorProj4.DisplayName: Excalipoor
+			ExcalipoorProj5.DisplayName: Excalipoor
+			AussieDagger.DisplayName: Aussie Dagger
+			AussieDaggerShadow.DisplayName: Aussie Dagger
 		}
 
 		NPCs: {
@@ -4201,6 +4237,7 @@ Mods: {
 			SupremeLookingEyeTail.DisplayName: Supreme Looking Eye (DA SUPREME MEMELORD)
 			CerussiteBat.DisplayName: Cerussite Bat
 			PixieArchangel.DisplayName: Pixie Archangel
+			Stratoslime.DisplayName: Stratoslime
 		}
 
 		Prefixes: {
@@ -4316,6 +4353,11 @@ Mods: {
 				experimentalBoomerangs: {
 					Label: Experimental Boomerangs
 					Tooltip: Allows some boomerangs to have special AI.
+				}
+
+				nightLightRarities: {
+					Label: Night Light Rarities
+					Tooltip: Changes the color of modded rarities so that users of night light can differentiate them easier.
 				}
 			}
 		}

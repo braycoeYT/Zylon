@@ -43,9 +43,9 @@ namespace Zylon.Projectiles.Wands
             Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, Projectile.height * 0.5f);
 
             for (int k = 0; k < Projectile.oldPos.Length; k++) {
-				//if (k != 0) texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Wands/AmberScepterProj_Light");
+				//new Vector2(0f, Projectile.scale*(10-k)*0.3f) //(k*(1f-k*0.05f))
                 Vector2 drawPos = (Projectile.oldPos[k] - Main.screenPosition) + drawOrigin + new Vector2(0f, Projectile.scale*(10-k)*0.3f); //Projectile.gfxOffY
-                 Main.EntitySpriteDraw(texture, drawPos, null, Color.White*((float)(255-Projectile.alpha)/255f), Projectile.rotation, drawOrigin, Projectile.scale*(10-k)*0.1f, SpriteEffects.None, 0);
+                Main.EntitySpriteDraw(texture, drawPos, null, Color.White*((float)(255-Projectile.alpha)/255f), Projectile.rotation, drawOrigin, Projectile.scale*(10-k)*0.1f, SpriteEffects.None, 0);
             }
             return false;
         }

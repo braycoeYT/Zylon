@@ -98,7 +98,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			if (!init) { //Sets up two floating sword projectiles + white light intro + dialogue
 				attackTimer++; //Intro lasts two seconds
 
-				ringRotSpeed = 0.5f; //Sets rotation speed of the rainbow ring.
+				ringRotSpeed = 1f; //Sets rotation speed of the rainbow ring. //og 0.5
 
 				if (attackTimer < 120) {
 					NPC.position.Y += descendVel;
@@ -420,8 +420,15 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.SaburRex.SaburRexHoneyPot>(), (int)(NPC.damage/3), 0f, -1, NPC.target, hpLeft);
 			}
 		}
-		private void Tizona() {
-
+		private void Tizona() { //fly up, then dash from sides? laser spam like ocram
+			if (attackNum == 0 && NPC.ai[2] >= MathHelper.ToRadians(180)) {
+				NPC.ai[2] += MathHelper.ToRadians(5);
+				if (NPC.ai[2] >= MathHelper.ToRadians(180)) NPC.ai[2] = MathHelper.ToRadians(180);
+			}
+			/*if (!(NPC.ai[2] >= MathHelper.ToRadians(180) && NPC.ai[2] < MathHelper.ToRadians(225))) {
+				NPC.ai[2] += MathHelper.ToRadians(5);
+				if (NPC.ai[2] >= MathHelper.ToRadians(180)) NPC.ai[2] = MathHelper.ToRadians(180);
+			}*/
 		}
 		private void PlayerSwingEffect(float swingSpeed) { //For any attacks that it should look like the sword swings like a player.
 			NPC.ai[2] += MathHelper.ToRadians(swingSpeed); //Swings at the requested rate.
@@ -488,7 +495,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			NPC.ai[1] = NPC.ai[0]; //Forces the while loop to run at least once
 			while (NPC.ai[1] == NPC.ai[0] || NPC.ai[1] == prevAttack) NPC.ai[1] = Main.rand.Next(5);
 
-			NPC.ai[0] = 3f; //TESTING - force a certain attack.
+			NPC.ai[0] = 4f; //TESTING - force a certain attack.
 			
 			//Reset stats and rotation.
 			attackTimer = 0;
@@ -560,17 +567,17 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				spriteBatch.Draw(whiteTexture, drawPos, null, Color.White*(1f-(float)attackTimer/120f), 0f, whiteOrigin, NPC.scale, effects, 0); //Draw light for intro
 				if (attackTimer < 180) ringCount = (int)(30*(attackTimer/180f));
 			}
-			else if (ringSpace < 750) ringSpace += 20;
+			else if (ringSpace < 750) ringSpace += 20; //250 to 750
 
 			//Draws the border (rainbow ring) of the boss.
-			for (int i = 0; i < ringCount; i++) { //i*(360/ringCount) //old
-				Vector2 borderPos = ringDrawPos - new Vector2(0, ringSpace).RotatedBy(MathHelper.ToRadians(i*12+ringTotalRot));
+			for (int j = 0; j < 10; j++) for (int i = 0; i < ringCount; i++) { //i*(360/ringCount) //old
+				Vector2 borderPos = ringDrawPos - new Vector2(0, ringSpace).RotatedBy(MathHelper.ToRadians(i*12+ringTotalRot-(j*(1f-j*(0.03f*((ringSpace+250f)/500f-1f)))))); //Trust me otherwise it looks bad ;-; | isolation: j*(1f-j*0.03f)
 
 				//Cool transition
 				float alphaRing = 1f;
 				if (i == ringCount - 1 && !init && attackTimer < 180) alphaRing = (attackTimer % 6 / 6f);
 
-				spriteBatch.Draw(borderTexture, borderPos, null, Main.DiscoColor*alphaRing, 0f, borderOrigin, NPC.scale, SpriteEffects.None, 0);
+				spriteBatch.Draw(borderTexture, borderPos, null, Main.DiscoColor*alphaRing, 0f, borderOrigin, NPC.scale*(1f-0.1f*j), SpriteEffects.None, 0);
             }
 			return false;
         }

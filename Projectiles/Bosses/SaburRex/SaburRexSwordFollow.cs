@@ -30,7 +30,7 @@ namespace Zylon.Projectiles.Bosses.SaburRex
         public override void AI() {
 			NPC owner = Main.npc[ZylonGlobalNPC.saburBoss];
 			if (owner.active && owner.life > 0) Projectile.timeLeft = 2;
-			Projectile.position = owner.position - new Vector2(18*owner.direction, 0);
+			Projectile.position = owner.position - new Vector2(12*owner.direction, 0); //og 18
 			Projectile.frame = (int)owner.ai[1];
 			Projectile.direction = owner.direction;
 			Projectile.rotation = MathHelper.ToRadians(135);

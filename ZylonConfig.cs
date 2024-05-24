@@ -20,7 +20,7 @@ namespace Zylon
 
 		[DefaultValue(true)]
 		[Label("Zylonian Balancing")]
-		[Tooltip("Rebalances a lot of the vanilla content.")]
+		[Tooltip("Rebalances a lot of vanilla content.")]
 		public bool zylonianBalancing;
 
 		[DefaultValue(true)]
@@ -62,6 +62,10 @@ namespace Zylon
 		[Label("Neutron Armor Affects Town NPCs")]
 		[Tooltip("Allows black holes to suck up town NPCs.")]
 		public bool blackHoleTownNPC;
+
+		[Label("Night Light Rarities")]
+		[Tooltip("Changes the color of modded rarities so that users of night light can differentiate them easier.")]
+		public bool nightLightRarities;
 
 		[Header("config.accessibility")]
 
