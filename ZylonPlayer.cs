@@ -81,7 +81,7 @@ namespace Zylon
 		public int sojDamageCount;
 		public int sojCooldown;
 		public float metecoreFloat = 1f;
-		public int excalipoorPower = 1;
+		public int excalipoorPower = 10000;
 		public override void ResetEffects() {
 			Heartdaze = false;
 			outofBreath = false;

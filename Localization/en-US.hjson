@@ -2819,15 +2819,6 @@ Mods: {
 				Tooltip: Rains desert sigils down from the sky
 			}
 
-			Diskalibur: {
-				DisplayName: Diskalibur
-				Tooltip:
-					'''
-					'For valor!'
-					Critical strikes have extremely high knockback
-					'''
-			}
-
 			AdeniteSecurityBlade: {
 				DisplayName: Adenite Security Blade
 				Tooltip: Every third swing releases an electric bolt
@@ -2855,7 +2846,7 @@ Mods: {
 
 			Excalipoor: {
 				DisplayName: Excalipoor
-				Tooltip: "'The worst weapon. Can only deal 1 damage.'"
+				Tooltip: ""
 			}
 
 			ForgottenRosesSaber: {
@@ -3233,6 +3224,11 @@ Mods: {
 				Tooltip: "'Can Polandball into space?'"
 			}
 
+			AdamantiteWand: {
+				DisplayName: Adamantite Wand
+				Tooltip: Fires decelerating Adamantite Blasts
+			}
+
 			AmberScepter: {
 				DisplayName: Amber Scepter
 				Tooltip: Fires amber bolts towards the cursor
@@ -3316,6 +3312,11 @@ Mods: {
 			StoneStaff: {
 				DisplayName: Stone Staff
 				Tooltip: ""
+			}
+
+			TitaniumWand: {
+				DisplayName: Titanium Wand
+				Tooltip: Fires accelerating Titanium Blasts
 			}
 
 			TreeTruncheon: {
@@ -4118,10 +4119,10 @@ Mods: {
 			ExcalipoorProj1.DisplayName: Excalipoor
 			ExcalipoorProj2.DisplayName: Excalipoor
 			ExcalipoorProj3.DisplayName: Excalipoor
-			ExcalipoorProj4.DisplayName: Excalipoor
-			ExcalipoorProj5.DisplayName: Excalipoor
 			AussieDagger.DisplayName: Aussie Dagger
 			AussieDaggerShadow.DisplayName: Aussie Dagger
+			AdamantiteWandProj.DisplayName: Adamantite Wand
+			TitaniumWandProj.DisplayName: Titanium Wand
 		}
 
 		NPCs: {

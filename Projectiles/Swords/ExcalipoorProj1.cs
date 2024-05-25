@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using Terraria.DataStructures;
 
 namespace Zylon.Projectiles.Swords
 {
@@ -12,11 +11,10 @@ namespace Zylon.Projectiles.Swords
 			Projectile.height = 8;
 			Projectile.aiStyle = -1;
 			Projectile.friendly = true;
-			Projectile.penetrate = -1;
+			Projectile.penetrate = 1;
 			Projectile.timeLeft = 90;
-			Projectile.DamageType = DamageClass.Magic;
+			Projectile.DamageType = DamageClass.Melee;
 			Projectile.alpha = 255;
-			Projectile.tileCollide = false;
 			Projectile.ignoreWater = true;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = (int)Projectile.ai[0];
@@ -33,9 +31,16 @@ namespace Zylon.Projectiles.Swords
         }
         public override void AI() {
 			Projectile.localNPCHitCooldown = (int)Projectile.ai[0];
-			Projectile.velocity *= 0.95f;
-            for (int i = 0; i < 2; i++) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.FrostStaff);
+			Projectile.velocity *= 0.92f;
+
+			//Determine which dust - this matches the tooltip, btw.
+			float chance = Main.DiscoG/255f;
+
+			int dustType = ModContent.DustType<Dusts.BlackDust>();
+			if (Main.rand.NextFloat() < chance) dustType = ModContent.DustType<Dusts.WhiteDust>();
+
+            for (int i = 0; i < 3; i++) {
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, dustType);
 				dust.noGravity = true;
 				dust.scale = 1f;
 			}
