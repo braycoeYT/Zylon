@@ -6,9 +6,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.Minions
+namespace Zylon.Projectiles.Whips
 {
-	public class RoyalSlime : ModProjectile
+	public class EmeraldWhipProj : ModProjectile
 	{
 		public override void SetStaticDefaults() {
 			// DisplayName.SetDefault("Floating Slime Staff");
@@ -18,14 +18,16 @@ namespace Zylon.Projectiles.Minions
 			//ProjectileID.Sets.Homing[Projectile.type] = true;
 		}
 		public sealed override void SetDefaults() {
-			Projectile.width = 34;
-			Projectile.height = 34;
+			Projectile.width = 28;
+			Projectile.height = 28;
 			Projectile.tileCollide = false;
 			Projectile.friendly = true;
 			Projectile.minion = true;
 			Projectile.minionSlots = 0f;
 			Projectile.penetrate = -1;
 			Projectile.DamageType = DamageClass.Summon;
+			Projectile.timeLeft = 2;
+			Projectile.alpha = 255;
 		}
 		public override bool? CanCutTiles() {
 			return false;
@@ -38,21 +40,25 @@ namespace Zylon.Projectiles.Minions
 		public override void AI() {
 			Timer++;
 			Player player = Main.player[Projectile.owner];
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			#region Active check
-			if (player.dead || !player.active)
-			{
-				player.ClearBuff(BuffType<Buffs.Minions.RoyalSlime>());
+			if (p.emeraldWhipNum > 0) {
+				Projectile.timeLeft = 10;
+				if (Projectile.alpha > 0) Projectile.alpha -= 25;
+				if (Projectile.alpha < 0) Projectile.alpha = 0;
 			}
-			if (player.HasBuff(BuffType<Buffs.Minions.RoyalSlime>()))
-			{
-				Projectile.timeLeft = 2;
+            else {
+                 if (Projectile.alpha < 255) Projectile.alpha += 25;
+				 if (Projectile.alpha > 255) Projectile.alpha = 255;
+            }
+
+            #endregion
+
+            #region General behavior
+            Projectile.Center = player.Center - new Vector2(0, 64);
+			if (p.slimePrinceArmor) { //if wearing slime prince armor, move up
+				Projectile.Center = player.Center - new Vector2(0, 103); //size of royal slime staff + 5 pixels
 			}
-			#endregion
-
-			#region General behavior
-
-			Projectile.Center = player.Center - new Vector2(0, 64);
-
 			#endregion
 
 			#region Find target
@@ -94,20 +100,20 @@ namespace Zylon.Projectiles.Minions
 
             #region Projectile
 			Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 1;
-			if (Timer % 90 == 0 && foundTarget && Projectile.rotation > 0.3f)
-				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, projDir*14f, ProjectileType<RoyalSlimeProj>(), 20, Projectile.knockBack, Projectile.owner);
+			if (Timer % 32 == 0 && foundTarget && Projectile.rotation > 0.3f)
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, projDir*8f, ProjectileID.EmeraldBolt, 13, 4.25f, Projectile.owner);
 
 			#endregion
 
             #region Animation and visuals
-            if (spinSpeed < 0.03f) spinSpeed = 0.03f;
-			if (spinSpeed > 0.5f) spinSpeed = 0.5f;
+            if (spinSpeed < 0.02f) spinSpeed = 0.02f;
+			if (spinSpeed > 0.2f) spinSpeed = 0.2f;
 			if (foundTarget) spinSpeed += 0.01f;
 			else spinSpeed -= 0.01f;
 
 			Projectile.rotation += spinSpeed;
 
-			Lighting.AddLight(Projectile.Center, Color.SkyBlue.ToVector3() * 0.4f);
+			Lighting.AddLight(Projectile.Center, Color.Green.ToVector3() * 0.5f);
 			#endregion
 		}
 	}

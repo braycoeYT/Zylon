@@ -203,7 +203,7 @@ V0.0.3: Cause to Clash Update
 ~Modded bars now stack to 9999.
 ~Fixed Starpack Slime and Sapling Warrior banners not working correctly.
 ~Shrapnel now has a multihit penalty.
-~Added Cerussite, Bi Disc, Ruby Bow, Diamond Cane, Sapphire Spellbook, Topaz Pike, Amethyst Pistol, Amber Scepter,
+~Added Cerussite, Bi Disc, Ruby Bow, Diamond Cane, Sapphire Spellbook, Topaz Pike, Amethyst Pistol, Amber Scepter, and Emerald Whip.
 ~Added Cerussite Bat.
 ~Decreased Starpack Slime spawn rate.
 ~Added Rai Stone.
@@ -296,11 +296,17 @@ V0.0.3: Cause to Clash Update
 ~Fixed grammatical error in the "Zylonian Balancing" config.
 ~Added Night Light Rarity config.
 ~Added Adamantite Wand and Titanium Wand.
+~Changed position of the Slime Prince armor's set bonus.
+~Fixed issues with Slime Prince armor set bonus position being offset randomly.
+~Fixed issue with Root Guard not working.
+~Reworked Harpy's Crest.
+~Reworked Slime Pendant slightly.
+~Reworked Dirt Slime to be cool.
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
 ~Added Excalipoor, Aussie Dagger,
 
-rework harpy's crest + finish cerussite (emerald) + finish wolf and ooze + living wood + sabur rex + dirt slime reworks
+finish wolf and ooze + living wood + sabur rex
 
 
 

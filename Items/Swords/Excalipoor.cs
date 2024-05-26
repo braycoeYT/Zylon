@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace Zylon.Items.Swords
 {
-    public class Excalipoor : ModItem
+    public class Excalipoor : ModItem //I no longer feel safe knowing that this is in the mod files. Help.
     {
         public override void ModifyTooltips(List<TooltipLine> tooltips) {
 			String message = "'The worst weapon. Can only deal 1 damage.'";

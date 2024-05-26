@@ -342,6 +342,16 @@ Mods: {
 				DisplayName: Possessed Diamond
 				Description: The Possessed Diamond will fight for you
 			}
+
+			EmeraldWhipDebuff: {
+				Description: Mods.Zylon.Buffs.EmeraldWhipDebuff.Description
+				DisplayName: Emerald Whip Debuff
+			}
+
+			EmeraldWhipAdvancedDebuff: {
+				Description: Mods.Zylon.Buffs.EmeraldWhipAdvancedDebuff.Description
+				DisplayName: Emerald Whip Advanced Debuff
+			}
 		}
 
 		Items: {
@@ -454,15 +464,10 @@ Mods: {
 
 			HarpysCrest: {
 				DisplayName: Harpy's Crest
-				Tooltip: When equipped, hold the W key to fall slower
-			}
-
-			HeartofPrisms: {
-				DisplayName: Heart of Prisms
 				Tooltip:
 					'''
-					Puts a spike ring around the player
-					Enemies hit by the ring are thrown away
+					Negates fall damage for 10 extra tiles
+					Releases three feathers after taking damage
 					'''
 			}
 
@@ -651,7 +656,11 @@ Mods: {
 
 			SlimePendant: {
 				DisplayName: Slime Pendant
-				Tooltip: Slightly increases max jump height and fall speed
+				Tooltip:
+					'''
+					Slightly increases max jump height and fall speed
+					Attacks inflict Slimed on enemies
+					'''
 			}
 
 			SparkingCore: {
@@ -3349,6 +3358,18 @@ Mods: {
 					'''
 			}
 
+			EmeraldWhip: {
+				DisplayName: Emerald Whip
+				Tooltip:
+					'''
+					After striking a foe, creates a giant emerald above the player
+					The emerald shoots emerald bolts at nearby enemies
+					The emerald disappears after you stop hitting enemies
+					{$CommonItemTooltip.SummonTagDamage}
+					{$CommonItemTooltip.Whips}
+					'''
+			}
+
 			EyeLash: {
 				DisplayName: Eye Lash
 				Tooltip:
@@ -3366,7 +3387,7 @@ Mods: {
 					'''
 					'Go home now! Perish with the rest of the ugly Earth People.'
 					Striking foes will steal mana from enemies
-					If the player has at least 40 mana, will use mana to cast psychokinetic attacks
+					If the player has at least 40 mana, will use mana to cast a psychokinetic attack
 					{$CommonItemTooltip.SummonTagDamage}
 					{$CommonItemTooltip.Whips}
 					'''
@@ -4123,6 +4144,10 @@ Mods: {
 			AussieDaggerShadow.DisplayName: Aussie Dagger
 			AdamantiteWandProj.DisplayName: Adamantite Wand
 			TitaniumWandProj.DisplayName: Titanium Wand
+			EmeraldWhip.DisplayName: Emerald Whip
+			EmeraldWhipProj.DisplayName: Emerald Whip
+			HarpysCrestProj.DisplayName: Harpys Crest Proj
+			DirtSlimeProj.DisplayName: Dirt Slime Proj
 		}
 
 		NPCs: {

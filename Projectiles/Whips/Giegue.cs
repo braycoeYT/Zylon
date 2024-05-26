@@ -51,6 +51,7 @@ namespace Zylon.Projectiles.Whips
 			if (atkTimer == 28 && Main.player[Projectile.owner].statMana >= 40) {
 				Main.player[Projectile.owner].statMana -= 40;
 				int atk = Main.rand.Next(3);
+				atk = 2; //This kinda looks better with just one attack.
 				switch (atk) {
 					case 0:
 						SoundEngine.PlaySound(SoundID.Item116, Projectile.Center);

@@ -59,6 +59,9 @@ namespace Zylon
 		public bool doublePluggedCord;
 		public bool dirtballExpertVanity;
 		public bool golemEyeEffect;
+		public bool slimePrinceArmor;
+		public bool harpysCrest;
+		public bool slimePendant;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -81,7 +84,9 @@ namespace Zylon
 		public int sojDamageCount;
 		public int sojCooldown;
 		public float metecoreFloat = 1f;
-		public int excalipoorPower = 10000;
+		public int excalipoorPower = 1;
+		public int emeraldWhipNum;
+		public int harpysCrestCooldown;
 		public override void ResetEffects() {
 			Heartdaze = false;
 			outofBreath = false;
@@ -129,6 +134,9 @@ namespace Zylon
 			doublePluggedCord = false;
 			dirtballExpertVanity = false;
 			golemEyeEffect = false;
+			slimePrinceArmor = false;
+			harpysCrest = false;
+			slimePendant = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -153,8 +161,46 @@ namespace Zylon
 			sojDamageCount = 0;
 			sojCooldown = 0;
 			metecoreFloat = 1f;
+			emeraldWhipNum = 0;
+			harpysCrestCooldown = 0;
 		}
 		public override void UpdateBadLifeRegen() {
+			//Update timers here, I guess.
+			if (emeraldWhipNum > 0) {
+				emeraldWhipNum--;
+			}
+			if (harpysCrestCooldown > 0) {
+				harpysCrestCooldown--;
+				if (harpysCrestCooldown % 60 == 0 && harpysCrestCooldown != 0) {
+					float distanceFromTarget = 100f;
+					Vector2 targetCenter = Player.position;
+					bool foundTarget = false;
+
+					if (!foundTarget) {
+						for (int i = 0; i < Main.maxNPCs; i++) {
+							NPC npc = Main.npc[i];
+							
+							if (npc.CanBeChasedBy()) {
+								float between = Vector2.Distance(npc.Center, Player.Center);
+								bool closest = Vector2.Distance(Player.Center, targetCenter) > between;
+								bool inRange = between < distanceFromTarget;
+								bool lineOfSight = Collision.CanHitLine(Player.position, Player.width, Player.height, npc.position, npc.width, npc.height);
+								bool closeThroughWall = false; //between < 100f;
+							
+								if (((closest && inRange) || !foundTarget) && (lineOfSight || closeThroughWall)) {
+									distanceFromTarget = between;
+									targetCenter = npc.Center;
+									foundTarget = true;
+								}
+							}
+						}
+					}
+					Vector2 projDir = Vector2.Normalize(targetCenter - Player.Center) * 13f;
+					if (!foundTarget) projDir = Vector2.Normalize(targetCenter - Main.MouseWorld) * 13f;
+					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, projDir, ModContent.ProjectileType<Projectiles.Accessories.HarpysCrestProj>(), 20, 5f, Main.myPlayer);
+				}
+			}
+
 			if (Heartdaze) {
 				if (Player.lifeRegen > 0)
 					Player.lifeRegen = 0;
@@ -240,9 +286,10 @@ namespace Zylon
 				Player.npcTypeNoAggro[NPCType<NPCs.Forest.MechanicalSlime>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Forest.OrangeSlime>()] = true;
 				//Player.npcTypeNoAggro[NPCType<NPCs.Ocean.CyanSlime>()] = true;
-				//Player.npcTypeNoAggro[NPCType<NPCs.Sky.StarpackSlime>()] = true;
+				Player.npcTypeNoAggro[NPCType<NPCs.Sky.Stratoslime>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Snow.LivingMarshmallow>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Snow.RoastedLivingMarshmallow>()] = true;
+				Player.npcTypeNoAggro[NPCType<NPCs.ElemSlime>()] = true;
             }
 			if (leafBracer) {
 				if (!Player.HasBuff(BuffID.PotionSickness) && !leafBracerTempBool) leafBracerTempBool = true;
@@ -372,6 +419,7 @@ namespace Zylon
 					if (proj.DamageType == DamageClass.Magic || proj.DamageType == DamageClass.MagicSummonHybrid)
 						Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.SparkingCoreProj>(), 0, 0f, Player.whoAmI);
             }
+			if (slimePendant) target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11)*60);
 		}
 		public void OnHitPVPGlobal(Item item, Projectile proj, Player target, int damage, bool crit, bool TrueMelee) {
 			hitTimer30 = 1800;
@@ -427,6 +475,7 @@ namespace Zylon
 			{
 				Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.MetecoreSpirit>(), 0, 0, Main.myPlayer);
 			}
+			if (slimePendant) target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11)*60);
 		}
 		/*public void DiskiteBuffs(int Bufftime, Player player) {
 			switch (Main.rand.Next(3)) {
@@ -445,23 +494,21 @@ namespace Zylon
 			if (Main.rand.Next(1, 100) <= PercentChance)
 				DiskiteBuffs(Bufftime, player);
         }*/
-		public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
-		{
-			if (rootGuard && Player.whoAmI == Main.myPlayer) for (int x = 0; x < 3; x++)
-				{ //FINISH
-					int pos = Main.rand.Next(16, 49);
-					if (Main.rand.NextBool()) pos *= -1;
-					//Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + new Vector2(pos, -16), Vector2.Zero, ProjectileType<Projectiles.Accessories.RootGuardProj>(), 10, 2f, Main.myPlayer);
-				}
+		public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo) {
+			if (rootGuard && Player.whoAmI == Main.myPlayer) for (int x = 0; x < 3; x++) {
+				int pos = Main.rand.Next(32, 65);
+				if (Main.rand.NextBool()) pos *= -1;
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + new Vector2(pos, -12), Vector2.Zero, ProjectileType<Projectiles.Accessories.RootGuardProj>(), 10, 0f, Main.myPlayer);
+			}
+			if (harpysCrest) harpysCrestCooldown = 210;
 		}
-		public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo)
-		{
-			if (rootGuard && Player.whoAmI == Main.myPlayer) for (int x = 0; x < 3; x++)
-				{ //FINISH
-					int pos = Main.rand.Next(32, 65);
-					if (Main.rand.NextBool()) pos *= -1;
-					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + new Vector2(pos, -12), Vector2.Zero, ProjectileType<Projectiles.Accessories.RootGuardProj>(), 10, 0f, Main.myPlayer);
-				}
+		public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo) {
+			if (rootGuard && Player.whoAmI == Main.myPlayer) for (int x = 0; x < 3; x++) {
+				int pos = Main.rand.Next(32, 65);
+				if (Main.rand.NextBool()) pos *= -1;
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + new Vector2(pos, -12), Vector2.Zero, ProjectileType<Projectiles.Accessories.RootGuardProj>(), 10, 0f, Main.myPlayer);
+			}
+			if (harpysCrest) harpysCrestCooldown = 210;
 		}
 		/*public override void OnHitByNPC(NPC npc, int damage, bool crit) {
             if ((npc.type == NPCType<NPCs.Bosses.Adeneb.Adeneb_SpikeRing>() || npc.type == NPCType<NPCs.Bosses.Adeneb.Adeneb_Center>()) && !Player.noKnockback) {

@@ -101,8 +101,8 @@ namespace Zylon.Projectiles.Minions
 						float between = Vector2.Distance(npc.Center, Projectile.Center);
 						bool closest = Vector2.Distance(Projectile.Center, targetCenter) > between;
 						bool inRange = between < distanceFromTarget;
-						bool lineOfSight = Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, npc.position, npc.width, npc.height);
-						bool closeThroughWall = between < 100f;
+						bool lineOfSight = Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, npc.position, npc.width, npc.height) || Timer % 420 >= 240; //To prevent weird re-targeting bugs, always see through walls when dashing.
+						bool closeThroughWall = between < 150f;
 						if (((closest && inRange) || !foundTarget) && (lineOfSight || closeThroughWall)) {
 							distanceFromTarget = between;
 							targetCenter = npc.Center;
