@@ -302,11 +302,17 @@ V0.0.3: Cause to Clash Update
 ~Reworked Harpy's Crest.
 ~Reworked Slime Pendant slightly.
 ~Reworked Dirt Slime to be cool.
+~Added Living Wood armor and Living Whip.
+~Fixed several of the mod's summons not dealing summon damage. Oops.
+~Fixed Stardust Fragment Staff not updating damage values.
+~Reworked Meteorb's and Wind Elemental's projectiles to use drawcode instead of two separate projectiles.
+~Fixed centering issue with Wind Elemental's attack.
+~Added Oddpick.
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
 ~Added Excalipoor, Aussie Dagger,
 
-finish wolf and ooze + living wood + sabur rex
+finish wolf and ooze + sabur rex
 
 
 

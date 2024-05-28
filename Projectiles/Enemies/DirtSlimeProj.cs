@@ -24,9 +24,13 @@ namespace Zylon.Projectiles.Enemies
 		int Timer;
 		int Timer2;
 		float flashPower;
+		float visibility;
 		bool init;
 		Vector2 offset;
         public override void AI() {
+			//Just for spawning to look cool
+			if (visibility < 1f) visibility += 0.1f;
+
 			NPC owner = Main.npc[(int)Projectile.ai[0]];
 			Projectile.rotation += 0.03f - 0.06f*rand; //Projectile rotation
 			Projectile.hostile = launch; //Only damage players if launched
@@ -88,7 +92,7 @@ namespace Zylon.Projectiles.Enemies
 
 			Vector2 drawOrigin = new Vector2(texture.Width / 2f, frameHeight / 2f);
 
-			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), lightColor, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
+			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), lightColor*visibility, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
 			Main.EntitySpriteDraw(altTexture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White*flashPower, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
 			return false;
 		}

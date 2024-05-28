@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
@@ -26,37 +27,34 @@ namespace Zylon.Projectiles.Enemies
 			Projectile.alpha = 255;
 			Projectile.hostile = true;
         }
-		bool init;
-        NPC main;
+		NPC main;
         public override void AI() {
-			if (!init) {
-				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(), ModContent.ProjectileType<WindElemental_ProtectDeco>(), 0, 0f, Main.myPlayer, Projectile.whoAmI, BasicNetType: 2);
-				init = true;
-            }
 			main = Main.npc[(int)Projectile.ai[0]];
-			Projectile.Center = main.Center;
-			//Projectile.rotation += 0.15f;
+			Projectile.Center = main.Center + new Vector2(0, 4);
+			Projectile.rotation += 0.15f;
 			if (Projectile.timeLeft < 60 && main.life > 1 && main.active == true) {
 				Projectile.alpha += 4;
 				Projectile.scale += 0.05f;
 				Projectile.width = (int)(70*Projectile.scale);
 				Projectile.height = (int)(66*Projectile.scale);
-				/*if (Projectile.timeLeft == 59) {
-					Vector2 speed = main.Center - Main.player[main.target].Center;
-					speed.Normalize();
-					Projectile.velocity = speed * -7f;
-                }*/
             }
 			else if (!(main.life > 1 && main.active == true)) {
 				Projectile.alpha += 7;
 				if (Projectile.alpha > 254) Projectile.active = false;
-				//Projectile.Center = main.Center;
             }
 			else { 
 				Projectile.alpha -= 5;
 				if (Projectile.alpha < 0) Projectile.alpha = 0;
-				//Projectile.Center = main.Center;
 			}
         }
+		public override bool PreDraw(ref Color lightColor) {
+			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+			Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+			int frameHeight = texture.Height / Main.projFrames[Projectile.type];
+			int spriteSheetOffset = frameHeight * Projectile.frame;
+			Vector2 sheetInsertPosition = (Projectile.Center + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition).Floor();
+			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White*((255f-Projectile.alpha)/255f), Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
+			return false;
+		}
     }
 }

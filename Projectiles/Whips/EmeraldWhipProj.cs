@@ -10,20 +10,11 @@ namespace Zylon.Projectiles.Whips
 {
 	public class EmeraldWhipProj : ModProjectile
 	{
-		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Floating Slime Staff");
-			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
-			Main.projPet[Projectile.type] = true;
-			ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
-			//ProjectileID.Sets.Homing[Projectile.type] = true;
-		}
 		public sealed override void SetDefaults() {
 			Projectile.width = 28;
 			Projectile.height = 28;
 			Projectile.tileCollide = false;
 			Projectile.friendly = true;
-			Projectile.minion = true;
-			Projectile.minionSlots = 0f;
 			Projectile.penetrate = -1;
 			Projectile.DamageType = DamageClass.Summon;
 			Projectile.timeLeft = 2;

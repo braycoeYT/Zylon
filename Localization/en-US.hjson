@@ -352,6 +352,16 @@ Mods: {
 				Description: Mods.Zylon.Buffs.EmeraldWhipAdvancedDebuff.Description
 				DisplayName: Emerald Whip Advanced Debuff
 			}
+
+			LivingWhipAdvancedDebuff: {
+				DisplayName: Living Whip Advanced Debuff
+				Description: Mods.Zylon.Buffs.LivingWhipAdvancedDebuff.Description
+			}
+
+			LivingWhipDebuff: {
+				DisplayName: Living Whip Debuff
+				Description: Mods.Zylon.Buffs.LivingWhipDebuff.Description
+			}
 		}
 
 		Items: {
@@ -1092,6 +1102,30 @@ Mods: {
 					Increases maximum mana by 40
 					Reduces mana usage by 8%
 					'''
+			}
+
+			LivingWoodBreastplate: {
+				DisplayName: Living Wood Breastplate
+				Tooltip: Increases minion knockback by 8%
+			}
+
+			LivingWoodHelmet: {
+				DisplayName: Living Wood Helmet
+				Tooltip:
+					'''
+					Increases max minions by 1
+					Increases minion damage by 6%
+					'''
+			}
+
+			LivingWoodLeggings: {
+				DisplayName: Living Wood Leggings
+				Tooltip: Increases movement speed by 10%
+			}
+
+			LivingWoodMask: {
+				DisplayName: Living Wood Mask
+				Tooltip: Increases minion knockback by 5%
 			}
 
 			NeutronHood: {
@@ -3173,6 +3207,11 @@ Mods: {
 					'''
 			}
 
+			Oddpick: {
+				DisplayName: Oddpick
+				Tooltip: "'May or may not secretly contain a crypto miner'"
+			}
+
 			StoneAxe: {
 				DisplayName: Stone Axe
 				Tooltip: ""
@@ -3376,6 +3415,18 @@ Mods: {
 					'''
 					'Gross, but useful!'
 					Summons servants of cthulhu upon striking foes
+					{$CommonItemTooltip.SummonTagDamage}
+					{$CommonItemTooltip.Whips}
+					'''
+			}
+
+			LivingWhip: {
+				DisplayName: Living Whip
+				Tooltip:
+					'''
+					Striking enemies will create temporary spirits of protection around the player
+					The player gains a point of defense for each active spirit
+					This effect caps at 10 spirits
 					{$CommonItemTooltip.SummonTagDamage}
 					{$CommonItemTooltip.Whips}
 					'''
@@ -4148,6 +4199,8 @@ Mods: {
 			EmeraldWhipProj.DisplayName: Emerald Whip
 			HarpysCrestProj.DisplayName: Harpys Crest Proj
 			DirtSlimeProj.DisplayName: Dirt Slime Proj
+			LivingWhip.DisplayName: Living Whip
+			LivingWhipSpirit.DisplayName: Living Whip Spirit
 		}
 
 		NPCs: {

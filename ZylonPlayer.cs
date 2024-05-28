@@ -62,6 +62,7 @@ namespace Zylon
 		public bool slimePrinceArmor;
 		public bool harpysCrest;
 		public bool slimePendant;
+		public bool livingWoodSetBonus;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -87,6 +88,8 @@ namespace Zylon
 		public int excalipoorPower = 1;
 		public int emeraldWhipNum;
 		public int harpysCrestCooldown;
+		public int livingWhipNum;
+		public int livingWhipTimer;
 		public override void ResetEffects() {
 			Heartdaze = false;
 			outofBreath = false;
@@ -137,6 +140,7 @@ namespace Zylon
 			slimePrinceArmor = false;
 			harpysCrest = false;
 			slimePendant = false;
+			livingWoodSetBonus = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -163,6 +167,8 @@ namespace Zylon
 			metecoreFloat = 1f;
 			emeraldWhipNum = 0;
 			harpysCrestCooldown = 0;
+			livingWhipNum = 0;
+			livingWhipTimer = 0;
 		}
 		public override void UpdateBadLifeRegen() {
 			//Update timers here, I guess.
@@ -298,9 +304,9 @@ namespace Zylon
 					leafBracerTempBool = false;
                 }
             }
+			Player.statDefense += livingWhipNum; //The number of active living whip spirits.
         }
 		float trueMeleeBoost;
-		float critBoost;
 		public override void ModifyHitNPCWithItem(Item item, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Item, consider using ModifyHitNPC instead */
 		{
 			modifiers.CritDamage += critExtraDmg;
@@ -420,6 +426,7 @@ namespace Zylon
 						Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.SparkingCoreProj>(), 0, 0f, Player.whoAmI);
             }
 			if (slimePendant) target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11)*60);
+			if (livingWoodSetBonus) target.AddBuff(BuffID.DryadsWardDebuff, Main.rand.Next(2, 5)*60);
 		}
 		public void OnHitPVPGlobal(Item item, Projectile proj, Player target, int damage, bool crit, bool TrueMelee) {
 			hitTimer30 = 1800;

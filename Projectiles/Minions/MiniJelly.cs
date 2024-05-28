@@ -25,6 +25,7 @@ namespace Zylon.Projectiles.Minions
 			Projectile.minion = true;
 			Projectile.minionSlots = 1f;
 			Projectile.penetrate = -1;
+			Projectile.DamageType = DamageClass.Summon;
 		}
 		public override bool? CanCutTiles() {
 			return false;
