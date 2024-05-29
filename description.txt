@@ -310,7 +310,7 @@ V0.0.3: Cause to Clash Update
 ~Added Oddpick.
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
-~Added Excalipoor, Aussie Dagger,
+~Added Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade,
 
 finish wolf and ooze + sabur rex
 

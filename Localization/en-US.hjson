@@ -1858,6 +1858,15 @@ Mods: {
 				Tooltip: Every third shot releases a leaf with each arrow
 			}
 
+			Dirkbow: {
+				DisplayName: Dirkbow
+				Tooltip:
+					'''
+					Fires endless sword beams between shots
+					Only the actual arrow consumes ammo
+					'''
+			}
+
 			Dirty3String: {
 				DisplayName: Dirty 3-String
 				Tooltip: Has a low firerate, but fires 1-3 arrows
@@ -3157,6 +3166,16 @@ Mods: {
 					'''
 			}
 
+			TaleoftheEverlastingBlade: {
+				DisplayName: Tale of the Everlasting Blade
+				Tooltip:
+					'''
+					'It's a never-ending story...'
+					Casts a massive blade that continuously splits into smaller versions
+					The smallest blades automatically point towards the closest enemy
+					'''
+			}
+
 			Trifid: {
 				DisplayName: Trifid
 				Tooltip:
@@ -3285,6 +3304,11 @@ Mods: {
 			ArchangelsWand: {
 				DisplayName: Archangel's Wand
 				Tooltip: Blasts an accelerating Archangel Shot
+			}
+
+			BladeTorrentStaff: {
+				DisplayName: Blade Torrent Staff
+				Tooltip: Smothers your enemies in swords
 			}
 
 			CarnalliteWand: {
@@ -3716,6 +3740,11 @@ Mods: {
 			CandyCanePike: {
 				DisplayName: Candy Cane Pike
 				Tooltip: ""
+			}
+
+			Tal: {
+				Tooltip: ""
+				DisplayName: Tal
 			}
 		}
 
@@ -4197,10 +4226,16 @@ Mods: {
 			TitaniumWandProj.DisplayName: Titanium Wand
 			EmeraldWhip.DisplayName: Emerald Whip
 			EmeraldWhipProj.DisplayName: Emerald Whip
-			HarpysCrestProj.DisplayName: Harpys Crest Proj
-			DirtSlimeProj.DisplayName: Dirt Slime Proj
+			HarpysCrestProj.DisplayName: Harpys Crest
+			DirtSlimeProj.DisplayName: Dirt Slime
 			LivingWhip.DisplayName: Living Whip
 			LivingWhipSpirit.DisplayName: Living Whip Spirit
+			DirkbowProj.DisplayName: Dirkbow
+			BladeTorrentProj.DisplayName: Blade Torrent Staff
+			EverlastingBladeProj.DisplayName: Everlasting Blade
+			EverlastingBladeProj2.DisplayName: Everlasting Blade
+			EverlastingBladeProj3.DisplayName: Everlasting Blade
+			EverlastingBladeProj4.DisplayName: Everlasting Blade
 		}
 
 		NPCs: {

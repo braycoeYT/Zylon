@@ -18,10 +18,8 @@ namespace Zylon.Projectiles.Bows
 			Projectile.ignoreWater = true;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 4;
-			AIType = ProjectileID.WoodenArrowFriendly;
 		}
-        public override void AI()
-        {
+        public override void AI() {
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
         }
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {

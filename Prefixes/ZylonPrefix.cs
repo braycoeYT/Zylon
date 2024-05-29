@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Zylon.Items.Bows;
 using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Prefixes
