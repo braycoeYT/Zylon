@@ -29,8 +29,13 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 		int Timer2;
 		int rand = Main.rand.Next(0, 200); //Random spawn position
         public override void AI() { //ai0 - target, ai1 - boss hp left
-			//NPC owner = Main.npc[ZylonGlobalNPC.saburBoss];
-			//if (owner.life < 1 || !owner.active) Projectile.Kill();
+			NPC owner = Main.npc[ZylonGlobalNPC.saburBoss];
+
+			if (owner.life < 1 || !owner.active || owner.ai[0] != 3f) { //Despawn to prevent annoyance.
+				Projectile.alpha += 17;
+				if (Projectile.alpha > 254) Projectile.Kill();
+				return;
+			}
 
 			Timer++;
 			target = Main.player[(int)Projectile.ai[0]];

@@ -26,11 +26,18 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 		bool hasAttacked;
 		int Timer;
         public override void AI() {
+
 			Timer++;
 			//Projectile.hostile = Projectile.alpha < 180;
 			NPC owner = Main.npc[ZylonGlobalNPC.saburBoss];
 			Player target = Main.player[owner.target];
 			float hpLeft = (float)owner.life/(float)owner.lifeMax; //idk if I will use this or not
+
+			if ((!owner.active || owner.life < 1 || owner.ai[0] != 0f) && Timer < 75) {
+				Projectile.alpha += 15;
+				if (Projectile.alpha > 254) Projectile.Kill();
+				return;
+			}
 
 			//Alpha control
 			if (hasAttacked && Timer > (120)+45) Projectile.alpha += 15;

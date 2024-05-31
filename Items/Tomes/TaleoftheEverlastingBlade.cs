@@ -27,5 +27,8 @@ namespace Zylon.Items.Tomes
 			Item.mana = 23;
 			Item.UseSound = SoundID.Item43;
 		}
+		public override Vector2? HoldoutOffset() {
+			return new Vector2(-6, 0);
+		}
 	}
 }

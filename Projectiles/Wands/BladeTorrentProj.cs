@@ -46,7 +46,7 @@ namespace Zylon.Projectiles.Wands
 
             for (int k = 0; k < Projectile.oldPos.Length; k++)
             {
-                Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);// - new Vector2(Projectile.width/2, Projectile.height/2);
+                Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY) + Projectile.velocity*0.85f*k;// - new Vector2(Projectile.width/2, Projectile.height/2);
                 float asdf = 0.65f;
                 if (k == 0) asdf = 1f;
                 Color colorAfterEffect = color * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * asdf;

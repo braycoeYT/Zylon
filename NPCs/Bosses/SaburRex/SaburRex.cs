@@ -53,7 +53,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
             }
         }
         public override bool CanHitPlayer(Player target, ref int cooldownSlot) {
-			if (NPC.ai[0] == 0 && NPC.ai[3] == 1) return false; //See influx weaver code - prevent frustration.
+			if ((NPC.ai[0] == 0 && NPC.ai[3] == 1) || (NPC.ai[0] == 4f && NPC.ai[3] == 0f)) return false; //See influx weaver and tizona code - prevent frustration.
             return true;
         }
         public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers) {
@@ -87,6 +87,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 		int attackNum5;
 		float attackFloat3;
 		int attackNum6;
+		float attackFloat4;
         public override void AI() { //ai0 - current attack | ai1 - next attack | ai2 - current rotation | ai3 - other important communication w/ sword proj
 
 			Zylon.hasFoughtSabur = true; //REMOVE WHEN BOSS FINISHED - JUST TO SKIP DIALOGUE
@@ -413,6 +414,9 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				}
 			}
 
+			//End attack
+			if (attackNum4 > (int)(14-(8*hpLeft))) attackDone = true;
+
 			//Honeypot projectiles
 			attackNum6++;
 			if (attackNum6 > 90+(int)(180*hpLeft)) {
@@ -420,15 +424,115 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.SaburRex.SaburRexHoneyPot>(), (int)(NPC.damage/3), 0f, -1, NPC.target, hpLeft);
 			}
 		}
-		private void Tizona() { //fly up, then dash from sides? laser spam like ocram
-			if (attackNum == 0 && NPC.ai[2] >= MathHelper.ToRadians(180)) {
-				NPC.ai[2] += MathHelper.ToRadians(5);
-				if (NPC.ai[2] >= MathHelper.ToRadians(180)) NPC.ai[2] = MathHelper.ToRadians(180);
+		private void Tizona() { //Warning: This attack doesn't unload properly if forced to repeat multiple times in a row, beware.
+			if (attackNum2 == 0) { //Intro - spawn servants to spin
+				attackTimer++;
+				if (attackTimer == 1) {
+					attackFloat = Main.rand.NextFloat(18f, 22f)*(1.25f-(0.25f*hpLeft)); //og 1.75f and 0.75f - too hard
+					attackNum = (int)(45+(75*hpLeft));
+
+					//Determines how many projectiles to make.
+					attackNum3 = (int)(9f-6f*hpLeft); //og 10f and 7f - too hard.
+					if (attackNum3 == 3) attackNum3 = 4;
+
+					//Move to center - Remember, NO COLLISION FOR THIS!!!
+					NPC.velocity = (ringPos - NPC.Center)/(float)attackNum;
+				}
+				if (attackTimer == (attackNum/2)) {
+					int timeLeft = attackNum-(attackNum/2);
+					if (Main.netMode != NetmodeID.MultiplayerClient) for (int i = 1; i < 5; i++) for (int j = 0; j < attackNum3; j++)
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<SaburRexServantofOcram>(), (int)(NPC.damage/3), 0f, -1, i*200, j*(int)(360f/attackNum3), timeLeft);
+
+					//Center proj
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<SaburRexServantofOcram>(), (int)(NPC.damage/3), 0f, -1, 0, 0, timeLeft);
+				}
+				if (attackTimer < attackNum) { //Spinning animation - smooth through trig.
+					NPC.ai[2] += MathHelper.ToRadians(attackFloat*(float)Math.Sin((float)attackTimer*Math.PI/(float)attackNum));
+				}
+				else if (attackTimer == attackNum+10) {
+					NPC.velocity = Vector2.Zero;
+					attackTimer = 0;
+					attackNum = 0;
+					attackNum2 = 1;
+				}
 			}
-			/*if (!(NPC.ai[2] >= MathHelper.ToRadians(180) && NPC.ai[2] < MathHelper.ToRadians(225))) {
-				NPC.ai[2] += MathHelper.ToRadians(5);
-				if (NPC.ai[2] >= MathHelper.ToRadians(180)) NPC.ai[2] = MathHelper.ToRadians(180);
-			}*/
+			else if (attackNum2 == 1) { //The intro is finished.
+				PlayerSwingEffect(7.5f); //Sword anim
+				if (attackTimer == 0) { //Just set attackTimer to 0 to choose a new attack - the rest is handled here.
+					//attackNum = attackNum2;
+					attackNum++;
+
+					//Reset variables used
+					attackFloat2 = 0f;
+					attackFloat3 = 0f;
+					attackFloat4 = 0f;
+				}
+				attackTimer++;
+				
+				if (attackNum % 2 == 0) { //Spin too fast while motionless attack
+					NPC.velocity *= 0.9f;
+
+					if (attackTimer >= 126 && attackTimer <= 188) NPC.ai[3] += MathHelper.ToRadians(200); //Forces speed of extremum
+					else if (attackTimer <= 126) NPC.ai[3] += MathHelper.ToRadians(-100*(float)Math.Cos(attackTimer/40f)+100); //Starts extra slow to warn player
+					else NPC.ai[3] += MathHelper.ToRadians(-100*(float)Math.Cos(attackTimer/20f)+100); //Normal speed
+					
+					if (attackTimer >= 250) {
+						attackTimer = 0;
+					}
+				}
+				else { //Slowly chase player as projectiles spin
+					if (attackTimer == 1) {
+						//Initializes spin speed - not related to velocity, just reusing variables bc I'm smart like that
+						attackFloat2 = Main.rand.NextFloat(0.8f, 0.85f)*(1.5f-(0.5f*hpLeft));
+						attackFloat3 = 1f;
+						if (Main.rand.NextBool()) attackFloat3 = -1f;
+
+						attackFloat4 = attackFloat2*attackFloat3;
+
+						//Okay, now get them ready
+						attackFloat2 = NPC.velocity.X;
+						attackFloat3 = NPC.velocity.Y;
+
+						attackNum4 = Main.rand.Next(2); //Vertical or Horizontal?
+						attackNum5 = 1;
+						if (Main.rand.NextBool()) attackNum5 = -1; //random direction
+					}
+
+					//Rotation of Ocram servants
+					if (attackTimer > 340) NPC.ai[3] += attackFloat4*(float)(0.05f*(360f-attackTimer));
+					else if (attackTimer < 20) NPC.ai[3] += attackFloat4*(float)(0.05f*attackTimer);
+					else NPC.ai[3] += attackFloat4; //See above for initialization.
+
+					//float2 - X speed | float3 - Y speed
+
+					if (attackTimer < 5) {
+						NPC.velocity *= 0.9f;
+						return;
+					}
+
+					//Horizontal
+					if (NPC.Center.X < target.Center.X) attackFloat2 += 0.2f;
+					else attackFloat2 -= 0.4f;
+					if (Math.Abs(attackFloat2) > 7f && Vector2.Distance(NPC.Center, target.Center) < 800) attackFloat2 *= 0.95f;
+
+					//Vertical
+					if (NPC.Center.Y < target.Center.Y) attackFloat3 += 0.2f;
+					else attackFloat3 -= 0.4f;
+					if (Math.Abs(attackFloat3) > 7f && Vector2.Distance(NPC.Center, target.Center) < 800) attackFloat3 *= 0.95f;
+
+					NPC.velocity = new Vector2(attackFloat2, attackFloat3);
+
+					if (attackTimer >= 360) { //End of attack
+						attackTimer = 0;
+					}
+				}
+
+				if (attackNum > 4) attackDone = true;
+
+				//Sample test
+				//NPC.ai[3] += MathHelper.ToRadians(50f*(float)Math.Sin(attackTimer/60f));
+			}
+			//if (attackTimer > 120) attackDone = true;
 		}
 		private void PlayerSwingEffect(float swingSpeed) { //For any attacks that it should look like the sword swings like a player.
 			NPC.ai[2] += MathHelper.ToRadians(swingSpeed); //Swings at the requested rate.
@@ -495,7 +599,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			NPC.ai[1] = NPC.ai[0]; //Forces the while loop to run at least once
 			while (NPC.ai[1] == NPC.ai[0] || NPC.ai[1] == prevAttack) NPC.ai[1] = Main.rand.Next(5);
 
-			NPC.ai[0] = 4f; //TESTING - force a certain attack.
+			//NPC.ai[0] = 4f; //TESTING - force a certain attack.
 			
 			//Reset stats and rotation.
 			attackTimer = 0;
@@ -512,6 +616,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			attackNum5 = 0;
 			attackNum6 = 0;
 			attackFloat3 = 0f;
+			attackFloat4 = 0f;
         }
 		public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) {
 			int QBframe = (int)(Main.GameUpdateCount/5) % 4;

@@ -32,6 +32,8 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 			Projectile.rotation += MathHelper.ToRadians(15f);
 			if (Projectile.velocity.Length() < 5f) Projectile.velocity *= 1.25f-(0.15f*hpLeft); //og 8f
 
+			if (Projectile.timeLeft > 16 && (!owner.active || owner.life < 1 || owner.ai[0] != 1f)) Projectile.timeLeft = 16;
+
 			if (Projectile.timeLeft < 16) Projectile.alpha += 17;
 			else Projectile.alpha -= 17;
 

@@ -24,12 +24,13 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 			Projectile.ignoreWater = true;
 		}
         public override bool CanHitPlayer(Player target) {
-            if (owner.ai[0] == 0 && owner.ai[3] == 1) return false; //See influx weaver code - prevent frustration.
+            if (owner.ai[0] == 0 && owner.ai[3] == 1 || (owner.ai[0] == 4f && owner.ai[3] == 0f)) return false; //See influx weaver and tizona code - prevent frustration.
             return true;
         }
         public override void OnHitPlayer(Player target, Player.HurtInfo info) {
             if (Main.expertMode && owner.ai[0] == 1f && owner.ai[3] == 1f) target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " was sent to the dungeon."), 999, 1); //We are NOT messing around.
-        }
+			if (owner.ai[0] == 4f) target.AddBuff(BuffID.Bleeding, 720); //Tizona, baby.
+		}
 		NPC owner;
         public override void AI() {
 			owner = Main.npc[ZylonGlobalNPC.saburBoss];
