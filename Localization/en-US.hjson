@@ -682,6 +682,15 @@ Mods: {
 					'''
 			}
 
+			SunFlower: {
+				DisplayName: Sun Flower
+				Tooltip:
+					'''
+					When under half health, spawns a protective sun barrier around the player
+					The sun barrier launches and burns enemies on contact
+					'''
+			}
+
 			TitanfistMedal: {
 				DisplayName: Titanfist Medal
 				Tooltip:
@@ -1150,8 +1159,8 @@ Mods: {
 					'''
 			}
 
-			NeutronTracers: {
-				DisplayName: Neutron Tracers
+			NeutronBooster: {
+				DisplayName: Neutron Booster
 				Tooltip:
 					'''
 					Increases melee critical strike chance when in critical condition (up to 13% boost)
@@ -1326,6 +1335,11 @@ Mods: {
 			}
 
 			MetelordBag: {
+				DisplayName: Treasure Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			SaburBag: {
 				DisplayName: Treasure Bag
 				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 			}
@@ -1805,14 +1819,9 @@ Mods: {
 					'''
 			}
 
-			Slimedallion: {
-				DisplayName: Slimedallion
-				Tooltip:
-					'''
-					Summons a different gigaslime depending on the biome
-					Can only be used after the elemental goop has been unleashed
-					Not Consumable
-					'''
+			SlimyScepter: {
+				DisplayName: Slimy Scepter
+				Tooltip: Summons the slime rain
 			}
 
 			StarstruckMeteorChunk: {
@@ -2593,6 +2602,11 @@ Mods: {
 				Tooltip: ""
 			}
 
+			SaburRelic: {
+				DisplayName: Sabur Rex Relic
+				Tooltip: ""
+			}
+
 			AdenebTrophy: {
 				DisplayName: Adeneb Trophy
 				Tooltip: ""
@@ -2610,6 +2624,11 @@ Mods: {
 
 			MetelordTrophy: {
 				DisplayName: Metelord Trophy
+				Tooltip: ""
+			}
+
+			SaburTrophy: {
+				DisplayName: Sabur Rex Trophy
 				Tooltip: ""
 			}
 
@@ -3741,11 +3760,6 @@ Mods: {
 				DisplayName: Candy Cane Pike
 				Tooltip: ""
 			}
-
-			Tal: {
-				Tooltip: ""
-				DisplayName: Tal
-			}
 		}
 
 		Projectiles: {
@@ -4237,6 +4251,7 @@ Mods: {
 			EverlastingBladeProj3.DisplayName: Everlasting Blade
 			EverlastingBladeProj4.DisplayName: Everlasting Blade
 			SaburRexServantofOcram.DisplayName: Servant of Ocram
+			SunFlowerProj.DisplayName: Sun Flower Proj
 		}
 
 		NPCs: {

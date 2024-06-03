@@ -17,7 +17,7 @@ namespace Zylon.Tiles
 		public const int FrameWidth = 18 * 3;
 		public const int FrameHeight = 18 * 4;
 		public const int HorizontalFrames = 1;
-		public const int VerticalFrames = 4;
+		public const int VerticalFrames = 5;
 		public Asset<Texture2D> RelicTexture;
 		public virtual string RelicTextureName => "Zylon/Tiles/BossRelic";
 		public override string Texture => "Zylon/Tiles/RelicPedestal";

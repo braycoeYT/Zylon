@@ -24,11 +24,12 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Shimmer] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Daybreak] = true;
+			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
 		}
         public override void SetDefaults() {
             NPC.width = 58;
 			NPC.height = 64;
-			NPC.damage = 130;
+			NPC.damage = 99;
 			NPC.defense = 110;
 			NPC.lifeMax = (int)(350000*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.HitSound = SoundID.NPCHit6;
@@ -45,7 +46,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = (int)(500000*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
-			NPC.damage = 260;
+			NPC.damage = 199;
 			NPC.value = Item.buyPrice(7, 50);
 			if (Main.masterMode) {
 				NPC.lifeMax = (int)(650000*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
@@ -232,7 +233,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				if (attackNum2 > 120*hpLeft) {
 					attackNum3++; //ik this is a ton of variables but idk how to narrow it down
 					if (attackNum3 % 12 == 1 && Main.netMode != NetmodeID.MultiplayerClient) {
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<SaburRexBoneProj>(), (int)(NPC.damage*0.18f), 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<SaburRexBoneProj>(), (int)(NPC.damage/3), 0f);
 					}
 					if (attackNum3 > 60) { //Attack over, reset variables
 						attackNum2 = 0;
@@ -251,7 +252,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				if (attackNum4 > 240) { //og 180
 					if (Main.netMode != NetmodeID.MultiplayerClient) for (int i = -800; i < 801; i += 200+(int)(24*hpLeft)) {
 						Vector2 bonePos = ringPos - new Vector2(i, 850).RotatedBy(MathHelper.ToRadians(attackNum5*90)); //(i, Main.rand.Next(800, 901)) //idk if I want a uniform wall or a randomized one
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), bonePos, new Vector2(0, 1).RotatedBy(MathHelper.ToRadians(attackNum5*90)), ModContent.ProjectileType<SaburRexBoneProjOutside>(), (int)(NPC.damage*0.18f), 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), bonePos, new Vector2(0, 1).RotatedBy(MathHelper.ToRadians(attackNum5*90)), ModContent.ProjectileType<SaburRexBoneProjOutside>(), (int)(NPC.damage/3), 0f);
 					}
 					attackNum5++;
 					attackNum4 = 0;
@@ -432,8 +433,14 @@ namespace Zylon.NPCs.Bosses.SaburRex
 					attackNum = (int)(45+(75*hpLeft));
 
 					//Determines how many projectiles to make.
+					int dif = -1;
+					if (Main.expertMode) dif = 0;
+					if (Main.getGoodWorld) dif = 1;
+
 					attackNum3 = (int)(9f-6f*hpLeft); //og 10f and 7f - too hard.
 					if (attackNum3 == 3) attackNum3 = 4;
+
+					attackNum3 += dif;
 
 					//Move to center - Remember, NO COLLISION FOR THIS!!!
 					NPC.velocity = (ringPos - NPC.Center)/(float)attackNum;

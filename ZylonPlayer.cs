@@ -63,6 +63,7 @@ namespace Zylon
 		public bool harpysCrest;
 		public bool slimePendant;
 		public bool livingWoodSetBonus;
+		public bool sunFlower;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -141,6 +142,7 @@ namespace Zylon
 			harpysCrest = false;
 			slimePendant = false;
 			livingWoodSetBonus = false;
+			sunFlower = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -575,7 +577,7 @@ namespace Zylon
 				//Main.NewText((Player.maxMinions-dupli)+" --> "+Player.maxMinions); //Testing
             }
         }
-		public override void ProcessTriggers(TriggersSet triggersSet) {
+        public override void ProcessTriggers(TriggersSet triggersSet) {
 			if (ZylonKeybindSystem.DoublePluggedCordKeybind.JustPressed && doublePluggedCord) SoundEngine.PlaySound(SoundID.Item93, Player.Center);
 			if (ZylonKeybindSystem.DoublePluggedCordKeybind.Current && doublePluggedCord && Player.active && Player.statLife > 0) {
 				
@@ -600,8 +602,8 @@ namespace Zylon
 							deathMessage = " stuck their fingers in the outlet.";
 							break;
 					}
-					if (Main.rand.NextBool(4) && (Player.HasItem(ItemID.CellPhone) || Player.HasItem(ItemID.Shellphone) || Player.HasItem(ItemID.ShellphoneDummy) || Player.HasItem(ItemID.ShellphoneHell) || Player.HasItem(ItemID.ShellphoneOcean) || Player.HasItem(ItemID.ShellphoneSpawn)))
-						deathMessage = "'s phone reached 125% charge.";
+					if (Main.rand.NextBool(4) && (Player.HasItem(ItemID.CellPhone) || Player.HasItem(ItemID.Shellphone) || Player.HasItem(ItemID.ShellphoneDummy) || Player.HasItem(ItemID.ShellphoneHell) || Player.HasItem(ItemID.ShellphoneOcean) || Player.HasItem(ItemID.ShellphoneSpawn) || Player.HasItem(ItemID.PDA)))
+						deathMessage = "'s phone reached 200% charge.";
 					Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + deathMessage), 1, 0);
 				}
 			}

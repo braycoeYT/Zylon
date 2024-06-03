@@ -198,7 +198,7 @@ namespace Zylon.NPCs
 			int projectileCount;
 			for (projectileCount = 0; projectileCount < Main.maxProjectiles; projectileCount++) {
 				if (Main.projectile[projectileCount].active && Main.projectile[projectileCount].type == ProjectileType<Projectiles.BlackHole>()) {
-					if (Vector2.Distance(npc.Center, Main.projectile[projectileCount].Center) < 400 && !npc.boss && (!npc.townNPC || GetInstance<ZylonConfig>().blackHoleTownNPC) && npc.type != NPCID.TargetDummy) {
+					if (Vector2.Distance(npc.Center, Main.projectile[projectileCount].Center) < 400 && !npc.boss && npc.type != NPCID.TargetDummy) {
 						npc.noGravity = true;
 						if (npc.Center.X > Main.projectile[projectileCount].Center.X && npc.velocity.X > -15)
 							npc.velocity.X -= 2;

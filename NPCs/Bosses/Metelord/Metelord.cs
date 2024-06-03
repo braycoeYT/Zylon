@@ -463,9 +463,9 @@ namespace Zylon.NPCs.Bosses.Metelord
 			ZylonWorldCheckSystem.downedMetelord = true;
 			int expertBoost = 0;
 			if (Main.expertMode) expertBoost = 2;
-			if (Main.zenithWorld) expertBoost = 25;
-			if (Main.getGoodWorld) expertBoost = 40;
-			if (!Main.dayTime || Main.getGoodWorld) for (int x = 0; x < Main.rand.Next(7+expertBoost, 10+expertBoost); x++) {
+			if (Main.getGoodWorld) expertBoost = 25;
+			if (Main.zenithWorld) expertBoost = 40;
+			if (!Main.dayTime || Main.zenithWorld) for (int x = 0; x < Main.rand.Next(7+expertBoost, 10+expertBoost); x++) {
 				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(Main.rand.Next(-800, 801), Main.rand.Next(1400, 2000)), new Vector2(Main.rand.NextFloat(-2f, 2f), 13), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFallenStar>(), 0, 0, 255, 0, 0, 2);
             }
         }

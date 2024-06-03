@@ -308,11 +308,22 @@ V0.0.3: Cause to Clash Update
 ~Reworked Meteorb's and Wind Elemental's projectiles to use drawcode instead of two separate projectiles.
 ~Fixed centering issue with Wind Elemental's attack.
 ~Added Oddpick.
+~Resprited Metelord and Eldritch Jellyfish's relics.
+~Resprited Adeneb Trophy, Metelord Trophy, and Eldritch Jellyfish Trophy.
+~Added Slimy Scepter.
+~Resprited Metelord's treasure bag.
+~Fixed Enchanted Dirt Clump display bug.
+~Resprited Carnallite, Slime Prince, Haxonite, and Neutron armor.
+~Renamed Neutron Tracers to Neutron Booster.
+~Neutron Booster now has a cool walking effect.
+~Updated Neutron armor set bonus to look a lot better.
+~Reduced Neutron armor set bonus cooldown and damage.
+~Removed "Neutron Armor Affects Town NPCs" config. You WILL like it.
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
 ~Added Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade,
 
-finish wolf and ooze + sabur rex + everlasting grab fix
+finish wolf and ooze + sabur rex
 
 
 

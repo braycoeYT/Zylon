@@ -8,7 +8,7 @@ namespace Zylon.Items.Accessories
 	public class EnchantedDirtClump : ModItem
 	{
 		public override void SetDefaults() {
-			Item.CloneDefaults(ItemID.EoCShield);
+			//Item.CloneDefaults(ItemID.EoCShield);
 			Item.width = 28;
 			Item.height = 28;
 			Item.accessory = true;

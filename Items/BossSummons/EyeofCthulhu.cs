@@ -55,7 +55,6 @@ namespace Zylon.Items.BossSummons
 			recipe.AddIngredient(ModContent.ItemType<Materials.BloodDroplet>(), 25);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.AddTile(TileID.CookingPots);
-			recipe.AddTile(TileID.RubyBunnyCage);
 			recipe.AddTile(TileID.BubblegumBlock);
 			recipe.AddTile(TileID.GardenGnome);
 			recipe.Register();

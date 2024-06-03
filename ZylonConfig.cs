@@ -58,11 +58,6 @@ namespace Zylon
 		[Tooltip("Allows certain boomerangs to move the camera when used (for experimental boomerangs).")]
 		public bool boomerangCamera;
 
-		[DefaultValue(true)]
-		[Label("Neutron Armor Affects Town NPCs")]
-		[Tooltip("Allows black holes to suck up town NPCs.")]
-		public bool blackHoleTownNPC;
-
 		[Label("Night Light Rarities")]
 		[Tooltip("Changes the color of modded rarities so that users of night light can differentiate them easier.")]
 		public bool nightLightRarities;

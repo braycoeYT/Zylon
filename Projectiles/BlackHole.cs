@@ -24,9 +24,13 @@ namespace Zylon.Projectiles
 			Projectile.localNPCHitCooldown = 2;
 			Projectile.hide = true;
 		}
+		int Timer;
 		public override void AI() {
-			//Lighting.AddLight(Projectile.Center, 0.2f, 0.2f, 0.2f);
-			Projectile.scale += 0.015f;
+			Timer++;
+			float speed = Timer*0.01f;
+			Projectile.scale += speed*speed;
+
+			Projectile.rotation += 0.1f;
 			if (Projectile.scale > 1f) Projectile.scale = 1f;
             if (Projectile.timeLeft < 18)
 				Projectile.alpha += 15;
@@ -37,7 +41,7 @@ namespace Zylon.Projectiles
 			int frameHeight = texture.Height / Main.projFrames[Projectile.type];
 			int spriteSheetOffset = frameHeight * Projectile.frame;
 			Vector2 sheetInsertPosition = (Projectile.Center + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition).Floor();
-			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), new Color(255, 255, 255, 255-Projectile.alpha), Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
+			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White*((255f-Projectile.alpha)/255f), Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
 			return false;
 		}
         public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI) {
