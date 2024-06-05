@@ -35,9 +35,13 @@ namespace Zylon.Projectiles.Minions
 		bool init;
 		bool launch;
 		int launchTimer;
+		float ownerLife;
 		Projectile owner;
-		public override void AI() { //ai0 - owner, ai1 - position in array, ai2 - offset | owner: ai0 is launch, ai1 is total rotation, ai2 is if topSword + 1 is active (allows for correct animation)
+		public override void AI() { //ai0 - owner, ai1 - position in array, ai2 - offset | owner: ai0 is launch, ai1 is total rotation, ai2 is lifetime of owner (prevents new owner replacement glitch)
 			owner = Main.projectile[(int)Projectile.ai[0]];
+
+			if (owner.ai[2] < ownerLife) Projectile.Kill(); //A sussy wussy impostor has replaced our daddy so DIE
+			else ownerLife = owner.ai[2];
 
 			if ((!owner.active && !launch)) Projectile.Kill();
 
@@ -62,6 +66,7 @@ namespace Zylon.Projectiles.Minions
 				Projectile.velocity = Vector2.Zero;
 				Projectile.timeLeft = 9999;
 				Projectile.Center = owner.Center;// + new Vector2(0, 1).RotatedBy();
+
 				Projectile.rotation = offset;
 
 				if (owner.ai[0] == 1f && Projectile.scale >= 1f && launchTimer > 15) {
@@ -72,9 +77,16 @@ namespace Zylon.Projectiles.Minions
 			}
 			else {
 				if (Projectile.timeLeft > 60) Projectile.timeLeft = 60;
+				Projectile.extraUpdates = 0;
 			}
 		}
-		public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI) {
+        /*public override void PostAI() {
+			if (!launch) {
+				if (Vector2.Distance(Projectile.Center, owner.Center) > 1)
+					Projectile.Center += owner.velocity;
+			}
+        }*/
+        public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI) {
             behindProjectiles.Add(index);
         }
         public override void OnKill(int timeLeft) {

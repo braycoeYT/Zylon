@@ -325,7 +325,7 @@ V0.0.3: Cause to Clash Update
 ~Angry Nimbus now drops Cloud and Rain Cloud.
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
-~Added Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade,
+~Added Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff (sorry tome man 4),
 
 finish wolf and ooze + sabur rex
 

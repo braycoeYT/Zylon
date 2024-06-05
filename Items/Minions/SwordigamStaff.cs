@@ -32,7 +32,15 @@ namespace Zylon.Items.Minions
 			Item.shoot = ProjectileType<Projectiles.Minions.Swordigam>();
 		}
         public override bool CanUseItem(Player player) {
-            return player.maxMinions-player.slotsMinions >= 2f;
+			int total = 0;
+			for (int i = 0; i < Main.maxProjectiles; i++) {
+				Projectile temp = Main.projectile[i];
+				if (temp.type == Item.shoot && temp.active) {
+					total++;
+					if (temp.owner == Main.myPlayer) return false;
+				}
+			}
+            return player.maxMinions-player.slotsMinions >= 2f && total < 10;
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
 			player.AddBuff(Item.buffType, 2);

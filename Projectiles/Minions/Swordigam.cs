@@ -77,7 +77,7 @@ namespace Zylon.Projectiles.Minions
 				Projectile.velocity *= 0.1f;
 				Projectile.netUpdate = true;
 			}
-			float overlapVelocity = 0.04f;
+			/*float overlapVelocity = 0.04f;
 			for (int i = 0; i < Main.maxProjectiles; i++)
 			{
 				Projectile other = Main.projectile[i];
@@ -88,7 +88,7 @@ namespace Zylon.Projectiles.Minions
 					if (Projectile.position.Y < other.position.Y) Projectile.velocity.Y -= overlapVelocity;
 					else Projectile.velocity.Y += overlapVelocity;
 				}
-			}
+			}*/
 			#endregion
 
 			#region Find target
@@ -171,10 +171,12 @@ namespace Zylon.Projectiles.Minions
 			//Check if we need to spawn new projectiles
 			if (Projectile.owner == Main.myPlayer) {
 				for (int i = 0; i < swordArmy.Length; i++) {
-					if (!swordArmy[i].active || swordArmy[i].timeLeft < 1 || (int)swordArmy[i].ai[0] != Projectile.whoAmI)
+					if (!swordArmy[i].active || swordArmy[i].timeLeft < 1 || (int)swordArmy[i].ai[0] != Projectile.whoAmI || (int)swordArmy[i].ai[1] != i)
 						swordArmy[i] = Projectile.NewProjectileDirect(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ProjectileType<SwordigamSword>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI, i, Main.rand.Next(45));
 				}
 			}
+
+			//DONT USE PLZZZZZZ
 
 			/*//For the topmost to animate properly - look cut or uncut
 			int ownedNum = -1;
@@ -196,9 +198,15 @@ namespace Zylon.Projectiles.Minions
 			#region Animation and visuals
 			Projectile.rotation += 0.02f*rotRand;
 			Projectile.ai[1] += 0.02f*rotRand; //Rotates projectiles
+			Projectile.ai[2] += 1f;
 
 			#endregion
 		}
+        /*public override void PostAI() { //Almost works :(
+            for (int i = 0; i < swordArmy.Length; i++) {
+				if (swordArmy[i].timeLeft < 90 && swordArmy[i].active) swordArmy[i].Center = Projectile.Center;
+			}
+        }*/
         /*public override void PostAI() {
             if (Main.rand.NextBool()) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustType<AdeniteDust>());
@@ -206,7 +214,7 @@ namespace Zylon.Projectiles.Minions
 				dust.scale = Main.rand.NextFloat(0.75f, 1.25f);
 			}
         }*/
-		public override bool PreDraw(ref Color lightColor) {
+        public override bool PreDraw(ref Color lightColor) {
             Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;
             
             Vector2 drawOrigin = new Vector2(projectileTexture.Width * 0.5f, Projectile.height * 0.5f);
