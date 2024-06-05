@@ -2468,8 +2468,6 @@ Mods: {
 					'''
 					Summons a Swordigam to fight for you
 					Requires two minion slots
-					Each player can only own one Swordigam
-					Only 10 can be active per world at once
 					'''
 			}
 

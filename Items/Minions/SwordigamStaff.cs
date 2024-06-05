@@ -14,7 +14,7 @@ namespace Zylon.Items.Minions
 			ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
 		}
 		public override void SetDefaults() {
-			Item.damage = 309;
+			Item.damage = 189;
 			Item.knockBack = 5f;
 			Item.mana = 20;
 			Item.width = 54;
@@ -32,15 +32,7 @@ namespace Zylon.Items.Minions
 			Item.shoot = ProjectileType<Projectiles.Minions.Swordigam>();
 		}
         public override bool CanUseItem(Player player) {
-			int total = 0;
-			for (int i = 0; i < Main.maxProjectiles; i++) {
-				Projectile temp = Main.projectile[i];
-				if (temp.type == Item.shoot && temp.active) {
-					total++;
-					if (temp.owner == Main.myPlayer) return false;
-				}
-			}
-            return player.maxMinions-player.slotsMinions >= 2f && total < 10;
+            return player.maxMinions-player.slotsMinions >= 2f;
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
 			player.AddBuff(Item.buffType, 2);

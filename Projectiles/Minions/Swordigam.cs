@@ -40,13 +40,14 @@ namespace Zylon.Projectiles.Minions
 		}
 		bool init;
 		float rotRand = Main.rand.NextFloat(0.8f, 1.25f);
-		Projectile[] swordArmy = new Projectile[30];
+		int[] cooldown = new int[30];
+		float[] swordArmy = new float[30];
 		public override void AI() {
 			//Initialize the swords
 			if (!init && Projectile.owner == Main.myPlayer) {
 				if (Main.rand.NextBool()) rotRand *= -1f;
-				for (int i = 0; i < swordArmy.Length; i++) {
-					swordArmy[i] = Projectile.NewProjectileDirect(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ProjectileType<SwordigamSword>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI, i, Main.rand.Next(45));
+				for (int i = 0; i < cooldown.Length; i++) {
+					cooldown[i] = Main.rand.Next(45);
 				}
 				init = true;
 			}
@@ -66,8 +67,11 @@ namespace Zylon.Projectiles.Minions
 			#region General behavior
 			Vector2 idlePosition = player.Center;
 
-			float minionPositionOffsetX = (100 + Projectile.minionPos * 100) * -player.direction;
+			float minionPositionOffsetX = (75 + Projectile.minionPos * 100) * -player.direction;
 			idlePosition.X += minionPositionOffsetX;
+
+			//Doesn't work for whatever reason
+			//if (Main.player[Projectile.owner].stardustGuardian) minionPositionOffsetX -= player.direction*100;
 			
 			Vector2 vectorToIdlePosition = idlePosition - Projectile.Center;
 			float distanceToIdlePosition = vectorToIdlePosition.Length();
@@ -77,7 +81,7 @@ namespace Zylon.Projectiles.Minions
 				Projectile.velocity *= 0.1f;
 				Projectile.netUpdate = true;
 			}
-			/*float overlapVelocity = 0.04f;
+			float overlapVelocity = 0.04f;
 			for (int i = 0; i < Main.maxProjectiles; i++)
 			{
 				Projectile other = Main.projectile[i];
@@ -88,7 +92,7 @@ namespace Zylon.Projectiles.Minions
 					if (Projectile.position.Y < other.position.Y) Projectile.velocity.Y -= overlapVelocity;
 					else Projectile.velocity.Y += overlapVelocity;
 				}
-			}*/
+			}
 			#endregion
 
 			#region Find target
@@ -165,40 +169,27 @@ namespace Zylon.Projectiles.Minions
 
 			#region Projectile
 			
-			if (foundTarget) Projectile.ai[0] = 1f; //Tells projectiles to launch.
-			else Projectile.ai[0] = 0f;
-
-			//Check if we need to spawn new projectiles
-			if (Projectile.owner == Main.myPlayer) {
-				for (int i = 0; i < swordArmy.Length; i++) {
-					if (!swordArmy[i].active || swordArmy[i].timeLeft < 1 || (int)swordArmy[i].ai[0] != Projectile.whoAmI || (int)swordArmy[i].ai[1] != i)
-						swordArmy[i] = Projectile.NewProjectileDirect(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ProjectileType<SwordigamSword>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI, i, Main.rand.Next(45));
+			for (int i = 0; i < swordArmy.Length; i++) {
+				if (cooldown[i] > 0) cooldown[i]--;
+				else {
+					if (swordArmy[i] == 0.95f) cooldown[i] = 12; //Don't shoot immediately
+					if (swordArmy[i] < 1f) swordArmy[i] += 0.05f;
+					//if (swordArmy[i] > 1f) swordArmy[i] = 1f;
+				}
+				if (swordArmy[i] >= 1f && foundTarget && cooldown[i] <= 0) {
+					if (Main.myPlayer == Projectile.owner)
+						Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 20).RotatedBy(MathHelper.ToRadians(i*12)), ProjectileType<SwordigamSword>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+					swordArmy[i] = 0f;
+					cooldown[i] = 30+Main.rand.Next(45);
 				}
 			}
 
-			//DONT USE PLZZZZZZ
-
-			/*//For the topmost to animate properly - look cut or uncut
-			int ownedNum = -1;
-			for (int i = 0; i < Main.maxProjectiles; i++) { //checks for topmost owned sword
-				if (Main.projectile[i].type == ProjectileType<SwordigamSword>() && Main.projectile[i].active && (int)Main.projectile[i].ai[0] == Projectile.whoAmI)
-					ownedNum = (int)Main.projectile[i].ai[1]; //this is the newest sword
-			}
-			int checkNum = ownedNum + 1; //Gets the sword to the right of the topmost sword.
-			if (checkNum == 30) checkNum = 0; //sword29 will check sword0, not the nonexistant sword30
-
-			//The topmost sword's code will realize that it is the topmost, then check if it needs to switch to the special sprite.
-			if (swordArmy[checkNum].active && swordArmy[checkNum].scale > 0.5f && swordArmy[checkNum].velocity.Length() < 0.1f) Projectile.ai[2] = ownedNum; //Switch to special sprite.
-			else Projectile.ai[2] = -1f; //Don't switch; the rightmost is fine.*/
-
-			Main.NewText(Main.player[Projectile.owner].ownedProjectileCounts[ProjectileType<SwordigamSword>()]);
+			//Main.NewText(swordArmy[0] + " <--SIZE | COOLDOWN-->" + cooldown[0]);
 
 			#endregion
 
 			#region Animation and visuals
 			Projectile.rotation += 0.02f*rotRand;
-			Projectile.ai[1] += 0.02f*rotRand; //Rotates projectiles
-			Projectile.ai[2] += 1f;
 
 			#endregion
 		}
@@ -216,10 +207,24 @@ namespace Zylon.Projectiles.Minions
         }*/
         public override bool PreDraw(ref Color lightColor) {
             Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;
+			Texture2D swordTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Minions/SwordigamSword");
+			Texture2D swordTextureAlt = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Minions/SwordigamSword_Special");
             
             Vector2 drawOrigin = new Vector2(projectileTexture.Width * 0.5f, Projectile.height * 0.5f);
             Vector2 drawPos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
             Color color = Color.White;
+
+			Vector2 swordOrigin = new Vector2(swordTexture.Width * 0.5f, swordTexture.Height);
+
+			for (int k = 0; k < swordArmy.Length; k++) {
+				//if (k == 29) {
+				//	if (swordArmy[0] >= 0.5f) swordTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Minions/SwordigamSword_Special");
+				//}
+				if (swordArmy[k] != 0f) Main.spriteBatch.Draw(swordTexture, drawPos, null, color, MathHelper.ToRadians(k*12)+Projectile.rotation, swordOrigin, swordArmy[k], SpriteEffects.None, 0f);
+			}
+
+			if (swordArmy[29] >= 0.5f && swordArmy[0] >= 0.5f) //oh flop not this again
+				Main.spriteBatch.Draw(swordTextureAlt, drawPos, null, color, Projectile.rotation, swordOrigin, swordArmy[0], SpriteEffects.None, 0f);
 
 			//Looks bad
             /*for (int k = 0; k < Projectile.oldPos.Length; k++)
