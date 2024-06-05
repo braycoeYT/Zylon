@@ -189,6 +189,10 @@ namespace Zylon.NPCs
 				npcLoot.Add(new CommonDrop(ItemType<Items.Accessories.DoublePluggedCord>(), 20));
 			if (npc.type == NPCID.Parrot)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Food.Cracker>(), 20));
+			if (npc.type == NPCID.AngryNimbus) {
+				npcLoot.Add(new CommonDrop(ItemID.Cloud, 1, 5, 8));
+				npcLoot.Add(new CommonDrop(ItemID.RainCloud, 1, 2, 4));
+            }
 		}
         int Timer;
 		bool prevNoGrav;

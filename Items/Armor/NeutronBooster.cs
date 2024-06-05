@@ -40,8 +40,7 @@ namespace Zylon.Items.Armor
 				float size = player.velocity.Length()*0.5f;
 				if (size > 2f) size = 2f;
 				for (int i = 0; i < 3; i++) {
-					int dustIndex = Dust.NewDust(player.position + new Vector2(5+player.direction*2, 38) + player.velocity, 1, 1, DustID.Vortex);
-					Dust dust = Main.dust[dustIndex];
+					Dust dust = Dust.NewDustDirect(player.position + new Vector2(5+player.direction*2, 38) + player.velocity, 1, 1, DustID.Vortex);
 					dust.velocity.X = player.velocity.X*-0.5f;
 					dust.velocity.Y = player.velocity.Y*-0.5f;
 					dust.scale *= size*0.25f + Main.rand.Next(-30, 31) * 0.01f;

@@ -7,6 +7,12 @@ namespace Zylon.Items.Armor
 	[AutoloadEquip(EquipType.Body)]
 	public class JadeRobe : ModItem
 	{
+		public override void SetStaticDefaults() {
+            if (Main.netMode == NetmodeID.Server) return;
+
+			int equipSlotBody = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Body);
+			ArmorIDs.Body.Sets.HidesBottomSkin[equipSlotBody] = true;
+		}
 		public override void SetDefaults() {
 			Item.width = 18;
 			Item.height = 18;

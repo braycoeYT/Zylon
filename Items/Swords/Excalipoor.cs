@@ -13,6 +13,11 @@ namespace Zylon.Items.Swords
     {
         public override void ModifyTooltips(List<TooltipLine> tooltips) {
 			String message = "'The worst weapon. Can only deal 1 damage.'";
+			if (p == null) { //Fixes error with Hero's mod, and possibly other stuff too.
+				TooltipLine line2 = new TooltipLine(Mod, "Tooltip0", message);
+				tooltips.Add(line2);
+				return;
+			}
 			if (p.excalipoorPower > 9999) message = "You have unlocked its true power.";
 			if (p.excalipoorPower > 999999) message = "Please end your PC's suffering and stop before you crash the game or cause an integer overflow."; //They'll never see this one coming
 			TooltipLine line = new TooltipLine(Mod, "Tooltip0", message);

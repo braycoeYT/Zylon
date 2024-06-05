@@ -362,6 +362,16 @@ Mods: {
 				DisplayName: Living Whip Debuff
 				Description: Mods.Zylon.Buffs.LivingWhipDebuff.Description
 			}
+
+			Crackle: {
+				DisplayName: Crackle
+				Description: The crackle will fight for you
+			}
+
+			Swordigam: {
+				DisplayName: Swordigam
+				Description: The Swordigam will fight for you
+			}
 		}
 
 		Items: {
@@ -2378,6 +2388,11 @@ Mods: {
 				Tooltip: "'With this, you can turn the wolf's winter coat into yours'"
 			}
 
+			CrackleStaff: {
+				DisplayName: Crackle Staff
+				Tooltip: Summons a crackle to fight for you
+			}
+
 			DiamondCane: {
 				DisplayName: Diamond Cane
 				Tooltip:
@@ -2444,6 +2459,15 @@ Mods: {
 					After spotting a foe, the fragments will charge to max size
 					At max size, fragments rapidly dash into enemies, dealing massive damage
 					Fragments slowly shrink back to normal size as they dash
+					'''
+			}
+
+			SwordigamStaff: {
+				DisplayName: Swordigam Staff
+				Tooltip:
+					'''
+					Summons a Swordigam to fight for you
+					Requires two minion slots
 					'''
 			}
 
@@ -4251,7 +4275,12 @@ Mods: {
 			EverlastingBladeProj3.DisplayName: Everlasting Blade
 			EverlastingBladeProj4.DisplayName: Everlasting Blade
 			SaburRexServantofOcram.DisplayName: Servant of Ocram
-			SunFlowerProj.DisplayName: Sun Flower Proj
+			SunFlowerProj.DisplayName: Sun Flower
+			Crackle.DisplayName: Crackle
+			CrackleElectricity.DisplayName: Crackle
+			CrackleRain.DisplayName: Crackle
+			Swordigam.DisplayName: Swordigam
+			SwordigamSword.DisplayName: Swordigam
 		}
 
 		NPCs: {
