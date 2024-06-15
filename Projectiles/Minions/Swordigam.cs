@@ -120,7 +120,7 @@ namespace Zylon.Projectiles.Minions
 						bool closest = Vector2.Distance(Projectile.Center, targetCenter) > between;
 						bool inRange = between < distanceFromTarget;
 						bool lineOfSight = Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, npc.position, npc.width, npc.height);
-						bool closeThroughWall = between < 100f;
+						bool closeThroughWall = between < 400f;
 						if (((closest && inRange) || !foundTarget) && (lineOfSight || closeThroughWall)) {
 							distanceFromTarget = between;
 							targetCenter = npc.Center;

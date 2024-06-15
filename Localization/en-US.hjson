@@ -19,7 +19,11 @@ Mods: {
 			}
 		}
 
-		DropConditions.ElemGelCondition: Unleash the Elemental Goo
+		DropConditions: {
+			DownedDirtballCondition: Defeat Dirtball
+			ElemGelCondition: Unleash the Elemental Goo
+		}
+
 		Keybinds.DoublePluggedCord.DisplayName: Double-Plugged Cord Activation
 
 		Buffs: {
@@ -412,6 +416,16 @@ Mods: {
 					Critical strikes cause blood to splatter from enemies
 					Collected blood will heal the player
 					Chances of blood appearing are lowered at extremely high crit rates
+					'''
+			}
+
+			ContinuumWarper: {
+				DisplayName: Continuum Warper
+				Tooltip:
+					'''
+					'Might mutate your DNA on usage, but I wouldn't worry about that'
+					80% chance not to consume ammo
+					Decreases damage by 15%
 					'''
 			}
 

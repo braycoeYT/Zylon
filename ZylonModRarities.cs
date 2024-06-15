@@ -58,7 +58,7 @@ namespace Zylon
 	{
 		//Tier 12 - All PML banners and trophies. All items that are post PML miniboss, Sabur, and Mineral.
 		//Powerful/tedious items obtained after Moonlord but before any PML bosses. Summons for tier 13 bosses.
-		public override Color RarityColor => new Color(255, 160*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt(), 255-(12*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt()));
+		public override Color RarityColor => new Color(255, 200*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt(), 255-(55*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt()));
 		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
 			-2 => ItemRarityID.Red,
 			-1 => ItemRarityID.Purple,

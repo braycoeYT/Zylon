@@ -31,7 +31,7 @@ namespace Zylon.Projectiles.Minions
 			Projectile.localNPCHitCooldown = 10;
 		}
 		public override void AI() {
-			Projectile.rotation = Projectile.velocity.ToRotation()-MathHelper.PiOver2;
+			Projectile.rotation = Projectile.velocity.ToRotation()+MathHelper.PiOver2;
             if (Projectile.timeLeft < 15)
                 Projectile.alpha += 17;
 		}
@@ -57,7 +57,7 @@ namespace Zylon.Projectiles.Minions
 
             for (int k = 0; k < Projectile.oldPos.Length; k++)
             {
-                Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY) - new Vector2(18, 0);
+                Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY) + new Vector2(8, 0);
                 Color colorAfterEffect = color * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.3f;
                 Main.spriteBatch.Draw(projectileTexture, drawPosEffect, null, colorAfterEffect, Projectile.oldRot[k], drawOrigin, Projectile.scale, SpriteEffects.None, 0);
             }

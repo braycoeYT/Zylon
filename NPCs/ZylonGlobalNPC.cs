@@ -5,6 +5,9 @@ using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Zylon.Items.Accessories;
+using Zylon.Items.Ammo;
+using Zylon.Items.Tools;
 using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.NPCs
@@ -222,7 +225,7 @@ namespace Zylon.NPCs
             //globalLoot.Add(ItemDropRule.ByCondition(new Conditions.WindyEnoughForKiteDrops(), ItemType<Items.Materials.WindEssence>(), 5));
 			globalLoot.Add(ItemDropRule.ByCondition(new Conditions.IsBloodMoonAndNotFromStatue(), ItemType<Items.Materials.BloodDroplet>(), 2));
 		}
-		//float scaleAdd;
+        //float scaleAdd;
         /*public override void OnHitByProjectile(NPC npc, Projectile projectile, NPC.HitInfo hit, int damageDone) {
             if (projectile.type == ProjectileID.SlimeGun || projectile.type == ProjectileID.WaterGun) {
 				if (npc.type == -25 || npc.type == -24 || (npc.type > -11 && npc.type < 0) || npc.type == NPCID.BlueSlime || npc.type == NPCID.IceSlime || npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.SandSlime || npc.type == NPCID.SpikedJungleSlime || npc.type == NPCID.BabySlime || npc.type == NPCID.LavaSlime || npc.type == NPCID.GoldenSlime || npc.type == NPCID.SlimeSpiked || npc.type == NPCID.ShimmerSlime || npc.type == NPCID.SlimeMasked || (npc.type > 332 && npc.type < 337) || npc.type == NPCID.Slimeling || npc.type == NPCID.Crimslime || npc.type == NPCID.IlluminantSlime || npc.type == NPCID.RainbowSlime || npc.type == NPCID.QueenSlimeMinionBlue || npc.type == NPCID.QueenSlimeMinionPink || npc.type == NPCID.QueenSlimeMinionPurple || npc.type == ModContent.NPCType<Forest.DirtSlime>() || npc.type == ModContent.NPCType<Forest.OrangeSlime>() || npc.type == ModContent.NPCType<ElemSlime>() || npc.type == ModContent.NPCType<Sky.Stratoslime>() || npc.type == NPCID.Slimer2) {
@@ -238,80 +241,30 @@ namespace Zylon.NPCs
         /*public override void PostAI(NPC npc) { //Please don't break anything... please...
             npc.scale += scaleAdd;
         }*/
-        public override void ModifyActiveShop(NPC npc, string shopName, Item[] items) {
-
-            if (npc.type == NPCID.Dryad) {
-				for (int i = 0; i < items.Length; i++)
-                {
-                    if (items[i].type == ItemID.None)
-                    {
-						items[i].SetDefaults(ItemID.Seed);
-						items[i].shopCustomPrice = 4;
-						break;
-                    }
-                }
+        public override void ModifyShop(NPCShop shop) {
+            if (shop.NpcType == NPCID.Dryad) {
+				shop.Add(new Item(ItemID.Seed) {
+					shopCustomPrice = 4,
+				});
 			}
-			if (npc.type == NPCID.WitchDoctor) {
-				for (int i = 0; i < items.Length; i++)
-				{
-					if (items[i].type == ItemID.None)
-					{
-						items[i].SetDefaults(ItemID.PoisonDart);
-						items[i].shopCustomPrice = 7;
-						break;
-					}
-				}
+			if (shop.NpcType == NPCID.WitchDoctor) {
+				shop.Add(new Item(ItemID.PoisonDart) {
+					shopCustomPrice = 7,
+				});
 			}
-			if (npc.type == NPCID.Demolitionist) {
-				for (int i = 0; i < items.Length; i++)
-				{
-					if (items[i].type == ItemID.None)
-					{
-						items[i].SetDefaults(ItemType<Items.Ammo.PocketGrenade>());
-						break;
-					}
-				}
+			if (shop.NpcType == NPCID.Demolitionist) {
+				shop.Add(new Item(ItemType<PocketGrenade>()));
 			}
-			if (npc.type == NPCID.ArmsDealer) {
-				if (NPC.downedBoss2) {
-					if (Main.hardMode || !Main.dayTime) {
-						for (int i = 0; i < items.Length; i++)
-						{
-							if (items[i].type == ItemID.None)
-							{
-								items[i].SetDefaults(ItemType<Items.Ammo.BloodiedArrow>());
-								break;
-							}
-						}
-					}
-				}
-				if (Main.hardMode) {
-					for (int i = 0; i < items.Length; i++)
-					{
-						if (items[i].type == ItemID.None)
-						{
-							items[i].SetDefaults(ItemType<Items.Blowpipes.FamiliarFoamDartPistol>());
-							break;
-						}
-					}
-                }
+			if (shop.NpcType == NPCID.ArmsDealer) {
+				shop.Add<BloodiedArrow>(Condition.TimeDay, Condition.Hardmode);
+				shop.Add<BloodiedArrow>(Condition.TimeNight);
 			}
-			if (npc.type == NPCID.Merchant) {
-				if (ZylonWorldCheckSystem.downedDirtball) {
-					for (int i = 0; i < items.Length; i++)
-					{
-						if (items[i].type == ItemID.None)
-						{
-							items[i].SetDefaults(ItemType<Items.Tools.TreeWhacker>());
-							break;
-						}
-					}
-				}
+			if (shop.NpcType == NPCID.Merchant) {
+				shop.Add<TreeWhacker>(new Condition("Mods.ExampleMod.Conditions.DownedDirtballCondition", () => ZylonWorldCheckSystem.downedDirtball));
 			}
-			/*if (type == NPCID.Wizard) {
-				shop.item[nextSlot].SetDefaults(ItemType<Items.Misc.MagnificentOrb>());
-				nextSlot++;
-			}*/
+			if (shop.NpcType == NPCID.Cyborg) {
+				shop.Add(new Item(ItemType<ContinuumWarper>()));
+			}
         }
         public override void SetupTravelShop(int[] shop, ref int nextSlot) {
             if (Main.rand.NextFloat() < .75f) {

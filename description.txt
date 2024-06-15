@@ -323,6 +323,8 @@ V0.0.3: Cause to Clash Update
 ~Resprited Jade Robe.
 ~Added Crackle Staff.
 ~Angry Nimbus now drops Cloud and Rain Cloud.
+~Added Continuum Warper.
+~Fixed issue with NPCs selling custom items.
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
 ~Added Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff,

@@ -24,4 +24,24 @@ namespace Zylon.NPCs
 			return Description.Value;
 		}
 	}
+	public class DownedDirtballCondition : IItemDropRuleCondition
+	{
+		private static LocalizedText Description;
+
+		public DownedDirtballCondition() {
+			Description ??= Language.GetOrRegister("Mods.Zylon.DropConditions.DownedDirtballCondition");
+		}
+
+		public bool CanDrop(DropAttemptInfo info) {
+			return ZylonWorldCheckSystem.downedDirtball;
+		}
+
+		public bool CanShowItemDropInUI() {
+			return true;
+		}
+
+		public string GetConditionDescription() {
+			return Description.Value;
+		}
+	}
 }

@@ -64,6 +64,7 @@ namespace Zylon
 		public bool slimePendant;
 		public bool livingWoodSetBonus;
 		public bool sunFlower;
+		public bool continuumWarper;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -143,6 +144,7 @@ namespace Zylon
 			slimePendant = false;
 			livingWoodSetBonus = false;
 			sunFlower = false;
+			continuumWarper = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -251,6 +253,7 @@ namespace Zylon
 		}
         public override bool CanConsumeAmmo(Item weapon, Item ammo) {
 			if (neutronJacket && Main.rand.NextFloat() < .15f) return false;
+			if (continuumWarper && Main.rand.NextFloat() < .8f) return false;
             return true;
         }
         public override void UpdateEquips() {
