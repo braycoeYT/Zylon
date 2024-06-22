@@ -7,6 +7,7 @@ using System;
 using static Terraria.ModLoader.ModContent;
 using Terraria.GameInput;
 using Terraria.Audio;
+using Zylon.Items.Accessories;
 
 namespace Zylon
 {
@@ -65,6 +66,9 @@ namespace Zylon
 		public bool livingWoodSetBonus;
 		public bool sunFlower;
 		public bool continuumWarper;
+		public bool illusoryBulletPolish;
+		public bool theRegurgitator;
+		public bool maraudersKit;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -145,6 +149,9 @@ namespace Zylon
 			livingWoodSetBonus = false;
 			sunFlower = false;
 			continuumWarper = false;
+			illusoryBulletPolish = false;
+			theRegurgitator = false;
+			maraudersKit = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -254,6 +261,9 @@ namespace Zylon
         public override bool CanConsumeAmmo(Item weapon, Item ammo) {
 			if (neutronJacket && Main.rand.NextFloat() < .15f) return false;
 			if (continuumWarper && Main.rand.NextFloat() < .8f) return false;
+			if (illusoryBulletPolish && Main.rand.NextFloat() < .2f && (weapon.useAmmo == AmmoID.Bullet || weapon.useAmmo == ItemType<Items.Ammo.AdeniteShrapnel>())) return false;
+			if (theRegurgitator && Main.rand.NextFloat() < .2f && weapon.useAmmo == AmmoID.Dart) return false;
+			if (maraudersKit && Main.rand.NextFloat() < .15f) return false;
             return true;
         }
         public override void UpdateEquips() {

@@ -26,6 +26,13 @@ namespace Zylon.Projectiles.Ammo
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
 			target.AddBuff(BuffID.Slimed, 60 * Main.rand.Next(3, 6), false);
 		}
+		bool init;
+        public override void AI() {
+			if (!init) {
+				if (Main.player[Projectile.owner].magicQuiver) Projectile.extraUpdates = 1;
+				init = true;
+			}
+        }
 		public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}

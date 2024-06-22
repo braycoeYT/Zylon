@@ -2,6 +2,7 @@ using Microsoft.Build.Execution;
 using Microsoft.Xna.Framework;
 using Steamworks;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Zylon.NPCs;
@@ -12,6 +13,8 @@ namespace Zylon.Projectiles
 	public class ZylonGlobalProjectile : GlobalProjectile
 	{
 		int damageCooldown;
+		int npcBounceCount;
+		int tileBounceCount;
 		public override bool InstancePerEntity => true;
 		public override void SetDefaults(Projectile projectile) {
 			if (GetInstance<ZylonConfig>().zylonianBalancing) {
@@ -19,9 +22,21 @@ namespace Zylon.Projectiles
 					projectile.timeLeft = 3600;
 			}
 		}
+		bool init;
         public override bool PreAI(Projectile projectile) {
             Player player = Main.player[projectile.owner];
             ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+
+			if (!init && p != null) {
+				if (player.HeldItem.useAmmo == AmmoID.Bullet || player.HeldItem.useAmmo == ItemType<Items.Ammo.AdeniteShrapnel>()) {
+					if (p.illusoryBulletPolish || p.maraudersKit) {
+						npcBounceCount = 1;
+						tileBounceCount = 2;
+					}
+				}
+				init = true;
+			}
+
 			if (p.hexNecklace) {
 				if (projectile.type == ProjectileID.WandOfSparkingSpark) {
 					if (Main.myPlayer == player.whoAmI)
@@ -83,6 +98,28 @@ namespace Zylon.Projectiles
 				if ((projectile.DamageType != DamageClass.Summon && projectile.DamageType != DamageClass.MagicSummonHybrid && projectile.aiStyle != 19) || projectile.type == ProjectileType<Minions.DirtBlockExp>())
 					damageCooldown = 30;
             }
+			if (projectile.penetrate == 1 && npcBounceCount > 0) {
+				npcBounceCount--;
+				projectile.penetrate = 2;
+				projectile.velocity *= -1f;
+				projectile.damage = (int)(projectile.damage*0.7f);
+				if (projectile.type == ProjectileID.ChlorophyteBullet) projectile.damage = (int)(projectile.damage*0.3f);
+			}
+        }
+        public override bool OnTileCollide(Projectile projectile, Vector2 oldVelocity) {
+			if (tileBounceCount > 0) {
+				tileBounceCount--;
+				Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
+				SoundEngine.PlaySound(SoundID.Item10, projectile.position);
+				if (projectile.velocity.X != oldVelocity.X) {
+					projectile.velocity.X = -oldVelocity.X;
+				}
+				if (projectile.velocity.Y != oldVelocity.Y) {
+					projectile.velocity.Y = -oldVelocity.Y;
+				}
+				return false;
+			}
+            return true;
         }
         public override void OnKill(Projectile projectile, int timeLeft) {
             if (GetInstance<ZylonConfig>().zylonianBalancing) {

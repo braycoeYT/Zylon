@@ -41,11 +41,12 @@ namespace Zylon.Items.Bows
 			list.Add(xline);
         }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-            for (int i = 0; i < 4; i++) {
+            int newType = type;
+			if (Main.rand.NextBool(4)) newType = ProjectileType<Projectiles.Bows.CeruleanArrow>();
+
+			for (int i = 0; i < 4; i++) {
 				Vector2 temp = Vector2.Normalize(velocity).RotatedBy(MathHelper.PiOver2);
 				Vector2 newPos = position + (temp*(30f-i*20)); //18, 12 is perfect arrow distance
-				int newType = type;
-				if (Main.rand.NextBool(4)) newType = ProjectileType<Projectiles.Bows.CeruleanArrow>();
 				Projectile.NewProjectile(source, newPos, velocity, newType, damage, knockback, player.whoAmI);
             }
 			return false;

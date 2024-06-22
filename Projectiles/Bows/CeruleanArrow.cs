@@ -19,7 +19,12 @@ namespace Zylon.Projectiles.Bows
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 4;
 		}
+		bool init;
         public override void AI() {
+			if (!init) {
+				if (Main.player[Projectile.owner].magicQuiver) Projectile.extraUpdates = 1;
+				init = true;
+			}
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
         }
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {

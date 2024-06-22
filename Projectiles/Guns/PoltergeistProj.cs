@@ -13,7 +13,7 @@ namespace Zylon.Projectiles.Guns
 	{
 		public override void SetStaticDefaults() {
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 20;
-            ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
+            ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
 		public override void SetDefaults() {
 			Projectile.width = 14;
@@ -80,8 +80,8 @@ namespace Zylon.Projectiles.Guns
 			for (int k = 0; k < Projectile.oldPos.Length; k++) {
 				float trailLightAlpha = 1f-(((animTimer-k-1)%30)/30f);
                 Vector2 drawPos = (Projectile.oldPos[k] - Main.screenPosition) + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
-                Main.EntitySpriteDraw(texture, drawPos, null, Color.White*finalAlpha, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
-				Main.EntitySpriteDraw(altTexture, drawPos, null, Color.White*finalAlpha*trailLightAlpha, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
+                Main.EntitySpriteDraw(texture, drawPos, null, Color.White*finalAlpha, Projectile.oldRot[k], drawOrigin, Projectile.scale, SpriteEffects.None, 0);
+				Main.EntitySpriteDraw(altTexture, drawPos, null, Color.White*finalAlpha*trailLightAlpha, Projectile.oldRot[k], drawOrigin, Projectile.scale, SpriteEffects.None, 0);
             }
 
 			//Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White*finalAlpha, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);

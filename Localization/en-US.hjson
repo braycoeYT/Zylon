@@ -423,7 +423,7 @@ Mods: {
 				DisplayName: Continuum Warper
 				Tooltip:
 					'''
-					'Might mutate your DNA on usage, but I wouldn't worry about that'
+					'Might mutate your DNA on use, but I wouldn't worry about that'
 					80% chance not to consume ammo
 					Decreases damage by 15%
 					'''
@@ -510,6 +510,17 @@ Mods: {
 				Tooltip: Hexes the Wand of Sparking and Ore Staves with shadowy magicks
 			}
 
+			IllusoryBulletPolish: {
+				DisplayName: Illusory Bullet Polish
+				Tooltip:
+					'''
+					'Screw you, ozone layer!'
+					Allows all bullets to bounce off of foes once and tiles twice
+					Rebounded Chlorophyte Bullets deal significantly less damage
+					20% chance not to consume bullets
+					'''
+			}
+
 			Inhaler: {
 				DisplayName: Inhaler
 				Tooltip:
@@ -579,6 +590,31 @@ Mods: {
 					Increases max mana by 40 during the day at the surface
 					Otherwise increases max mana by 10
 					Increases mana regeneration while standing still
+					'''
+			}
+
+			MaraudersKit: {
+				DisplayName: Marauder's Kit
+				Tooltip:
+					'''
+					Increases arrow damage by 10% and greatly increases arrow speed
+					Allows all bullets to bounce off of foes once and tiles twice
+					Rebounded Chlorophyte Bullets deal significantly less damage
+					Retains 12% of blowpipe charge after shooting
+					10% chance not to consume ammo
+					'''
+			}
+
+			MechanicsKit: {
+				DisplayName: Mechanic's Kit
+				Tooltip:
+					'''
+					12% increased ranged damage
+					Increases arrow damage by 10% and greatly increases arrow speed
+					Allows all bullets to bounce off of foes once and tiles twice
+					Rebounded Chlorophyte Bullets deal significantly less damage
+					Retains 12% of blowpipe charge after shooting
+					10% chance not to consume ammo
 					'''
 			}
 
@@ -712,6 +748,16 @@ Mods: {
 					'''
 					When under half health, spawns a protective sun barrier around the player
 					The sun barrier launches and burns enemies on contact
+					'''
+			}
+
+			TheRegurgitator: {
+				DisplayName: The Regurgitator
+				Tooltip:
+					'''
+					'You trust this thing to give you clean air?'
+					Retains 12% of blowpipe charge after shooting
+					20% chance not to consume seeds/darts
 					'''
 			}
 
@@ -2306,6 +2352,11 @@ Mods: {
 			EnergizedStone: {
 				DisplayName: Energized Stone
 				Tooltip: ""
+			}
+
+			FantasticalFinality: {
+				DisplayName: Fantastical Finality
+				Tooltip: "'The power of post-game content ebbs and flows through this fragment'"
 			}
 
 			LabyrinthFish: {

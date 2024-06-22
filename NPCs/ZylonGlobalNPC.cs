@@ -189,13 +189,17 @@ namespace Zylon.NPCs
 				npcLoot.Add(ItemDropRule.ByCondition(new ElemGelCondition(), ItemType<Items.Materials.ElementalGoop>(), 3, 1, 2));
             }
 			if (npc.type == NPCID.MartianTurret)
-				npcLoot.Add(new CommonDrop(ItemType<Items.Accessories.DoublePluggedCord>(), 20));
+				npcLoot.Add(new CommonDrop(ItemType<DoublePluggedCord>(), 20));
 			if (npc.type == NPCID.Parrot)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Food.Cracker>(), 20));
 			if (npc.type == NPCID.AngryNimbus) {
 				npcLoot.Add(new CommonDrop(ItemID.Cloud, 1, 5, 8));
 				npcLoot.Add(new CommonDrop(ItemID.RainCloud, 1, 2, 4));
             }
+			if (npc.type == NPCID.IlluminantBat || npc.type == NPCID.IlluminantSlime)
+				npcLoot.Add(new CommonDrop(ItemType<IllusoryBulletPolish>(), 50));
+			if (npc.type == NPCID.ChaosElemental)
+				npcLoot.Add(new CommonDrop(ItemType<IllusoryBulletPolish>(), 25));
 		}
         int Timer;
 		bool prevNoGrav;
