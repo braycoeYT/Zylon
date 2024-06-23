@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 using Terraria.DataStructures;
+using Zylon.Items.Materials;
 
 namespace Zylon.Items.Bows
 {
@@ -51,5 +52,13 @@ namespace Zylon.Items.Bows
             }
 			return false;
         }
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.SlimeBlock, 25);
+			recipe.AddIngredient(ItemID.WaterBucket);
+			recipe.AddIngredient(ModContent.ItemType<FantasticalFinality>(), 13);
+			recipe.AddTile(TileID.LunarCraftingStation);
+			recipe.Register();
+		}
     }
 }

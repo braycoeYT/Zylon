@@ -4,6 +4,8 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Zylon.Items.Accessories;
+using Zylon.Items.Materials;
 
 namespace Zylon.Items.Swords
 {
@@ -64,5 +66,12 @@ namespace Zylon.Items.Swords
 			}
 			return false;
 		}*/
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.Marble, 75);
+			recipe.AddIngredient(ModContent.ItemType<FantasticalFinality>(), 13);
+			recipe.AddTile(TileID.LunarCraftingStation);
+			recipe.Register();
+		}
     }
 }

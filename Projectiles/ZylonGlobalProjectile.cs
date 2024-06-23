@@ -33,6 +33,14 @@ namespace Zylon.Projectiles
 						npcBounceCount = 1;
 						tileBounceCount = 2;
 					}
+					if (p.roundmastersKit) {
+						npcBounceCount = 2;
+						tileBounceCount = 3;
+					}
+				}
+				if (player.HeldItem.useAmmo == AmmoID.Arrow) {
+					if (p.roundmastersKit)
+						projectile.damage = (int)(projectile.damage*1.0181818f);
 				}
 				init = true;
 			}
@@ -98,12 +106,13 @@ namespace Zylon.Projectiles
 				if ((projectile.DamageType != DamageClass.Summon && projectile.DamageType != DamageClass.MagicSummonHybrid && projectile.aiStyle != 19) || projectile.type == ProjectileType<Minions.DirtBlockExp>())
 					damageCooldown = 30;
             }
-			if (projectile.penetrate == 1 && npcBounceCount > 0) {
+			if (projectile.penetrate == 1 && npcBounceCount > 0 && !(target.type == NPCID.DungeonGuardian && projectile.type == ProjectileID.ChlorophyteBullet)) {
 				npcBounceCount--;
 				projectile.penetrate = 2;
 				projectile.velocity *= -1f;
 				projectile.damage = (int)(projectile.damage*0.7f);
 				if (projectile.type == ProjectileID.ChlorophyteBullet) projectile.damage = (int)(projectile.damage*0.3f);
+				if (projectile.damage < 1) projectile.damage = 1;
 			}
         }
         public override bool OnTileCollide(Projectile projectile, Vector2 oldVelocity) {

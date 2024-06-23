@@ -74,6 +74,7 @@ namespace Zylon.NPCs
 			if (npc.type == NPCID.Plantera) {
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.JungleRose, 3));
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.NaturesGift, 3));
+				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemType<SucculentSap>(), 3));
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.ChlorophyteOre, 1, 20, 30));
 			}
 			if (npc.type == NPCID.Golem)

@@ -37,18 +37,18 @@ namespace Zylon
 		public bool nightmareCatcher;
 		public bool shadowflameMagic;
 		public bool metelordExpert;
-		public bool stncheck;
-		public bool st2check;
+		public bool CHECK_SharkToothNecklace;
+		public bool CHECK_SaberTooth;
 		public bool discoCanister;
 		public bool hexNecklace;
 		public bool shivercrown;
 		public bool bloodContract;
-		public bool balloonCheck;
+		public bool CHECK_Balloon;
 		public bool rootGuard;
 		public bool leafBracer;
 		public bool leafBracerTempBool;
 		public bool friendshipBracelet;
-		public bool fleKnuCheck;
+		public bool CHECK_FleshKnuckles;
 		public bool glassArmor;
 		public bool bigOlBouquet;
 		public bool searedFlame;
@@ -69,6 +69,11 @@ namespace Zylon
 		public bool illusoryBulletPolish;
 		public bool theRegurgitator;
 		public bool maraudersKit;
+		public bool ammoSling;
+		public bool roundmastersKit;
+		public bool succulentSap;
+		public bool CHECK_ManaBlossom;
+		public bool ultimaBand;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -121,17 +126,17 @@ namespace Zylon
 			nightmareCatcher = false;
 			shadowflameMagic = false;
 			metelordExpert = false;
-			stncheck = false;
-			st2check = false;
+			CHECK_SharkToothNecklace = false;
+			CHECK_SaberTooth = false;
 			discoCanister = false;
 			hexNecklace = false;
 			shivercrown = false;
 			bloodContract = false;
-			balloonCheck = false;
+			CHECK_Balloon = false;
 			rootGuard = false;
 			leafBracer = false;
 			friendshipBracelet = false;
-			fleKnuCheck = false;
+			CHECK_FleshKnuckles = false;
 			glassArmor = false;
 			bigOlBouquet = false;
 			searedFlame = false;
@@ -152,6 +157,11 @@ namespace Zylon
 			illusoryBulletPolish = false;
 			theRegurgitator = false;
 			maraudersKit = false;
+			ammoSling = false;
+			roundmastersKit = false;
+			succulentSap = false;
+			CHECK_ManaBlossom = false;
+			ultimaBand = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -257,13 +267,22 @@ namespace Zylon
 			}
 			hitTimer30 -= 1;
 			sojCooldown -= 1;
+
+			if (succulentSap) {
+				for (int i = 0; i < Player.MaxBuffs; i++) {
+					if (Player.buffType[i] == BuffID.ManaSickness && Player.buffTime[i] > 1)
+						Player.buffTime[i]--;
+				}
+			}
 		}
         public override bool CanConsumeAmmo(Item weapon, Item ammo) {
 			if (neutronJacket && Main.rand.NextFloat() < .15f) return false;
-			if (continuumWarper && Main.rand.NextFloat() < .8f) return false;
+			if (continuumWarper && Main.rand.NextFloat() < .85f) return false;
 			if (illusoryBulletPolish && Main.rand.NextFloat() < .2f && (weapon.useAmmo == AmmoID.Bullet || weapon.useAmmo == ItemType<Items.Ammo.AdeniteShrapnel>())) return false;
 			if (theRegurgitator && Main.rand.NextFloat() < .2f && weapon.useAmmo == AmmoID.Dart) return false;
-			if (maraudersKit && Main.rand.NextFloat() < .15f) return false;
+			if (maraudersKit && Main.rand.NextFloat() < .1f) return false;
+			if (ammoSling && Main.rand.NextFloat() < .25f) return false;
+			if (roundmastersKit && Main.rand.NextFloat() < .4f) return false;
             return true;
         }
         public override void UpdateEquips() {

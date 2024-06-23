@@ -389,6 +389,11 @@ Mods: {
 					'''
 			}
 
+			AmmoSling: {
+				DisplayName: Ammo Sling
+				Tooltip: 25% chance not to consume ammo
+			}
+
 			AurorousKnuckles: {
 				DisplayName: Aurorous Knuckles
 				Tooltip:
@@ -424,7 +429,7 @@ Mods: {
 				Tooltip:
 					'''
 					'Might mutate your DNA on use, but I wouldn't worry about that'
-					80% chance not to consume ammo
+					85% chance not to consume ammo
 					Decreases damage by 15%
 					'''
 			}
@@ -583,6 +588,17 @@ Mods: {
 					'''
 			}
 
+			ManaBlossom: {
+				DisplayName: Mana Blossom
+				Tooltip:
+					'''
+					14% reduced mana cost
+					Automatically use mana potions when needed
+					Halves length of mana sickness
+					Does not stack with downgrades
+					'''
+			}
+
 			ManaPod: {
 				DisplayName: Mana Pod
 				Tooltip:
@@ -670,7 +686,7 @@ Mods: {
 				Tooltip:
 					'''
 					'A science nerd's pair of scissors!'
-					Grants immunity to webbed
+					Grants immunity to Webbed
 					'''
 			}
 
@@ -682,6 +698,19 @@ Mods: {
 			RootGuard: {
 				DisplayName: Root Guard
 				Tooltip: Taking damage will summon roots nearby to damage enemies
+			}
+
+			RoundmastersKit: {
+				DisplayName: Roundmaster's Kit
+				Tooltip:
+					'''
+					12% increased ranged damage
+					Increases arrow damage by 12% and greatly increases arrow speed
+					Allows all bullets to bounce off of foes twice and tiles thrice
+					Rebounded Chlorophyte Bullets deal significantly less damage
+					Retains 15% of blowpipe charge after shooting
+					40% chance not to consume ammo
+					'''
 			}
 
 			RuneofMultiplicity: {
@@ -742,6 +771,15 @@ Mods: {
 					'''
 			}
 
+			SucculentSap: {
+				DisplayName: Succulent Sap
+				Tooltip:
+					'''
+					11% reduced mana cost
+					Halves length of mana sickness
+					'''
+			}
+
 			SunFlower: {
 				DisplayName: Sun Flower
 				Tooltip:
@@ -767,6 +805,21 @@ Mods: {
 					'''
 					Increases true melee damage by 25%
 					Does not stack with Ironfist Medal
+					'''
+			}
+
+			UltimaBand: {
+				DisplayName: Ultima Band
+				Tooltip:
+					'''
+					'Does not come with magical transformation sequence'
+					Increases life regeneration heavily and mana regeneration moderately
+					Increases max mana by 20
+					Increases the potency of regeneration, magic power, magic regeneration, ironskin, and swiftness potions
+					Grants two seconds of invincibility after using a healing potion
+					Increases invincibility time after taking damage
+					Reduces the cooldown of healing potions by 25%
+					Effects of Friendship Bracelet at a range of 150 tiles
 					'''
 			}
 
@@ -1584,6 +1637,16 @@ Mods: {
 				Tooltip: Uses seeds as ammo
 			}
 
+			HollowDirk: {
+				DisplayName: Hollow Dirk
+				Tooltip:
+					'''
+					Imbues ammo with magic swords
+					Upon dissipation, summons swords to strike the collision area
+					At max charge,
+					'''
+			}
+
 			IcicleMaker: {
 				DisplayName: Icicle Maker
 				Tooltip: At max charge, replaces ammo with a heap of mini icicles
@@ -2356,7 +2419,7 @@ Mods: {
 
 			FantasticalFinality: {
 				DisplayName: Fantastical Finality
-				Tooltip: "'The power of post-game content ebbs and flows through this fragment'"
+				Tooltip: "'The power of post-game content compels you!'"
 			}
 
 			LabyrinthFish: {
@@ -3391,6 +3454,11 @@ Mods: {
 
 			MetelordMask: {
 				DisplayName: Metelord Mask
+				Tooltip: ""
+			}
+
+			SaburMask: {
+				DisplayName: Sabur Rex Mask
 				Tooltip: ""
 			}
 

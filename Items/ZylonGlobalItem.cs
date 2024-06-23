@@ -197,39 +197,43 @@ namespace Zylon.Items
 				}
             }
 			if (item.type == ItemID.SharkToothNecklace) {
-				if (p.stncheck) { 
+				if (p.CHECK_SharkToothNecklace) { 
 					player.GetArmorPenetration(DamageClass.Generic) -= 5;
 				}
-				p.stncheck = true;
+				p.CHECK_SharkToothNecklace = true;
             }
 			if (item.type == ItemID.ShinyRedBalloon || item.type == ItemID.BalloonPufferfish) {
-				if (!p.balloonCheck) { 
+				if (!p.CHECK_Balloon) { 
 					p.blowpipeChargeInc += 0.1333333333f;
 				}
-				p.balloonCheck = true;
+				p.CHECK_Balloon = true;
 			}
 			if (item.type == ItemID.BlizzardinaBalloon || item.type == ItemID.CloudinaBalloon || item.type == ItemID.FartInABalloon || item.type == ItemID.SandstorminaBalloon || item.type == ItemID.SharkronBalloon || item.type == ItemID.HoneyBalloon) {
-				if (!p.balloonCheck) { 
+				if (!p.CHECK_Balloon) { 
 					p.blowpipeChargeInc += 0.2f;
 				}
-				p.balloonCheck = true;
+				p.CHECK_Balloon = true;
 			}
 			if (item.type == ItemID.BalloonHorseshoeFart || item.type == ItemID.BalloonHorseshoeHoney || item.type == ItemID.BalloonHorseshoeSharkron || item.type == ItemID.BlueHorseshoeBalloon || item.type == ItemID.WhiteHorseshoeBalloon || item.type == ItemID.YellowHorseshoeBalloon) {
-				if (!p.balloonCheck) { 
+				if (!p.CHECK_Balloon) { 
 					p.blowpipeChargeInc += 0.2666666666f;
 				}
-				p.balloonCheck = true;
+				p.CHECK_Balloon = true;
 			}
 			if (item.type == ItemID.BundleofBalloons || item.type == ItemID.HorseshoeBundle) {
-				if (!p.balloonCheck) { 
+				if (!p.CHECK_Balloon) { 
 					p.blowpipeChargeInc += 0.3333333333f;
 				}
-				p.balloonCheck = true;
+				p.CHECK_Balloon = true;
 			}
 			if (item.type == ItemID.FleshKnuckles) {
-				if (p.fleKnuCheck) player.statDefense -= 8;
-				p.fleKnuCheck = true;
+				if (p.CHECK_FleshKnuckles) player.statDefense -= 8;
+				p.CHECK_FleshKnuckles = true;
             }
+			if (item.type == ItemID.ManaFlower || item.type == ItemID.MagnetFlower || item.type == ItemID.ManaCloak || item.type == ItemID.ArcaneFlower) {
+				if (p.CHECK_ManaBlossom) player.manaCost += 0.08f;
+				p.CHECK_ManaBlossom = true;
+			}
 		}
         public override void RightClick(Item item, Player player) {
             if (item.type == ItemID.KingSlimeBossBag) {

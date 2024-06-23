@@ -1,22 +1,41 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Zylon.Items.Accessories
 {
-	public class FriendshipBracelet : ModItem
+	public class UltimaBand : ModItem
 	{
 		public override void SetDefaults() {
 			Item.width = 28;
-			Item.height = 22;
+			Item.height = 20;
 			Item.accessory = true;
-			Item.value = Item.sellPrice(0, 4, 92);
-			Item.rare = ItemRarityID.Pink;
+			Item.value = Item.sellPrice(0, 20);
+			Item.rare = ModContent.RarityType<Magenta>();
+			Item.defense = 2;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+
+			//Fusion band + regen powers
+			player.statManaMax2 += 20;
+			player.lifeRegen += 4;
+			player.manaRegen += 2;
+			p.bandofRegen = true;
+			p.bandofStarpower = true;
+			p.bandofMagicRegen = true;
+			p.bandofMetal = true;
+			p.bandofZinc = true;
+
+			//Leaf Bracelet
+			if (!player.buffImmune[BuffID.PotionSickness]) p.leafBracer = true;
+			player.pStone = true;
+			player.longInvince = true;
+
+			//Friendship Bracelet
 			p.friendshipBracelet = true;
+			p.ultimaBand = true;
 			bool protecc = true;
 			bool canProtecc = false;
 			for (int x = 0; x < Main.maxPlayers; x++) {
@@ -47,10 +66,11 @@ namespace Zylon.Items.Accessories
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.WhiteString);
-			recipe.AddIngredient(ItemID.SoulofLight, 5);
-			recipe.AddIngredient(ItemID.SoulofNight, 5);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddIngredient(ModContent.ItemType<FusionBand>());
+			recipe.AddIngredient(ModContent.ItemType<LeafBracelet>());
+			recipe.AddIngredient(ModContent.ItemType<FriendshipBracelet>());
+			recipe.AddIngredient(ModContent.ItemType<Materials.FantasticalFinality>(), 5);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

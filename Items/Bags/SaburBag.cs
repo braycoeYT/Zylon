@@ -29,6 +29,8 @@ namespace Zylon.Items.Bags
 		}
 		public override void ModifyItemLoot(ItemLoot itemLoot) {
 			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(NPCType<NPCs.Bosses.SaburRex.SaburRex>()));
+			itemLoot.Add(ItemDropRule.Common(ItemType<Materials.FantasticalFinality>(), 1, 13, 13));
+			itemLoot.Add(new CommonDrop(ItemType<Vanity.SaburMask>(), 7));
 
 			/*itemLoot.Add(ItemDropRule.Common(ItemType<Accessories.Metecore>(), 1));
 			itemLoot.Add(ItemDropRule.Common(ItemType<Ores.HaxoniteOre>(), 1, 90, 120));

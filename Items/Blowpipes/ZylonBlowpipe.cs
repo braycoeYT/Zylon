@@ -44,7 +44,8 @@ namespace Zylon.Items.Blowpipes
 					+ " (" + ((Item.damage + (int)((Item.damage*2f)*newMult)*p.blowpipeChargeDamageMult + p.blowpipeChargeDamageAdd*newMult) + ") DMG; "
 					+ temp5.ToString("0.00") + " (" + temp1.ToString("0.00") + ") KB; "
 					+ temp6.ToString("0.00") + " (" + temp2.ToString("0.00") + ") SPD; KB and SPD are limited to max charge."));
-				TooltipLine line4 = new TooltipLine(Mod, "Tooltip#3", "Blowpipe charge retain: " + (chargeRetain + p.blowpipeChargeRetain)*100f + "%");
+				float temp7 = (chargeRetain + p.blowpipeChargeRetain)*100f;
+				TooltipLine line4 = new TooltipLine(Mod, "Tooltip#3", "Blowpipe charge retain: " + temp7.ToString("0.00") + "%");
 				TooltipLine line5 = new TooltipLine(Mod, "Tooltip#4", "Minimum blowpipe shoot speed: " + (minshootspeed + p.blowpipeMinShootSpeed));
 				//TooltipLine line6 = new TooltipLine(Mod, "Tooltip#5", );
 				//TooltipLine line7 = new TooltipLine(Mod, "Tooltip#6", );
