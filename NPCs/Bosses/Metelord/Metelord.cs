@@ -478,7 +478,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 			else {
 				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Ores.HaxoniteOre>(), 1, 80, 100));
 				npcLoot.Add(ItemDropRule.Common(ItemID.Meteorite, 1, 15, 30));
-				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accessories.MysticComet>(), 5));
+				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accessories.MysticComet>(), 4));
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.MetelordMask>(), 7));
             }
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.MetelordTrophy>(), 10));

@@ -20,12 +20,13 @@ namespace Zylon.Items.Accessories
 			bool protecc = true;
 			bool canProtecc = false;
 			for (int x = 0; x < Main.maxPlayers; x++) {
+				if (Main.player[x] == null || !Main.player[x].active) break;
 				ZylonPlayer q = Main.player[x].GetModPlayer<ZylonPlayer>();
 				bool cond1 = Vector2.Distance(player.Center, Main.player[x].Center) < 75*16 && q.friendshipBracelet;
 				bool cond2 = Vector2.Distance(player.Center, Main.player[x].Center) < 150*16 && q.ultimaBand;
 				if (x != player.whoAmI && (cond1 || cond2)) {
 					if (Main.player[x].statLife / Main.player[x].statLifeMax2 <= player.statLife / player.statLifeMax2) protecc = false;
-					canProtecc = true;
+					canProtecc = player.statLife < player.statLifeMax2;
 				}
             }
 			if (protecc && canProtecc) {

@@ -328,8 +328,10 @@ V0.0.3: Cause to Clash Update
 ~Bloody Baller no longer steals life from Target Dummies.
 ~Modded arrows are now affected by the Magic Quiver.
 ~Gave Neutron Fragment a custom animation.
-~Added Succulent Sap, Mana Blossom,
-~Fixed bug with Friendship Bracelet.
+~Added Succulent Sap, Mana Blossom, Slimy Shell, Gelatin Comet, Stellar Comet, Metallic Comet, Ethereal Gasp, and Supernatural Comet.
+~Fixed bugs with Friendship Bracelet.
+~Bloodied Arrows are now sold when in hardmode or during the day.
+~Bloodied Arrows now only drop from the Eye of Cthulhu in Crimson worlds.
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
 ~Added Fantastical Finality.

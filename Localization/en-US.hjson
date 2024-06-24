@@ -347,6 +347,11 @@ Mods: {
 				Description: The Possessed Diamond will fight for you
 			}
 
+			Possessed: {
+				DisplayName: Possessed
+				Description: They're inside me...
+			}
+
 			EmeraldWhipDebuff: {
 				Description: Mods.Zylon.Buffs.EmeraldWhipDebuff.Description
 				DisplayName: Emerald Whip Debuff
@@ -471,6 +476,15 @@ Mods: {
 					'''
 			}
 
+			EtherealGasp: {
+				DisplayName: Ethereal Gasp
+				Tooltip:
+					'''
+					Ghosts of killed enemies have a chance to possess the player
+					While possessed, the player deals 33% increased magic damage, but uses more mana
+					'''
+			}
+
 			ExtraShinyOreNugget: {
 				DisplayName: Pyrite
 				Tooltip:
@@ -488,6 +502,16 @@ Mods: {
 					Increases life and mana regeneration moderately
 					Increases max mana by 20
 					Increases the potency of regeneration, magic power, magic regeneration, ironskin, and swiftness potions
+					'''
+			}
+
+			GelatinComet: {
+				DisplayName: Gelatin Comet
+				Tooltip:
+					'''
+					When under 25% mana, rains giant damaging mana stars from the sky
+					Giant mana stars have a 20% chance to become collectable versions worth 20 mana
+					Allows mana to overflow to up to 40 extra
 					'''
 			}
 
@@ -634,6 +658,17 @@ Mods: {
 					'''
 			}
 
+			MetallicComet: {
+				DisplayName: Metallic Comet
+				Tooltip:
+					'''
+					12% increased magic damage
+					When under 25% mana, rains countless Stellar Comets from the sky
+					Stellar Comets have a 15% chance to become collectable versions worth 10 mana
+					Allows mana to overflow to up to 40 extra
+					'''
+			}
+
 			Metecore: {
 				DisplayName: Metecore
 				Tooltip:
@@ -651,7 +686,7 @@ Mods: {
 					'''
 					'Make a wish!'
 					Having under 25% max mana causes giant mana stars to rain from the sky
-					Mana stars can damage enemies and have a 25% chance to explode into collectable versions
+					Mana stars can damage enemies and have a 20% chance to explode into collectable versions
 					Collectable versions are worth 20 mana
 					'''
 			}
@@ -762,12 +797,32 @@ Mods: {
 					'''
 			}
 
+			SlimyShell: {
+				DisplayName: Slimy Shell
+				Tooltip:
+					'''
+					When at max mana, allows your mana to overflow
+					Overflowing allows your mana to exceed the max
+					This caps out at 40 extra mana
+					'''
+			}
+
 			SparkingCore: {
 				DisplayName: Sparking Core
 				Tooltip:
 					'''
 					Killing enemies with magic spawns granite energy wisps for the owner
 					Collect granite energy wisps to boost mana regeneration for a few seconds
+					'''
+			}
+
+			StellarComet: {
+				DisplayName: Stellar Comet
+				Tooltip:
+					'''
+					When under 25% mana, rains countless Stellar Comets from the sky
+					Stellar Comets have a 15% chance to become collectable versions worth 10 mana
+					Allows mana to overflow to up to 40 extra
 					'''
 			}
 
@@ -786,6 +841,19 @@ Mods: {
 					'''
 					When under half health, spawns a protective sun barrier around the player
 					The sun barrier launches and burns enemies on contact
+					'''
+			}
+
+			SupernaturalComet: {
+				DisplayName: Supernatural Comet
+				Tooltip:
+					'''
+					12% increased magic damage
+					When under 25% mana, rains countless Stellar Comets from the sky
+					Stellar Comets have a 15% chance to become collectable versions worth 10 mana
+					Allows mana to overflow to up to 40 extra
+					Ghosts of killed enemies have a chance to possess the player
+					While possessed, the player deals 20% increased magic damage, but uses slightly more mana
 					'''
 			}
 
@@ -3917,6 +3985,11 @@ Mods: {
 				DisplayName: Candy Cane Pike
 				Tooltip: ""
 			}
+
+			StellarCometStar: {
+				DisplayName: Stellar Comet
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -4414,6 +4487,8 @@ Mods: {
 			CrackleRain.DisplayName: Crackle
 			Swordigam.DisplayName: Swordigam
 			SwordigamSword.DisplayName: Swordigam
+			StellarCometProj.DisplayName: Stellar Comet
+			EtherealGaspProj.DisplayName: Ethereal Gasp
 		}
 
 		NPCs: {

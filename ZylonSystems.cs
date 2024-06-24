@@ -854,6 +854,12 @@ namespace Zylon
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.BloodDroplet>(), 18);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.FeralClaws);
+			recipe.AddIngredient(ItemID.Leather, 2);
+			recipe.AddIngredient(ItemID.JungleSpores, 12);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
             if (ModContent.GetInstance<ZylonConfig>().zylonianBalancing) for (int i = 0; i < Recipe.numRecipes; i++) {

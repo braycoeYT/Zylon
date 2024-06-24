@@ -45,7 +45,7 @@ namespace Zylon.Projectiles.Accessories
 
             for (int k = 0; k < Projectile.oldPos.Length; k++) {
                 Vector2 drawPos = (Projectile.oldPos[k] - Main.screenPosition) + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
-                 Main.EntitySpriteDraw(texture, drawPos, null, Color.White*((float)(255-Projectile.alpha)/255f), Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
+                Main.EntitySpriteDraw(texture, drawPos, null, Color.White*((float)(255-Projectile.alpha)/255f), Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
             }
             return false;
         }

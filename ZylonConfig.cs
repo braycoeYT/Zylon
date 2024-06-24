@@ -58,8 +58,8 @@ namespace Zylon
 		[Tooltip("Allows certain boomerangs to move the camera when used (for experimental boomerangs).")]
 		public bool boomerangCamera;
 
-		[Label("Night Light Rarities")]
-		[Tooltip("Changes the color of modded rarities so that users of night light can differentiate them easier.")]
+		[Label("Night Light / Tritanopic Rarity Support")]
+		[Tooltip("Changes the color of modded rarities so that tritanopics or users of night light can differentiate them easier.")]
 		public bool nightLightRarities;
 
 		[Header("config.accessibility")]

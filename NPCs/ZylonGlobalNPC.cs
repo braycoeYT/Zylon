@@ -32,6 +32,7 @@ namespace Zylon.NPCs
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Materials.BloodySpiderLeg>(), 8), new CommonDrop(ItemType<Items.Materials.BloodySpiderLeg>(), 6)));
 			if (npc.type == NPCID.KingSlime) {
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.GoldCrown, 3));
+				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemType<SlimyShell>(), 3));
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.Gel, 1, 12, 30));
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemType<Items.Materials.SlimyCore>(), 1, 8, 12));
             }
@@ -261,8 +262,8 @@ namespace Zylon.NPCs
 				shop.Add(new Item(ItemType<PocketGrenade>()));
 			}
 			if (shop.NpcType == NPCID.ArmsDealer) {
-				shop.Add<BloodiedArrow>(Condition.TimeDay, Condition.Hardmode);
-				shop.Add<BloodiedArrow>(Condition.TimeNight);
+				shop.Add<BloodiedArrow>(Condition.TimeNight, Condition.Hardmode);
+				shop.Add<BloodiedArrow>(Condition.TimeDay);
 			}
 			if (shop.NpcType == NPCID.Merchant) {
 				shop.Add<TreeWhacker>(new Condition("Mods.ExampleMod.Conditions.DownedDirtballCondition", () => ZylonWorldCheckSystem.downedDirtball));
