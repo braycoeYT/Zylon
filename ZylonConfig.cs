@@ -58,9 +58,10 @@ namespace Zylon
 		[Tooltip("Allows certain boomerangs to move the camera when used (for experimental boomerangs).")]
 		public bool boomerangCamera;
 
-		[Label("Night Light / Tritanopic Rarity Support")]
-		[Tooltip("Changes the color of modded rarities so that tritanopics or users of night light can differentiate them easier.")]
-		public bool nightLightRarities;
+		[DefaultValue(true)]
+		[Label("Summon Natural Crits")]
+		[Tooltip("Summons now have a 4% default crit chance, and are affected by generic crit boosts.")]
+		public bool summonNaturalCrit;
 
 		[Header("config.accessibility")]
 
@@ -71,5 +72,9 @@ namespace Zylon
 		[Label("Screenshake Amount")]
 		[Tooltip("Changes the amount of all screenshake in the mod. Reccomended for people who have trouble with it.")]
 		public int ScreenshakeAccessibilityMulti;
+
+		[Label("Night Light / Tritanopic Rarity Support")]
+		[Tooltip("Changes the color of modded rarities so that tritanopics or users of night light can differentiate them easier.")]
+		public bool nightLightRarities;
 	}
 }

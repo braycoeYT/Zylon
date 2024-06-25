@@ -19,7 +19,7 @@ namespace Zylon.Items.Accessories
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Leather, 3);
+			recipe.AddIngredient(ItemID.Leather, 2);
 			recipe.AddIngredient(ItemID.Silk, 8);
 			recipe.AddRecipeGroup("Zylon:AnyShadowScale");
 			recipe.AddTile(TileID.Anvils);

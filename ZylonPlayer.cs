@@ -79,6 +79,7 @@ namespace Zylon
 		public bool etherealGasp;
 		public bool CHECK_EtherealGasp;
 		public bool supernaturalComet;
+		public bool fixCooldownIgnore;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -106,6 +107,8 @@ namespace Zylon
 		public int harpysCrestCooldown;
 		public int livingWhipNum;
 		public int livingWhipTimer;
+		public float summonCrit;
+		public float summonCritBoost;
 		public override void ResetEffects() {
 			Heartdaze = false;
 			outofBreath = false;
@@ -185,6 +188,9 @@ namespace Zylon
 			blowpipeChargeRetain = 0f;
 			//blowpipeMaxOverflow = 1.5f;
 			blowpipeMinShootSpeed = 0f;
+
+			summonCrit = 0f;
+			summonCritBoost = 0f;
 		}
 		public override void UpdateDead() {
 			Heartdaze = false;
@@ -192,6 +198,7 @@ namespace Zylon
 			shroomed = false;
 			deadlyToxins = false;
 			elemDegen = false;
+			fixCooldownIgnore = false;
 			hitTimer30 = 0;
 			sojDamageCount = 0;
 			sojCooldown = 0;
@@ -359,11 +366,19 @@ namespace Zylon
 			if (trueMelee15) trueMeleeBoost += 0.15f;
 			if (neutronHood) trueMeleeBoost += 0.18f;
 			modifiers.SourceDamage *= trueMeleeBoost;
+			modifiers.CritDamage += critExtraDmg;
+
+			if ((item.DamageType == DamageClass.Summon || item.DamageType == DamageClass.SummonMeleeSpeed) && Main.rand.NextFloat() < summonCrit) {
+				modifiers.SetCrit(); //In case some mentally insane mod does this
+			}
 
 		}
 		public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Projectile, consider using ModifyHitNPC instead */
 		{
 			modifiers.CritDamage += critExtraDmg;
+			if ((proj.DamageType == DamageClass.Summon || proj.DamageType == DamageClass.SummonMeleeSpeed) && Main.rand.NextFloat() < summonCrit) {
+				modifiers.SetCrit();
+			}
 		}
 		public override void OnHitNPCWithItem(Item item, NPC target, NPC.HitInfo hit, int damageDone)
 		{
@@ -620,6 +635,9 @@ namespace Zylon
 			//	itemDrop = ItemType<Items.Blowpipes.Shellshocker>();
         }
         public override void PostUpdateEquips() {
+			if (GetInstance<ZylonConfig>().summonNaturalCrit) {
+				summonCrit = Player.GetCritChance(DamageClass.Generic)/100f + summonCritBoost;
+			}
             if (runeofMultiplicity) { //Don't move this anywhere else, otherwise it might not work correctly
 				int dupli = Player.maxMinions - 1;
 				if (dupli > 3) dupli = 3;
@@ -636,6 +654,19 @@ namespace Zylon
 					Player.manaCost += 0.1f;
 				}
 			}
+			if (fixCooldownIgnore) {
+				for (int i = 0; i < Player.MaxBuffs; i++) {
+					if (Player.buffType[i] == BuffID.PotionSickness && Player.buffTime[i] >= 2025) {
+						if (Player.pStone) Player.buffTime[i] = 2025;
+						else Player.buffTime[i] = 2700;
+
+						fixCooldownIgnore = false;
+					}
+				}
+			}
+        }
+        public override void PostUpdateBuffs() {
+            
         }
         public override void ProcessTriggers(TriggersSet triggersSet) {
 			if (ZylonKeybindSystem.DoublePluggedCordKeybind.JustPressed && doublePluggedCord) SoundEngine.PlaySound(SoundID.Item93, Player.Center);

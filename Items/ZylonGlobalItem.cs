@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
@@ -27,10 +28,19 @@ namespace Zylon.Items
             return item;
         }
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips) {
-            /*if (item.type == ItemID.GillsPotion) { //I don't think this is needed.
-				TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Stops blowpipe breath loss while in water");
-				tooltips.Add(line);
-			}*/
+			ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
+            if ((item.DamageType == DamageClass.Summon || item.DamageType == DamageClass.SummonMeleeSpeed) && p.summonCrit > 0f) {
+				int index = 0;
+				bool cont = true;
+				foreach (var line2 in tooltips) { //For some reason there's no easy way to grab the index.
+					if (cont) index++;
+					if (line2.Mod == "Terraria" && line2.Name == "Damage") cont = false;
+				}
+
+				String txt = Math.Round(p.summonCrit*100f) + "% critical strike chance";
+				TooltipLine line = new TooltipLine(Mod, "Tooltip1", txt);
+				tooltips.Insert(index, line);
+			}
 			if (GetInstance<ZylonConfig>().bandBuffs) {
 				if (item.type == ItemID.BandofRegeneration || item.type == ItemID.CharmofMyths) {
 					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Increases the potency of regeneration potions");

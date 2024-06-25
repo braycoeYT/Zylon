@@ -594,6 +594,11 @@ Mods: {
 				Tooltip: Increases the potency of Ironskin Potions
 			}
 
+			LivingCharm: {
+				DisplayName: Living Charm
+				Tooltip: Increases summon critical strike chance by 4%
+			}
+
 			MagicalVaccine: {
 				DisplayName: Magical Vaccine
 				Tooltip:
@@ -1709,9 +1714,10 @@ Mods: {
 				DisplayName: Hollow Dirk
 				Tooltip:
 					'''
-					Imbues ammo with magic swords
-					Upon dissipation, summons swords to strike the collision area
-					At max charge,
+					Fires a magic sword with every shot
+					The power of the sword is dependent on charge
+					Upon collision, the sword summons an army of duplicates
+					If it struck an enemy, the duplicates will track it down
 					'''
 			}
 
@@ -4489,6 +4495,9 @@ Mods: {
 			SwordigamSword.DisplayName: Swordigam
 			StellarCometProj.DisplayName: Stellar Comet
 			EtherealGaspProj.DisplayName: Ethereal Gasp
+			HollowDirkProj.DisplayName: Hollow Dirk Proj
+			HollowDirkProj2.DisplayName: Hollow Dirk Proj2
+			HollowDirkProjInvis.DisplayName: Hollow Dirk Proj Invis
 		}
 
 		NPCs: {
@@ -4655,8 +4664,8 @@ Mods: {
 
 				Headers: {
 					config: {
-						accessibility: config.accessibility Header
-						general: config.general Header
+						accessibility: Accessibility
+						general: General
 					}
 				}
 
@@ -4723,8 +4732,13 @@ Mods: {
 				}
 
 				nightLightRarities: {
-					Label: Night Light Rarities
-					Tooltip: Changes the color of modded rarities so that users of night light can differentiate them easier.
+					Label: Night Light / Tritanopic Rarity Support
+					Tooltip: Changes the color of modded rarities so that tritanopics or users of night light can differentiate them easier.
+				}
+
+				summonNaturalCrit: {
+					Label: Summon Natural Crits
+					Tooltip: Summons now have a 4% default crit chance, and are affected by generic crit boosts.
 				}
 			}
 		}

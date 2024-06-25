@@ -12,6 +12,7 @@ Stats:
 ~36 total NPCs
 ~55 Buffs
 ~13 Tiles
+~Summons can deal critical strikes now!
 ~A complete reworking and expansion of blowpipes!
 ~LOTS of new vanilla recipes and changes to help balance the game out.
 ~Several new prefixes!
@@ -332,12 +333,16 @@ V0.0.3: Cause to Clash Update
 ~Fixed bugs with Friendship Bracelet.
 ~Bloodied Arrows are now sold when in hardmode or during the day.
 ~Bloodied Arrows now only drop from the Eye of Cthulhu in Crimson worlds.
+~Added Living Charm,
+~Summon weapons can now deal critical strikes.
+~Added "Summon Natural Crits" config.
+~Fixed issue with how config displays.
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
 ~Added Fantastical Finality.
 ~Added Ultima Band.
 ~Made developer weapons craftable.
-~Added Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff,
+~Added Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff, Hollow Dirk,
 
 finish wolf and ooze + sabur rex
 
@@ -367,6 +372,7 @@ Quit:
 CrazySapling1
 Koolaidlemonade
 ULTIMATEDQVID
+Mafia_Cheezstick
 
 Minor Help:
 Ebon <-- Play Ebonian Mod!!
@@ -376,5 +382,4 @@ Slimelad
 Juice/Slayer
 Pufferfisher77
 STiML
-Mafia_Cheezstick
 Jeff the murderer

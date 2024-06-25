@@ -27,14 +27,15 @@ namespace Zylon.Items.Potions
 			Item.consumable = true;
 			Item.healLife = 135;
 			Item.healMana = 135;
+			Item.potion = true;
 		}
         public override bool CanUseItem(Player player) {
             return !player.HasBuff(BuffID.PotionSickness);
         }
         public override bool? UseItem(Player player) {
-			if (player.pStone) player.AddBuff(BuffID.PotionSickness, 2025);
-			else player.AddBuff(BuffID.PotionSickness, 2700);
-			//player.AddBuff(BuffID.ManaSickness, 300);
+			ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
+			//player.AddBuff(BuffID.ManaSickness, 150);
+			p.fixCooldownIgnore = true;
             return true;
         }
         public override void AddRecipes() {

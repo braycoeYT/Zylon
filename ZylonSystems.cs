@@ -795,7 +795,7 @@ namespace Zylon
 
 			recipe = Recipe.Create(ItemID.DeerThing);
 			recipe.AddIngredient(ItemID.FlinxFur, 3);
-			recipe.AddIngredient(ItemID.DemoniteBar, 2);
+			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 2);
 			recipe.AddIngredient(ItemID.Lens);
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
