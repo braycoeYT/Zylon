@@ -10,7 +10,7 @@ namespace Zylon.Items.Whips
 	{
 		public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(EmeraldWhipDebuff.TagDamage);
 		public override void SetDefaults() {
-			Item.DefaultToWhip(ModContent.ProjectileType<Projectiles.Whips.EmeraldWhip>(), 13, 2.25f, 7f);
+			Item.DefaultToWhip(ModContent.ProjectileType<Projectiles.Whips.EmeraldWhip>(), 12, 2.25f, 7f);
 			Item.rare = ItemRarityID.Blue;
 			Item.value = Item.sellPrice(0, 1);
 		}

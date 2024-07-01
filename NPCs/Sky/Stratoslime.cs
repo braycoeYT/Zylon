@@ -30,7 +30,7 @@ namespace Zylon.NPCs.Sky
 			AnimationType = 1;
 			//NPC.noGravity = true; //for old ai
 			Banner = NPC.type;
-            BannerItem = ModContent.ItemType<Items.Banners.StarpackSlimeBanner>();
+            BannerItem = ModContent.ItemType<Items.Banners.StratoslimeBanner>();
 
 			NPC.GravityIgnoresSpace = true; //So the enemy doesn't ascend into space if it goes too high. Icarus be gone!
         }

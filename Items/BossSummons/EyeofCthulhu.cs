@@ -14,7 +14,7 @@ namespace Zylon.Items.BossSummons
 			Item.width = 152;
 			Item.height = 110;
 			Item.maxStack = 69;
-			Item.value = Item.sellPrice(42, 22, 69, 34);
+			Item.value = Item.sellPrice(22, 42, 69, 34);
 			Item.rare = ItemRarityID.Gray;
 			Item.useAnimation = 45;
 			Item.useTime = 45;
@@ -53,10 +53,8 @@ namespace Zylon.Items.BossSummons
 			recipe.AddIngredient(ItemID.GoldenShower);
 			recipe.AddIngredient(ItemID.TerraToilet);
 			recipe.AddIngredient(ModContent.ItemType<Materials.BloodDroplet>(), 25);
-			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.AddTile(TileID.CookingPots);
-			recipe.AddTile(TileID.BubblegumBlock);
-			recipe.AddTile(TileID.GardenGnome);
+			recipe.AddTile(TileID.Toilets);
+			recipe.AddCondition(Condition.ZenithWorld);
 			recipe.Register();
 		}
 	}

@@ -35,8 +35,9 @@ namespace Zylon.Items
 				foreach (var line2 in tooltips) { //For some reason there's no easy way to grab the index.
 					if (cont) index++;
 					if (line2.Mod == "Terraria" && line2.Name == "Damage") cont = false;
-				}
 
+					if (line2.Mod == "Terraria" && line2.Name == "PrefixCritChance") line2.Hide(); //idk how to add weapon crit to summon weapons yet :/
+				}
 				String txt = Math.Round(p.summonCrit*100f) + "% critical strike chance";
 				TooltipLine line = new TooltipLine(Mod, "Tooltip1", txt);
 				tooltips.Insert(index, line);

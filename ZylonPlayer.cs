@@ -80,6 +80,7 @@ namespace Zylon
 		public bool CHECK_EtherealGasp;
 		public bool supernaturalComet;
 		public bool fixCooldownIgnore;
+		public bool vengefulSpirit;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -175,6 +176,7 @@ namespace Zylon
 			etherealGasp = false;
 			CHECK_EtherealGasp = false;
 			supernaturalComet = false;
+			vengefulSpirit = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -406,6 +408,26 @@ namespace Zylon
 						}
 					}
 					else CombatText.NewText(Player.getRect(), Color.Cyan, sojDamageCount);
+				}
+				if (Main.rand.NextBool(10) && !proj.minion && proj.DamageType == DamageClass.SummonMeleeSpeed) {
+					if (vengefulSpirit) {
+						int buffID = 0;
+						switch (Main.rand.Next(4)) {
+							case 0:
+								buffID = BuffID.OnFire;
+								break;
+							case 1:
+								buffID = BuffID.Poisoned;
+								break;
+							case 2:
+								buffID = BuffID.Confused;
+								break;
+							case 3:
+								buffID = BuffID.Frostburn;
+								break;
+						}
+						target.AddBuff(buffID, Main.rand.Next(7, 15)*60);
+					}
 				}
 			}
 

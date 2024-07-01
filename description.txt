@@ -333,10 +333,13 @@ V0.0.3: Cause to Clash Update
 ~Fixed bugs with Friendship Bracelet.
 ~Bloodied Arrows are now sold when in hardmode or during the day.
 ~Bloodied Arrows now only drop from the Eye of Cthulhu in Crimson worlds.
-~Added Living Charm,
+~Added Living Charm, Toy Claw, Vengeful Spirit, Claw of Insanity,
 ~Summon weapons can now deal critical strikes.
 ~Added "Summon Natural Crits" config.
 ~Fixed issue with how config displays.
+~Added Gilded Shuriken.
+~Removed Hallowed Bar from Disco Canister recipe.
+~Removed Psychic Potion (for now).
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
 ~Added Fantastical Finality.
@@ -344,7 +347,7 @@ V0.0.3: Cause to Clash Update
 ~Made developer weapons craftable.
 ~Added Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff, Hollow Dirk,
 
-finish wolf and ooze + sabur rex
+finish wolf and ooze + sabur rex + RAZOR FOR SUMMON DUNGEON SPIKE
 
 
 

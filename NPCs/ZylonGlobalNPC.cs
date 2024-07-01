@@ -92,10 +92,6 @@ namespace Zylon.NPCs
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.RottenChunk, 1, 1, 3), new CommonDrop(ItemID.RottenChunk, 1, 2, 4)));
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.WormTooth, 1, 3, 9), new CommonDrop(ItemID.WormTooth, 1, 5, 11)));
             }
-			if (npc.type == NPCID.GoblinSorcerer) {
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Tomes.ChaosCaster>(), 15), new CommonDrop(ItemType<Items.Tomes.ChaosCaster>(), 18)));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.HexNecklace>(), 20), new CommonDrop(ItemType<Items.Accessories.HexNecklace>(), 25)));
-			}
 			if (npc.type == NPCID.IceBat || npc.type == NPCID.SnowFlinx || npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.UndeadViking)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Tomes.Snowfall>(), 100), new CommonDrop(ItemType<Items.Tomes.Snowfall>(), 90)));
 			if ((npc.type == NPCID.Hornet) || (npc.type >= NPCID.HornetFatty && npc.type <= NPCID.HornetStingy) || (npc.type >= -56 && npc.type <= -65) || (npc.type == -16) || (npc.type == -17))
@@ -138,7 +134,7 @@ namespace Zylon.NPCs
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.EnchantedIceCube>(), 1, 2, 4));
 			if (npc.type == NPCID.Werewolf || npc.type == NPCID.Wolf) {
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.WolfPelt>(), 1, 1, 3));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 75), new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 50)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 50), new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 30)));
 			}
 			if (npc.type == NPCID.GoblinScout)
 				npcLoot.Add(new CommonDrop(ItemID.Goggles, 5));
@@ -153,15 +149,20 @@ namespace Zylon.NPCs
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.GoldWatch, 30), new CommonDrop(ItemID.GoldWatch, 20)));
             }
 			if (npc.type == NPCID.GoblinWarrior) {
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.IronBand>(), 15), new CommonDrop(ItemType<Items.Accessories.IronBand>(), 10)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.IronBand>(), 20), new CommonDrop(ItemType<Items.Accessories.IronBand>(), 15)));
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.WarriorsRibbon>(), 15), new CommonDrop(ItemType<Items.Accessories.WarriorsRibbon>(), 10)));
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Shackle, 30), new CommonDrop(ItemID.Shackle, 20)));
             }
 			if (npc.type == NPCID.GoblinArcher) {
 				npcLoot.Add(new CommonDrop(ItemID.WoodenArrow, 1, 3, 7));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Bows.GoblinArchbow>(), 15), new CommonDrop(ItemType<Items.Bows.GoblinArchbow>(), 10)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Bows.GoblinArchbow>(), 18), new CommonDrop(ItemType<Items.Bows.GoblinArchbow>(), 12)));
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.LazyCap>(), 15), new CommonDrop(ItemType<Items.Accessories.LazyCap>(), 10)));
             }
+			if (npc.type == NPCID.GoblinSorcerer) {
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Tomes.ChaosCaster>(), 18), new CommonDrop(ItemType<Items.Tomes.ChaosCaster>(), 12)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.HexNecklace>(), 20), new CommonDrop(ItemType<Items.Accessories.HexNecklace>(), 15)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.VengefulSpirit>(), 15), new CommonDrop(ItemType<Items.Accessories.VengefulSpirit>(), 10)));
+			}
 			if (npc.type == NPCID.BlackRecluse || npc.type == NPCID.BlackRecluseWall || npc.type == NPCID.JungleCreeper || npc.type == NPCID.JungleCreeperWall) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.ProteinSplicer>(), 50), new CommonDrop(ItemType<Items.Accessories.ProteinSplicer>(), 60)));
             }
@@ -202,6 +203,8 @@ namespace Zylon.NPCs
 				npcLoot.Add(new CommonDrop(ItemType<IllusoryBulletPolish>(), 50));
 			if (npc.type == NPCID.ChaosElemental)
 				npcLoot.Add(new CommonDrop(ItemType<IllusoryBulletPolish>(), 25));
+			if (npc.type == NPCID.Tim)
+				npcLoot.Add(new CommonDrop(ItemType<VengefulSpirit>(), 5));
 		}
         int Timer;
 		bool prevNoGrav;
@@ -273,23 +276,26 @@ namespace Zylon.NPCs
 			}
         }
         public override void SetupTravelShop(int[] shop, ref int nextSlot) {
-            if (Main.rand.NextFloat() < .75f) {
+            if (Main.rand.NextFloat() < .75f || !Main.hardMode) {
 				switch (Main.rand.Next(3)) {
 					case 0:
-						shop[nextSlot] = ItemType<Items.Ammo.OverclockArrow>();
+						shop[nextSlot] = ItemType<IronfistMedal>();
 						break;
 					case 1:
-						shop[nextSlot] = ItemType<Items.Accessories.IronfistMedal>();
+						shop[nextSlot] = ItemType<OverclockArrow>();
 						break;
 					case 2:
-						shop[nextSlot] = ItemType<Items.Accessories.ManaBattery>();
+						shop[nextSlot] = ItemType<ManaBattery>();
+						break;
+					case 3:
+						shop[nextSlot] = ItemType<ToyClaw>();
 						break;
                 }
 				nextSlot++;
 			}
 			if (Main.rand.NextFloat() < .75f && Main.hardMode) {
 				if (Main.rand.NextBool()) shop[nextSlot] = ItemType<Items.Flails.StickyHand>();
-				else shop[nextSlot] = ItemType<Items.Accessories.AirTank>();
+				else shop[nextSlot] = ItemType<AirTank>();
 				nextSlot++;
 			}
         }

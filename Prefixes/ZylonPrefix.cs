@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -199,6 +200,25 @@ namespace Zylon.Prefixes
 		}
         public override void SetStats(ref float damageMult, ref float knockbackMult, ref float useTimeMult, ref float scaleMult, ref float shootSpeedMult, ref float manaMult, ref int critBonus) {
 			knockbackMult = 1.23f;
+		}
+        public override void Apply(Item item) {
+			
+		}
+	}
+	public class Aerobic : ModPrefix //Blowpipes can't receive Unreal, so here is an equivalent.
+	{
+		public override PrefixCategory Category => PrefixCategory.Ranged;
+		public override float RollChance(Item item) {
+			return 1.5f;
+		}
+		public override bool CanRoll(Item item) {
+			return GetInstance<ZylonConfig>().zylonianPrefixes && item.useAmmo == AmmoID.Dart;
+		}
+        public override void SetStats(ref float damageMult, ref float knockbackMult, ref float useTimeMult, ref float scaleMult, ref float shootSpeedMult, ref float manaMult, ref int critBonus) {
+			damageMult = 1.16f;
+			knockbackMult = 1.15f;
+			shootSpeedMult = 1.12f;
+			critBonus = 7;
 		}
         public override void Apply(Item item) {
 			

@@ -429,6 +429,15 @@ Mods: {
 					'''
 			}
 
+			ClawofInsanity: {
+				DisplayName: Claw of Insanity
+				Tooltip:
+					'''
+					Increases whip speed by 12% and range by 20%
+					Gives whips a chance to inflict a low-tier debuff on enemy hits
+					'''
+			}
+
 			ContinuumWarper: {
 				DisplayName: Continuum Warper
 				Tooltip:
@@ -881,6 +890,11 @@ Mods: {
 					'''
 			}
 
+			ToyClaw: {
+				DisplayName: Toy Claw
+				Tooltip: Increases whip range by 20%
+			}
+
 			UltimaBand: {
 				DisplayName: Ultima Band
 				Tooltip:
@@ -894,6 +908,11 @@ Mods: {
 					Reduces the cooldown of healing potions by 25%
 					Effects of Friendship Bracelet at a range of 150 tiles
 					'''
+			}
+
+			VengefulSpirit: {
+				DisplayName: Vengeful Spirit
+				Tooltip: Gives whips a chance to inflict a low-tier debuff on enemy hits
 			}
 
 			VenomousPills: {
@@ -2721,6 +2740,11 @@ Mods: {
 				Tooltip: On impact, explodes into multiple ichor splashes
 			}
 
+			GildedShuriken: {
+				DisplayName: Gilded Shuriken
+				Tooltip: Can bounce off of enemies and tiles
+			}
+
 			LostNightmare: {
 				DisplayName: Lost Nightmare
 				Tooltip:
@@ -3996,6 +4020,11 @@ Mods: {
 				DisplayName: Stellar Comet
 				Tooltip: ""
 			}
+
+			StratoslimeBanner: {
+				DisplayName: Stratoslime Banner
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -4498,6 +4527,7 @@ Mods: {
 			HollowDirkProj.DisplayName: Hollow Dirk Proj
 			HollowDirkProj2.DisplayName: Hollow Dirk Proj2
 			HollowDirkProjInvis.DisplayName: Hollow Dirk Proj Invis
+			GildedShuriken.DisplayName: Gilded Shuriken
 		}
 
 		NPCs: {
@@ -4636,6 +4666,7 @@ Mods: {
 			Fabled.DisplayName: Fabled
 			Pushy.DisplayName: Pushy
 			Relaxed.DisplayName: Relaxed
+			Aerobic.DisplayName: Aerobic
 		}
 
 		Tiles: {

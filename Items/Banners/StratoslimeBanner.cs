@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace Zylon.Items.Banners
 {
-	public class StarpackSlimeBanner : ModItem
+	public class StratoslimeBanner : ModItem
 	{
 		public override void SetDefaults() {
 			Item.width = 14;

@@ -34,7 +34,6 @@ namespace Zylon.Items.Accessories
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.HallowedBar, 8);
 			recipe.AddIngredient(ItemID.DiscoBall, 5);
 			recipe.AddIngredient(ItemID.CrystalShard, 12);
 			recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 15);
