@@ -19,6 +19,26 @@ namespace Zylon.NPCs
 		public static int dirtballBoss = -1;
 		public static int metelordBoss = -1;
 		public static int saburBoss = -1;
+        public override void SetDefaults(NPC entity) {
+			if (WorldGen.currentWorldSeed == null) return;
+            if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
+				entity.color = new Color(0, 0, 0);
+				if (entity.friendly) {
+					entity.lifeMax /= 5;
+					entity.life = entity.lifeMax;
+				}
+			}
+        }
+        public override void PostAI(NPC npc) {
+            if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
+				npc.color = new Color(0, 0, 0);
+			}
+			if (WorldGen.currentWorldSeed.ToLower() == "autumn") {
+				if (npc.type == -25 || npc.type == -24 || (npc.type > -11 && npc.type < 0) || npc.type == NPCID.BlueSlime || npc.type == NPCID.IceSlime || npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.SandSlime || npc.type == NPCID.SpikedJungleSlime || npc.type == NPCID.BabySlime || npc.type == NPCID.LavaSlime || npc.type == NPCID.GoldenSlime || npc.type == NPCID.SlimeSpiked || npc.type == NPCID.ShimmerSlime || npc.type == NPCID.SlimeMasked || (npc.type > 332 && npc.type < 337) || npc.type == NPCID.Crimslime || npc.type == NPCID.IlluminantSlime || npc.type == NPCID.RainbowSlime || npc.type == NPCID.QueenSlimeMinionBlue || npc.type == NPCID.QueenSlimeMinionPink || npc.type == NPCID.QueenSlimeMinionPurple || npc.type == ModContent.NPCType<NPCs.Forest.DirtSlime>() || npc.type == ModContent.NPCType<NPCs.Forest.OrangeSlime>() || npc.type == ModContent.NPCType<ElemSlime>() || npc.type == ModContent.NPCType<NPCs.Sky.Stratoslime>() || npc.type == NPCID.Slimer2 || npc.type == ModContent.NPCType<NPCs.Dungeon.BoneSlime>() || npc.type == NPCID.MotherSlime || npc.type == NPCID.DungeonSlime || npc.type == NPCID.UmbrellaSlime || npc.type == NPCID.ToxicSludge || npc.type == NPCID.CorruptSlime || npc.type == NPCID.Slimer || npc.type == NPCID.HoppinJack || npc.type == NPCID.KingSlime || npc.type == NPCID.QueenSlimeBoss) {
+					npc.color = Color.Orange;
+				}
+			}
+        }
         public override void HitEffect(NPC npc, NPC.HitInfo hit) {
             if (npc.type == NPCID.Plantera && npc.life < 1 && !NPC.downedPlantBoss)
 				ProjectileHelpers.NewNetProjectile(npc.GetSource_FromThis(), npc.Center, new Vector2(0, 0), ProjectileType<Projectiles.PlanteraElementalGel>(), 0, 0, Main.myPlayer, BasicNetType: 2);

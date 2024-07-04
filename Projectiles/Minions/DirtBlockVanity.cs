@@ -35,11 +35,11 @@ namespace Zylon.Projectiles.Minions
 			Projectile.localNPCHitCooldown = 20;
 			Projectile.frame = Main.rand.Next(0, 3);
 		}
-		public override bool? CanCutTiles() {
-			return true;
+		public override bool? CanCutTiles() { //almost forgot this
+			return false;
 		}
 		public override bool MinionContactDamage() {
-			return true;
+			return false;
 		}
 		public override void AI() {
 			Player player = Main.player[Projectile.owner];

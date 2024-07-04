@@ -30,7 +30,7 @@ namespace Zylon.Items.Armor
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Bars.CarnalliteBar>(), 12);
+			recipe.AddIngredient(ModContent.ItemType<Bars.CarnalliteBar>(), 9);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

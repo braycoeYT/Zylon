@@ -10,12 +10,11 @@ Stats:
 ~~~1 Post-Moon Lord Boss [i:5130]
 (plus a secret joke boss only fightable on getfixedboi worlds [i:43])
 ~36 total NPCs
-~55 Buffs
-~13 Tiles
 ~Summons can deal critical strikes now!
 ~A complete reworking and expansion of blowpipes!
 ~LOTS of new vanilla recipes and changes to help balance the game out.
 ~Several new prefixes!
+~New secret seeds: Abyssworld and Autumn.
 
 V0.0.3: Cause to Clash Update
 ~Renamed Desert Diskite to Adenite.
@@ -340,6 +339,10 @@ V0.0.3: Cause to Clash Update
 ~Added Gilded Shuriken.
 ~Removed Hallowed Bar from Disco Canister recipe.
 ~Removed Psychic Potion (for now).
+~Decreased the amount of Any Adamantite Bars required for Shadowstitched Armor.
+~Renamed Tattered Boots to Tattered Skirt.
+~Reduced amount of Carnallite Bars required to craft Carnallite armor.
+~Added the mod's first secret seeds, Abyssworld and Autumn!
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
 ~Added Fantastical Finality.

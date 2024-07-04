@@ -433,7 +433,7 @@ Mods: {
 				DisplayName: Claw of Insanity
 				Tooltip:
 					'''
-					Increases whip speed by 12% and range by 20%
+					Increases whip speed by 10% and range by 15%
 					Gives whips a chance to inflict a low-tier debuff on enemy hits
 					'''
 			}
@@ -1452,16 +1452,6 @@ Mods: {
 					'''
 			}
 
-			TatteredBoots: {
-				DisplayName: Tattered Boots
-				Tooltip:
-					'''
-					'It seems to be decades due for a restitching'
-					Decreases mana usage by 6%
-					Increases magic critical strike chance and damage by 4%
-					'''
-			}
-
 			TatteredHat: {
 				DisplayName: Tattered Hat
 				Tooltip:
@@ -1478,6 +1468,16 @@ Mods: {
 					'''
 					'It seems to be decades due for a restitching'
 					Decreases mana usage by 7%
+					Increases magic critical strike chance and damage by 4%
+					'''
+			}
+
+			TatteredSkirt: {
+				DisplayName: Tattered Skirt
+				Tooltip:
+					'''
+					'It seems to be decades due for a restitching'
+					Decreases mana usage by 6%
 					Increases magic critical strike chance and damage by 4%
 					'''
 			}
@@ -1729,7 +1729,7 @@ Mods: {
 				Tooltip: Uses seeds as ammo
 			}
 
-			HollowDirk: {
+			HollowKnife: {
 				DisplayName: Hollow Dirk
 				Tooltip:
 					'''
@@ -4524,9 +4524,9 @@ Mods: {
 			SwordigamSword.DisplayName: Swordigam
 			StellarCometProj.DisplayName: Stellar Comet
 			EtherealGaspProj.DisplayName: Ethereal Gasp
-			HollowDirkProj.DisplayName: Hollow Dirk Proj
-			HollowDirkProj2.DisplayName: Hollow Dirk Proj2
-			HollowDirkProjInvis.DisplayName: Hollow Dirk Proj Invis
+			HollowKnifeProj.DisplayName: Hollow Knife
+			HollowKnifeProj2.DisplayName: Hollow Knife
+			HollowKnifeProjInvis.DisplayName: Hollow Knife
 			GildedShuriken.DisplayName: Gilded Shuriken
 		}
 
@@ -4772,6 +4772,12 @@ Mods: {
 					Tooltip: Summons now have a 4% default crit chance, and are affected by generic crit boosts.
 				}
 			}
+		}
+
+		WorldGen: {
+			AbyssworldSpikesPassMessage: Ruining world
+			AbyssworldPaintPassMessage: Darkening world
+			AutumnPaintPassMessage: Seasoning world
 		}
 	}
 }

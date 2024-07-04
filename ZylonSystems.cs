@@ -539,6 +539,13 @@ namespace Zylon
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
+			recipe = Recipe.Create(ItemID.ObsidianRose);
+			recipe.AddIngredient(ItemID.Daybloom, 2);
+			recipe.AddIngredient(ItemID.HellstoneBar, 6);
+			recipe.AddIngredient(ModContent.ItemType<Items.Bars.HaxoniteBar>(), 6);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
 			recipe = Recipe.Create(ItemID.MagmaStone);
 			recipe.AddIngredient(ItemID.StoneBlock, 40);
 			recipe.AddIngredient(ItemID.HellstoneBar, 8);

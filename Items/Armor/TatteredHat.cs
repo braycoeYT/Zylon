@@ -17,7 +17,7 @@ namespace Zylon.Items.Armor
 			Item.defense = 1;
 		}
 		public override bool IsArmorSet(Item head, Item body, Item legs) {
-			return body.type == ModContent.ItemType<TatteredRobe>() && legs.type == ModContent.ItemType<TatteredBoots>();
+			return body.type == ModContent.ItemType<TatteredRobe>() && legs.type == ModContent.ItemType<TatteredSkirt>();
 		}
         public override void UpdateEquip(Player player) {
 			player.manaCost -= 0.05f;

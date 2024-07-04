@@ -7,7 +7,7 @@ using Terraria.GameContent;
 
 namespace Zylon.Projectiles.Blowpipes
 {
-	public class HollowDirkProjInvis : ModProjectile
+	public class HollowKnifeProjInvis : ModProjectile
 	{
 		public override void SetDefaults() {
 			Projectile.width = 1;
@@ -39,10 +39,10 @@ namespace Zylon.Projectiles.Blowpipes
 				swordsRemaining--;
 				
 				Vector2 speed = new Vector2(0, -10).RotatedByRandom(MathHelper.ToRadians(45));
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center-speed*45, speed, ModContent.ProjectileType<HollowDirkProj2>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0]);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center-speed*45, speed, ModContent.ProjectileType<HollowKnifeProj2>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0]);
 
 				speed = new Vector2(0, 10).RotatedByRandom(MathHelper.ToRadians(45));
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center-speed*45, speed, ModContent.ProjectileType<HollowDirkProj2>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0]);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center-speed*45, speed, ModContent.ProjectileType<HollowKnifeProj2>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0]);
 			
 				Projectile.damage -= 10;
 				if (Projectile.damage < 1) Projectile.damage = 1;

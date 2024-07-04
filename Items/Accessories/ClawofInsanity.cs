@@ -17,8 +17,8 @@ namespace Zylon.Items.Accessories
 		}
         public override void UpdateAccessory(Player player, bool hideVisual) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			player.GetAttackSpeed(DamageClass.SummonMeleeSpeed) += 0.12f;
-			player.whipRangeMultiplier += 0.2f;
+			player.GetAttackSpeed(DamageClass.SummonMeleeSpeed) += 0.1f;
+			player.whipRangeMultiplier += 0.15f;
 			p.vengefulSpirit = true;
             
         }

@@ -8,6 +8,8 @@ using static Terraria.ModLoader.ModContent;
 using Terraria.GameInput;
 using Terraria.Audio;
 using Zylon.Items.Accessories;
+using Terraria.GameContent;
+using Terraria.Net;
 
 namespace Zylon
 {
@@ -291,6 +293,12 @@ namespace Zylon
 				for (int i = 0; i < Player.MaxBuffs; i++) {
 					if (Player.buffType[i] == BuffID.ManaSickness && Player.buffTime[i] > 1)
 						Player.buffTime[i]--;
+				}
+			}
+
+			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") { //Double debuff power in Abyssworld seed
+				if (Player.lifeRegen < 0) {
+					Player.lifeRegen *= 2;
 				}
 			}
 		}
@@ -687,8 +695,27 @@ namespace Zylon
 				}
 			}
         }
+        public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers) {
+            if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
+				if (NPC.downedMoonlord) Player.AddBuff(BuffID.Blackout, Main.rand.Next(7, 15)*60);
+				else if (Main.hardMode) Player.AddBuff(BuffID.Blackout, Main.rand.Next(4, 10)*60);
+				else Player.AddBuff(BuffID.Darkness, Main.rand.Next(4, 10)*60);
+			}
+        }
         public override void PostUpdateBuffs() {
-            
+			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
+				//if (Player.ZoneDirtLayerHeight) Player.blind = true;
+				//if (Player.ZoneRockLayerHeight) Player.blackout = true;
+				//if (Player.ZoneUnderworldHeight) { Player.blind = true; Player.blackout = true; }
+
+				//Above is too dark tbh
+				if (Player.ZoneDirtLayerHeight || Player.ZoneRockLayerHeight || Player.ZoneUnderworldHeight) Player.blind = true;
+
+				if (Main.netMode == NetmodeID.SinglePlayer || Main.netMode == NetmodeID.Server) {
+					if (Main.dayTime) Main.time++;
+				}
+			}
+			//Main.NewText(WorldGen.currentWorldSeed.ToLower());
         }
         public override void ProcessTriggers(TriggersSet triggersSet) {
 			if (ZylonKeybindSystem.DoublePluggedCordKeybind.JustPressed && doublePluggedCord) SoundEngine.PlaySound(SoundID.Item93, Player.Center);

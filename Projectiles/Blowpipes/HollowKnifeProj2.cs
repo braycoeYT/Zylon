@@ -7,7 +7,7 @@ using Terraria.GameContent;
 
 namespace Zylon.Projectiles.Blowpipes
 {
-	public class HollowDirkProj2 : ModProjectile
+	public class HollowKnifeProj2 : ModProjectile
 	{
 		public override void SetStaticDefaults() {
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 12;
@@ -56,7 +56,7 @@ namespace Zylon.Projectiles.Blowpipes
 		}
 		public override bool PreDraw(ref Color lightColor) {
             Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D overlay = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Blowpipes/HollowDirkProj2");
+            Texture2D overlay = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Blowpipes/HollowKnifeProj2");
             
             Vector2 drawOrigin = new Vector2(projectileTexture.Width * 0.5f, projectileTexture.Height * 0.5f);
             Vector2 drawPos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);

@@ -7,7 +7,7 @@ using Terraria.GameContent;
 
 namespace Zylon.Projectiles.Blowpipes
 {
-	public class HollowDirkProj : ModProjectile
+	public class HollowKnifeProj : ModProjectile
 	{
 		public override void SetStaticDefaults() {
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 15;
@@ -56,16 +56,16 @@ namespace Zylon.Projectiles.Blowpipes
         }
         public override void OnKill(int timeLeft) {
 			if (targetNum > -1) {
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<HollowDirkProjInvis>(), Projectile.damage, Projectile.knockBack, Projectile.owner, targetNum, Projectile.ai[0]);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<HollowKnifeProjInvis>(), Projectile.damage, Projectile.knockBack, Projectile.owner, targetNum, Projectile.ai[0]);
 			}
 			else {
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), newCenter, Vector2.Zero, ModContent.ProjectileType<HollowDirkProjInvis>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -1f, Projectile.ai[0]);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), newCenter, Vector2.Zero, ModContent.ProjectileType<HollowKnifeProjInvis>(), Projectile.damage, Projectile.knockBack, Projectile.owner, -1f, Projectile.ai[0]);
 			}
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 		public override bool PreDraw(ref Color lightColor) {
             Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;
-            Texture2D overlay = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Blowpipes/HollowDirkProj");
+            Texture2D overlay = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Blowpipes/HollowKnifeProj");
             
             Vector2 drawOrigin = new Vector2(projectileTexture.Width * 0.5f, projectileTexture.Height * 0.5f);
             Vector2 drawPos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);

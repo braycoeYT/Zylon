@@ -21,9 +21,9 @@ namespace Zylon.Items.Armor
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<TatteredBoots>());
+			recipe.AddIngredient(ModContent.ItemType<TatteredSkirt>());
 			recipe.AddIngredient(ModContent.ItemType<Materials.TabooEssence>(), 10);
-			recipe.AddRecipeGroup("Zylon:AnyAdamantiteBar", 8);
+			recipe.AddRecipeGroup("Zylon:AnyAdamantiteBar", 5);
 			recipe.AddIngredient(ItemID.SoulofNight, 5);
 			recipe.AddTile(TileID.Loom);
 			recipe.Register();
