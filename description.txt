@@ -340,9 +340,10 @@ V0.0.3: Cause to Clash Update
 ~Removed Hallowed Bar from Disco Canister recipe.
 ~Removed Psychic Potion (for now).
 ~Decreased the amount of Any Adamantite Bars required for Shadowstitched Armor.
-~Renamed Tattered Boots to Tattered Skirt.
+~Renamed Tattered Boots to Tattered Skirt, and Shadowstitched Boots to Shadowstitched Skirt.
 ~Reduced amount of Carnallite Bars required to craft Carnallite armor.
 ~Added the mod's first secret seeds, Abyssworld and Autumn!
+~Resprited Tattered and Shadowstitched armor.
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
 ~Added Fantastical Finality.

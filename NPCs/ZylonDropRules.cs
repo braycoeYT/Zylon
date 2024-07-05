@@ -44,4 +44,24 @@ namespace Zylon.NPCs
 			return Description.Value;
 		}
 	}
+	public class AutumnCondition : IItemDropRuleCondition
+	{
+		private static LocalizedText Description;
+
+		public AutumnCondition() {
+			Description ??= Language.GetOrRegister("Mods.Zylon.DropConditions.AutumnCondition");
+		}
+
+		public bool CanDrop(DropAttemptInfo info) {
+			return ZylonWorldCheckSystem.downedDirtball;
+		}
+
+		public bool CanShowItemDropInUI() {
+			return true;
+		}
+
+		public string GetConditionDescription() {
+			return Description.Value;
+		}
+	}
 }

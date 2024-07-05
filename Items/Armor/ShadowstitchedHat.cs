@@ -17,7 +17,7 @@ namespace Zylon.Items.Armor
 			Item.defense = 6;
 		}
 		public override bool IsArmorSet(Item head, Item body, Item legs) {
-			return body.type == ModContent.ItemType<ShadowstitchedRobe>() && legs.type == ModContent.ItemType<ShadowstitchedBoots>();
+			return body.type == ModContent.ItemType<ShadowstitchedRobe>() && legs.type == ModContent.ItemType<ShadowstitchedSkirt>();
 		}
         public override void UpdateEquip(Player player) {
 			player.manaCost -= 0.06f;

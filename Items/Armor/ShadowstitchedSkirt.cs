@@ -5,7 +5,7 @@ using Terraria.ID;
 namespace Zylon.Items.Armor
 {
 	[AutoloadEquip(EquipType.Legs)]
-	public class ShadowstitchedBoots : ModItem
+	public class ShadowstitchedSkirt : ModItem
 	{
 		public override void SetDefaults() {
 			Item.width = 18;

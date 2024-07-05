@@ -29,24 +29,7 @@ namespace Zylon.Items.Armor
 			if (player.velocity.Length() == 0f) player.GetDamage(DamageClass.Ranged) += 0.2f;
 			player.manaRegen += 2;
 			player.whipRangeMultiplier += 0.25f;
-
-			DustEffect(player);
         }
-        public override void UpdateVanity(Player player) {
-            DustEffect(player);
-        }
-		private void DustEffect(Player player) {
-			if (player.velocity.Length() > 0.01f && !player.mount.Active) {
-				float size = player.velocity.Length()*0.5f;
-				if (size > 2f) size = 2f;
-				for (int i = 0; i < 3; i++) {
-					Dust dust = Dust.NewDustDirect(player.position + new Vector2(5+player.direction*2, 38) + player.velocity, 1, 1, DustID.Vortex);
-					dust.velocity.X = player.velocity.X*-0.5f;
-					dust.velocity.Y = player.velocity.Y*-0.5f;
-					dust.scale *= size*0.25f + Main.rand.Next(-30, 31) * 0.01f;
-				}
-			}
-		}
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<Materials.NeutronFragment>(), 10);

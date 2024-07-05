@@ -366,6 +366,11 @@ namespace Zylon
                 }
             }
 			Player.statDefense += livingWhipNum; //The number of active living whip spirits.
+
+			/*if (WorldGen.currentWorldSeed.ToLower() == "autumn") {
+				if (Player.armor[0] == )
+				Player.ArmorSetDye;
+			}*/
         }
 		float trueMeleeBoost;
 		public override void ModifyHitNPCWithItem(Item item, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Item, consider using ModifyHitNPC instead */
@@ -694,6 +699,21 @@ namespace Zylon
 					}
 				}
 			}
+			if ((Player.armor[2].type == ItemType<Items.Armor.NeutronBooster>() && Player.armor[12].type == 0) || Player.armor[12].type == ItemType<Items.Armor.NeutronBooster>()) {
+				if (Player.velocity.Length() > 0.01f && !Player.mount.Active) {
+					float size = Player.velocity.Length()*0.5f;
+					if (size > 2f) size = 2f;
+					for (int i = 0; i < 3; i++) {
+						Dust dust = Dust.NewDustDirect(Player.position + new Vector2(5+Player.direction*2, 38) + Player.velocity, 1, 1, DustID.Vortex);
+						dust.velocity.X = Player.velocity.X*-0.5f;
+						dust.velocity.Y = Player.velocity.Y*-0.5f;
+						dust.scale *= size*0.25f + Main.rand.Next(-30, 31) * 0.01f;
+					}
+				}
+			}
+			/*if (WorldGen.currentWorldSeed.ToLower() == "autumn" && (Player.armor[0].type == ItemType<Items.Armor.LivingWoodHelmet>() || Player.armor[0].type == ItemType<Items.Armor.LivingWoodMask>())) {
+				Player.dye[0] = ItemID.OrangeDye;
+			}*/
         }
         public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers) {
             if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {

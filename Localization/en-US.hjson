@@ -1385,16 +1385,6 @@ Mods: {
 					'''
 			}
 
-			ShadowstitchedBoots: {
-				DisplayName: Shadowstitched Boots
-				Tooltip:
-					'''
-					'Malevolent energy jumps from its folds'
-					Decreases mana usage by 7%
-					Increases magic critical strike chance and damage by 8%
-					'''
-			}
-
 			ShadowstitchedHat: {
 				DisplayName: Shadowstitched Hat
 				Tooltip:
@@ -1411,6 +1401,16 @@ Mods: {
 					'''
 					'Malevolent energy jumps from its folds'
 					Decreases mana usage by 8%
+					Increases magic critical strike chance and damage by 8%
+					'''
+			}
+
+			ShadowstitchedSkirt: {
+				DisplayName: Shadowstitched Skirt
+				Tooltip:
+					'''
+					'Malevolent energy jumps from its folds'
+					Decreases mana usage by 7%
 					Increases magic critical strike chance and damage by 8%
 					'''
 			}
