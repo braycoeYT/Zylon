@@ -24,6 +24,9 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = false;
 		}
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+            if (info.PvP) target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 6)*60);
+        }
         public override void AI() {
 			NPC owner = Main.npc[ZylonGlobalNPC.adenebBoss];
 			float hpLeft = (float)owner.life/(float)(owner.lifeMax);

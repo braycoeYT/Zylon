@@ -344,6 +344,8 @@ V0.0.3: Cause to Clash Update
 ~Reduced amount of Carnallite Bars required to craft Carnallite armor.
 ~Added the mod's first secret seeds, Abyssworld and Autumn!
 ~Resprited Tattered and Shadowstitched armor.
+~Added Sol Chakram, Bomb Rock, Sun's Glare, Sunburn, and Raging Sun Staff.
+~Enchanted Dirt Clump and Disco Canister no longer count as summon weapons.
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
 ~Added Fantastical Finality.

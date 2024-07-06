@@ -20,16 +20,16 @@ namespace Zylon.Items.Accessories
 			Item.expert = true;
 			Item.damage = 1;
 			//Item.DamageType = DamageClass.Summon;
-			Item.defense = 1;
+			//Item.defense = 1;
 			//Item.knockBack = 0.5f;
 		}
-        public override void ModifyTooltips(List<TooltipLine> tooltips) {
+        /*public override void ModifyTooltips(List<TooltipLine> tooltips) {
             foreach (var line in tooltips) {
 				if (line.Mod == "Terraria" && line.Name == "Defense") {
 					line.Hide();
 				}
 			}
-        }
+        }*/
 		public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale) {
             Texture2D texture = TextureAssets.Item[Item.type].Value;
 			if (WorldGen.currentWorldSeed.ToLower() == "autumn") texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/EnchantedDirtClump_Autumn");
@@ -47,7 +47,7 @@ namespace Zylon.Items.Accessories
 			return false;
         }
         public override void UpdateAccessory(Player player, bool hideVisual) {
-			player.statDefense -= 1;
+			//player.statDefense -= 1;
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			p.dirtballExpert = true;
 			player.AddBuff(ModContent.BuffType<Buffs.Minions.DirtBlock>(), 60);

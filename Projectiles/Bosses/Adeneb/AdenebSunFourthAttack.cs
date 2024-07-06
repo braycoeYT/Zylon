@@ -30,6 +30,9 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.hide = true;
             //Projectile.ai[1] = Main.rand.Next(3);
 		}
+        public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+            if (info.PvP) target.AddBuff(BuffID.OnFire, Main.rand.Next(6, 9)*60);
+        }
 		int Timer;
         float dist;
         float rot;
@@ -37,10 +40,22 @@ namespace Zylon.Projectiles.Bosses.Adeneb
         float hpLeft2;
 		NPC owner;
         int attackTimer;
+        public override bool PreAI() {
+            owner = Main.npc[ZylonGlobalNPC.adenebBoss];
+            if (owner.ai[0] == 3f) {
+                Projectile.timeLeft = 2;
+                ihatescale *= 0.99f;
+                ihatescale -= 0.01f;
+                Projectile.rotation += MathHelper.ToRadians(5);
+
+                if (ihatescale < 0.01f) Projectile.Kill();
+            }
+            return owner.ai[0] != 3f;
+        }
         public override void AI() {
             Timer++;
             attackTimer++;
-			owner = Main.npc[ZylonGlobalNPC.adenebBoss];
+			//owner = Main.npc[ZylonGlobalNPC.adenebBoss];
             Player target = Main.player[owner.target];
 			Vector2 tarPos = target.Center - new Vector2(600*Projectile.ai[0], 0);
             hpLeft2 = (float)owner.life/(float)(owner.lifeMax/2);

@@ -37,11 +37,9 @@ namespace Zylon.Items.Bags
 
 			//Only drop these weapons if in Remix or getfixedboi worlds
 			LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.RemixSeed());
-			//LeadingConditionRule leadingConditionRule2 = new LeadingConditionRule(new Conditions.ZenithSeedIsUp());
-
-			leadingConditionRule.OnSuccess(itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>())));
-			//leadingConditionRule2.OnSuccess(itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>())));
-
+			
+			leadingConditionRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>()));
+			
 			itemLoot.Add(new CommonDrop(ItemType<Vanity.AdenebMask>(), 7)).OnFailedRoll(itemLoot.Add(new CommonDrop(ItemType<Vanity.PolandballMask>(), 10)));
 		}
 		public override Color? GetAlpha(Color lightColor) {

@@ -38,8 +38,9 @@ namespace Zylon.Projectiles.Accessories
 
             Projectile.timeLeft = 9999;
 			Player owner = Main.player[Projectile.owner];
+            ZylonPlayer p = owner.GetModPlayer<ZylonPlayer>();
 
-            if (owner.statLifeMax2/2 > owner.statLife) Projectile.alpha -= 17;
+            if (owner.statLifeMax2/2 > owner.statLife || !p.sunFlower) Projectile.alpha -= 17;
             else Projectile.alpha += 17;
 
             if (Projectile.alpha >= 255) Projectile.Kill();

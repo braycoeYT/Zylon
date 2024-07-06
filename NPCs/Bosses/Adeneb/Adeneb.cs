@@ -60,7 +60,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
             }
         }
         public override void HitEffect(NPC.HitInfo hit) {
-            if (NPC.life < 1 && (Main.expertMode || Main.masterMode)) {
+            if (NPC.life < 1 && (Main.expertMode || Main.masterMode) && !finale) {
 				//NPC.immortal = true;
 				NPC.life = 1;
 				NPC.dontTakeDamage = true;
@@ -89,6 +89,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 		Vector2 dashVelocity;
 		Vector2 tempVector;
 		Vector2 newVel;
+		Vector2 finaleSave;
 		Player target;
         public override void AI() {
 			NPC.ai[0] = phase;
@@ -157,7 +158,40 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			}
 
 			if (finale) {
-				NPC.velocity *= 0.9f;
+				NPC.ai[0] = 3; //signals suns to despawn
+				attackTimer++;
+				if (attackTimer < 30) NPC.velocity *= 0.9f;
+				else if (attackTimer == 30) NPC.velocity = Vector2.Zero;
+
+				if (attackTimer >= 60) OrbDrawRotation += 0.001f*(attackTimer-60);
+				if (attackTimer == 120) {
+					NPC.velocity = NPC.Center - Main.player[NPC.target].Center;
+					NPC.velocity.Normalize();
+					NPC.velocity *= -0.05f;
+					finaleSave = Main.player[NPC.target].Center;
+				}
+				if (attackTimer > 120) {
+					NPC.velocity *= 1.05f;
+
+					if ((NPC.Center.Y < finaleSave.Y && NPC.velocity.Y < 0) || (NPC.Center.Y > finaleSave.Y && NPC.velocity.Y > 0)) {
+						NPC.immortal = false;
+						NPC.dontTakeDamage = false;
+						//NPC.life = 1;
+						//Main.player[NPC.target].ApplyDamageToNPC(NPC, 1, 0f, 0);
+						if (Main.netMode != NetmodeID.MultiplayerClient) NPC.StrikeInstantKill();
+
+						//DIE!
+						for (int i = 0; i < 32; i++) {
+							int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SolarFlare);
+							Dust dust = Main.dust[dustIndex];
+							dust.velocity = new Vector2(0, Main.rand.NextFloat(3f, 7f)).RotatedByRandom(MathHelper.TwoPi);
+							dust.scale *= 1.5f + Main.rand.Next(-80, 81) * 0.01f;
+						}
+						for (int i = 0; i < 3; i++) Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-1, 6)), ModContent.GoreType<Gores.Bosses.Adeneb.AdenebDead1>());
+						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-1, 6)), ModContent.GoreType<Gores.Bosses.Adeneb.AdenebDead2>());
+						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-1, 6)), ModContent.GoreType<Gores.Bosses.Adeneb.AdenebDead3>());
+					}
+				}
 				return;
             }
 
@@ -658,6 +692,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			Texture2D spikeTextureBottom = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Adeneb/Adeneb_SpikeLower");
 			Texture2D ankhTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Adeneb/Adeneb_Ankh");
 			Texture2D auraTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Adeneb/Adeneb_Aura");
+			Texture2D deathTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Adeneb/Adeneb_Death");
 
 			Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
 
@@ -677,10 +712,20 @@ namespace Zylon.NPCs.Bosses.Adeneb
 
 			if (drawAura) spriteBatch.Draw(auraTexture, drawPos - new Vector2(439, 425), null, Color.White, 0f, drawOrigin, 2.5f, effects, 0);
 
+			if (finale) {
+				float flash = (float)-Math.Cos((float)attackTimer/20f)/8f + 1.125f;
+				float newAlpha = 2f-flash;
+				float transitionAlpha = 1f;
+				if (attackTimer < 100) {
+					transitionAlpha = attackTimer/100f;
+				}
+
+				spriteBatch.Draw(deathTexture, drawPos, null, color*newAlpha*transitionAlpha, OrbDrawRotation, drawOrigin, flash, effects, 0);
+			}
 			return false;
         }
 		public override void BossLoot(ref string name, ref int potionType) {
-            potionType = ItemID.RestorationPotion;
+            potionType = ItemID.HealingPotion;
 			//ZylonWorldCheckSystem.downedAdeneb = true;
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
@@ -697,7 +742,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 				LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.RemixSeed());
 				//LeadingConditionRule leadingConditionRule2 = new LeadingConditionRule(new Conditions.ZenithSeedIsUp());
 
-				leadingConditionRule.OnSuccess(npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>())));
+				leadingConditionRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>()));
 				//leadingConditionRule2.OnSuccess(npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>())));
 
 				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.AdenebMask>(), 7)).OnFailedRoll(npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.PolandballMask>(), 10)));

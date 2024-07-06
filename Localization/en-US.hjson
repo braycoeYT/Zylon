@@ -381,6 +381,11 @@ Mods: {
 				DisplayName: Swordigam
 				Description: The Swordigam will fight for you
 			}
+
+			RagingSun: {
+				DisplayName: Raging Sun
+				Description: The raging sun will fight for you
+			}
 		}
 
 		Items: {
@@ -2661,6 +2666,11 @@ Mods: {
 				Tooltip: Summons a mushtop to fight for you
 			}
 
+			RagingSunStaff: {
+				DisplayName: Raging Sun Staff
+				Tooltip: Summons a raging sun to fight for you
+			}
+
 			SpazmaticScythe: {
 				DisplayName: Spazmatic Scythe
 				Tooltip:
@@ -4528,6 +4538,8 @@ Mods: {
 			HollowKnifeProj2.DisplayName: Hollow Knife
 			HollowKnifeProjInvis.DisplayName: Hollow Knife
 			GildedShuriken.DisplayName: Gilded Shuriken
+			RagingSun.DisplayName: Raging Sun
+			RagingSunProj.DisplayName: Raging Sun Proj
 		}
 
 		NPCs: {
