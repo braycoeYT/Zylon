@@ -25,9 +25,11 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.alpha = 255;
 		}
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
-            if (info.PvP) target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 7)*60);
+            target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 7) * 60);
         }
+		int Timer;
         public override void AI() {
+			Timer++;
 			Projectile.alpha -= 20;
 			if (Projectile.alpha < 180) Projectile.hostile = true;
 			NPC owner = Main.npc[ZylonGlobalNPC.adenebBoss];
@@ -51,10 +53,18 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 		public override bool PreDraw(ref Color lightColor) {
 			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 			Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+			Texture2D yellowTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Bosses/Adeneb/AdenebPhaseSun_Ring");
 			int frameHeight = texture.Height / Main.projFrames[Projectile.type];
 			int spriteSheetOffset = frameHeight * Projectile.frame;
 			Vector2 sheetInsertPosition = (Projectile.Center + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition).Floor();
-			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
+			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White*(1f-(Projectile.alpha/255f)), 0f, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
+			
+			for (int i = 0; i < 8; i++) {
+				int rot = Timer+i*45;
+				Vector2 yellowPos = (Projectile.Center + new Vector2(0, 30).RotatedBy(MathHelper.ToRadians(rot)) + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition).Floor();
+				Main.EntitySpriteDraw(yellowTexture, yellowPos, null, Color.White*(1f-(Projectile.alpha/255f)), MathHelper.ToRadians(rot), new Vector2(yellowTexture.Width / 2f, yellowTexture.Height / 2f), Projectile.scale, effects, 0);
+			}
+
 			return false;
 		}
 	}   

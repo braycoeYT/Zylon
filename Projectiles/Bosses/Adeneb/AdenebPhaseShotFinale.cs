@@ -25,7 +25,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.alpha = 255;
 		}
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
-            if (info.PvP) target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 7)*60);
+            target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 7) * 60);
         }
 		bool init;
         public override void AI() {

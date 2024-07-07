@@ -9,7 +9,7 @@ namespace Zylon.Items.MagicGuns
 	public class SpaceMachineGun : ModItem
 	{
 		public override void SetDefaults() {
-			Item.damage = 28;
+			Item.damage = 26;
 			Item.DamageType = DamageClass.Magic;
 			Item.width = 64;
 			Item.height = 24;
@@ -24,7 +24,7 @@ namespace Zylon.Items.MagicGuns
 			Item.shoot = ModContent.ProjectileType<Projectiles.MagicGuns.SMGBlast>();
 			Item.shootSpeed = 18f;
 			Item.noMelee = true;
-			Item.mana = 9;
+			Item.mana = 8;
 			Item.UseSound = SoundID.Item91;
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
@@ -38,7 +38,7 @@ namespace Zylon.Items.MagicGuns
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.SpaceGun);
 			recipe.AddIngredient(ModContent.ItemType<Bars.HaxoniteBar>(), 12);
-			recipe.AddIngredient(ItemID.FallenStar, 9);
+			recipe.AddIngredient(ItemID.Bone, 15);
             recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

@@ -26,7 +26,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.tileCollide = false;
 		}
         public override void OnHitPlayer(Player target, Player.HurtInfo info) {
-            if (info.PvP) target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 7)*60);
+            target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 7)*60);
         }
         NPC owner;
 		int Timer;

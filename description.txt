@@ -346,14 +346,21 @@ V0.0.3: Cause to Clash Update
 ~Resprited Tattered and Shadowstitched armor.
 ~Added Sol Chakram, Bomb Rock, Sun's Glare, Sunburn, and Raging Sun Staff.
 ~Enchanted Dirt Clump and Disco Canister no longer count as summon weapons.
+~Fixed issue with bosses not dropping the correct loot.
+~Fixed issue with how the Polandball Mask drops.
+~Nerfed Carnallite Wand heavily.
+~Changed progression of Space Machine Gun.
+~Fixed projectile trail issue with Temple Equalizer.
+~Decreased defense given by Carnallite armor.
+~Decreased use animation of the Carnallite tools.
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
 ~Added Fantastical Finality.
 ~Added Ultima Band.
 ~Made developer weapons craftable.
-~Added Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff, Hollow Dirk,
+~Added Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff, Hollow Knife,
 
-finish wolf and ooze + sabur rex + RAZOR FOR SUMMON DUNGEON SPIKE
+finish adeneb + sabur rex + carnallite fix
 
 
 

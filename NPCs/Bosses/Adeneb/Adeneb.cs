@@ -9,6 +9,7 @@ using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Zylon.Items.Bags;
 
 namespace Zylon.NPCs.Bosses.Adeneb
 {
@@ -82,9 +83,9 @@ namespace Zylon.NPCs.Bosses.Adeneb
 		int angerTimer;
 		int flee;
 		bool transitionSetup;
-		bool drawAura;
+		bool drawAura; //Determines if it should burn the player
 		bool finale;
-		int arenaSize = 800; //1000
+		int arenaTimer;
 		//bool adenebTurn = true;
 		Vector2 dashVelocity;
 		Vector2 tempVector;
@@ -260,6 +261,9 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					if (attackTimer == 2200) {
 						//END OF TRANSITION phase, drawaura
 						drawAura = false;
+						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-1, 1), Main.rand.NextFloat(-9, -7)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_Ankh>());
+						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-1, 3)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_SpikeLower>());
+						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-1, 3)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_SpikeUpper>());
 						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebSunShield>(), NPC.damage/3, 0f);
                     }
                 }
@@ -271,11 +275,14 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						EndAttack();
 						NPC.dontTakeDamage = false;
 						NPC.rotation = 0f;
-                    }
+					}
                 }
 
+				//Animate the arena
+				if (attackTimer > 369) arenaTimer++;
+
 				//REMOVE THIS THIS IS JUST FOR SKIPPING THE TRANSIIOTN 4 TESTING!!!!!!!!!!!!!!!!!!!
-				if (attackTimer < 2200) attackTimer = 2199;
+				//if (attackTimer < 2200) attackTimer = 2199;
 
 				/*phase = 2;
 				prevAttack = -1;
@@ -685,19 +692,22 @@ namespace Zylon.NPCs.Bosses.Adeneb
 
 		float OrbDrawRotation = 0f;
 		float SpikeGlobalDrawRotation = 0f;
-        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
-        {
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) {
 			Texture2D texture = TextureAssets.Npc[Type].Value;
 			Texture2D spikeTextureTop = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Adeneb/Adeneb_SpikeUpper");
 			Texture2D spikeTextureBottom = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Adeneb/Adeneb_SpikeLower");
 			Texture2D ankhTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Adeneb/Adeneb_Ankh");
-			Texture2D auraTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Adeneb/Adeneb_Aura");
+			//Texture2D auraTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Adeneb/Adeneb_Aura");
 			Texture2D deathTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Adeneb/Adeneb_Death");
+
+			Texture2D orangeTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Adeneb/Adeneb_ArenaOrange");
+			Texture2D yellowTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Adeneb/Adeneb_ArenaYellow");
 
 			Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, texture.Height * 0.5f);
 
 			Vector2 spikeOrigin = spikeTextureTop.Size() * 0.5f;
 			Vector2 ankhOrigin = ankhTexture.Size() * 0.5f;
+			Vector2 arenaOrigin = ankhTexture.Size() * 0.5f;
 
 			Vector2 drawPos = NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY);
 			Color color = NPC.GetAlpha(drawColor);
@@ -710,7 +720,28 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			if (cond) spriteBatch.Draw(spikeTextureTop, drawPos + new Vector2(0, -80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
 			if (cond) spriteBatch.Draw(ankhTexture, drawPos + new Vector2(0, -20).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, ankhOrigin, NPC.scale, effects, 0);
 
-			if (drawAura) spriteBatch.Draw(auraTexture, drawPos - new Vector2(439, 425), null, Color.White, 0f, drawOrigin, 2.5f, effects, 0);
+			//if (drawAura) spriteBatch.Draw(auraTexture, drawPos - new Vector2(439, 425), null, Color.White, 0f, drawOrigin, 2.5f, effects, 0);
+			if (phase == 1 && arenaTimer > 0) {
+				int dist = 500;
+				float transitionAlpha = 1f;
+				if (arenaTimer < 150) {
+					dist = 1100-arenaTimer*4;
+					transitionAlpha = arenaTimer/150f;
+				}
+				if (attackTimer > 2200) {
+					dist = 500+(attackTimer-2200)*8;
+					transitionAlpha = 1f-(attackTimer-2200)/120f;
+				}
+
+				for (int i = 0; i < 30; i++) {
+					float speed = arenaTimer*0.5f;
+					Vector2 arenaDrawPos = NPC.Center + new Vector2(0, dist).RotatedBy(MathHelper.ToRadians(speed+(i*12))) - screenPos + new Vector2(0f, NPC.gfxOffY) + new Vector2(texture.Width*1f, texture.Height*1f);
+					spriteBatch.Draw(orangeTexture, arenaDrawPos, null, Color.White*transitionAlpha, 0f, arenaOrigin, 1f, SpriteEffects.None, 0);
+
+					arenaDrawPos = NPC.Center + new Vector2(0, dist+(int)(30*Math.Sin((speed-130f)*Math.PI/20f))).RotatedBy(MathHelper.ToRadians(speed*1.6f+(i*12))) - screenPos + new Vector2(0f, NPC.gfxOffY) + new Vector2(texture.Width*1f, texture.Height*1f);
+					spriteBatch.Draw(yellowTexture, arenaDrawPos, null, Color.White*transitionAlpha, 0f, arenaOrigin, 1f, SpriteEffects.None, 0);
+				}
+			}
 
 			if (finale) {
 				float flash = (float)-Math.Cos((float)attackTimer/20f)/8f + 1.125f;
@@ -729,25 +760,21 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			//ZylonWorldCheckSystem.downedAdeneb = true;
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
-			if (Main.masterMode) {
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.AdenebRelic>(), 1));
-				//npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.>(), 4));
-            }
-			if (Main.expertMode || Main.masterMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.AdenebBag>(), 1));
-			else {
-				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.AdeniteCrumbles>(), 1, 8, 12));
-				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Materials.SearedStone>(), 1, 40, 60));
+			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.AdenebTrophy>(), 10));
 
-				//Only drop these weapons if in Remix or getfixedboi worlds
-				LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.RemixSeed());
-				//LeadingConditionRule leadingConditionRule2 = new LeadingConditionRule(new Conditions.ZenithSeedIsUp());
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.AdenebMask>(), 7).OnFailedRoll(npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.PolandballMask>(), 10))));
+			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Materials.AdeniteCrumbles>(), 1, 8, 12));
+			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Materials.SearedStone>(), 1, 40, 60));
 
-				leadingConditionRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>()));
-				//leadingConditionRule2.OnSuccess(npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>())));
+			LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.RemixSeed());
+			notExpertRule.OnSuccess(leadingConditionRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>())));
+			npcLoot.Add(notExpertRule);
 
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.AdenebMask>(), 7)).OnFailedRoll(npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.PolandballMask>(), 10)));
-            }
-			//npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.AdenebTrophy>(), 10));
+			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AdenebBag>()));
+
+			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeables.Relics.AdenebRelic>()));
+			//npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<MinionBossPetItem>(), 4));
 		}
     }
 }

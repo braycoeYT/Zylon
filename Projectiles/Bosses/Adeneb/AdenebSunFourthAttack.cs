@@ -31,7 +31,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
             //Projectile.ai[1] = Main.rand.Next(3);
 		}
         public override void OnHitPlayer(Player target, Player.HurtInfo info) {
-            if (info.PvP) target.AddBuff(BuffID.OnFire, Main.rand.Next(6, 9)*60);
+            target.AddBuff(BuffID.OnFire, Main.rand.Next(6, 9) * 60);
         }
 		int Timer;
         float dist;
@@ -50,6 +50,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 
                 if (ihatescale < 0.01f) Projectile.Kill();
             }
+            if (!owner.active) Projectile.Kill();
             return owner.ai[0] != 3f;
         }
         public override void AI() {

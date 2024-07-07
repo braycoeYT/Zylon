@@ -9,6 +9,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using Zylon.Items.Bags;
 
 namespace Zylon.NPCs.Bosses.Metelord
 {
@@ -470,18 +471,19 @@ namespace Zylon.NPCs.Bosses.Metelord
             }
         }
         public override void ModifyNPCLoot(NPCLoot npcLoot) {
-			if (Main.masterMode) {
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.MetelordRelic>(), 1));
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.PlasticDinoFigurine>(), 4));
-            }
-			if (Main.expertMode || Main.masterMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.MetelordBag>(), 1));
-			else {
-				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Ores.HaxoniteOre>(), 1, 80, 100));
-				npcLoot.Add(ItemDropRule.Common(ItemID.Meteorite, 1, 15, 30));
-				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accessories.MysticComet>(), 4));
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.MetelordMask>(), 7));
-            }
+			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.MetelordTrophy>(), 10));
+
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.MetelordMask>(), 7));
+			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Ores.HaxoniteOre>(), 1, 80, 100));
+			notExpertRule.OnSuccess(ItemDropRule.Common(ItemID.Meteorite, 1, 15, 30));
+			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Accessories.MysticComet>(), 4));
+			npcLoot.Add(notExpertRule);
+
+			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<MetelordBag>()));
+
+			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeables.Relics.MetelordRelic>()));
+			npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<Items.Pets.PlasticDinoFigurine>(), 4));
 		}
     }
 	internal class MetelordBody : WormBody

@@ -27,7 +27,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.tileCollide = false;
 		}
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
-            if (info.PvP) target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 5)*60);
+            target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 5) * 60);
         }
         public override void AI() {
             if (++Projectile.frameCounter >= 5) {

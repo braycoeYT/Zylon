@@ -6,12 +6,17 @@ using Terraria.Audio;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
+using System;
 using Zylon.NPCs;
 
 namespace Zylon.Projectiles.Bosses.Adeneb
 {
 	public class AdenebPhaseShot : ModProjectile
 	{
+		public override void SetStaticDefaults() {
+			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 15;
+            ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
+        }
 		public override void SetDefaults() {
 			AIType = ProjectileID.Bullet;
 			Projectile.width = 46;
@@ -25,7 +30,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.alpha = 255;
 		}
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
-            if (info.PvP) target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 7)*60);
+            target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 7) * 60);
         }
         public override void AI() {
 			Projectile.scale = 1f + Projectile.ai[0];
@@ -59,10 +64,25 @@ namespace Zylon.Projectiles.Bosses.Adeneb
         public override bool PreDraw(ref Color lightColor) {
 			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 			Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+			Texture2D yellowTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Bosses/Adeneb/AdenebPhaseShot_Yellow");
 			int frameHeight = texture.Height / Main.projFrames[Projectile.type];
 			int spriteSheetOffset = frameHeight * Projectile.frame;
 			Vector2 sheetInsertPosition = (Projectile.Center + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition).Floor();
-			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
+			
+			float color2;
+
+			for (int k = 0; k < Projectile.oldPos.Length; k++)
+            {
+				color2 = (float)Math.Sin((Main.GameUpdateCount-k)/10f)/2f+0.5f;
+                Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + new Vector2(texture.Width / 2f, frameHeight / 2f) + new Vector2(0f, Projectile.gfxOffY) + new Vector2(-10, 10);
+                Color colorAfterEffect = Color.White * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.3f;
+                Main.EntitySpriteDraw(texture, drawPosEffect, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), colorAfterEffect*(1f-(Projectile.alpha/255f)), Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
+				Main.EntitySpriteDraw(yellowTexture, drawPosEffect, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), colorAfterEffect*color2*(1f-(Projectile.alpha/255f)), Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
+			}
+			
+			color2 = (float)Math.Sin(Main.GameUpdateCount/10f)/2f+0.5f;
+			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White*(1f-(Projectile.alpha/255f)), Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
+			Main.EntitySpriteDraw(yellowTexture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White*color2*(1f-(Projectile.alpha/255f)), Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
 			return false;
 		}
 	}   

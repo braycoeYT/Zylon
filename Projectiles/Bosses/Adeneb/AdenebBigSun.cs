@@ -30,7 +30,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.tileCollide = false;
 		}
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
-            if (info.PvP) target.AddBuff(BuffID.OnFire, Main.rand.Next(4, 9)*60);
+            target.AddBuff(BuffID.OnFire, Main.rand.Next(4, 9)*60);
         }
 		int s;
 		int shootCount;

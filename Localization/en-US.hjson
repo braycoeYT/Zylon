@@ -1735,7 +1735,7 @@ Mods: {
 			}
 
 			HollowKnife: {
-				DisplayName: Hollow Dirk
+				DisplayName: Hollow Knife
 				Tooltip:
 					'''
 					Fires a magic sword with every shot
@@ -4539,7 +4539,7 @@ Mods: {
 			HollowKnifeProjInvis.DisplayName: Hollow Knife
 			GildedShuriken.DisplayName: Gilded Shuriken
 			RagingSun.DisplayName: Raging Sun
-			RagingSunProj.DisplayName: Raging Sun Proj
+			RagingSunProj.DisplayName: Raging Sun
 		}
 
 		NPCs: {

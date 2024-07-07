@@ -7,6 +7,7 @@ using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Zylon.Items.Bags;
 
 namespace Zylon.NPCs.Bosses.Jelly
 {
@@ -374,17 +375,18 @@ namespace Zylon.NPCs.Bosses.Jelly
 			});
 		}
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
-			if (Main.masterMode) {
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.JellyRelic>(), 1));
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.EldritchGland>(), 4));
-            }
-			if (Main.expertMode || Main.masterMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.JellyBag>(), 1));
-			else {
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.EerieBell>(), 1, 30, 45));
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.OtherworldlyFang>(), 1, 35, 50));
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.JellyMask>(), 7));
-            }
+			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.JellyTrophy>(), 10));
+
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.JellyMask>(), 7));
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Materials.EerieBell>(), 1, 30, 45));
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Materials.OtherworldlyFang>(), 1, 35, 50));
+			npcLoot.Add(notExpertRule);
+
+			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<JellyBag>()));
+
+			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeables.Relics.JellyRelic>()));
+			npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<Items.Pets.EldritchGland>(), 4));
 		}
     }
 }

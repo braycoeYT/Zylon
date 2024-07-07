@@ -15,7 +15,7 @@ namespace Zylon.Items.Tools
 			Item.width = 32;
 			Item.height = 32;
 			Item.useTime = 22;
-			Item.useAnimation = 22;
+			Item.useAnimation = 36;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 7.3f;
 			Item.value = Item.sellPrice(0, 0, 60, 0);
