@@ -554,7 +554,9 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Food.MudPie>(), 3));
 
 			LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.NotRemixSeed());
-			leadingConditionRule.OnSuccess(notExpertRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>())));
+			notExpertRule.OnSuccess(leadingConditionRule);
+			leadingConditionRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()));
+			
 			npcLoot.Add(notExpertRule);
 
 			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<DirtballBag>()));

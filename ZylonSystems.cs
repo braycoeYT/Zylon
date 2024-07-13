@@ -501,7 +501,7 @@ namespace Zylon
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.Hellforge);
-			recipe.AddIngredient(ItemID.HellstoneBar, 12);
+			recipe.AddIngredient(ModContent.ItemType<Items.Bars.HaxoniteBar>(), 12);
 			recipe.AddIngredient(ItemID.LavaBucket, 3);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
@@ -540,9 +540,9 @@ namespace Zylon
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.ObsidianRose);
-			recipe.AddIngredient(ItemID.Daybloom, 2);
-			recipe.AddIngredient(ItemID.HellstoneBar, 6);
-			recipe.AddIngredient(ModContent.ItemType<Items.Bars.HaxoniteBar>(), 6);
+			recipe.AddRecipeGroup("Zylon:AnyHerb", 2);
+			recipe.AddIngredient(ItemID.HellstoneBar, 8);
+			recipe.AddIngredient(ModContent.ItemType<Items.Bars.HaxoniteBar>(), 8);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 

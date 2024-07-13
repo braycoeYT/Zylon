@@ -344,7 +344,7 @@ V0.0.3: Cause to Clash Update
 ~Reduced amount of Carnallite Bars required to craft Carnallite armor.
 ~Added the mod's first secret seeds, Abyssworld and Autumn!
 ~Resprited Tattered and Shadowstitched armor.
-~Added Sol Chakram, Bomb Rock, Sun's Glare, Sunburn, and Raging Sun Staff.
+~Added Sol Chakram, Bomb Rock, Sun's Glare, Sunburn, Raging Sun Staff, and Disk Drive.
 ~Enchanted Dirt Clump and Disco Canister no longer count as summon weapons.
 ~Fixed issue with bosses not dropping the correct loot.
 ~Fixed issue with how the Polandball Mask drops.
@@ -353,6 +353,7 @@ V0.0.3: Cause to Clash Update
 ~Fixed projectile trail issue with Temple Equalizer.
 ~Decreased defense given by Carnallite armor.
 ~Decreased use animation speed of the Carnallite tools.
+~Completely reworked Adeneb into an awesome boss!
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
 ~Added Fantastical Finality.

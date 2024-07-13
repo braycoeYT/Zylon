@@ -34,7 +34,7 @@ namespace Zylon.Items.Accessories
 				SoundEngine.PlaySound(SoundID.Item27);
 				player.ManaEffect(player.statManaMax2-player.statMana);
 				player.statMana = player.statManaMax2;
-				player.AddBuff(ModContent.BuffType<Buffs.Accessories.ManaRechargeCooldown>(), 30*60);
+				player.AddBuff(ModContent.BuffType<Buffs.Accessories.ManaRechargeCooldown>(), 45*60);
             }
         }
 		public override void AddRecipes() {

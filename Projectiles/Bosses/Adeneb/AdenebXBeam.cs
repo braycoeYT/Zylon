@@ -57,7 +57,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			speed = Projectile.Center - Main.player[Main.npc[ZylonGlobalNPC.adenebBoss].target].Center;
 			speed.Normalize();
 			if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed*-10f, ModContent.ProjectileType<AdenebLaser>(), Projectile.damage, 0);
-			if (Main.expertMode) {
+			if (Main.netMode != NetmodeID.MultiplayerClient) { //if (Main.expertMode) {
 				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed.RotatedBy(MathHelper.ToRadians(20))*-10f, ModContent.ProjectileType<AdenebLaser>(), Projectile.damage, 0);
 				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed.RotatedBy(MathHelper.ToRadians(-20))*-10f, ModContent.ProjectileType<AdenebLaser>(), Projectile.damage, 0);
             }

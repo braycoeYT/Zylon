@@ -212,9 +212,9 @@ Mods: {
 				Description: It COULD cause another extinction, but it chooses not to...
 			}
 
-			MiniDiskling: {
-				DisplayName: Mini Diskling
-				Description: It seems to believe you are its master
+			Diskling: {
+				DisplayName: Diskling
+				Description: D:/Users/admin/Sec/proto/UNSTABLE/DS-39.exe
 			}
 
 			SpookyJellyfish: {
@@ -627,7 +627,7 @@ Mods: {
 				Tooltip:
 					'''
 					After going under 20 mana, completely refills your mana to the maximum
-					30 second cooldown
+					45 second cooldown
 					'''
 			}
 
@@ -731,7 +731,7 @@ Mods: {
 					Killing enemies with magic spawns granite energy wisps for the owner
 					Collect granite energy wisps to boost mana regeneration for a few seconds
 					After going under 20 mana, completely refills your mana to the maximum
-					Mana refill has a 30 second cooldown
+					Mana refill has a 45 second cooldown
 					'''
 			}
 
@@ -2804,6 +2804,15 @@ Mods: {
 				Tooltip: Summons the one and only Dirtboi to follow you
 			}
 
+			DiskDrive: {
+				DisplayName: Disk Drive
+				Tooltip:
+					'''
+					'8TB capacity, but is unknown whether more space is dedicated to programming or strange drawings'
+					Summons a diskling to follow you
+					'''
+			}
+
 			DS_91Controller: {
 				DisplayName: DS-91 Controller
 				Tooltip: Summons a forgetten and malfunctioning model of drone servant to follow you
@@ -4540,6 +4549,7 @@ Mods: {
 			GildedShuriken.DisplayName: Gilded Shuriken
 			RagingSun.DisplayName: Raging Sun
 			RagingSunProj.DisplayName: Raging Sun
+			Diskling.DisplayName: Diskling
 		}
 
 		NPCs: {

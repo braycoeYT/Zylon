@@ -40,7 +40,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			NPC.defense = 18;
 			NPC.lifeMax = (int)(4000*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.HitSound = SoundID.NPCHit4;
-			//NPC.DeathSound = SoundID.NPCDeath14;
+			NPC.DeathSound = SoundID.NPCDeath14;
 			NPC.value = 60000;
 			NPC.aiStyle = -1; //14
 			NPC.knockBackResist = 0f;
@@ -61,7 +61,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
             }
         }
         public override void HitEffect(NPC.HitInfo hit) {
-            if (NPC.life < 1 && (Main.expertMode || Main.masterMode) && !finale) {
+            if (NPC.life < 1 && !finale) { //&& (Main.expertMode || Main.masterMode)
 				//NPC.immortal = true;
 				NPC.life = 1;
 				NPC.dontTakeDamage = true;
@@ -135,7 +135,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			if (Main.getGoodWorld) NPC.damage = (int)(NPC.damage*1.33f);
 
 			//flee code
-			if (Main.player[NPC.target].statLife < 1) {
+			if (Main.player[NPC.target].statLife < 1 && !finale) { //If he despawned during the finale that would be so hilariously sad
 				NPC.TargetClosest(true);
 				if (Main.player[NPC.target].statLife < 1) {
 					//if (flee == 0)
@@ -205,6 +205,8 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					attackFloat = 0f;
 					attackInt = 0;
 					transitionSetup = true;
+
+					if (!Main.expertMode) attackTimer = 2199;
                 }
 				attackTimer++;
 				if (attackTimer < 30) { //slowdown transition pt 1
@@ -270,6 +272,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
                     }
                 }
 				else {
+					if (!Main.expertMode) NPC.velocity *= 0.95f;
 					if (attackTimer == 2320) {
 						//again change the length of this to fit anim
 						phase = 2;
@@ -420,8 +423,8 @@ namespace Zylon.NPCs.Bosses.Adeneb
 				else attackFloat -= 0.0006f*w;
 				NPC.rotation += attackFloat;
 
-				int x = (int)(4+(5*(NPC.life-NPC.lifeMax/2)/(NPC.lifeMax/2)));
-				if (x > 9) x = 9;
+				int x = (int)(6+(7*(NPC.life-NPC.lifeMax/2)/(NPC.lifeMax/2))); //og = 4 + 5 = 9
+				if (x > 13) x = 13;
 
 				if (attackTimer % x == 0 && Main.netMode != NetmodeID.MultiplayerClient) {
 					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(0, 70).RotatedBy(NPC.rotation), new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebLaser>(), NPC.damage/4, 0f);
@@ -450,8 +453,8 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			NPC.velocity.X *= 0.98f;
 
 			//ATTACK
-			int x = (int)(60+(20*(NPC.life-NPC.lifeMax/2)/(NPC.lifeMax/2)));
-			if (x > 80) x = 80;
+			int x = (int)(70+(40*(NPC.life-NPC.lifeMax/2)/(NPC.lifeMax/2))); //og 60 + 20 = 80
+			if (x > 110) x = 110;
 			if (attackTimer >= x) {
 				attackTimer = 0;
 				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, 70).RotatedBy(NPC.rotation), new Vector2(0, 10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebXBeam>(), NPC.damage/4+2, 0f);
@@ -472,10 +475,10 @@ namespace Zylon.NPCs.Bosses.Adeneb
 				attackInt = 6-(int)(4*(NPC.life-NPC.lifeMax/2)/(NPC.lifeMax/2));
 				if (attackInt < 2) attackInt = 2;
             }
-			int x = (int)(60*(NPC.life-NPC.lifeMax/2)/(NPC.lifeMax/2));
+			int x = (int)(60*(NPC.life-NPC.lifeMax/2)/(NPC.lifeMax/2)); //og 60 to 0
 			if (x < 0) x = 0;
 			if (attackTimer >= x) {
-				attackTimer = -120;
+				attackTimer = -180; //og -120
 				if (!Main.expertMode) attackTimer -= 30;
 				if (attackTimer2 <= attackInt) if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(0, 70).RotatedBy(NPC.rotation), new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebBigSun>(), NPC.damage/4+4, 0f);
 				attackTimer2++;
@@ -735,7 +738,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					transitionAlpha = 1f-(attackTimer-2200)/120f;
 				}
 
-				for (int i = 0; i < 30; i++) {
+				if (Main.expertMode || Main.masterMode) for (int i = 0; i < 30; i++) {
 					float speed = arenaTimer*0.5f;
 					Vector2 arenaDrawPos = NPC.Center + new Vector2(0, dist).RotatedBy(MathHelper.ToRadians(speed+(i*12))) - screenPos + new Vector2(0f, NPC.gfxOffY) + new Vector2(texture.Width*1f, texture.Height*1f);
 					spriteBatch.Draw(orangeTexture, arenaDrawPos, null, Color.White*transitionAlpha, 0f, arenaOrigin, 1f, SpriteEffects.None, 0);
@@ -765,12 +768,14 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.AdenebTrophy>(), 10));
 
-			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.AdenebMask>(), 7).OnFailedRoll(npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.PolandballMask>(), 10))));
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.AdenebMask>(), 7)).OnFailedRoll(new CommonDrop(ModContent.ItemType<Items.Vanity.PolandballMask>(), 10));
 			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Materials.AdeniteCrumbles>(), 1, 8, 12));
 			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Materials.SearedStone>(), 1, 40, 60));
 
 			LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.RemixSeed());
-			notExpertRule.OnSuccess(leadingConditionRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>())));
+			notExpertRule.OnSuccess(leadingConditionRule); //.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>())));
+			leadingConditionRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>()));
+			
 			npcLoot.Add(notExpertRule);
 
 			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AdenebBag>()));

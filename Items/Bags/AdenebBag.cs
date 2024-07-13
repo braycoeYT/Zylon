@@ -40,7 +40,7 @@ namespace Zylon.Items.Bags
 			
 			leadingConditionRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>()));
 			
-			itemLoot.Add(new CommonDrop(ItemType<Vanity.AdenebMask>(), 7).OnFailedRoll(itemLoot.Add(new CommonDrop(ItemType<Vanity.PolandballMask>(), 10))));
+			itemLoot.Add(new CommonDrop(ItemType<Vanity.AdenebMask>(), 7)).OnFailedRoll(new CommonDrop(ItemType<Vanity.PolandballMask>(), 10));
 		}
 		public override Color? GetAlpha(Color lightColor) {
 			return Color.Lerp(lightColor, Color.White, 0.4f);
