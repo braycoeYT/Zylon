@@ -261,9 +261,11 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					if (attackTimer == 2200) {
 						//END OF TRANSITION phase, drawaura
 						drawAura = false;
-						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-1, 1), Main.rand.NextFloat(-9, -7)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_Ankh>());
-						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-1, 3)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_SpikeLower>());
-						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-6, 6), Main.rand.NextFloat(-1, 3)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_SpikeUpper>());
+						float rand = 1f;
+						if (Main.rand.NextBool()) rand = -1f;
+						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center - new Vector2(66, 121), new Vector2(Main.rand.NextFloat(-1, 1), Main.rand.NextFloat(-9, -7)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_Ankh>());
+						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-6, -2)*rand, Main.rand.NextFloat(-1, 3)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_SpikeLower>());
+						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(2, 6)*rand, Main.rand.NextFloat(-1, 3)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_SpikeUpper>());
 						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebSunShield>(), NPC.damage/3, 0f);
                     }
                 }

@@ -69,12 +69,11 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			int spriteSheetOffset = frameHeight * Projectile.frame;
 			Vector2 sheetInsertPosition = (Projectile.Center + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition).Floor();
 			
-			float color2;
+			float color2 = (float)Math.Sin(Main.GameUpdateCount/10f)/2f+0.5f;
 
-			for (int k = 0; k < Projectile.oldPos.Length; k++)
-            {
-				color2 = (float)Math.Sin((Main.GameUpdateCount-k)/10f)/2f+0.5f;
-                Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + new Vector2(texture.Width / 2f, frameHeight / 2f) + new Vector2(0f, Projectile.gfxOffY) + new Vector2(-10, 10);
+			for (int k = 0; k < Projectile.oldPos.Length; k++) {
+				//color2 = (float)Math.Sin((Main.GameUpdateCount-k)/10f)/2f+0.5f;
+                Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + new Vector2(texture.Width / 2f, frameHeight / 2f) + new Vector2(0f, Projectile.gfxOffY) - new Vector2(-8, 8); //+ new Vector2(-23, 23);
                 Color colorAfterEffect = Color.White * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.3f;
                 Main.EntitySpriteDraw(texture, drawPosEffect, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), colorAfterEffect*(1f-(Projectile.alpha/255f)), Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
 				Main.EntitySpriteDraw(yellowTexture, drawPosEffect, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), colorAfterEffect*color2*(1f-(Projectile.alpha/255f)), Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);

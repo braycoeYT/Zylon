@@ -352,7 +352,7 @@ V0.0.3: Cause to Clash Update
 ~Changed progression of Space Machine Gun.
 ~Fixed projectile trail issue with Temple Equalizer.
 ~Decreased defense given by Carnallite armor.
-~Decreased use animation of the Carnallite tools.
+~Decreased use animation speed of the Carnallite tools.
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
 ~Added Fantastical Finality.
@@ -360,7 +360,7 @@ V0.0.3: Cause to Clash Update
 ~Made developer weapons craftable.
 ~Added Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff, Hollow Knife,
 
-finish adeneb + sabur rex + carnallite fix
+finish adeneb + sabur rex
 
 
 
