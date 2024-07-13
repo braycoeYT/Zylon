@@ -2808,7 +2808,7 @@ Mods: {
 				DisplayName: Disk Drive
 				Tooltip:
 					'''
-					'8TB capacity, but is unknown whether more space is dedicated to programming or strange drawings'
+					'8TB capacity, but is unknown whether more storage is dedicated to programming or strange drawings'
 					Summons a diskling to follow you
 					'''
 			}
