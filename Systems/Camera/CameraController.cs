@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
+using Terraria.Graphics;
 
 namespace Zylon.Systems.Camera
 {
@@ -83,5 +84,6 @@ namespace Zylon.Systems.Camera
 
             base.ModifyScreenPosition();
         }
+
     }   
 }

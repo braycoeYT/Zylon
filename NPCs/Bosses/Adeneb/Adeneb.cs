@@ -15,6 +15,18 @@ namespace Zylon.NPCs.Bosses.Adeneb
 	[AutoloadBossHead]
     public class Adeneb : ModNPC
 	{
+
+		//NPC.ai[0] is the current "phase"
+		//NPC.ai[1] is the current attack
+		//NPC.ai[2] is the attack timer
+
+		// "Phases":
+		// -1 - Represents the intro.
+		// 0 - Represents phase 1
+		// 1 - Represents the transition phase between 1 and 2
+		// 2 - Represents phase 2
+		// 3 - Represents the true finale, where the boss goes absolutley ape shit.
+
         public override void SetStaticDefaults() {
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
@@ -39,17 +51,18 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			NPC.defense = 18;
 			NPC.lifeMax = (int)(4000*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.HitSound = SoundID.NPCHit4;
-			//NPC.DeathSound = SoundID.NPCDeath14;
 			NPC.value = 60000;
-			NPC.aiStyle = -1; //14
+			NPC.aiStyle = -1;
 			NPC.knockBackResist = 0f;
 			NPC.noGravity = true;
 			NPC.noTileCollide = true;
 			NPC.boss = true;
 			NPC.netAlways = true;
 			NPC.lavaImmune = true;
+			NPC.ai[0] = -1;
 			//Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
         }
+
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.lifeMax = (int)(5200*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 61;
@@ -60,14 +73,14 @@ namespace Zylon.NPCs.Bosses.Adeneb
             }
         }
         public override void HitEffect(NPC.HitInfo hit) {
-            if (NPC.life < 1 && (Main.expertMode || Main.masterMode) && !finale) {
+			// Finale attack trigger, only triggers in expert or master mode.
+            if (NPC.life < 1 && (Main.expertMode || Main.masterMode) && NPC.ai[0] != 3) {
 				NPC.life = 1;
 				NPC.dontTakeDamage = true;
-				finale = true;
+                NPC.ai[0] = 3;
 				EndAttack();
             }
         }
-        int attack;
 		int attackTimer;
 		int attackTimer2;
 		int attackInt;
@@ -75,14 +88,10 @@ namespace Zylon.NPCs.Bosses.Adeneb
 		float attackFloat;
 		float attackFloatFinale;
 		float o;
-		bool attackDone = true;
-		bool introAttackDone;
-		int phase = 1;
 		int angerTimer;
 		int flee;
 		bool transitionSetup;
 		bool drawAura;
-		bool finale;
 		int arenaSize = 800; //1000
 		//bool adenebTurn = true;
 		Vector2 dashVelocity;
@@ -90,13 +99,14 @@ namespace Zylon.NPCs.Bosses.Adeneb
 		Vector2 newVel;
 		Player target;
         public override void AI() {
-			NPC.ai[0] = phase;
-
 			// Always target closest player. As long as the boss remains in sync this should always be true.
 			NPC.TargetClosest();
 			target = Main.player[NPC.target];
-			// Set boss NPC to the 
+			// Set boss NPC to the NPC's ID
 			ZylonGlobalNPC.adenebBoss = NPC.whoAmI;
+
+			// This is a clever way of having to send less data over the network for the boss, freeing up an NPC.ai spot.
+			bool attackDone = (NPC.ai[2] == -1);
 
 			// Phase 1 stat code
 			NPC.damage = 33;
@@ -105,7 +115,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			if (Main.masterMode) { NPC.damage = 92; }
 
 			// Phase 2 stat code
-			if (phase == 2) {
+			if (NPC.ai[0] == 2) {
 				NPC.damage = 45;
 				NPC.defense = 8;
 				if (Main.expertMode) { NPC.damage = 75; }
@@ -113,7 +123,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
             }
 
 			// Enrage conditions.
-			if (!target.ZoneDesert && !target.ZoneUndergroundDesert && !(phase == 1 && NPC.life <= NPC.lifeMax / 2) && !finale)
+			if (!target.ZoneDesert && !target.ZoneUndergroundDesert && !(NPC.ai[0] == 0 && NPC.life <= NPC.lifeMax / 2) && NPC.ai[0] != 3)
 			{
 				// If the enrage conditions are being met, increase the anger value.
 				angerTimer++;
@@ -145,7 +155,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					flee++;
 				}
 				// Otherwise if the boss is in the middle of a stationary attack, despawn if a player is too far away
-				else if ((finale || (phase == 1 && NPC.life <= NPC.lifeMax/2)) && Vector2.Distance(NPC.Center, Main.player[NPC.target].Center) > 1700) {
+				else if ((NPC.ai[0] == 3 || (NPC.ai[0] == 0 && NPC.life <= NPC.lifeMax/2)) && Vector2.Distance(NPC.Center, Main.player[NPC.target].Center) > 1700) {
 					flee++;
                 }
 				else
@@ -161,7 +171,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					if (flee % 10 == 0)
 						newVel.Y += 1;
 					// If the boss is in a stationary attack change flee behaviour.
-					if ((phase == 1 && NPC.life <= NPC.lifeMax/2) || finale)
+					if ((NPC.ai[0] == 0 && NPC.life <= NPC.lifeMax/2) || NPC.ai[0] == 3)
                     {
 						// Don't move if in a stationary attack
 						NPC.velocity = Vector2.Zero;
@@ -179,55 +189,63 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					return;
 				}
 			}
+			// If the boss is still in the first real phase, and it's HP is lower then half, then switch to phase 2 transition stage.
+			if (NPC.ai[0] == 0 && NPC.life <= NPC.lifeMax / 2)
+			{
+                NPC.ai[0] = 1;
+			}
 
-			// If finale is active, run the finale behaviours then stop.
-			if (finale) {
+			// If finale phase is active, run the finale behaviours then stop.
+			if (NPC.ai[0] == 3) {
 				FinaleBehaviour();
 				return;
             }
 
-			// If the boss is still in the first real phase, and it's HP is lower then half, then run phase 2 transition stage.
-			if (phase == 1 && NPC.life <= NPC.lifeMax/2) {
+			// Phase 2 transition stage.
+			if (NPC.ai[0] == 1)
+            {
 				PhaseTransitionBehaviour();
 				return;
-			}
+            }
+			
+			// Boss intro.
+			if (NPC.ai[0] == -1)
+            {
+				IntroBehaviour();
+				return;
+            }
 
 			// If the current attack is marked as done, get ready for the next one.
 			if (attackDone) {
 				// If the intro dash is done or the boss is in phase 2, load up the next attack.
-				if (introAttackDone || phase == 2) {
-					if (phase == 2) {
-						// Phase 2 attack loader.
-						attack = Main.rand.Next(4);
-						while (prevAttack == attack) 
-							attack = Main.rand.Next(4);
+				if (NPC.ai[0] == 0 || NPC.ai[0] == 2) {
+					if (NPC.ai[0] == 2) {
+                        // Phase 2 attack loader.
+                        NPC.ai[1] = Main.rand.Next(4);
+						while (prevAttack == NPC.ai[1])
+							NPC.ai[1] = Main.rand.Next(4);
                     }
-					else if (phase == 1) {
+					else if (NPC.ai[0] == 0) {
 						// Phase 1 attack loader.
-						attack = Main.rand.Next(3);
-						while (prevAttack == attack) 
-							attack = Main.rand.Next(3);
+						/*NPC.ai[1] = Main.rand.Next(3);
+						while (prevAttack == NPC.ai[1])
+							NPC.ai[1] = Main.rand.Next(3);*/
+						NPC.ai[0] = 0;
                     }
 					// Setup new attack.
-					attackDone = false;
-					attackTimer = 0;
-					attackTimer2 = 0;
+					NPC.ai[2] = 0;
 					attackFloat = 0f;
 					attackInt = 0;
-					prevAttack = attack;
+					prevAttack = (int) NPC.ai[1];
+					NPC.netUpdate = true;
                 }
-				else 
-				{
-					// If the intro attack hasn't occured, run it here until it finishes.
-					IntroAttack();
-				}
             }
 			else 
 			{
 				// Otherwise run the attacks themselves.
 				// Phase 1 attacks.
-				if (phase == 1) {
-					switch (attack)
+				if (NPC.ai[0] == 0) {
+					switch (NPC.ai[1])
 					{
 						case 0:
 							SpinLaser();
@@ -242,9 +260,9 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					} 
                 }
 				// Phase 2 attacks.
-				else if (phase == 2)
+				else if (NPC.ai[0] == 2)
                 {
-					switch (attack)
+					switch (NPC.ai[1])
 					{
 						case 0:
 							ShieldSplit();
@@ -615,7 +633,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			NPC.dontTakeDamage = true;
 			if (!transitionSetup)
 			{ //probably screwed up some attack by cutting it off btw
-				attackDone = false;
+                NPC.ai[2] = 0;
 				attackTimer = 0;
 				attackTimer2 = 0;
 				attackFloat = 0f;
@@ -700,8 +718,8 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			{
 				if (attackTimer == 2320)
 				{
-					//again change the length of this to fit anim
-					phase = 2;
+                    //again change the length of this to fit anim
+                    NPC.ai[0] = 2;
 					prevAttack = -1;
 					EndAttack();
 					NPC.dontTakeDamage = false;
@@ -724,43 +742,41 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			}
 		}
 
-		private void IntroAttack()
+        public override bool CanHitPlayer(Player target, ref int cooldownSlot)
         {
-			attackTimer++;
-			if (attackTimer == 1)
-			{
-				float h = -60f;
-				dashVelocity = Vector2.Normalize(NPC.Center - Main.player[NPC.target].Center) * h;
-				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + dashVelocity, dashVelocity, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebPremonition>(), 0, 0, Main.myPlayer, 20);
-			}
-			if (attackTimer < 10)
-			{
-				NPC.velocity /= 2;
-			}
-			if (attackTimer == 60)
-			{
-				dashVelocity.Normalize();
-				NPC.velocity = dashVelocity * 24f;
-				o = 0.1f;
-				if (Main.expertMode) o += 0.025f;
-			}
-			if (attackTimer > 60)
-			{
-				NPC.velocity *= 0.965f; //0.96
-				o *= 0.978f; //0.97
-				NPC.rotation += o * 3f;//*(0.1f+(0.015f*120-attackTimer));
-			}
+			// Stop the boss from hurting players via contact damage if the boss is in any cutscene or transition phases.
+			if (NPC.ai[0] == -1 || NPC.ai[0] == 1 || NPC.ai[0] == 3)
+				return false;
+            return base.CanHitPlayer(target, ref cooldownSlot);
+        }
 
-			if (attackTimer >= 200)
-			{ //ATTACK SETUP
-				attack = Main.rand.Next(3);
-				attackDone = false;
-				attackTimer = 0;
-				attackTimer2 = 0;
-				attackFloat = 0f;
-				attackInt = 0;
-				introAttackDone = true;
-				prevAttack = attack;
+        private void IntroBehaviour()
+        {
+			// Add to the attack progress ai variable.
+            NPC.ai[2]++;
+			if (NPC.ai[2] == 1)
+            {
+				NPC.Center = target.Center + new Vector2(0, 300);
+            }
+
+			bool playIntro = false;
+			if (Main.myPlayer < 255)
+            {
+				// If the distance between the boss and the player is less then 2000 units, set play intro to true.
+				playIntro = (Vector2.Distance(Main.player[Main.myPlayer].Center, NPC.Center) < 2000);
+            }
+			// If the player is in valid range to be part of the intro, run the code.
+			if (playIntro)
+            {
+
+            }
+			// End intro if enough time has passed.
+			if (NPC.ai[2] >= 600)
+			{
+				// Switch to phase 1
+				Systems.Camera.CameraController.ReturnCamera(30);
+                NPC.ai[0] = 0;
+				EndAttack();
 			}
 		}
 
@@ -840,15 +856,11 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			NPC.rotation = MathHelper.ToRadians(degrees);
         }
 		private void EndAttack() {
-			attack = -1;
-			attackTimer = 0;
-			attackTimer2 = 0;
-			attackDone = true;
+			NPC.ai[1] = -1;
+			NPC.ai[2] = -1;
 			attackFloat = 0f;
 			attackInt = 0;
 			start = false;
-			//NPC.ai[0] = 1f; //REMOVE
-			NPC.ai[1] = 0f;
         }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
@@ -876,7 +888,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			Color color = NPC.GetAlpha(drawColor);
 			var effects = SpriteEffects.None;
 
-			bool cond = phase == 1 && !(NPC.life <= NPC.lifeMax/2 && attackTimer >= 2200);
+			bool cond = NPC.ai[0] == 0 && !(NPC.life <= NPC.lifeMax/2 && attackTimer >= 2200);
 
 			if (cond) spriteBatch.Draw(spikeTextureBottom, drawPos + new Vector2(0, 80).RotatedBy(SpikeGlobalDrawRotation), null, color, SpikeGlobalDrawRotation, spikeOrigin, NPC.scale, effects, 0);
 			spriteBatch.Draw(texture, drawPos, null, color, OrbDrawRotation, drawOrigin, NPC.scale, effects, 0);
