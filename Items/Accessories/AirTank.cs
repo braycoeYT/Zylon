@@ -18,14 +18,5 @@ namespace Zylon.Items.Accessories
 			p.blowpipeChargeInc += 0.5f;
 			p.blowpipeChargeShootSpeedMult += 0.1f;
 		}
-		/*public override void AddRecipes() {
-			Recipe recipe = CreateRecipe();
-			recipe.AddRecipeGroup("IronBar", 12);
-			recipe.AddIngredient(ItemID.PixieDust, 10);
-			recipe.AddIngredient(ItemID.SoulofFlight, 15);
-			recipe.AddIngredient(ItemID.Cloud, 18);
-			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.Register();
-		}*/
 	}
 }

@@ -23,7 +23,7 @@ namespace Zylon.Items.Armor
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<TatteredRobe>());
 			recipe.AddIngredient(ModContent.ItemType<Materials.TabooEssence>(), 12);
-			recipe.AddRecipeGroup("Zylon:AnyAdamantiteBar", 10);
+			recipe.AddRecipeGroup("Zylon:AnyAdamantiteBar", 6);
 			recipe.AddIngredient(ItemID.SoulofNight, 5);
 			recipe.AddTile(TileID.Loom);
 			recipe.Register();

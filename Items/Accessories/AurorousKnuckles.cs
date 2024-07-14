@@ -19,8 +19,8 @@ namespace Zylon.Items.Accessories
 			player.aggro += 400;
 			if (player.statLife <= player.statLifeMax2 * 0.5f)
 				player.AddBuff(62, 5, true);
-			if (p.fleKnuCheck) player.statDefense -= 8;
-			p.fleKnuCheck = true;
+			if (p.CHECK_FleshKnuckles) player.statDefense -= 8;
+			p.CHECK_FleshKnuckles = true;
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

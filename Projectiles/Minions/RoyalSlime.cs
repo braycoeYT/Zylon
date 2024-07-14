@@ -50,33 +50,9 @@ namespace Zylon.Projectiles.Minions
 			#endregion
 
 			#region General behavior
-			Vector2 idlePosition = player.Center;
-			//special
-			idlePosition.Y -= 100;
 
-			float minionPositionOffsetX = (10 + Projectile.minionPos * 40) * -player.direction;
-			idlePosition.X += minionPositionOffsetX;
-			
-			Vector2 vectorToIdlePosition = idlePosition - Projectile.Center;
-			float distanceToIdlePosition = vectorToIdlePosition.Length();
-			if (Main.myPlayer == player.whoAmI && distanceToIdlePosition > 2000f)
-			{
-				Projectile.position = idlePosition;
-				Projectile.velocity *= 0.1f;
-				Projectile.netUpdate = true;
-			}
-			float overlapVelocity = 0.04f;
-			for (int i = 0; i < Main.maxProjectiles; i++)
-			{
-				Projectile other = Main.projectile[i];
-				if (i != Projectile.whoAmI && other.active && other.owner == Projectile.owner && Math.Abs(Projectile.position.X - other.position.X) + Math.Abs(Projectile.position.Y - other.position.Y) < Projectile.width) {
-					if (Projectile.position.X < other.position.X) Projectile.velocity.X -= overlapVelocity;
-					else Projectile.velocity.X += overlapVelocity;
+			Projectile.Center = player.Center - new Vector2(0, 64);
 
-					if (Projectile.position.Y < other.position.Y) Projectile.velocity.Y -= overlapVelocity;
-					else Projectile.velocity.Y += overlapVelocity;
-				}
-			}
 			#endregion
 
 			#region Find target
@@ -115,11 +91,6 @@ namespace Zylon.Projectiles.Minions
 			}
 			Projectile.friendly = foundTarget;
 			#endregion
-
-			#region Movement
-
-			Projectile.Center = Main.player[Projectile.owner].Center - new Vector2(0, 64);
-            #endregion
 
             #region Projectile
 			Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 1;

@@ -23,7 +23,7 @@ namespace Zylon.Projectiles.Boomerangs
 			Projectile.timeLeft = 240;
 			Projectile.tileCollide = false;
 			Projectile.usesLocalNPCImmunity = true;
-			Projectile.localNPCHitCooldown = 5;
+			Projectile.localNPCHitCooldown = 8; //og 5
 		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.Daybreak, Main.rand.Next(5, 11)*60);
@@ -66,6 +66,11 @@ namespace Zylon.Projectiles.Boomerangs
 		}
         public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
+			for (int i = 0; i < 6; i++) {
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch);
+				dust.noGravity = true;
+				dust.scale = 1.5f;
+			}
 		}
 	}   
 }

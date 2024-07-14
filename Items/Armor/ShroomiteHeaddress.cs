@@ -19,10 +19,10 @@ namespace Zylon.Items.Armor
 		}
         public override void UpdateEquip(Player player) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			player.GetDamage(DamageClass.Ranged) += 0.08f;
-			player.GetCritChance(DamageClass.Ranged) += 5;
+			//player.GetDamage(DamageClass.Ranged) += 0.08f;
+			//player.GetCritChance(DamageClass.Ranged) += 5;
 			p.blowpipeMaxInc += 50;
-			p.blowpipeChargeInc = 1.25f;
+			p.blowpipeChargeInc = 1f;
         }
         public override void UpdateArmorSet(Player player) {
 			player.setBonus = "Not moving puts you in stealth, increasing ranged ability and reducing chance for enemies to target you";
@@ -32,6 +32,12 @@ namespace Zylon.Items.Armor
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ShroomiteBar, 12);
 			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.ChlorophyteHelmet);
+			recipe.AddIngredient(ItemID.GlowingMushroom, 180);
+			recipe.AddTile(TileID.Autohammer);
 			recipe.Register();
 		}
 	}

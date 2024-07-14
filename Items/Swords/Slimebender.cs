@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Zylon.Items.Materials;
 
 namespace Zylon.Items.Swords
 {
@@ -19,7 +20,7 @@ namespace Zylon.Items.Swords
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 8f;
 			Item.value = Item.sellPrice(0, 35);
-			Item.rare = ItemRarityID.Purple;
+			Item.rare = ModContent.RarityType<BraycoeDev>();
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;
 			Item.useTurn = true;
@@ -47,6 +48,13 @@ namespace Zylon.Items.Swords
 				dust.noGravity = true;
 				dust.scale = 1.5f;
 			}
+		}
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.SlimeBlock, 50);
+			recipe.AddIngredient(ModContent.ItemType<FantasticalFinality>(), 13);
+			recipe.AddTile(TileID.LunarCraftingStation);
+			recipe.Register();
 		}
 	}
 }

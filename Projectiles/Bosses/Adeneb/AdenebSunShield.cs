@@ -27,6 +27,9 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.tileCollide = false;
 			Projectile.hide = true;
 		}
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+            target.AddBuff(BuffID.OnFire, Main.rand.Next(6, 9) * 60);
+        }
 		float ihatescale = 0f;
 		float hpLeft2;
 		bool die;
@@ -39,8 +42,22 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 		int attackTimer2;
 		bool atkCheck;
 		bool ultima;
+		public override bool PreAI() {
+            owner = Main.npc[ZylonGlobalNPC.adenebBoss];
+            if (owner.ai[0] == 3f) {
+				Projectile.timeLeft = 2;
+                ihatescale *= 0.99f;
+                ihatescale -= 0.01f;
+				if (!die2) Projectile.Center = owner.Center;
+				Projectile.rotation += MathHelper.ToRadians(5);
+
+                if (ihatescale < 0.01f) Projectile.Kill();
+            }
+			if (!owner.active) Projectile.Kill();
+            return owner.ai[0] != 3f;
+        }
         public override void AI() {
-			owner = Main.npc[ZylonGlobalNPC.adenebBoss];
+			//owner = Main.npc[ZylonGlobalNPC.adenebBoss];
 			hpLeft2 = (float)owner.life/(float)(owner.lifeMax/2);
 
 			if (!init) {
@@ -53,7 +70,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 				//Projectile.damage = (int)(Projectile.damage*(1.2f-(0.2f*hpLeft2)));
             //}
 
-			if (!(owner.life < 1 || !owner.active)) Projectile.timeLeft = 2; //Active check
+			if (owner.life > 0 && owner.active) Projectile.timeLeft = 2; //Active check
 
 			//Init scale
 			if (!die && !die2) {
@@ -94,7 +111,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 				if (ihatescale < 1.5f || (ihatescale < 2f && Main.getGoodWorld)) ihatescale += 0.01f;
 				else {
 					if (Main.netMode != NetmodeID.MultiplayerClient) for (int x = 0; x < 2; x++) {
-						Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<AdenebSunShieldSplit>(), Projectile.damage, 0f, -1, x);
+						Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<AdenebSunShieldSplit>(), (int)(Projectile.damage*0.66f), 0f, -1, x);
                     }
 					Projectile.Kill();
                 }

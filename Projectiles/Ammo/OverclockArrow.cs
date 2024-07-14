@@ -14,8 +14,13 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
 			AIType = ProjectileID.WoodenArrowFriendly;
 		}
+		bool init;
 		int Timer;
         public override void AI() {
+			if (!init) {
+				if (Main.player[Projectile.owner].magicQuiver) Projectile.extraUpdates = 1;
+				init = true;
+			}
             Timer++;
 			if (Timer % 30 == 29)
 				Projectile.damage += 1;
@@ -24,7 +29,6 @@ namespace Zylon.Projectiles.Ammo
         }
         public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			if (Main.rand.NextFloat() < .2f) Item.NewItem(Projectile.GetSource_FromThis(), Projectile.getRect(), ModContent.ItemType<Items.Ammo.OverclockArrow>());
 		}
 	}   
 }

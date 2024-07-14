@@ -12,11 +12,11 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 	public class SaburRexSwordFollow : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            Main.projFrames[Projectile.type] = 1;
+            Main.projFrames[Projectile.type] = 5;
         }
         public override void SetDefaults() {
-			Projectile.width = 50;
-			Projectile.height = 50;
+			Projectile.width = 54;
+			Projectile.height = 54;
 			//Projectile.hostile = true;
 			Projectile.aiStyle = -1;
 			Projectile.timeLeft = 9999;
@@ -30,7 +30,7 @@ namespace Zylon.Projectiles.Bosses.SaburRex
         public override void AI() {
 			NPC owner = Main.npc[ZylonGlobalNPC.saburBoss];
 			if (owner.active && owner.life > 0) Projectile.timeLeft = 2;
-			Projectile.position = owner.position - new Vector2(18*owner.direction, 0);
+			Projectile.position = owner.position - new Vector2(12*owner.direction, 0); //og 18
 			Projectile.frame = (int)owner.ai[1];
 			Projectile.direction = owner.direction;
 			Projectile.rotation = MathHelper.ToRadians(135);

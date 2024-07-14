@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,9 +37,42 @@ namespace Zylon.Projectiles.Whips
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			Main.player[Projectile.owner].MinionAttackTargetNPC = target.whoAmI;
 			Projectile.damage = (int)(Projectile.damage * 0.75f); // Multihit penalty. Decrease the damage the more enemies the whip hits.
-			if (Main.myPlayer == Projectile.owner && target.type != NPCID.TargetDummy) Main.player[Projectile.owner].AddBuff(ModContent.BuffType<Buffs.Whips.GieguePsiBoost>(), 420);
+			if (Main.myPlayer == Projectile.owner) {
+				if (target.type != NPCID.TargetDummy) {
+					int rand = Main.rand.Next(3, 7);
+					Main.player[Projectile.owner].statMana += rand;
+					Main.player[Projectile.owner].ManaEffect(rand);
+				}
+			}
 		}
-
+		int atkTimer;
+        public override void AI() {
+            atkTimer++;
+			if (atkTimer == 28 && Main.player[Projectile.owner].statMana >= 40) {
+				Main.player[Projectile.owner].statMana -= 40;
+				int atk = Main.rand.Next(3);
+				atk = 2; //This kinda looks better with just one attack.
+				switch (atk) {
+					case 0:
+						SoundEngine.PlaySound(SoundID.Item116, Projectile.Center);
+						for (int i = 0; i < 3; i++)
+							Projectile.NewProjectile(Projectile.GetSource_FromThis(), headPos, new Vector2(Main.rand.Next(-6, 7), -4), ModContent.ProjectileType<Tomes.PKFire1>(), (int)(Projectile.damage*0.8f), Projectile.knockBack*0.35f, Projectile.owner, 1f);
+						break;
+					case 1:
+						SoundEngine.PlaySound(SoundID.Item43, Projectile.Center);
+						for (int i = 0; i < 3; i++) {
+							Projectile.NewProjectile(Projectile.GetSource_FromThis(), headPos, Projectile.DirectionTo(Main.MouseWorld)*(13-i*3), ModContent.ProjectileType<GieguePKBeam>(), (int)(Projectile.damage*0.9f), Projectile.knockBack*0.75f, Projectile.owner);
+						}
+						break;
+					case 2:
+						SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
+						for (int i = 0; i < 12; i++) {
+							Projectile.NewProjectile(Projectile.GetSource_FromThis(), headPos, new Vector2(0, 6).RotatedBy(MathHelper.ToRadians(i*30)), ModContent.ProjectileType<GiegueBrainCyclone>(), (int)(Projectile.damage*0.6f), Projectile.knockBack*0.5f, Projectile.owner);
+						}
+						break;
+				}
+			}
+        }
         // This method draws a line between all points of the whip, in case there's empty space between the sprites.
         private void DrawLine(List<Vector2> list)
         {
@@ -61,7 +95,7 @@ namespace Zylon.Projectiles.Whips
                 pos += diff;
             }
         }
-
+		Vector2 headPos;
         public override bool PreDraw(ref Color lightColor) {
 			List<Vector2> list = new List<Vector2>();
 			Projectile.FillWhipControlPoints(Projectile, list);
@@ -98,6 +132,8 @@ namespace Zylon.Projectiles.Whips
 					Projectile.GetWhipSettings(Projectile, out float timeToFlyOut, out int _, out float _);
 					float t = Timer / timeToFlyOut;
 					scale = MathHelper.Lerp(0.5f, 1.5f, Utils.GetLerpValue(0.1f, 0.7f, t, true) * Utils.GetLerpValue(0.9f, 0.7f, t, true));
+
+					headPos = pos;
 				}
 				else if (i > 10) {
 					// Third segment

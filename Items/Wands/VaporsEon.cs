@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Zylon.Items.Materials;
 
 namespace Zylon.Items.Wands
 {
@@ -22,7 +23,7 @@ namespace Zylon.Items.Wands
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 5.1f;
 			Item.value = Item.sellPrice(0, 35);
-			Item.rare = ItemRarityID.Purple;
+			Item.rare = ModContent.RarityType<BraycoeDev>();
 			Item.autoReuse = true;
 			Item.useTurn = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Wands.VaporsEonBlast>();
@@ -54,5 +55,12 @@ namespace Zylon.Items.Wands
 			xline.OverrideColor = new Color(116, 179, 237);
 			list.Add(xline);
         }
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemID.WaterBucket, 2);
+			recipe.AddIngredient(ModContent.ItemType<FantasticalFinality>(), 13);
+			recipe.AddTile(TileID.LunarCraftingStation);
+			recipe.Register();
+		}
     }
 }

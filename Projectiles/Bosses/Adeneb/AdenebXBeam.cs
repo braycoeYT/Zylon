@@ -24,6 +24,9 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = false;
 		}
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+            target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 6) * 60);
+        }
         public override void AI() {
 			NPC owner = Main.npc[ZylonGlobalNPC.adenebBoss];
 			float hpLeft = (float)owner.life/(float)(owner.lifeMax);
@@ -54,7 +57,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			speed = Projectile.Center - Main.player[Main.npc[ZylonGlobalNPC.adenebBoss].target].Center;
 			speed.Normalize();
 			if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed*-10f, ModContent.ProjectileType<AdenebLaser>(), Projectile.damage, 0);
-			if (Main.expertMode) {
+			if (Main.netMode != NetmodeID.MultiplayerClient) { //if (Main.expertMode) {
 				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed.RotatedBy(MathHelper.ToRadians(20))*-10f, ModContent.ProjectileType<AdenebLaser>(), Projectile.damage, 0);
 				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, speed.RotatedBy(MathHelper.ToRadians(-20))*-10f, ModContent.ProjectileType<AdenebLaser>(), Projectile.damage, 0);
             }

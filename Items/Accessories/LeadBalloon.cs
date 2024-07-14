@@ -19,10 +19,10 @@ namespace Zylon.Items.Accessories
 			player.maxFallSpeed += 6f;
 			player.jumpBoost = true;
 			player.noFallDmg = true;
-			if (!p.balloonCheck) { 
+			if (!p.CHECK_Balloon) { 
 				p.blowpipeChargeInc += 0.2f;
 			}
-			p.balloonCheck = true;
+			p.CHECK_Balloon = true;
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

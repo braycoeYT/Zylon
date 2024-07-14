@@ -5,6 +5,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
 using System;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+using Terraria.GameContent;
 
 namespace Zylon.NPCs.Forest
 {
@@ -65,6 +68,19 @@ namespace Zylon.NPCs.Forest
 			NPC.frame.Y = (frameID % 4)*60;
 			if (NPC.velocity.X == 0) NPC.frame.Y = 0;
 			if (NPC.velocity.Y != 0) NPC.frame.Y = 240;
+        }
+		public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) {
+			Texture2D texture = TextureAssets.Npc[Type].Value;
+			if (WorldGen.currentWorldSeed.ToLower() == "autumn") texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Forest/SaplingWarrior_Autumn");
+
+			Vector2 drawPos = NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY);
+			Color color = NPC.GetAlpha(drawColor);
+			var effects = SpriteEffects.None;
+			if (NPC.direction == 1) effects = SpriteEffects.FlipHorizontally;
+			Vector2 drawOrigin = new Vector2(texture.Width*0.5f, texture.Height*0.1f);
+
+			spriteBatch.Draw(texture, drawPos, NPC.frame, color, 0f, drawOrigin, NPC.scale, effects, 0);
+			return false;
         }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {

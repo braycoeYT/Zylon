@@ -5,6 +5,11 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using static Terraria.ModLoader.ModContent;
+using Terraria.GameInput;
+using Terraria.Audio;
+using Zylon.Items.Accessories;
+using Terraria.GameContent;
+using Terraria.Net;
 
 namespace Zylon
 {
@@ -34,18 +39,18 @@ namespace Zylon
 		public bool nightmareCatcher;
 		public bool shadowflameMagic;
 		public bool metelordExpert;
-		public bool stncheck;
-		public bool st2check;
+		public bool CHECK_SharkToothNecklace;
+		public bool CHECK_SaberTooth;
 		public bool discoCanister;
 		public bool hexNecklace;
 		public bool shivercrown;
 		public bool bloodContract;
-		public bool balloonCheck;
+		public bool CHECK_Balloon;
 		public bool rootGuard;
 		public bool leafBracer;
 		public bool leafBracerTempBool;
 		public bool friendshipBracelet;
-		public bool fleKnuCheck;
+		public bool CHECK_FleshKnuckles;
 		public bool glassArmor;
 		public bool bigOlBouquet;
 		public bool searedFlame;
@@ -54,6 +59,30 @@ namespace Zylon
 		public bool neutronTracers;
 		public bool runeofMultiplicity;
 		public bool sparkingCore;
+		public bool doublePluggedCord;
+		public bool dirtballExpertVanity;
+		public bool golemEyeEffect;
+		public bool slimePrinceArmor;
+		public bool harpysCrest;
+		public bool slimePendant;
+		public bool livingWoodSetBonus;
+		public bool sunFlower;
+		public bool continuumWarper;
+		public bool illusoryBulletPolish;
+		public bool theRegurgitator;
+		public bool maraudersKit;
+		public bool ammoSling;
+		public bool roundmastersKit;
+		public bool succulentSap;
+		public bool CHECK_ManaBlossom;
+		public bool ultimaBand;
+		public bool CHECK_SlimyShell;
+		public bool CHECK_MysticComet;
+		public bool etherealGasp;
+		public bool CHECK_EtherealGasp;
+		public bool supernaturalComet;
+		public bool fixCooldownIgnore;
+		public bool vengefulSpirit;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -76,6 +105,13 @@ namespace Zylon
 		public int sojDamageCount;
 		public int sojCooldown;
 		public float metecoreFloat = 1f;
+		public int excalipoorPower = 1;
+		public int emeraldWhipNum;
+		public int harpysCrestCooldown;
+		public int livingWhipNum;
+		public int livingWhipTimer;
+		public float summonCrit;
+		public float summonCritBoost;
 		public override void ResetEffects() {
 			Heartdaze = false;
 			outofBreath = false;
@@ -101,17 +137,17 @@ namespace Zylon
 			nightmareCatcher = false;
 			shadowflameMagic = false;
 			metelordExpert = false;
-			stncheck = false;
-			st2check = false;
+			CHECK_SharkToothNecklace = false;
+			CHECK_SaberTooth = false;
 			discoCanister = false;
 			hexNecklace = false;
 			shivercrown = false;
 			bloodContract = false;
-			balloonCheck = false;
+			CHECK_Balloon = false;
 			rootGuard = false;
 			leafBracer = false;
 			friendshipBracelet = false;
-			fleKnuCheck = false;
+			CHECK_FleshKnuckles = false;
 			glassArmor = false;
 			bigOlBouquet = false;
 			searedFlame = false;
@@ -120,6 +156,29 @@ namespace Zylon
 			neutronTracers = false;
 			runeofMultiplicity = false;
 			sparkingCore = false;
+			doublePluggedCord = false;
+			dirtballExpertVanity = false;
+			golemEyeEffect = false;
+			slimePrinceArmor = false;
+			harpysCrest = false;
+			slimePendant = false;
+			livingWoodSetBonus = false;
+			sunFlower = false;
+			continuumWarper = false;
+			illusoryBulletPolish = false;
+			theRegurgitator = false;
+			maraudersKit = false;
+			ammoSling = false;
+			roundmastersKit = false;
+			succulentSap = false;
+			CHECK_ManaBlossom = false;
+			ultimaBand = false;
+			CHECK_SlimyShell = false;
+			CHECK_MysticComet = false;
+			etherealGasp = false;
+			CHECK_EtherealGasp = false;
+			supernaturalComet = false;
+			vengefulSpirit = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -133,6 +192,9 @@ namespace Zylon
 			blowpipeChargeRetain = 0f;
 			//blowpipeMaxOverflow = 1.5f;
 			blowpipeMinShootSpeed = 0f;
+
+			summonCrit = 0f;
+			summonCritBoost = 0f;
 		}
 		public override void UpdateDead() {
 			Heartdaze = false;
@@ -140,12 +202,53 @@ namespace Zylon
 			shroomed = false;
 			deadlyToxins = false;
 			elemDegen = false;
+			fixCooldownIgnore = false;
 			hitTimer30 = 0;
 			sojDamageCount = 0;
 			sojCooldown = 0;
 			metecoreFloat = 1f;
+			emeraldWhipNum = 0;
+			harpysCrestCooldown = 0;
+			livingWhipNum = 0;
+			livingWhipTimer = 0;
 		}
 		public override void UpdateBadLifeRegen() {
+			//Update timers here, I guess.
+			if (emeraldWhipNum > 0) {
+				emeraldWhipNum--;
+			}
+			if (harpysCrestCooldown > 0) {
+				harpysCrestCooldown--;
+				if (harpysCrestCooldown % 60 == 0 && harpysCrestCooldown != 0) {
+					float distanceFromTarget = 100f;
+					Vector2 targetCenter = Player.position;
+					bool foundTarget = false;
+
+					if (!foundTarget) {
+						for (int i = 0; i < Main.maxNPCs; i++) {
+							NPC npc = Main.npc[i];
+							
+							if (npc.CanBeChasedBy()) {
+								float between = Vector2.Distance(npc.Center, Player.Center);
+								bool closest = Vector2.Distance(Player.Center, targetCenter) > between;
+								bool inRange = between < distanceFromTarget;
+								bool lineOfSight = Collision.CanHitLine(Player.position, Player.width, Player.height, npc.position, npc.width, npc.height);
+								bool closeThroughWall = false; //between < 100f;
+							
+								if (((closest && inRange) || !foundTarget) && (lineOfSight || closeThroughWall)) {
+									distanceFromTarget = between;
+									targetCenter = npc.Center;
+									foundTarget = true;
+								}
+							}
+						}
+					}
+					Vector2 projDir = Vector2.Normalize(targetCenter - Player.Center) * 13f;
+					if (!foundTarget) projDir = Vector2.Normalize(targetCenter - Main.MouseWorld) * 13f;
+					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, projDir, ModContent.ProjectileType<Projectiles.Accessories.HarpysCrestProj>(), 20, 5f, Main.myPlayer);
+				}
+			}
+
 			if (Heartdaze) {
 				if (Player.lifeRegen > 0)
 					Player.lifeRegen = 0;
@@ -185,9 +288,28 @@ namespace Zylon
 			}
 			hitTimer30 -= 1;
 			sojCooldown -= 1;
+
+			if (succulentSap) {
+				for (int i = 0; i < Player.MaxBuffs; i++) {
+					if (Player.buffType[i] == BuffID.ManaSickness && Player.buffTime[i] > 1)
+						Player.buffTime[i]--;
+				}
+			}
+
+			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") { //Double debuff power in Abyssworld seed
+				if (Player.lifeRegen < 0) {
+					Player.lifeRegen *= 2;
+				}
+			}
 		}
         public override bool CanConsumeAmmo(Item weapon, Item ammo) {
 			if (neutronJacket && Main.rand.NextFloat() < .15f) return false;
+			if (continuumWarper && Main.rand.NextFloat() < .85f) return false;
+			if (illusoryBulletPolish && Main.rand.NextFloat() < .2f && (weapon.useAmmo == AmmoID.Bullet || weapon.useAmmo == ItemType<Items.Ammo.AdeniteShrapnel>())) return false;
+			if (theRegurgitator && Main.rand.NextFloat() < .2f && weapon.useAmmo == AmmoID.Dart) return false;
+			if (maraudersKit && Main.rand.NextFloat() < .1f) return false;
+			if (ammoSling && Main.rand.NextFloat() < .25f) return false;
+			if (roundmastersKit && Main.rand.NextFloat() < .4f) return false;
             return true;
         }
         public override void UpdateEquips() {
@@ -231,9 +353,10 @@ namespace Zylon
 				Player.npcTypeNoAggro[NPCType<NPCs.Forest.MechanicalSlime>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Forest.OrangeSlime>()] = true;
 				//Player.npcTypeNoAggro[NPCType<NPCs.Ocean.CyanSlime>()] = true;
-				//Player.npcTypeNoAggro[NPCType<NPCs.Sky.StarpackSlime>()] = true;
+				Player.npcTypeNoAggro[NPCType<NPCs.Sky.Stratoslime>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Snow.LivingMarshmallow>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Snow.RoastedLivingMarshmallow>()] = true;
+				Player.npcTypeNoAggro[NPCType<NPCs.ElemSlime>()] = true;
             }
 			if (leafBracer) {
 				if (!Player.HasBuff(BuffID.PotionSickness) && !leafBracerTempBool) leafBracerTempBool = true;
@@ -242,9 +365,14 @@ namespace Zylon
 					leafBracerTempBool = false;
                 }
             }
+			Player.statDefense += livingWhipNum; //The number of active living whip spirits.
+
+			/*if (WorldGen.currentWorldSeed.ToLower() == "autumn") {
+				if (Player.armor[0] == )
+				Player.ArmorSetDye;
+			}*/
         }
 		float trueMeleeBoost;
-		float critBoost;
 		public override void ModifyHitNPCWithItem(Item item, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Item, consider using ModifyHitNPC instead */
 		{
 			modifiers.CritDamage += critExtraDmg;
@@ -253,11 +381,19 @@ namespace Zylon
 			if (trueMelee15) trueMeleeBoost += 0.15f;
 			if (neutronHood) trueMeleeBoost += 0.18f;
 			modifiers.SourceDamage *= trueMeleeBoost;
+			modifiers.CritDamage += critExtraDmg;
+
+			if ((item.DamageType == DamageClass.Summon || item.DamageType == DamageClass.SummonMeleeSpeed) && Main.rand.NextFloat() < summonCrit) {
+				modifiers.SetCrit(); //In case some mentally insane mod does this
+			}
 
 		}
 		public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Projectile, consider using ModifyHitNPC instead */
 		{
 			modifiers.CritDamage += critExtraDmg;
+			if ((proj.DamageType == DamageClass.Summon || proj.DamageType == DamageClass.SummonMeleeSpeed) && Main.rand.NextFloat() < summonCrit) {
+				modifiers.SetCrit();
+			}
 		}
 		public override void OnHitNPCWithItem(Item item, NPC target, NPC.HitInfo hit, int damageDone)
 		{
@@ -286,6 +422,26 @@ namespace Zylon
 					}
 					else CombatText.NewText(Player.getRect(), Color.Cyan, sojDamageCount);
 				}
+				if (Main.rand.NextBool(10) && !proj.minion && proj.DamageType == DamageClass.SummonMeleeSpeed) {
+					if (vengefulSpirit) {
+						int buffID = 0;
+						switch (Main.rand.Next(4)) {
+							case 0:
+								buffID = BuffID.OnFire;
+								break;
+							case 1:
+								buffID = BuffID.Poisoned;
+								break;
+							case 2:
+								buffID = BuffID.Confused;
+								break;
+							case 3:
+								buffID = BuffID.Frostburn;
+								break;
+						}
+						target.AddBuff(buffID, Main.rand.Next(7, 15)*60);
+					}
+				}
 			}
 
 			if (crit) {
@@ -293,8 +449,8 @@ namespace Zylon
 			}
 			if (!isDummy && Main.myPlayer == Player.whoAmI) {
 				if (TrueMelee) {
-					if (diskbringerSet)
-						DiskiteBuffs(90, Player);
+					/*if (diskbringerSet)
+						DiskiteBuffs(90, Player);*/
 					if (nightmareCatcher && Main.rand.NextFloat() < .2f) {
 						int y = 0;
 						for (int x = 0; x < Main.maxItems; x++) {
@@ -311,8 +467,8 @@ namespace Zylon
 					}
 				} else {
 					// To encourage more true melee play, this only has a 75% chance of applying instead of 100
-					if (diskbringerSet)
-						DiskiteBuffs(60, Player, 75);
+					/*if (diskbringerSet)
+						DiskiteBuffs(60, Player, 75);*/
 					if (nightmareCatcher && Main.rand.NextFloat() < .07f) {
 						int y = 0;
 						for (int x = 0; x < Main.maxItems; x++) {
@@ -327,6 +483,16 @@ namespace Zylon
 							if (proj.CritChance < Main.rand.NextFloat(30f, 130f))
 								Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-9, -5)), ProjectileType<Projectiles.Accessories.BloodContractProj>(), 0, 0, Main.myPlayer);
 					}
+				}
+				if (crit) {
+					if (golemEyeEffect) {
+						if (proj != null) {
+							if (proj.type != ModContent.ProjectileType<Projectiles.Accessories.GolemEyeProj>()) for (int i = 0; i < Main.rand.Next(1, 4); i++)
+							Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center - new Vector2(Main.rand.Next(-40, 41), 600), new Vector2(Main.rand.NextFloat(-2f, 2f), 20), ModContent.ProjectileType<Projectiles.Accessories.GolemEyeProj>(), 100, 0f, Main.myPlayer);
+						}
+						else for (int i = 0; i < Main.rand.Next(1, 4); i++)
+							Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center - new Vector2(Main.rand.Next(-40, 41), 600), new Vector2(Main.rand.NextFloat(-2f, 2f), 20), ModContent.ProjectileType<Projectiles.Accessories.GolemEyeProj>(), 100, 0f, Main.myPlayer);
+					}	
 				}
 				if (bloodVial && Main.rand.NextFloat() < .1f)
 					Player.Heal(1);
@@ -353,6 +519,16 @@ namespace Zylon
 					if (proj.DamageType == DamageClass.Magic || proj.DamageType == DamageClass.MagicSummonHybrid)
 						Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.SparkingCoreProj>(), 0, 0f, Player.whoAmI);
             }
+			if ((etherealGasp || supernaturalComet) && target.life < 1 && Player.whoAmI == Main.myPlayer && Main.rand.NextFloat() < .15f && !Player.HasBuff(BuffType<Buffs.Accessories.Possessed>())) {
+				if (item != null)
+					if (item.DamageType == DamageClass.Magic || item.DamageType == DamageClass.MagicSummonHybrid)
+						Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.EtherealGaspProj>(), 0, 0f, Player.whoAmI);
+				if (proj != null)
+					if (proj.DamageType == DamageClass.Magic || proj.DamageType == DamageClass.MagicSummonHybrid)
+						Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.EtherealGaspProj>(), 0, 0f, Player.whoAmI);
+            }
+			if (slimePendant) target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11)*60);
+			if (livingWoodSetBonus) target.AddBuff(BuffID.DryadsWardDebuff, Main.rand.Next(2, 5)*60);
 		}
 		public void OnHitPVPGlobal(Item item, Projectile proj, Player target, int damage, bool crit, bool TrueMelee) {
 			hitTimer30 = 1800;
@@ -379,16 +555,26 @@ namespace Zylon
 				critCount++;
 			}
 			if (TrueMelee) {
-				if (diskbringerSet)
-					DiskiteBuffs(90, Player);
+				/*if (diskbringerSet)
+					DiskiteBuffs(90, Player);*/
 				if (glazedLens && crit)
 					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.GlazedLensProj>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
 			} else {
 				// To encourage more true melee play, this only has a 75% chance of applying instead of 100
-				if (diskbringerSet)
-					DiskiteBuffs(60, Player, 75);
+				/*if (diskbringerSet)
+					DiskiteBuffs(60, Player, 75);*/
 				if (glazedLens && crit)
 					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.GlazedLensProj>(), 20, 5f, Main.myPlayer, proj.CritChance);
+			}
+			if (crit) {
+				if (golemEyeEffect) {
+					if (proj != null) {
+						if (proj.type != ModContent.ProjectileType<Projectiles.Accessories.GolemEyeProj>()) for (int i = 0; i < Main.rand.Next(1, 4); i++)
+						Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center - new Vector2(Main.rand.Next(-40, 41), 480), new Vector2(Main.rand.NextFloat(-2f, 2f), 20), ModContent.ProjectileType<Projectiles.Accessories.GolemEyeProj>(), 100, 0f, Main.myPlayer);
+					}
+					else for (int i = 0; i < Main.rand.Next(1, 4); i++)
+						Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center - new Vector2(Main.rand.Next(-40, 41), 480), new Vector2(Main.rand.NextFloat(-2f, 2f), 20), ModContent.ProjectileType<Projectiles.Accessories.GolemEyeProj>(), 100, 0f, Main.myPlayer);
+				}	
 			}
 			if (bloodVial && Main.rand.NextFloat() < .1f)
 				Player.Heal(1);
@@ -398,8 +584,9 @@ namespace Zylon
 			{
 				Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.MetecoreSpirit>(), 0, 0, Main.myPlayer);
 			}
+			if (slimePendant) target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11)*60);
 		}
-		public void DiskiteBuffs(int Bufftime, Player player) {
+		/*public void DiskiteBuffs(int Bufftime, Player player) {
 			switch (Main.rand.Next(3)) {
 				case 0:
 					player.AddBuff(BuffType<Buffs.Armor.AdenebOffense>(), Bufftime);
@@ -411,28 +598,26 @@ namespace Zylon
 					player.AddBuff(BuffType<Buffs.Armor.AdenebAgility>(), Bufftime);
 					return;
             }
-		}
-		public void DiskiteBuffs(int Bufftime, Player player, int PercentChance) {
+		}*/
+		/*public void DiskiteBuffs(int Bufftime, Player player, int PercentChance) {
 			if (Main.rand.Next(1, 100) <= PercentChance)
 				DiskiteBuffs(Bufftime, player);
-        }
-		public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo)
-		{
-			if (rootGuard && Player.whoAmI == Main.myPlayer) for (int x = 0; x < 3; x++)
-				{ //FINISH
-					int pos = Main.rand.Next(16, 49);
-					if (Main.rand.NextBool()) pos *= -1;
-					//Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + new Vector2(pos, -16), Vector2.Zero, ProjectileType<Projectiles.Accessories.RootGuardProj>(), 10, 2f, Main.myPlayer);
-				}
+        }*/
+		public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo) {
+			if (rootGuard && Player.whoAmI == Main.myPlayer) for (int x = 0; x < 3; x++) {
+				int pos = Main.rand.Next(32, 65);
+				if (Main.rand.NextBool()) pos *= -1;
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + new Vector2(pos, -12), Vector2.Zero, ProjectileType<Projectiles.Accessories.RootGuardProj>(), 10, 0f, Main.myPlayer);
+			}
+			if (harpysCrest) harpysCrestCooldown = 210;
 		}
-		public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo)
-		{
-			if (rootGuard && Player.whoAmI == Main.myPlayer) for (int x = 0; x < 3; x++)
-				{ //FINISH
-					int pos = Main.rand.Next(32, 65);
-					if (Main.rand.NextBool()) pos *= -1;
-					Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + new Vector2(pos, -12), Vector2.Zero, ProjectileType<Projectiles.Accessories.RootGuardProj>(), 10, 0f, Main.myPlayer);
-				}
+		public override void OnHitByProjectile(Projectile proj, Player.HurtInfo hurtInfo) {
+			if (rootGuard && Player.whoAmI == Main.myPlayer) for (int x = 0; x < 3; x++) {
+				int pos = Main.rand.Next(32, 65);
+				if (Main.rand.NextBool()) pos *= -1;
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center + new Vector2(pos, -12), Vector2.Zero, ProjectileType<Projectiles.Accessories.RootGuardProj>(), 10, 0f, Main.myPlayer);
+			}
+			if (harpysCrest) harpysCrestCooldown = 210;
 		}
 		/*public override void OnHitByNPC(NPC npc, int damage, bool crit) {
             if ((npc.type == NPCType<NPCs.Bosses.Adeneb.Adeneb_SpikeRing>() || npc.type == NPCType<NPCs.Bosses.Adeneb.Adeneb_Center>()) && !Player.noKnockback) {
@@ -485,12 +670,103 @@ namespace Zylon
 			//	itemDrop = ItemType<Items.Blowpipes.Shellshocker>();
         }
         public override void PostUpdateEquips() {
+			if (GetInstance<ZylonConfig>().summonNaturalCrit) {
+				summonCrit = Player.GetCritChance(DamageClass.Generic)/100f + summonCritBoost;
+			}
             if (runeofMultiplicity) { //Don't move this anywhere else, otherwise it might not work correctly
 				int dupli = Player.maxMinions - 1;
 				if (dupli > 3) dupli = 3;
 				Player.maxMinions += dupli;
 				//Main.NewText((Player.maxMinions-dupli)+" --> "+Player.maxMinions); //Testing
             }
+			if (Player.HasBuff(BuffType<Buffs.Accessories.Possessed>())) {
+				if (etherealGasp) {
+					Player.GetDamage(DamageClass.Magic) += 0.33f;
+					Player.manaCost += 0.175f;
+				}
+				else if (supernaturalComet) {
+					Player.GetDamage(DamageClass.Magic) += 0.2f;
+					Player.manaCost += 0.1f;
+				}
+			}
+			if (fixCooldownIgnore) {
+				for (int i = 0; i < Player.MaxBuffs; i++) {
+					if (Player.buffType[i] == BuffID.PotionSickness && Player.buffTime[i] >= 2025) {
+						if (Player.pStone) Player.buffTime[i] = 2025;
+						else Player.buffTime[i] = 2700;
+
+						fixCooldownIgnore = false;
+					}
+				}
+			}
+			if ((Player.armor[2].type == ItemType<Items.Armor.NeutronBooster>() && Player.armor[12].type == 0) || Player.armor[12].type == ItemType<Items.Armor.NeutronBooster>()) {
+				if (Player.velocity.Length() > 0.01f && !Player.mount.Active) {
+					float size = Player.velocity.Length()*0.5f;
+					if (size > 2f) size = 2f;
+					for (int i = 0; i < 3; i++) {
+						Dust dust = Dust.NewDustDirect(Player.position + new Vector2(5+Player.direction*2, 38) + Player.velocity, 1, 1, DustID.Vortex);
+						dust.velocity.X = Player.velocity.X*-0.5f;
+						dust.velocity.Y = Player.velocity.Y*-0.5f;
+						dust.scale *= size*0.25f + Main.rand.Next(-30, 31) * 0.01f;
+					}
+				}
+			}
+			/*if (WorldGen.currentWorldSeed.ToLower() == "autumn" && (Player.armor[0].type == ItemType<Items.Armor.LivingWoodHelmet>() || Player.armor[0].type == ItemType<Items.Armor.LivingWoodMask>())) {
+				Player.dye[0] = ItemID.OrangeDye;
+			}*/
         }
+        public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers) {
+            if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
+				if (NPC.downedMoonlord) Player.AddBuff(BuffID.Blackout, Main.rand.Next(7, 15)*60);
+				else if (Main.hardMode) Player.AddBuff(BuffID.Blackout, Main.rand.Next(4, 10)*60);
+				else Player.AddBuff(BuffID.Darkness, Main.rand.Next(4, 10)*60);
+			}
+        }
+        public override void PostUpdateBuffs() {
+			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
+				//if (Player.ZoneDirtLayerHeight) Player.blind = true;
+				//if (Player.ZoneRockLayerHeight) Player.blackout = true;
+				//if (Player.ZoneUnderworldHeight) { Player.blind = true; Player.blackout = true; }
+
+				//Above is too dark tbh
+				if (Player.ZoneDirtLayerHeight || Player.ZoneRockLayerHeight || Player.ZoneUnderworldHeight) Player.blind = true;
+
+				if (Main.netMode == NetmodeID.SinglePlayer || Main.netMode == NetmodeID.Server) {
+					if (Main.dayTime) Main.time++;
+				}
+			}
+			//Main.NewText(WorldGen.currentWorldSeed.ToLower());
+        }
+        public override void ProcessTriggers(TriggersSet triggersSet) {
+			if (ZylonKeybindSystem.DoublePluggedCordKeybind.JustPressed && doublePluggedCord) SoundEngine.PlaySound(SoundID.Item93, Player.Center);
+			if (ZylonKeybindSystem.DoublePluggedCordKeybind.Current && doublePluggedCord && Player.active && Player.statLife > 0) {
+				
+				if (Main.GameUpdateCount % 2 == 0) Player.statLife -= 1;
+				if (Main.GameUpdateCount % 8 == 0) {
+					int healCount = Main.rand.Next(8, 14);
+					Player.statMana += healCount;
+					Player.ManaEffect(healCount);
+				}
+				Player.AddBuff(BuffType<Buffs.Accessories.DoublePluggedCord>(), 1);
+
+				if (Player.statLife < 1) { 
+					String deathMessage = "";
+					switch (Main.rand.Next(3)) {
+						case 0:
+							deathMessage = " plugged themselves in.";
+							break;
+						case 1:
+							deathMessage = " reinvented the electric chair.";
+							break;
+						case 2:
+							deathMessage = " stuck their fingers in the outlet.";
+							break;
+					}
+					if (Main.rand.NextBool(4) && (Player.HasItem(ItemID.CellPhone) || Player.HasItem(ItemID.Shellphone) || Player.HasItem(ItemID.ShellphoneDummy) || Player.HasItem(ItemID.ShellphoneHell) || Player.HasItem(ItemID.ShellphoneOcean) || Player.HasItem(ItemID.ShellphoneSpawn) || Player.HasItem(ItemID.PDA)))
+						deathMessage = "'s phone reached 200% charge.";
+					Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + deathMessage), 1, 0);
+				}
+			}
+		}
     }
 }

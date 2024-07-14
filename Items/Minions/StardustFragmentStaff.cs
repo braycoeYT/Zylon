@@ -24,7 +24,7 @@ namespace Zylon.Items.Minions
 			Item.useAnimation = 36;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.value = Item.sellPrice(0, 10, 0, 0);
-			Item.rare = ItemRarityID.Red;
+			Item.rare = RarityType<RedModded>();
 			Item.UseSound = SoundID.Item44;
 			Item.autoReuse = true;
 			Item.noMelee = true;

@@ -18,14 +18,14 @@ namespace Zylon.Items.Accessories
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			if (!p.stncheck) {
+			if (!p.CHECK_SharkToothNecklace) {
 				player.GetArmorPenetration(DamageClass.Generic) += 8;
-				p.stncheck = true;
+				p.CHECK_SharkToothNecklace = true;
 			}
-			if (!p.st2check) {
+			if (!p.CHECK_SaberTooth) {
 				player.GetCritChance(DamageClass.Generic) += 8;
 				p.critExtraDmg += 0.33f;
-				p.st2check = true;
+				p.CHECK_SaberTooth = true;
             }
 		}
 		public override void AddRecipes() {

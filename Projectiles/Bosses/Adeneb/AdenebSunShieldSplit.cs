@@ -28,14 +28,30 @@ namespace Zylon.Projectiles.Bosses.Adeneb
             else ihatescale = 1.5f;
 			Projectile.hide = true;
 		}
+        public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+            target.AddBuff(BuffID.OnFire, Main.rand.Next(6, 9) * 60);
+        }
 		int Timer;
         float dist;
         float rot;
         float ihatescale;
 		NPC owner;
+        public override bool PreAI() {
+            owner = Main.npc[ZylonGlobalNPC.adenebBoss];
+            if (owner.ai[0] == 3f) {
+                Projectile.timeLeft = 2;
+                ihatescale *= 0.99f;
+                ihatescale -= 0.01f;
+                Projectile.rotation += MathHelper.ToRadians(5);
+
+                if (ihatescale < 0.01f) Projectile.Kill();
+            }
+            if (!owner.active) Projectile.Kill();
+            return owner.ai[0] != 3f;
+        }
         public override void AI() {
             Timer++;
-			owner = Main.npc[ZylonGlobalNPC.adenebBoss];
+			//owner = Main.npc[ZylonGlobalNPC.adenebBoss];
 
             if (Timer < 300) {
                 if (Timer <= 60) {

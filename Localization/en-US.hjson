@@ -19,27 +19,17 @@ Mods: {
 			}
 		}
 
-		DropConditions.ElemGelCondition: Unleash the Elemental Goo
+		DropConditions: {
+			DownedDirtballCondition: Defeat Dirtball
+			ElemGelCondition: Unleash the Elemental Goo
+		}
+
+		Keybinds.DoublePluggedCord.DisplayName: Double-Plugged Cord Activation
 
 		Buffs: {
 			AdenebSpikeRing: {
 				DisplayName: Spike Ring
 				Description: The spike ring will push enemies away from you
-			}
-
-			DiskiteAgility: {
-				DisplayName: Diskbringer: Agility
-				Description: Increases your run acceleration and deceleration by 10%, move speed by 20%, increases the power of sprinting boots, and max jump speed
-			}
-
-			DiskiteDefense: {
-				DisplayName: Diskbringer: Defense
-				Description: Increases your defense by 10 and damage reduction by 5%
-			}
-
-			DiskiteOffense: {
-				DisplayName: Diskbringer: Offense
-				Description: Increases your damage by 10%, critical strike chance by 5, and weapon speed by 8%
 			}
 
 			LeafShield: {
@@ -83,8 +73,13 @@ Mods: {
 			}
 
 			DeadlyToxins: {
-				DisplayName: Mods.Zylon.BuffName.DeadlyToxins
+				DisplayName: Deadly Toxins
 				Description: Deadly toxins are rapidly draining your life!
+			}
+
+			Dishonored: {
+				DisplayName: Dishonored
+				Description: You aren't worth fighting.
 			}
 
 			ElementalDegeneration: {
@@ -217,9 +212,9 @@ Mods: {
 				Description: It COULD cause another extinction, but it chooses not to...
 			}
 
-			MiniDiskling: {
-				DisplayName: Mini Diskling
-				Description: It seems to believe you are its master
+			Diskling: {
+				DisplayName: Diskling
+				Description: D:/Users/admin/Sec/proto/UNSTABLE/DS-39.exe
 			}
 
 			SpookyJellyfish: {
@@ -327,6 +322,11 @@ Mods: {
 				Description: Gathering static electricity...
 			}
 
+			DoublePluggedCord: {
+				DisplayName: Double Plugged Cord
+				Description: Exploiting the infinite electricity glitch
+			}
+
 			GiegueAdvancedDebuff: {
 				DisplayName: Giegue Advanced Debuff
 				Description: Mods.Zylon.Buffs.GiegueAdvancedDebuff.Description
@@ -346,6 +346,46 @@ Mods: {
 				DisplayName: Possessed Diamond
 				Description: The Possessed Diamond will fight for you
 			}
+
+			Possessed: {
+				DisplayName: Possessed
+				Description: They're inside me...
+			}
+
+			EmeraldWhipDebuff: {
+				Description: Mods.Zylon.Buffs.EmeraldWhipDebuff.Description
+				DisplayName: Emerald Whip Debuff
+			}
+
+			EmeraldWhipAdvancedDebuff: {
+				Description: Mods.Zylon.Buffs.EmeraldWhipAdvancedDebuff.Description
+				DisplayName: Emerald Whip Advanced Debuff
+			}
+
+			LivingWhipAdvancedDebuff: {
+				DisplayName: Living Whip Advanced Debuff
+				Description: Mods.Zylon.Buffs.LivingWhipAdvancedDebuff.Description
+			}
+
+			LivingWhipDebuff: {
+				DisplayName: Living Whip Debuff
+				Description: Mods.Zylon.Buffs.LivingWhipDebuff.Description
+			}
+
+			Crackle: {
+				DisplayName: Crackle
+				Description: The crackle will fight for you
+			}
+
+			Swordigam: {
+				DisplayName: Swordigam
+				Description: The Swordigam will fight for you
+			}
+
+			RagingSun: {
+				DisplayName: Raging Sun
+				Description: The raging sun will fight for you
+			}
 		}
 
 		Items: {
@@ -357,6 +397,11 @@ Mods: {
 					Increases blowpipe charge speed by 15/s
 					Increases blowpipe shoot speed by 10%
 					'''
+			}
+
+			AmmoSling: {
+				DisplayName: Ammo Sling
+				Tooltip: 25% chance not to consume ammo
 			}
 
 			AurorousKnuckles: {
@@ -389,6 +434,25 @@ Mods: {
 					'''
 			}
 
+			ClawofInsanity: {
+				DisplayName: Claw of Insanity
+				Tooltip:
+					'''
+					Increases whip speed by 10% and range by 15%
+					Gives whips a chance to inflict a low-tier debuff on enemy hits
+					'''
+			}
+
+			ContinuumWarper: {
+				DisplayName: Continuum Warper
+				Tooltip:
+					'''
+					'Might mutate your DNA on use, but I wouldn't worry about that'
+					85% chance not to consume ammo
+					Decreases damage by 15%
+					'''
+			}
+
 			DirtRegalia: {
 				DisplayName: Dirt Regalia
 				Tooltip:
@@ -408,12 +472,30 @@ Mods: {
 					'''
 			}
 
+			DoublePluggedCord: {
+				DisplayName: Double-Plugged Cord
+				Tooltip:
+					'''
+					'Humans simply cannot comprehend this level of genius'
+
+					'''
+			}
+
 			EnchantedDirtClump: {
 				DisplayName: Enchanted Dirt Clump
 				Tooltip:
 					'''
 					Summons a small army of dirt clumps to protect you
 					Dirt clumps are affected by the Dirt Regalia
+					'''
+			}
+
+			EtherealGasp: {
+				DisplayName: Ethereal Gasp
+				Tooltip:
+					'''
+					Ghosts of killed enemies have a chance to possess the player
+					While possessed, the player deals 33% increased magic damage, but uses more mana
 					'''
 			}
 
@@ -431,9 +513,19 @@ Mods: {
 				Tooltip:
 					'''
 					'It's too big for anyone's arm, let alone yours'
-					Increases life and mana regeneration
+					Increases life and mana regeneration moderately
 					Increases max mana by 20
-					Increases the power of regeneration, magic power, magic regeneration, ironskin, and swiftness potions
+					Increases the potency of regeneration, magic power, magic regeneration, ironskin, and swiftness potions
+					'''
+			}
+
+			GelatinComet: {
+				DisplayName: Gelatin Comet
+				Tooltip:
+					'''
+					When under 25% mana, rains giant damaging mana stars from the sky
+					Giant mana stars have a 20% chance to become collectable versions worth 20 mana
+					Allows mana to overflow to up to 40 extra
 					'''
 			}
 
@@ -449,21 +541,27 @@ Mods: {
 
 			HarpysCrest: {
 				DisplayName: Harpy's Crest
-				Tooltip: When equipped, hold the W key to fall slower
-			}
-
-			HeartofPrisms: {
-				DisplayName: Heart of Prisms
 				Tooltip:
 					'''
-					Puts a spike ring around the player
-					Enemies hit by the ring are thrown away
+					Negates fall damage for 10 extra tiles
+					Releases three feathers after taking damage
 					'''
 			}
 
 			HexNecklace: {
 				DisplayName: Hex Necklace
 				Tooltip: Hexes the Wand of Sparking and Ore Staves with shadowy magicks
+			}
+
+			IllusoryBulletPolish: {
+				DisplayName: Illusory Bullet Polish
+				Tooltip:
+					'''
+					'Screw you, ozone layer!'
+					Allows all bullets to bounce off of foes once and tiles twice
+					Rebounded Chlorophyte Bullets deal significantly less damage
+					20% chance not to consume bullets
+					'''
 			}
 
 			Inhaler: {
@@ -485,6 +583,15 @@ Mods: {
 				Tooltip: Increases true melee damage by 15%
 			}
 
+			LazyCap: {
+				DisplayName: Lazy Cap
+				Tooltip:
+					'''
+					'Stop standing there and fight me like a real man!'
+					Increases critical strike chance by 12 while standing still
+					'''
+			}
+
 			LeadBalloon: {
 				DisplayName: Lead Balloon
 				Tooltip:
@@ -501,6 +608,11 @@ Mods: {
 				Tooltip: Increases the potency of Ironskin Potions
 			}
 
+			LivingCharm: {
+				DisplayName: Living Charm
+				Tooltip: Increases summon critical strike chance by 4%
+			}
+
 			MagicalVaccine: {
 				DisplayName: Magical Vaccine
 				Tooltip:
@@ -515,7 +627,18 @@ Mods: {
 				Tooltip:
 					'''
 					After going under 20 mana, completely refills your mana to the maximum
-					30 second cooldown
+					45 second cooldown
+					'''
+			}
+
+			ManaBlossom: {
+				DisplayName: Mana Blossom
+				Tooltip:
+					'''
+					14% reduced mana cost
+					Automatically use mana potions when needed
+					Halves length of mana sickness
+					Does not stack with downgrades
 					'''
 			}
 
@@ -526,6 +649,42 @@ Mods: {
 					Increases max mana by 40 during the day at the surface
 					Otherwise increases max mana by 10
 					Increases mana regeneration while standing still
+					'''
+			}
+
+			MaraudersKit: {
+				DisplayName: Marauder's Kit
+				Tooltip:
+					'''
+					Increases arrow damage by 10% and greatly increases arrow speed
+					Allows all bullets to bounce off of foes once and tiles twice
+					Rebounded Chlorophyte Bullets deal significantly less damage
+					Retains 12% of blowpipe charge after shooting
+					10% chance not to consume ammo
+					'''
+			}
+
+			MechanicsKit: {
+				DisplayName: Mechanic's Kit
+				Tooltip:
+					'''
+					12% increased ranged damage
+					Increases arrow damage by 10% and greatly increases arrow speed
+					Allows all bullets to bounce off of foes once and tiles twice
+					Rebounded Chlorophyte Bullets deal significantly less damage
+					Retains 12% of blowpipe charge after shooting
+					10% chance not to consume ammo
+					'''
+			}
+
+			MetallicComet: {
+				DisplayName: Metallic Comet
+				Tooltip:
+					'''
+					12% increased magic damage
+					When under 25% mana, rains countless Stellar Comets from the sky
+					Stellar Comets have a 15% chance to become collectable versions worth 10 mana
+					Allows mana to overflow to up to 40 extra
 					'''
 			}
 
@@ -546,7 +705,7 @@ Mods: {
 					'''
 					'Make a wish!'
 					Having under 25% max mana causes giant mana stars to rain from the sky
-					Mana stars can damage enemies and have a 25% chance to explode into collectable versions
+					Mana stars can damage enemies and have a 20% chance to explode into collectable versions
 					Collectable versions are worth 20 mana
 					'''
 			}
@@ -572,7 +731,7 @@ Mods: {
 					Killing enemies with magic spawns granite energy wisps for the owner
 					Collect granite energy wisps to boost mana regeneration for a few seconds
 					After going under 20 mana, completely refills your mana to the maximum
-					Mana refill has a 30 second cooldown
+					Mana refill has a 45 second cooldown
 					'''
 			}
 
@@ -581,7 +740,7 @@ Mods: {
 				Tooltip:
 					'''
 					'A science nerd's pair of scissors!'
-					Grants immunity to webbed
+					Grants immunity to Webbed
 					'''
 			}
 
@@ -593,6 +752,19 @@ Mods: {
 			RootGuard: {
 				DisplayName: Root Guard
 				Tooltip: Taking damage will summon roots nearby to damage enemies
+			}
+
+			RoundmastersKit: {
+				DisplayName: Roundmaster's Kit
+				Tooltip:
+					'''
+					12% increased ranged damage
+					Increases arrow damage by 12% and greatly increases arrow speed
+					Allows all bullets to bounce off of foes twice and tiles thrice
+					Rebounded Chlorophyte Bullets deal significantly less damage
+					Retains 15% of blowpipe charge after shooting
+					40% chance not to consume ammo
+					'''
 			}
 
 			RuneofMultiplicity: {
@@ -637,7 +809,21 @@ Mods: {
 
 			SlimePendant: {
 				DisplayName: Slime Pendant
-				Tooltip: Slightly increases max jump height and fall speed
+				Tooltip:
+					'''
+					Slightly increases max jump height and fall speed
+					Attacks inflict Slimed on enemies
+					'''
+			}
+
+			SlimyShell: {
+				DisplayName: Slimy Shell
+				Tooltip:
+					'''
+					When at max mana, allows your mana to overflow
+					Overflowing allows your mana to exceed the max
+					This caps out at 40 extra mana
+					'''
 			}
 
 			SparkingCore: {
@@ -649,6 +835,57 @@ Mods: {
 					'''
 			}
 
+			StellarComet: {
+				DisplayName: Stellar Comet
+				Tooltip:
+					'''
+					When under 25% mana, rains countless Stellar Comets from the sky
+					Stellar Comets have a 15% chance to become collectable versions worth 10 mana
+					Allows mana to overflow to up to 40 extra
+					'''
+			}
+
+			SucculentSap: {
+				DisplayName: Succulent Sap
+				Tooltip:
+					'''
+					11% reduced mana cost
+					Halves length of mana sickness
+					'''
+			}
+
+			SunFlower: {
+				DisplayName: Sun Flower
+				Tooltip:
+					'''
+					When under half health, spawns a protective sun barrier around the player
+					The sun barrier launches and burns enemies on contact
+					'''
+			}
+
+			SupernaturalComet: {
+				DisplayName: Supernatural Comet
+				Tooltip:
+					'''
+					12% increased magic damage
+					When under 25% mana, rains countless Stellar Comets from the sky
+					Stellar Comets have a 15% chance to become collectable versions worth 10 mana
+					Allows mana to overflow to up to 40 extra
+					Ghosts of killed enemies have a chance to possess the player
+					While possessed, the player deals 20% increased magic damage, but uses slightly more mana
+					'''
+			}
+
+			TheRegurgitator: {
+				DisplayName: The Regurgitator
+				Tooltip:
+					'''
+					'You trust this thing to give you clean air?'
+					Retains 12% of blowpipe charge after shooting
+					20% chance not to consume seeds/darts
+					'''
+			}
+
 			TitanfistMedal: {
 				DisplayName: Titanfist Medal
 				Tooltip:
@@ -656,6 +893,31 @@ Mods: {
 					Increases true melee damage by 25%
 					Does not stack with Ironfist Medal
 					'''
+			}
+
+			ToyClaw: {
+				DisplayName: Toy Claw
+				Tooltip: Increases whip range by 20%
+			}
+
+			UltimaBand: {
+				DisplayName: Ultima Band
+				Tooltip:
+					'''
+					'Does not come with magical transformation sequence'
+					Increases life regeneration heavily and mana regeneration moderately
+					Increases max mana by 20
+					Increases the potency of regeneration, magic power, magic regeneration, ironskin, and swiftness potions
+					Grants two seconds of invincibility after using a healing potion
+					Increases invincibility time after taking damage
+					Reduces the cooldown of healing potions by 25%
+					Effects of Friendship Bracelet at a range of 150 tiles
+					'''
+			}
+
+			VengefulSpirit: {
+				DisplayName: Vengeful Spirit
+				Tooltip: Gives whips a chance to inflict a low-tier debuff on enemy hits
 			}
 
 			VenomousPills: {
@@ -857,7 +1119,12 @@ Mods: {
 
 			ObsidianDart: {
 				DisplayName: Obsidian Dart
-				Tooltip: For use with blowpipes
+				Tooltip:
+					'''
+					For use with blowpipes
+					Has a chance to shatter upon impact
+					The chance of shattering increases with shoot speed
+					'''
 			}
 
 			OozingArrow: {
@@ -870,8 +1137,8 @@ Mods: {
 				Tooltip: On death, leaves a lasting ooze cloud
 			}
 
-			OozingSeed: {
-				DisplayName: Oozing Seed
+			OozingDart: {
+				DisplayName: Oozing Dart
 				Tooltip:
 					'''
 					For use with blowpipes
@@ -1066,6 +1333,30 @@ Mods: {
 					'''
 			}
 
+			LivingWoodBreastplate: {
+				DisplayName: Living Wood Breastplate
+				Tooltip: Increases minion knockback by 8%
+			}
+
+			LivingWoodHelmet: {
+				DisplayName: Living Wood Helmet
+				Tooltip:
+					'''
+					Increases max minions by 1
+					Increases minion damage by 6%
+					'''
+			}
+
+			LivingWoodLeggings: {
+				DisplayName: Living Wood Leggings
+				Tooltip: Increases movement speed by 10%
+			}
+
+			LivingWoodMask: {
+				DisplayName: Living Wood Mask
+				Tooltip: Increases minion knockback by 5%
+			}
+
 			NeutronHood: {
 				DisplayName: Neutron Hood
 				Tooltip:
@@ -1088,24 +1379,14 @@ Mods: {
 					'''
 			}
 
-			NeutronTracers: {
-				DisplayName: Neutron Tracers
+			NeutronBooster: {
+				DisplayName: Neutron Booster
 				Tooltip:
 					'''
 					Increases melee critical strike chance when in critical condition (up to 13% boost)
 					Increases ranged damage while not moving (20% boost)
 					Increases mana regeneration by 2
 					Increases whip range by 25%
-					'''
-			}
-
-			ShadowstitchedBoots: {
-				DisplayName: Shadowstitched Boots
-				Tooltip:
-					'''
-					'Malevolent energy jumps from its folds'
-					Decreases mana usage by 7%
-					Increases magic critical strike chance and damage by 8%
 					'''
 			}
 
@@ -1129,14 +1410,22 @@ Mods: {
 					'''
 			}
 
+			ShadowstitchedSkirt: {
+				DisplayName: Shadowstitched Skirt
+				Tooltip:
+					'''
+					'Malevolent energy jumps from its folds'
+					Decreases mana usage by 7%
+					Increases magic critical strike chance and damage by 8%
+					'''
+			}
+
 			ShroomiteHeaddress: {
 				DisplayName: Shroomite Headdress
 				Tooltip:
 					'''
-					8% increased ranged damage
-					5% increased ranged critical strike chance
 					Increases max blowpipe charge by 50
-					Increases max blowpipe charge by 37.5/s
+					Increases max blowpipe charge by 30/s
 					'''
 			}
 
@@ -1168,16 +1457,6 @@ Mods: {
 					'''
 			}
 
-			TatteredBoots: {
-				DisplayName: Tattered Boots
-				Tooltip:
-					'''
-					'It seems to be decades due for a restitching'
-					Decreases mana usage by 6%
-					Increases magic critical strike chance and damage by 4%
-					'''
-			}
-
 			TatteredHat: {
 				DisplayName: Tattered Hat
 				Tooltip:
@@ -1194,6 +1473,16 @@ Mods: {
 					'''
 					'It seems to be decades due for a restitching'
 					Decreases mana usage by 7%
+					Increases magic critical strike chance and damage by 4%
+					'''
+			}
+
+			TatteredSkirt: {
+				DisplayName: Tattered Skirt
+				Tooltip:
+					'''
+					'It seems to be decades due for a restitching'
+					Decreases mana usage by 6%
 					Increases magic critical strike chance and damage by 4%
 					'''
 			}
@@ -1266,6 +1555,11 @@ Mods: {
 			}
 
 			MetelordBag: {
+				DisplayName: Treasure Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			SaburBag: {
 				DisplayName: Treasure Bag
 				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 			}
@@ -1440,6 +1734,17 @@ Mods: {
 				Tooltip: Uses seeds as ammo
 			}
 
+			HollowKnife: {
+				DisplayName: Hollow Knife
+				Tooltip:
+					'''
+					Fires a magic sword with every shot
+					The power of the sword is dependent on charge
+					Upon collision, the sword summons an army of duplicates
+					If it struck an enemy, the duplicates will track it down
+					'''
+			}
+
 			IcicleMaker: {
 				DisplayName: Icicle Maker
 				Tooltip: At max charge, replaces ammo with a heap of mini icicles
@@ -1474,6 +1779,7 @@ Mods: {
 					'''
 					Fire two seeds at once and for the price of one
 					At max charge, replaces ammo with deadly toxin darts
+					Right click to disable and enable this effect
 					'''
 			}
 
@@ -1516,12 +1822,32 @@ Mods: {
 				Tooltip: Fires dark energies (amount depending on the charge) at the cursor on use
 			}
 
+			VortexBlowpipe: {
+				DisplayName: Vortex Blowpipe
+				Tooltip:
+					'''
+					At max charge, replaces ammo with a burst of flames
+					Right click to disable and enable this effect
+					'''
+			}
+
 			WindpipeofthePhoenix: {
 				DisplayName: Windpipe of the Phoenix
 				Tooltip:
 					'''
 					At max charge, replaces ammo with a burst of flames
 					Right click to disable and enable this effect
+					'''
+			}
+
+			AussieDagger: {
+				DisplayName: Aussie Dagger
+				Tooltip:
+					'''
+					'This is how we roll down under, built for wrestling with three-meter spiders'
+					Releases shadow daggers as it flies forwards
+					Shadow daggers chase after nearby enemies
+					Can be rethrown after velocity peak
 					'''
 			}
 
@@ -1667,6 +1993,7 @@ Mods: {
 				Tooltip:
 					'''
 					Summons Sabur Rex
+					Creates an arena around the player
 					Not Consumable
 					'''
 			}
@@ -1723,14 +2050,9 @@ Mods: {
 					'''
 			}
 
-			Slimedallion: {
-				DisplayName: Slimedallion
-				Tooltip:
-					'''
-					Summons a different gigaslime depending on the biome
-					Can only be used after the elemental goop has been unleashed
-					Not Consumable
-					'''
+			SlimyScepter: {
+				DisplayName: Slimy Scepter
+				Tooltip: Summons the slime rain
 			}
 
 			StarstruckMeteorChunk: {
@@ -1774,6 +2096,15 @@ Mods: {
 			CarnalliteBow: {
 				DisplayName: Carnallite Bow
 				Tooltip: Every third shot releases a leaf with each arrow
+			}
+
+			Dirkbow: {
+				DisplayName: Dirkbow
+				Tooltip:
+					'''
+					Fires endless sword beams between shots
+					Only the actual arrow consumes ammo
+					'''
 			}
 
 			Dirty3String: {
@@ -1901,6 +2232,15 @@ Mods: {
 					'''
 			}
 
+			Cracker: {
+				DisplayName: Cracker
+				Tooltip:
+					'''
+					Minor improvements to all stats
+					'Something tells me that parrot was named Polly.'
+					'''
+			}
+
 			GalacticBrownie: {
 				DisplayName: Galactic Brownie
 				Tooltip:
@@ -1986,14 +2326,32 @@ Mods: {
 				Tooltip: Every third shot is converted to an electric bolt that deals extra damage
 			}
 
+			AmethystPistol: {
+				DisplayName: Amethyst Pistol
+				Tooltip: Has a 25% chance to replace ammo with a high damage and velocity amethyst
+			}
+
+			ArcticVixen: {
+				DisplayName: Arctic Vixen
+				Tooltip:
+					'''
+					Alternates between slow shots and a barrage of snowballs
+					Only the first snowball consumes ammo
+					'''
+			}
+
 			EerieStakeLauncher: {
 				DisplayName: Eerie Stake Launcher
 				Tooltip: Uses stakes as ammo
 			}
 
-			FatherofTime: {
-				DisplayName: Father of Time
-				Tooltip: Fires a four round burst of small clockwork bits, which have a small chance to inflict Timestop on enemies
+			Foxtrot: {
+				DisplayName: Foxtrot
+				Tooltip:
+					'''
+					Alternates between slow and fast modes
+					In fast mode, only the last bullet consumes ammo
+					'''
 			}
 
 			GraveBuster: {
@@ -2026,6 +2384,24 @@ Mods: {
 			OvergrownHandgunFragment: {
 				DisplayName: Overgrown Handgun Fragment
 				Tooltip: "'Only at 0.1% of its true power'"
+			}
+
+			PlutoMagnum: {
+				DisplayName: Pluto Magnum
+				Tooltip:
+					'''
+					Replaces musket balls with ultra high velocity bullets
+					50% chance not to consume ammo
+					'''
+			}
+
+			Poltergeist: {
+				DisplayName: Poltergeist
+				Tooltip:
+					'''
+					As you shoot, spawns Phantom Bullets around the player
+					Phantom Bullets linger for some time before sprinting forward
+					'''
 			}
 
 			Sandstormgun: {
@@ -2139,6 +2515,11 @@ Mods: {
 				Tooltip: ""
 			}
 
+			FantasticalFinality: {
+				DisplayName: Fantastical Finality
+				Tooltip: "'The power of post-game content compels you!'"
+			}
+
 			LabyrinthFish: {
 				DisplayName: Labyrinth Fish
 				Tooltip: "'Its scales are beautifully complex'"
@@ -2233,6 +2614,11 @@ Mods: {
 				Tooltip: "'With this, you can turn the wolf's winter coat into yours'"
 			}
 
+			CrackleStaff: {
+				DisplayName: Crackle Staff
+				Tooltip: Summons a crackle to fight for you
+			}
+
 			DiamondCane: {
 				DisplayName: Diamond Cane
 				Tooltip:
@@ -2280,6 +2666,11 @@ Mods: {
 				Tooltip: Summons a mushtop to fight for you
 			}
 
+			RagingSunStaff: {
+				DisplayName: Raging Sun Staff
+				Tooltip: Summons a raging sun to fight for you
+			}
+
 			SpazmaticScythe: {
 				DisplayName: Spazmatic Scythe
 				Tooltip:
@@ -2299,6 +2690,15 @@ Mods: {
 					After spotting a foe, the fragments will charge to max size
 					At max size, fragments rapidly dash into enemies, dealing massive damage
 					Fragments slowly shrink back to normal size as they dash
+					'''
+			}
+
+			SwordigamStaff: {
+				DisplayName: Swordigam Staff
+				Tooltip:
+					'''
+					Summons a Swordigam to fight for you
+					Requires two minion slots
 					'''
 			}
 
@@ -2350,6 +2750,11 @@ Mods: {
 				Tooltip: On impact, explodes into multiple ichor splashes
 			}
 
+			GildedShuriken: {
+				DisplayName: Gilded Shuriken
+				Tooltip: Can bounce off of enemies and tiles
+			}
+
 			LostNightmare: {
 				DisplayName: Lost Nightmare
 				Tooltip:
@@ -2397,6 +2802,15 @@ Mods: {
 			CreepyBlob: {
 				DisplayName: Creepy Blob
 				Tooltip: Summons the one and only Dirtboi to follow you
+			}
+
+			DiskDrive: {
+				DisplayName: Disk Drive
+				Tooltip:
+					'''
+					'8TB capacity, but is unknown whether more storage is dedicated to programming or strange drawings'
+					Summons a diskling to follow you
+					'''
 			}
 
 			DS_91Controller: {
@@ -2457,6 +2871,11 @@ Mods: {
 				Tooltip: ""
 			}
 
+			SaburRelic: {
+				DisplayName: Sabur Rex Relic
+				Tooltip: ""
+			}
+
 			AdenebTrophy: {
 				DisplayName: Adeneb Trophy
 				Tooltip: ""
@@ -2474,6 +2893,11 @@ Mods: {
 
 			MetelordTrophy: {
 				DisplayName: Metelord Trophy
+				Tooltip: ""
+			}
+
+			SaburTrophy: {
+				DisplayName: Sabur Rex Trophy
 				Tooltip: ""
 			}
 
@@ -2620,6 +3044,16 @@ Mods: {
 					'''
 			}
 
+			Yardstick: {
+				DisplayName: Yardstick
+				Tooltip:
+					'''
+					'Corporal punishment at its finest'
+					Upon hitting enemies, has a 10% chance to snap
+					Snapped yardsticks roll onto the ground to damage enemies further
+					'''
+			}
+
 			ZincShortsword: {
 				DisplayName: Zinc Shortsword
 				Tooltip:
@@ -2725,15 +3159,6 @@ Mods: {
 				Tooltip: Rains desert sigils down from the sky
 			}
 
-			Diskalibur: {
-				DisplayName: Diskalibur
-				Tooltip:
-					'''
-					'For valor!'
-					Critical strikes have extremely high knockback
-					'''
-			}
-
 			AdeniteSecurityBlade: {
 				DisplayName: Adenite Security Blade
 				Tooltip: Every third swing releases an electric bolt
@@ -2757,6 +3182,11 @@ Mods: {
 					This debuff lasts until you don't damage the enemy for a bit.
 					Heartdaze has lower effect on bosses
 					'''
+			}
+
+			Excalipoor: {
+				DisplayName: Excalipoor
+				Tooltip: ""
 			}
 
 			ForgottenRosesSaber: {
@@ -2967,6 +3397,17 @@ Mods: {
 				Tooltip: Summons three jellyfish to dash at enemies
 			}
 
+			Fahrenheit: {
+				DisplayName: Fahrenheit
+				Tooltip:
+					'''
+					'It was a pleasure to burn.'
+					Releases heat blasts towards the cursor
+					Upon collision, heat blasts collapse into six other blasts
+					Other blasts drop fire below when dissipating
+					'''
+			}
+
 			FamiliarBook: {
 				DisplayName: Familiar Book
 				Tooltip:
@@ -3013,6 +3454,27 @@ Mods: {
 					'''
 			}
 
+			TaleoftheEverlastingBlade: {
+				DisplayName: Tale of the Everlasting Blade
+				Tooltip:
+					'''
+					'It's a never-ending story...'
+					Casts a massive blade that continuously splits into smaller versions
+					The smallest blades automatically point towards the closest enemy
+					'''
+			}
+
+			Trifid: {
+				DisplayName: Trifid
+				Tooltip:
+					'''
+					Smothers enemies in Nebula Beams
+					Nebula Beams bounce off of walls and enemies
+					After existing for long enough, Nebula Beams collapse into orbs
+					Nebula Orbs will chase after nearby foes
+					'''
+			}
+
 			VolcanicFlame: {
 				DisplayName: Volcanic Flame
 				Tooltip: Casts down a psychokinetic flame wall
@@ -3050,6 +3512,11 @@ Mods: {
 					'Hasn't been swung in decades...'
 					Fires several short-range Vine Balls on use
 					'''
+			}
+
+			Oddpick: {
+				DisplayName: Oddpick
+				Tooltip: "'May or may not secretly contain a crypto miner'"
 			}
 
 			StoneAxe: {
@@ -3107,14 +3574,34 @@ Mods: {
 				Tooltip: ""
 			}
 
+			SaburMask: {
+				DisplayName: Sabur Rex Mask
+				Tooltip: ""
+			}
+
 			PolandballMask: {
 				DisplayName: Polandball Mask
 				Tooltip: "'Can Polandball into space?'"
 			}
 
+			AdamantiteWand: {
+				DisplayName: Adamantite Wand
+				Tooltip: Fires decelerating Adamantite Blasts
+			}
+
+			AmberScepter: {
+				DisplayName: Amber Scepter
+				Tooltip: Fires amber bolts towards the cursor
+			}
+
 			ArchangelsWand: {
 				DisplayName: Archangel's Wand
 				Tooltip: Blasts an accelerating Archangel Shot
+			}
+
+			BladeTorrentStaff: {
+				DisplayName: Blade Torrent Staff
+				Tooltip: Smothers your enemies in swords
 			}
 
 			CarnalliteWand: {
@@ -3192,6 +3679,11 @@ Mods: {
 				Tooltip: ""
 			}
 
+			TitaniumWand: {
+				DisplayName: Titanium Wand
+				Tooltip: Fires accelerating Titanium Blasts
+			}
+
 			TreeTruncheon: {
 				DisplayName: Tree Truncheon
 				Tooltip:
@@ -3222,6 +3714,18 @@ Mods: {
 					'''
 			}
 
+			EmeraldWhip: {
+				DisplayName: Emerald Whip
+				Tooltip:
+					'''
+					After striking a foe, creates a giant emerald above the player
+					The emerald shoots emerald bolts at nearby enemies
+					The emerald disappears after you stop hitting enemies
+					{$CommonItemTooltip.SummonTagDamage}
+					{$CommonItemTooltip.Whips}
+					'''
+			}
+
 			EyeLash: {
 				DisplayName: Eye Lash
 				Tooltip:
@@ -3233,13 +3737,25 @@ Mods: {
 					'''
 			}
 
+			LivingWhip: {
+				DisplayName: Living Whip
+				Tooltip:
+					'''
+					Striking enemies will create temporary spirits of protection around the player
+					The player gains a point of defense for each active spirit
+					This effect caps at 10 spirits
+					{$CommonItemTooltip.SummonTagDamage}
+					{$CommonItemTooltip.Whips}
+					'''
+			}
+
 			Giegue: {
 				DisplayName: Giegue
 				Tooltip:
 					'''
 					'Go home now! Perish with the rest of the ugly Earth People.'
-					Striking foes will grant the user the 'PSI Boost' buff
-					PSI Boost increases magic damage by 15%, and mana regeneration by 1
+					Striking foes will steal mana from enemies
+					If the player has at least 40 mana, will use mana to cast a psychokinetic attack
 					{$CommonItemTooltip.SummonTagDamage}
 					{$CommonItemTooltip.Whips}
 					'''
@@ -3392,7 +3908,7 @@ Mods: {
 					'''
 					-4 Defense
 					'Make sure no one throws any stones at you'
-					Increases weapon speed by 5%
+					Increases weapon speed by 8%
 					'''
 			}
 
@@ -3513,6 +4029,21 @@ Mods: {
 				DisplayName: Topaz Pike
 				Tooltip: Thrusts fire a short range Topaz Bolt
 			}
+
+			CandyCanePike: {
+				DisplayName: Candy Cane Pike
+				Tooltip: ""
+			}
+
+			StellarCometStar: {
+				DisplayName: Stellar Comet
+				Tooltip: ""
+			}
+
+			StratoslimeBanner: {
+				DisplayName: Stratoslime Banner
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -3520,7 +4051,7 @@ Mods: {
 			BloodContractProj.DisplayName: Blood Contract
 			GlazedLensProj.DisplayName: Lens Blast
 			DirtBallAcc.DisplayName: Dirt Ball
-			DiscoCanisterProj.DisplayName: Disco Canister Proj
+			DiscoCanisterProj.DisplayName: Disco Canister
 			DiscoCanisterProj_Laser.DisplayName: Disco Canister
 			RootGuardProj.DisplayName: Root Guard
 			SlimeSpikeFriendly.DisplayName: Slime Spike
@@ -3556,7 +4087,7 @@ Mods: {
 			OozeCloud.DisplayName: Ooze Cloud
 			OozingArrow.DisplayName: Oozing Arrow
 			OozingBullet.DisplayName: Oozing Bullet
-			OozingSeed.DisplayName: Oozebit
+			OozingDart.DisplayName: Ooze Dart
 			OverclockArrow.DisplayName: Overclock Arrow
 			Pebble.DisplayName: Pebble
 			PocketGrenade.DisplayName: Pocket Grenade
@@ -3931,6 +4462,8 @@ Mods: {
 			CarnalliteWandProj.DisplayName: Carnallite Wand
 			TempleEqualizerProj.DisplayName: Temple Equalizer
 			Giegue.DisplayName: Giegue
+			GiegueBrainCyclone.DisplayName: Giegue
+			GieguePKBeam.DisplayName: Giegue
 			HeavyLobsterProjBlobMini.DisplayName: Heavy Lobster
 			CerussiteBatProj.DisplayName: Falling Gem
 			BiDisc.DisplayName: Bi Disc
@@ -3957,6 +4490,66 @@ Mods: {
 			TrueLoberaRing.DisplayName: True Lobera
 			TrueLoberaOrb.DisplayName: True Lobera
 			TrueLoberaBeam.DisplayName: True Lobera
+			SaburRexMartianSaucer.DisplayName: Martian Saucer
+			SaburRexMartianSaucerDeathray.DisplayName: Martian Saucer
+			SaburRexMartianSaucerDeathray2.DisplayName: Martian Saucer
+			SaburRexMartianSaucerWarning.DisplayName: Martian Saucer
+			SaburRexMartianSaucerWarning2.DisplayName: Martian Saucer
+			SaburRexBoneProj.DisplayName: Bone
+			SaburRexBoneProjOutside.DisplayName: Bone
+			Yardstick.DisplayName: Yardstick
+			YardstickBroken.DisplayName: Yardstick
+			UltraHighVelocityBullet.DisplayName: Ultra High Velocity Bullet
+			SaburRexKatanaDuplicate.DisplayName: Replikatana
+			CandyCanePike.DisplayName: Candy Cane Pike
+			ObsidianDartShard.DisplayName: Obsidian Dart Shard
+			DirtBlockVanity.DisplayName: Dirt Block
+			TrifidProj.DisplayName: Trifid
+			TrifidOrb.DisplayName: Trifid
+			GolemEyeProj.DisplayName: Lihzahrd Beam
+			AmethystPistolProj.DisplayName: Amethyst Pistol
+			PoltergeistProj.DisplayName: Poltergeist
+			VortexMiniRocket.DisplayName: Vortex Blowpipe
+			AmberScepterProj.DisplayName: Amber Scepter
+			SaburRexHoneyPot.DisplayName: Honey Pot
+			SaburRexBee.DisplayName: Bee
+			FahrenheitProj.DisplayName: Fahrenheit
+			FahrenheitFlame.DisplayName: Fahrenheit
+			ExcalipoorProj1.DisplayName: Excalipoor
+			ExcalipoorProj2.DisplayName: Excalipoor
+			ExcalipoorProj3.DisplayName: Excalipoor
+			AussieDagger.DisplayName: Aussie Dagger
+			AussieDaggerShadow.DisplayName: Aussie Dagger
+			AdamantiteWandProj.DisplayName: Adamantite Wand
+			TitaniumWandProj.DisplayName: Titanium Wand
+			EmeraldWhip.DisplayName: Emerald Whip
+			EmeraldWhipProj.DisplayName: Emerald Whip
+			HarpysCrestProj.DisplayName: Harpys Crest
+			DirtSlimeProj.DisplayName: Dirt Slime
+			LivingWhip.DisplayName: Living Whip
+			LivingWhipSpirit.DisplayName: Living Whip Spirit
+			DirkbowProj.DisplayName: Dirkbow
+			BladeTorrentProj.DisplayName: Blade Torrent Staff
+			EverlastingBladeProj.DisplayName: Everlasting Blade
+			EverlastingBladeProj2.DisplayName: Everlasting Blade
+			EverlastingBladeProj3.DisplayName: Everlasting Blade
+			EverlastingBladeProj4.DisplayName: Everlasting Blade
+			SaburRexServantofOcram.DisplayName: Servant of Ocram
+			SunFlowerProj.DisplayName: Sun Flower
+			Crackle.DisplayName: Crackle
+			CrackleElectricity.DisplayName: Crackle
+			CrackleRain.DisplayName: Crackle
+			Swordigam.DisplayName: Swordigam
+			SwordigamSword.DisplayName: Swordigam
+			StellarCometProj.DisplayName: Stellar Comet
+			EtherealGaspProj.DisplayName: Ethereal Gasp
+			HollowKnifeProj.DisplayName: Hollow Knife
+			HollowKnifeProj2.DisplayName: Hollow Knife
+			HollowKnifeProjInvis.DisplayName: Hollow Knife
+			GildedShuriken.DisplayName: Gilded Shuriken
+			RagingSun.DisplayName: Raging Sun
+			RagingSunProj.DisplayName: Raging Sun
+			Diskling.DisplayName: Diskling
 		}
 
 		NPCs: {
@@ -4072,6 +4665,7 @@ Mods: {
 			SupremeLookingEyeTail.DisplayName: Supreme Looking Eye (DA SUPREME MEMELORD)
 			CerussiteBat.DisplayName: Cerussite Bat
 			PixieArchangel.DisplayName: Pixie Archangel
+			Stratoslime.DisplayName: Stratoslime
 		}
 
 		Prefixes: {
@@ -4091,6 +4685,10 @@ Mods: {
 			Ultimate.DisplayName: Ultimate
 			Exalted.DisplayName: Exalted
 			Unhesitating.DisplayName: Unhesitating
+			Fabled.DisplayName: Fabled
+			Pushy.DisplayName: Pushy
+			Relaxed.DisplayName: Relaxed
+			Aerobic.DisplayName: Aerobic
 		}
 
 		Tiles: {
@@ -4119,8 +4717,8 @@ Mods: {
 
 				Headers: {
 					config: {
-						accessibility: config.accessibility Header
-						general: config.general Header
+						accessibility: Accessibility
+						general: General
 					}
 				}
 
@@ -4185,7 +4783,23 @@ Mods: {
 					Label: Experimental Boomerangs
 					Tooltip: Allows some boomerangs to have special AI.
 				}
+
+				nightLightRarities: {
+					Label: Night Light / Tritanopic Rarity Support
+					Tooltip: Changes the color of modded rarities so that tritanopics or users of night light can differentiate them easier.
+				}
+
+				summonNaturalCrit: {
+					Label: Summon Natural Crits
+					Tooltip: Summons now have a 4% default crit chance, and are affected by generic crit boosts.
+				}
 			}
+		}
+
+		WorldGen: {
+			AbyssworldSpikesPassMessage: Ruining world
+			AbyssworldPaintPassMessage: Darkening world
+			AutumnPaintPassMessage: Seasoning world
 		}
 	}
 }

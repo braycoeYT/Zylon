@@ -19,8 +19,16 @@ namespace Zylon.Items.Blowpipes
 			Item.rare = ItemRarityID.Green;
 			Item.autoReuse = true;
 		}
+		public override bool AltFunctionUse(Player player) {
+			return true;
+		}
+		public override void AltClickEvent(Player player) {
+			maxReplace = !maxReplace;
+			if (maxReplace) CombatText.NewText(player.getRect(), textColor, "Enabled");
+			else CombatText.NewText(player.getRect(), textColor, "Disabled");
+        }
         public override void MaxChargeEvent(Player player, Vector2 vel, int tempType, int tempDmg, float tempKb, float tempSpd) {
-			for (int i = 0; i < 2; i++) {
+			if (maxReplace) for (int i = 0; i < 2; i++) {
 				Vector2 perturbedSpeed = vel.RotatedBy(MathHelper.ToRadians(i-0.5f));
 				Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, perturbedSpeed*tempSpd, ModContent.ProjectileType<Projectiles.Blowpipes.DeadlyToxinDart>(), tempDmg, tempKb, Main.myPlayer);
 			}

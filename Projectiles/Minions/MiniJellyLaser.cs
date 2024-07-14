@@ -23,6 +23,7 @@ namespace Zylon.Projectiles.Minions
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 4 + (int)(Projectile.ai[1] / 10);
 			Projectile.tileCollide = false;
+			Projectile.DamageType = DamageClass.Summon;
 		}
 		bool a;
 		public override void AI(){

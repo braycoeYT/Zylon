@@ -22,7 +22,7 @@ namespace Zylon.Items.Accessories
 				if (Timer > div && Main.myPlayer == player.whoAmI) {
 					Timer = 0;
 					div = Main.rand.Next(45, 91);
-					Projectile.NewProjectile(player.GetSource_FromThis(), player.Center - new Vector2(Main.rand.Next(-400, 401), 600), new Vector2(Main.rand.NextFloat(-4f, 4f), 10f), ModContent.ProjectileType<Projectiles.Accessories.MysticCometProj>(), 40, 5f, player.whoAmI);
+					Projectile.NewProjectile(player.GetSource_FromThis(), player.Center - new Vector2(Main.rand.Next(-400, 401), 600), new Vector2(Main.rand.NextFloat(-4f, 4f), 16f), ModContent.ProjectileType<Projectiles.Accessories.MysticCometProj>(), 40, 5f, player.whoAmI);
 				}
             }
 		}

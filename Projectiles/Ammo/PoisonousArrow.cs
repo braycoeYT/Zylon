@@ -24,7 +24,6 @@ namespace Zylon.Projectiles.Ammo
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 		    target.AddBuff(BuffID.Poisoned, 60 * Main.rand.Next(4, 11));
 		}
-
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             if (info.PvP)
@@ -32,10 +31,15 @@ namespace Zylon.Projectiles.Ammo
 				target.AddBuff(BuffID.Poisoned, 60 * Main.rand.Next(4, 11));
 			}
         }
-
+		bool init;
+        public override void AI() {
+			if (!init) {
+				if (Main.player[Projectile.owner].magicQuiver) Projectile.extraUpdates = 1;
+				init = true;
+			}
+        }
         public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			if (Main.rand.NextFloat() < .2f) Item.NewItem(Projectile.GetSource_FromThis(), Projectile.getRect(), ModContent.ItemType<Items.Ammo.PoisonousArrow>());
 		}
 	}   
 }

@@ -21,6 +21,9 @@ namespace Zylon.Items.BossSummons
 			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.consumable = true;
 		}
+        public override bool CanUseItem(Player player) {
+            return !Terraria.GameContent.Events.Sandstorm.Happening;
+        }
         public override bool? UseItem(Player player) {
 			if (player.whoAmI == Main.myPlayer) {
 				SoundEngine.PlaySound(SoundID.Item29, player.position);

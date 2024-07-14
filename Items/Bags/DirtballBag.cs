@@ -43,9 +43,8 @@ namespace Zylon.Items.Bags
 			
 			//Remix and getfixedboi change item progression, so don't drop on those
 			LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.NotRemixSeed());
-			LeadingConditionRule leadingConditionRule2 = new LeadingConditionRule(new Conditions.ZenithSeedIsNotUp());
-
-			leadingConditionRule.OnSuccess(leadingConditionRule2.OnSuccess(itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()))));
+			
+			leadingConditionRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()));
 			
 			itemLoot.Add(new CommonDrop(ItemType<Vanity.DirtballMask>(), 7));
 			itemLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.CreepyBlob>(), 8));

@@ -24,6 +24,9 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.tileCollide = false;
 			Projectile.alpha = 255;
 		}
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+            target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 7) * 60);
+        }
 		bool init;
         public override void AI() {
 			NPC owner = Main.npc[ZylonGlobalNPC.adenebBoss];

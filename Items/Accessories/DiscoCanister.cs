@@ -14,18 +14,18 @@ namespace Zylon.Items.Accessories
 			Item.value = Item.sellPrice(0, 5);
 			Item.rare = ItemRarityID.Lime;
 			Item.damage = 60;
-			Item.DamageType = DamageClass.Summon;
-			Item.defense = 1;
+			//Item.DamageType = DamageClass.Summon;
+			//Item.defense = 1;
 		}
-		public override void ModifyTooltips(List<TooltipLine> tooltips) {
+		/*public override void ModifyTooltips(List<TooltipLine> tooltips) {
             foreach (var line in tooltips) {
 				if (line.Mod == "Terraria" && line.Name == "Defense") {
 					line.Hide();
 				}
 			}
-        }
+        }*/
 		public override void UpdateAccessory(Player player, bool hideVisual) {
-			player.statDefense -= 1;
+			//player.statDefense -= 1;
 			player.GetCritChance(DamageClass.Generic) += 5;
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			p.discoCanister = true;
@@ -34,7 +34,6 @@ namespace Zylon.Items.Accessories
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.HallowedBar, 8);
 			recipe.AddIngredient(ItemID.DiscoBall, 5);
 			recipe.AddIngredient(ItemID.CrystalShard, 12);
 			recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 15);

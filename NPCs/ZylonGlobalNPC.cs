@@ -5,6 +5,9 @@ using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Zylon.Items.Accessories;
+using Zylon.Items.Ammo;
+using Zylon.Items.Tools;
 using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.NPCs
@@ -16,19 +19,40 @@ namespace Zylon.NPCs
 		public static int dirtballBoss = -1;
 		public static int metelordBoss = -1;
 		public static int saburBoss = -1;
+        public override void SetDefaults(NPC entity) {
+			if (WorldGen.currentWorldSeed == null) return;
+            if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
+				entity.color = new Color(0, 0, 0);
+				if (entity.friendly) {
+					entity.lifeMax /= 5;
+					entity.life = entity.lifeMax;
+				}
+			}
+        }
+        public override void PostAI(NPC npc) {
+            if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
+				npc.color = new Color(0, 0, 0);
+			}
+			if (WorldGen.currentWorldSeed.ToLower() == "autumn") {
+				if (npc.type == -25 || npc.type == -24 || (npc.type > -11 && npc.type < 0) || npc.type == NPCID.BlueSlime || npc.type == NPCID.IceSlime || npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.SandSlime || npc.type == NPCID.SpikedJungleSlime || npc.type == NPCID.BabySlime || npc.type == NPCID.LavaSlime || npc.type == NPCID.GoldenSlime || npc.type == NPCID.SlimeSpiked || npc.type == NPCID.ShimmerSlime || npc.type == NPCID.SlimeMasked || (npc.type > 332 && npc.type < 337) || npc.type == NPCID.Crimslime || npc.type == NPCID.IlluminantSlime || npc.type == NPCID.RainbowSlime || npc.type == NPCID.QueenSlimeMinionBlue || npc.type == NPCID.QueenSlimeMinionPink || npc.type == NPCID.QueenSlimeMinionPurple || npc.type == ModContent.NPCType<NPCs.Forest.DirtSlime>() || npc.type == ModContent.NPCType<NPCs.Forest.OrangeSlime>() || npc.type == ModContent.NPCType<ElemSlime>() || npc.type == ModContent.NPCType<NPCs.Sky.Stratoslime>() || npc.type == NPCID.Slimer2 || npc.type == ModContent.NPCType<NPCs.Dungeon.BoneSlime>() || npc.type == NPCID.MotherSlime || npc.type == NPCID.DungeonSlime || npc.type == NPCID.UmbrellaSlime || npc.type == NPCID.ToxicSludge || npc.type == NPCID.CorruptSlime || npc.type == NPCID.Slimer || npc.type == NPCID.HoppinJack || npc.type == NPCID.KingSlime || npc.type == NPCID.QueenSlimeBoss) {
+					npc.color = Color.Orange;
+				}
+			}
+        }
         public override void HitEffect(NPC npc, NPC.HitInfo hit) {
             if (npc.type == NPCID.Plantera && npc.life < 1 && !NPC.downedPlantBoss)
 				ProjectileHelpers.NewNetProjectile(npc.GetSource_FromThis(), npc.Center, new Vector2(0, 0), ProjectileType<Projectiles.PlanteraElementalGel>(), 0, 0, Main.myPlayer, BasicNetType: 2);
         }
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot) {
 			if (npc.type == NPCID.Harpy) {
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.SpeckledStardust>(), 1, 1, 2));
+				//npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.SpeckledStardust>(), 1, 1, 2));
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Yoyos.GlazingStar>(), 55), new CommonDrop(ItemType<Items.Yoyos.GlazingStar>(), 40)));
 			}
 			if (npc.type == NPCID.BloodCrawler || npc.type == NPCID.BloodCrawlerWall)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Materials.BloodySpiderLeg>(), 8), new CommonDrop(ItemType<Items.Materials.BloodySpiderLeg>(), 6)));
 			if (npc.type == NPCID.KingSlime) {
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.GoldCrown, 3));
+				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemType<SlimyShell>(), 3));
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.Gel, 1, 12, 30));
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemType<Items.Materials.SlimyCore>(), 1, 8, 12));
             }
@@ -71,6 +95,7 @@ namespace Zylon.NPCs
 			if (npc.type == NPCID.Plantera) {
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.JungleRose, 3));
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.NaturesGift, 3));
+				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemType<SucculentSap>(), 3));
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.ChlorophyteOre, 1, 20, 30));
 			}
 			if (npc.type == NPCID.Golem)
@@ -87,10 +112,6 @@ namespace Zylon.NPCs
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.RottenChunk, 1, 1, 3), new CommonDrop(ItemID.RottenChunk, 1, 2, 4)));
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.WormTooth, 1, 3, 9), new CommonDrop(ItemID.WormTooth, 1, 5, 11)));
             }
-			if (npc.type == NPCID.GoblinSorcerer) {
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Tomes.ChaosCaster>(), 15), new CommonDrop(ItemType<Items.Tomes.ChaosCaster>(), 18)));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.HexNecklace>(), 20), new CommonDrop(ItemType<Items.Accessories.HexNecklace>(), 25)));
-			}
 			if (npc.type == NPCID.IceBat || npc.type == NPCID.SnowFlinx || npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.UndeadViking)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Tomes.Snowfall>(), 100), new CommonDrop(ItemType<Items.Tomes.Snowfall>(), 90)));
 			if ((npc.type == NPCID.Hornet) || (npc.type >= NPCID.HornetFatty && npc.type <= NPCID.HornetStingy) || (npc.type >= -56 && npc.type <= -65) || (npc.type == -16) || (npc.type == -17))
@@ -133,29 +154,35 @@ namespace Zylon.NPCs
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.EnchantedIceCube>(), 1, 2, 4));
 			if (npc.type == NPCID.Werewolf || npc.type == NPCID.Wolf) {
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.WolfPelt>(), 1, 1, 3));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 75), new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 50)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 50), new CommonDrop(ItemType<Items.Accessories.SaberTooth>(), 30)));
 			}
 			if (npc.type == NPCID.GoblinScout)
 				npcLoot.Add(new CommonDrop(ItemID.Goggles, 5));
 			if (npc.type == NPCID.GoblinThief) {
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Aglet, 60), new CommonDrop(ItemID.Aglet, 50)));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.AnkletoftheWind, 90), new CommonDrop(ItemID.AnkletoftheWind, 75)));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.HermesBoots, 120), new CommonDrop(ItemID.HermesBoots, 100)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Aglet, 15), new CommonDrop(ItemID.Aglet, 10)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.AnkletoftheWind, 20), new CommonDrop(ItemID.AnkletoftheWind, 15)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.HermesBoots, 20), new CommonDrop(ItemID.HermesBoots, 15)));
             }
 			if (npc.type == NPCID.GoblinPeon) {
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Compass, 100), new CommonDrop(ItemID.Compass, 80)));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.DepthMeter, 100), new CommonDrop(ItemID.DepthMeter, 80)));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.GoldWatch, 100), new CommonDrop(ItemID.GoldWatch, 80)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Compass, 30), new CommonDrop(ItemID.Compass, 20)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.DepthMeter, 30), new CommonDrop(ItemID.DepthMeter, 20)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.GoldWatch, 30), new CommonDrop(ItemID.GoldWatch, 20)));
             }
 			if (npc.type == NPCID.GoblinWarrior) {
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.IronBand>(), 100), new CommonDrop(ItemType<Items.Accessories.IronBand>(), 75)));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.WarriorsRibbon>(), 35), new CommonDrop(ItemType<Items.Accessories.WarriorsRibbon>(), 20)));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Shackle, 60), new CommonDrop(ItemID.Shackle, 50)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.IronBand>(), 20), new CommonDrop(ItemType<Items.Accessories.IronBand>(), 15)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.WarriorsRibbon>(), 15), new CommonDrop(ItemType<Items.Accessories.WarriorsRibbon>(), 10)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Shackle, 30), new CommonDrop(ItemID.Shackle, 20)));
             }
 			if (npc.type == NPCID.GoblinArcher) {
 				npcLoot.Add(new CommonDrop(ItemID.WoodenArrow, 1, 3, 7));
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Bows.GoblinArchbow>(), 30), new CommonDrop(ItemType<Items.Bows.GoblinArchbow>(), 20)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Bows.GoblinArchbow>(), 18), new CommonDrop(ItemType<Items.Bows.GoblinArchbow>(), 12)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.LazyCap>(), 15), new CommonDrop(ItemType<Items.Accessories.LazyCap>(), 10)));
             }
+			if (npc.type == NPCID.GoblinSorcerer) {
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Tomes.ChaosCaster>(), 18), new CommonDrop(ItemType<Items.Tomes.ChaosCaster>(), 12)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.HexNecklace>(), 20), new CommonDrop(ItemType<Items.Accessories.HexNecklace>(), 15)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.VengefulSpirit>(), 15), new CommonDrop(ItemType<Items.Accessories.VengefulSpirit>(), 10)));
+			}
 			if (npc.type == NPCID.BlackRecluse || npc.type == NPCID.BlackRecluseWall || npc.type == NPCID.JungleCreeper || npc.type == NPCID.JungleCreeperWall) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.ProteinSplicer>(), 50), new CommonDrop(ItemType<Items.Accessories.ProteinSplicer>(), 60)));
             }
@@ -184,6 +211,20 @@ namespace Zylon.NPCs
 			if (npc.type == NPCID.JungleSlime || npc.type == NPCID.IceSlime || npc.type == NPCID.SandSlime) {
 				npcLoot.Add(ItemDropRule.ByCondition(new ElemGelCondition(), ItemType<Items.Materials.ElementalGoop>(), 3, 1, 2));
             }
+			if (npc.type == NPCID.MartianTurret)
+				npcLoot.Add(new CommonDrop(ItemType<DoublePluggedCord>(), 20));
+			if (npc.type == NPCID.Parrot)
+				npcLoot.Add(new CommonDrop(ItemType<Items.Food.Cracker>(), 20));
+			if (npc.type == NPCID.AngryNimbus) {
+				npcLoot.Add(new CommonDrop(ItemID.Cloud, 1, 5, 8));
+				npcLoot.Add(new CommonDrop(ItemID.RainCloud, 1, 2, 4));
+            }
+			if (npc.type == NPCID.IlluminantBat || npc.type == NPCID.IlluminantSlime)
+				npcLoot.Add(new CommonDrop(ItemType<IllusoryBulletPolish>(), 50));
+			if (npc.type == NPCID.ChaosElemental)
+				npcLoot.Add(new CommonDrop(ItemType<IllusoryBulletPolish>(), 25));
+			if (npc.type == NPCID.Tim)
+				npcLoot.Add(new CommonDrop(ItemType<VengefulSpirit>(), 5));
 		}
         int Timer;
 		bool prevNoGrav;
@@ -193,7 +234,7 @@ namespace Zylon.NPCs
 			int projectileCount;
 			for (projectileCount = 0; projectileCount < Main.maxProjectiles; projectileCount++) {
 				if (Main.projectile[projectileCount].active && Main.projectile[projectileCount].type == ProjectileType<Projectiles.BlackHole>()) {
-					if (Vector2.Distance(npc.Center, Main.projectile[projectileCount].Center) < 400 && !npc.boss && (!npc.townNPC || GetInstance<ZylonConfig>().blackHoleTownNPC) && npc.type != NPCID.TargetDummy) {
+					if (Vector2.Distance(npc.Center, Main.projectile[projectileCount].Center) < 400 && !npc.boss && npc.type != NPCID.TargetDummy) {
 						npc.noGravity = true;
 						if (npc.Center.X > Main.projectile[projectileCount].Center.X && npc.velocity.X > -15)
 							npc.velocity.X -= 2;
@@ -211,101 +252,70 @@ namespace Zylon.NPCs
 		}
         public override void ModifyGlobalLoot(GlobalLoot globalLoot) {
             //globalLoot.Add(ItemDropRule.ByCondition(new Conditions.WindyEnoughForKiteDrops(), ItemType<Items.Materials.WindEssence>(), 5));
-			globalLoot.Add(ItemDropRule.ByCondition(new Conditions.IsBloodMoonAndNotFromStatue(), ItemType<Items.Materials.BloodDroplet>(), 6));
+			globalLoot.Add(ItemDropRule.ByCondition(new Conditions.IsBloodMoonAndNotFromStatue(), ItemType<Items.Materials.BloodDroplet>(), 2));
 		}
-        public override void ModifyActiveShop(NPC npc, string shopName, Item[] items) {
-
-            if (npc.type == NPCID.Dryad) {
-				for (int i = 0; i < items.Length; i++)
-                {
-                    if (items[i].type == ItemID.None)
-                    {
-						items[i].SetDefaults(ItemID.Seed);
-						items[i].shopCustomPrice = 4;
-						break;
-                    }
-                }
-			}
-			if (npc.type == NPCID.WitchDoctor) {
-				for (int i = 0; i < items.Length; i++)
-				{
-					if (items[i].type == ItemID.None)
-					{
-						items[i].SetDefaults(ItemID.PoisonDart);
-						items[i].shopCustomPrice = 7;
-						break;
-					}
+        //float scaleAdd;
+        /*public override void OnHitByProjectile(NPC npc, Projectile projectile, NPC.HitInfo hit, int damageDone) {
+            if (projectile.type == ProjectileID.SlimeGun || projectile.type == ProjectileID.WaterGun) {
+				if (npc.type == -25 || npc.type == -24 || (npc.type > -11 && npc.type < 0) || npc.type == NPCID.BlueSlime || npc.type == NPCID.IceSlime || npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.SandSlime || npc.type == NPCID.SpikedJungleSlime || npc.type == NPCID.BabySlime || npc.type == NPCID.LavaSlime || npc.type == NPCID.GoldenSlime || npc.type == NPCID.SlimeSpiked || npc.type == NPCID.ShimmerSlime || npc.type == NPCID.SlimeMasked || (npc.type > 332 && npc.type < 337) || npc.type == NPCID.Slimeling || npc.type == NPCID.Crimslime || npc.type == NPCID.IlluminantSlime || npc.type == NPCID.RainbowSlime || npc.type == NPCID.QueenSlimeMinionBlue || npc.type == NPCID.QueenSlimeMinionPink || npc.type == NPCID.QueenSlimeMinionPurple || npc.type == ModContent.NPCType<Forest.DirtSlime>() || npc.type == ModContent.NPCType<Forest.OrangeSlime>() || npc.type == ModContent.NPCType<ElemSlime>() || npc.type == ModContent.NPCType<Sky.Stratoslime>() || npc.type == NPCID.Slimer2) {
+					scaleAdd += 0.1f;
+					if (scaleAdd > 2.5f) scaleAdd = 2.5f;
+				}
+				if (npc.type == NPCID.MotherSlime || npc.type == NPCID.DungeonSlime || npc.type == NPCID.UmbrellaSlime || npc.type == NPCID.ToxicSludge || npc.type == NPCID.CorruptSlime || npc.type == NPCID.Slimer || npc.type == NPCID.HoppinJack) {
+					scaleAdd += 0.075f;
+					if (scaleAdd > 1.5f) scaleAdd = 1.5f;
 				}
 			}
-			if (npc.type == NPCID.Demolitionist) {
-				for (int i = 0; i < items.Length; i++)
-				{
-					if (items[i].type == ItemID.None)
-					{
-						items[i].SetDefaults(ItemType<Items.Ammo.PocketGrenade>());
-						break;
-					}
-				}
+        }*/
+        /*public override void PostAI(NPC npc) { //Please don't break anything... please...
+            npc.scale += scaleAdd;
+        }*/
+        public override void ModifyShop(NPCShop shop) {
+            if (shop.NpcType == NPCID.Dryad) {
+				shop.Add(new Item(ItemID.Seed) {
+					shopCustomPrice = 4,
+				});
 			}
-			if (npc.type == NPCID.ArmsDealer) {
-				if (NPC.downedBoss2) {
-					if (Main.hardMode || !Main.dayTime) {
-						for (int i = 0; i < items.Length; i++)
-						{
-							if (items[i].type == ItemID.None)
-							{
-								items[i].SetDefaults(ItemType<Items.Ammo.BloodiedArrow>());
-								break;
-							}
-						}
-					}
-				}
-				if (Main.hardMode) {
-					for (int i = 0; i < items.Length; i++)
-					{
-						if (items[i].type == ItemID.None)
-						{
-							items[i].SetDefaults(ItemType<Items.Blowpipes.FamiliarFoamDartPistol>());
-							break;
-						}
-					}
-                }
+			if (shop.NpcType == NPCID.WitchDoctor) {
+				shop.Add(new Item(ItemID.PoisonDart) {
+					shopCustomPrice = 7,
+				});
 			}
-			if (npc.type == NPCID.Merchant) {
-				if (ZylonWorldCheckSystem.downedDirtball) {
-					for (int i = 0; i < items.Length; i++)
-					{
-						if (items[i].type == ItemID.None)
-						{
-							items[i].SetDefaults(ItemType<Items.Tools.TreeWhacker>());
-							break;
-						}
-					}
-				}
+			if (shop.NpcType == NPCID.Demolitionist) {
+				shop.Add(new Item(ItemType<PocketGrenade>()));
 			}
-			/*if (type == NPCID.Wizard) {
-				shop.item[nextSlot].SetDefaults(ItemType<Items.Misc.MagnificentOrb>());
-				nextSlot++;
-			}*/
+			if (shop.NpcType == NPCID.ArmsDealer) {
+				shop.Add<BloodiedArrow>(Condition.TimeNight, Condition.Hardmode);
+				shop.Add<BloodiedArrow>(Condition.TimeDay);
+			}
+			if (shop.NpcType == NPCID.Merchant) {
+				shop.Add<TreeWhacker>(new Condition("Mods.ExampleMod.Conditions.DownedDirtballCondition", () => ZylonWorldCheckSystem.downedDirtball));
+			}
+			if (shop.NpcType == NPCID.Cyborg) {
+				shop.Add(new Item(ItemType<ContinuumWarper>()));
+			}
         }
         public override void SetupTravelShop(int[] shop, ref int nextSlot) {
-            if (Main.rand.NextFloat() < .75f) {
+            if (Main.rand.NextFloat() < .75f || !Main.hardMode) {
 				switch (Main.rand.Next(3)) {
 					case 0:
-						shop[nextSlot] = ItemType<Items.Ammo.OverclockArrow>();
+						shop[nextSlot] = ItemType<IronfistMedal>();
 						break;
 					case 1:
-						shop[nextSlot] = ItemType<Items.Accessories.IronfistMedal>();
+						shop[nextSlot] = ItemType<OverclockArrow>();
 						break;
 					case 2:
-						shop[nextSlot] = ItemType<Items.Accessories.ManaBattery>();
+						shop[nextSlot] = ItemType<ManaBattery>();
+						break;
+					case 3:
+						shop[nextSlot] = ItemType<ToyClaw>();
 						break;
                 }
 				nextSlot++;
 			}
 			if (Main.rand.NextFloat() < .75f && Main.hardMode) {
 				if (Main.rand.NextBool()) shop[nextSlot] = ItemType<Items.Flails.StickyHand>();
-				else shop[nextSlot] = ItemType<Items.Accessories.AirTank>();
+				else shop[nextSlot] = ItemType<AirTank>();
 				nextSlot++;
 			}
         }

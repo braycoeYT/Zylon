@@ -28,6 +28,7 @@ namespace Zylon.Projectiles.Minions
 			Projectile.penetrate = -1;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 5;
+			Projectile.DamageType = DamageClass.Summon;
 		}
 		public override bool? CanCutTiles() {
 			return true;
@@ -38,14 +39,11 @@ namespace Zylon.Projectiles.Minions
 		int Timer;
 		int rand = Main.rand.Next(0, 40);
 		int attackMode;
-		int safeDmg;
-		bool init;
 		Vector2 tempVect;
-		public override void AI() {
-			if (!init) {
-				init = true;
-				safeDmg = Projectile.damage;
-            }
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) {
+            modifiers.ScalingBonusDamage += Projectile.scale - 1f;
+        }
+        public override void AI() {
 			Player player = Main.player[Projectile.owner];
 			#region Active check
 			if (player.dead || !player.active)
@@ -158,17 +156,6 @@ namespace Zylon.Projectiles.Minions
 			}
 			#endregion
 
-			#region Projectile
-			/*Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 40;
-			if (foundTarget)
-			{
-				Timer++;
-				if (Timer % 40 == rand)
-				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, projDir, ProjectileType<StardustBeam>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
-			}*/
-
-			#endregion
-
 			#region Animation and visuals
 			if (attackMode == 0) Projectile.rotation += 0.03f*Projectile.scale;
 
@@ -185,7 +172,6 @@ namespace Zylon.Projectiles.Minions
 					Projectile.scale -= 0.1f;
 					if (Projectile.scale < 1f) Projectile.scale = 1f;
                 }
-				Projectile.damage = safeDmg;
             }
 			if (attackMode == 0 && foundTarget) {
 				float quickInt = 15 - Timer;
@@ -204,7 +190,6 @@ namespace Zylon.Projectiles.Minions
                 }
             }
 			if (attackMode == 2 && foundTarget) {
-				Projectile.damage = (int)(safeDmg*Projectile.scale);
 				Projectile.rotation += 0.03f*Projectile.scale;
 				if (Timer % 12 == 0) {
 					tempVect = Vector2.Normalize(Projectile.Center - targetCenter) * (float)(-17.5f);
@@ -215,7 +200,6 @@ namespace Zylon.Projectiles.Minions
 					Projectile.scale = 1f;
 					Timer = 0;
 					attackMode = 3;
-					Projectile.damage = safeDmg;
                 }
             }
 			if (attackMode == 3 && foundTarget) {

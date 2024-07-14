@@ -13,13 +13,13 @@ namespace Zylon.Projectiles.Tomes
 		public override void SetDefaults() {
 			Projectile.width = 20;
 			Projectile.height = 20;
-			Projectile.aiStyle = 1;
+			Projectile.aiStyle = -1;
 			Projectile.friendly = true;
 			Projectile.penetrate = 1;
 			Projectile.timeLeft = 30;
 			Projectile.ignoreWater = true;
-			AIType = ProjectileID.Bullet;
 			Projectile.DamageType = DamageClass.Magic;
+			if (Projectile.ai[0] == 1f) Projectile.DamageType = DamageClass.Summon;
 		}
 		int child = ModContent.ProjectileType<PKFire2>();
 		int offset = 0;
@@ -45,7 +45,7 @@ namespace Zylon.Projectiles.Tomes
 		}
 		public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center - new Microsoft.Xna.Framework.Vector2(0, offset), new Microsoft.Xna.Framework.Vector2(0, 12), child, Projectile.damage, Projectile.knockBack, Projectile.owner);
+				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center - new Microsoft.Xna.Framework.Vector2(0, offset), new Microsoft.Xna.Framework.Vector2(0, 12), child, Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.ai[0]);
 			for (int i = 0; i < 4; i++) {
 				int dustType = 127;
 				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, dustType);

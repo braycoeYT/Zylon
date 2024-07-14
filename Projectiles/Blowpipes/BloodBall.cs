@@ -26,7 +26,7 @@ namespace Zylon.Projectiles.Blowpipes
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			SoundEngine.PlaySound(SoundID.NPCHit13, Projectile.Center);
 			end = true;
-			Main.player[Projectile.owner].Heal(Main.rand.Next(1, 3));
+			if (target.type != NPCID.TargetDummy) Main.player[Projectile.owner].Heal(Main.rand.Next(1, 3));
 		}
 		bool init;
 		bool end;

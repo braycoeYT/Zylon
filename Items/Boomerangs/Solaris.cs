@@ -9,7 +9,7 @@ namespace Zylon.Items.Boomerangs
 	public class Solaris : ModItem
 	{
 		public override void SetDefaults() { //Reference to Sonic '06
-			Item.damage = 73; //This progression is getting MOVED when we start PML, I've had to cut the damage down so much AAAA | og damage was like 150 or smth
+			Item.damage = 104; //This progression is getting MOVED when we start PML, I've had to cut the damage down so much AAAA | og damage was like 150 or smth
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 102;
 			Item.height = 108;
@@ -17,8 +17,8 @@ namespace Zylon.Items.Boomerangs
 			Item.useAnimation = 22;
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.knockBack = 8.2f;
-			Item.value = Item.sellPrice(0, 11, 56);
-			Item.rare = ItemRarityID.Purple;
+			Item.value = Item.sellPrice(0, 20);
+			Item.rare = ModContent.RarityType<PurpleModded>();
 			Item.UseSound = SoundID.Item71;
 			Item.autoReuse = true;
 			Item.useTurn = true;

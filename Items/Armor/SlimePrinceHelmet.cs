@@ -22,6 +22,8 @@ namespace Zylon.Items.Armor
 			player.GetDamage(DamageClass.Summon) += 0.03f;
         }
         public override void UpdateArmorSet(Player player) {
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+			p.slimePrinceArmor = true;
 			player.setBonus = "Summons a floating slime staff to volley slime at enemies";
 			player.AddBuff(ModContent.BuffType<Buffs.Minions.RoyalSlime>(), 60);
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.RoyalSlime>()] < 1 && player.whoAmI == Main.myPlayer)

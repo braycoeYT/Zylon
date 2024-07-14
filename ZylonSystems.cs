@@ -501,7 +501,7 @@ namespace Zylon
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.Hellforge);
-			recipe.AddIngredient(ItemID.HellstoneBar, 12);
+			recipe.AddIngredient(ModContent.ItemType<Items.Bars.HaxoniteBar>(), 12);
 			recipe.AddIngredient(ItemID.LavaBucket, 3);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
@@ -536,6 +536,13 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.JungleRose);
 			recipe.AddIngredient(ItemID.HellstoneBar, 6);
 			recipe.AddIngredient(ModContent.ItemType<Items.Bars.HaxoniteBar>(), 6);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.ObsidianRose);
+			recipe.AddRecipeGroup("Zylon:AnyHerb", 2);
+			recipe.AddIngredient(ItemID.HellstoneBar, 8);
+			recipe.AddIngredient(ModContent.ItemType<Items.Bars.HaxoniteBar>(), 8);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
@@ -760,7 +767,7 @@ namespace Zylon
 			recipe.AddTile(TileID.Autohammer);
 			recipe.Register();
 
-			recipe = Recipe.Create(ItemID.ShroomiteHeadgear);
+			recipe = Recipe.Create(ItemID.ShroomiteHelmet);
 			recipe.AddIngredient(ItemID.ChlorophyteHelmet);
 			recipe.AddIngredient(ItemID.GlowingMushroom, 180);
 			recipe.AddTile(TileID.Autohammer);
@@ -795,7 +802,7 @@ namespace Zylon
 
 			recipe = Recipe.Create(ItemID.DeerThing);
 			recipe.AddIngredient(ItemID.FlinxFur, 3);
-			recipe.AddIngredient(ItemID.DemoniteBar, 2);
+			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar", 2);
 			recipe.AddIngredient(ItemID.Lens);
 			recipe.AddTile(TileID.DemonAltar);
 			recipe.Register();
@@ -829,6 +836,36 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.Bone, 50);
 			recipe.AddIngredient(ItemID.Lens);
 			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.CandyCaneSword);
+			recipe.AddIngredient(ItemID.CandyCaneBlock, 32);
+			recipe.AddRecipeGroup("Zylon:AnyPHBar", 10);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.CnadyCanePickaxe);
+			recipe.AddIngredient(ItemID.CandyCaneBlock, 36);
+			recipe.AddRecipeGroup("Zylon:AnyPHBar", 12);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.CandyCaneHook);
+			recipe.AddIngredient(ItemID.CandyCaneBlock, 50);
+			recipe.AddRecipeGroup("Zylon:AnyPHBar", 7);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.BloodyMachete);
+			recipe.AddRecipeGroup("Zylon:AnyPHBar", 10);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.BloodDroplet>(), 18);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.FeralClaws);
+			recipe.AddIngredient(ItemID.Leather, 2);
+			recipe.AddIngredient(ItemID.JungleSpores, 12);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
         }
         public override void PostAddRecipes() {

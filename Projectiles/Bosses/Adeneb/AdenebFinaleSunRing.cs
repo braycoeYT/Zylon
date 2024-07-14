@@ -24,6 +24,9 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.tileCollide = false;
 			Projectile.alpha = 255;
 		}
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+            target.AddBuff(BuffID.OnFire, Main.rand.Next(4, 9) * 60);
+        }
 		float totalSpin;
 		float spin = 6.5f;
 		bool init;

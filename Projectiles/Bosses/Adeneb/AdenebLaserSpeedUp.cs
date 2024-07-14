@@ -25,7 +25,9 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = false;
 		}
-
+		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+            target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6) * 60);
+        }
 		const int appearTime = 20;
 		const int telegraphTime = 60;
 		const int slashMoveTime = 40;

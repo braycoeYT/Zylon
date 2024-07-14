@@ -15,7 +15,7 @@ namespace Zylon.Items.Ammo
 			Item.DamageType = DamageClass.Ranged;
 			Item.width = 12;
 			Item.height = 10;
-			Item.maxStack = 999;
+			Item.maxStack = 9999;
 			Item.consumable = true;
 			Item.knockBack = 2f;
 			Item.value = Item.sellPrice(0, 0, 0, 2);

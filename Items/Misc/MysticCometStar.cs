@@ -24,7 +24,7 @@ namespace Zylon.Items.Misc
 		int Timer;
         public override void Update(ref float gravity, ref float maxFallSpeed) {
             Timer++;
-			if (Timer > 1800) Item.active = false;
+			if (Timer > 900) Item.active = false;
         }
     }
 }

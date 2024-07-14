@@ -13,14 +13,14 @@ namespace Zylon.Items.Wands
 			Item.staff[Item.type] = true;
 		}
 		public override void SetDefaults() {
-			Item.damage = 21;
+			Item.damage = 14;
 			Item.width = 28;
 			Item.height = 30;
 			Item.DamageType = DamageClass.Magic;
-			Item.useTime = 25;
-			Item.useAnimation = 25;
+			Item.useTime = 42;
+			Item.useAnimation = 42;
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.knockBack = 3f;
+			Item.knockBack = 4.25f;
 			Item.value = Item.sellPrice(0, 0, 56, 0);
 			Item.rare = ItemRarityID.Green;
 			Item.autoReuse = true;
@@ -28,7 +28,7 @@ namespace Zylon.Items.Wands
 			Item.shoot = ModContent.ProjectileType<Projectiles.Wands.CarnalliteWandProj>();
 			Item.shootSpeed = 10f;
 			Item.noMelee = true;
-			Item.mana = 11;
+			Item.mana = 18;
 			Item.stack = 1;
 			Item.UseSound = SoundID.Item8;
 		}

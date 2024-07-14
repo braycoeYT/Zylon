@@ -10,11 +10,11 @@ Stats:
 ~~~1 Post-Moon Lord Boss [i:5130]
 (plus a secret joke boss only fightable on getfixedboi worlds [i:43])
 ~36 total NPCs
-~55 Buffs
-~13 Tiles
+~Summons can deal critical strikes now!
 ~A complete reworking and expansion of blowpipes!
 ~LOTS of new vanilla recipes and changes to help balance the game out.
 ~Several new prefixes!
+~New secret seeds: Abyssworld and Autumn.
 
 V0.0.3: Cause to Clash Update
 ~Renamed Desert Diskite to Adenite.
@@ -157,7 +157,6 @@ V0.0.3: Cause to Clash Update
 ~Reworked several of the mod's older boomerangs.
 ~Added multihit penalties for some modded boomerangs.
 ~Heavily nerfed Fleshstab Javelin and changed recipe.
-~X-Blade no longer spawns additional projectiles.
 ~Added Wretched Wrench.
 ~Reworked, expanded, and readded the Restoration Potion family. Vanilla did them dirty.
 ~Changed Recipes are no longer modified if Zylon Balancing is disabled.
@@ -204,7 +203,7 @@ V0.0.3: Cause to Clash Update
 ~Modded bars now stack to 9999.
 ~Fixed Starpack Slime and Sapling Warrior banners not working correctly.
 ~Shrapnel now has a multihit penalty.
-~Added Cerussite, Bi Disc, Ruby Bow, Diamond Cane, Sapphire Spellbook, Topaz Pike,
+~Added Cerussite, Bi Disc, Ruby Bow, Diamond Cane, Sapphire Spellbook, Topaz Pike, Amethyst Pistol, Amber Scepter, and Emerald Whip.
 ~Added Cerussite Bat.
 ~Decreased Starpack Slime spawn rate.
 ~Added Rai Stone.
@@ -240,7 +239,7 @@ V0.0.3: Cause to Clash Update
 ~Fixed a couple small code issues with some older mod projectiles.
 ~Added Journey Mode support for the entire mod. Better late than never?
 ~Fixed bugs related to all mod NPC money drops and higher difficulty stat values.
-~Mechanical Slime now has different hit and death sounds, and now spawns dust on death.
+~Mechanical Slime now has different hit and death sounds, and spawns dust on death.
 ~Mechanical Slime now only shoots lasers when angry.
 ~Fixed issues with Zylon NPCs being immune to debuffs, and added some new debuff immunities.
 ~Orange Slime now only spawns after King Slime is defeated.
@@ -251,8 +250,126 @@ V0.0.3: Cause to Clash Update
 ~Heavily optimized Adenites so that they no longer use 4 NPCs to work.
 ~Mod bosses are now immune to the Shimmer debuff.
 ~Made Zylon multiplayer boss health scale at the same rate as vanilla.
+~New vanilla flares now deal more damage, and despawn after a minute.
+~Added death dust effects to Solaris Flames of Hope.
+~Buffed Solaris damage, but decreased damage rate of Flames of Hope.
+~Increased Solaris sell price.
+~Leaf Bracelet is now Post-Moon Lord instead of Post-Golem.
+~Removed X-Blade (for now).
+~Added Yardstick.
+~Modified effects of Shroomite Headdress.
+~Slightly nerfed S.D.M.G.
+~Added Pluto Magnum.
+~Added Magenta and Forest Green Rarities for post-Moon Lord content.
+~Modded rarities now display properly. Finally...
+~Modded weapons and accessories of Red and Purple rarities can now receive PML rarities when reforged.
+~Added Double-Plugged Cord (and the mod's first keybind!).
+~Readded Candy Cane Pike.
+~Resprited Taboo Essence.
+~Added Foxtrot and Arctic Vixen.
+~Added Lazy Cap.
+~Increased Goblin item drop rates to make Goblins actually useful.
+~Reworked Obsidian Dart, and increased amount per craft.
+~Mudslinger no longer requires Any Demonite Bar to craft.
+~Revel's max charge effect can now be toggled with the right click.
+~Buffed Glass Leggings.
+~Increased Blood Droplet drop rate.
+~Slime Gun and Water Gun now make slimes grow when they are squirted.
+~Modded ammo no longer drops after being shot.
+~Fixed ammo consumption bug with Dartshark.
+~Brought back Dartshark's April Fool's Day changes.
+~Replaced Ooze Seed with Ooze Dart.
+~Changed all mod ammo to stack to 9999 instead of 999.
+~Enchanted Dirt Clump now works when in the vanity slot.
+~Added Trifid.
+~Resprited Meteorb Staff (finally).
+~Added new effects to Eye of the Golem to make it actually useful.
+~Added Poltergeist.
+~Readded Vortex Blowpipe.
+~Added Cracker.
+~Changed Fusion Band tooltip slightly.
+~Completely reworked Starpack Slime and renamed it to Stratoslime.
+~Stratoslime now drops more Speckled Stardust.
+~Harpies no longer drop Speckled Stardust.
+~Stratoslimes spawn much more often now.
+~Added Fahrenheit.
+~Fixed grammatical error in the "Zylonian Balancing" config.
+~Added Night Light Rarity config.
+~Added Adamantite Wand and Titanium Wand.
+~Changed position of the Slime Prince armor's set bonus.
+~Fixed issues with Slime Prince armor set bonus position being offset randomly.
+~Fixed issue with Root Guard not working.
+~Reworked Harpy's Crest.
+~Reworked Slime Pendant slightly.
+~Reworked Dirt Slime to be cool.
+~Added Living Wood armor and Living Whip.
+~Fixed several of the mod's summons not dealing summon damage. Oops.
+~Fixed Stardust Fragment Staff not updating damage values.
+~Reworked Meteorb's and Wind Elemental's projectiles to use drawcode instead of two separate projectiles.
+~Fixed centering issue with Wind Elemental's attack.
+~Added Oddpick.
+~Resprited Metelord and Eldritch Jellyfish's relics.
+~Resprited Adeneb Trophy, Metelord Trophy, and Eldritch Jellyfish Trophy.
+~Added Slimy Scepter.
+~Resprited Metelord's treasure bag.
+~Fixed Enchanted Dirt Clump display bug.
+~Resprited Carnallite, Slime Prince, Haxonite, and Neutron armor.
+~Renamed Neutron Tracers to Neutron Booster.
+~Neutron Booster now has a cool walking effect.
+~Updated Neutron armor set bonus to look a lot better.
+~Reduced Neutron armor set bonus cooldown and damage.
+~Removed "Neutron Armor Affects Town NPCs" config. You WILL like it.
+~Resprited Metelord Mask.
+~Resprited Jade Robe.
+~Added Crackle Staff.
+~Angry Nimbus now drops Cloud and Rain Cloud.
+~Fixed issue with NPCs selling custom items.
+~Added Continuum Warper, Illusory Bullet Polish, The Regurgitator, Marauder's Kit, Mechanic's Kit, Ammo Sling, and Roundmaster's Kit.
+~Bloody Baller no longer steals life from Target Dummies.
+~Modded arrows are now affected by the Magic Quiver.
+~Gave Neutron Fragment a custom animation.
+~Added Succulent Sap, Mana Blossom, Slimy Shell, Gelatin Comet, Stellar Comet, Metallic Comet, Ethereal Gasp, and Supernatural Comet.
+~Fixed bugs with Friendship Bracelet.
+~Bloodied Arrows are now sold when in hardmode or during the day.
+~Bloodied Arrows now only drop from the Eye of Cthulhu in Crimson worlds.
+~Added Living Charm, Toy Claw, Vengeful Spirit, Claw of Insanity,
+~Summon weapons can now deal critical strikes.
+~Added "Summon Natural Crits" config.
+~Fixed issue with how config displays.
+~Added Gilded Shuriken.
+~Removed Hallowed Bar from Disco Canister recipe.
+~Removed Psychic Potion (for now).
+~Decreased the amount of Any Adamantite Bars required for Shadowstitched Armor.
+~Renamed Tattered Boots to Tattered Skirt, and Shadowstitched Boots to Shadowstitched Skirt.
+~Reduced amount of Carnallite Bars required to craft Carnallite armor.
+~Added the mod's first secret seeds, Abyssworld and Autumn!
+~Resprited Tattered and Shadowstitched armor.
+~Added Sol Chakram, Bomb Rock, Sun's Glare, Sunburn, Raging Sun Staff, and Disk Drive.
+~Enchanted Dirt Clump and Disco Canister no longer count as summon weapons.
+~Fixed issue with bosses not dropping the correct loot.
+~Fixed issue with how the Polandball Mask drops.
+~Nerfed Carnallite Wand heavily.
+~Changed progression of Space Machine Gun.
+~Fixed projectile trail issue with Temple Equalizer.
+~Decreased defense given by Carnallite armor.
+~Decreased use animation speed of the Carnallite tools.
+~Completely reworked Adeneb into an awesome boss!
 
-finish cerussite + finish wolf and ooze (ooze dart) + living wood + obsidian dart + water gun funny change + dirt clump social slot + no more ammo drop + dartshark fix + rework starpack slime and obelisk
+~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
+~Added Fantastical Finality.
+~Added Ultima Band.
+~Made developer weapons craftable.
+~Added Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff, Hollow Knife,
+
+finish adeneb + sabur rex
+
+
+
+
+
+
+
+
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:
@@ -272,6 +389,7 @@ Quit:
 CrazySapling1
 Koolaidlemonade
 ULTIMATEDQVID
+Mafia_Cheezstick
 
 Minor Help:
 Ebon <-- Play Ebonian Mod!!
@@ -281,4 +399,4 @@ Slimelad
 Juice/Slayer
 Pufferfisher77
 STiML
-Mafia_Cheezstick
+Jeff the murderer

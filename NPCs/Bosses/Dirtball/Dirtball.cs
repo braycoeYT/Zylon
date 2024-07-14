@@ -7,6 +7,7 @@ using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Zylon.Items.Bags;
 
 namespace Zylon.NPCs.Bosses.Dirtball
 {
@@ -537,33 +538,31 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			ZylonWorldCheckSystem.downedDirtball = true;
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
-			if (Main.masterMode) {
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.DirtballRelic>(), 1));
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.DS_91Controller>(), 4));
-            }
-			if (Main.expertMode || Main.masterMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.DirtballBag>(), 1));
-			else {
-				npcLoot.Add(new CommonDrop(ItemID.DirtBlock, 1, 25, 50));
-				npcLoot.Add(new CommonDrop(ItemID.MudBlock, 1, 15, 30));
-				npcLoot.Add(new CommonDrop(ItemID.IronBar, 1, 1, 3));
-				npcLoot.Add(new CommonDrop(ItemID.LeadBar, 1, 1, 3));
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bars.ZincBar>(), 1, 1, 3));
-				npcLoot.Add(new CommonDrop(ItemID.DirtRod, 5));
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Misc.Dirtthrower>(), 25));
-				npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.MuddyGreatsword>(), ModContent.ItemType<Items.Yoyos.Dirtglob>(), ModContent.ItemType<Items.Bows.Dirty3String>(), ModContent.ItemType<Items.Blowpipes.DirtFunnel>(), ModContent.ItemType<Items.Wands.ScepterofDirt>(), ModContent.ItemType<Items.Accessories.DirtRegalia>()));
-				
-				//Remix and getfixedboi change item progression, so don't drop on those
-				LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.NotRemixSeed());
-				LeadingConditionRule leadingConditionRule2 = new LeadingConditionRule(new Conditions.ZenithSeedIsNotUp());
-
-				leadingConditionRule.OnSuccess(leadingConditionRule2.OnSuccess(npcLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()))));
-				
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.DirtballMask>(), 7));
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.CreepyBlob>(), 10));
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.BagofFruits>(), 3));
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Food.MudPie>(), 3));
-            }
+			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.DirtballTrophy>(), 10));
+
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.DirtballMask>(), 7));
+			notExpertRule.OnSuccess(new CommonDrop(ItemID.DirtBlock, 1, 25, 50));
+			notExpertRule.OnSuccess(new CommonDrop(ItemID.MudBlock, 1, 15, 30));
+			notExpertRule.OnSuccess(new CommonDrop(ItemID.IronBar, 1, 1, 3));
+			notExpertRule.OnSuccess(new CommonDrop(ItemID.LeadBar, 1, 1, 3));
+			notExpertRule.OnSuccess(new CommonDrop(ItemID.DirtRod, 5));
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Misc.Dirtthrower>(), 25));
+			notExpertRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.MuddyGreatsword>(), ModContent.ItemType<Items.Yoyos.Dirtglob>(), ModContent.ItemType<Items.Bows.Dirty3String>(), ModContent.ItemType<Items.Blowpipes.DirtFunnel>(), ModContent.ItemType<Items.Wands.ScepterofDirt>(), ModContent.ItemType<Items.Accessories.DirtRegalia>()));
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Pets.CreepyBlob>(), 10));
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<BagofFruits>(), 3));
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Food.MudPie>(), 3));
+
+			LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.NotRemixSeed());
+			notExpertRule.OnSuccess(leadingConditionRule);
+			leadingConditionRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()));
+			
+			npcLoot.Add(notExpertRule);
+
+			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<DirtballBag>()));
+
+			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeables.Relics.DirtballRelic>()));
+			npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<Items.Pets.DS_91Controller>(), 4));
 		}
     }
 }

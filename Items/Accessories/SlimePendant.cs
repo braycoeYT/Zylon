@@ -17,8 +17,10 @@ namespace Zylon.Items.Accessories
 			Item.rare = ItemRarityID.Blue;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			player.jumpSpeedBoost += 1.25f;
 			player.maxFallSpeed += 3f;
+			p.slimePendant = true;
 		}
 	}
 }

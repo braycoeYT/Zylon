@@ -20,7 +20,7 @@ namespace Zylon
 
 		[DefaultValue(true)]
 		[Label("Zylonian Balancing")]
-		[Tooltip("Rebalances a lot of the vanilla content.")]
+		[Tooltip("Rebalances a lot of vanilla content.")]
 		public bool zylonianBalancing;
 
 		[DefaultValue(true)]
@@ -59,9 +59,9 @@ namespace Zylon
 		public bool boomerangCamera;
 
 		[DefaultValue(true)]
-		[Label("Neutron Armor Affects Town NPCs")]
-		[Tooltip("Allows black holes to suck up town NPCs.")]
-		public bool blackHoleTownNPC;
+		[Label("Summon Natural Crits")]
+		[Tooltip("Summons now have a 4% default crit chance, and are affected by generic crit boosts.")]
+		public bool summonNaturalCrit;
 
 		[Header("config.accessibility")]
 
@@ -72,5 +72,9 @@ namespace Zylon
 		[Label("Screenshake Amount")]
 		[Tooltip("Changes the amount of all screenshake in the mod. Reccomended for people who have trouble with it.")]
 		public int ScreenshakeAccessibilityMulti;
+
+		[Label("Night Light / Tritanopic Rarity Support")]
+		[Tooltip("Changes the color of modded rarities so that tritanopics or users of night light can differentiate them easier.")]
+		public bool nightLightRarities;
 	}
 }

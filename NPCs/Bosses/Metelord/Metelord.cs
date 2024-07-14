@@ -9,6 +9,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using Zylon.Items.Bags;
 
 namespace Zylon.NPCs.Bosses.Metelord
 {
@@ -463,25 +464,26 @@ namespace Zylon.NPCs.Bosses.Metelord
 			ZylonWorldCheckSystem.downedMetelord = true;
 			int expertBoost = 0;
 			if (Main.expertMode) expertBoost = 2;
-			if (Main.zenithWorld) expertBoost = 25;
-			if (Main.getGoodWorld) expertBoost = 40;
-			if (!Main.dayTime || Main.getGoodWorld) for (int x = 0; x < Main.rand.Next(7+expertBoost, 10+expertBoost); x++) {
+			if (Main.getGoodWorld) expertBoost = 25;
+			if (Main.zenithWorld) expertBoost = 40;
+			if (!Main.dayTime || Main.zenithWorld) for (int x = 0; x < Main.rand.Next(7+expertBoost, 10+expertBoost); x++) {
 				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(Main.rand.Next(-800, 801), Main.rand.Next(1400, 2000)), new Vector2(Main.rand.NextFloat(-2f, 2f), 13), ModContent.ProjectileType<Projectiles.Bosses.Metelord.MetelordFallenStar>(), 0, 0, 255, 0, 0, 2);
             }
         }
         public override void ModifyNPCLoot(NPCLoot npcLoot) {
-			if (Main.masterMode) {
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Relics.MetelordRelic>(), 1));
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.PlasticDinoFigurine>(), 4));
-            }
-			if (Main.expertMode || Main.masterMode) npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Bags.MetelordBag>(), 1));
-			else {
-				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Ores.HaxoniteOre>(), 1, 80, 100));
-				npcLoot.Add(ItemDropRule.Common(ItemID.Meteorite, 1, 15, 30));
-				npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<Items.Accessories.MysticComet>(), 5));
-				npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Vanity.MetelordMask>(), 7));
-            }
+			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.MetelordTrophy>(), 10));
+
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.MetelordMask>(), 7));
+			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Ores.HaxoniteOre>(), 1, 80, 100));
+			notExpertRule.OnSuccess(ItemDropRule.Common(ItemID.Meteorite, 1, 15, 30));
+			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Accessories.MysticComet>(), 4));
+			npcLoot.Add(notExpertRule);
+
+			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<MetelordBag>()));
+
+			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeables.Relics.MetelordRelic>()));
+			npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<Items.Pets.PlasticDinoFigurine>(), 4));
 		}
     }
 	internal class MetelordBody : WormBody

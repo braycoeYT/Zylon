@@ -4,6 +4,7 @@ using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using Microsoft.Xna.Framework;
 
 namespace Zylon.NPCs.Forest
 {
@@ -57,7 +58,18 @@ namespace Zylon.NPCs.Forest
 				NPC.knockBackResist = 0.6f;
             }
         }
-		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
+		int Timer;
+        public override void AI() {
+            Timer++;
+			if (Timer % 30 == 0 && Timer > 59 && Timer < 180) { //Spawn dirt balls
+				int randX = Main.rand.Next(-10, 11);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(randX, Main.rand.Next(-5, 6)), Vector2.Zero, ModContent.ProjectileType<Projectiles.Enemies.DirtSlimeProj>(), NPC.damage/3, 0f, -1, NPC.whoAmI, randX, 240-Timer);
+			}
+			if (Timer > 300) { //Prepare new round of dirt balls
+				Timer = 0;
+			}
+        }
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Times.DayTime,
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
