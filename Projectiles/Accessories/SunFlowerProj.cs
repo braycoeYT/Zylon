@@ -40,7 +40,8 @@ namespace Zylon.Projectiles.Accessories
 			Player owner = Main.player[Projectile.owner];
             ZylonPlayer p = owner.GetModPlayer<ZylonPlayer>();
 
-            if (!p.sunFlower || owner.statLife > owner.statLifeMax2/2) Projectile.alpha += 17;
+            if (!p.sunFlower) Projectile.alpha += 17;
+            else if (owner.statLife > owner.statLifeMax2/2) Projectile.alpha += 17;
             else Projectile.alpha -= 17;
 
             if (Projectile.alpha >= 255) Projectile.Kill();

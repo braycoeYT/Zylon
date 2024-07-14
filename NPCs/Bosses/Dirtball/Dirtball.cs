@@ -15,7 +15,6 @@ namespace Zylon.NPCs.Bosses.Dirtball
     public class Dirtball : ModNPC
 	{
         public override void SetStaticDefaults() {
-
 			NPCID.Sets.BossBestiaryPriority.Add(Type);
 			NPCID.Sets.MPAllowedEnemies[Type] = true;
 

@@ -9,5 +9,6 @@ namespace Zylon
 	public class Zylon : Mod
 	{
 		public static bool hasFoughtSabur;
+		public static bool noHitSabur;
     }
 }

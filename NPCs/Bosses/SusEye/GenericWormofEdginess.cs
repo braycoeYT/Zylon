@@ -18,7 +18,7 @@ namespace Zylon.NPCs.Bosses.SusEye
 			NPCID.Sets.MPAllowedEnemies[Type] = true;
 
 			// DisplayName.SetDefault("Suspicious Looking Eye");
-			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers(0) {
+			NPCID.Sets.NPCBestiaryDrawModifiers value = new NPCID.Sets.NPCBestiaryDrawModifiers() {
 				Hide = true
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, value);

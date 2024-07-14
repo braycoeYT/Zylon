@@ -381,6 +381,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.JellyMask>(), 7));
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Materials.EerieBell>(), 1, 30, 45));
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Materials.OtherworldlyFang>(), 1, 35, 50));
+			notExpertRule.OnSuccess(new CommonDrop(ItemID.MagicConch, 4));
 			npcLoot.Add(notExpertRule);
 
 			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<JellyBag>()));

@@ -12,7 +12,8 @@ namespace Zylon.Buffs.Potions
             Main.debuff[Type] = false;
         }
         public override void Update(Player player, ref int buffIndex) {
-			player.GetAttackSpeed(DamageClass.Melee) += 0.1f;
+            float hpRatio = player.statLife/player.statLifeMax2;
+			player.GetAttackSpeed(DamageClass.Generic) += 0.1f-0.1f*hpRatio;
         }
     }
 }

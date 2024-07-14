@@ -332,7 +332,7 @@ V0.0.3: Cause to Clash Update
 ~Fixed bugs with Friendship Bracelet.
 ~Bloodied Arrows are now sold when in hardmode or during the day.
 ~Bloodied Arrows now only drop from the Eye of Cthulhu in Crimson worlds.
-~Added Living Charm, Toy Claw, Vengeful Spirit, Claw of Insanity,
+~Added Living Charm, Toy Claw, Vengeful Spirit, Claw of Insanity, Shadow's Wink,
 ~Summon weapons can now deal critical strikes.
 ~Added "Summon Natural Crits" config.
 ~Fixed issue with how config displays.
@@ -354,17 +354,22 @@ V0.0.3: Cause to Clash Update
 ~Decreased defense given by Carnallite armor.
 ~Decreased use animation speed of the Carnallite tools.
 ~Completely reworked Adeneb into an awesome boss!
+~Increased some item drop rates.
+~Added Venom Dart.
+~Reworked Feral Chemicals.
+~Wall of Flesh now drops Demon Conch, and Eldritch Jellyfish drops Magic Conch.
+~Reworked and resprited Mini Meteoroid.
+~Resprited Meteor Launcher, Unholy Spitter, Starshooter, Icicle Maker, Icicle on a Rod, Beepipe, Bloody Baller, Spore Shooter, and Chlorophyte Blowspitter.
+~Fixed bug with Meteor Launcher not switching modes.
+~Buffed and reworked Icicle Maker.
+~Removed Shivercrown.
+~Decreased amount of Chlorophyte Bars needed to craft Forgotten Rose's Saber.
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
 ~Added Fantastical Finality.
 ~Added Ultima Band.
 ~Made developer weapons craftable.
-~Added Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff, Hollow Knife,
-
-finish adeneb + sabur rex
-
-
-
+~Added Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff, Hollow Knife, The Retractor, and
 
 
 

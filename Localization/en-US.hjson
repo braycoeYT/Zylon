@@ -798,6 +798,15 @@ Mods: {
 					'''
 			}
 
+			ShadowsWink: {
+				DisplayName: Shadow's Wink
+				Tooltip:
+					'''
+					Rains shadow orbs on summon targets
+					Dealing summon damage to summon targets inflicts shadowflame
+					'''
+			}
+
 			Shivercrown: {
 				DisplayName: Shivercrown
 				Tooltip:
@@ -1747,7 +1756,11 @@ Mods: {
 
 			IcicleMaker: {
 				DisplayName: Icicle Maker
-				Tooltip: At max charge, replaces ammo with a heap of mini icicles
+				Tooltip:
+					'''
+					At max charge, replaces ammo with a heap of mini icicles
+					Right click to disable and enable this effect
+					'''
 			}
 
 			LobbingLog: {
@@ -2944,7 +2957,7 @@ Mods: {
 
 			FeralChemicals: {
 				DisplayName: Feral Chemicals
-				Tooltip: Increases melee speed by 10%
+				Tooltip: Increases weapon speed by up to 10% based on current health
 			}
 
 			FloaterPotion: {
@@ -3469,7 +3482,7 @@ Mods: {
 				Tooltip:
 					'''
 					Smothers enemies in Nebula Beams
-					Nebula Beams bounce off of walls and enemies
+					Nebula Beams bounce off of walls
 					After existing for long enough, Nebula Beams collapse into orbs
 					Nebula Orbs will chase after nearby foes
 					'''
@@ -3835,7 +3848,7 @@ Mods: {
 
 			MiniMeteoroid: {
 				DisplayName: Mini Meteoroid
-				Tooltip: Splits into eight smaller meteoroids after hitting enemies enough times
+				Tooltip: Splits off a chunk after hitting a foe
 			}
 
 			Slimebasher: {
@@ -3843,12 +3856,12 @@ Mods: {
 				Tooltip: Has a long reach
 			}
 
-			SparklySlimebasher: {
-				DisplayName: Sparkly Slimebasher
+			TheRetractor: {
+				DisplayName: The Retractor
 				Tooltip:
 					'''
-					Has a long reach
-					Striking enemies will release bouncy sparkly gel
+					'Caution: May defy physics.'
+					Unleashes countless blades on throw
 					'''
 			}
 
@@ -4042,6 +4055,11 @@ Mods: {
 
 			StratoslimeBanner: {
 				DisplayName: Stratoslime Banner
+				Tooltip: ""
+			}
+
+			VenomDart: {
+				DisplayName: Venom Dart
 				Tooltip: ""
 			}
 		}
@@ -4396,7 +4414,7 @@ Mods: {
 			Insomnia.DisplayName: Insomnia
 			InsomniaProj.DisplayName: Lens Blast
 			MiniMeteoroid.DisplayName: Mini Meteoroid
-			MiniMiniMeteoroid.DisplayName: Mini Mini Meteoroid
+			MiniMiniMeteoroid.DisplayName: Meteoroid Chunk
 			Slimebasher.DisplayName: Slimebasher
 			SparklySlimebasher.DisplayName: Sparkly Slimebasher
 			MetecoreFireball.DisplayName: Metecore Fireball
@@ -4550,6 +4568,10 @@ Mods: {
 			RagingSun.DisplayName: Raging Sun
 			RagingSunProj.DisplayName: Raging Sun
 			Diskling.DisplayName: Diskling
+			ShadowsWinkProj.DisplayName: Shadows Wink Proj
+			VenomDart.DisplayName: Venom Dart
+			TheRetractor.DisplayName: The Retractor
+			TheRetractorProj.DisplayName: The Retractor Proj
 		}
 
 		NPCs: {

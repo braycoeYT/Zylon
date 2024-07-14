@@ -270,9 +270,9 @@ namespace Zylon.Items
 				if (Main.rand.NextBool(5)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<RuneofMultiplicity>());
 				player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.Bone, Main.rand.Next(15, 21));
             }
-			/*if (item.type == ItemID.WallOfFleshBossBag) {
-				player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.Bone, Main.rand.Next(20, 31));
-            }*/
+			if (item.type == ItemID.WallOfFleshBossBag) {
+				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.DemonConch);
+            }
 			if (item.type == ItemID.TwinsBossBag) {
 				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<Minions.SpazmaticScythe>());
             }

@@ -40,7 +40,7 @@ namespace Zylon.Items.Potions
         }
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe(2);
-			recipe.AddIngredient(ItemID.Bottle);
+			recipe.AddIngredient(ItemID.Bottle, 2);
 			recipe.AddIngredient(ItemID.PinkGel);
 			recipe.AddIngredient(ModContent.ItemType<Materials.SpeckledStardust>());
 			recipe.AddTile(TileID.Bottles);

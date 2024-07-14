@@ -31,7 +31,7 @@ namespace Zylon.Items.Blowpipes
 			summonNum = 0;
 		}
         public override Vector2? HoldoutOffset() {
-			return new Vector2(4, -6);
+			return new Vector2(4, -4); //og 4, -6
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

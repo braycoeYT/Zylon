@@ -696,6 +696,9 @@ namespace Zylon.NPCs.Bosses.SaburRex
         public override void BossLoot(ref string name, ref int potionType) {
             potionType = ItemID.SuperHealingPotion;
         }
+        public override void OnKill() {
+            if (Zylon.noHitSabur) Item.NewItem(NPC.GetSource_FromThis(), NPC.getRect(), ModContent.ItemType<Items.Swords.Excalipoor>());
+        }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,

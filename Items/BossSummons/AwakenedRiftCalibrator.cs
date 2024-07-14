@@ -58,6 +58,7 @@ namespace Zylon.Items.BossSummons
 			{
 				SoundEngine.PlaySound(SoundID.Roar, player.position);
 				int type = ModContent.NPCType<NPCs.Bosses.SaburRex.SaburRex>();
+				Zylon.noHitSabur = true;
 
 				if (Main.netMode != NetmodeID.MultiplayerClient)
 				{

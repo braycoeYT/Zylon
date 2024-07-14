@@ -25,6 +25,11 @@ namespace Zylon.Items.Blowpipes //play cool sound when launch, double recharge t
 		public override bool AltFunctionUse(Player player) {
 			return true;
 		}
+        public override void AltClickEvent(Player player) {
+            maxReplace = !maxReplace;
+			if (maxReplace) CombatText.NewText(player.getRect(), textColor, "Enabled");
+			else CombatText.NewText(player.getRect(), textColor, "Disabled");
+        }
         public override void ShootAction(Player player, Vector2 vel, int tempType, int tempDmg, float tempKb, float tempSpd) {
             if (maxReplace && reuseCounter <= 0) Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, vel*tempSpd, ModContent.ProjectileType<Projectiles.Blowpipes.MeteorLauncherProj>(), tempDmg, tempKb, Main.myPlayer, summonNum);
 				else Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, vel*tempSpd, tempType, tempDmg, tempKb, Main.myPlayer);
@@ -37,7 +42,7 @@ namespace Zylon.Items.Blowpipes //play cool sound when launch, double recharge t
 			if (summonNum == 4 && charge < maxCharge + p.blowpipeMaxInc) summonNum = 3;
         }
 		public override Vector2? HoldoutOffset() {
-			return new Vector2(4, -8);
+			return new Vector2(4, -6);
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
