@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,6 +13,7 @@ namespace Zylon.Tiles.Marble
 		public override void SetStaticDefaults()
 		{
 			GoreID.Sets.SpecialAI[Type] = 0;
+			ChildSafety.SafeGore[Type] = true;
 		}
 
 		public override void OnSpawn(Gore gore, IEntitySource source)
