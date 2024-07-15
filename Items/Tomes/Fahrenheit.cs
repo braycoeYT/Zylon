@@ -31,7 +31,6 @@ namespace Zylon.Items.Tomes
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<Sunburn>());
 			recipe.AddIngredient(ItemID.LivingFireBlock, 50);
-			recipe.AddIngredient(ModContent.ItemType<Materials.NeutronFragment>(), 8);
 			recipe.AddIngredient(ItemID.LunarBar, 5);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();

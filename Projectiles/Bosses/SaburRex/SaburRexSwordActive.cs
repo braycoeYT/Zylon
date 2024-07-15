@@ -34,7 +34,7 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 		NPC owner;
         public override void AI() {
 			owner = Main.npc[ZylonGlobalNPC.saburBoss];
-			if (owner.active && owner.life > 0) Projectile.timeLeft = 2;
+			if (owner.active && owner.life > 1) Projectile.timeLeft = 2;
 			Projectile.rotation = owner.ai[2]*owner.direction - MathHelper.PiOver4; //Projectile rot for facing right
 
 			//Special rotation for beekeeper dash attack

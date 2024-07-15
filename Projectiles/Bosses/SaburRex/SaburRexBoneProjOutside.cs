@@ -27,6 +27,7 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 		float hpLeft;
         public override void AI() {
 			NPC owner = Main.npc[ZylonGlobalNPC.saburBoss];
+			if (owner.life < 2 || !owner.active) Projectile.Kill();
 			hpLeft = (float)owner.life/(float)owner.lifeMax;
 			Projectile.hostile = Projectile.alpha < 150;
 			Projectile.rotation += MathHelper.ToRadians(15f);

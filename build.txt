@@ -4,4 +4,4 @@ version = 0.0.2.9
 hideCode = true
 hideResources = true
 includeSource = false
-homepage = https://discord.gg/GTvAZceY8B
+homepage = https://discord.gg/x6G8rKduWc

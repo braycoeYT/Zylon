@@ -41,6 +41,7 @@ namespace Zylon.Projectiles.Bosses.SaburRex
         public override void AI() {
 			Timer++;
 			NPC owner = Main.npc[ZylonGlobalNPC.saburBoss];
+			if (owner.life < 2 || !owner.active) Projectile.Kill();
 			Player target = Main.player[owner.target];
 			//If currently spinning
 			/*if (spin) { //Spins while on the border, and then yeets itself at the player.

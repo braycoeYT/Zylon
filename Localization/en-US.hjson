@@ -217,6 +217,11 @@ Mods: {
 				Description: D:/Users/admin/Sec/proto/UNSTABLE/DS-39.exe
 			}
 
+			Gamerblade: {
+				DisplayName: Gamerblade
+				Description: But Mom, I'm GAMING!
+			}
+
 			SpookyJellyfish: {
 				DisplayName: Spooky Jellyfish
 				Description: It flashes in and out of visibility, trying to scare something...
@@ -1276,6 +1281,11 @@ Mods: {
 			UltraHighVelocityBullet: {
 				DisplayName: Ultra High Velocity Bullet
 				Tooltip: "'Gotta go fast!'"
+			}
+
+			VenomDart: {
+				DisplayName: Venom Dart
+				Tooltip: For use with blowpipes
 			}
 
 			WaterleafSeed: {
@@ -2865,6 +2875,15 @@ Mods: {
 				Tooltip: ""
 			}
 
+			AncientGameController: {
+				DisplayName: Ancient Game Controller
+				Tooltip:
+					'''
+					'An ancient relic from the long-forgotten console wars'
+					Summons a Gamerblade to follow you
+					'''
+			}
+
 			CreepyBlob: {
 				DisplayName: Creepy Blob
 				Tooltip: Summons the one and only Dirtboi to follow you
@@ -4110,11 +4129,6 @@ Mods: {
 				DisplayName: Stratoslime Banner
 				Tooltip: ""
 			}
-
-			VenomDart: {
-				DisplayName: Venom Dart
-				Tooltip: ""
-			}
 		}
 
 		Projectiles: {
@@ -4629,6 +4643,7 @@ Mods: {
 			ShadeCharmProj.DisplayName: Shade Charm Proj
 			TribalCharmProjFall.DisplayName: Tribal Charm Proj Fall
 			TribalCharmProjSpin.DisplayName: Tribal Charm Proj Spin
+			Gamerblade.DisplayName: Gamerblade
 		}
 
 		NPCs: {
