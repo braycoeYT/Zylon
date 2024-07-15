@@ -46,10 +46,10 @@ namespace Zylon.WorldGeneration
 									badTiles++;
 								}
 							}
-							int amountOfUpperLeaves = 1;
+							int amountOfUpperLeaves = WorldGen.genRand.Next(3, 7);
 							if (badTiles > 1)
 							{
-								amountOfUpperLeaves = WorldGen.genRand.Next(3, 6);
+								amountOfUpperLeaves = WorldGen.genRand.Next(5, 8);
 							}
 							for (int grownLeaves = 0; grownLeaves < amountOfUpperLeaves; grownLeaves++)
 							{
@@ -73,7 +73,7 @@ namespace Zylon.WorldGeneration
 							}
 							if (badTiles <= 1)
 							{
-								int amountOfLeaves = WorldGen.genRand.Next(3, 7);
+								int amountOfLeaves = WorldGen.genRand.Next(2, 5);
 								for (int grownLeaves2 = 0; grownLeaves2 < amountOfLeaves; grownLeaves2++)
 								{
 									Tile leafTile2 = Framing.GetTileSafely(i, j + grownLeaves2);
