@@ -36,6 +36,7 @@ namespace Zylon.Items.Bags
 			itemLoot.Add(ItemDropRule.Common(ItemType<Accessories.Wings.EldritchTentacles>(), 1));
 			itemLoot.Add(ItemDropRule.Common(ItemType<Materials.EerieBell>(), 1, 40, 50));
 			itemLoot.Add(ItemDropRule.Common(ItemType<Materials.OtherworldlyFang>(), 1, 45, 55));
+			itemLoot.Add(ItemDropRule.Common(ItemID.MagicConch, 3));
 			itemLoot.Add(ItemDropRule.Common(ItemType<Vanity.JellyMask>(), 7));
 			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(NPCType<NPCs.Bosses.Jelly.EldritchJellyfish>()));
 		}

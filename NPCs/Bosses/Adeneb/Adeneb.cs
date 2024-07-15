@@ -32,6 +32,8 @@ namespace Zylon.NPCs.Bosses.Adeneb
 				CustomTexturePath = "Zylon/NPCs/Bosses/Adeneb/Adeneb_Bestiary",
 			};
 			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
+			NPCID.Sets.BossBestiaryPriority.Add(Type);
+			NPCID.Sets.MPAllowedEnemies[Type] = true;
         }
         public override void SetDefaults() {
             NPC.width = 48;
@@ -762,7 +764,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
         }
 		public override void BossLoot(ref string name, ref int potionType) {
             potionType = ItemID.HealingPotion;
-			//ZylonWorldCheckSystem.downedAdeneb = true;
+			ZylonWorldCheckSystem.downedAdeneb = true;
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
 			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
@@ -781,7 +783,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AdenebBag>()));
 
 			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeables.Relics.AdenebRelic>()));
-			//npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<MinionBossPetItem>(), 4));
+			npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<Items.Pets.DiskDrive>(), 4));
 		}
     }
 }

@@ -40,6 +40,10 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.ZombieRot>()] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Shimmer] = true;
+			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
+				CustomTexturePath = "Zylon/NPCs/Bosses/Jelly/EldritchJellyfish_Bestiary",
+			};
+			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
 		}
         public override void SetDefaults() {
 			NPC.width = 200;
@@ -381,6 +385,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.JellyMask>(), 7));
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Materials.EerieBell>(), 1, 30, 45));
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Materials.OtherworldlyFang>(), 1, 35, 50));
+			notExpertRule.OnSuccess(new CommonDrop(ItemID.MagicConch, 4));
 			npcLoot.Add(notExpertRule);
 
 			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<JellyBag>()));

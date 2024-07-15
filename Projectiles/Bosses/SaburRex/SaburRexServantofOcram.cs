@@ -36,7 +36,7 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 		Vector2 home;
 		public override void AI() { //ai0 - offset (dist from boss) | ai1 - offset (rotation around boss) | ai2 - time until stop intro ... owner ai3 is current total rotation
 			NPC owner = Main.npc[ZylonGlobalNPC.saburBoss];
-			if (owner.life < 1 || !owner.active) Projectile.Kill();
+			if (owner.life < 2 || !owner.active) Projectile.Kill();
 			Timer++;
 			Projectile.hostile = Projectile.alpha < 10;
 

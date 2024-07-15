@@ -21,7 +21,8 @@ namespace Zylon.Projectiles.Tomes
 			Projectile.ignoreWater = false;
 		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-            Projectile.velocity *= -1;
+            //Projectile.velocity *= -1;
+			Projectile.Kill();
         }
         public override bool OnTileCollide(Vector2 oldVelocity) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);

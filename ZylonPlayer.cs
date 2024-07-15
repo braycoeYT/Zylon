@@ -83,6 +83,10 @@ namespace Zylon
 		public bool supernaturalComet;
 		public bool fixCooldownIgnore;
 		public bool vengefulSpirit;
+		public bool shadowsWink;
+		public bool sorcerersKunai;
+		public bool shadeCharm;
+		public bool tribalCharm;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -179,6 +183,10 @@ namespace Zylon
 			CHECK_EtherealGasp = false;
 			supernaturalComet = false;
 			vengefulSpirit = false;
+			shadowsWink = false;
+			sorcerersKunai = false;
+			shadeCharm = false;
+			tribalCharm = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -441,6 +449,14 @@ namespace Zylon
 						}
 						target.AddBuff(buffID, Main.rand.Next(7, 15)*60);
 					}
+				}
+				if (shadowsWink && (proj.DamageType == DamageClass.Summon || proj.DamageType == DamageClass.SummonMeleeSpeed)) {
+					if (Player.MinionAttackTargetNPC == target.whoAmI)
+					target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(5, 11)*60);
+				}
+				if (tribalCharm && (proj.DamageType == DamageClass.Summon || proj.DamageType == DamageClass.SummonMeleeSpeed)) {
+					if (Player.MinionAttackTargetNPC == target.whoAmI)
+					target.AddBuff(BuffID.Venom, Main.rand.Next(5, 11)*60);
 				}
 			}
 
@@ -721,6 +737,9 @@ namespace Zylon
 				else if (Main.hardMode) Player.AddBuff(BuffID.Blackout, Main.rand.Next(4, 10)*60);
 				else Player.AddBuff(BuffID.Darkness, Main.rand.Next(4, 10)*60);
 			}
+        }
+        public override void OnHurt(Player.HurtInfo info) { //Also use for reviving the player I think
+            Zylon.noHitSabur = false;
         }
         public override void PostUpdateBuffs() {
 			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {

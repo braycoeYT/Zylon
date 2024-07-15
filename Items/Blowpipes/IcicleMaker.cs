@@ -10,7 +10,7 @@ namespace Zylon.Items.Blowpipes
 		public IcicleMaker() : base(50, 0.75f, new Color(0, 200, 255), true) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);
-            Item.damage = 3;
+            Item.damage = 10;
 			Item.knockBack = 0.1f;
 			Item.shootSpeed = 6.75f;
 			Item.useTime = 1;
@@ -18,8 +18,16 @@ namespace Zylon.Items.Blowpipes
 			Item.value = Item.sellPrice(0, 0, 5, 12);
 			Item.autoReuse = true;
 		}
+		public override bool AltFunctionUse(Player player) {
+			return true;
+		}
+		public override void AltClickEvent(Player player) {
+			maxReplace = !maxReplace;
+			if (maxReplace) CombatText.NewText(player.getRect(), textColor, "Enabled");
+			else CombatText.NewText(player.getRect(), textColor, "Disabled");
+        }
         public override void MaxChargeEvent(Player player, Vector2 vel, int tempType, int tempDmg, float tempKb, float tempSpd) {
-			for (int i = 0; i < 5; i++) Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, (vel*tempSpd).RotatedByRandom(0.45f), ModContent.ProjectileType<Projectiles.Blowpipes.IcicleMakerProj>(), (int)(Item.damage*0.75f), Item.knockBack*0.75f, Main.myPlayer);
+			if (maxReplace) for (int i = 0; i < 5; i++) Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, (vel*tempSpd).RotatedByRandom(0.45f), ModContent.ProjectileType<Projectiles.Blowpipes.IcicleMakerProj>(), (int)(Item.damage*0.5f), Item.knockBack*0.75f, Main.myPlayer);
 		}
         public override Vector2? HoldoutOffset() {
 			return new Vector2(4, -6);

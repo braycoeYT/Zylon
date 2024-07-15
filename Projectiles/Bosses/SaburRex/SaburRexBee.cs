@@ -31,6 +31,8 @@ namespace Zylon.Projectiles.Bosses.SaburRex
         }
         bool init;
         public override void AI() {
+			NPC owner = Main.npc[ZylonGlobalNPC.saburBoss];
+			if (owner.life < 2 || !owner.active) Projectile.Kill();
 			if (!init) { //Random direction for projectile variety.
 				if (Main.rand.NextBool(2)) Projectile.spriteDirection = -1;
 				init = true;

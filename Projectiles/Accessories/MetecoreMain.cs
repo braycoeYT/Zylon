@@ -15,8 +15,8 @@ namespace Zylon.Projectiles.Accessories
 			//ProjectileID.Sets.Homing[Projectile.type] = true;
 		}
 		public sealed override void SetDefaults() {
-			Projectile.width = 36;
-			Projectile.height = 36;
+			Projectile.width = 46;
+			Projectile.height = 46;
 			Projectile.tileCollide = false;
 			Projectile.friendly = false;
 			Projectile.penetrate = -1;

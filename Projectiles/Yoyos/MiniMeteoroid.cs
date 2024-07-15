@@ -15,43 +15,20 @@ namespace Zylon.Projectiles.Yoyos
 			ProjectileID.Sets.YoyosTopSpeed[Projectile.type] = 11.25f;
 		}
 		public override void SetDefaults() {
-			Projectile.width = 36;
-			Projectile.height = 36;
+			Projectile.width = 20;
+			Projectile.height = 20;
 			Projectile.aiStyle = 99;
 			Projectile.friendly = true;
-			Projectile.penetrate = 3;
+			Projectile.penetrate = -1;
 			Projectile.DamageType = DamageClass.Melee;
 		}
-		int counter;
-		int counter2;
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-			counter++;
-			target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(3, 6), false);
-			if (counter >= 3) {
-				while (counter2 < 8) {
-					counter2++;
-					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Microsoft.Xna.Framework.Vector2(Main.rand.Next(-20, 21), Main.rand.Next(-20, 21)), new Microsoft.Xna.Framework.Vector2(), ModContent.ProjectileType<MiniMiniMeteoroid>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.75f, Projectile.owner);
-				}
-			}
+			ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Microsoft.Xna.Framework.Vector2(Main.rand.Next(-20, 21), Main.rand.Next(-20, 21)), new Microsoft.Xna.Framework.Vector2(Main.rand.NextFloat(-5f, 5f), Main.rand.NextFloat(-5f, 5f)), ModContent.ProjectileType<MiniMiniMeteoroid>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.75f, Projectile.owner);
 		}
-
-        public override void OnHitPlayer(Player target, Player.HurtInfo info)
-        {
+        public override void OnHitPlayer(Player target, Player.HurtInfo info) {
             if (info.PvP)
-            {
-				counter++;
-				target.AddBuff(BuffID.OnFire, 60 * Main.rand.Next(3, 6), false);
-				if (counter >= 3)
-				{
-					while (counter2 < 8)
-					{
-						counter2++;
-						ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Microsoft.Xna.Framework.Vector2(Main.rand.Next(-20, 21), Main.rand.Next(-20, 21)), new Microsoft.Xna.Framework.Vector2(), ModContent.ProjectileType<MiniMiniMeteoroid>(), (int)(Projectile.damage * 0.75f), Projectile.knockBack * 0.75f, Projectile.owner);
-					}
-				}
-			}
+            ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Microsoft.Xna.Framework.Vector2(Main.rand.Next(-20, 21), Main.rand.Next(-20, 21)), new Microsoft.Xna.Framework.Vector2(Main.rand.NextFloat(-5f, 5f), Main.rand.NextFloat(-5f, 5f)), ModContent.ProjectileType<MiniMiniMeteoroid>(), (int)(Projectile.damage * 0.75f), Projectile.knockBack * 0.75f, Projectile.owner);
         }
-
         public override void PostAI() {
 			if (Main.rand.NextBool()) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Meteorite);

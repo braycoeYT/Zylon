@@ -217,6 +217,11 @@ Mods: {
 				Description: D:/Users/admin/Sec/proto/UNSTABLE/DS-39.exe
 			}
 
+			Gamerblade: {
+				DisplayName: Gamerblade
+				Description: But Mom, I'm GAMING!
+			}
+
 			SpookyJellyfish: {
 				DisplayName: Spooky Jellyfish
 				Description: It flashes in and out of visibility, trying to scare something...
@@ -443,6 +448,17 @@ Mods: {
 					'''
 			}
 
+			ConstructedCharm: {
+				DisplayName: Constructed Charm
+				Tooltip:
+					'''
+					Increases summon damage by 12% and critical strike chance by 8%
+					Allows minions to wield up to three spinning shadowflame knives each
+					Rains shadow orbs on summon targets
+					Dealing summon damage to summon targets inflicts shadowflame
+					'''
+			}
+
 			ContinuumWarper: {
 				DisplayName: Continuum Warper
 				Tooltip:
@@ -581,6 +597,15 @@ Mods: {
 			IronfistMedal: {
 				DisplayName: Ironfist Medal
 				Tooltip: Increases true melee damage by 15%
+			}
+
+			KunaiNecklace: {
+				DisplayName: Kunai Necklace
+				Tooltip:
+					'''
+					Increases summon critical strike chance by 4%
+					Allows minions to wield up to three spinning kunai each
+					'''
 			}
 
 			LazyCap: {
@@ -798,6 +823,26 @@ Mods: {
 					'''
 			}
 
+			ShadeCharm: {
+				DisplayName: Shade Charm
+				Tooltip:
+					'''
+					Increases summon critical strike chance by 6%
+					Allows minions to wield up to three spinning shadowflame knives each
+					Rains shadow orbs on summon targets
+					Dealing summon damage to summon targets inflicts shadowflame
+					'''
+			}
+
+			ShadowsWink: {
+				DisplayName: Shadow's Wink
+				Tooltip:
+					'''
+					Rains shadow orbs on summon targets
+					Dealing summon damage to summon targets inflicts shadowflame
+					'''
+			}
+
 			Shivercrown: {
 				DisplayName: Shivercrown
 				Tooltip:
@@ -824,6 +869,11 @@ Mods: {
 					Overflowing allows your mana to exceed the max
 					This caps out at 40 extra mana
 					'''
+			}
+
+			SorcerersKunai: {
+				DisplayName: Sorcerer's Kunai
+				Tooltip: Allows minions to wield up to three spinning kunai each
 			}
 
 			SparkingCore: {
@@ -898,6 +948,18 @@ Mods: {
 			ToyClaw: {
 				DisplayName: Toy Claw
 				Tooltip: Increases whip range by 20%
+			}
+
+			TribalCharm: {
+				DisplayName: Tribal Charm
+				Tooltip:
+					'''
+					Increases your max number of minions by 1
+					Increases summon damage by 12% and critical strike chance by 8%
+					Allows minions to wield up to three venomous tribal knives each
+					Rains deadly toxin darts on summon targets
+					Dealing summon damage to summon targets inflicts acid venom
+					'''
 			}
 
 			UltimaBand: {
@@ -1214,6 +1276,16 @@ Mods: {
 					'I could barely throw the normal size ones!'
 					For use with blowpipes
 					'''
+			}
+
+			UltraHighVelocityBullet: {
+				DisplayName: Ultra High Velocity Bullet
+				Tooltip: "'Gotta go fast!'"
+			}
+
+			VenomDart: {
+				DisplayName: Venom Dart
+				Tooltip: For use with blowpipes
 			}
 
 			WaterleafSeed: {
@@ -1747,7 +1819,11 @@ Mods: {
 
 			IcicleMaker: {
 				DisplayName: Icicle Maker
-				Tooltip: At max charge, replaces ammo with a heap of mini icicles
+				Tooltip:
+					'''
+					At max charge, replaces ammo with a heap of mini icicles
+					Right click to disable and enable this effect
+					'''
 			}
 
 			LobbingLog: {
@@ -2799,6 +2875,15 @@ Mods: {
 				Tooltip: ""
 			}
 
+			AncientGameController: {
+				DisplayName: Ancient Game Controller
+				Tooltip:
+					'''
+					'An ancient relic from the long-forgotten console wars'
+					Summons a Gamerblade to follow you
+					'''
+			}
+
 			CreepyBlob: {
 				DisplayName: Creepy Blob
 				Tooltip: Summons the one and only Dirtboi to follow you
@@ -2944,7 +3029,7 @@ Mods: {
 
 			FeralChemicals: {
 				DisplayName: Feral Chemicals
-				Tooltip: Increases melee speed by 10%
+				Tooltip: Increases weapon speed by up to 10% based on current health
 			}
 
 			FloaterPotion: {
@@ -3469,7 +3554,7 @@ Mods: {
 				Tooltip:
 					'''
 					Smothers enemies in Nebula Beams
-					Nebula Beams bounce off of walls and enemies
+					Nebula Beams bounce off of walls
 					After existing for long enough, Nebula Beams collapse into orbs
 					Nebula Orbs will chase after nearby foes
 					'''
@@ -3835,7 +3920,7 @@ Mods: {
 
 			MiniMeteoroid: {
 				DisplayName: Mini Meteoroid
-				Tooltip: Splits into eight smaller meteoroids after hitting enemies enough times
+				Tooltip: Splits off a chunk after hitting a foe
 			}
 
 			Slimebasher: {
@@ -3843,12 +3928,12 @@ Mods: {
 				Tooltip: Has a long reach
 			}
 
-			SparklySlimebasher: {
-				DisplayName: Sparkly Slimebasher
+			TheRetractor: {
+				DisplayName: The Retractor
 				Tooltip:
 					'''
-					Has a long reach
-					Striking enemies will release bouncy sparkly gel
+					'Caution: May defy physics.'
+					Unleashes countless blades on throw
 					'''
 			}
 
@@ -4396,7 +4481,7 @@ Mods: {
 			Insomnia.DisplayName: Insomnia
 			InsomniaProj.DisplayName: Lens Blast
 			MiniMeteoroid.DisplayName: Mini Meteoroid
-			MiniMiniMeteoroid.DisplayName: Mini Mini Meteoroid
+			MiniMiniMeteoroid.DisplayName: Meteoroid Chunk
 			Slimebasher.DisplayName: Slimebasher
 			SparklySlimebasher.DisplayName: Sparkly Slimebasher
 			MetecoreFireball.DisplayName: Metecore Fireball
@@ -4550,6 +4635,15 @@ Mods: {
 			RagingSun.DisplayName: Raging Sun
 			RagingSunProj.DisplayName: Raging Sun
 			Diskling.DisplayName: Diskling
+			ShadowsWinkProj.DisplayName: Shadows Wink Proj
+			VenomDart.DisplayName: Venom Dart
+			TheRetractor.DisplayName: The Retractor
+			TheRetractorProj.DisplayName: The Retractor Proj
+			SorcerersKunaiProj.DisplayName: Sorcerers Kunai Proj
+			ShadeCharmProj.DisplayName: Shade Charm Proj
+			TribalCharmProjFall.DisplayName: Tribal Charm Proj Fall
+			TribalCharmProjSpin.DisplayName: Tribal Charm Proj Spin
+			Gamerblade.DisplayName: Gamerblade
 		}
 
 		NPCs: {

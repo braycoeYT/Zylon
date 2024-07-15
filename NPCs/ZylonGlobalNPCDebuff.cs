@@ -171,7 +171,6 @@ namespace Zylon.NPCs
 			if (checkColor) {
                 //npc.color = tColor;
 			}
-			base.PostAI(npc);
         }
 		/*private void ColorStuff(NPC npc, Color color) {
 			if (!npc.boss && npc.type != NPCID.GolemHead) {

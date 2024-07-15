@@ -15,11 +15,13 @@ namespace Zylon.Projectiles
 		int damageCooldown;
 		int npcBounceCount;
 		int tileBounceCount;
+		Projectile[] ownedProj = new Projectile[3];
 		public override bool InstancePerEntity => true;
 		public override void SetDefaults(Projectile projectile) {
 			if (GetInstance<ZylonConfig>().zylonianBalancing) {
 				if (projectile.type == ProjectileID.Flare || projectile.type == ProjectileID.BlueFlare || projectile.type == ProjectileID.SpelunkerFlare || projectile.type == ProjectileID.CursedFlare || projectile.type == ProjectileID.RainbowFlare || projectile.type == ProjectileID.ShimmerFlare)
 					projectile.timeLeft = 3600;
+				if (projectile.type == ProjectileID.BoneArrowFromMerchant) projectile.penetrate = 1;
 			}
 		}
 		bool init;
@@ -44,7 +46,6 @@ namespace Zylon.Projectiles
 				}
 				init = true;
 			}
-
 			if (p.hexNecklace) {
 				if (projectile.type == ProjectileID.WandOfSparkingSpark) {
 					if (Main.myPlayer == player.whoAmI)
@@ -57,6 +58,33 @@ namespace Zylon.Projectiles
 					projectile.Kill();
                 }
             }
+			if (p.tribalCharm) {
+				if (projectile.minionSlots > 0f && projectile.DamageType == DamageClass.Summon && projectile.type != ProjectileID.StardustDragon3 && projectile.type != ProjectileID.Retanimini) for (int i = 0; i < 3; i++) {
+					if (ownedProj[i] == null || !ownedProj[i].active) {
+						Projectile n = Projectile.NewProjectileDirect(projectile.GetSource_FromThis(), projectile.Center, Vector2.Zero, ProjectileType<Accessories.TribalCharmProjSpin>(), 60, 2.75f, projectile.owner, i, projectile.whoAmI);
+						ownedProj[i] = n;
+					}
+					ownedProj[i].ai[2] = 1f; //Keep it alive. This will stop swords from previous minions from living on.
+				}
+			}
+			else if (p.shadeCharm) {
+				if (projectile.minionSlots > 0f && projectile.DamageType == DamageClass.Summon && projectile.type != ProjectileID.StardustDragon3 && projectile.type != ProjectileID.Retanimini) for (int i = 0; i < 3; i++) {
+					if (ownedProj[i] == null || !ownedProj[i].active) {
+						Projectile n = Projectile.NewProjectileDirect(projectile.GetSource_FromThis(), projectile.Center, Vector2.Zero, ProjectileType<Accessories.ShadeCharmProj>(), 40, 2.5f, projectile.owner, i, projectile.whoAmI);
+						ownedProj[i] = n;
+					}
+					ownedProj[i].ai[2] = 1f; //Keep it alive. This will stop swords from previous minions from living on.
+				}
+			}
+			else if (p.sorcerersKunai) { 
+				if (projectile.minionSlots > 0f && projectile.DamageType == DamageClass.Summon && projectile.type != ProjectileID.StardustDragon3 && projectile.type != ProjectileID.Retanimini) for (int i = 0; i < 3; i++) {
+					if (ownedProj[i] == null || !ownedProj[i].active) {
+						Projectile n = Projectile.NewProjectileDirect(projectile.GetSource_FromThis(), projectile.Center, Vector2.Zero, ProjectileType<Accessories.SorcerersKunaiProj>(), 20, 2f, projectile.owner, i, projectile.whoAmI);
+						ownedProj[i] = n;
+					}
+					ownedProj[i].ai[2] = 1f; //Keep it alive. This will stop swords from previous minions from living on.
+				}
+			}
 			return true;
         }
         int Timer;
@@ -132,7 +160,7 @@ namespace Zylon.Projectiles
         }
         public override void OnKill(Projectile projectile, int timeLeft) {
             if (GetInstance<ZylonConfig>().zylonianBalancing) {
-				if (projectile.type == ProjectileID.BoneArrow && Main.rand.NextBool(5) && Main.myPlayer == projectile.owner)
+				if (projectile.type == ProjectileID.BoneArrowFromMerchant && Main.rand.NextBool(5) && Main.myPlayer == projectile.owner)
 					for (int i = 0; i < 3; i++) Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center - new Vector2(0, 4), new Vector2(Main.rand.NextFloat(-2f, 2f), Main.rand.NextFloat(-9f, -7f)), ProjectileType<Ammo.BoneArrowProj>(), projectile.damage/2, projectile.knockBack/2, projectile.owner);
 				
 				//The funny

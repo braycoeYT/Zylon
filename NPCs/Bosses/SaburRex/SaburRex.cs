@@ -25,6 +25,11 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Shimmer] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Daybreak] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
+
+			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
+				CustomTexturePath = "Zylon/NPCs/Bosses/SaburRex/SaburRex_Bestiary",
+			};
+			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
 		}
         public override void SetDefaults() {
             NPC.width = 58;
@@ -63,6 +68,16 @@ namespace Zylon.NPCs.Bosses.SaburRex
         public override void ModifyIncomingHit(ref NPC.HitModifiers modifiers) {
             modifiers.SetMaxDamage(9999); //Anticheat + jrpg reference
         }
+		public override void HitEffect(NPC.HitInfo hit) {
+            if (NPC.life < 1 && !finale) {
+				NPC.life = 1;
+				NPC.dontTakeDamage = true;
+				finale = true;
+				attackTimer = 0;
+				NPC.velocity = Vector2.Zero;
+				NPC.frame.Y = 0;
+            }
+        }
         public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo) {
             if (Main.expertMode && NPC.ai[0] == 1f && NPC.ai[3] == 1f) target.KillMe(PlayerDeathReason.ByCustomReason(target.name + " was sent to the dungeon."), 999, NPC.direction); //We are NOT messing around.
         }
@@ -89,6 +104,20 @@ namespace Zylon.NPCs.Bosses.SaburRex
 		float attackFloat3;
 		int attackNum6;
 		float attackFloat4;
+		bool finale;
+        public override bool PreAI() {
+			if (finale) {
+				attackTimer++;
+				NPC.velocity.Y = -(float)Math.Pow(attackTimer/50f, 5f);
+				ringRotSpeed *= 1.07f;
+				ringTotalRot += ringRotSpeed; //Rotate the boss ring.
+				if (attackTimer == 100) {
+					NPC.dontTakeDamage = false;
+					if (Main.netMode != NetmodeID.MultiplayerClient) NPC.StrikeInstantKill();
+				}
+			}
+            return !finale;
+        }
         public override void AI() { //ai0 - current attack | ai1 - next attack | ai2 - current rotation | ai3 - other important communication w/ sword proj
 
 			Zylon.hasFoughtSabur = true; //REMOVE WHEN BOSS FINISHED - JUST TO SKIP DIALOGUE
@@ -582,7 +611,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			ringTotalRot += ringRotSpeed; //Rotate the boss ring.
 			//Main.NewText(NPC.direction); //test
 
-			if (init) for (int i = 0;  i < Main.maxPlayers; i++) {
+			if (init && !finale) for (int i = 0;  i < Main.maxPlayers; i++) {
 				if ((Vector2.Distance(Main.player[i].Center, ringPos) > 750 && Vector2.Distance(Main.player[i].Center, ringPos) < 2000) || Main.player[i].HasBuff(BuffID.Shimmer)) {
 					Main.player[i].AddBuff(ModContent.BuffType<Buffs.Debuffs.Dishonored>(), 2);
 
@@ -649,7 +678,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			int spriteSheetOffset = frameHeight * (NPC.frame.Y/64);
 
 			//Dungeon guardian draw for the bone sword attack
-			if (NPC.ai[0] == 1f && MathHelper.ToDegrees(attackFloat) >= 13f) { //I seriously used NPC.ai[2] at first and wondered why this wasn't working...
+			if (NPC.ai[0] == 1f && MathHelper.ToDegrees(attackFloat) >= 13f && !finale) { //I seriously used NPC.ai[2] at first and wondered why this wasn't working...
 				float guardianVisibility = (MathHelper.ToDegrees(attackFloat)-11.5f)/10f; //minValue is 0%, maxValue is 75% (0.75f)
 				spriteBatch.Draw(guardianTexture, drawPos, null, Color.White*guardianVisibility, attackFloat2, guardianOrigin, 1.5f, SpriteEffects.None, 0);
 			}
@@ -662,7 +691,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				if (attackFloat > 0.5f) attackFloat = 0.5f;
 				if (attackFloat < 0f) attackFloat = 0f;
 			}
-			if (NPC.ai[0] == 3f && attackNum3 == 1) {
+			if (NPC.ai[0] == 3f && attackNum3 == 1 && !finale) {
 				SpriteEffects QBeffects = SpriteEffects.None;
 				if (attackNum2 == -1) QBeffects = SpriteEffects.FlipHorizontally;
 				spriteBatch.Draw(queenBeeTexture, drawPos, null, Color.White*attackFloat, 0f, QBOrigin, 1.5f, QBeffects, 0);
@@ -681,6 +710,10 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			}
 			else if (ringSpace < 750) ringSpace += 20; //250 to 750
 
+			if (finale) {
+				spriteBatch.Draw(whiteTexture, drawPos, null, Color.White*(0.9f+(float)Math.Sin(Main.GameUpdateCount)/10f), 0f, whiteOrigin, NPC.scale, effects, 0); //Draw light for outro
+			}
+
 			//Draws the border (rainbow ring) of the boss.
 			for (int j = 0; j < 10; j++) for (int i = 0; i < ringCount; i++) { //i*(360/ringCount) //old
 				Vector2 borderPos = ringDrawPos - new Vector2(0, ringSpace).RotatedBy(MathHelper.ToRadians(i*12+ringTotalRot-(j*(1f-j*(0.03f*((ringSpace+250f)/500f-1f)))))); //Trust me otherwise it looks bad ;-; | isolation: j*(1f-j*0.03f)
@@ -688,6 +721,11 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				//Cool transition
 				float alphaRing = 1f;
 				if (i == ringCount - 1 && !init && attackTimer < 180) alphaRing = (attackTimer % 6 / 6f);
+				if (finale) {
+					alphaRing = (float)Math.Cos(Math.PI*attackTimer/90f)/2f + 0.5f; //attackTimer/90f;
+					if (attackTimer > 90) alphaRing = 0f; //Just in case I change stuff.
+					ringSpace = (int)(750*alphaRing);
+				}
 
 				spriteBatch.Draw(borderTexture, borderPos, null, Main.DiscoColor*alphaRing, 0f, borderOrigin, NPC.scale*(1f-0.1f*j), SpriteEffects.None, 0);
             }
@@ -695,6 +733,9 @@ namespace Zylon.NPCs.Bosses.SaburRex
         }
         public override void BossLoot(ref string name, ref int potionType) {
             potionType = ItemID.SuperHealingPotion;
+        }
+        public override void OnKill() {
+            if (Zylon.noHitSabur) Item.NewItem(NPC.GetSource_FromThis(), NPC.getRect(), ModContent.ItemType<Items.Swords.Excalipoor>());
         }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {

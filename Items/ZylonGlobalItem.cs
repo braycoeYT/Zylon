@@ -131,7 +131,7 @@ namespace Zylon.Items
 				if (item.type == ItemID.PoisonDart)
 					item.damage = 7;
 				if (item.type == ItemID.BoneArrow)
-					item.damage = 10;
+					item.damage = 14;
 				if (item.type == ItemID.CookedMarshmallow)
 					item.buffTime = 7200;
 				if (item.type == ItemID.Coal || item.type == ItemID.SnowGlobe || item.type == ItemID.GoldCrown || item.type == ItemID.PlatinumCrown) 
@@ -267,12 +267,12 @@ namespace Zylon.Items
 				player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.Stinger, Main.rand.Next(4, 8));
             }
 			if (item.type == ItemID.SkeletronBossBag) {
-				if (Main.rand.NextBool(5)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<RuneofMultiplicity>());
+				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<RuneofMultiplicity>());
 				player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.Bone, Main.rand.Next(15, 21));
             }
-			/*if (item.type == ItemID.WallOfFleshBossBag) {
-				player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.Bone, Main.rand.Next(20, 31));
-            }*/
+			if (item.type == ItemID.WallOfFleshBossBag) {
+				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.DemonConch);
+            }
 			if (item.type == ItemID.TwinsBossBag) {
 				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<Minions.SpazmaticScythe>());
             }

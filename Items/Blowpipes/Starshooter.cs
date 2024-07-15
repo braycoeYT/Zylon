@@ -33,7 +33,7 @@ namespace Zylon.Items.Blowpipes
 			else Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, vel*tempSpd, tempType, tempDmg, tempKb, Main.myPlayer);
         }
         public override Vector2? HoldoutOffset() {
-			return new Vector2(4, -8);
+			return new Vector2(6, -6);
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

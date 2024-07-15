@@ -11,7 +11,7 @@ namespace Zylon.Items.Swords
 	{
 
 		public override void SetDefaults() {
-			Item.damage = 212;
+			Item.damage = 237;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 42;
 			Item.height = 42;
@@ -64,7 +64,7 @@ namespace Zylon.Items.Swords
 			recipe.AddIngredient(ModContent.ItemType<CarnalliteCutlass>());
 			recipe.AddIngredient(ItemID.ChlorophyteSaber);
 			recipe.AddIngredient(ItemID.JungleRose);
-			recipe.AddIngredient(ItemID.ChlorophyteBar, 12);
+			recipe.AddIngredient(ItemID.ChlorophyteBar, 8);
 			recipe.AddIngredient(ItemID.BeetleHusk, 5);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

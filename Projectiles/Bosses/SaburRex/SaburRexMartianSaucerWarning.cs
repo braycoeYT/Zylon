@@ -28,6 +28,8 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 			Projectile.extraUpdates = 30;
 		}
         public override void AI() {
+			NPC owner = Main.npc[ZylonGlobalNPC.saburBoss];
+			if (owner.life < 2 || !owner.active) Projectile.Kill();
 			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
 			if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<SaburRexMartianSaucerWarning2>(), Projectile.damage, 0f, -1, Projectile.rotation, Projectile.ai[1]);
 		}
