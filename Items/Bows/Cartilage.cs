@@ -25,7 +25,7 @@ namespace Zylon.Items.Bows
 			Item.rare = 2;
 		}
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
-            if (Main.rand.NextBool(3)) type = ProjectileID.BoneArrow;
+            if (Main.rand.NextBool(3)) type = ProjectileID.BoneArrowFromMerchant;
         }
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

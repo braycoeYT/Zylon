@@ -84,6 +84,9 @@ namespace Zylon
 		public bool fixCooldownIgnore;
 		public bool vengefulSpirit;
 		public bool shadowsWink;
+		public bool sorcerersKunai;
+		public bool shadeCharm;
+		public bool tribalCharm;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -181,6 +184,9 @@ namespace Zylon
 			supernaturalComet = false;
 			vengefulSpirit = false;
 			shadowsWink = false;
+			sorcerersKunai = false;
+			shadeCharm = false;
+			tribalCharm = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -447,6 +453,10 @@ namespace Zylon
 				if (shadowsWink && (proj.DamageType == DamageClass.Summon || proj.DamageType == DamageClass.SummonMeleeSpeed)) {
 					if (Player.MinionAttackTargetNPC == target.whoAmI)
 					target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(5, 11)*60);
+				}
+				if (tribalCharm && (proj.DamageType == DamageClass.Summon || proj.DamageType == DamageClass.SummonMeleeSpeed)) {
+					if (Player.MinionAttackTargetNPC == target.whoAmI)
+					target.AddBuff(BuffID.Venom, Main.rand.Next(5, 11)*60);
 				}
 			}
 

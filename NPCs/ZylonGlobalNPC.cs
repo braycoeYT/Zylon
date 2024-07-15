@@ -73,7 +73,7 @@ namespace Zylon.NPCs
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemType<Items.Blowpipes.Beepipe>(), 3));
 			}
 			if (npc.type == NPCID.SkeletronHead) {
-				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemType<Items.Accessories.RuneofMultiplicity>(), 6));
+				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemType<RuneofMultiplicity>(), 4));
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.Bone, 1, 10, 15));
 			}
 			//if (NPC.downedBoss3 && (npc.type == NPCID.Skeleton || npc.type == NPCID.SkeletonAlien || npc.type == NPCID.SkeletonArcher || npc.type == NPCID.SkeletonAstonaut || npc.type == NPCID.SkeletonSniper || npc.type == NPCID.ArmoredSkeleton || npc.type == NPCID.BigHeadacheSkeleton || npc.type == NPCID.BigMisassembledSkeleton || npc.type == NPCID.BigPantlessSkeleton || npc.type == NPCID.BigSkeleton || npc.type == NPCID.HeadacheSkeleton || npc.type == NPCID.HeadacheSkeleton|| npc.type == NPCID.MisassembledSkeleton || npc.type == NPCID.PantlessSkeleton || npc.type == NPCID.SmallHeadacheSkeleton || npc.type == NPCID.SmallMisassembledSkeleton || npc.type == NPCID.SmallPantlessSkeleton|| npc.type == NPCID.SmallSkeleton || npc.type == NPCID.SporeSkeleton))
@@ -192,8 +192,11 @@ namespace Zylon.NPCs
 			if (npc.type == NPCID.WallCreeperWall || npc.type == NPCID.WallCreeper) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.ProteinSplicer>(), 75), new CommonDrop(ItemType<Items.Accessories.ProteinSplicer>(), 90)));
             }
-			if (npc.type == NPCID.DarkCaster || npc.type == NPCID.CursedSkull) {
+			if (npc.type == NPCID.CursedSkull) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.RuneofMultiplicity>(), 100), new CommonDrop(ItemType<Items.Accessories.RuneofMultiplicity>(), 60)));
+            }
+			if (npc.type == NPCID.DarkCaster) {
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<SorcerersKunai>(), 20), new CommonDrop(ItemType<SorcerersKunai>(), 15)));
             }
 			if (npc.type == NPCID.GraniteFlyer) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SparkingCore>(), 30), new CommonDrop(ItemType<Items.Accessories.SparkingCore>(), 20)));

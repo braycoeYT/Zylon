@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
@@ -31,6 +32,7 @@ namespace Zylon.Projectiles.Minions
 			Projectile.penetrate = -1;
 			Projectile.DamageType = DamageClass.Summon;
 			Projectile.timeLeft = 9999;
+			Projectile.hide = true;
 		}
 		public override bool? CanCutTiles() {
 			return false;
@@ -193,18 +195,9 @@ namespace Zylon.Projectiles.Minions
 
 			#endregion
 		}
-        /*public override void PostAI() { //Almost works :(
-            for (int i = 0; i < swordArmy.Length; i++) {
-				if (swordArmy[i].timeLeft < 90 && swordArmy[i].active) swordArmy[i].Center = Projectile.Center;
-			}
-        }*/
-        /*public override void PostAI() {
-            if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustType<AdeniteDust>());
-				dust.noGravity = true;
-				dust.scale = Main.rand.NextFloat(0.75f, 1.25f);
-			}
-        }*/
+        public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI) {
+            behindProjectiles.Add(index);
+        }
         public override bool PreDraw(ref Color lightColor) {
             Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;
 			Texture2D swordTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Minions/SwordigamSword");

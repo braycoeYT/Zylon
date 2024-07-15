@@ -443,6 +443,17 @@ Mods: {
 					'''
 			}
 
+			ConstructedCharm: {
+				DisplayName: Constructed Charm
+				Tooltip:
+					'''
+					Increases summon damage by 12% and critical strike chance by 8%
+					Allows minions to wield up to three spinning shadowflame knives each
+					Rains shadow orbs on summon targets
+					Dealing summon damage to summon targets inflicts shadowflame
+					'''
+			}
+
 			ContinuumWarper: {
 				DisplayName: Continuum Warper
 				Tooltip:
@@ -581,6 +592,15 @@ Mods: {
 			IronfistMedal: {
 				DisplayName: Ironfist Medal
 				Tooltip: Increases true melee damage by 15%
+			}
+
+			KunaiNecklace: {
+				DisplayName: Kunai Necklace
+				Tooltip:
+					'''
+					Increases summon critical strike chance by 4%
+					Allows minions to wield up to three spinning kunai each
+					'''
 			}
 
 			LazyCap: {
@@ -798,6 +818,17 @@ Mods: {
 					'''
 			}
 
+			ShadeCharm: {
+				DisplayName: Shade Charm
+				Tooltip:
+					'''
+					Increases summon critical strike chance by 6%
+					Allows minions to wield up to three spinning shadowflame knives each
+					Rains shadow orbs on summon targets
+					Dealing summon damage to summon targets inflicts shadowflame
+					'''
+			}
+
 			ShadowsWink: {
 				DisplayName: Shadow's Wink
 				Tooltip:
@@ -833,6 +864,11 @@ Mods: {
 					Overflowing allows your mana to exceed the max
 					This caps out at 40 extra mana
 					'''
+			}
+
+			SorcerersKunai: {
+				DisplayName: Sorcerer's Kunai
+				Tooltip: Allows minions to wield up to three spinning kunai each
 			}
 
 			SparkingCore: {
@@ -907,6 +943,18 @@ Mods: {
 			ToyClaw: {
 				DisplayName: Toy Claw
 				Tooltip: Increases whip range by 20%
+			}
+
+			TribalCharm: {
+				DisplayName: Tribal Charm
+				Tooltip:
+					'''
+					Increases your max number of minions by 1
+					Increases summon damage by 12% and critical strike chance by 8%
+					Allows minions to wield up to three venomous tribal knives each
+					Rains deadly toxin darts on summon targets
+					Dealing summon damage to summon targets inflicts acid venom
+					'''
 			}
 
 			UltimaBand: {
@@ -1223,6 +1271,11 @@ Mods: {
 					'I could barely throw the normal size ones!'
 					For use with blowpipes
 					'''
+			}
+
+			UltraHighVelocityBullet: {
+				DisplayName: Ultra High Velocity Bullet
+				Tooltip: "'Gotta go fast!'"
 			}
 
 			WaterleafSeed: {
@@ -4572,6 +4625,10 @@ Mods: {
 			VenomDart.DisplayName: Venom Dart
 			TheRetractor.DisplayName: The Retractor
 			TheRetractorProj.DisplayName: The Retractor Proj
+			SorcerersKunaiProj.DisplayName: Sorcerers Kunai Proj
+			ShadeCharmProj.DisplayName: Shade Charm Proj
+			TribalCharmProjFall.DisplayName: Tribal Charm Proj Fall
+			TribalCharmProjSpin.DisplayName: Tribal Charm Proj Spin
 		}
 
 		NPCs: {

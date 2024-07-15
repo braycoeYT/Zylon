@@ -54,10 +54,11 @@ namespace Zylon
 			_ => Type,
 		};
 	}
-	public class Magenta : ModRarity //
+	public class Magenta : ModRarity
 	{
 		//Tier 12 - All PML banners and trophies. All items that are post PML miniboss, Sabur, and Mineral.
 		//Powerful/tedious items obtained after Moonlord but before any PML bosses. Summons for tier 13 bosses.
+		//Color is based on ZME.
 		public override Color RarityColor => new Color(255, 200*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt(), 255-(55*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt()));
 		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
 			-2 => ItemRarityID.Red,
@@ -69,7 +70,8 @@ namespace Zylon
 	}
 	public class ForestGreen : ModRarity
 	{
-		//Tier 13 - All items post ToC, Quetzalcoatl, ???, and ???. All items obtained in the Cellspawn after ToC has been defeated.
+		//Tier 13 - All items post ToC, Quet, Loc, and ???. All items obtained in the Cellspawn after ToC has been defeated.
+		//Color used to be based on ToC, but is now based on Loc.
 		public override Color RarityColor => new Color(16, 145, 50);
 		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
 			-2 => ItemRarityID.Purple,

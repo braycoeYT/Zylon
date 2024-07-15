@@ -25,6 +25,11 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Shimmer] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Daybreak] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
+
+			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
+				CustomTexturePath = "Zylon/NPCs/Bosses/SaburRex/SaburRex_Bestiary",
+			};
+			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
 		}
         public override void SetDefaults() {
             NPC.width = 58;

@@ -40,6 +40,10 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.Timestop>()] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.ZombieRot>()] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Shimmer] = true;
+			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
+				CustomTexturePath = "Zylon/NPCs/Bosses/Jelly/EldritchJellyfish_Bestiary",
+			};
+			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
 		}
         public override void SetDefaults() {
 			NPC.width = 200;
