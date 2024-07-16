@@ -248,6 +248,10 @@ namespace Zylon.Items
 				if (p.CHECK_ManaBlossom) player.manaCost += 0.08f;
 				p.CHECK_ManaBlossom = true;
 			}
+			if (item.type == ItemID.PygmyNecklace) {
+				if (p.CHECK_PygmyNecklace) player.maxMinions -= 1;
+				p.CHECK_PygmyNecklace = true;
+			}
 		}
         public override void RightClick(Item item, Player player) {
             if (item.type == ItemID.KingSlimeBossBag) {

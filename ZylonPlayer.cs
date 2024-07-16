@@ -87,6 +87,7 @@ namespace Zylon
 		public bool sorcerersKunai;
 		public bool shadeCharm;
 		public bool tribalCharm;
+		public bool CHECK_PygmyNecklace;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -187,6 +188,7 @@ namespace Zylon
 			sorcerersKunai = false;
 			shadeCharm = false;
 			tribalCharm = false;
+			CHECK_PygmyNecklace = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;

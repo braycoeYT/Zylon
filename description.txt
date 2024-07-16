@@ -365,9 +365,8 @@ V0.0.3: Cause to Clash Update
 ~Fixed issue with Eldritch Jellyfish display in Boss Checklist.
 
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
-~Added Fantastical Finality and Ultima Band.
 ~Made developer weapons craftable.
-~Added Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff, Hollow Knife, The Retractor, and Ancient Game Controller.
+~Added Fantastical Finality, Ultima Band, Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff, Hollow Knife, The Retractor, ?, and Ancient Game Controller.
 
 
 

@@ -16,7 +16,8 @@ namespace Zylon.Items.Accessories
 		}
         public override void UpdateAccessory(Player player, bool hideVisual) {
             ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
-			player.maxMinions += 1;
+			if (!p.CHECK_PygmyNecklace) player.maxMinions += 1;
+			p.CHECK_PygmyNecklace = true;
 			player.GetDamage(DamageClass.Summon) += 0.12f;
 			p.summonCritBoost += 0.08f;
 			p.tribalCharm = true;

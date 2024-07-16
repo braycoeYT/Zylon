@@ -49,7 +49,7 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 			else if (Timer2 < 120+(int)(30*Projectile.ai[1])) { //Drop the bees - og 90, 60
 				Timer2++;
 				if (Timer2 > 30+(int)(15*Projectile.ai[1]) && Timer2 % 2 == 0) {
-					if (Main.myPlayer == Projectile.owner) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Vector2(Main.rand.Next(-24, 25), 36), new Vector2(0, 8), ModContent.ProjectileType<SaburRexBee>(), Projectile.damage, Projectile.knockBack);
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Vector2(Main.rand.Next(-24, 25), 36), new Vector2(0, 8), ModContent.ProjectileType<SaburRexBee>(), Projectile.damage, Projectile.knockBack);
 				}
 			}
 			else {

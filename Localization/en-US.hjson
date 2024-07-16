@@ -4635,15 +4635,16 @@ Mods: {
 			RagingSun.DisplayName: Raging Sun
 			RagingSunProj.DisplayName: Raging Sun
 			Diskling.DisplayName: Diskling
-			ShadowsWinkProj.DisplayName: Shadows Wink Proj
+			ShadowsWinkProj.DisplayName: Shadows Wink
 			VenomDart.DisplayName: Venom Dart
 			TheRetractor.DisplayName: The Retractor
-			TheRetractorProj.DisplayName: The Retractor Proj
-			SorcerersKunaiProj.DisplayName: Sorcerers Kunai Proj
-			ShadeCharmProj.DisplayName: Shade Charm Proj
-			TribalCharmProjFall.DisplayName: Tribal Charm Proj Fall
-			TribalCharmProjSpin.DisplayName: Tribal Charm Proj Spin
+			TheRetractorProj.DisplayName: The Retractor
+			SorcerersKunaiProj.DisplayName: Sorcerer's Kunai
+			ShadeCharmProj.DisplayName: Shade Charm
+			TribalCharmProjFall.DisplayName: Tribal Charm
+			TribalCharmProjSpin.DisplayName: Tribal Charm
 			Gamerblade.DisplayName: Gamerblade
+			SaburRexCobaltClone.DisplayName: Sabur Rex Cobalt Clone
 		}
 
 		NPCs: {

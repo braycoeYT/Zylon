@@ -24,7 +24,7 @@ namespace Zylon
 	}
 	public class ExcalipoorRarity : ModRarity
 	{
-		//For HBDeus's sword and the other swords I haven't added yet.
+		//Epic sword.
 		public override Color RarityColor => new Color(Main.DiscoG, Main.DiscoG, Main.DiscoG);
 		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
 			_ => Type,
@@ -56,7 +56,7 @@ namespace Zylon
 	}
 	public class Magenta : ModRarity
 	{
-		//Tier 12 - All PML banners and trophies. All items that are post PML miniboss, Sabur, and Mineral.
+		//Tier 12 - All PML banners, masks, and trophies. All items that are post PML miniboss, Sabur, and Mineral.
 		//Powerful/tedious items obtained after Moonlord but before any PML bosses. Summons for tier 13 bosses.
 		//Color is based on ZME.
 		public override Color RarityColor => new Color(255, 200*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt(), 255-(55*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt()));
@@ -71,8 +71,9 @@ namespace Zylon
 	public class ForestGreen : ModRarity
 	{
 		//Tier 13 - All items post ToC, Quet, Loc, and ???. All items obtained in the Cellspawn after ToC has been defeated.
-		//Color used to be based on ToC, but is now based on Loc.
-		public override Color RarityColor => new Color(16, 145, 50);
+		//Materals from the AB are this rarity despite being obtainable before ZME.
+		//Color used to be based on ToC, but is now based on Loc and Quet.
+		public override Color RarityColor => new Color(19, 191, 64); //16, 145, 50
 		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
 			-2 => ItemRarityID.Purple,
 			-1 => ModContent.RarityType<Magenta>(),

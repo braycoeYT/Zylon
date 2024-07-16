@@ -10,6 +10,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using Zylon.Projectiles.Whips;
+using Zylon.Items.Swords;
 
 namespace Zylon.NPCs.Bosses.SaburRex
 {
@@ -104,6 +105,9 @@ namespace Zylon.NPCs.Bosses.SaburRex
 		float attackFloat3;
 		int attackNum6;
 		float attackFloat4;
+		int attackNum7;
+		int attackNum8;
+		int attackNum9;
 		bool finale;
         public override bool PreAI() {
 			if (finale) {
@@ -111,7 +115,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				NPC.velocity.Y = -(float)Math.Pow(attackTimer/50f, 5f);
 				ringRotSpeed *= 1.07f;
 				ringTotalRot += ringRotSpeed; //Rotate the boss ring.
-				if (attackTimer == 100) {
+				if (NPC.Center.Y < target.Center.Y-600) {
 					NPC.dontTakeDamage = false;
 					if (Main.netMode != NetmodeID.MultiplayerClient) NPC.StrikeInstantKill();
 				}
@@ -195,6 +199,9 @@ namespace Zylon.NPCs.Bosses.SaburRex
 					break;
 				case 4f:
 					Tizona();
+					break;
+				case 5f:
+					CobaltSword();
 					break;
             }
 
@@ -301,7 +308,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				dust.scale = 2f;
 				return; //Giving time for players to prepare, but they won't listen of course.
 			} //It takes until at least the third attempt for them to integrate this dust sequence into their nightmares. Happy dreaming, players!
-			else if (attackTotalTime < 40) attackNum5 = 0;
+			else if (attackTotalTime < 40) attackNum5 = 0; //Umm... I don't remember writing that...
 			attackTimer++;
 			if (attackNum2 % 4 == 3) {
 				NPC.velocity *= 0.9f;
@@ -570,6 +577,62 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			}
 			//if (attackTimer > 120) attackDone = true;
 		}
+		private void CobaltSword() {
+			attackTimer++;
+			if (attackNum == 0) {
+				NPC.velocity *= 0.93f;
+				if (attackTimer == 1) { //Random color to draw the arrows in.
+					attackNum3 = Main.rand.Next(127, 256);
+					attackNum4 = Main.rand.Next(127, 256);
+					attackNum5 = Main.rand.Next(127, 256);
+				}
+
+				if (NPC.direction == 1) NPC.ai[2] = NPC.DirectionTo(target.Center).ToRotation() + MathHelper.PiOver2;
+				else NPC.ai[2] = -1*NPC.DirectionTo(target.Center).ToRotation() - MathHelper.PiOver2;
+				
+				if (NPC.DirectionTo(target.Center).X > 0) NPC.direction = 1;
+				else NPC.direction = -1;
+
+				if (attackNum2 < 21 && attackTimer % 2 == 0) attackNum2++; //Length of arrow trail. 21 tells the drawer that it's done.
+
+				if (attackTimer > 90) { attackNum = 1; attackTimer = 0; }
+
+				attackFloat2 = NPC.Center.X;
+				attackFloat3 = NPC.Center.Y;
+				attackFloat4 = NPC.ai[2];
+				attackNum8 = NPC.direction;
+			}
+			else if (attackNum == 1) {
+				if (attackTimer == 1) {
+					float rot = NPC.ai[2] + MathHelper.Pi;
+					if (NPC.direction == -1) rot = -NPC.ai[2] + MathHelper.Pi;
+					NPC.velocity = new Vector2(0, 48f-(24f*hpLeft)).RotatedBy(rot);
+				}
+				else NPC.velocity *= 0.975f;
+				attackFloat += NPC.velocity.Length();
+				attackNum6 = (int)(attackFloat/36f)+1;
+				if (attackNum6 > 22) {
+					attackTimer = 0;
+					attackFloat = 0f;
+					attackNum = 0;
+					attackNum2 = 0;
+					attackNum6 = 0;
+
+					attackNum7++;
+				}
+			}
+
+			if (attackNum7 == 8) attackDone = true;
+
+			//Spawn duplicates
+			if (attackNum7 < 7) {
+				attackNum9++;
+				if (attackNum9 > 45) {
+					attackNum9 = 0;
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(400, 601).RotatedByRandom(MathHelper.TwoPi), Vector2.Zero, ModContent.ProjectileType<SaburRexCobaltClone>(), (int)(NPC.damage/3), 0f);
+				}
+			}
+		}
 		private void PlayerSwingEffect(float swingSpeed) { //For any attacks that it should look like the sword swings like a player.
 			NPC.ai[2] += MathHelper.ToRadians(swingSpeed); //Swings at the requested rate.
 
@@ -601,7 +664,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			if (!init) NPC.frame.Y = 0; //STOP NOT MATCHING YOU DUMMY
 
 			//NPC direction
-			if (NPC.ai[0] != 2 && NPC.ai[0] != 3) { //Don't automate the process during the Katana and Bee Keeper attacks.
+			if (NPC.ai[0] != 2 && NPC.ai[0] != 3 && !(NPC.ai[0] == 5 && attackNum == 0)) { //Don't automate the process during the Katana and Bee Keeper attacks. Also, sometimes the Cobalt Sword.
 				if (Math.Abs(NPC.velocity.X) > 0.05f) {
 					if (NPC.velocity.X < 0) NPC.direction = -1;
 					else NPC.direction = 1;
@@ -635,7 +698,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			NPC.ai[1] = NPC.ai[0]; //Forces the while loop to run at least once
 			while (NPC.ai[1] == NPC.ai[0] || NPC.ai[1] == prevAttack) NPC.ai[1] = Main.rand.Next(5);
 
-			//NPC.ai[0] = 4f; //TESTING - force a certain attack.
+			NPC.ai[0] = 5f; //TESTING - force a certain attack.
 			
 			//Reset stats and rotation.
 			attackTimer = 0;
@@ -651,6 +714,9 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			attackNum4 = 0;
 			attackNum5 = 0;
 			attackNum6 = 0;
+			attackNum7 = 0;
+			attackNum8 = 0;
+			attackNum9 = 0;
 			attackFloat3 = 0f;
 			attackFloat4 = 0f;
         }
@@ -661,6 +727,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			Texture2D borderTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/SaburRex/SaburRex_Border");
 			Texture2D guardianTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/SaburRex/SaburRex_DungeonGuardian");
 			Texture2D queenBeeTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/SaburRex/SaburRex_QueenBee" + QBframe);
+			Texture2D greyArrowTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/SaburRex/SaburRex_GreyArrow");
 
 			Vector2 drawPos = NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY); //For main
 			Vector2 ringDrawPos = ringPos - screenPos + new Vector2(0f, NPC.gfxOffY); //Permanent pos for ring (see for loop below)
@@ -672,6 +739,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			Vector2 borderOrigin = new Vector2(borderTexture.Width * 0.5f, borderTexture.Height * 0.5f);
 			Vector2 guardianOrigin = new Vector2(guardianTexture.Width * 0.5f, guardianTexture.Height * 0.5f);
 			Vector2 QBOrigin = new Vector2(queenBeeTexture.Width * 0.5f, queenBeeTexture.Height * 0.5f);
+			Vector2 GAOrigin = new Vector2(greyArrowTexture.Width * 0.5f, greyArrowTexture.Height * 0.5f);
 
 			//Stolen from projectile code so that multiple frames can be drawn
 			int frameHeight = texture.Height / 6;
@@ -695,6 +763,29 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				SpriteEffects QBeffects = SpriteEffects.None;
 				if (attackNum2 == -1) QBeffects = SpriteEffects.FlipHorizontally;
 				spriteBatch.Draw(queenBeeTexture, drawPos, null, Color.White*attackFloat, 0f, QBOrigin, 1.5f, QBeffects, 0);
+			}
+
+			//Grey Arrow for the Cobalt Sword attack
+			int total = attackNum2;
+			if (attackNum2 == 21) total = 20;
+			if (NPC.ai[0] == 5f) for (int i = 0; i < total; i++) {
+				Color col = new Color(attackNum3, attackNum4, attackNum5);
+
+				float shade = 1f;
+				if (i+1 == attackNum2) shade = (float)(attackTimer%2)/2f;
+
+				//float rot = attackFloat4 + MathHelper.Pi;
+				//if (attackNum8 == -1) rot = -attackFloat4 + MathHelper.Pi;
+
+				float rot = attackNum8*attackFloat4 + MathHelper.Pi;
+
+				int dir = 1;
+				if (rot < MathHelper.Pi || rot > MathHelper.TwoPi) dir = -1;
+				//Main.NewText(rot);
+
+				Vector2 newPos = new Vector2(attackFloat2, attackFloat3) - screenPos + new Vector2(0f, NPC.gfxOffY) - new Vector2(0, 36*i).RotatedBy(NPC.ai[2]*dir);
+
+				if (i >= attackNum6) spriteBatch.Draw(greyArrowTexture, newPos, null, col*shade, rot, GAOrigin, 1.5f, SpriteEffects.None, 0);
 			}
 
 			//Tome man please explain why I'm dumb and have to manually set the main texture to be lower positioned but not the light sprite (160 is 2.5 frames)

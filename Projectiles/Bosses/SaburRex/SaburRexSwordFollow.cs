@@ -12,7 +12,7 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 	public class SaburRexSwordFollow : ModProjectile
 	{
         public override void SetStaticDefaults() {
-            Main.projFrames[Projectile.type] = 5;
+            Main.projFrames[Projectile.type] = 6;
         }
         public override void SetDefaults() {
 			Projectile.width = 54;
