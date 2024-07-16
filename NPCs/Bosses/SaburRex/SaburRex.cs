@@ -607,6 +607,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 					float rot = NPC.ai[2] + MathHelper.Pi;
 					if (NPC.direction == -1) rot = -NPC.ai[2] + MathHelper.Pi;
 					NPC.velocity = new Vector2(0, 48f-(24f*hpLeft)).RotatedBy(rot);
+					SoundEngine.PlaySound(SoundID.Item1, NPC.Center);
 				}
 				else NPC.velocity *= 0.975f;
 				attackFloat += NPC.velocity.Length();
@@ -627,7 +628,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			//Spawn duplicates
 			if (attackNum7 < 7) {
 				attackNum9++;
-				if (attackNum9 > 45) {
+				if (attackNum9 > (int)(25f+(20f*hpLeft))) {
 					attackNum9 = 0;
 					Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(400, 601).RotatedByRandom(MathHelper.TwoPi), Vector2.Zero, ModContent.ProjectileType<SaburRexCobaltClone>(), (int)(NPC.damage/3), 0f);
 				}

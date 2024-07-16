@@ -43,6 +43,7 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 		float attackFloat4;
 		bool death;
 		float idkWhat;
+		float oldway;
         public override bool PreAI() {
 			Projectile.ai[1] = Projectile.alpha;
 			if (death) { Projectile.alpha += 15; if (Projectile.alpha > 254) Projectile.Kill(); }
@@ -58,9 +59,9 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 			Projectile.hostile = Projectile.alpha < 101;
 
 			target = Main.player[(int)Projectile.ai[0]];
-            /*if (attackTimer == 0) {
+            if (attackTimer == 0) {
                 if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<SaburRexCobaltSwordClone>(), Projectile.damage, 0f, -1, Projectile.whoAmI);
-            }*/
+            }
 
 			//Actual movement.
 			attackTimer++;
@@ -72,11 +73,12 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 					attackNum5 = Main.rand.Next(127, 256);
 				}
 
-				if (Projectile.direction == 1) Projectile.ai[2] = Projectile.DirectionTo(target.Center).ToRotation() + MathHelper.PiOver2;
-				else Projectile.ai[2] = -1*Projectile.DirectionTo(target.Center).ToRotation() - MathHelper.PiOver2;
-				
 				if (Projectile.DirectionTo(target.Center).X > 0) Projectile.direction = 1;
 				else Projectile.direction = -1;
+				Projectile.spriteDirection = Projectile.direction;
+
+				if (Projectile.direction == 1) oldway = Projectile.DirectionTo(target.Center).ToRotation() + MathHelper.PiOver2;
+				else oldway = -1*Projectile.DirectionTo(target.Center).ToRotation() - MathHelper.PiOver2;
 
 				if (attackNum2 < 21 && attackTimer % 2 == 0) attackNum2++; //Length of arrow trail. 21 tells the drawer that it's done.
 
@@ -88,17 +90,19 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 				attackNum8 = Projectile.direction;
 
 				idkWhat = Projectile.Center.AngleTo(target.Center);
+				Projectile.ai[2] = idkWhat;
 
-				if (Math.Abs(Projectile.velocity.X) > 0.05f) {
+				/*if (Math.Abs(Projectile.velocity.X) > 0.05f) {
 					if (Projectile.velocity.X < 0) Projectile.direction = -1;
 					else Projectile.direction = 1;
-				}
+				}*/
 			}
 			else if (attackNum == 1) {
 				if (attackTimer == 1) {
-					float rot = Projectile.ai[2] + MathHelper.Pi;
-					if (Projectile.direction == -1) rot = -Projectile.ai[2] + MathHelper.Pi;
-					Projectile.velocity = new Vector2(0, 48f-(24f*hpLeft)).RotatedBy(rot);
+					//float rot = Projectile.ai[2] + MathHelper.Pi;
+					//if (Projectile.direction == -1) rot = -Projectile.ai[2] + MathHelper.Pi;
+					Projectile.velocity = new Vector2(0, 24f).RotatedBy(Projectile.ai[2]-MathHelper.PiOver2);
+					SoundEngine.PlaySound(SoundID.Item1, Projectile.Center);
 				}
 				else Projectile.velocity *= 0.975f;
 				attackFloat += Projectile.velocity.Length();
@@ -113,6 +117,21 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 					death = true;
 				}
 			}
+
+			//Animation plz work
+			if (oldway >= MathHelper.ToRadians(270) && oldway < MathHelper.ToRadians(325)) Projectile.frame = 1; //Hand top left
+
+			if (oldway >= MathHelper.ToRadians(325) || oldway < MathHelper.ToRadians(30)) Projectile.frame = 2; //Hand straight up
+
+			if (oldway >= MathHelper.ToRadians(30) && oldway < MathHelper.ToRadians(75)) Projectile.frame = 3; //Hand top right
+
+			if (oldway >= MathHelper.ToRadians(75) && oldway < MathHelper.ToRadians(115)) Projectile.frame = 4; //Hand right
+
+			if (oldway >= MathHelper.ToRadians(115) && oldway < MathHelper.ToRadians(180)) Projectile.frame = 5; //Hand down right
+
+			if (oldway < -MathHelper.Pi) Projectile.frame = 5;
+
+			//Main.NewText(oldway);
         }
 		public override bool PreDraw(ref Color lightColor) {
 			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
