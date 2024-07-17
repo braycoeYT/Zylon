@@ -115,7 +115,7 @@ namespace Zylon.Projectiles.Minions
 
 			#region Movement
 
-			float speed = 20f;
+			float speed = 12f;
 			float inertia = 20f;
 
 			if (foundTarget)
@@ -129,11 +129,11 @@ namespace Zylon.Projectiles.Minions
 			}
 			else {
 				if (distanceToIdlePosition > 600f) {
-					speed = 30f;
+					speed = 24f;
 					inertia = 15f;
 				}
 				else {
-					speed = 20f;
+					speed = 12f;
 					inertia = 20f;
 				}
 				if (distanceToIdlePosition > 20f) {
@@ -152,7 +152,7 @@ namespace Zylon.Projectiles.Minions
 			Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 40;
 			if (foundTarget && Vector2.Distance(targetCenter, Projectile.Center) < 80) {
 				Timer++;
-				if (Timer % 15 == 0)
+				if (Timer % 25 == 0)
 				ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, projDir, ProjectileType<MeteorbProtect>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI);
 			}
 

@@ -21,7 +21,7 @@ namespace Zylon.Items.Bags
 			Item.consumable = true;
 			Item.width = 24;
 			Item.height = 24;
-			Item.rare = ModContent.RarityType<Magenta>();
+			Item.rare = ItemRarityID.Expert;
 			Item.expert = true;
 		}
 		public override bool CanRightClick() {
@@ -29,16 +29,11 @@ namespace Zylon.Items.Bags
 		}
 		public override void ModifyItemLoot(ItemLoot itemLoot) {
 			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(NPCType<NPCs.Bosses.SaburRex.SaburRex>()));
-			itemLoot.Add(ItemDropRule.Common(ItemType<Materials.FantasticalFinality>(), 1, 13, 13));
 			itemLoot.Add(new CommonDrop(ItemType<Vanity.SaburMask>(), 7));
-
-			/*itemLoot.Add(ItemDropRule.Common(ItemType<Accessories.Metecore>(), 1));
-			itemLoot.Add(ItemDropRule.Common(ItemType<Ores.HaxoniteOre>(), 1, 90, 120));
-			itemLoot.Add(ItemDropRule.Common(ItemID.Meteorite, 1, 30, 45));
-			//itemLoot.Add(ItemDropRule.Common(ItemID.FallenStar, 1, 7, 10));
-			itemLoot.Add(new CommonDrop(ItemType<Accessories.MysticComet>(), 4));
-			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(NPCType<NPCs.Bosses.Metelord.MetelordHead>()));
-			itemLoot.Add(new CommonDrop(ItemType<Vanity.MetelordMask>(), 7));*/
+			itemLoot.Add(ItemDropRule.Common(ItemType<Accessories.Fantesseract>()));
+			itemLoot.Add(ItemDropRule.Common(ItemType<Materials.FantasticalFinality>(), 1, 13, 13));
+			itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ItemType<Boomerangs.AussieDagger>(), ItemType<Blowpipes.HollowKnife>(), ItemType<Wands.BladeTorrentStaff>(), ItemType<Minions.SwordigamStaff>()));
+			itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ItemType<Yoyos.TheRetractor>(), ItemType<Bows.Dirkbow>(), ItemType<Tomes.TaleoftheEverlastingBlade>(), ItemType<Whips.Snakesabre>()));
 		}
 		public override Color? GetAlpha(Color lightColor) {
 			return Color.Lerp(lightColor, Color.White, 0.4f);

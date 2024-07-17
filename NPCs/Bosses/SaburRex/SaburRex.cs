@@ -9,8 +9,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
-using Zylon.Projectiles.Whips;
-using Zylon.Items.Swords;
+using Terraria.GameContent.ItemDropRules;
+using Zylon.Items.Bags;
 
 namespace Zylon.NPCs.Bosses.SaburRex
 {
@@ -829,6 +829,22 @@ namespace Zylon.NPCs.Bosses.SaburRex
         public override void OnKill() {
             if (Zylon.noHitSabur) Item.NewItem(NPC.GetSource_FromThis(), NPC.getRect(), ModContent.ItemType<Items.Swords.Excalipoor>());
         }
+		public override void ModifyNPCLoot(NPCLoot npcLoot) {
+			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.SaburTrophy>(), 10));
+
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.SaburMask>(), 7));
+			notExpertRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Boomerangs.AussieDagger>(), ModContent.ItemType<Items.Blowpipes.HollowKnife>(), ModContent.ItemType<Items.Wands.BladeTorrentStaff>(), ModContent.ItemType<Items.Minions.SwordigamStaff>()));
+			notExpertRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Yoyos.TheRetractor>(), ModContent.ItemType<Items.Bows.Dirkbow>(), ModContent.ItemType<Items.Tomes.TaleoftheEverlastingBlade>(), ModContent.ItemType<Items.Whips.Snakesabre>()));
+			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Materials.FantasticalFinality>(), 1, 10, 10));
+
+			npcLoot.Add(notExpertRule);
+
+			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<SaburBag>()));
+
+			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeables.Relics.SaburRelic>()));
+			npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<Items.Pets.AncientGameController>(), 4));
+		}
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,

@@ -391,6 +391,16 @@ Mods: {
 				DisplayName: Raging Sun
 				Description: The raging sun will fight for you
 			}
+
+			SnakesabreAdvancedDebuff: {
+				DisplayName: Snakesabre Advanced Debuff
+				Description: Mods.Zylon.Buffs.SnakesabreAdvancedDebuff.Description
+			}
+
+			SnakesabreDebuff: {
+				DisplayName: Snakesabre Debuff
+				Description: Mods.Zylon.Buffs.SnakesabreDebuff.Description
+			}
 		}
 
 		Items: {
@@ -521,6 +531,18 @@ Mods: {
 					'''
 					'I love miners!'
 					Emits a faint glow from within your pack
+					'''
+			}
+
+			Fantesseract: {
+				DisplayName: Fantesseract
+				Tooltip:
+					'''
+					'Its true power is not understood, nor will it ever be'
+					Doubles damage variation and ignores 25% of enemy defense?
+					Has a small chance to quadruple damage dealt?
+					Boosts player mobility?
+					Heavily increases health regeneration?
 					'''
 			}
 
@@ -3846,6 +3868,16 @@ Mods: {
 					'''
 			}
 
+			Snakesabre: {
+				DisplayName: Snakesabre
+				Tooltip:
+					'''
+					Strike foes to spawn damaging swords
+					{$CommonItemTooltip.SummonTagDamage}
+					{$CommonItemTooltip.Whips}
+					'''
+			}
+
 			Starweaver: {
 				DisplayName: Starweaver
 				Tooltip:
@@ -4646,6 +4678,7 @@ Mods: {
 			Gamerblade.DisplayName: Gamerblade
 			SaburRexCobaltClone.DisplayName: Sabur Rex Cobalt Clone
 			SaburRexCobaltSwordClone.DisplayName: Sabur Rex Cobalt Sword Clone
+			Snakesabre.DisplayName: Snakesabre
 		}
 
 		NPCs: {

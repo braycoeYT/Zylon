@@ -10,6 +10,8 @@ using Terraria.Audio;
 using Zylon.Items.Accessories;
 using Terraria.GameContent;
 using Terraria.Net;
+using Terraria.WorldBuilding;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Zylon
 {
@@ -88,6 +90,8 @@ namespace Zylon
 		public bool shadeCharm;
 		public bool tribalCharm;
 		public bool CHECK_PygmyNecklace;
+		public bool fantesseract;
+		public bool blackBox;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -117,6 +121,8 @@ namespace Zylon
 		public int livingWhipTimer;
 		public float summonCrit;
 		public float summonCritBoost;
+		public bool scaryText;
+		public bool scaryText2;
 		public override void ResetEffects() {
 			Heartdaze = false;
 			outofBreath = false;
@@ -189,6 +195,8 @@ namespace Zylon
 			shadeCharm = false;
 			tribalCharm = false;
 			CHECK_PygmyNecklace = false;
+			fantesseract = false;
+			blackBox = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -391,12 +399,26 @@ namespace Zylon
 			if (trueMelee15) trueMeleeBoost += 0.15f;
 			if (neutronHood) trueMeleeBoost += 0.18f;
 			modifiers.SourceDamage *= trueMeleeBoost;
-			modifiers.CritDamage += critExtraDmg;
 
 			if ((item.DamageType == DamageClass.Summon || item.DamageType == DamageClass.SummonMeleeSpeed) && Main.rand.NextFloat() < summonCrit) {
 				modifiers.SetCrit(); //In case some mentally insane mod does this
 			}
 
+			if (fantesseract) {
+				modifiers.DamageVariationScale *= 2f;
+				if (Main.rand.NextBool(10)) modifiers.Defense += 0.25f;
+				modifiers.ScalingArmorPenetration += 0.25f;
+
+				if (Main.rand.NextBool(25)) {
+					modifiers.HideCombatText();
+					modifiers.FinalDamage *= 4f;
+					scaryText = true;
+				}
+				if (Main.rand.NextBool(25)) {
+					modifiers.FinalDamage *= 0f;
+					scaryText2 = true;
+				}
+			}
 		}
 		public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Projectile, consider using ModifyHitNPC instead */
 		{
@@ -404,14 +426,34 @@ namespace Zylon
 			if ((proj.DamageType == DamageClass.Summon || proj.DamageType == DamageClass.SummonMeleeSpeed) && Main.rand.NextFloat() < summonCrit) {
 				modifiers.SetCrit();
 			}
+
+			if (fantesseract) {
+				modifiers.DamageVariationScale *= 2f;
+				if (Main.rand.NextBool(10)) modifiers.Defense += 0.25f;
+				modifiers.ScalingArmorPenetration += 0.25f;
+
+				if (Main.rand.NextBool(25)) {
+					modifiers.HideCombatText();
+					modifiers.FinalDamage *= 4f;
+					scaryText = true;
+				}
+				if (Main.rand.NextBool(25)) {
+					modifiers.FinalDamage *= 0f;
+					scaryText2 = true;
+				}
+			}
 		}
 		public override void OnHitNPCWithItem(Item item, NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			OnHitNPCGlobal(item, null, target, damageDone, hit.Knockback, hit.Crit, target.type == NPCID.TargetDummy, true);
+			if (scaryText) { CombatText.NewText(target.getRect(), new Color(127, 127, 127), damageDone); scaryText = false; }
+			if (scaryText2) { CombatText.NewText(target.getRect(), new Color(0, 0, 0), damageDone); scaryText2 = false; }
 		}
 		public override void OnHitNPCWithProj(Projectile proj, NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			OnHitNPCGlobal(null, proj, target, damageDone, hit.Knockback, hit.Crit, target.type == NPCID.TargetDummy, false);
+			if (scaryText) { CombatText.NewText(target.getRect(), new Color(127, 127, 127), damageDone); scaryText = false; }
+			if (scaryText2) { CombatText.NewText(target.getRect(), new Color(0, 0, 0), damageDone); scaryText2 = false; }
 		}
 		public void OnHitNPCGlobal(Item item, Projectile proj, NPC target, int damage, float knockback, bool crit, bool isDummy, bool TrueMelee) {
 			hitTimer30 = 1800;
@@ -757,6 +799,22 @@ namespace Zylon
 				}
 			}
 			//Main.NewText(WorldGen.currentWorldSeed.ToLower());
+        }
+        public override void HideDrawLayers(PlayerDrawSet drawInfo) {
+            if (blackBox) {
+				drawInfo.hideEntirePlayer = true;
+				Texture2D boxTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Fantesseract_BlackBox");
+				Main.spriteBatch.Draw(boxTexture, drawInfo.Center, null, Color.White, 0f, new Vector2(boxTexture.Width, boxTexture.Height), 1f, SpriteEffects.None, 0f);
+			}
+        }
+        public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright) {
+			if (blackBox) {
+				//drawInfo.hideEntirePlayer = true;
+				Texture2D boxTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Fantesseract_BlackBox");
+				a = 0f; r = 0f; g = 0f; b = 0f;
+				Player.invis = true;
+				Main.spriteBatch.Draw(boxTexture, drawInfo.Center - Main.screenPosition - new Vector2(0, 4), null, Color.White, 0f, new Vector2(boxTexture.Width/2f, boxTexture.Height/2f), 1f, SpriteEffects.None, 0f);
+			}
         }
         public override void ProcessTriggers(TriggersSet triggersSet) {
 			if (ZylonKeybindSystem.DoublePluggedCordKeybind.JustPressed && doublePluggedCord) SoundEngine.PlaySound(SoundID.Item93, Player.Center);
