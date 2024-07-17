@@ -48,7 +48,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			NPC.boss = true;
 			NPC.netAlways = true;
 			NPC.lavaImmune = true;
-			Music = MusicID.Boss1;
+			Music = MusicID.Boss4;
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = (int)(500000*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
@@ -203,6 +203,12 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				case 5f:
 					CobaltSword();
 					break;
+				case 6f:
+					ChlorophyteSaber();
+					break;
+				case 7f:
+					StarWrath();
+					break;
             }
 
 			UpdateFrame();
@@ -233,7 +239,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			if (Main.expertMode) normal = 0; //og below 25 + 20
 			if (attackTimer >= 20+(int)(20*hpLeft)+normal && Main.netMode != NetmodeID.MultiplayerClient && attackTimer < 370+(int)(200*hpLeft)) {
 				if (attackTotalTime <= 400+(int)(200*hpLeft)-30) //Decreases the amount of UFOs that appear in the next attack to reduce frustration
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(Main.rand.Next(-200, 201), Main.rand.Next(0, 50)), Vector2.Zero, ModContent.ProjectileType<SaburRexMartianSaucer>(), (int)(NPC.damage*0.15f), 0f);
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(Main.rand.Next(-200, 201), Main.rand.Next(0, 50)), Vector2.Zero, ModContent.ProjectileType<SaburRexMartianSaucer>(), (int)(NPC.damage*0.15f), 0f);
 				attackTimer = 0;
 			}
 
@@ -281,7 +287,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 
 				if (attackNum5 > 3) {
 					attackNum4++;
-					if (attackNum4 > 150+(int)(45*hpLeft)) attackDone = true;
+					if (attackNum4 > 180+(int)(45*hpLeft)) attackDone = true; //og 150+45
 					return;
 				}
 
@@ -334,7 +340,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				//	else NPC.ai[2] = -1*NPC.DirectionTo(target.Center).ToRotation() - MathHelper.PiOver2;
 
 				if (attackTimer % 3 == 0 && attackNum3 < 1) {
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, 48).RotatedBy(attackFloat), new Vector2(0, 5).RotatedBy(attackFloat), ModContent.ProjectileType<SaburRexKatanaDuplicate>(), (int)(NPC.damage*0.2f), 0f, -1, ringPos.X, ringPos.Y, attackNum4);
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, 48).RotatedBy(attackFloat), new Vector2(0, 5).RotatedBy(attackFloat), ModContent.ProjectileType<SaburRexKatanaDuplicate>(), (int)(NPC.damage*0.2f), 0f, -1, ringPos.X, ringPos.Y, attackNum4);
 				}
 				if (Math.Abs(attackFloat) >= MathHelper.TwoPi*2) {
 					attackNum3++;
@@ -487,7 +493,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<SaburRexServantofOcram>(), (int)(NPC.damage/3), 0f, -1, i*200, j*(int)(360f/attackNum3), timeLeft);
 
 					//Center proj
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<SaburRexServantofOcram>(), (int)(NPC.damage/3), 0f, -1, 0, 0, timeLeft);
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<SaburRexServantofOcram>(), (int)(NPC.damage/3), 0f, -1, 0, 0, timeLeft);
 				}
 				if (attackTimer < attackNum) { //Spinning animation - smooth through trig.
 					NPC.ai[2] += MathHelper.ToRadians(attackFloat*(float)Math.Sin((float)attackTimer*Math.PI/(float)attackNum));
@@ -554,13 +560,13 @@ namespace Zylon.NPCs.Bosses.SaburRex
 					}
 
 					//Horizontal
-					if (NPC.Center.X < target.Center.X) attackFloat2 += 0.2f;
-					else attackFloat2 -= 0.4f;
+					if (NPC.Center.X < target.Center.X) attackFloat2 += 0.3f; //0.2f
+					else attackFloat2 -= 0.3f; //0.4f
 					if (Math.Abs(attackFloat2) > 7f && Vector2.Distance(NPC.Center, target.Center) < 800) attackFloat2 *= 0.95f;
 
 					//Vertical
-					if (NPC.Center.Y < target.Center.Y) attackFloat3 += 0.2f;
-					else attackFloat3 -= 0.4f;
+					if (NPC.Center.Y < target.Center.Y) attackFloat3 += 0.3f; //0.2f
+					else attackFloat3 -= 0.3f; //0.4f
 					if (Math.Abs(attackFloat3) > 7f && Vector2.Distance(NPC.Center, target.Center) < 800) attackFloat3 *= 0.95f;
 
 					NPC.velocity = new Vector2(attackFloat2, attackFloat3);
@@ -630,8 +636,47 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				attackNum9++;
 				if (attackNum9 > (int)(25f+(20f*hpLeft))) {
 					attackNum9 = 0;
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(400, 601).RotatedByRandom(MathHelper.TwoPi), Vector2.Zero, ModContent.ProjectileType<SaburRexCobaltClone>(), (int)(NPC.damage/3), 0f);
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(400, 601).RotatedByRandom(MathHelper.TwoPi), Vector2.Zero, ModContent.ProjectileType<SaburRexCobaltClone>(), (int)(NPC.damage/3), 0f);
 				}
+			}
+		}
+		private void ChlorophyteSaber() {
+			attackNum2++;
+			PlayerSwingEffect(9.6875f);
+
+			Vector2 spinCenter = target.Center; //- new Vector2(0, 300).RotatedBy(MathHelper.ToRadians(attackTotalTime*2.5f));
+			
+			if (attackTotalTime > 40 || hpLeft < 0.99f) { //No jumpscaring the new players.
+				//Horizontal
+				if (NPC.Center.X < spinCenter.X) attackFloat2 += 0.25f;
+				else attackFloat2 -= 0.25f;
+				if (Math.Abs(attackFloat2) > 5f && Vector2.Distance(NPC.Center, spinCenter) < 800) attackFloat2 *= 0.95f;
+	
+				//Vertical
+				if (NPC.Center.Y < spinCenter.Y) attackFloat3 += 0.25f;
+				else attackFloat3 -= 0.25f;
+				if (Math.Abs(attackFloat3) > 5f && Vector2.Distance(NPC.Center, spinCenter) < 800) attackFloat3 *= 0.95f;
+
+				NPC.velocity = new Vector2(attackFloat2, attackFloat3);
+			}
+
+			if (attackNum2 > (int)(25f+(25f*hpLeft))) {
+				attackNum2 = 0;
+				int rand1 = 1;
+				if (Main.rand.NextBool()) rand1 = -1;
+				int rand2 = 1;
+				if (Main.rand.NextBool()) rand2 = -1;
+				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(Main.rand.Next(200, 401)*rand1, Main.rand.Next(200, 401)*rand2), Vector2.Zero, ModContent.ProjectileType<SaburRexChlorophyteOrb>(), (int)(NPC.damage/3), 0f);
+			}
+
+			if (attackTotalTime > 600) {
+				attackDone = true;
+			}
+		}
+		private void StarWrath() {
+			attackNum++;
+			if (attackNum > 60) {
+				attackNum2 = Main.rand.Next(4);
 			}
 		}
 		private void PlayerSwingEffect(float swingSpeed) { //For any attacks that it should look like the sword swings like a player.
@@ -699,7 +744,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			NPC.ai[1] = NPC.ai[0]; //Forces the while loop to run at least once
 			while (NPC.ai[1] == NPC.ai[0] || NPC.ai[1] == prevAttack) NPC.ai[1] = Main.rand.Next(5);
 
-			NPC.ai[0] = 5f; //TESTING - force a certain attack.
+			NPC.ai[0] = 7f; //TESTING - force a certain attack.
 			
 			//Reset stats and rotation.
 			attackTimer = 0;
@@ -803,7 +848,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			else if (ringSpace < 750) ringSpace += 20; //250 to 750
 
 			if (finale) {
-				spriteBatch.Draw(whiteTexture, drawPos, null, Color.White*(0.9f+(float)Math.Sin(Main.GameUpdateCount)/10f), 0f, whiteOrigin, NPC.scale, effects, 0); //Draw light for outro
+				spriteBatch.Draw(whiteTexture, drawPos, null, Color.White*(0.9f+(float)Math.Sin(Main.GameUpdateCount/10f)/10f), 0f, whiteOrigin, NPC.scale, effects, 0); //Draw light for outro
 			}
 
 			//Draws the border (rainbow ring) of the boss.

@@ -22,6 +22,7 @@ namespace Zylon.NPCs
 		public bool loberaSlash;
 		public bool zombieRot;
 		public bool flashPandemic;
+		public bool foamDart;
 		public override void ResetEffects(NPC npc) {
 			heartdaze = false;
 			shroomed = false;
@@ -32,6 +33,7 @@ namespace Zylon.NPCs
 			loberaSlash = false;
 			zombieRot = false;
 			flashPandemic = false;
+			foamDart = false;
 			base.ResetEffects(npc);
 		}
 		public override void UpdateLifeRegen(NPC npc, ref int damage) {
@@ -93,7 +95,13 @@ namespace Zylon.NPCs
 			}
 			base.UpdateLifeRegen(npc, ref damage);
 		}
-		int Timer;
+        public override void ModifyHitByItem(NPC npc, Player player, Item item, ref NPC.HitModifiers modifiers) {
+            if (foamDart) modifiers.Defense.Flat -= 15;
+        }
+        public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers) {
+            if (foamDart) modifiers.Defense.Flat -= 15;
+        }
+        int Timer;
 		bool safe = true;
         Color safeColor;
 		bool setup;
@@ -103,7 +111,7 @@ namespace Zylon.NPCs
 		Vector2 stay;
 		Color tColor;
 		bool checkColor; //DOESNT WORK DONT USE //find a way to only look for one frame instead of always?
-        public override void PostAI(NPC npc) { //Tome man gonna kill me for this if statement army
+        /*public override void PostAI(NPC npc) { //Tome man gonna kill me for this if statement army
 			checkColor = !npc.boss && npc.type != NPCID.GolemHead;
 			Timer++;
             if (safe) {
@@ -171,7 +179,7 @@ namespace Zylon.NPCs
 			if (checkColor) {
                 //npc.color = tColor;
 			}
-        }
+        }*/
 		/*private void ColorStuff(NPC npc, Color color) {
 			if (!npc.boss && npc.type != NPCID.GolemHead) {
 				npc.color = color;

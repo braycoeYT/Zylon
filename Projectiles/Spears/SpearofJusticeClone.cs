@@ -32,6 +32,7 @@ namespace Zylon.Projectiles.Spears
 		int Timer;
 		int Timer2;
 		Vector2 oops;
+		NPC target = Main.npc[Main.maxNPCs];
         public override void AI() {
 			if (Timer2 < Projectile.ai[0]*45) {
 				Timer2++;
@@ -61,12 +62,13 @@ namespace Zylon.Projectiles.Spears
 							distanceFromTarget = between;
 							targetCenter = npc.Center;
 							foundTarget = true;
+							target = Main.npc[i];
 						}
 					}
 				}
 			}
-			oops = Vector2.Normalize(targetCenter - Projectile.Center) * 11f;
-			if (!foundTarget) oops = Vector2.Normalize(main.Center - Projectile.Center) * 11f;
+			if (!foundTarget || !target.active) oops = Vector2.Normalize(main.Center - Projectile.Center) * 11f;
+			else oops = Vector2.Normalize(targetCenter - Projectile.Center) * 11f;
 			Projectile.rotation = oops.ToRotation() + MathHelper.PiOver4;
             }
 			else if (Timer <= 52) {

@@ -370,8 +370,6 @@ V0.0.3: Cause to Clash Update
 ~Made developer weapons craftable.
 ~Added Fantastical Finality, Ultima Band, Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff, Hollow Knife, The Retractor, Snakesabre, Ancient Game Controller, and Fantesseract.
 
-FIX DEBUFFS WITH MODIFY HIT AND SABUR GLOW
-
 
 
 

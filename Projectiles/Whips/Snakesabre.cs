@@ -28,9 +28,15 @@ namespace Zylon.Projectiles.Whips
 			get => Projectile.ai[0];
 			set => Projectile.ai[0] = value;
 		}
+		int spawnCount = 3;
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			Main.player[Projectile.owner].MinionAttackTargetNPC = target.whoAmI;
 			Projectile.damage = (int)(Projectile.damage * 0.95f); // Multihit penalty. Decrease the damage the more enemies the whip hits.
+			for (int i = 0; i < spawnCount; i++) {
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<SnakesabreSpin>(), (int)(Projectile.damage*0.66f), Projectile.knockBack/2f, Projectile.owner, i*10*spawnCount);
+			}
+			spawnCount--;
+			if (spawnCount < 0) spawnCount = 0;
 		}
 
 		// This method draws a line between all points of the whip, in case there's empty space between the sprites.

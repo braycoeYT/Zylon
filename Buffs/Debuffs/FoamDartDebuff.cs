@@ -15,12 +15,12 @@ namespace Zylon.Buffs.Debuffs
 			Main.buffNoSave[Type] = true;
 			BuffID.Sets.LongerExpertDebuff[Type] = false;
 		}
-		public override void Update(Player player, ref int buffIndex) {
+		/*public override void Update(Player player, ref int buffIndex) {
 			player.statDefense -= 15;
 		}
 		public override void Update(NPC npc, ref int buffIndex) {
 			npc.defense = npc.defDefense - 15;
 			if (npc.buffTime[buffIndex] <= 1) npc.defense = npc.defDefense;
-		}
+		}*/
 	}
 }

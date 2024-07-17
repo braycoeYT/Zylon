@@ -4679,6 +4679,9 @@ Mods: {
 			SaburRexCobaltClone.DisplayName: Sabur Rex Cobalt Clone
 			SaburRexCobaltSwordClone.DisplayName: Sabur Rex Cobalt Sword Clone
 			Snakesabre.DisplayName: Snakesabre
+			SnakesabreSpin.DisplayName: Snakesabre Spin
+			SaburRexChlorophyteOrb.DisplayName: Sabur Rex Chlorophyte Orb
+			SaburRexSporeCloud.DisplayName: Sabur Rex Spore Cloud
 		}
 
 		NPCs: {
