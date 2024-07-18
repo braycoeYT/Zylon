@@ -31,7 +31,8 @@ namespace Zylon.Projectiles.Bosses.SaburRex
         public override void AI() {
 			Timer++;
 			NPC owner = Main.npc[ZylonGlobalNPC.saburBoss];
-			if (owner.life < 2 || !owner.active || owner.ai[0] != 6f) Projectile.Kill();
+			if (owner.life < 2 || !owner.active) Projectile.Kill();
+			if (owner.ai[0] != 6f && Projectile.timeLeft > 15) Projectile.timeLeft = 15;
 
 			if (Projectile.timeLeft < 16) Projectile.alpha += 17;
 			Projectile.hostile = Projectile.alpha < 100;

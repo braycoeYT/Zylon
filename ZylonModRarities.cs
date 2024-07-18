@@ -73,7 +73,7 @@ namespace Zylon
 		//Tier 13 - All items post ToC, Quet, Loc, and ???. All items obtained in the Cellspawn after ToC has been defeated.
 		//Materals from the AB are this rarity despite being obtainable before ZME.
 		//Color used to be based on ToC, but is now based on Loc and Quet.
-		public override Color RarityColor => new Color(19, 191, 64); //16, 145, 50
+		public override Color RarityColor => new Color(19-(3*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt()), 191-(30*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt()), 64-(10*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt())); //16, 145, 50
 		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
 			-2 => ItemRarityID.Purple,
 			-1 => ModContent.RarityType<Magenta>(),

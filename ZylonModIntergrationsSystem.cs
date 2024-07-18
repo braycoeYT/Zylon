@@ -163,7 +163,7 @@ namespace Zylon
 
 			internalName = "SaburRex";
 			weight = 19f;
-			downed = () => ZylonWorldCheckSystem.downedJelly;
+			downed = () => ZylonWorldCheckSystem.downedSabur;
 			bossType = ModContent.NPCType<NPCs.Bosses.SaburRex.SaburRex>();
 			spawnItem = ModContent.ItemType<Items.BossSummons.AwakenedRiftCalibrator>();
 			collectibles = new List<int>()

@@ -122,7 +122,20 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			}
             return !finale;
         }
+		int flee;
         public override void AI() { //ai0 - current attack | ai1 - next attack | ai2 - current rotation | ai3 - other important communication w/ sword proj
+			if (Main.player[NPC.target].statLife < 1 && !finale) {
+				NPC.TargetClosest(true);
+				if (Main.player[NPC.target].statLife < 1) {
+					flee++;
+				}
+				else
+				flee = 0;
+				if (flee > 0) {
+					if (flee > 300) NPC.active = false;
+					//return;
+				}
+			}
 
 			Zylon.hasFoughtSabur = true; //REMOVE WHEN BOSS FINISHED - JUST TO SKIP DIALOGUE
 
@@ -306,7 +319,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			//Main.NewText(NPC.ai[2] + " | " + MathHelper.ToDegrees(attackFloat));
 		}
 		private void Katana() { //NPC direction code in UpdateFrame is disabled for this attack, also I feel so braindead after making this so not that many comments
-			if (attackTotalTime == 1) attackNum5 = (int)(10+(30*hpLeft));
+			if (attackTotalTime == 1) attackNum5 = (int)(30+(15*hpLeft));
 			if (attackTotalTime < attackNum5) {
 				Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.RedTorch);
 				dust.velocity = new Vector2(0, -3).RotatedBy(MathHelper.TwoPi*(attackTotalTime/attackNum5));
@@ -340,7 +353,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				//	else NPC.ai[2] = -1*NPC.DirectionTo(target.Center).ToRotation() - MathHelper.PiOver2;
 
 				if (attackTimer % 3 == 0 && attackNum3 < 1) {
-					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, 48).RotatedBy(attackFloat), new Vector2(0, 5).RotatedBy(attackFloat), ModContent.ProjectileType<SaburRexKatanaDuplicate>(), (int)(NPC.damage*0.15f), 0f, -1, ringPos.X, ringPos.Y, attackNum4);
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, 48).RotatedBy(attackFloat), new Vector2(0, 5).RotatedBy(attackFloat), ModContent.ProjectileType<SaburRexKatanaDuplicate>(), (int)(NPC.damage*0.23f), 0f, -1, ringPos.X, ringPos.Y, attackNum4);
 				}
 				if (Math.Abs(attackFloat) >= MathHelper.TwoPi*2) {
 					attackNum3++;
@@ -363,16 +376,16 @@ namespace Zylon.NPCs.Bosses.SaburRex
 					else NPC.direction = -1;
 					attackNum = NPC.direction;
 					if (attackTimer == 15) {
-						NPC.velocity = NPC.DirectionTo(target.Center)*(45f-(12f*hpLeft)); //og 45 - 15
+						NPC.velocity = NPC.DirectionTo(target.Center)*(38f-(8f*hpLeft)); //og 45 - 15
 					}
 				}
 				else if (attackTimer < 45) {
 					NPC.direction = attackNum; //Don't allow him to flip directions while dashing.
-					NPC.velocity *= 0.94f; //og 0.96
+					NPC.velocity *= 0.935f; //og 0.94
 	
 					//Katana duplicates
 					if (Main.netMode != NetmodeID.MultiplayerClient && (attackTimer % (2+(int)(3*hpLeft)) == 0) && attackTimer < (50+(int)(25*hpLeft))) {
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(target.Center).RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-3f, 3f))), ModContent.ProjectileType<SaburRexKatanaDuplicate>(), (int)(NPC.damage*0.15f), 0f, -1, ringPos.X, ringPos.Y);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(target.Center).RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-3f, 3f))), ModContent.ProjectileType<SaburRexKatanaDuplicate>(), (int)(NPC.damage*0.23f), 0f, -1, ringPos.X, ringPos.Y);
 					}
 				}
 				else {
@@ -674,16 +687,17 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			}
 		}
 		private void Starfury() {
+			NPC.timeLeft = 300; //One time he despawned while he was doing this attack
 			if (attackTotalTime < 10) NPC.velocity *= 0.8f;
 			else if (attackTotalTime == 10) { NPC.velocity = Vector2.Zero; attackNum6 = Main.rand.Next(2); }
 			else NPC.velocity.Y = (float)Math.Cos(attackTotalTime*(float)Math.PI/-40f-(float)Math.PI*10f)/1f;
 			PlayerSwingEffect(7.75f);
 
-			attackNum3 = (int)(175f+(125f*hpLeft));
+			attackNum3 = (int)(160f+(80f*hpLeft));
 			attackNum++;
 
 			if (attackNum > attackNum3 || attackNum4 == 0) {
-				if (attackNum4 > 7) { attackDone = true; return; }
+				if (attackNum4 > (int)(5-(3*hpLeft))) { attackDone = true; return; }
 				attackNum2 = Main.rand.Next(4);
 
 				//attackNum2 = 0; //Testing
@@ -766,7 +780,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			NPC.ai[1] = NPC.ai[0]; //Forces the while loop to run at least once
 			while (NPC.ai[1] == NPC.ai[0] || NPC.ai[1] == prevAttack) NPC.ai[1] = Main.rand.Next(8);
 
-			//NPC.ai[0] = 7f; //TESTING - force a certain attack.
+			//NPC.ai[0] = 2f; //TESTING - force a certain attack.
 			
 			//Reset stats and rotation.
 			attackTimer = 0;

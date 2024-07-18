@@ -365,13 +365,11 @@ V0.0.3: Cause to Clash Update
 ~Fixed issue with Eldritch Jellyfish display in Boss Checklist.
 ~Fixed bug that doubled power of crit damage increases for true melee weapons.
 ~Nerfed Meteorb Staff.
-
 ~Added Sabur Rex, the first actually good PML boss in the mod's entire history.
 ~Made developer weapons craftable.
 ~Added Fantastical Finality, Ultima Band, Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff, Hollow Knife, The Retractor, Snakesabre, Ancient Game Controller, and Fantesseract.
-DOWN THE BOSS
 
-
+AN
 
 
 
