@@ -53,8 +53,7 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 				dust.scale = 1.25f;
 			}
         }
-		//Color.White*((255f-Projectile.alpha)/255f)
-        public override bool PreDraw(ref Color lightColor) {
+		public override bool PreDraw(ref Color lightColor) {
 		    Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;
 			int frameHeight = projectileTexture.Height / Main.projFrames[Projectile.type];
 			int spriteSheetOffset = frameHeight * Projectile.frame;

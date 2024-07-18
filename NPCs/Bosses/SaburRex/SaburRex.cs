@@ -56,7 +56,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			NPC.value = Item.buyPrice(7, 50);
 			if (Main.masterMode) {
 				NPC.lifeMax = (int)(650000*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
-				NPC.damage = 390;
+				NPC.damage = 299;
             }
         }
         public override bool CanHitPlayer(Player target, ref int cooldownSlot) {
@@ -207,7 +207,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 					ChlorophyteSaber();
 					break;
 				case 7f:
-					StarWrath();
+					Starfury();
 					break;
             }
 
@@ -237,7 +237,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			//Spawn UFO projectiles
 			int normal = 5;
 			if (Main.expertMode) normal = 0; //og below 25 + 20
-			if (attackTimer >= 20+(int)(20*hpLeft)+normal && Main.netMode != NetmodeID.MultiplayerClient && attackTimer < 370+(int)(200*hpLeft)) {
+			if (attackTimer >= 20+(int)(20*hpLeft)+normal && attackTimer < 370+(int)(200*hpLeft)) {
 				if (attackTotalTime <= 400+(int)(200*hpLeft)-30) //Decreases the amount of UFOs that appear in the next attack to reduce frustration
 					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(Main.rand.Next(-200, 201), Main.rand.Next(0, 50)), Vector2.Zero, ModContent.ProjectileType<SaburRexMartianSaucer>(), (int)(NPC.damage*0.15f), 0f);
 				attackTimer = 0;
@@ -275,7 +275,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				if (attackNum2 > 120*hpLeft) {
 					attackNum3++; //ik this is a ton of variables but idk how to narrow it down
 					if (attackNum3 % 12 == 1 && Main.netMode != NetmodeID.MultiplayerClient) {
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<SaburRexBoneProj>(), (int)(NPC.damage/3), 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<SaburRexBoneProj>(), (int)(NPC.damage/4), 0f);
 					}
 					if (attackNum3 > 60) { //Attack over, reset variables
 						attackNum2 = 0;
@@ -294,7 +294,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				if (attackNum4 > 240) { //og 180
 					if (Main.netMode != NetmodeID.MultiplayerClient) for (int i = -800; i < 801; i += 200+(int)(24*hpLeft)) {
 						Vector2 bonePos = ringPos - new Vector2(i, 850).RotatedBy(MathHelper.ToRadians(attackNum5*90)); //(i, Main.rand.Next(800, 901)) //idk if I want a uniform wall or a randomized one
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), bonePos, new Vector2(0, 1).RotatedBy(MathHelper.ToRadians(attackNum5*90)), ModContent.ProjectileType<SaburRexBoneProjOutside>(), (int)(NPC.damage/3), 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), bonePos, new Vector2(0, 1).RotatedBy(MathHelper.ToRadians(attackNum5*90)), ModContent.ProjectileType<SaburRexBoneProjOutside>(), (int)(NPC.damage/4), 0f);
 					}
 					attackNum5++;
 					attackNum4 = 0;
@@ -340,7 +340,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				//	else NPC.ai[2] = -1*NPC.DirectionTo(target.Center).ToRotation() - MathHelper.PiOver2;
 
 				if (attackTimer % 3 == 0 && attackNum3 < 1) {
-					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, 48).RotatedBy(attackFloat), new Vector2(0, 5).RotatedBy(attackFloat), ModContent.ProjectileType<SaburRexKatanaDuplicate>(), (int)(NPC.damage*0.2f), 0f, -1, ringPos.X, ringPos.Y, attackNum4);
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, 48).RotatedBy(attackFloat), new Vector2(0, 5).RotatedBy(attackFloat), ModContent.ProjectileType<SaburRexKatanaDuplicate>(), (int)(NPC.damage*0.15f), 0f, -1, ringPos.X, ringPos.Y, attackNum4);
 				}
 				if (Math.Abs(attackFloat) >= MathHelper.TwoPi*2) {
 					attackNum3++;
@@ -372,7 +372,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 	
 					//Katana duplicates
 					if (Main.netMode != NetmodeID.MultiplayerClient && (attackTimer % (2+(int)(3*hpLeft)) == 0) && attackTimer < (50+(int)(25*hpLeft))) {
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(target.Center).RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-3f, 3f))), ModContent.ProjectileType<SaburRexKatanaDuplicate>(), (int)(NPC.damage*0.2f), 0f, -1, ringPos.X, ringPos.Y);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(target.Center).RotatedBy(MathHelper.ToRadians(Main.rand.NextFloat(-3f, 3f))), ModContent.ProjectileType<SaburRexKatanaDuplicate>(), (int)(NPC.damage*0.15f), 0f, -1, ringPos.X, ringPos.Y);
 					}
 				}
 				else {
@@ -464,7 +464,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			attackNum6++;
 			if (attackNum6 > 90+(int)(180*hpLeft)) {
 				attackNum6 = 0;
-				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.SaburRex.SaburRexHoneyPot>(), (int)(NPC.damage/3), 0f, -1, NPC.target, hpLeft);
+				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.SaburRex.SaburRexHoneyPot>(), (int)(NPC.damage/4), 0f, -1, NPC.target, hpLeft);
 			}
 		}
 		private void Tizona() { //Warning: This attack doesn't unload properly if forced to repeat multiple times in a row, beware.
@@ -490,10 +490,10 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				if (attackTimer == (attackNum/2)) {
 					int timeLeft = attackNum-(attackNum/2);
 					if (Main.netMode != NetmodeID.MultiplayerClient) for (int i = 1; i < 5; i++) for (int j = 0; j < attackNum3; j++)
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<SaburRexServantofOcram>(), (int)(NPC.damage/3), 0f, -1, i*200, j*(int)(360f/attackNum3), timeLeft);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<SaburRexServantofOcram>(), (int)(NPC.damage/4), 0f, -1, i*200, j*(int)(360f/attackNum3), timeLeft);
 
 					//Center proj
-					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<SaburRexServantofOcram>(), (int)(NPC.damage/3), 0f, -1, 0, 0, timeLeft);
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<SaburRexServantofOcram>(), (int)(NPC.damage/4), 0f, -1, 0, 0, timeLeft);
 				}
 				if (attackTimer < attackNum) { //Spinning animation - smooth through trig.
 					NPC.ai[2] += MathHelper.ToRadians(attackFloat*(float)Math.Sin((float)attackTimer*Math.PI/(float)attackNum));
@@ -636,7 +636,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				attackNum9++;
 				if (attackNum9 > (int)(25f+(20f*hpLeft))) {
 					attackNum9 = 0;
-					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(400, 601).RotatedByRandom(MathHelper.TwoPi), Vector2.Zero, ModContent.ProjectileType<SaburRexCobaltClone>(), (int)(NPC.damage/3), 0f);
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(400, 601).RotatedByRandom(MathHelper.TwoPi), Vector2.Zero, ModContent.ProjectileType<SaburRexCobaltClone>(), (int)(NPC.damage/4), 0f);
 				}
 			}
 		}
@@ -666,17 +666,39 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				if (Main.rand.NextBool()) rand1 = -1;
 				int rand2 = 1;
 				if (Main.rand.NextBool()) rand2 = -1;
-				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(Main.rand.Next(200, 401)*rand1, Main.rand.Next(200, 401)*rand2), Vector2.Zero, ModContent.ProjectileType<SaburRexChlorophyteOrb>(), (int)(NPC.damage/3), 0f);
+				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(Main.rand.Next(200, 401)*rand1, Main.rand.Next(200, 401)*rand2), Vector2.Zero, ModContent.ProjectileType<SaburRexChlorophyteOrb>(), (int)(NPC.damage/4), 0f);
 			}
 
 			if (attackTotalTime > 600) {
 				attackDone = true;
 			}
 		}
-		private void StarWrath() {
+		private void Starfury() {
+			if (attackTotalTime < 10) NPC.velocity *= 0.8f;
+			else if (attackTotalTime == 10) { NPC.velocity = Vector2.Zero; attackNum6 = Main.rand.Next(2); }
+			else NPC.velocity.Y = (float)Math.Cos(attackTotalTime*(float)Math.PI/-40f-(float)Math.PI*10f)/1f;
+			PlayerSwingEffect(7.75f);
+
+			attackNum3 = (int)(175f+(125f*hpLeft));
 			attackNum++;
-			if (attackNum > 60) {
+
+			if (attackNum > attackNum3 || attackNum4 == 0) {
+				if (attackNum4 > 7) { attackDone = true; return; }
 				attackNum2 = Main.rand.Next(4);
+
+				//attackNum2 = 0; //Testing
+				attackNum5 = Main.rand.Next(6, 10);
+				if (Main.rand.NextBool()) attackNum5 = Main.rand.Next(12, 16);
+				//attackNum5 = 12;
+
+				for (int i = 0; i < 21; i++) {
+					Vector2 offset = new Vector2(i*115-1150, 1000);
+					if (i != attackNum5) if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), ringPos-offset.RotatedBy(MathHelper.ToRadians(attackNum2*90)), Vector2.Zero, ModContent.ProjectileType<SaburRexStarofWrath>(), (int)(NPC.damage/4f), 0f, -1, attackNum2, attackNum3-120);
+				}
+
+				attackNum = 0;
+				attackNum4++;
+				//if (Main.rand.NextBool(3)) attackNum6++;
 			}
 		}
 		private void PlayerSwingEffect(float swingSpeed) { //For any attacks that it should look like the sword swings like a player.
@@ -742,9 +764,9 @@ namespace Zylon.NPCs.Bosses.SaburRex
 
 			//Determine new attack (testing)
 			NPC.ai[1] = NPC.ai[0]; //Forces the while loop to run at least once
-			while (NPC.ai[1] == NPC.ai[0] || NPC.ai[1] == prevAttack) NPC.ai[1] = Main.rand.Next(5);
+			while (NPC.ai[1] == NPC.ai[0] || NPC.ai[1] == prevAttack) NPC.ai[1] = Main.rand.Next(8);
 
-			NPC.ai[0] = 7f; //TESTING - force a certain attack.
+			//NPC.ai[0] = 7f; //TESTING - force a certain attack.
 			
 			//Reset stats and rotation.
 			attackTimer = 0;

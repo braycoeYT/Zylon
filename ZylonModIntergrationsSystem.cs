@@ -159,6 +159,39 @@ namespace Zylon
 					["customPortrait"] = customPortrait
 				}
 			);
+
+
+			internalName = "SaburRex";
+			weight = 19f;
+			downed = () => ZylonWorldCheckSystem.downedJelly;
+			bossType = ModContent.NPCType<NPCs.Bosses.SaburRex.SaburRex>();
+			spawnItem = ModContent.ItemType<Items.BossSummons.AwakenedRiftCalibrator>();
+			collectibles = new List<int>()
+			{
+				ModContent.ItemType<Items.Placeables.Relics.SaburRelic>(),
+				ModContent.ItemType<Items.Pets.AncientGameController>(),
+				ModContent.ItemType<Items.Accessories.Fantesseract>(),
+				ModContent.ItemType<Items.Placeables.Trophies.SaburTrophy>(),
+				ModContent.ItemType<Items.Vanity.SaburMask>()
+			};
+			customPortrait = (SpriteBatch sb, Rectangle rect, Color color) => {
+				Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/SaburRex/SaburRex_Bestiary").Value;
+				Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2), rect.Y + (rect.Height / 2) - (texture.Height / 2));
+				sb.Draw(texture, centered, color);
+			};
+			bossChecklistMod.Call(
+				"LogBoss",
+				Mod,
+				internalName,
+				weight,
+				downed,
+				bossType,
+				new Dictionary<string, object>() {
+					["spawnItems"] = spawnItem,
+					["collectibles"] = collectibles,
+					["customPortrait"] = customPortrait
+				}
+			);
 		}
     }
 }

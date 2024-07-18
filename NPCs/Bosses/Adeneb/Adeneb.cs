@@ -270,7 +270,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center - new Vector2(66, 121), new Vector2(Main.rand.NextFloat(-1, 1), Main.rand.NextFloat(-9, -7)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_Ankh>());
 						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-6, -2)*rand, Main.rand.NextFloat(-1, 3)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_SpikeLower>());
 						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(2, 6)*rand, Main.rand.NextFloat(-1, 3)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_SpikeUpper>());
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebSunShield>(), NPC.damage/3, 0f);
+						if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebSunShield>(), NPC.damage/3, 0f);
                     }
                 }
 				else {
@@ -429,8 +429,8 @@ namespace Zylon.NPCs.Bosses.Adeneb
 				if (x > 13) x = 13;
 
 				if (attackTimer % x == 0 && Main.netMode != NetmodeID.MultiplayerClient) {
-					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(0, 70).RotatedBy(NPC.rotation), new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebLaser>(), NPC.damage/4, 0f);
-					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, 70).RotatedBy(NPC.rotation), new Vector2(0, 10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebLaser>(), NPC.damage/4, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center - new Vector2(0, 70).RotatedBy(NPC.rotation), new Vector2(0, -10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebLaser>(), NPC.damage/4, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center + new Vector2(0, 70).RotatedBy(NPC.rotation), new Vector2(0, 10).RotatedBy(NPC.rotation), ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebLaser>(), NPC.damage/4, 0f);
                 }
             }
 			else if (attackTimer > 670) EndAttack(); //Ends attack

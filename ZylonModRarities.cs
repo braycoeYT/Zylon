@@ -50,7 +50,7 @@ namespace Zylon
 			-2 => ItemRarityID.Cyan,
 			-1 => ItemRarityID.Red,
 			1 => ModContent.RarityType<Magenta>(),
-			2 => ModContent.RarityType<ForestGreen>(),
+			2 => ModContent.RarityType<Emerald>(),
 			_ => Type,
 		};
 	}
@@ -63,12 +63,12 @@ namespace Zylon
 		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
 			-2 => ItemRarityID.Red,
 			-1 => ItemRarityID.Purple,
-			1 => ModContent.RarityType<ForestGreen>(),
-			2 => ModContent.RarityType<ForestGreen>(),
+			1 => ModContent.RarityType<Emerald>(),
+			2 => ModContent.RarityType<Emerald>(),
 			_ => Type,
 		};
 	}
-	public class ForestGreen : ModRarity
+	public class Emerald : ModRarity
 	{
 		//Tier 13 - All items post ToC, Quet, Loc, and ???. All items obtained in the Cellspawn after ToC has been defeated.
 		//Materals from the AB are this rarity despite being obtainable before ZME.
@@ -77,8 +77,8 @@ namespace Zylon
 		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
 			-2 => ItemRarityID.Purple,
 			-1 => ModContent.RarityType<Magenta>(),
-			1 => ModContent.RarityType<ForestGreen>(),
-			2 => ModContent.RarityType<ForestGreen>(),
+			1 => ModContent.RarityType<Emerald>(),
+			2 => ModContent.RarityType<Emerald>(),
 			_ => Type,
 		};
 	}

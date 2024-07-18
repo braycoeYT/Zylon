@@ -4524,7 +4524,7 @@ Mods: {
 			GlassShard.DisplayName: Glass Shard
 			SpearofJustice.DisplayName: Spear of Justice
 			SpearofJusticeClone.DisplayName: Spear of Justice
-			MiniRose2.DisplayName: Mini Rose2
+			MiniRose2.DisplayName: Mini Rose
 			SpiderEgg.DisplayName: Spider Egg
 			SpiderEggInvis.DisplayName: Spider Egg
 			VenomFangMelee.DisplayName: Venom Fang
@@ -4676,12 +4676,13 @@ Mods: {
 			TribalCharmProjFall.DisplayName: Tribal Charm
 			TribalCharmProjSpin.DisplayName: Tribal Charm
 			Gamerblade.DisplayName: Gamerblade
-			SaburRexCobaltClone.DisplayName: Sabur Rex Cobalt Clone
-			SaburRexCobaltSwordClone.DisplayName: Sabur Rex Cobalt Sword Clone
+			SaburRexCobaltClone.DisplayName: Cobalt Clone
+			SaburRexCobaltSwordClone.DisplayName: Cobalt Clone
 			Snakesabre.DisplayName: Snakesabre
-			SnakesabreSpin.DisplayName: Snakesabre Spin
-			SaburRexChlorophyteOrb.DisplayName: Sabur Rex Chlorophyte Orb
-			SaburRexSporeCloud.DisplayName: Sabur Rex Spore Cloud
+			SnakesabreSpin.DisplayName: Snakesabre
+			SaburRexChlorophyteOrb.DisplayName: Chlorophyte Orb
+			SaburRexSporeCloud.DisplayName: Spore Cloud
+			SaburRexStarofWrath.DisplayName: Star of Wrath
 		}
 
 		NPCs: {
@@ -4730,7 +4731,15 @@ Mods: {
 				}
 			}
 
-			SaburRex.DisplayName: Sabur Rex
+			SaburRex: {
+				DisplayName: Sabur Rex
+
+				BossChecklistIntegration: {
+					EntryName: Sabur Rex
+					SpawnInfo: Use a [i:Zylon/AwakenedRiftCalibrator] anywhere...
+				}
+			}
+
 			MetelordTail.DisplayName: Metelord
 			Mechatutubutt.DisplayName: Mechatutubutt
 			TerrarrarriaGod.DisplayName: Terrarrarria God

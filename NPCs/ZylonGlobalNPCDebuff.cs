@@ -130,7 +130,7 @@ namespace Zylon.NPCs
 				tColor = Color.DarkBlue;
             }
 			if (zombieRot) {
-				tColor = Color.ForestGreen;
+				tColor = Color.Emerald;
 				for (int i = 0; i < Main.maxNPCs; i++) {
 					if (Vector2.Distance(npc.Center, Main.npc[i].Center) < 60 && !Main.npc[i].friendly && Main.npc[i].active && !Main.npc[i].HasBuff<Buffs.Debuffs.ZombieRot>() && Main.rand.NextFloat() < .03f)
 						Main.npc[i].AddBuff(BuffType<Buffs.Debuffs.ZombieRot>(), 180);
