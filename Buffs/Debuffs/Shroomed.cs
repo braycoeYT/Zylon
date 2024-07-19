@@ -22,16 +22,16 @@ namespace Zylon.Buffs.Debuffs
         bool safe = true;
         Color safeColor;
   		public override void Update(NPC npc, ref int buffIndex) {
-            if (safe) {
+            /*if (safe) {
                 safeColor = npc.color;
                 safe = false;
-            }
+            }*/
 			npc.GetGlobalNPC<NPCs.ZylonGlobalNPCDebuff>().shroomed = true;
-            npc.color = Color.DarkBlue;
+            /*npc.color = Color.DarkBlue;
             if (npc.buffTime[buffIndex] < 5)
                 npc.color = safeColor;
             if (!npc.buffImmune[BuffID.Confused])
-                npc.confused = true;
+                npc.confused = true;*/
 		}
     }
 }

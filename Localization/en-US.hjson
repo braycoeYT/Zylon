@@ -401,6 +401,11 @@ Mods: {
 				DisplayName: Snakesabre Debuff
 				Description: Mods.Zylon.Buffs.SnakesabreDebuff.Description
 			}
+
+			Ectoburn: {
+				DisplayName: Ectoburn
+				Description: Mods.Zylon.Buffs.Ectoburn.Description
+			}
 		}
 
 		Items: {
@@ -520,8 +525,8 @@ Mods: {
 				DisplayName: Ethereal Gasp
 				Tooltip:
 					'''
-					Ghosts of killed enemies have a chance to possess the player
-					While possessed, the player deals 33% increased magic damage, but uses more mana
+					All magic attacks inflict ectoburn
+					While under half health, all magic attacks steal mana
 					'''
 			}
 
@@ -943,8 +948,8 @@ Mods: {
 					When under 25% mana, rains countless Stellar Comets from the sky
 					Stellar Comets have a 15% chance to become collectable versions worth 10 mana
 					Allows mana to overflow to up to 40 extra
-					Ghosts of killed enemies have a chance to possess the player
-					While possessed, the player deals 20% increased magic damage, but uses slightly more mana
+					All magic attacks inflict ectoburn
+					While under half health, all magic attacks steal mana
 					'''
 			}
 
@@ -4691,7 +4696,7 @@ Mods: {
 
 				BossChecklistIntegration: {
 					EntryName: Adeneb
-					SpawnInfo: Use a [i:Zylon/EnchantedEye] in the desert
+					SpawnInfo: Use an [i:Zylon/EnchantedEye] in the desert
 				}
 			}
 
@@ -4715,7 +4720,7 @@ Mods: {
 
 				BossChecklistIntegration: {
 					EntryName: Eldritch Jellyfish
-					SpawnInfo: Use a [i:Zylon/EldritchBell] in the ocean
+					SpawnInfo: Use an [i:Zylon/EldritchBell] in the ocean
 				}
 			}
 
@@ -4736,7 +4741,7 @@ Mods: {
 
 				BossChecklistIntegration: {
 					EntryName: Sabur Rex
-					SpawnInfo: Use a [i:Zylon/AwakenedRiftCalibrator] anywhere...
+					SpawnInfo: Use an [i:Zylon/AwakenedRiftCalibrator] anywhere...
 				}
 			}
 

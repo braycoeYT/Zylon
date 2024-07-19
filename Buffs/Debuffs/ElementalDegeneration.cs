@@ -28,7 +28,6 @@ namespace Zylon.Buffs.Debuffs
 			npc.GetGlobalNPC<NPCs.ZylonGlobalNPCDebuff>().elemDegen = true;
             //if (!npc.buffImmune[BuffID.Confused])
             //    npc.confused = true;
-            npc.defense = (int)(npc.defense*0.8f);
             if (Main.rand.NextBool(3)) {
 				Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.ElemDust>(), Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
 				dust.noGravity = true;

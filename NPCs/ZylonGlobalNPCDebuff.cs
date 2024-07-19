@@ -23,6 +23,7 @@ namespace Zylon.NPCs
 		public bool zombieRot;
 		public bool flashPandemic;
 		public bool foamDart;
+		public bool ectoburn;
 		public override void ResetEffects(NPC npc) {
 			heartdaze = false;
 			shroomed = false;
@@ -34,6 +35,7 @@ namespace Zylon.NPCs
 			zombieRot = false;
 			flashPandemic = false;
 			foamDart = false;
+			ectoburn = false;
 			base.ResetEffects(npc);
 		}
 		public override void UpdateLifeRegen(NPC npc, ref int damage) {
@@ -93,13 +95,24 @@ namespace Zylon.NPCs
 					damage = 2;
 				}
 			}
+			if (ectoburn) {
+				if (npc.lifeRegen > 0) {
+					npc.lifeRegen = 0;
+				}
+				npc.lifeRegen -= 42;
+				if (damage < 7) {
+					damage = 7;
+				}
+			}
 			base.UpdateLifeRegen(npc, ref damage);
 		}
         public override void ModifyHitByItem(NPC npc, Player player, Item item, ref NPC.HitModifiers modifiers) {
             if (foamDart) modifiers.Defense.Flat -= 15;
+			if (elemDegen) modifiers.Defense *= 0.85f;
         }
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers) {
             if (foamDart) modifiers.Defense.Flat -= 15;
+			if (elemDegen) modifiers.Defense *= 0.85f;
         }
         int Timer;
 		bool safe = true;

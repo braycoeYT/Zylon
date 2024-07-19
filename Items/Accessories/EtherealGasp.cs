@@ -15,8 +15,7 @@ namespace Zylon.Items.Accessories
 		}
         public override void UpdateAccessory(Player player, bool hideVisual) {
             ZylonPlayer p = Main.LocalPlayer.GetModPlayer<ZylonPlayer>();
-			if (!p.CHECK_EtherealGasp) p.etherealGasp = true;
-			p.CHECK_EtherealGasp = true;
+			p.etherealGasp = true;
         }
 	}
 }

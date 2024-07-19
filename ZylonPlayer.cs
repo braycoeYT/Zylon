@@ -81,8 +81,6 @@ namespace Zylon
 		public bool CHECK_SlimyShell;
 		public bool CHECK_MysticComet;
 		public bool etherealGasp;
-		public bool CHECK_EtherealGasp;
-		public bool supernaturalComet;
 		public bool fixCooldownIgnore;
 		public bool vengefulSpirit;
 		public bool shadowsWink;
@@ -92,6 +90,7 @@ namespace Zylon
 		public bool CHECK_PygmyNecklace;
 		public bool fantesseract;
 		public bool blackBox;
+		public bool ectoburn;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -187,8 +186,6 @@ namespace Zylon
 			CHECK_SlimyShell = false;
 			CHECK_MysticComet = false;
 			etherealGasp = false;
-			CHECK_EtherealGasp = false;
-			supernaturalComet = false;
 			vengefulSpirit = false;
 			shadowsWink = false;
 			sorcerersKunai = false;
@@ -197,6 +194,7 @@ namespace Zylon
 			CHECK_PygmyNecklace = false;
 			fantesseract = false;
 			blackBox = false;
+			ectoburn = false;
 			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -303,6 +301,12 @@ namespace Zylon
 					Player.lifeRegen = 0;
 				Player.lifeRegenTime = 0;
 				Player.lifeRegen -= 40;
+			}
+			if (ectoburn) {
+				if (Player.lifeRegen > 0)
+					Player.lifeRegen = 0;
+				Player.lifeRegenTime = 0;
+				Player.lifeRegen -= 28;
 			}
 			hitTimer30 -= 1;
 			sojCooldown -= 1;
@@ -502,6 +506,13 @@ namespace Zylon
 					if (Player.MinionAttackTargetNPC == target.whoAmI)
 					target.AddBuff(BuffID.Venom, Main.rand.Next(5, 11)*60);
 				}
+				if (etherealGasp && (proj.DamageType == DamageClass.Magic || proj.DamageType == DamageClass.MagicSummonHybrid)) {
+					target.AddBuff(BuffType<Buffs.Debuffs.Ectoburn>(), Main.rand.Next(2, 6)*60);
+					if (Player.statLife < Player.statLifeMax2/2) {
+						Player.statMana++;
+						Player.ManaEffect(1);
+					}
+				}
 			}
 
 			if (crit) {
@@ -579,14 +590,14 @@ namespace Zylon
 					if (proj.DamageType == DamageClass.Magic || proj.DamageType == DamageClass.MagicSummonHybrid)
 						Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.SparkingCoreProj>(), 0, 0f, Player.whoAmI);
             }
-			if ((etherealGasp || supernaturalComet) && target.life < 1 && Player.whoAmI == Main.myPlayer && Main.rand.NextFloat() < .15f && !Player.HasBuff(BuffType<Buffs.Accessories.Possessed>())) {
+			/*if ((etherealGasp || supernaturalComet) && target.life < 1 && Player.whoAmI == Main.myPlayer && Main.rand.NextFloat() < .15f && !Player.HasBuff(BuffType<Buffs.Accessories.Possessed>())) {
 				if (item != null)
 					if (item.DamageType == DamageClass.Magic || item.DamageType == DamageClass.MagicSummonHybrid)
 						Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.EtherealGaspProj>(), 0, 0f, Player.whoAmI);
 				if (proj != null)
 					if (proj.DamageType == DamageClass.Magic || proj.DamageType == DamageClass.MagicSummonHybrid)
 						Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.EtherealGaspProj>(), 0, 0f, Player.whoAmI);
-            }
+            }*/
 			if (slimePendant) target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11)*60);
 			if (livingWoodSetBonus) target.AddBuff(BuffID.DryadsWardDebuff, Main.rand.Next(2, 5)*60);
 		}
@@ -739,7 +750,7 @@ namespace Zylon
 				Player.maxMinions += dupli;
 				//Main.NewText((Player.maxMinions-dupli)+" --> "+Player.maxMinions); //Testing
             }
-			if (Player.HasBuff(BuffType<Buffs.Accessories.Possessed>())) {
+			/*if (Player.HasBuff(BuffType<Buffs.Accessories.Possessed>())) {
 				if (etherealGasp) {
 					Player.GetDamage(DamageClass.Magic) += 0.33f;
 					Player.manaCost += 0.175f;
@@ -748,7 +759,7 @@ namespace Zylon
 					Player.GetDamage(DamageClass.Magic) += 0.2f;
 					Player.manaCost += 0.1f;
 				}
-			}
+			}*/
 			if (fixCooldownIgnore) {
 				for (int i = 0; i < Player.MaxBuffs; i++) {
 					if (Player.buffType[i] == BuffID.PotionSickness && Player.buffTime[i] >= 2025) {

@@ -48,8 +48,7 @@ namespace Zylon.Items.Accessories
 			}
 			p.CHECK_SlimyShell = true;
 
-			if (!p.CHECK_EtherealGasp) p.supernaturalComet = true;
-			p.CHECK_EtherealGasp = true;
+			p.etherealGasp = true;
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

@@ -71,7 +71,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 				EndAttack();
             }
         }
-        int attack;
+        //int attack;
 		int attackTimer;
 		int attackTimer2;
 		int attackInt;
@@ -318,12 +318,12 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					if (phase == 2) {
 						if (Main.getGoodWorld) NPC.scale = 1.5f;
 
-						attack = Main.rand.Next(3);
-						while (prevAttack == attack) attack = Main.rand.Next(3);
+						NPC.ai[2] = Main.rand.Next(3);
+						while (prevAttack == (int)NPC.ai[2]) NPC.ai[2] = Main.rand.Next(3);
                     }
 					else {
-						attack = Main.rand.Next(3);
-						while (prevAttack == attack) attack = Main.rand.Next(3);
+						NPC.ai[2] = Main.rand.Next(3);
+						while (prevAttack == (int)NPC.ai[2]) NPC.ai[2] = Main.rand.Next(3);
                     }
 					//attack = 3; //Use this to set attacks to specific ones.
 
@@ -332,7 +332,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					attackTimer2 = 0;
 					attackFloat = 0f;
 					attackInt = 0;
-					prevAttack = attack;
+					prevAttack = (int)NPC.ai[2];
                 }
 				else {
 					attackTimer++;
@@ -357,19 +357,19 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					}
 	
 					if (attackTimer >= 200) { //ATTACK SETUP
-						attack = Main.rand.Next(3);
+						NPC.ai[2] = Main.rand.Next(3);
 						attackDone = false;
 						attackTimer = 0;
 						attackTimer2 = 0;
 						attackFloat = 0f;
 						attackInt = 0;
 						introAttackDone = true;
-						prevAttack = attack;
+						prevAttack = (int)NPC.ai[2];
 					}
 				}
             }
 			else { //See tome man? I'm doing a thing!
-				if (phase == 1) switch (attack) {
+				if (phase == 1) switch ((int)NPC.ai[2]) {
 					case 0:
 						SpinLaser();
 						break;
@@ -380,7 +380,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						BigSun(); //MineRing();
 						break;
                 }
-				else switch (attack) { //else if (NPC.ai[0] == 0f) switch (attack) {
+				else switch ((int)NPC.ai[2]) { //else if (NPC.ai[0] == 0f) switch (attack) {
 					case 0:
 						ShieldSplit();
 						break;
@@ -680,7 +680,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			NPC.rotation = MathHelper.ToRadians(degrees);
         }
 		private void EndAttack() {
-			attack = -1;
+			NPC.ai[2] = -1;
 			attackTimer = 0;
 			attackTimer2 = 0;
 			attackDone = true;
