@@ -84,9 +84,9 @@ namespace Zylon.NPCs.Bosses.Jelly
 				dust.noGravity = false;
 			}
 			if (NPC.life < 0) {
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-1, 1), -4), ModContent.GoreType<Gores.Bosses.Jelly.EldritchEyeGore>());
-				for (int i = 0; i < 4; i++) Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), -4), ModContent.GoreType<Gores.Bosses.Jelly.EldritchTentacleGore>());
-				for (int i = 0; i < 8; i++) Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), -4), ModContent.GoreType<Gores.Bosses.Jelly.EldritchHeadGore>());
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-1, 1), -4), ModContent.GoreType<Gores.Bosses.Jelly.EldritchEyeGore>());
+				for (int i = 0; i < 4; i++) Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-3, 3), -4), ModContent.GoreType<Gores.Bosses.Jelly.EldritchTentacleGore>());
+				for (int i = 0; i < 8; i++) Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-3, 3), -4), ModContent.GoreType<Gores.Bosses.Jelly.EldritchHeadGore>());
 			}
 		}
 		/*public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor) {
@@ -100,7 +100,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 		int attackTimer;
 		bool movement = true;
 		int flee = 0;
-		int attack = 1;
+		//int attack = 1;
 		bool attackDone = true;
 		int dashCount;
 		int dashType;
@@ -115,6 +115,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 		float attackFloat;
 		Vector2 look;
 		public override void AI() {
+			NPC.netUpdate = true;
 			Timer++;
 			NPC.TargetClosest(true);
 			target = Main.player[NPC.target];
@@ -192,19 +193,18 @@ namespace Zylon.NPCs.Bosses.Jelly
 				dust.velocity.Y = NPC.velocity.Y * -0.5f;
 				dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 				}
-							if (Timer % 120 == 0 && Main.expertMode)
-					NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + Main.rand.Next(-40, 41), (int)NPC.Center.Y + Main.rand.Next(-40, 41), ModContent.NPCType<DetonatingBubble>());
+					if (Timer % 120 == 0 && Main.expertMode) if (Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + Main.rand.Next(-40, 41), (int)NPC.Center.Y + Main.rand.Next(-40, 41), ModContent.NPCType<DetonatingBubble>());
 			}
 			if (dashCount > 5) {
 				dashCount = 0;
 				movement = false;
-				attack = 0;
+				NPC.ai[0] = 0;
 				attackTimer = 0;
 				attackDone = false;
 				attackMode = 0;
 				movementTimer = 0;
 			}
-			if (attack == 0 && attackDone == false) {
+			if ((int)NPC.ai[0] == 0 && attackDone == false) {
 				if (attackMode == 0) {
 					NPC.velocity /= 2;
 					NPC.alpha += 5;
@@ -227,7 +227,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 					attackMax = 7;
 					//if (NPC.life < NPC.lifeMax*0.75f)
 					//	attackMax = 6;
-					while (guessAttack == prevAttack) {
+					if (Main.netMode != NetmodeID.MultiplayerClient) while (guessAttack == prevAttack) {
 						guessAttack = Main.rand.Next(1, attackMax);
 						//guessAttack = 6;
 					}
@@ -247,13 +247,13 @@ namespace Zylon.NPCs.Bosses.Jelly
 					if (guessAttack == 4)
 						NPC.velocity = Vector2.Normalize(NPC.Center - Main.player[NPC.target].Center) * 1.5f;
 				}
-				else if (attackMode == 3) {
-					attack = guessAttack;
+				else if (attackMode == 3 && Main.netMode != NetmodeID.MultiplayerClient) {
+					NPC.ai[0] = guessAttack;
 					attackRand = Main.rand.Next(100);
 					attackFloat = 0f;
 				}
 			}
-			if (attack == 1 && attackDone == false) {
+			if ((int)NPC.ai[0] == 1 && attackDone == false) {
 				attackTimer++;
 				if (attackTimer < 180)
 				LookToPlayer();
@@ -269,7 +269,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 					prevAttack = 1;
 				}
 			}
-			if (attack == 2 && attackDone == false) {
+			if ((int)NPC.ai[0] == 2 && attackDone == false) {
 				attackTimer++;
 				if (attackTimer % 10 - attackBoost == 0 && attackTimer < 300)
 					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), target.Center + new Vector2(Main.rand.Next(-600, 601), -600), new Vector2(0, 0), ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyBit>(), 20 + attackBoost, 0f, Main.myPlayer, BasicNetType: 2);
@@ -279,11 +279,11 @@ namespace Zylon.NPCs.Bosses.Jelly
 					prevAttack = 2;
 				}
 			}
-			if (attack == 3 && attackDone == false) {
+			if ((int)NPC.ai[0] == 3 && attackDone == false) {
 				attackTimer++;
 				LookToPlayer();
 				if (attackTimer % 90 - (attackBoost*6) == 59) {
-					NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ExplosiveEerieJellyfish>(), 0, attackBoost);
+					if (Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<ExplosiveEerieJellyfish>(), 0, attackBoost);
 				}
 				if (attackTimer > 499) {
 					attackDone = true;
@@ -291,7 +291,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 					prevAttack = 3;
 				}
 			}
-			if (attack == 4 && attackDone == false) {
+			if ((int)NPC.ai[0] == 4 && attackDone == false) {
 				attackTimer++;
 				int startType;
 				if (attackRand < 50) startType = 1;
@@ -319,7 +319,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 					ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.velocity * -0.2f, ModContent.ProjectileType<Projectiles.Bosses.Jelly.JellyLaser>(), 20 + attackBoost, 0f, Main.myPlayer, BasicNetType: 2);
 				}
 			}
-			if (attack == 5 && attackDone == false) {
+			if ((int)NPC.ai[0] == 5 && attackDone == false) {
 				attackTimer++;
 				if (attackTimer < 90) attackFloat += 0.01f + (attackBoost*0.0012f);
 				else if (attackTimer < 180) attackFloat -= 0.01f + (attackBoost*0.0012f);
@@ -332,13 +332,13 @@ namespace Zylon.NPCs.Bosses.Jelly
 					prevAttack = 5;
 				}
 			}
-			if (attack == 6 && attackDone == false) {
+			if ((int)NPC.ai[0] == 6 && attackDone == false) {
 				attackTimer++;
 				if (attackTimer == 1) {
-					NPC.NewNPC(NPC.GetSource_FromThis(), (int)target.Center.X, (int)target.Center.Y - 360, ModContent.NPCType<BeamEerieJellyfish>(), 0, attackBoost, 0f);
+					if (Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC(NPC.GetSource_FromThis(), (int)target.Center.X, (int)target.Center.Y - 360, ModContent.NPCType<BeamEerieJellyfish>(), 0, attackBoost, 0f);
 				}
 				if (attackTimer == 91) {
-					NPC.NewNPC(NPC.GetSource_FromThis(), (int)target.Center.X - 540, (int)target.Center.Y, ModContent.NPCType<BeamEerieJellyfish>(), 0, attackBoost, 1f);
+					if (Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC(NPC.GetSource_FromThis(), (int)target.Center.X - 540, (int)target.Center.Y, ModContent.NPCType<BeamEerieJellyfish>(), 0, attackBoost, 1f);
 				}
 				if (attackTimer > 640) {
 					attackDone = true;

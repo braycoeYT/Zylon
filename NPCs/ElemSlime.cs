@@ -55,7 +55,7 @@ namespace Zylon.NPCs
         }
 		int Timer;
 		int animationTimer;
-		int attack;
+		//int attack;
 		int attackTimer;
 		bool attackDone = true;
         public override void AI() {
@@ -70,11 +70,11 @@ namespace Zylon.NPCs
 			NPC.spriteDirection = NPC.direction;
 
 			if (attackDone == true) {
-				attack = Main.rand.Next(3);
+				if (Main.netMode != NetmodeID.MultiplayerClient) NPC.ai[3] = Main.rand.Next(3);
 				attackTimer = 0;
 				attackDone = false;
             }
-			if (attack == 0) {
+			if (NPC.ai[3] == 0) {
 				attackTimer++;
 				if (attackTimer < 120) return;
 				Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
@@ -82,7 +82,7 @@ namespace Zylon.NPCs
 				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-8.5f, ModContent.ProjectileType<Projectiles.Enemies.ElemSlimeBlob>(), (int)(NPC.damage*0.3f), 0f, BasicNetType: 2);
 				attackDone = true;
 			}
-			else if (attack == 1) {
+			else if (NPC.ai[3] == 1) {
 				attackTimer++;
 				if (attackTimer == 120) {
 					for (int i = 0; i < 6; i++)
@@ -90,7 +90,7 @@ namespace Zylon.NPCs
 					attackDone = true;
                 }
             }
-			else if (attack == 2) {
+			else if (NPC.ai[3] == 2) {
 				attackTimer++;
 				if (attackTimer < 120) return;
 				Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
@@ -111,7 +111,7 @@ namespace Zylon.NPCs
         public override float SpawnChance(NPCSpawnInfo spawnInfo) {
 			if (!NPC.downedPlantBoss) return 0f;
 			if (SpawnCondition.OverworldDaySlime.Chance > 0) return 0.07f; //0.04f when minibosses return
-            else return 0.001f;
+            else return 0f; //0.001f;
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
 			npcLoot.Add(new CommonDrop(ItemID.Gel, 1, 2, 5));

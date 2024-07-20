@@ -126,7 +126,7 @@ namespace Zylon.NPCs.Bosses.Metelord
             }
         }
 		int Timer;
-		int attack;
+		//int attack;
 		int attackTimer;
 		int attackTimer2;
 		int attackInt;
@@ -138,6 +138,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 		bool spawnGore = true;
 		Vector2 newVel;
         public override void PostAI() {
+			NPC.netUpdate = true;
 			NPC.TargetClosest(true);
 			Timer++;
 			if (Main.player[NPC.target].statLife < 1) {
@@ -169,9 +170,11 @@ namespace Zylon.NPCs.Bosses.Metelord
 					if (NPC.life <= NPC.lifeMax*(0.5f+expertBoost)) attackMax = 6;
 					if (NPC.life <= NPC.lifeMax*(0.2f+expertBoost)) attackMax = 7;
 
-					attack = Main.rand.Next(attackMax);
-					while (attack == prevAttack) attack = Main.rand.Next(attackMax);
-					prevAttack = attack;
+					if (Main.netMode != NetmodeID.MultiplayerClient) {
+						NPC.ai[3] = Main.rand.Next(attackMax);
+						while ((int)NPC.ai[3] == prevAttack) NPC.ai[3] = Main.rand.Next(attackMax);
+						prevAttack = (int)NPC.ai[3];
+					}
 					attackDone = false;
 					attackTimer = 0;
 					attackTimer2 = 0;
@@ -182,7 +185,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 					//attack = 2;
                 }
             }
-			else if (attack == 0) {
+			else if ((int)NPC.ai[3] == 0) {
 				runBoost = 30;
 				if (attackTimer <= 0) {
 					if (attackInt >= (int)(8-(6*NPC.life/NPC.lifeMax))) attackDone = true;
@@ -215,7 +218,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				NPC.velocity = newVel;
 				}
 			}
-			else if (attack == 1) {
+			else if ((int)NPC.ai[3] == 1) {
 				/*if (attackInt == 0) {
 					newVel = new Vector2(0, -9);
 					if (NPC.Center.Y < (target.Center.Y-300))
@@ -249,7 +252,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				if (attackTimer > 359) attackDone = true;
 				NPC.velocity = newVel;
             }
-			else if (attack == 2) {
+			else if ((int)NPC.ai[3] == 2) {
 				runBoost = 75;
 				attackTimer++;
 				newVel *= 0.99f;
@@ -264,7 +267,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				if (attackTimer > 300) attackDone = true;
 				NPC.velocity = newVel;
             }
-			else if (attack == 3) {
+			else if ((int)NPC.ai[3] == 3) {
 				if (attackTimer % (100+(20*NPC.life/NPC.lifeMax)) == 0) {
 					Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 					speed.Normalize();
@@ -279,7 +282,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				attackTimer++;
 				if (attackTimer == (290+(60*NPC.life/NPC.lifeMax))) attackDone = true;
             }
-			else if (attack == 4) {
+			else if ((int)NPC.ai[3] == 4) {
 				runBoost = 30;
 				attackTimer++;
 				attackTimer2++;
@@ -303,7 +306,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				NPC.velocity = newVel;
 				if (attackTimer > 360) attackDone = true;
             }
-			else if (attack == 5 || attack == 6) {
+			else if ((int)NPC.ai[3] == 5 || (int)NPC.ai[3] == 6) {
 				runBoost = 120+(180*NPC.life/NPC.lifeMax);
 				attackTimer++;
 				NPC.ai[1] = 1;
@@ -429,7 +432,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				if (Main.getGoodWorld) NPC.damage = (int)(NPC.damage*1.33f);
             }
 			/*if (Main.npc[ZylonGlobalNPC.metelordBoss].life < 1 && spawnGore && Main.netMode != NetmodeID.MultiplayerClient) {
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), 0), ModContent.GoreType<Gores.Bosses.Metelord.MetelordHeadGore>());
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-3, 3), 0), ModContent.GoreType<Gores.Bosses.Metelord.MetelordHeadGore>());
 				spawnGore = false;
 			}*/
 			/*if (NPC.rotation > MathHelper.Pi) { //for old sprite
@@ -459,7 +462,7 @@ namespace Zylon.NPCs.Bosses.Metelord
             target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(4, 6));
         }
         public override void BossLoot(ref string name, ref int potionType) {
-            potionType = ItemID.RestorationPotion;
+            potionType = ItemID.HealingPotion;
 			ZylonWorldCheckSystem.downedMetelord = true;
 			int expertBoost = 0;
 			if (Main.expertMode) expertBoost = 2;
@@ -549,6 +552,7 @@ namespace Zylon.NPCs.Bosses.Metelord
         }
 		bool spawnGore = true;
 		public override void PostAI() {
+			//NPC.netUpdate = head.netUpdate;
 			if (head.ai[1] == 1) NPC.Center += new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-3, 4));
             if (!target.ZoneMeteor) {
 				NPC.damage = 64;
@@ -583,7 +587,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 				if (Main.getGoodWorld) NPC.damage = (int)(NPC.damage*1.33f);
             }
 			/*if (Main.npc[ZylonGlobalNPC.metelordBoss].life < 1 && spawnGore && Main.netMode != NetmodeID.MultiplayerClient) {
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), 0), ModContent.GoreType<Gores.Bosses.Metelord.MetelordBodyGore>());
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-3, 3), 0), ModContent.GoreType<Gores.Bosses.Metelord.MetelordBodyGore>());
 				spawnGore = false;
 			}*/
         }
@@ -655,6 +659,7 @@ namespace Zylon.NPCs.Bosses.Metelord
         }
 		bool spawnGore = true;
 		public override void PostAI() {
+			//NPC.netUpdate = head.netUpdate;
 			if (head.ai[1] == 1) NPC.Center += new Vector2(Main.rand.Next(-3, 4), Main.rand.Next(-3, 4));
             if (!target.ZoneMeteor) {
 				NPC.damage = 40;
@@ -691,7 +696,7 @@ namespace Zylon.NPCs.Bosses.Metelord
 			/*if (Main.npc[ZylonGlobalNPC.metelordBoss].life < 1 && spawnGore && Main.netMode != NetmodeID.MultiplayerClient) {
 				int deezNuts = ModContent.GoreType<Gores.Bosses.Metelord.MetelordTailGore>();
 				//if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges) deezNuts = ModContent.GoreType<Gores.Bosses.Metelord.MetelordHeadGore>();
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), 0), deezNuts);
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-3, 3), 0), deezNuts);
 				spawnGore = false;
 			}*/
         }

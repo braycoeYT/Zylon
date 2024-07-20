@@ -29,9 +29,9 @@ namespace Zylon.Projectiles.Whips
 		Player main;
 		int Timer;
 		int Timer2;
-		Vector2 oops;
+		Vector2 oops = new Vector2(0, 0);
 		int fixer;
-		NPC target = Main.npc[Main.maxNPCs];
+		NPC target;
         public override void AI() {
 			if (Timer2 < Projectile.ai[0]) {
 				Timer2++;
@@ -43,38 +43,39 @@ namespace Zylon.Projectiles.Whips
 			if (Timer == 1) {
 				//SoundEngine.PlaySound(SoundID.Item109, Projectile.Center);
 				Projectile.Center = main.Center + new Vector2(0, 80).RotatedByRandom(MathHelper.TwoPi);
-					float distanceFromTarget = 250f;
-			Vector2 targetCenter = Projectile.position;
-			bool foundTarget = false;
+				float distanceFromTarget = 250f;
+				Vector2 targetCenter = Projectile.position;
+				bool foundTarget = false;
 
-			if (!foundTarget) {
-				for (int i = 0; i < Main.maxNPCs; i++) {
-					NPC npc = Main.npc[i];
+				if (!foundTarget) {
+					for (int i = 0; i < Main.maxNPCs; i++) {
+						NPC npc = Main.npc[i];
+							
+						if (npc.CanBeChasedBy()) {
+							float between = Vector2.Distance(npc.Center, Projectile.Center);
+							bool closest = Vector2.Distance(Projectile.Center, targetCenter) > between;
+							bool inRange = between < distanceFromTarget;
+							bool lineOfSight = Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, npc.position, npc.width, npc.height);
+							bool closeThroughWall = false; //between < 100f;
 
-					if (npc.CanBeChasedBy()) {
-						float between = Vector2.Distance(npc.Center, Projectile.Center);
-						bool closest = Vector2.Distance(Projectile.Center, targetCenter) > between;
-						bool inRange = between < distanceFromTarget;
-						bool lineOfSight = Collision.CanHitLine(Projectile.position, Projectile.width, Projectile.height, npc.position, npc.width, npc.height);
-						bool closeThroughWall = false; //between < 100f;
-
-						if (((closest && inRange) || !foundTarget) && (lineOfSight || closeThroughWall)) {
-							distanceFromTarget = between;
-							targetCenter = npc.Center;
-							foundTarget = true;
-							target = Main.npc[i];
+							if (((closest && inRange) || !foundTarget) && (lineOfSight || closeThroughWall)) {
+								distanceFromTarget = between;
+								targetCenter = npc.Center;
+								foundTarget = true;
+								target = Main.npc[i];
+							}
 						}
 					}
+					if (main.HasMinionAttackTargetNPC) if (Main.npc[Main.player[Projectile.owner].MinionAttackTargetNPC].active) {
+						targetCenter = Main.npc[Main.player[Projectile.owner].MinionAttackTargetNPC].Center;
+						foundTarget = true;
+						target = Main.npc[Main.player[Projectile.owner].MinionAttackTargetNPC];
+					}
 				}
-				if (Main.npc[Main.player[Projectile.owner].MinionAttackTargetNPC].active) {
-					targetCenter = Main.npc[Main.player[Projectile.owner].MinionAttackTargetNPC].Center;
-					foundTarget = true;
-					target = Main.npc[Main.player[Projectile.owner].MinionAttackTargetNPC];
-				}
-			}
-			if (!foundTarget || !target.active) oops = Vector2.Normalize(main.Center - Projectile.Center) * 20f;
-			else oops = Vector2.Normalize(targetCenter - Projectile.Center) * 20f;
-			Projectile.rotation = oops.ToRotation();
+				if (!foundTarget) oops = Vector2.Normalize(main.Center - Projectile.Center) * 20f;
+				else if (!target.active) oops = Vector2.Normalize(main.Center - Projectile.Center) * 20f;
+				else oops = Vector2.Normalize(targetCenter - Projectile.Center) * 20f;
+				Projectile.rotation = oops.ToRotation();
             }
 			else if (Timer <= 52) {
 				Projectile.alpha -= 5;

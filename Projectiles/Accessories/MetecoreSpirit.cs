@@ -27,6 +27,7 @@ namespace Zylon.Projectiles.Accessories
 		}
 		int Timer;
         public override void AI() {
+			Projectile.netUpdate = true;
 			Timer++;
             Player player = Main.player[Projectile.owner];
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();

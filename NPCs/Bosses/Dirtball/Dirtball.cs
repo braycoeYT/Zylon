@@ -75,18 +75,18 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
 			}
 			if (!bool1 && NPC.life < NPC.lifeMax*(0.6f+expertBoost)) {
-				for (int i = 0; i < 10; i++) Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-4, 4), Main.rand.NextFloat(0, 6)), ModContent.GoreType<Gores.Bosses.Dirtball.DirtChunkGore>());
+				for (int i = 0; i < 20; i++) Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-4, 4), Main.rand.NextFloat(0, 6)), ModContent.GoreType<Gores.Bosses.Dirtball.DirtChunkGore>());
 				bool1 = true;
             }
 			if (!bool2 && NPC.life < NPC.lifeMax*(0.3f+expertBoost)) {
-				for (int i = 0; i < 10; i++) Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-4, 4), Main.rand.NextFloat(-3, 5)), ModContent.GoreType<Gores.Bosses.Dirtball.DirtChunkGore>());
+				for (int i = 0; i < 20; i++) Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-4, 4), Main.rand.NextFloat(-7, -2)), ModContent.GoreType<Gores.Bosses.Dirtball.DirtChunkGore>());
 				bool2 = true;
             }
 			if (NPC.life < 1) {
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-2, 4)), ModContent.GoreType<Gores.Bosses.Dirtball.DBDead1>());
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-2, 4)), ModContent.GoreType<Gores.Bosses.Dirtball.DBDead2>());
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-2, 4)), ModContent.GoreType<Gores.Bosses.Dirtball.DBDead3>());
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-2, 4)), ModContent.GoreType<Gores.Bosses.Dirtball.DBDead4>());
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-2, 4)), ModContent.GoreType<Gores.Bosses.Dirtball.DBDead1>());
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-2, 4)), ModContent.GoreType<Gores.Bosses.Dirtball.DBDead2>());
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-2, 4)), ModContent.GoreType<Gores.Bosses.Dirtball.DBDead3>());
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-2, 4)), ModContent.GoreType<Gores.Bosses.Dirtball.DBDead4>());
 				ProjectileHelpers.NewNetProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(), ModContent.ProjectileType<Projectiles.Bosses.Dirtball.DBSpirit>(), 0, 0f, BasicNetType: 2);
 			}
 		}
@@ -114,7 +114,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 		float expertBoost;
 		float speedBoost;
 		int phase;
-		int attack;
+		//int attack;
 		int attackTimer;
 		int attackInt;
 		int prevAttack;
@@ -128,6 +128,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 		bool init;
 		bool movement;
         public override void AI() { //exp hit dirtblock = penetrate -, -1 = 3
+			NPC.netUpdate = true;
 			Timer++;
 			speedBoost = 0.75f + (phase*0.25f);
 			Vector2 calc = Main.player[NPC.target].Center - NPC.Center;
@@ -138,23 +139,22 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			ZylonGlobalNPC.dirtballBoss = NPC.whoAmI;
 			if (!init) {
 				if (Main.expertMode) {
-					for (int i = 0; i < 50; i++) {
+					if (Main.netMode != NetmodeID.MultiplayerClient) for (int i = 0; i < 50; i++) {
 						NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + Main.rand.Next(-60, 61), (int)NPC.Center.Y + Main.rand.Next(-60, 61), ModContent.NPCType<DirtBlock>());
 					}
 					expertBoost = 0.075f;
 				}
-				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Dirtboi>());
+				if (Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Dirtboi>());
 				init = true;
 				//if (Main.GameModeInfo.)// && Main.GameModeInfo.EnemyMaxLifeMultiplier > 1) //doesn't work sadly
 				//	NPC.lifeMax = (int)(NPC.lifeMax/Main.GameModeInfo.EnemyMaxLifeMultiplier);
             }
 
-			if (Main.getGoodWorld && Timer % 150 == 0 && NPC.CountNPCS(ModContent.NPCType<DirtBlock>()) < 50) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + Main.rand.Next(-60, 61), (int)NPC.Center.Y + Main.rand.Next(-60, 61), ModContent.NPCType<DirtBlock>());
+			if (Main.getGoodWorld && Timer % 150 == 0 && NPC.CountNPCS(ModContent.NPCType<DirtBlock>()) < 50) if (Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X + Main.rand.Next(-60, 61), (int)NPC.Center.Y + Main.rand.Next(-60, 61), ModContent.NPCType<DirtBlock>());
 
 			if (Main.player[NPC.target].statLife < 1) {
 				NPC.TargetClosest(true);
 				if (Main.player[NPC.target].statLife < 1) {
-					if (flee == 0)
 					flee++;
 				}
 				else
@@ -164,6 +164,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 					NPC.velocity.Y += 1;
 					return;
 				}
+				if (flee > 480) NPC.active = false;
 			}
 
 			phase = 1;
@@ -178,20 +179,20 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			if (Main.masterMode) NPC.damage = 55;
 			NPC.damage = (int)(NPC.damage*(1.2f-(0.2f*NPC.life/NPC.lifeMax)));
 			if (Main.getGoodWorld) NPC.damage = (int)(NPC.damage*1.33f);
-			if (NPC.CountNPCS(ModContent.NPCType<Dirtboi>()) < 1) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Dirtboi>()); //Dirtboi, my boy, a true ball of dirt never runs away from battle!
+			if (NPC.CountNPCS(ModContent.NPCType<Dirtboi>()) < 1) if (Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<Dirtboi>()); //Dirtboi, my boy, a true ball of dirt never runs away from battle!
 			if (attackDone) {
 				atkTotal += 1;
 				if (phase == 1) attackMax = 6;
 				else attackMax = 6;
-				attack = Main.rand.Next(attackMax);
-				while (attack == prevAttack) attack = Main.rand.Next(attackMax);
+				NPC.ai[0] = Main.rand.Next(attackMax);
+				while ((int)NPC.ai[0] == prevAttack) NPC.ai[0] = Main.rand.Next(attackMax);
 				//attack = 5;
-				if (attack == 5 && ((phase < 3 && NPC.CountNPCS(ModContent.NPCType<DirtBlock>()) > 29) || (phase > 1 && NPC.CountNPCS(ModContent.NPCType<DS_17>()) > 4)))
-					while (attack == prevAttack || attack == 5) attack = Main.rand.Next(attackMax);
+				if ((int)NPC.ai[0] == 5 && ((phase < 3 && NPC.CountNPCS(ModContent.NPCType<DirtBlock>()) > 29) || (phase > 1 && NPC.CountNPCS(ModContent.NPCType<DS_17>()) > 4)))
+					while ((int)NPC.ai[0] == prevAttack || (int)NPC.ai[0] == 5) NPC.ai[0] = Main.rand.Next(attackMax);
 
-				if (atkTotal == 1) attack = 0;
+				if (atkTotal == 1) NPC.ai[0] = 0;
 
-				prevAttack = attack;
+				prevAttack = (int)NPC.ai[0];
 				attackDone = false;
 				attackTimer = 0;
 				attackInt = 0;
@@ -200,7 +201,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 
 				//attack = 2;
             }
-			if (attack == 0) {
+			if ((int)NPC.ai[0] == 0) {
 				attackTimer++;
 				Vector2 speed = NPC.Center - Main.player[NPC.target].Center;
 				movement = attackTimer % (90 + (int)(30*NPC.life/NPC.lifeMax)) < (30 + (int)(30*NPC.life/NPC.lifeMax)) || dist > 600f;
@@ -217,7 +218,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				if (attackInt == 4 && attackTimer > 30 + (int)(30*NPC.life/NPC.lifeMax))
 					attackDone = true;
 			}
-			else if (attack == 1) {
+			else if ((int)NPC.ai[0] == 1) {
 				if (!attackBool) {
 					movement = false;
 					NPC.velocity *= 0.98f;
@@ -243,7 +244,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 					if (attackTimer > 120) attackDone = true;
                 }
             }
-			else if (attack == 2) { //MOVEMENT X = normal movement, but only x part
+			else if ((int)NPC.ai[0] == 2) { //MOVEMENT X = normal movement, but only x part
 				if (attackInt < 2) {
 					movement = false;
 					NPC.velocity *= 0.98f;
@@ -316,7 +317,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 						attackDone = true;
                 }
 			}
-			else if (attack == 3 || attack == 4) {
+			else if ((int)NPC.ai[0] == 3 || (int)NPC.ai[0] == 4) {
 				movement = true;
 				attackTimer++;
 				if (speedBoost < 5f)
@@ -324,7 +325,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				if (attackTimer > 120 + (int)(60*NPC.life/NPC.lifeMax))
 					attackDone = true;
             }
-			else if (attack == 5) {
+			else if ((int)NPC.ai[0] == 5) {
 				attackTimer++;
 				if (attackTimer == 1)
 					if (phase == 3 || (phase == 2 && Main.rand.NextBool(2)))
@@ -349,7 +350,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 						dust.scale *= 1.25f + Main.rand.Next(-30, 31) * 0.01f;
 					}
 					if (attackTimer % 10 == 1) {
-						NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<DirtBlock>());
+						if (Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<DirtBlock>());
 						SoundEngine.PlaySound(SoundID.Dig, NPC.Center);
 					}
 
@@ -376,7 +377,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 						dust.scale *= 1.25f + Main.rand.Next(-30, 31) * 0.01f;
 					}
 					if (attackTimer % 40 == 1) {
-						NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<DS_17>());
+						if (Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<DS_17>());
 						SoundEngine.PlaySound(SoundID.Item93, NPC.Center);
 					}
 					if (attackTimer == 81 || NPC.CountNPCS(ModContent.NPCType<DS_17>()) > 4) {
@@ -407,7 +408,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
             }*/
 			//if (attack == 1 && (attackTimer > (60 + (int)(30*NPC.life/NPC.lifeMax))) || attackTimer > 0) speedBoost *= 0.75f;
 			//Main.NewText(attack);
-			if (!(attack == 2 && (attackInt == 1 || attackInt == 2))) NPC.rotation = NPC.velocity.X*0.02f;
+			if (!((int)NPC.ai[0] == 2 && (attackInt == 1 || attackInt == 2))) NPC.rotation = NPC.velocity.X*0.02f;
 			if (!movement) return;
 							if (NPC.direction == -1 && NPC.velocity.X > -4f*speedBoost)
 							{

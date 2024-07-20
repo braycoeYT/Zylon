@@ -28,6 +28,7 @@ namespace Zylon.Projectiles.Bosses.SaburRex
             behindNPCs.Add(index);
 		}
         public override void AI() {
+			Projectile.netUpdate = true;
 			NPC owner = Main.npc[ZylonGlobalNPC.saburBoss];
 			if (owner.active && owner.life > 1) Projectile.timeLeft = 2;
 			Projectile.position = owner.position - new Vector2(12*owner.direction, 0); //og 18

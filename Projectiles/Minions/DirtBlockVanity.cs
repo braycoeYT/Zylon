@@ -27,7 +27,6 @@ namespace Zylon.Projectiles.Minions
 			Projectile.tileCollide = false;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
-			//Projectile.minion = true; //WHY DONT YOU WORK
 			Projectile.minionSlots = 0f;
 			Projectile.penetrate = -1;
 			Projectile.DamageType = DamageClass.Summon;

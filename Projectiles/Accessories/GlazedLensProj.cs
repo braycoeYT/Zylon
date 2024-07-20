@@ -26,6 +26,7 @@ namespace Zylon.Projectiles.Accessories
 		float rot;
 		float rot2;
         public override void AI() {
+			Projectile.netUpdate = true;
 			main = Main.player[Projectile.owner];
 			critBoost = (int)Projectile.ai[0];
 			if (critBoost < 0) critBoost = 0;

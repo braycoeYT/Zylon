@@ -33,6 +33,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 		int Timer;
 		int attackCount;
 		public override void AI() {
+			NPC.netUpdate = true;
 			if (Timer % 5 == 0)
 				NPC.frameCounter++;
 			if (NPC.frameCounter > 2)

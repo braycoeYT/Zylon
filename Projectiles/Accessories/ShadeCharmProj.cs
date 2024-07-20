@@ -34,6 +34,7 @@ namespace Zylon.Projectiles.Accessories
 		bool die;
 		int dieTimer;
         public override void AI() {
+			Projectile.netUpdate = true;
 			main = Main.projectile[(int)Projectile.ai[1]];
 			float offset = (float)Math.Sin(Main.GameUpdateCount/30f)*5f;
 			Projectile.Center = main.Center - new Vector2(0, 20+offset+(Projectile.width+Projectile.height)/2).RotatedBy(MathHelper.ToRadians(Main.GameUpdateCount*1.25f+Projectile.ai[0]*120));

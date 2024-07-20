@@ -34,6 +34,7 @@ namespace Zylon.Projectiles.Accessories
             target.AddBuff(BuffID.OnFire, Main.rand.Next(8, 16)*60);
         }
         public override void AI() {
+            Projectile.netUpdate = true;
             Projectile.friendly = true; Projectile.hostile = false; //In case enemies use the projectile reflect on it.
 
             Projectile.timeLeft = 9999;

@@ -110,6 +110,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 		int attackNum9;
 		bool finale;
         public override bool PreAI() {
+			NPC.netUpdate = true;
 			if (finale) {
 				attackTimer++;
 				NPC.velocity.Y = -(float)Math.Pow(attackTimer/50f, 5f);
@@ -376,7 +377,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 					else NPC.direction = -1;
 					attackNum = NPC.direction;
 					if (attackTimer == 15) {
-						NPC.velocity = NPC.DirectionTo(target.Center)*(38f-(8f*hpLeft)); //og 45 - 15
+						if (Main.netMode != NetmodeID.MultiplayerClient) NPC.velocity = NPC.DirectionTo(target.Center)*(38f-(8f*hpLeft)); //og 45 - 15
 					}
 				}
 				else if (attackTimer < 45) {
@@ -778,7 +779,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 
 			//Determine new attack (testing)
 			NPC.ai[1] = NPC.ai[0]; //Forces the while loop to run at least once
-			while (NPC.ai[1] == NPC.ai[0] || NPC.ai[1] == prevAttack) NPC.ai[1] = Main.rand.Next(8);
+			if (Main.netMode != NetmodeID.MultiplayerClient) while (NPC.ai[1] == NPC.ai[0] || NPC.ai[1] == prevAttack) NPC.ai[1] = Main.rand.Next(8);
 
 			//NPC.ai[0] = 2f; //TESTING - force a certain attack.
 			
@@ -906,6 +907,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
         }
         public override void BossLoot(ref string name, ref int potionType) {
             potionType = ItemID.SuperHealingPotion;
+			ZylonWorldCheckSystem.downedSabur = true;
         }
         public override void OnKill() {
             if (Zylon.noHitSabur) Item.NewItem(NPC.GetSource_FromThis(), NPC.getRect(), ModContent.ItemType<Items.Swords.Excalipoor>());

@@ -53,6 +53,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
             }
 			else if (Timer == 60) {
 				rand = Main.player[owner.target].Center + new Vector2(Main.rand.Next(-150, 151), Main.rand.Next(-150, 151));
+				Projectile.netUpdate = true;
             }
 			else if (Timer < 75) {
 				Projectile.velocity += Vector2.Normalize(Projectile.Center - rand) * -0.2f;

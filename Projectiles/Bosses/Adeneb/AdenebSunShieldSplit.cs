@@ -95,7 +95,7 @@ namespace Zylon.Projectiles.Bosses.Adeneb
 
             Vector2 drawOrigin = new Vector2(projectileTexture.Width * 0.5f, Projectile.height * 0.5f);
             Vector2 drawPos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
-            Color color = Projectile.GetAlpha(lightColor);
+            Color color = Color.White;
 
             for (int k = 0; k < Projectile.oldPos.Length; k++)
             {

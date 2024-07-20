@@ -472,7 +472,7 @@ namespace Zylon.NPCs.Bosses.SusEye
 													vector42.X += num401 * 15f;
 													vector42.Y += num402 * 15f;
 							int num407;
-													if (Main.rand.NextBool(8)) num407 = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector42.X, vector42.Y, num401, num402, num406, num405, 0f, Main.myPlayer, 0f, 0f);
+													if (Main.rand.NextBool(8) && Main.netMode != NetmodeID.MultiplayerClient) num407 = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector42.X, vector42.Y, num401, num402, num406, num405, 0f, Main.myPlayer, 0f, 0f);
 													return true;
 												}
 											}
@@ -574,7 +574,7 @@ namespace Zylon.NPCs.Bosses.SusEye
 													vector43.X += num411 * 15f;
 													vector43.Y += num412 * 15f;
 							int num417;
-													if (Main.rand.NextBool(8)) Projectile.NewProjectile(NPC.GetSource_FromThis(), vector43.X, vector43.Y, num411, num412, num416, num415, 0f, Main.myPlayer, 0f, 0f);
+													if (Main.rand.NextBool(8) && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), vector43.X, vector43.Y, num411, num412, num416, num415, 0f, Main.myPlayer, 0f, 0f);
 												}
 											}
 											NPC.ai[2] += 1f;
@@ -1011,7 +1011,7 @@ namespace Zylon.NPCs.Bosses.SusEye
 														vector46.X -= num443 * 1f;
 														vector46.Y -= num444 * 1f;
 								int num449;
-														if (Main.rand.NextBool(8)) num449 = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector46.X, vector46.Y, num443, num444, num448, num447, 0f, Main.myPlayer, 0f, 0f);
+														if (Main.rand.NextBool(8) && Main.netMode != NetmodeID.MultiplayerClient) num449 = Projectile.NewProjectile(NPC.GetSource_FromThis(), vector46.X, vector46.Y, num443, num444, num448, num447, 0f, Main.myPlayer, 0f, 0f);
 														return true;
 													}
 												}
@@ -1103,7 +1103,7 @@ namespace Zylon.NPCs.Bosses.SusEye
 														num386 += (float)Main.rand.Next(-40, 41) * 0.08f;
 														vector40.X += num385 * 15f;
 														vector40.Y += num386 * 15f;
-													if (Main.rand.NextBool(8)) Projectile.NewProjectile(NPC.GetSource_FromThis(), vector40.X, vector40.Y, num385, num386, num391, num390, 0f, Main.myPlayer, 0f, 0f);
+													if (Main.rand.NextBool(8) && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), vector40.X, vector40.Y, num385, num386, num391, num390, 0f, Main.myPlayer, 0f, 0f);
 													NPC.ai[3] = 0f;
 													Vector2 vector44 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
 													float num427 = Main.player[NPC.target].position.X + (float)(Main.player[NPC.target].width / 2) - vector44.X;
@@ -1126,7 +1126,7 @@ namespace Zylon.NPCs.Bosses.SusEye
 														num428 += (float)Main.rand.Next(-40, 41) * 0.05f;
 														vector44.X += num427 * 4f;
 														vector44.Y += num428 * 4f;
-														if (Main.rand.NextBool(8)) Projectile.NewProjectile(NPC.GetSource_FromThis(), vector44.X, vector44.Y, num427, num428, num432, num431, 0f, Main.myPlayer, 0f, 0f);
+														if (Main.rand.NextBool(8) && Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), vector44.X, vector44.Y, num427, num428, num432, num431, 0f, Main.myPlayer, 0f, 0f);
 													}
 												}
 									return true;

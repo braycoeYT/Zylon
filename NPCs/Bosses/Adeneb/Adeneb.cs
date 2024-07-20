@@ -95,6 +95,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 		Vector2 finaleSave;
 		Player target;
         public override void AI() {
+			NPC.netUpdate = true;
 			NPC.ai[0] = phase;
 
 			NPC.TargetClosest();
@@ -190,9 +191,9 @@ namespace Zylon.NPCs.Bosses.Adeneb
 							dust.velocity = new Vector2(0, Main.rand.NextFloat(3f, 7f)).RotatedByRandom(MathHelper.TwoPi);
 							dust.scale *= 1.5f + Main.rand.Next(-80, 81) * 0.01f;
 						}
-						for (int i = 0; i < 3; i++) Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-1, 6)), ModContent.GoreType<Gores.Bosses.Adeneb.AdenebDead1>());
-						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-1, 6)), ModContent.GoreType<Gores.Bosses.Adeneb.AdenebDead2>());
-						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-1, 6)), ModContent.GoreType<Gores.Bosses.Adeneb.AdenebDead3>());
+						for (int i = 0; i < 3; i++) Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-1, 6)), ModContent.GoreType<Gores.Bosses.Adeneb.AdenebDead1>());
+						Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-1, 6)), ModContent.GoreType<Gores.Bosses.Adeneb.AdenebDead2>());
+						Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-1, 6)), ModContent.GoreType<Gores.Bosses.Adeneb.AdenebDead3>());
 					}
 				}
 				return;
@@ -268,8 +269,8 @@ namespace Zylon.NPCs.Bosses.Adeneb
 						float rand = 1f;
 						if (Main.rand.NextBool()) rand = -1f;
 						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center - new Vector2(66, 121), new Vector2(Main.rand.NextFloat(-1, 1), Main.rand.NextFloat(-9, -7)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_Ankh>());
-						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-6, -2)*rand, Main.rand.NextFloat(-1, 3)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_SpikeLower>());
-						Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(2, 6)*rand, Main.rand.NextFloat(-1, 3)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_SpikeUpper>());
+						Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-6, -2)*rand, Main.rand.NextFloat(-1, 3)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_SpikeLower>());
+						Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(2, 6)*rand, Main.rand.NextFloat(-1, 3)), ModContent.GoreType<Gores.Bosses.Adeneb.Adeneb_SpikeUpper>());
 						if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Adeneb.AdenebSunShield>(), NPC.damage/3, 0f);
                     }
                 }
@@ -318,12 +319,17 @@ namespace Zylon.NPCs.Bosses.Adeneb
 					if (phase == 2) {
 						if (Main.getGoodWorld) NPC.scale = 1.5f;
 
-						NPC.ai[2] = Main.rand.Next(3);
-						while (prevAttack == (int)NPC.ai[2]) NPC.ai[2] = Main.rand.Next(3);
+
+						if (Main.netMode != NetmodeID.MultiplayerClient) {
+							NPC.ai[2] = Main.rand.Next(3);
+							while (prevAttack == (int)NPC.ai[2]) NPC.ai[2] = Main.rand.Next(3);
+						}
                     }
 					else {
-						NPC.ai[2] = Main.rand.Next(3);
-						while (prevAttack == (int)NPC.ai[2]) NPC.ai[2] = Main.rand.Next(3);
+						if (Main.netMode != NetmodeID.MultiplayerClient) {
+							NPC.ai[2] = Main.rand.Next(3);
+							while (prevAttack == (int)NPC.ai[2]) NPC.ai[2] = Main.rand.Next(3);
+						}
                     }
 					//attack = 3; //Use this to set attacks to specific ones.
 

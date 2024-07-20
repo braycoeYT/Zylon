@@ -34,6 +34,7 @@ namespace Zylon.Projectiles.Accessories
 		bool init;
 		Player own;
 		public override void PostAI() {
+			Projectile.netUpdate = true;
 			Timer++;
 			if (Timer < 2) return;
 

@@ -53,15 +53,16 @@ namespace Zylon.NPCs.Bosses.Dirtball
 					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.Iron, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
 					dust.noGravity = true;
 				}
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-2, 2), 0), ModContent.GoreType<Gores.Bosses.Dirtball.DS17Gore>());
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-2, 2), 0), ModContent.GoreType<Gores.Bosses.Dirtball.DS17GoreLeft>());
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-2, 2), 0), ModContent.GoreType<Gores.Bosses.Dirtball.DS17GoreRight>());
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-2, 2), 0), ModContent.GoreType<Gores.Bosses.Dirtball.DS17Gore>());
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-2, 2), 0), ModContent.GoreType<Gores.Bosses.Dirtball.DS17GoreLeft>());
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-2, 2), 0), ModContent.GoreType<Gores.Bosses.Dirtball.DS17GoreRight>());
 			}
 		}
 		int Timer;
 		float speedBoost;
 		int yvel;
         public override void AI() {
+			NPC.netUpdate = true;
 			NPC.TargetClosest(true);
 			Player target = Main.player[NPC.target];
 			Vector2 target2 = target.position;
@@ -158,9 +159,28 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			if (yvel < -8) yvel = -8;
 			if (yvel > 0 && NPC.Center.Y > Main.player[NPC.target].Center.Y && Timer % 12 == 0) yvel -= 1;
 			if (yvel < 0 && NPC.Center.Y < Main.player[NPC.target].Center.Y && Timer % 12 == 0) yvel += 1;
-			if (Main.npc[ZylonGlobalNPC.dirtballBoss].life < 1) NPC.life = 0;
+			if (Main.npc[ZylonGlobalNPC.dirtballBoss].life < 1) NPC.StrikeInstantKill();
 			NPC.velocity.Y = yvel; //if (Math.Abs(NPC.Center.Y - Main.player[NPC.target].Center.Y) > 80) NPC.velocity.Y = yvel;
 		}
+        public override void PostAI() {
+            //Dust rocket, like stratoslime
+				for (int i = 0; i < 2; i++) { //Left
+					int dustIndex = Dust.NewDust(NPC.position, 1, 1, DustID.Torch);
+					Dust dust = Main.dust[dustIndex];
+					dust.position = NPC.Center + new Vector2(-24+NPC.velocity.X, 13);
+					dust.velocity = new Vector2(Main.rand.NextFloat(-1f, 1f), Main.rand.NextFloat(6f, 9f));
+					dust.noGravity = true;
+					dust.scale = Main.rand.NextFloat(0.75f, 1.5f);
+				}
+				for (int i = 0; i < 2; i++) { //Right
+					int dustIndex = Dust.NewDust(NPC.position, 1, 1, DustID.Torch);
+					Dust dust = Main.dust[dustIndex];
+					dust.position = NPC.Center + new Vector2(24+NPC.velocity.X, 13);
+					dust.velocity = new Vector2(Main.rand.NextFloat(-1f, 1f), Main.rand.NextFloat(6f, 9f));
+					dust.noGravity = true;
+					dust.scale = Main.rand.NextFloat(0.75f, 1.5f);
+				}
+        }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,

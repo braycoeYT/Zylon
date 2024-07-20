@@ -25,15 +25,17 @@ namespace Zylon.Projectiles.Accessories
 		}
 		int Timer;
 		public override void AI() {
+			Projectile.netUpdate = true;
 			Projectile.alpha -= 17;
 			Player player = Main.player[Projectile.owner];
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			Projectile.Center = player.Center - new Vector2(0, 60);
 			if (p.metelordExpert == true) Projectile.timeLeft = 2;
 			else p.metecoreFloat = 1f;
-			Projectile.scale = p.metecoreFloat;
+			Projectile.ai[0] = p.metecoreFloat;
+			Projectile.scale =  Projectile.ai[0];
 			Projectile.rotation += p.metecoreFloat*0.02f;
-			if (p.metecoreFloat >= 3f) {
+			if (Projectile.ai[0] >= 3f) {
 				Projectile.scale = 3f;
 				Projectile.alpha = 255;
 				Timer++;
@@ -43,9 +45,11 @@ namespace Zylon.Projectiles.Accessories
 				if (Timer >= 61) {
 					p.metecoreFloat = 1f;
 					Projectile.scale = 1f;
+					Projectile.ai[0] = 1f;
 					Timer = 0;
                 }
             }
+
 		}
 	}
 }

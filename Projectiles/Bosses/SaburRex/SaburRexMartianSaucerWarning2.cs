@@ -27,6 +27,7 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 			Projectile.alpha = 0;
 		}
         public override void AI() {
+			Projectile.netUpdate = true;
 			NPC owner = Main.npc[ZylonGlobalNPC.saburBoss];
 			if (owner.life < 2 || !owner.active) Projectile.Kill();
 			Projectile.rotation = Projectile.ai[0];

@@ -28,6 +28,7 @@ namespace Zylon.Projectiles.Accessories
 		float speedAcc;
 		bool manaBoost;
 		public override void AI() {
+            Projectile.netUpdate = true;
 			Vector2 speed = Projectile.Center - Main.player[Projectile.owner].Center;
 			if (Math.Abs(speed.X)+Math.Abs(speed.Y) < Projectile.height) {
 				manaBoost = true;

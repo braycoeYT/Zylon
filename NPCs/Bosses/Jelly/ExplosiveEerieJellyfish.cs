@@ -32,6 +32,7 @@ namespace Zylon.NPCs.Bosses.Jelly
         }
 		int Timer;
 		public override void AI() {
+			NPC.netUpdate = true;
 			NPC.TargetClosest();
 			Timer++;
 

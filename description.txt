@@ -1,12 +1,12 @@
-The best mod that starts with Z - I guarantee or your money back! Bosses currently don't work in multiplayer.
+The best mod that starts with Z — we guarantee or your money back! Zylon has finally returned after an 11-month update that we call Cause to Clash — the biggest update the mod has ever seen, with over 150 new items, a boss rework, a new Post-Moon Lord boss, countless item reworks, new sprites, general bugfixes, and so much more!
 
 Stats:
-~340 Items
+~484 Items
 ~5 Bosses:
 ~~~4 Prehardmode Bosses [i:2][i:116][i:789][i:282]
 ~~~1 Post-Moon Lord Boss [i:5130]
 (plus a secret joke boss only fightable on getfixedboi worlds [i:43])
-~36 total NPCs
+~46 total NPCs
 ~Summons can deal critical strikes now!
 ~A complete reworking and expansion of blowpipes!
 ~LOTS of new vanilla recipes and changes to help balance the game out.
@@ -370,6 +370,12 @@ V0.0.3: Cause to Clash Update
 ~Added Fantastical Finality, Ultima Band, Excalipoor, Aussie Dagger, Dirkbow, Blade Torrent Staff, Tale of the Everlasting Blade, Swordigam Staff, Hollow Knife, The Retractor, Snakesabre, Ancient Game Controller, and Fantesseract.
 ~Fixed grammatical errors involving the indefinite articles in the boss checklist descriptions.
 ~Fixed issues with defense-decreasing debuffs on enemies.
+~Elem Slimes no longer spawn anywhere rarely.
+~Heavily reduced how much the mod's bosses lag and break in multiplayer.
+~Greatly improved Dirtball's gore.
+~Gave DS-17 a dust effect.
+~DS-17s now explode when Dirtball dies instead of just despawning.
+~Fixed an issue with how gore spawns.
 
 
 

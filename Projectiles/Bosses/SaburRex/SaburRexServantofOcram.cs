@@ -61,13 +61,17 @@ namespace Zylon.Projectiles.Bosses.SaburRex
 
 			if (mode == 0) { //Intro
 				float speed = 2f - (1f*Timer/Projectile.ai[2]); //Makes it seem to slow down as it moves.
-				Projectile.Center = home - new Vector2(0, speed*(Projectile.ai[0] * Timer / Projectile.ai[2])).RotatedBy(MathHelper.ToRadians(Projectile.ai[1] + owner.ai[3]));
+				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.Center = home - new Vector2(0, speed*(Projectile.ai[0] * Timer / Projectile.ai[2])).RotatedBy(MathHelper.ToRadians(Projectile.ai[1] + owner.ai[3]));
 				Projectile.alpha = (int)(255f-255f*(Timer/Projectile.ai[2]));
+
+				Projectile.netUpdate = true;
 			}
 			else { //Rotate with boss mode
 				if (owner.ai[0] == 4f) { //Attack is not done yet
-					Projectile.Center = home - new Vector2(0, (int)Projectile.ai[0]).RotatedBy(MathHelper.ToRadians(Projectile.ai[1] + owner.ai[3]));
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.Center = home - new Vector2(0, (int)Projectile.ai[0]).RotatedBy(MathHelper.ToRadians(Projectile.ai[1] + owner.ai[3]));
 					Projectile.alpha = 0;
+
+					Projectile.netUpdate = true;
 				}
 				else { //Attack is done, please despawn
 					Projectile.alpha += 17;

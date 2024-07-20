@@ -65,9 +65,10 @@ namespace Zylon.NPCs.Hallow
 			if (Main.rand.NextBool(7)) target.AddBuff(BuffID.Weak, 60*20);
         }
         int Timer;
-		int attack = 0;
+		//int attack = 0;
 		int myFrame;
 		public override void AI() {
+			NPC.netUpdate = true;
 			if (++NPC.frameCounter >= 3) {
 				NPC.frameCounter = 0;
 				if (++myFrame >= 2)
@@ -77,7 +78,7 @@ namespace Zylon.NPCs.Hallow
 
 			if (!Main.player[NPC.target].active) NPC.TargetClosest(true); //Only choose new target if attack transition or current target is dead
 			Player target = Main.player[NPC.target];
-			if (attack % 2 == 0) { //Ram attack
+			if ((int)NPC.ai[0] % 2 == 0) { //Ram attack
 				NPC.aiStyle = -1; //Yeet pixie mode for now
 				if (Timer % 60 == 0 || Timer < 2) NPC.velocity = NPC.DirectionTo(target.Center)*12f; //DASH!!!
 				else if (Timer % 60 > 30) NPC.velocity *= 0.94f; //Slow down
@@ -85,7 +86,7 @@ namespace Zylon.NPCs.Hallow
 				if (Timer >= 240) {
 					NPC.velocity = Vector2.Zero;
 					Timer = 0;
-					attack++;
+					NPC.ai[0]++;
 					NPC.TargetClosest(true);
                 }
             }
@@ -102,7 +103,7 @@ namespace Zylon.NPCs.Hallow
 				if (Timer >= 480) {
 					NPC.velocity = Vector2.Zero;
 					Timer = 0;
-					attack++;
+					NPC.ai[0]++;
 					NPC.TargetClosest(true);
                 }
             }

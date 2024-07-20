@@ -99,8 +99,8 @@ namespace Zylon.NPCs.Desert
 					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.AdeniteDust>(), Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
 					dust.noGravity = true;
 				}
-				for (int j = 0; j < 6; j++) Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-6, 6)), ModContent.GoreType<Gores.Enemies.SpikeRingDeath>());
-				Gore.NewGore(NPC.GetSource_FromAI(), NPC.Center, new Vector2(Main.rand.NextFloat(-2, 2), 0), ModContent.GoreType<Gores.Enemies.AdeniteGore>());
+				for (int j = 0; j < 6; j++) Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-5, 5), Main.rand.NextFloat(-6, 6)), ModContent.GoreType<Gores.Enemies.SpikeRingDeath>());
+				Gore.NewGore(NPC.GetSource_FromAI(), NPC.position, new Vector2(Main.rand.NextFloat(-2, 2), 0), ModContent.GoreType<Gores.Enemies.AdeniteGore>());
 			}
 		}
 		NPC main;

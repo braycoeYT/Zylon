@@ -32,6 +32,7 @@ namespace Zylon.Projectiles.Blowpipes
 		bool end;
 		float rot;
         public override void AI() {
+			Projectile.netUpdate = true;
 			Player main = Main.player[Projectile.owner];
 			if (!init) {
 				Projectile.alpha -= 5;
