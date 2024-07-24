@@ -13,7 +13,7 @@ namespace Zylon.Items.Blowpipes
 		public LobbingLog() : base(100, 1f, new Color(125, 63, 0), true) { } //int maxChargeI, float chargeRateI, Color textColorI, bool maxReplaceI = false, float chargeRetainI = 0f, float minshootspeedI = 0f
         public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);
-            Item.damage = 9;
+            Item.damage = 11;
 			Item.knockBack = 1f;
 			Item.shootSpeed = 5.5f;
 			Item.useTime = 1;

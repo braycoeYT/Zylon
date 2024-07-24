@@ -21,7 +21,7 @@ namespace Zylon.NPCs.Dungeon
 			NPC.defense = 9;
 			NPC.lifeMax = 91;
 			NPC.HitSound = SoundID.NPCHit1;
-			NPC.DeathSound = SoundID.NPCDeath3;
+			NPC.DeathSound = SoundID.NPCDeath1;
 			NPC.value = Item.buyPrice(0, 0, 1, 50);
 			NPC.aiStyle = 1;
 			NPC.knockBackResist = 1f;

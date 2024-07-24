@@ -157,14 +157,12 @@ namespace Zylon.NPCs.Bosses.Dirtball
 				if (Main.player[NPC.target].statLife < 1) {
 					flee++;
 				}
-				else
-				flee = 0;
 				if (flee > 0) {
-					if (Timer % 3 == 0)
+					if (Timer % 5 == 0)
 					NPC.velocity.Y += 1;
 					return;
 				}
-				if (flee > 480) NPC.active = false;
+				if (flee > 360) NPC.active = false;
 			}
 
 			phase = 1;
@@ -544,14 +542,12 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.DirtballMask>(), 7));
 			notExpertRule.OnSuccess(new CommonDrop(ItemID.DirtBlock, 1, 25, 50));
 			notExpertRule.OnSuccess(new CommonDrop(ItemID.MudBlock, 1, 15, 30));
-			notExpertRule.OnSuccess(new CommonDrop(ItemID.IronBar, 1, 1, 3));
-			notExpertRule.OnSuccess(new CommonDrop(ItemID.LeadBar, 1, 1, 3));
 			notExpertRule.OnSuccess(new CommonDrop(ItemID.DirtRod, 5));
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Misc.Dirtthrower>(), 25));
 			notExpertRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.MuddyGreatsword>(), ModContent.ItemType<Items.Yoyos.Dirtglob>(), ModContent.ItemType<Items.Bows.Dirty3String>(), ModContent.ItemType<Items.Blowpipes.DirtFunnel>(), ModContent.ItemType<Items.Wands.ScepterofDirt>(), ModContent.ItemType<Items.Accessories.DirtRegalia>()));
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Pets.CreepyBlob>(), 10));
-			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<BagofFruits>(), 3));
-			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Food.MudPie>(), 3));
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<BagofFruits>(), 7));
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Food.MudPie>(), 7));
 
 			LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.NotRemixSeed());
 			notExpertRule.OnSuccess(leadingConditionRule);

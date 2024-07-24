@@ -29,6 +29,7 @@ namespace Zylon.Projectiles.Whips
 		int Timer;
 		float spinSpeed = 0.02f;
 		public override void AI() {
+			Projectile.netUpdate = true;
 			Timer++;
 			Player player = Main.player[Projectile.owner];
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
@@ -46,9 +47,15 @@ namespace Zylon.Projectiles.Whips
             #endregion
 
             #region General behavior
-            Projectile.Center = player.Center - new Vector2(0, 64);
+            Projectile.Center = player.Center - new Vector2(0, 60);
 			if (p.slimePrinceArmor) { //if wearing slime prince armor, move up
-				Projectile.Center = player.Center - new Vector2(0, 103); //size of royal slime staff + 5 pixels
+				Projectile.Center -= new Vector2(0, 39); //size of royal slime staff + 5 pixels
+			}
+			if (p.metelordExpert) {
+				Projectile.Center -= new Vector2(0, 51); //size of metecore + 5 pixels
+			}
+			if (player.crystalLeaf) {
+				Projectile.Center -= new Vector2(0, 47); //size of crystal leaf + 5 pixels
 			}
 			#endregion
 

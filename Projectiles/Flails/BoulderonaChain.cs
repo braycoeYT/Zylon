@@ -17,8 +17,7 @@ namespace Zylon.Projectiles.Flails
 	public class BoulderonaChain : ModProjectile
 	{
 		private const string ChainTexturePath = "Zylon/Projectiles/Flails/BoulderonaChainChain"; // The folder path to the flail chain sprite
-		private const string ChainTextureExtraPath = "Zylon/Projectiles/Flails/BoulderonaChainChainExtra";  // This texture and related code is optional and used for a unique effect
-
+		
 		private enum AIState
 		{
 			Spinning,
@@ -431,8 +430,7 @@ namespace Zylon.Projectiles.Flails
 			playerArmPosition.Y -= Main.player[Projectile.owner].gfxOffY;
 
 			Asset<Texture2D> chainTexture = ModContent.Request<Texture2D>(ChainTexturePath);
-			Asset<Texture2D> chainTextureExtra = ModContent.Request<Texture2D>(ChainTextureExtraPath); // This texture and related code is optional and used for a unique effect
-
+			
 			Rectangle? chainSourceRectangle = null;
 			// Drippler Crippler customizes sourceRectangle to cycle through sprite frames: sourceRectangle = asset.Frame(1, 6);
 			float chainHeightAdjustment = 0f; // Use this to adjust the chain overlap. 
@@ -458,27 +456,6 @@ namespace Zylon.Projectiles.Flails
 				// This example shows how Flaming Mace works. It checks chainCount and changes chainTexture and draw color at different values
 
 				var chainTextureToDraw = chainTexture;
-				if (chainCount >= 4) {
-					// Use normal chainTexture and lighting, no changes
-				}
-				else if (chainCount >= 2) {
-					// Near to the ball, we draw a custom chain texture and slightly make it glow if unlit.
-					chainTextureToDraw = chainTextureExtra;
-					byte minValue = 140;
-					if (chainDrawColor.R < minValue)
-						chainDrawColor.R = minValue;
-
-					if (chainDrawColor.G < minValue)
-						chainDrawColor.G = minValue;
-
-					if (chainDrawColor.B < minValue)
-						chainDrawColor.B = minValue;
-				}
-				else {
-					// Close to the ball, we draw a custom chain texture and draw it at full brightness glow.
-					chainTextureToDraw = chainTextureExtra;
-					chainDrawColor = Color.White;
-				}
 
 				// Here, we draw the chain texture at the coordinates
 				Main.spriteBatch.Draw(chainTextureToDraw.Value, chainDrawPosition - Main.screenPosition, chainSourceRectangle, chainDrawColor, chainRotation, chainOrigin, 1f, SpriteEffects.None, 0f);

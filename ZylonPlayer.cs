@@ -118,10 +118,13 @@ namespace Zylon
 		public int harpysCrestCooldown;
 		public int livingWhipNum;
 		public int livingWhipTimer;
+		public int numof10ammo;
 		public float summonCrit;
 		public float summonCritBoost;
+		public float damageVariation;
 		public bool scaryText;
 		public bool scaryText2;
+		public bool summonCritHappen;
 		public override void ResetEffects() {
 			Heartdaze = false;
 			outofBreath = false;
@@ -195,7 +198,6 @@ namespace Zylon
 			fantesseract = false;
 			blackBox = false;
 			ectoburn = false;
-			critExtraDmg = 0f;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeMult = 1f;
@@ -209,8 +211,11 @@ namespace Zylon
 			//blowpipeMaxOverflow = 1.5f;
 			blowpipeMinShootSpeed = 0f;
 
+			critExtraDmg = 0f;
 			summonCrit = 0f;
 			summonCritBoost = 0f;
+			numof10ammo = 0;
+			damageVariation = 1f;
 		}
 		public override void UpdateDead() {
 			Heartdaze = false;
@@ -332,6 +337,9 @@ namespace Zylon
 			if (maraudersKit && Main.rand.NextFloat() < .1f) return false;
 			if (ammoSling && Main.rand.NextFloat() < .25f) return false;
 			if (roundmastersKit && Main.rand.NextFloat() < .4f) return false;
+			for (int i = 0; i < numof10ammo; i++) {
+				if (Main.rand.NextFloat() < .1f) return false;
+			}
             return true;
         }
         public override void UpdateEquips() {
@@ -403,9 +411,11 @@ namespace Zylon
 			if (trueMelee15) trueMeleeBoost += 0.15f;
 			if (neutronHood) trueMeleeBoost += 0.18f;
 			modifiers.SourceDamage *= trueMeleeBoost;
+			modifiers.DamageVariationScale *= damageVariation;
 
 			if ((item.DamageType == DamageClass.Summon || item.DamageType == DamageClass.SummonMeleeSpeed) && Main.rand.NextFloat() < summonCrit) {
 				modifiers.SetCrit(); //In case some mentally insane mod does this
+				summonCritHappen = true;
 			}
 
 			if (fantesseract) {
@@ -427,8 +437,10 @@ namespace Zylon
 		public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Projectile, consider using ModifyHitNPC instead */
 		{
 			modifiers.CritDamage += critExtraDmg;
+			modifiers.DamageVariationScale *= damageVariation;
 			if ((proj.DamageType == DamageClass.Summon || proj.DamageType == DamageClass.SummonMeleeSpeed) && Main.rand.NextFloat() < summonCrit) {
 				modifiers.SetCrit();
+				summonCritHappen = true;
 			}
 
 			if (fantesseract) {
@@ -460,6 +472,10 @@ namespace Zylon
 			if (scaryText2) { CombatText.NewText(target.getRect(), new Color(0, 0, 0), damageDone); scaryText2 = false; }
 		}
 		public void OnHitNPCGlobal(Item item, Projectile proj, NPC target, int damage, float knockback, bool crit, bool isDummy, bool TrueMelee) {
+			if (summonCritHappen) { //I have to do this for some reason
+				crit = true;
+				summonCritHappen = false;
+			}
 			hitTimer30 = 1800;
 			if (proj != null)
 			{
@@ -602,6 +618,10 @@ namespace Zylon
 			if (livingWoodSetBonus) target.AddBuff(BuffID.DryadsWardDebuff, Main.rand.Next(2, 5)*60);
 		}
 		public void OnHitPVPGlobal(Item item, Projectile proj, Player target, int damage, bool crit, bool TrueMelee) {
+			if (summonCritHappen) { //I have to do this for some reason
+				crit = true;
+				summonCritHappen = false;
+			}
 			hitTimer30 = 1800;
 			if (proj != null)
 			{

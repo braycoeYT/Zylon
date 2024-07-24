@@ -14,7 +14,6 @@ namespace Zylon.Projectiles.Flails
 	public class LihzahrdBoulderonaChain : ModProjectile
 	{
 		private const string ChainTexturePath = "Zylon/Projectiles/Flails/LihzahrdBoulderonaChainChain";
-		private const string ChainTextureExtraPath = "Zylon/Projectiles/Flails/LihzahrdBoulderonaChainChainExtra";
 		private enum AIState
 		{
 			Spinning,
@@ -33,7 +32,6 @@ namespace Zylon.Projectiles.Flails
 		public ref float CollisionCounter => ref Projectile.localAI[0];
 		public ref float SpinningStateTimer => ref Projectile.localAI[1];
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Lihzahrd's Boulder on a Chain");
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
 		}
@@ -348,23 +346,16 @@ namespace Zylon.Projectiles.Flails
 
 		public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
 		{
-			// Flails do a few custom things, you'll want to keep these to have the same feel as vanilla flails.
-
-			// The hitDirection is always set to hit away from the player, even if the flail damages the npc while returning
 			modifiers.HitDirectionOverride = (Main.player[Projectile.owner].Center.X < target.Center.X) ? 1 : (-1);
 
-			// Knockback is only 25% as powerful when in spin mode
 			if (CurrentAIState == AIState.Spinning)
 				modifiers.Knockback *= 0.25f;
-			// Knockback is only 50% as powerful when in drop down mode
 			if (CurrentAIState == AIState.Dropping)
 				modifiers.Knockback *= 0.5f;
 
-			// Flails do 20% more damage while spinning
 			if (CurrentAIState == AIState.Spinning)
 				modifiers.SourceDamage *= 1.2f;
 
-			// Flails do 100% more damage while launched or retracting. This is the damage the item tooltip for flails aim to match, as this is the most common mode of attack. This is why the item has ItemID.Sets.ToolTipDamageMultiplier[Type] = 2f;
 			if (CurrentAIState == AIState.LaunchingForward || CurrentAIState == AIState.Retracting)
 				modifiers.SourceDamage *= 2f;
 		}
@@ -374,8 +365,7 @@ namespace Zylon.Projectiles.Flails
 			playerArmPosition.Y -= Main.player[Projectile.owner].gfxOffY;
 
 			Asset<Texture2D> chainTexture = ModContent.Request<Texture2D>(ChainTexturePath);
-			Asset<Texture2D> chainTextureExtra = ModContent.Request<Texture2D>(ChainTextureExtraPath);
-
+			
 			Rectangle? chainSourceRectangle = null;
 			float chainHeightAdjustment = 0f;
 
@@ -393,26 +383,7 @@ namespace Zylon.Projectiles.Flails
 			while (chainLengthRemainingToDraw > 0f) {
 				Color chainDrawColor = Lighting.GetColor((int)chainDrawPosition.X / 16, (int)(chainDrawPosition.Y / 16f));
 
-				
 				var chainTextureToDraw = chainTexture;
-				if (chainCount >= 4) {
-				}
-				else if (chainCount >= 2) {
-					chainTextureToDraw = chainTextureExtra;
-					byte minValue = 140;
-					if (chainDrawColor.R < minValue)
-						chainDrawColor.R = minValue;
-
-					if (chainDrawColor.G < minValue)
-						chainDrawColor.G = minValue;
-
-					if (chainDrawColor.B < minValue)
-						chainDrawColor.B = minValue;
-				}
-				else {
-					chainTextureToDraw = chainTextureExtra;
-					chainDrawColor = Color.White;
-				}
 				Main.spriteBatch.Draw(chainTextureToDraw.Value, chainDrawPosition - Main.screenPosition, chainSourceRectangle, chainDrawColor, chainRotation, chainOrigin, 1f, SpriteEffects.None, 0f);
 				chainDrawPosition += unitVectorFromProjectileToPlayerArms * chainSegmentLength;
 				chainCount++;

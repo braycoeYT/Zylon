@@ -39,7 +39,8 @@ namespace Zylon.Items.Bags
 			LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.RemixSeed());
 			
 			leadingConditionRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>()));
-			
+			itemLoot.Add(leadingConditionRule);
+
 			itemLoot.Add(new CommonDrop(ItemType<Vanity.AdenebMask>(), 7)).OnFailedRoll(new CommonDrop(ItemType<Vanity.PolandballMask>(), 10));
 		}
 		public override Color? GetAlpha(Color lightColor) {

@@ -38,6 +38,7 @@ namespace Zylon.Projectiles.Minions
 		public override void AI() {
 			Timer++;
 			Player player = Main.player[Projectile.owner];
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			#region Active check
 			if (player.dead || !player.active)
 			{
@@ -50,9 +51,10 @@ namespace Zylon.Projectiles.Minions
 			#endregion
 
 			#region General behavior
-
 			Projectile.Center = player.Center - new Vector2(0, 64);
-
+			if (p.metelordExpert) {
+				Projectile.Center -= new Vector2(0, 51); //size of metecore + 5 pixels
+			}
 			#endregion
 
 			#region Find target

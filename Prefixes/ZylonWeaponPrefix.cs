@@ -1,8 +1,6 @@
-using System.Runtime.CompilerServices;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Zylon.Items.Bows;
 using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Prefixes
@@ -14,7 +12,7 @@ namespace Zylon.Prefixes
 			return 2.25f;
 		}
 		public override bool CanRoll(Item item) {
-			return GetInstance<ZylonConfig>().zylonianPrefixes;
+			return GetInstance<ZylonConfig>().zylonianPrefixes && item.DamageType != DamageClass.Summon && item.DamageType != DamageClass.SummonMeleeSpeed;
 		}
         public override void SetStats(ref float damageMult, ref float knockbackMult, ref float useTimeMult, ref float scaleMult, ref float shootSpeedMult, ref float manaMult, ref int critBonus) {
 			critBonus += 10;
@@ -27,7 +25,7 @@ namespace Zylon.Prefixes
 	{
 		public override PrefixCategory Category => PrefixCategory.AnyWeapon;
 		public override float RollChance(Item item) {
-			return 1f;
+			return 0.7f;
 		}
 		public override bool CanRoll(Item item) {
 			return GetInstance<ZylonConfig>().zylonianPrefixes;
@@ -219,6 +217,23 @@ namespace Zylon.Prefixes
 			knockbackMult = 1.15f;
 			shootSpeedMult = 1.12f;
 			critBonus = 7;
+		}
+        public override void Apply(Item item) {
+			
+		}
+	}
+	public class Piercing : ModPrefix //From mobile. Don't know if Consolaria readds it or not.
+	{
+		public override PrefixCategory Category => PrefixCategory.AnyWeapon;
+		public override float RollChance(Item item) {
+			return 0.75f;
+		}
+		public override bool CanRoll(Item item) {
+			return GetInstance<ZylonConfig>().zylonianPrefixes;
+		}
+        public override void SetStats(ref float damageMult, ref float knockbackMult, ref float useTimeMult, ref float scaleMult, ref float shootSpeedMult, ref float manaMult, ref int critBonus) {
+			damageMult = 1.1f;
+			critBonus = 10;
 		}
         public override void Apply(Item item) {
 			

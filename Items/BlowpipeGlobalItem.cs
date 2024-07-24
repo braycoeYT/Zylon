@@ -96,7 +96,7 @@ namespace Zylon.Items
 				if (item.type == ItemID.Blowpipe) {
 					maxCharge = 110;
 					chargeRate = 1f;
-					item.damage = 7;
+					item.damage = 9;
 					item.knockBack = 2f;
 					item.shootSpeed = 8.75f;
                 }

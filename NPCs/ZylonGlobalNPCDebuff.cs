@@ -36,7 +36,6 @@ namespace Zylon.NPCs
 			flashPandemic = false;
 			foamDart = false;
 			ectoburn = false;
-			base.ResetEffects(npc);
 		}
 		public override void UpdateLifeRegen(NPC npc, ref int damage) {
 			if (heartdaze) {
@@ -104,7 +103,6 @@ namespace Zylon.NPCs
 					damage = 7;
 				}
 			}
-			base.UpdateLifeRegen(npc, ref damage);
 		}
         public override void ModifyHitByItem(NPC npc, Player player, Item item, ref NPC.HitModifiers modifiers) {
             if (foamDart) modifiers.Defense.Flat -= 15;

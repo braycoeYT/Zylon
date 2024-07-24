@@ -33,7 +33,7 @@ namespace Zylon.Projectiles.Minions
 			Projectile.penetrate = -1;
 			Projectile.DamageType = DamageClass.Summon;
 			Projectile.usesLocalNPCImmunity = true;
-			Projectile.localNPCHitCooldown = 20;
+			Projectile.localNPCHitCooldown = 35;
 			Projectile.frame = Main.rand.Next(0, 3);
 		}
 		public override bool? CanCutTiles() {
@@ -84,7 +84,7 @@ namespace Zylon.Projectiles.Minions
 			#endregion
 
 			#region Find target
-			float distanceFromTarget = 500f;
+			float distanceFromTarget = 700f;
 			Vector2 targetCenter = Projectile.position;
 			bool foundTarget = false;
 
@@ -92,7 +92,7 @@ namespace Zylon.Projectiles.Minions
 			{
 				NPC npc = Main.npc[player.MinionAttackTargetNPC];
 				float between = Vector2.Distance(npc.Center, Projectile.Center);
-				if (between < 2000f)
+				if (between < 1000f)
 				{
 					distanceFromTarget = between;
 					targetCenter = npc.Center;

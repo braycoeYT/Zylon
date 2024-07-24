@@ -27,41 +27,11 @@ namespace Zylon.Tiles.Ores
 			AddMapEntry(new Color(103, 217, 69), name); //110, 150, 98
 			DustType = DustType<Dusts.CarnalliteOreDust>();
 			HitSound = SoundID.Tink;
-			MineResist = 1f;
-			MinPick = 65;
-		}
-		public override void PostDraw(int i, int j, SpriteBatch spriteBatch) {
+			MineResist = 1.5f;
 			MinPick = 65;
 		}
 		public override bool CanExplode(int i, int j) {
-			return true;
+			return false;
 		}
 	}
-	/*public class CarnalliteOreSystem : ModSystem
-	{
-		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight) {
-			int ShiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
-			if (ShiniesIndex != -1) {
-				tasks.Insert(ShiniesIndex + 1, new CarnalliteOrePass("Sprinkling in Zylonian Ores", 237.4298f));
-			}
-		}
-	}
-
-	public class CarnalliteOrePass : GenPass
-	{
-		public CarnalliteOrePass(string name, float loadWeight) : base(name, loadWeight) {
-		}
-
-		protected override void ApplyPass(GenerationProgress progress, GameConfiguration configuration) {
-			progress.Message = "Sprinkling in Zylonian Ores";
-
-			for (int k = 0; k < (int)(Main.maxTilesX * Main.maxTilesY * 0.0005); k++) {
-				int x = WorldGen.genRand.Next(0, Main.maxTilesX);
-				int y = WorldGen.genRand.Next((int)GenVars.worldSurfaceLow, Main.maxTilesY);
-				Tile tile = Framing.GetTileSafely(x, y);
-				if (tile.TileType == TileID.Mud)
-					WorldGen.TileRunner(x, y, WorldGen.genRand.Next(3, 6), WorldGen.genRand.Next(2, 6), ModContent.TileType<CarnalliteOre>());
-			}
-		}
-	}*/
 }

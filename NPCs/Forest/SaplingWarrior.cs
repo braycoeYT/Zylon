@@ -92,11 +92,11 @@ namespace Zylon.NPCs.Forest
         public override float SpawnChance(NPCSpawnInfo spawnInfo) { //I wanna make them only spawn if a block of living wood is near the player but idk how to do that (NOT spawn on the living wood, just nearby)
 			if (!Main.dayTime) return 0f;
 			if ((SpawnCondition.Ocean.Chance + SpawnCondition.OverworldDayDesert.Chance + SpawnCondition.Corruption.Chance + SpawnCondition.Crimson.Chance + SpawnCondition.SurfaceJungle.Chance + SpawnCondition.OverworldDaySnowCritter.Chance) > 0) return 0f;
-            return SpawnCondition.OverworldDay.Chance * 0.07f;
+            return SpawnCondition.OverworldDay.Chance * 0.1f;
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
 			npcLoot.Add(new CommonDrop(ItemID.Wood, 1, 1, 3));
-			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.LivingBranch>(), 1, 1, 2));
+			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.LivingBranch>(), 1, 2, 3));
 			npcLoot.Add(new CommonDrop(ItemID.Acorn, 2, 1));
 			npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ModContent.ItemType<Items.Bags.BagofFruits>(), 30), new CommonDrop(ModContent.ItemType<Items.Bags.BagofFruits>(), 25)));
 		}

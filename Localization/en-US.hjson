@@ -2278,6 +2278,11 @@ Mods: {
 					'''
 			}
 
+			HolyCrux: {
+				DisplayName: Holy Crux
+				Tooltip: Fires clones of light that bounce off tiles
+			}
+
 			LihzahrdBoulderonaChain: {
 				DisplayName: Lihzahrd's Boulder on a Chain
 				Tooltip:
@@ -2439,7 +2444,7 @@ Mods: {
 				Tooltip:
 					'''
 					Alternates between slow shots and a barrage of snowballs
-					Only the first snowball consumes ammo
+					Only one snowball consumes ammo
 					'''
 			}
 
@@ -2453,7 +2458,7 @@ Mods: {
 				Tooltip:
 					'''
 					Alternates between slow and fast modes
-					In fast mode, only the last bullet consumes ammo
+					In fast mode, only one bullet is consumed
 					'''
 			}
 
@@ -2654,7 +2659,7 @@ Mods: {
 
 			NeutronFragment: {
 				DisplayName: Neutron Fragment
-				Tooltip: "'The manifestations of death and intensity inhabit this heavily dense fragment'"
+				Tooltip: "'Intense manifestations of death inhabit this heavily dense fragment'"
 			}
 
 			ObeliskShard: {
@@ -2887,6 +2892,17 @@ Mods: {
 				Tooltip: Shoots multiple short ranged Neutron Blasts that chase your enemies
 			}
 
+			WinkofRadias: {
+				DisplayName: Wink of Radias
+				Tooltip:
+					'''
+					'Radias casteth her pity upon those who receive bad RNG'
+					Converts the nearby and below area to Hallow
+					Must be used on the surface
+					Use with caution
+					'''
+			}
+
 			CarnalliteOre: {
 				DisplayName: Carnallite Ore
 				Tooltip: "'It has a liking for the rich cultures of mud'"
@@ -3056,7 +3072,7 @@ Mods: {
 
 			FeralChemicals: {
 				DisplayName: Feral Chemicals
-				Tooltip: Increases weapon speed by up to 10% based on current health
+				Tooltip: Increases weapon speed by up to 10% based on current health percentage
 			}
 
 			FloaterPotion: {
@@ -4060,7 +4076,7 @@ Mods: {
 
 			LivingBranch: {
 				DisplayName: Living Branch
-				Tooltip: Enchanted with an ancient forest magic
+				Tooltip: "'Enchanted with an ancient forest magic'"
 			}
 
 			Cabin: {
@@ -4688,6 +4704,9 @@ Mods: {
 			SaburRexChlorophyteOrb.DisplayName: Chlorophyte Orb
 			SaburRexSporeCloud.DisplayName: Spore Cloud
 			SaburRexStarofWrath.DisplayName: Star of Wrath
+			HolyCruxClone.DisplayName: Holy Crux
+			HolyCrux.DisplayName: Holy Crux
+			WinkofRadiasProj.DisplayName: Winkof Radias Proj
 		}
 
 		NPCs: {
@@ -4835,6 +4854,19 @@ Mods: {
 			Pushy.DisplayName: Pushy
 			Relaxed.DisplayName: Relaxed
 			Aerobic.DisplayName: Aerobic
+			Piercing.DisplayName: Piercing
+			Balanced.DisplayName: Balanced
+			Safe.DisplayName: Safe
+			Plentiful.DisplayName: Plentiful
+			Costly.DisplayName: Costly
+			Awakened.DisplayName: Awakened
+			Robust.DisplayName: Robust
+			Lively.DisplayName: Lively
+			Healthy.DisplayName: Healthy
+			Animated.DisplayName: Animated
+			Preservative.DisplayName: Preservative
+			Risky.DisplayName: Risky
+			Heavy.DisplayName: Heavy
 		}
 
 		Tiles: {
@@ -4947,5 +4979,7 @@ Mods: {
 			AbyssworldPaintPassMessage: Darkening world
 			AutumnPaintPassMessage: Seasoning world
 		}
+
+		Conditions.DownedDirtballCondition: Mods.Zylon.Conditions.DownedDirtballCondition
 	}
 }

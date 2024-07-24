@@ -49,7 +49,9 @@ namespace Zylon.Projectiles.Accessories
 					Timer = 0;
                 }
             }
-
+			if (player.crystalLeaf) {
+				Projectile.Center -= new Vector2(0, 47); //size of crystal leaf + 5 pixels
+			}
 		}
 	}
 }

@@ -65,7 +65,7 @@ namespace Zylon.NPCs.Hallow
 			if (Main.rand.NextBool(7)) target.AddBuff(BuffID.Weak, 60*20);
         }
         int Timer;
-		//int attack = 0;
+		int attack = 0;
 		int myFrame;
 		public override void AI() {
 			NPC.netUpdate = true;
@@ -78,7 +78,7 @@ namespace Zylon.NPCs.Hallow
 
 			if (!Main.player[NPC.target].active) NPC.TargetClosest(true); //Only choose new target if attack transition or current target is dead
 			Player target = Main.player[NPC.target];
-			if ((int)NPC.ai[0] % 2 == 0) { //Ram attack
+			if (attack % 2 == 0) { //Ram attack
 				NPC.aiStyle = -1; //Yeet pixie mode for now
 				if (Timer % 60 == 0 || Timer < 2) NPC.velocity = NPC.DirectionTo(target.Center)*12f; //DASH!!!
 				else if (Timer % 60 > 30) NPC.velocity *= 0.94f; //Slow down
@@ -86,7 +86,7 @@ namespace Zylon.NPCs.Hallow
 				if (Timer >= 240) {
 					NPC.velocity = Vector2.Zero;
 					Timer = 0;
-					NPC.ai[0]++;
+					attack++;
 					NPC.TargetClosest(true);
                 }
             }
@@ -103,7 +103,7 @@ namespace Zylon.NPCs.Hallow
 				if (Timer >= 480) {
 					NPC.velocity = Vector2.Zero;
 					Timer = 0;
-					NPC.ai[0]++;
+					attack++;
 					NPC.TargetClosest(true);
                 }
             }
@@ -138,10 +138,10 @@ namespace Zylon.NPCs.Hallow
 			});
 		}
 		public override float SpawnChance(NPCSpawnInfo spawnInfo) {
-			return SpawnCondition.OverworldHallow.Chance * 0.13f;
+			return SpawnCondition.OverworldHallow.Chance * 0.145f;
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
-			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.SpectralFairyDust>(), 3)).OnFailedRoll(new CommonDrop(ItemID.PixieDust, 1, 2, 5));
+			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Materials.SpectralFairyDust>(), 2)).OnFailedRoll(new CommonDrop(ItemID.PixieDust, 1, 2, 5));
 			npcLoot.Add(new CommonDrop(ItemID.LightShard, 15));
 		}
 	}

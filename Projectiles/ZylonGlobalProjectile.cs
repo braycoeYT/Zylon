@@ -26,11 +26,13 @@ namespace Zylon.Projectiles
 		}
 		bool init;
         public override bool PreAI(Projectile projectile) {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Main.myPlayer];
             ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 
+			if (projectile.owner != Main.myPlayer) return true;
+
 			if (!init && p != null) {
-				if (player.HeldItem.useAmmo == AmmoID.Bullet || player.HeldItem.useAmmo == ItemType<Items.Ammo.AdeniteShrapnel>()) {
+				if ((player.HeldItem.useAmmo == AmmoID.Bullet || player.HeldItem.useAmmo == ItemType<Items.Ammo.AdeniteShrapnel>()) && !projectile.hostile) {
 					if (p.illusoryBulletPolish || p.maraudersKit) {
 						npcBounceCount = 1;
 						tileBounceCount = 2;
@@ -128,12 +130,14 @@ namespace Zylon.Projectiles
             }
         }
         public override void OnHitNPC(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone) {
-            if (target.type == NPCType<NPCs.Bosses.Dirtball.DirtBlock>() && (projectile.penetrate < 0 || projectile.penetrate > 3) && projectile.minion == false && Main.expertMode)
-				projectile.penetrate = 3;
-			if (target.type == NPCType<NPCs.Bosses.Metelord.MetelordHead>() || target.type == NPCType<NPCs.Bosses.Metelord.MetelordBody>() || target.type == NPCType<NPCs.Bosses.Metelord.MetelordTail>()) {
+			if (target.type == NPCType<NPCs.Bosses.Metelord.MetelordHead>() || target.type == NPCType<NPCs.Bosses.Metelord.MetelordBody>() || target.type == NPCType<NPCs.Bosses.Metelord.MetelordTail>() || target.type == NPCType<NPCs.Bosses.Dirtball.DirtBlock>()) {
 				if ((projectile.DamageType != DamageClass.Summon && projectile.DamageType != DamageClass.MagicSummonHybrid && projectile.aiStyle != 19) || projectile.type == ProjectileType<Minions.DirtBlockExp>())
 					damageCooldown = 30;
-            }
+
+				if (target.type == NPCType<NPCs.Bosses.Dirtball.DirtBlock>()) {
+
+				}
+			}
 			if (projectile.penetrate == 1 && npcBounceCount > 0 && !(target.type == NPCID.DungeonGuardian && projectile.type == ProjectileID.ChlorophyteBullet)) {
 				npcBounceCount--;
 				projectile.penetrate = 2;

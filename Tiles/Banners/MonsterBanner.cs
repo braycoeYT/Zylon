@@ -1,8 +1,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -22,14 +24,25 @@ namespace Zylon.Tiles.Banners
 			TileObjectData.newTile.StyleHorizontal = true;
 			TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile | AnchorType.SolidSide | AnchorType.SolidBottom, TileObjectData.newTile.Width, 0);
 			TileObjectData.newTile.StyleWrapLimit = 111;
+			TileObjectData.newTile.DrawYOffset = -2;
+			TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
+            TileObjectData.newAlternate.AnchorTop = new AnchorData(AnchorType.Platform, TileObjectData.newTile.Width, 0);
+            TileObjectData.newAlternate.DrawYOffset = -10;
+            TileObjectData.addAlternate(0);
 			TileObjectData.addTile(Type);
 			DustType = -1;
-			//DisableSmartCursor = true;
-			LocalizedText name = CreateMapEntryName();
-			// name.SetDefault("Banner");
-			AddMapEntry(new Color(13, 88, 130), name);
+			TileID.Sets.DisableSmartCursor[Type] = true;
+			AddMapEntry(new Color(13, 88, 130), Language.GetText("MapObject.Banner"));
 		}
-		public override void NearbyEffects(int i, int j, bool closer)
+		public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height, ref short tileFrameX, ref short tileFrameY) {
+            //I feel so smart for figuring this out myself. Even though it took at least an hour.
+			for (int k = 1; k < 4; k++) {
+				Tile topTile = Main.tile[i, j-k];
+				if (TileID.Sets.Platforms[topTile.TileType] && tileFrameY == 16*k)
+					offsetY = -10;
+			}
+        }
+        public override void NearbyEffects(int i, int j, bool closer)
 		{
 			if (closer)
 			{

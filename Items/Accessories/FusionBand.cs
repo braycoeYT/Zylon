@@ -31,8 +31,8 @@ namespace Zylon.Items.Accessories
 			recipe.AddIngredient(ItemID.BandofStarpower);
 			recipe.AddIngredient(ModContent.ItemType<IronBand>());
 			recipe.AddIngredient(ModContent.ItemType<ZincBand>());
-			recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 15);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 8);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
 			recipe = CreateRecipe();
@@ -40,24 +40,24 @@ namespace Zylon.Items.Accessories
 			recipe.AddIngredient(ItemID.BandofStarpower);
 			recipe.AddIngredient(ModContent.ItemType<LeadBand>());
 			recipe.AddIngredient(ModContent.ItemType<ZincBand>());
-			recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 15);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 8);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
 			recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ManaRegenerationBand);
 			recipe.AddIngredient(ModContent.ItemType<IronBand>());
 			recipe.AddIngredient(ModContent.ItemType<ZincBand>());
-			recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 15);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 8);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
 			recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ManaRegenerationBand);
 			recipe.AddIngredient(ModContent.ItemType<LeadBand>());
 			recipe.AddIngredient(ModContent.ItemType<ZincBand>());
-			recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 15);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 8);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

@@ -90,7 +90,9 @@ namespace Zylon.NPCs.Ocean
 			}
 		}
 		public override float SpawnChance(NPCSpawnInfo spawnInfo) {
-			if (NPC.downedBoss3) return ((SpawnCondition.CaveJellyfish.Chance*2f) + SpawnCondition.OceanMonster.Chance) * 0.625f;
+			float a = 1f;
+			if (ZylonWorldCheckSystem.downedJelly) a = 0.33f;
+			if (NPC.downedBoss3) return ((SpawnCondition.CaveJellyfish.Chance*2f) + SpawnCondition.OceanMonster.Chance) * 0.625f * a;
 			else return 0f;
         }
 		public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {

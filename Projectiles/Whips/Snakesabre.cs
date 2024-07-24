@@ -11,15 +11,11 @@ namespace Zylon.Projectiles.Whips
 	public class Snakesabre : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			// This makes the projectile use whip collision detection and allows flasks to be applied to it.
 			ProjectileID.Sets.IsAWhip[Type] = true;
 		}
-
 		public override void SetDefaults() {
-			// This method quickly sets the whip's properties.
 			Projectile.DefaultToWhip();
 
-			// use these to change from the vanilla defaults
 			Projectile.WhipSettings.Segments = 26; //20
 			Projectile.WhipSettings.RangeMultiplier = 0.85f; //1f
 		}
@@ -31,15 +27,13 @@ namespace Zylon.Projectiles.Whips
 		int spawnCount = 3;
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			Main.player[Projectile.owner].MinionAttackTargetNPC = target.whoAmI;
-			Projectile.damage = (int)(Projectile.damage * 0.95f); // Multihit penalty. Decrease the damage the more enemies the whip hits.
-			for (int i = 0; i < spawnCount; i++) {
+			Projectile.damage = (int)(Projectile.damage * 0.95f);
+			if (target.type != NPCID.TargetDummy) for (int i = 0; i < spawnCount; i++) {
 				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<SnakesabreSpin>(), (int)(Projectile.damage*0.66f), Projectile.knockBack/2f, Projectile.owner, i*10*spawnCount);
 			}
 			spawnCount--;
 			if (spawnCount < 0) spawnCount = 0;
 		}
-
-		// This method draws a line between all points of the whip, in case there's empty space between the sprites.
 		private void DrawLine(List<Vector2> list) {
 			Texture2D texture = TextureAssets.FishingLine.Value;
 			Rectangle frame = texture.Frame();
@@ -59,17 +53,11 @@ namespace Zylon.Projectiles.Whips
 				pos += diff;
 			}
 		}
-		Vector2 headPos;
 		public override bool PreDraw(ref Color lightColor) {
 			List<Vector2> list = new List<Vector2>();
 			Projectile.FillWhipControlPoints(Projectile, list);
 
 			DrawLine(list);
-
-			//Main.DrawWhip_WhipBland(Projectile, list);
-			// The code below is for custom drawing.
-			// If you don't want that, you can remove it all and instead call one of vanilla's DrawWhip methods, like above.
-			// However, you must adhere to how they draw if you do.
 
 			SpriteEffects flip = Projectile.spriteDirection < 0 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
 
@@ -79,38 +67,27 @@ namespace Zylon.Projectiles.Whips
 			Vector2 pos = list[0];
 
 			for (int i = 0; i < list.Count - 1; i++) {
-				// These two values are set to suit this projectile's sprite, but won't necessarily work for your own.
-				// You can change them if they don't!
-				Rectangle frame = new Rectangle(0, 0, 18, 32); // The size of the Handle (measured in pixels)
-				Vector2 origin = new Vector2(13+(0*(Main.player[Projectile.owner].direction-1)), 8); // Offset for where the player's hand will start measured from the top left of the image.
+				Rectangle frame = new Rectangle(0, 0, 18, 32); //Handle size
+				Vector2 origin = new Vector2(13+(0*(Main.player[Projectile.owner].direction-1)), 8); //Player hand offset
 				float scale = 1;
 
-				// These statements determine what part of the spritesheet to draw for the current segment.
-				// They can also be changed to suit your sprite.
 				if (i == list.Count - 2) {
-					// This is the head of the whip. You need to measure the sprite to figure out these values.
-					frame.Y = 128; // Distance from the top of the sprite to the start of the frame.
-					frame.Height = 24; // Height of the frame.
+					frame.Y = 128; //Distance from top of sprite to top of frame.
+					frame.Height = 24; //Height of frame.
 
-					// For a more impactful look, this scales the tip of the whip up when fully extended, and down when curled up.
 					Projectile.GetWhipSettings(Projectile, out float timeToFlyOut, out int _, out float _);
 					float t = Timer / timeToFlyOut;
 					scale = MathHelper.Lerp(0.5f, 1.5f, Utils.GetLerpValue(0.1f, 0.7f, t, true) * Utils.GetLerpValue(0.9f, 0.7f, t, true));
-					
-					headPos = pos;
 				}
 				else if (i > 24) {
-					// Third segment
 					frame.Y = 96;
 					frame.Height = 32;
 				}
 				else if (i > 12) {
-					// Second Segment
 					frame.Y = 64;
 					frame.Height = 32;
 				}
 				else if (i > 0) {
-					// First Segment
 					frame.Y = 32;
 					frame.Height = 32;
 				}
@@ -118,17 +95,14 @@ namespace Zylon.Projectiles.Whips
 				Vector2 element = list[i];
 				Vector2 diff = list[i + 1] - element;
 
-				float rotation = diff.ToRotation() - MathHelper.PiOver2; // This projectile's sprite faces down, so PiOver2 is used to correct rotation.
-				//Color color = Lighting.GetColor(element.ToTileCoordinates());
+				float rotation = diff.ToRotation() - MathHelper.PiOver2;
+				Color color = Lighting.GetColor(element.ToTileCoordinates());
 
-				Main.EntitySpriteDraw(texture, pos - Main.screenPosition, frame, Color.White, rotation, origin, scale, flip, 0);
+				Main.EntitySpriteDraw(texture, pos - Main.screenPosition, frame, color, rotation, origin, scale, flip, 0);
 
 				pos += diff;
 			}
 			return false;
 		}
-        public override void AI() {
-            //if (Timer > 30 && Timer < 50 && Projectile.owner == Main.myPlayer) Projectile.NewProjectile(Projectile.GetSource_FromThis(), headPos, Vector2.Zero, ModContent.ProjectileType<StarweaverTrail>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.5f, Projectile.owner);
-        }
     }
 }

@@ -185,6 +185,8 @@ namespace Zylon.Projectiles.Minions
 			}
 			Projectile.rotation += rotateSpeed;
 
+			if (animTimer % 240 == 239) Projectile.rotation = 0; //Fun fact: This is the exact same error as the one in the Wii port of SM64 that makes Bowser in the Fire Sea 0xA. The decimals are rounded further than expected, which eventually leads to uneven displacement over long periods of time.
+
 			Lighting.AddLight(Projectile.Center, Color.Orange.ToVector3() * 0.6f);
 			#endregion
 		}

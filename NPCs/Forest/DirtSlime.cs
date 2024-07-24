@@ -18,7 +18,7 @@ namespace Zylon.NPCs.Forest
         public override void SetDefaults() {
             NPC.width = 32;
 			NPC.height = 26;
-			NPC.damage = 19;
+			NPC.damage = 14;
 			NPC.defense = 0;
 			NPC.lifeMax = 35;
 			NPC.HitSound = SoundID.NPCHit1;
@@ -34,7 +34,7 @@ namespace Zylon.NPCs.Forest
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = 69;
-			NPC.damage = 36;
+			NPC.damage = 30;
 			NPC.knockBackResist = 0.8f;
 			NPC.value = Item.buyPrice(0, 0, 0, 30);
 			if (ZylonWorldCheckSystem.downedDirtball) {

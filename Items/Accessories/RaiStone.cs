@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using System;
 
 namespace Zylon.Items.Accessories
 {
@@ -18,7 +19,7 @@ namespace Zylon.Items.Accessories
 			Item.defense = 1;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
-			if (player.velocity.X < 0.01f && player.velocity.Y < 0.01f) player.statDefense += 8;
+			if (Math.Abs(player.velocity.X) < 0.01f && Math.Abs(player.velocity.Y) < 0.01f) player.statDefense += 8;
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
