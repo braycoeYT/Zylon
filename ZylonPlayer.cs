@@ -91,6 +91,8 @@ namespace Zylon
 		public bool fantesseract;
 		public bool blackBox;
 		public bool ectoburn;
+		public bool CHECK_BandofRegen;
+		public bool dishonored;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -198,6 +200,8 @@ namespace Zylon
 			fantesseract = false;
 			blackBox = false;
 			ectoburn = false;
+			CHECK_BandofRegen = false;
+			dishonored = false;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeMult = 1f;
@@ -589,7 +593,7 @@ namespace Zylon
 				}
 			}
 			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
-				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Player.whoAmI);
+				ProjectileHelpers.NewNetProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), 50, 1f, Player.whoAmI);
 			if (shadowflameMagic && Player.whoAmI == Main.myPlayer) {
 				if (item != null)
 					if (item.DamageType == DamageClass.Magic || item.DamageType == DamageClass.MagicSummonHybrid)
@@ -670,7 +674,7 @@ namespace Zylon
 			if (bloodVial && Main.rand.NextFloat() < .1f)
 				Player.Heal(1);
 			if (jellyExpert && crit && Player.ownedProjectileCounts[ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>()] < 2)
-				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), damage, 1f, Main.myPlayer);
+				Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Bosses.Jelly.JellyExpertProj>(), 50, 1f, Main.myPlayer);
 			if (metelordExpert && Player.ownedProjectileCounts[ProjectileType<Projectiles.Accessories.MetecoreSpirit>()] < 20 && metecoreFloat < 3f)
 			{
 				Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, Vector2.Zero, ProjectileType<Projectiles.Accessories.MetecoreSpirit>(), 0, 0, Main.myPlayer);

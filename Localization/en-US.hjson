@@ -559,6 +559,7 @@ Mods: {
 					Increases life and mana regeneration moderately
 					Increases max mana by 20
 					Increases the potency of regeneration, magic power, magic regeneration, ironskin, and swiftness potions
+					Life regen does not stack with other bands
 					'''
 			}
 
@@ -1001,6 +1002,7 @@ Mods: {
 					Increases invincibility time after taking damage
 					Reduces the cooldown of healing potions by 25%
 					Effects of Friendship Bracelet at a range of 150 tiles
+					Life regen does not stack with other bands
 					'''
 			}
 
@@ -1780,7 +1782,7 @@ Mods: {
 
 			ZincBar: {
 				DisplayName: Zinc Bar
-				Tooltip: Can be used in Any Iron Bar recipes
+				Tooltip: ""
 			}
 
 			Beepipe: {
@@ -1929,8 +1931,8 @@ Mods: {
 				DisplayName: Vortex Blowpipe
 				Tooltip:
 					'''
-					At max charge, replaces ammo with a burst of flames
-					Right click to disable and enable this effect
+					Fires several Vortex Bombs with each shot
+					The amount of bombs is dependent on blowpipe charnge
 					'''
 			}
 
@@ -2540,8 +2542,8 @@ Mods: {
 				DisplayName: Temple Equalizer
 				Tooltip:
 					'''
-					Fires a barrage of bullets on foes
-					Every third shot is replaced with an equal spread of Temple Blasts
+					Fires a quick burst of bullets in a wave pattern, consuming only one ammo
+					Each burst is anteceded by a slow-moving, piercing Temple Blast
 					'''
 			}
 
@@ -4008,6 +4010,7 @@ Mods: {
 					Increases invincibility time after taking damage
 					Reduces the cooldown of healing potions by 25%
 					Increases life regen slightly
+					Life regen does not stack with other bands
 					'''
 			}
 

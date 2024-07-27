@@ -85,7 +85,7 @@ namespace Zylon.Projectiles.Minions
 			#endregion
 
 			#region Find target
-			float distanceFromTarget = 500f;
+			float distanceFromTarget = 1000f;
 			Vector2 targetCenter = Projectile.position;
 			bool foundTarget = false;
 
@@ -118,6 +118,7 @@ namespace Zylon.Projectiles.Minions
 					}
 				}
 			}
+			if (foundTarget && (distanceFromTarget > 2000f || (distanceFromTarget > 1000f && !player.HasMinionAttackTargetNPC))) foundTarget = false; //WHY DOES THIS HAVE TO BE HERE
 			Projectile.friendly = foundTarget;
 			#endregion
 
@@ -128,7 +129,7 @@ namespace Zylon.Projectiles.Minions
 
 			if (foundTarget)
 			{
-				if (distanceFromTarget > 40f) {
+				if (distanceFromTarget > 40f && distanceFromTarget < 2000f) {
 					Vector2 direction = targetCenter - Projectile.Center;
 					direction.Normalize();
 					direction *= speed;

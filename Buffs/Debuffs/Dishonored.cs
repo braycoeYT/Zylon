@@ -9,7 +9,6 @@ namespace Zylon.Buffs.Debuffs
     {
         public override void SetStaticDefaults() {
             Main.debuff[Type] = true;
-			Main.pvpBuff[Type] = true;
 			Main.buffNoSave[Type] = true;
 			BuffID.Sets.LongerExpertDebuff[Type] = false;
         }
@@ -17,6 +16,7 @@ namespace Zylon.Buffs.Debuffs
 			player.statDefense *= 0f;
             player.endurance = -0.5f;
             player.GetDamage(DamageClass.Generic) *= 0.01f;
+            player.GetModPlayer<ZylonPlayer>().dishonored = true;
 		}
     }
 }

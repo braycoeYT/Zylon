@@ -121,6 +121,10 @@ namespace Zylon.Items
 				TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Increases blowpipe charge speed by 10/s (does not stack with other balloons)");
 				tooltips.Add(line);
 			}
+			if (item.type == ItemID.BandofRegeneration || item.type == ItemID.CharmofMyths) {
+				TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Life regen does not stack with other bands");
+				tooltips.Add(line);
+			}
 			/*if (item.type == ItemID.Minishark || item.type == ItemID.Shotgun || item.type == ItemID.PainterPaintballGun) {
 				TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Slightly weakened until Eater of Worlds or Brain of Cthulhu is defeated");
 				tooltips.Add(line);
@@ -252,6 +256,10 @@ namespace Zylon.Items
 				if (p.CHECK_PygmyNecklace) player.maxMinions -= 1;
 				p.CHECK_PygmyNecklace = true;
 			}
+			if (item.type == ItemID.BandofRegeneration || item.type == ItemID.CharmofMyths) {
+				if (p.CHECK_BandofRegen) player.lifeRegen -= 1;
+				p.CHECK_BandofRegen = true;
+			}
 		}
         public override void RightClick(Item item, Player player) {
             if (item.type == ItemID.KingSlimeBossBag) {
@@ -277,9 +285,9 @@ namespace Zylon.Items
 			if (item.type == ItemID.WallOfFleshBossBag) {
 				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.DemonConch);
             }
-			if (item.type == ItemID.TwinsBossBag) {
+			/*if (item.type == ItemID.TwinsBossBag) {
 				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemType<Minions.SpazmaticScythe>());
-            }
+            }*/
 			if (item.type == ItemID.PlanteraBossBag) {
 				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.JungleRose);
 				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.NaturesGift);

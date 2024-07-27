@@ -2,11 +2,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Projectiles.Minions
 {
@@ -44,15 +41,10 @@ namespace Zylon.Projectiles.Minions
 			Player player = Main.player[Projectile.owner];
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			#region Active check
-			/*if (player.dead || !player.active)
-			{
-				player.ClearBuff(BuffType<Buffs.Minions.DirtBlockVanity>());
-			}
-			if (player.HasBuff(BuffType<Buffs.Minions.DirtBlockVanity>()))
+			if (!player.dead)
 			{
 				Projectile.timeLeft = 2;
-			}*/
-			Projectile.timeLeft = 2;
+			}
 			if (!p.dirtballExpertVanity) Projectile.Kill();
 			#endregion
 
@@ -111,8 +103,19 @@ namespace Zylon.Projectiles.Minions
 			Projectile.rotation += 0.02f;
 			#endregion
 		}
-
-		public override bool PreDraw(ref Color lightColor) {
+        public override void OnKill(int timeLeft) {
+			int type = ModContent.GoreType<Gores.Projectiles.DirtBlockExp_0>();
+            switch (Projectile.frame) {
+				case 1:
+					type = ModContent.GoreType<Gores.Projectiles.DirtBlockExp_1>();
+					break;
+				case 2:
+					type = ModContent.GoreType<Gores.Projectiles.DirtBlockExp_2>();
+					break;
+			}
+			Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position, Projectile.velocity, type);
+        }
+        public override bool PreDraw(ref Color lightColor) {
 			Texture2D projectileTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Minions/DirtBlockExp");
 			Texture2D trailTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Minions/DirtBlockExp_trail");
 

@@ -88,10 +88,10 @@ namespace Zylon.NPCs
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Swords.Dreadclawtilus>(), 5), new CommonDrop(ItemType<Items.Swords.Dreadclawtilus>(), 4)));
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.BloodDroplet>(), 1, 3, 6));
 			}
-			if (npc.type == NPCID.Spazmatism) {
+			/*if (npc.type == NPCID.Spazmatism) {
 				LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.NotExpert());
 				leadingConditionRule.OnSuccess(ItemDropRule.ByCondition(new Conditions.MissingTwin(), ItemType<Items.Minions.SpazmaticScythe>(), 4));
-            }
+            }*/
 			if (npc.type == NPCID.Plantera) {
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.JungleRose, 3));
 				npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ItemID.NaturesGift, 3));
@@ -201,7 +201,7 @@ namespace Zylon.NPCs
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SparkingCore>(), 30), new CommonDrop(ItemType<Items.Accessories.SparkingCore>(), 20)));
             }
 			if (npc.type == NPCID.Scutlix || npc.type == NPCID.ScutlixRider || npc.type == NPCID.MartianWalker || npc.type == NPCID.GigaZapper || npc.type == NPCID.MartianEngineer || npc.type == NPCID.MartianOfficer || npc.type == NPCID.RayGunner || npc.type == NPCID.GrayGrunt || npc.type == NPCID.BrainScrambler) {
-				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Whips.Giegue>(), 50), new CommonDrop(ItemType<Items.Whips.Giegue>(), 30)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Whips.Giegue>(), 60), new CommonDrop(ItemType<Items.Whips.Giegue>(), 45)));
             }
 			if (npc.type == -6)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Materials.Cerussite>(), 1, 1, 2));
@@ -230,6 +230,10 @@ namespace Zylon.NPCs
 				npcLoot.Add(new CommonDrop(ItemType<Items.Accessories.IllusoryBulletPolish>(), 25));
 			if (npc.type == NPCID.Tim)
 				npcLoot.Add(new CommonDrop(ItemType<Items.Accessories.VengefulSpirit>(), 5));
+			if (npc.type == NPCID.DungeonSpirit)
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.EtherealGasp>(), 40), new CommonDrop(ItemType<Items.Accessories.EtherealGasp>(), 30)));
+			if (npc.type == NPCID.SkeletonArcher)
+				npcLoot.Add(new CommonDrop(ItemID.BoneArrow, 50, 100, 250));
 		}
         int Timer;
 		bool prevNoGrav;

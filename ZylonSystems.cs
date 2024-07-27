@@ -867,6 +867,18 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.JungleSpores, 12);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.ClimbingClaws);
+			recipe.AddIngredient(ItemID.BlackDye);
+			recipe.AddRecipeGroup("IronBar", 9);
+			recipe.AddTile(TileID.Sawmill);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.ShoeSpikes);
+			recipe.AddIngredient(ItemID.BlackDye);
+			recipe.AddRecipeGroup("IronBar", 9);
+			recipe.AddTile(TileID.Sawmill);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
             if (ModContent.GetInstance<ZylonConfig>().zylonianBalancing) for (int i = 0; i < Recipe.numRecipes; i++) {

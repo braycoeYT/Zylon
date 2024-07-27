@@ -36,9 +36,10 @@ namespace Zylon.Tiles.Banners
 		}
 		public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height, ref short tileFrameX, ref short tileFrameY) {
             //I feel so smart for figuring this out myself. Even though it took at least an hour.
+			//Edit: Not me accidentally ruining the code when converting an if chain to a for loop
 			for (int k = 1; k < 4; k++) {
 				Tile topTile = Main.tile[i, j-k];
-				if (TileID.Sets.Platforms[topTile.TileType] && tileFrameY == 16*k)
+				if (TileID.Sets.Platforms[topTile.TileType] && tileFrameY == 18*(k-1))
 					offsetY = -10;
 			}
         }

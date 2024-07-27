@@ -159,7 +159,18 @@ namespace Zylon.Projectiles.Minions
 			Projectile.rotation += 0.02f;
 			#endregion
 		}
-
+		public override void OnKill(int timeLeft) {
+			int type = ModContent.GoreType<Gores.Projectiles.DirtBlockExp_0>();
+            switch (Projectile.frame) {
+				case 1:
+					type = ModContent.GoreType<Gores.Projectiles.DirtBlockExp_1>();
+					break;
+				case 2:
+					type = ModContent.GoreType<Gores.Projectiles.DirtBlockExp_2>();
+					break;
+			}
+			Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.position, Projectile.velocity, type);
+        }
 		public override bool PreDraw(ref Color lightColor)
 		{
 			Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;

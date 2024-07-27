@@ -17,7 +17,8 @@ namespace Zylon.Items.Accessories
 		public override void UpdateAccessory(Player player, bool hideVisual) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			player.statManaMax2 += 20;
-			player.lifeRegen += 2;
+			if (!p.CHECK_BandofRegen) player.lifeRegen += 2;
+			p.CHECK_BandofRegen = true;
 			player.manaRegen += 2;
 			p.bandofRegen = true;
 			p.bandofStarpower = true;

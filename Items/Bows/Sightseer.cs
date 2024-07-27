@@ -11,9 +11,9 @@ namespace Zylon.Items.Bows
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 5);
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.useAnimation = 19;
-			Item.useTime = 19;
-			Item.damage = 58;
+			Item.useAnimation = 26;
+			Item.useTime = 26;
+			Item.damage = 49;
 			Item.width = 12;
 			Item.height = 24;
 			Item.knockBack = 2f;
@@ -29,8 +29,11 @@ namespace Zylon.Items.Bows
 		int shootCount;
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             shootCount++;
-			if (shootCount % 2 == 0) Projectile.NewProjectile(source, player.Center - new Vector2(0, 16), velocity.RotatedBy(MathHelper.ToRadians(-5)), ModContent.ProjectileType<Projectiles.CursedFlamesMelee>(), Item.damage, Item.knockBack / 2, Main.myPlayer, 1f);
-            else Projectile.NewProjectile(source, player.Center + new Vector2(0, 16), velocity.RotatedBy(MathHelper.ToRadians(5)), ModContent.ProjectileType<Projectiles.EyeLaserFriendly>(), Item.damage, Item.knockBack / 2, Main.myPlayer, 1f);
+			float dir = 1f;
+			if (velocity.X < 0) dir = -1f;
+			float rot = velocity.ToRotation();
+			if (shootCount % 2 == 0) Projectile.NewProjectile(source, player.Center - new Vector2(0, 16*dir).RotatedBy(rot), velocity.RotatedBy(MathHelper.ToRadians(-5)), ModContent.ProjectileType<Projectiles.CursedFlamesMelee>(), Item.damage, Item.knockBack / 2f, Main.myPlayer, 1f);
+            else Projectile.NewProjectile(source, player.Center + new Vector2(0, 16*dir).RotatedBy(rot), velocity.RotatedBy(MathHelper.ToRadians(5)), ModContent.ProjectileType<Projectiles.EyeLaserFriendly>(), Item.damage, Item.knockBack / 2f, Main.myPlayer, 1f);
 			return true;
         }
         public override void AddRecipes() {

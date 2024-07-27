@@ -28,7 +28,7 @@ namespace Zylon.Projectiles.Wands
             Projectile.penetrate = -1;
 		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-            Projectile.damage = (int)(Projectile.damage*0.75f);
+            Projectile.damage = (int)(Projectile.damage*0.65f);
             if (Projectile.damage < 1) Projectile.damage = 1;
         }
         public override void AI() {

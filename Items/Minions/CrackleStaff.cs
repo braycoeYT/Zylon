@@ -14,7 +14,7 @@ namespace Zylon.Items.Minions
 			ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
 		}
 		public override void SetDefaults() {
-			Item.damage = 21;
+			Item.damage = 24;
 			Item.knockBack = 4f;
 			Item.mana = 10;
 			Item.width = 42;

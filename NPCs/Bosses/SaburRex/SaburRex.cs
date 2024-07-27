@@ -63,6 +63,13 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			if ((NPC.ai[0] == 0 && NPC.ai[3] == 1) || (NPC.ai[0] == 4f && NPC.ai[3] == 0f)) return false; //See influx weaver and tizona code - prevent frustration.
             return true;
         }
+        public override bool? CanBeHitByItem(Player player, Item item) {
+            return !player.GetModPlayer<ZylonPlayer>().dishonored;
+        }
+        public override bool? CanBeHitByProjectile(Projectile projectile) {
+			if (Main.player[projectile.owner] == null) return false;
+            return !Main.player[projectile.owner].GetModPlayer<ZylonPlayer>().dishonored;
+        }
         public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers) {
             if (projectile.type == ProjectileID.FinalFractal) modifiers.FinalDamage *= 0.66f; //I wanted to unnerf Zenith a little but not let it obliterate the mod's final boss
         }
@@ -758,12 +765,8 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			//Main.NewText(NPC.direction); //test
 
 			if (init && !finale) for (int i = 0;  i < Main.maxPlayers; i++) {
-				if ((Vector2.Distance(Main.player[i].Center, ringPos) > 750 && Vector2.Distance(Main.player[i].Center, ringPos) < 2000) || Main.player[i].HasBuff(BuffID.Shimmer)) {
+				if (Main.player[i] != null) if (Main.player[i].active) if ((Vector2.Distance(Main.player[i].Center, ringPos) > 750 && (Vector2.Distance(Main.player[i].Center, ringPos) < 2000 || Vector2.Distance(Main.player[i].Center, NPC.Center) < 1600)) || Main.player[i].HasBuff(BuffID.Shimmer)) {
 					Main.player[i].AddBuff(ModContent.BuffType<Buffs.Debuffs.Dishonored>(), 2);
-
-					//Possibly add later with visuals? Idk
-					//if (init && NPC.ai[0] == 0f) //Leaving the arena is banned during the influx waver attack
-					//	Main.player[i].AddBuff(BuffID.Electrified, 2);
 				}
 			}
 

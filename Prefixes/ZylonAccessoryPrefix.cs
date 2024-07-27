@@ -9,7 +9,7 @@ namespace Zylon.Prefixes
 	{
 		public override PrefixCategory Category => PrefixCategory.Accessory;
 		public override float RollChance(Item item) {
-			return 1f;
+			return 0.8f;
 		}
 		public override bool CanRoll(Item item) {
 			return GetInstance<ZylonConfig>().zylonianPrefixes;

@@ -12,7 +12,7 @@ namespace Zylon.Items.Wands
 			Item.staff[Item.type] = true;
 		}
 		public override void SetDefaults() {
-			Item.damage = 70;
+			Item.damage = 51;
 			Item.width = 56;
 			Item.height = 58;
 			Item.DamageType = DamageClass.Magic;
@@ -27,14 +27,14 @@ namespace Zylon.Items.Wands
 			Item.shoot = ModContent.ProjectileType<Projectiles.Wands.ArchangelsWandProj>();
 			Item.shootSpeed = 6f;
 			Item.noMelee = true;
-			Item.mana = 9;
+			Item.mana = 10;
 			Item.stack = 1;
 			Item.UseSound = SoundID.NPCHit5;
 		}
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.HallowedBar, 12);
-			recipe.AddIngredient(ModContent.ItemType<Materials.SpectralFairyDust>(), 3);
+			recipe.AddIngredient(ItemID.PearlstoneBlock, 39);
+			recipe.AddIngredient(ModContent.ItemType<Materials.SpectralFairyDust>(), 4);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

@@ -306,6 +306,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 
 				if (drawAura) {
 					for (int x = 0; x < Main.maxPlayers; x++) {
+						if (Main.player[x] == null) break;
 						float dist = Vector2.Distance(NPC.Center, Main.player[x].Center);
 						if (dist > 500 && dist < 3000) Main.player[x].AddBuff(ModContent.BuffType<Buffs.Debuffs.SearedFlame>(), 2);
                     }

@@ -32,7 +32,7 @@ namespace Zylon.Projectiles
 			if (projectile.owner != Main.myPlayer) return true;
 
 			if (!init && p != null) {
-				if ((player.HeldItem.useAmmo == AmmoID.Bullet || player.HeldItem.useAmmo == ItemType<Items.Ammo.AdeniteShrapnel>()) && !projectile.hostile) {
+				if ((player.HeldItem.useAmmo == AmmoID.Bullet || player.HeldItem.useAmmo == ItemType<Items.Ammo.AdeniteShrapnel>()) && !projectile.hostile && projectile.DamageType == DamageClass.Ranged) {
 					if (p.illusoryBulletPolish || p.maraudersKit) {
 						npcBounceCount = 1;
 						tileBounceCount = 2;
@@ -158,6 +158,8 @@ namespace Zylon.Projectiles
 				if (projectile.velocity.Y != oldVelocity.Y) {
 					projectile.velocity.Y = -oldVelocity.Y;
 				}
+				projectile.damage = (int)(projectile.damage*0.7f);
+				if (projectile.damage < 1) projectile.damage = 1;
 				return false;
 			}
             return true;

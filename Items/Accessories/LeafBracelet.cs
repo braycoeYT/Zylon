@@ -21,7 +21,8 @@ namespace Zylon.Items.Accessories
 			if (!player.buffImmune[BuffID.PotionSickness]) p.leafBracer = true; //POINTLESS BUT JUST IN CASE
 			player.pStone = true;
 			player.longInvince = true;
-			player.lifeRegen += 1;
+			if (!p.CHECK_BandofRegen) player.lifeRegen += 1;
+			p.CHECK_BandofRegen = true;
 		}
 		public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale) {
             Texture2D texture = TextureAssets.Item[Item.type].Value;

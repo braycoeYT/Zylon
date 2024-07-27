@@ -27,8 +27,12 @@ namespace Zylon.Projectiles.Guns
             Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 10;
         }
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+            Projectile.damage = (int)(Projectile.damage*0.85f);
+            if (Projectile.damage < 1) Projectile.damage = 1;
+        }
         public override void AI() {
-            Projectile.velocity *= 1.05f;
+            //Projectile.velocity *= 1.05f;
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
         }
         public override bool PreDraw(ref Color lightColor) {
@@ -41,7 +45,7 @@ namespace Zylon.Projectiles.Guns
             for (int k = 0; k < Projectile.oldPos.Length; k++)
             {
                 Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY) + new Vector2(13, 13); //+ drawOrigin
-                Color colorAfterEffect = color * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.3f;
+                Color colorAfterEffect = color * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.8f;
                 Main.spriteBatch.Draw(projectileTexture, drawPosEffect, null, colorAfterEffect, Projectile.oldRot[k], drawOrigin, Projectile.scale, SpriteEffects.None, 0);
             }
             Main.spriteBatch.Draw(projectileTexture, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);

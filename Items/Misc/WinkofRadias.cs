@@ -74,8 +74,9 @@ namespace Zylon.Items.Misc
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.PixieDust, 50);
-			recipe.AddIngredient(ItemID.BlueSolution, 300);
-			recipe.AddIngredient(ItemID.HallowedBar, 25);
+			recipe.AddIngredient(ItemID.BlueSolution, 777);
+			recipe.AddIngredient(ItemID.HallowedBar, 35);
+			recipe.AddIngredient(ItemID.SoulofLight, 25);
 			recipe.AddTile(TileID.CrystalBall);
 			recipe.Register();
 		}

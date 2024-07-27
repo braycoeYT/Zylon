@@ -189,7 +189,9 @@ namespace Zylon.NPCs.Desert
             }
         }
 		public override float SpawnChance(NPCSpawnInfo spawnInfo) {
-			if (SpawnCondition.Ocean.Chance > 0f) return 0f;
+			//if (SpawnCondition.Ocean.Chance + SpawnCondition.OceanMonster.Chance > 0f) return 0f;
+			//if (spawnInfo.SpawnTileX < 400 || Main.maxTilesX-spawnInfo.SpawnTileX < 400) return 0f;
+			if (spawnInfo.Player.ZoneBeach) return 0f;
             return (SpawnCondition.OverworldDayDesert.Chance * 2.3f) + (SpawnCondition.DesertCave.Chance * 0.08f);
         }
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {

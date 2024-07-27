@@ -12,7 +12,7 @@ namespace Zylon.Items.Guns
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 4, 45);
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.useAnimation = 48;
+			Item.useAnimation = 8;
 			Item.useTime = 8;
 			Item.damage = 45;
 			Item.width = 42;
@@ -40,7 +40,7 @@ namespace Zylon.Items.Guns
 			if (shootCount % 18 > 11) {
 				SoundEngine.PlaySound(SoundID.Item11, player.Center);
 				Projectile.NewProjectile(source, position, velocity*0.9f, type, (int)(damage*0.13f), knockback/4f, Main.myPlayer);
-				if (shootCount % 18 == 17) Item.reuseDelay = 40;
+				if (shootCount % 18 == 16) Item.reuseDelay = 40;
 				return false;
 			}
 			if (shootCount % 6 == 0) SoundEngine.PlaySound(SoundID.Item41, player.Center);

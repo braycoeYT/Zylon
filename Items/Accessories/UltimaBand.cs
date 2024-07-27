@@ -20,7 +20,8 @@ namespace Zylon.Items.Accessories
 
 			//Fusion band + regen powers
 			player.statManaMax2 += 20;
-			player.lifeRegen += 4;
+			if (!p.CHECK_BandofRegen) player.lifeRegen += 4;
+			p.CHECK_BandofRegen = true;
 			player.manaRegen += 2;
 			p.bandofRegen = true;
 			p.bandofStarpower = true;

@@ -25,7 +25,7 @@ namespace Zylon.Prefixes
 	{
 		public override PrefixCategory Category => PrefixCategory.AnyWeapon;
 		public override float RollChance(Item item) {
-			return 0.7f;
+			return 0.55f;
 		}
 		public override bool CanRoll(Item item) {
 			return GetInstance<ZylonConfig>().zylonianPrefixes;

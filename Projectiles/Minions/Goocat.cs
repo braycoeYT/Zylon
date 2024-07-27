@@ -187,7 +187,7 @@ namespace Zylon.Projectiles.Minions
 			#region Projectile
 			if (foundTarget && Vector2.Distance(targetCenter, Projectile.Center) < 400) {
 				Timer++;
-				if (Timer % 12 == 0) {
+				if (Timer % 22 == 0) { //og 12
 					int helpInt = 1;
 					if (Projectile.frame == 8) helpInt = 2;
 					else if (Main.rand.NextFloat() <= greenChance) helpInt = 0;

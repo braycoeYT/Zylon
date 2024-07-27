@@ -10,7 +10,7 @@ namespace Zylon.Items.Misc
 		public override void SetDefaults() {
 			Item.width = 30;
 			Item.height = 30;
-			Item.damage = 26;
+			Item.damage = 31;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useAnimation = 21;
 			Item.useTime = 21;

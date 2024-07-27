@@ -12,9 +12,9 @@ namespace Zylon.Items.Guns
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 9, 87);
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.useAnimation = 31;
-			Item.useTime = 31;
-			Item.damage = 127;
+			Item.useAnimation = 47;
+			Item.useTime = 47;
+			Item.damage = 117;
 			Item.width = 66;
 			Item.height = 34;
 			Item.knockBack = 1.25f;

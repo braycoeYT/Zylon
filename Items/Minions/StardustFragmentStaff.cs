@@ -40,7 +40,7 @@ namespace Zylon.Items.Minions
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.FragmentStardust, 18);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

@@ -1,7 +1,7 @@
 The best mod that starts with Z — we guarantee or your money back! Zylon has finally returned after an 11-month update that we call Cause to Clash — the biggest update the mod has ever seen, with over 150 new items, a boss rework, a new Post-Moon Lord boss, countless item reworks, new sprites, general bugfixes, and so much more! Warning: Mod does not work in multiplayer. At all.
 
 Stats:
-~485 Items
+~482 Items
 ~5 Bosses:
 ~~~4 Prehardmode Bosses [i:2][i:116][i:789][i:282]
 ~~~1 Post-Moon Lord Boss [i:5130]
@@ -13,43 +13,42 @@ Stats:
 ~Several new prefixes for weapons and accessories!
 ~New secret seeds: Abyssworld and Autumn.
 
-V0.0.3.1: Cause to Clash Addendum
-~Fixed a small issue with overhead minion display.
-~Added Holy Crux.
-~Dirtball's Dirt Blocks no longer destroy projectiles, now simply reducing hit rate instead.
-~Buffed Blowpipe and Lobbing Log.
-~Decreased Dirt Slime damage.
-~Made Sapling Warriors spawn more often and drop more Living Branches.
-~Slightly decreased how often Adenites spawn on the surface.
-~Fixed summon weapon crits not triggering crit effects.
-~Decreased drop rate of Glazed Lens and the Goblin Army drops.
-~Nerfed the Enchanted Dirt Clump.
-~Fixed the way the Overgrown Handgun Fragment is held.
-~Fixed dirtball fragment weapons not dropping from expert bags.
-~Moved progression of Fusion Band from post-Plantera to early Hardmode.
-~Made the Ultimate prefix less common.
-~Changed Bone Slime death sound.
-~Fixed a rotation bug with the Raging Sun Staff.
-~Buffed Raging Sun Staff.
-~Fixed a minor issue with the Blood Butler.
-~Cleaned up flail code.
-~Fixed Illusory Bullet Polish making enemy projectiles bounce. Uh oh.
-~Fixed bug with Foxtrot and Arctic Vixen that voided the effects of prefixes.
-~Adenites no longer spawn at the ocean.
-~Dirtball no longer drops Iron or Lead Bars, and has a much lower chance to drop Bags of Fruits and Mud Pies.
-~Eerie Jellyfish now spawn a lot less after Eldritch Jellyfish is defeated.
-~Added Piercing, Balanced, Costly, Safe, Plentiful, Awakened, Animated, Lively, Healthy, Robust, Preservative, Risky, and Heavy prefixes.
-~Fixed bug with Rai Stone not working properly.
-~Changed Neutron Fragment tooltip.
-~Snakesabre no longer targets nor activates effects on Target Dummies.
-~Made Carnallite Ore harder to mine.
-~Fixed a bug that didn't allow one to place banners on platforms.
-~Fixed Dirtball not despawning correctly.
-~Removed The Archangel (for now?).
-~Added Wink of Radias.
-~Fixed bug with Pixie Archangel not using an attack.
-~Slightly increased Pixie Archangel spawn rate.
-~Increased chances of Pixie Archangel dropping Spectral Fairy Dust.
+V0.0.3.2: Cause to Clash Addendum II
+~Fixed even more issues with Foxtrot and Arctic Vixen.
+~Eldritch Tentacles now deal flat damage instead of being based on damage dealt.
+~Buffed Crackle Staff and Wyvern's Call.
+~Nerfed Poltergeist.
+~Fixed even more issues with the Illusory Bullet Polish.
+~Nerfed Goocat Staff.
+~Fixed Ethereal Gasp not dropping.
+~Fixed Stardust Fragment Staff being crafted at the wrong station.
+~Fixed a bug that prevented Sabur Rex from working at all.
+~Mechanical Slime no longer drops Zinc bar.
+~Removed Zinc Bar tooltip.
+~Made Wink of Radias much harder to craft.
+~Fixed a bug that stopped Dirtball from despawning incorrectly.
+~Band of Regeneration variants now no longer stack with each other.
+~Illusory Bullet Polish now decreases damage of bullets after bouncing.
+~Fixed Vortex Blowpipe having the incorrect tooltip.
+~Nerfed Sightseer.
+~Fixed a minor visual issue with the Sightseer.
+~Moved Archangel's Wand's progression to pre-Mechs.
+~Fixed minor bug with Sparkly Slimecutter.
+~Giegue now drops less often.
+~Ultimate and Balanced prefixes now appear less often.
+~Fixed Sabur Rex not applying the Dishonored debuff correctly.
+~Dishonored debuff now completely prevents damage to Sabur Rex.
+~Buffed Gilded Shuriken.
+~Skeleton Archers now drop Bone Arrows.
+~Fixed issue where Floating Stadust Fragments would attack enemies at any distance.
+~Enchanted Dirt Clump now has gore on death.
+~Changed Giant Gel Cluster recipe.
+~Fixed banners not displaying properly when placed on platforms.
+~Removed Bamboo Sharpshooter and Kraken Blast.
+~Completely reworked Temple Equalizer.
+~Removed Spazmatic Scythe (for now?).
+~Added more vanilla recipes.
+~Reduced chances of Elem Slime spawning.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

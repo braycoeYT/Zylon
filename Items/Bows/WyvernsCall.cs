@@ -14,7 +14,7 @@ namespace Zylon.Items.Bows
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 31;
 			Item.useTime = 31;
-			Item.damage = 48;
+			Item.damage = 71;
 			Item.width = 52;
 			Item.height = 20;
 			Item.knockBack = 3.25f;
