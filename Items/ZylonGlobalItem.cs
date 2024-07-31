@@ -330,7 +330,8 @@ namespace Zylon.Items
             return true;
         }
         public override bool PreDrawInInventory(Item item, SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale) {
-            if (item.type == ItemID.LivingLoom) {
+            if (WorldGen.currentWorldSeed == null) return true;
+			if (item.type == ItemID.LivingLoom) {
 				Texture2D texture = TextureAssets.Item[item.type].Value;
 				if (WorldGen.currentWorldSeed.ToLower() == "autumn") texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Placeables/LivingLoom_Autumn");
 				spriteBatch.Draw(texture, position, frame, drawColor, 0f, origin, scale, SpriteEffects.None, 0);
@@ -339,7 +340,8 @@ namespace Zylon.Items
 			return true;
         }
         public override bool PreDrawInWorld(Item item, SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI) {
-            if (item.type == ItemID.LivingLoom) {
+            if (WorldGen.currentWorldSeed == null) return true;
+			if (item.type == ItemID.LivingLoom) {
 				Texture2D texture = TextureAssets.Item[item.type].Value;
 				if (WorldGen.currentWorldSeed.ToLower() == "autumn") texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Placeables/LivingLoom_Autumn");
 				Rectangle frame = texture.Frame();

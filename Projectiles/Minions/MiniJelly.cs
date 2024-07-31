@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -10,8 +11,7 @@ namespace Zylon.Projectiles.Minions
 	public class MiniJelly : ModProjectile
 	{
 		public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Mini Jelly");
-			Main.projFrames[Projectile.type] = 3;
+			Main.projFrames[Projectile.type] = 4;
 			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;
 			ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
@@ -34,13 +34,9 @@ namespace Zylon.Projectiles.Minions
 			return false;
 		}
 		int Timer = Main.rand.Next(0, 120);
-		int target = 0;
-		int mode;
-		int modeTimer;
-		int wait;
-		Vector2 important;
+		bool foundTarget;
+		int target;
 		public override void AI() {
-			Timer++;
 			Player player = Main.player[Projectile.owner];
 			#region Active check
 			if (player.dead || !player.active)
@@ -54,11 +50,9 @@ namespace Zylon.Projectiles.Minions
 			#endregion
 
 			#region General behavior
-			Vector2 idlePosition = player.Center + new Vector2(Main.rand.Next(-240, 240), Main.rand.Next(-240, 240));
-			//special
-			idlePosition.Y -= 100;
+			Vector2 idlePosition = player.Center - new Vector2(0, 80);
 
-			float minionPositionOffsetX = 0f;//(10 + Projectile.minionPos * 40) * -player.direction;
+			float minionPositionOffsetX = (32 + Projectile.minionPos * 48) * -player.direction;
 			idlePosition.X += minionPositionOffsetX;
 			
 			Vector2 vectorToIdlePosition = idlePosition - Projectile.Center;
@@ -86,7 +80,7 @@ namespace Zylon.Projectiles.Minions
 			#region Find target
 			float distanceFromTarget = 700f;
 			Vector2 targetCenter = Projectile.position;
-			bool foundTarget = false;
+			foundTarget = false;
 
 			if (player.HasMinionAttackTargetNPC)
 			{
@@ -97,6 +91,7 @@ namespace Zylon.Projectiles.Minions
 					distanceFromTarget = between;
 					targetCenter = npc.Center;
 					foundTarget = true;
+					target = npc.whoAmI;
 				}
 			}
 			if (!foundTarget)
@@ -148,21 +143,10 @@ namespace Zylon.Projectiles.Minions
 					vectorToIdlePosition *= speed;
 					Projectile.velocity = (Projectile.velocity * (inertia - 1) + vectorToIdlePosition) / inertia;
 				}
-				else if (Projectile.velocity == Vector2.Zero) {
-					Projectile.velocity.X = Main.rand.NextFloat(-1, 1);
-					Projectile.velocity.Y = Main.rand.NextFloat(-1, 1);
-				}
 			}
             #endregion
 
-            #region Projectile
-			//Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 140;
-			//if (Timer % 120 == 0 && foundTarget)
-			//Projectile.NewProjectile(Projectile.Center, projDir, ProjectileType<MiniJellyLaser>(), Projectile.damage, Projectile.knockBack / 3, Main.myPlayer, target);
-
-			#endregion
-
-            #region Animation and visuals
+            #region Animation
             Projectile.rotation = Projectile.velocity.X * 0.05f;
 
 			int frameSpeed = 5;
@@ -175,52 +159,19 @@ namespace Zylon.Projectiles.Minions
 				}
 			}
 
-			Projectile.spriteDirection = player.direction;
-            //Lighting.AddLight(Projectile.Center, Color.White.ToVector3() * 0.78f);
-            #endregion
+			Projectile.spriteDirection = 1;
+			if (Projectile.velocity.X < 0) Projectile.spriteDirection = -1;
+			#endregion
 
-            #region Teleport
 			if (foundTarget) {
-				Projectile.velocity = new Vector2(0, 0);
-				if (Main.npc[target].Center.X < Projectile.Center.X) Projectile.direction = 0;
-				else Projectile.direction = 1;
-				if (mode == 0) {
-					Projectile.alpha += 15;
-					if (Projectile.alpha >= 255)
-						mode = 1;
-				}
-				else if (mode == 1) {
-					important = Main.npc[target].Center + new Vector2(0, 200).RotatedByRandom(2);
-					mode = 2;
-				}
-				else if (mode == 2) {
-					Projectile.Center = important;
-					Projectile.alpha -= 51;
-					if (Projectile.alpha <= 0)
-						mode = 3;
-				}
-				else if (mode == 3) {
-					Projectile.Center = important;
-					Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 140;
-					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, projDir, ProjectileType<MiniJellyLaser>(), Projectile.damage, Projectile.knockBack / 3, Projectile.owner, target, wait);
-					mode = 4;
-				}
-				else if (mode == 4) {
-					modeTimer++;
-					if (modeTimer >= wait) {
-						modeTimer = 0;
-						mode = 0;
-						wait -= 10;
-						if (wait < 20) wait = 20;
+				Timer++;
+				if (Timer % 180 == 0) {
+					SoundEngine.PlaySound(SoundID.Item33.WithVolumeScale(0.4f));
+					for (int i = 0; i < Main.rand.Next(4, 6); i++) {
+						Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -12).RotatedByRandom(MathHelper.ToRadians(100f)), ProjectileType<MiniJellyLaser>(), Projectile.damage, Projectile.knockBack, Projectile.owner, target);
 					}
 				}
 			}
-			else {
-				mode = 0;
-				Projectile.alpha = 0;
-				wait = 60;
-			}
-            #endregion
         }
     }
 }

@@ -288,10 +288,10 @@ namespace Zylon.Prefixes
 		}
         public override void ApplyAccessoryEffects(Player player) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-            p.damageVariation += 0.2f;
+            p.damageVariation += 0.333333f;
         }
         public override IEnumerable<TooltipLine> GetTooltipLines(Item item) {
-			yield return new TooltipLine(Mod, "PrefixDamageVariation", "+20% damage variation") {
+			yield return new TooltipLine(Mod, "PrefixDamageVariation", "+5% damage variation") {
 				IsModifier = true,
 			};
         }

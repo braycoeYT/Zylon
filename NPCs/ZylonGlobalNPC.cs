@@ -19,7 +19,7 @@ namespace Zylon.NPCs
         public override void SetDefaults(NPC entity) {
 			if (WorldGen.currentWorldSeed == null) return;
             if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
-				entity.color = new Color(0, 0, 0);
+				if (Main.netMode != NetmodeID.MultiplayerClient) entity.color = new Color(0, 0, 0);
 				if (entity.friendly) {
 					entity.lifeMax /= 5;
 					entity.life = entity.lifeMax;
@@ -27,12 +27,14 @@ namespace Zylon.NPCs
 			}
         }
         public override void PostAI(NPC npc) {
-            if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
-				npc.color = new Color(0, 0, 0);
-			}
-			if (WorldGen.currentWorldSeed.ToLower() == "autumn") {
-				if (npc.type == -25 || npc.type == -24 || (npc.type > -11 && npc.type < 0) || npc.type == NPCID.BlueSlime || npc.type == NPCID.IceSlime || npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.SandSlime || npc.type == NPCID.SpikedJungleSlime || npc.type == NPCID.BabySlime || npc.type == NPCID.LavaSlime || npc.type == NPCID.GoldenSlime || npc.type == NPCID.SlimeSpiked || npc.type == NPCID.ShimmerSlime || npc.type == NPCID.SlimeMasked || (npc.type > 332 && npc.type < 337) || npc.type == NPCID.Crimslime || npc.type == NPCID.IlluminantSlime || npc.type == NPCID.RainbowSlime || npc.type == NPCID.QueenSlimeMinionBlue || npc.type == NPCID.QueenSlimeMinionPink || npc.type == NPCID.QueenSlimeMinionPurple || npc.type == ModContent.NPCType<NPCs.Forest.DirtSlime>() || npc.type == ModContent.NPCType<NPCs.Forest.OrangeSlime>() || npc.type == ModContent.NPCType<ElemSlime>() || npc.type == ModContent.NPCType<NPCs.Sky.Stratoslime>() || npc.type == NPCID.Slimer2 || npc.type == ModContent.NPCType<NPCs.Dungeon.BoneSlime>() || npc.type == NPCID.MotherSlime || npc.type == NPCID.DungeonSlime || npc.type == NPCID.UmbrellaSlime || npc.type == NPCID.ToxicSludge || npc.type == NPCID.CorruptSlime || npc.type == NPCID.Slimer || npc.type == NPCID.HoppinJack || npc.type == NPCID.KingSlime || npc.type == NPCID.QueenSlimeBoss) {
-					npc.color = Color.Orange;
+			if (Main.netMode != NetmodeID.MultiplayerClient) {
+			    if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
+					npc.color = new Color(0, 0, 0);
+				}
+				if (WorldGen.currentWorldSeed.ToLower() == "autumn") {
+					if (npc.type == -25 || npc.type == -24 || (npc.type > -11 && npc.type < 0) || npc.type == NPCID.BlueSlime || npc.type == NPCID.IceSlime || npc.type == NPCID.SpikedIceSlime || npc.type == NPCID.SandSlime || npc.type == NPCID.SpikedJungleSlime || npc.type == NPCID.BabySlime || npc.type == NPCID.LavaSlime || npc.type == NPCID.GoldenSlime || npc.type == NPCID.SlimeSpiked || npc.type == NPCID.ShimmerSlime || npc.type == NPCID.SlimeMasked || (npc.type > 332 && npc.type < 337) || npc.type == NPCID.Crimslime || npc.type == NPCID.IlluminantSlime || npc.type == NPCID.RainbowSlime || npc.type == NPCID.QueenSlimeMinionBlue || npc.type == NPCID.QueenSlimeMinionPink || npc.type == NPCID.QueenSlimeMinionPurple || npc.type == ModContent.NPCType<NPCs.Forest.DirtSlime>() || npc.type == ModContent.NPCType<NPCs.Forest.OrangeSlime>() || npc.type == ModContent.NPCType<ElemSlime>() || npc.type == ModContent.NPCType<NPCs.Sky.Stratoslime>() || npc.type == NPCID.Slimer2 || npc.type == ModContent.NPCType<NPCs.Dungeon.BoneSlime>() || npc.type == NPCID.MotherSlime || npc.type == NPCID.DungeonSlime || npc.type == NPCID.UmbrellaSlime || npc.type == NPCID.ToxicSludge || npc.type == NPCID.CorruptSlime || npc.type == NPCID.Slimer || npc.type == NPCID.HoppinJack || npc.type == NPCID.KingSlime || npc.type == NPCID.QueenSlimeBoss) {
+						npc.color = Color.Orange;
+					}
 				}
 			}
         }
@@ -234,6 +236,8 @@ namespace Zylon.NPCs
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.EtherealGasp>(), 40), new CommonDrop(ItemType<Items.Accessories.EtherealGasp>(), 30)));
 			if (npc.type == NPCID.SkeletonArcher)
 				npcLoot.Add(new CommonDrop(ItemID.BoneArrow, 50, 100, 250));
+			if (npc.type == NPCID.FlyingSnake)
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SnakeEye>(), 30), new CommonDrop(ItemType<Items.Accessories.SnakeEye>(), 25)));
 		}
         int Timer;
 		bool prevNoGrav;
@@ -326,6 +330,18 @@ namespace Zylon.NPCs
 			if (Main.rand.NextFloat() < .75f && Main.hardMode) {
 				if (Main.rand.NextBool()) shop[nextSlot] = ItemType<Items.Flails.StickyHand>();
 				else shop[nextSlot] = ItemType<Items.Accessories.AirTank>();
+				nextSlot++;
+			}
+			if (Main.rand.NextBool(4)) {
+				shop[nextSlot] = ItemType<Items.Accessories.LoadedDie>();
+				nextSlot++;
+			}
+			else {
+				int type = ItemType<Items.Bags.LotteryTicketTier1>();
+				if (Main.hardMode) type = ItemType<Items.Bags.LotteryTicketTier2>();
+				if (NPC.downedMoonlord) type = ItemType<Items.Bags.LotteryTicketTier3>();
+
+				shop[nextSlot] = type;
 				nextSlot++;
 			}
         }

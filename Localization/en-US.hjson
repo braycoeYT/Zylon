@@ -447,10 +447,8 @@ Mods: {
 				Tooltip:
 					'''
 					'Signed in blood...'
-					Increases crit chance by 3
-					Critical strikes cause blood to splatter from enemies
-					Collected blood will heal the player
-					Chances of blood appearing are lowered at extremely high crit rates
+					Attacks have a 5% chance to draw blood
+					Bloody attacks deal 50% more damage
 					'''
 			}
 
@@ -481,6 +479,17 @@ Mods: {
 					'Might mutate your DNA on use, but I wouldn't worry about that'
 					85% chance not to consume ammo
 					Decreases damage by 15%
+					'''
+			}
+
+			CosmicDie: {
+				DisplayName: Cosmic Die
+				Tooltip:
+					'''
+					'An eight-dimensional die with enough sides to make Graham's number blush'
+					Sets damage variation to the percentage specified in the mod config (default is 15%)
+					Overrides all other damage variation modifiers (conflicts with other mods)
+					Works from the player's inventory
 					'''
 			}
 
@@ -664,6 +673,15 @@ Mods: {
 			LivingCharm: {
 				DisplayName: Living Charm
 				Tooltip: Increases summon critical strike chance by 4%
+			}
+
+			LoadedDie: {
+				DisplayName: Loaded Die
+				Tooltip:
+					'''
+					Increases damage variation by 15%
+					Works from the player's inventory
+					'''
 			}
 
 			MagicalVaccine: {
@@ -871,6 +889,16 @@ Mods: {
 					'''
 			}
 
+			SharpKey: {
+				DisplayName: Sharp Key
+				Tooltip:
+					'''
+					'Precision is key'
+					Removes all damage variation, overriding most other items
+					Works from the player's inventory
+					'''
+			}
+
 			Shivercrown: {
 				DisplayName: Shivercrown
 				Tooltip:
@@ -896,6 +924,17 @@ Mods: {
 					When at max mana, allows your mana to overflow
 					Overflowing allows your mana to exceed the max
 					This caps out at 40 extra mana
+					'''
+			}
+
+			SnakeEye: {
+				DisplayName: Snake Eye
+				Tooltip:
+					'''
+					'Cannot be used to open an interdimensional portal, unfortunately'
+					Increases damage variation by 20%
+					Can stack up to two times
+					Works from the player's inventory
 					'''
 			}
 
@@ -995,7 +1034,7 @@ Mods: {
 				Tooltip:
 					'''
 					'Does not come with magical transformation sequence'
-					Increases life regeneration heavily and mana regeneration moderately
+					Increases life regeneration extremely and mana regeneration moderately
 					Increases max mana by 20
 					Increases the potency of regeneration, magic power, magic regeneration, ironskin, and swiftness potions
 					Grants two seconds of invincibility after using a healing potion
@@ -1648,6 +1687,36 @@ Mods: {
 			DirtballBag: {
 				DisplayName: Treasure Bag
 				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			LotteryTicketTier1: {
+				DisplayName: Lottery Ticket (Tier 1)
+				Tooltip:
+					'''
+					'This is a good investment'
+					Contains a random assortment of coins
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			LotteryTicketTier2: {
+				DisplayName: Lottery Ticket (Tier 2)
+				Tooltip:
+					'''
+					'This is a REALLY good investment'
+					Contains a random assortment of coins
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			LotteryTicketTier3: {
+				DisplayName: Lottery Ticket (Tier 3)
+				Tooltip:
+					'''
+					'95% of gamblers quit before they win big'
+					Contains a random assortment of coins
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
 			}
 
 			JellyBag: {
@@ -2763,7 +2832,11 @@ Mods: {
 
 			JellyStaff: {
 				DisplayName: Jelly Staff
-				Tooltip: Summons a mini jelly to fight for you
+				Tooltip:
+					'''
+					Summons a mini jelly to fight for you
+					Jellies fire barrages of tracking lasers
+					'''
 			}
 
 			MeteorbStaff: {
@@ -2865,12 +2938,17 @@ Mods: {
 				Tooltip: Can bounce off of enemies and tiles
 			}
 
+			Jack: {
+				DisplayName: Jack
+				Tooltip: "'Now all we need is a red ball'"
+			}
+
 			LostNightmare: {
 				DisplayName: Lost Nightmare
 				Tooltip:
 					'''
 					'You shouldn't be able to read this unless you're cheating, or something has gone terribly wrong!
-					In that case, hello.
+					Anyway, hello.
 					Hope you like the mod.'
 					'''
 			}
@@ -4710,6 +4788,7 @@ Mods: {
 			HolyCruxClone.DisplayName: Holy Crux
 			HolyCrux.DisplayName: Holy Crux
 			WinkofRadiasProj.DisplayName: Winkof Radias Proj
+			Jack.DisplayName: Jack
 		}
 
 		NPCs: {
@@ -4900,6 +4979,7 @@ Mods: {
 					config: {
 						accessibility: Accessibility
 						general: General
+						accessories: Accessories
 					}
 				}
 
@@ -4973,6 +5053,16 @@ Mods: {
 				summonNaturalCrit: {
 					Label: Summon Natural Crits
 					Tooltip: Summons now have a 4% default crit chance, and are affected by generic crit boosts.
+				}
+
+				experimentalWorldgen: {
+					Label: Experimental World Gen
+					Tooltip: You probably should leave this off.
+				}
+
+				cosmicDieVariation: {
+					Label: Cosmic Die Variation
+					Tooltip: Controls the player's damage variation while holding the Cosmic Die.
 				}
 			}
 		}

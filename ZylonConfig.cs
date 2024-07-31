@@ -63,6 +63,20 @@ namespace Zylon
 		[Tooltip("Summons now have a 4% default crit chance, and are affected by generic crit boosts.")]
 		public bool summonNaturalCrit;
 
+		[Label("Experimental World Gen")]
+		[Tooltip("You probably should leave this off.")]
+		public bool experimentalWorldgen;
+
+		[Header("config.accessories")]
+
+		[Range(0f, 1f)]
+		[Increment(0.025f)]
+		[DefaultValue(0.15f)]
+		[Slider]
+		[Label("Cosmic Die Variation")]
+		[Tooltip("Controls the player's damage variation while holding the Cosmic Die.")]
+		public float cosmicDieVariation;
+
 		[Header("config.accessibility")]
 
 		[Range(0, 100)]

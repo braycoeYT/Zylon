@@ -12,6 +12,7 @@ using Terraria.GameContent;
 using Terraria.Net;
 using Terraria.WorldBuilding;
 using Microsoft.Xna.Framework.Graphics;
+using Zylon.Buffs.Potions;
 
 namespace Zylon
 {
@@ -93,6 +94,11 @@ namespace Zylon
 		public bool ectoburn;
 		public bool CHECK_BandofRegen;
 		public bool dishonored;
+		public bool sharpKey;
+		public bool loadedDie;
+		public bool snakeEye;
+		public bool cosmicDie;
+		public bool bloodContractVisual;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -202,6 +208,10 @@ namespace Zylon
 			ectoburn = false;
 			CHECK_BandofRegen = false;
 			dishonored = false;
+			sharpKey = false;
+			loadedDie = false;
+			snakeEye = false;
+			cosmicDie = false;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeMult = 1f;
@@ -327,6 +337,7 @@ namespace Zylon
 				}
 			}
 
+			if (WorldGen.currentWorldSeed == null) return;
 			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") { //Double debuff power in Abyssworld seed
 				if (Player.lifeRegen < 0) {
 					Player.lifeRegen *= 2;
@@ -409,21 +420,22 @@ namespace Zylon
 		float trueMeleeBoost;
 		public override void ModifyHitNPCWithItem(Item item, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Item, consider using ModifyHitNPC instead */
 		{
-			modifiers.CritDamage += critExtraDmg;
 			trueMeleeBoost = 1f;
 			if (trueMelee10) trueMeleeBoost += 0.1f;
 			if (trueMelee15) trueMeleeBoost += 0.15f;
 			if (neutronHood) trueMeleeBoost += 0.18f;
 			modifiers.SourceDamage *= trueMeleeBoost;
-			modifiers.DamageVariationScale *= damageVariation;
 
+			modifiers.CritDamage += critExtraDmg;
+
+			if (!cosmicDie) modifiers.DamageVariationScale *= damageVariation;
 			if ((item.DamageType == DamageClass.Summon || item.DamageType == DamageClass.SummonMeleeSpeed) && Main.rand.NextFloat() < summonCrit) {
 				modifiers.SetCrit(); //In case some mentally insane mod does this
 				summonCritHappen = true;
 			}
 
 			if (fantesseract) {
-				modifiers.DamageVariationScale *= 2f;
+				if (!cosmicDie) modifiers.DamageVariationScale *= 2f;
 				if (Main.rand.NextBool(10)) modifiers.Defense += 0.25f;
 				modifiers.ScalingArmorPenetration += 0.25f;
 
@@ -437,18 +449,28 @@ namespace Zylon
 					scaryText2 = true;
 				}
 			}
+
+			if (sharpKey && !cosmicDie) modifiers.DamageVariationScale *= 0f;
+
+			if (cosmicDie) modifiers.DamageVariationScale *= GetInstance<ZylonConfig>().cosmicDieVariation/15f*100f;
+
+			if (bloodContract && Main.rand.NextBool(20)) {
+				modifiers.FinalDamage *= 1.5f;
+				bloodContractVisual = true;
+			}
 		}
 		public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Projectile, consider using ModifyHitNPC instead */
 		{
 			modifiers.CritDamage += critExtraDmg;
-			modifiers.DamageVariationScale *= damageVariation;
+
+			if (!cosmicDie) modifiers.DamageVariationScale *= damageVariation;
 			if ((proj.DamageType == DamageClass.Summon || proj.DamageType == DamageClass.SummonMeleeSpeed) && Main.rand.NextFloat() < summonCrit) {
 				modifiers.SetCrit();
 				summonCritHappen = true;
 			}
 
 			if (fantesseract) {
-				modifiers.DamageVariationScale *= 2f;
+				if (!cosmicDie) modifiers.DamageVariationScale *= 2f;
 				if (Main.rand.NextBool(10)) modifiers.Defense += 0.25f;
 				modifiers.ScalingArmorPenetration += 0.25f;
 
@@ -461,6 +483,15 @@ namespace Zylon
 					modifiers.FinalDamage *= 0f;
 					scaryText2 = true;
 				}
+			}
+
+			if (sharpKey && !cosmicDie) modifiers.DamageVariationScale *= 0f;
+
+			if (cosmicDie) modifiers.DamageVariationScale *= GetInstance<ZylonConfig>().cosmicDieVariation/15f*100f;
+
+			if (bloodContract && Main.rand.NextBool(20)) {
+				modifiers.FinalDamage *= 1.5f;
+				bloodContractVisual = true;
 			}
 		}
 		public override void OnHitNPCWithItem(Item item, NPC target, NPC.HitInfo hit, int damageDone)
@@ -468,12 +499,36 @@ namespace Zylon
 			OnHitNPCGlobal(item, null, target, damageDone, hit.Knockback, hit.Crit, target.type == NPCID.TargetDummy, true);
 			if (scaryText) { CombatText.NewText(target.getRect(), new Color(127, 127, 127), damageDone); scaryText = false; }
 			if (scaryText2) { CombatText.NewText(target.getRect(), new Color(0, 0, 0), damageDone); scaryText2 = false; }
+
+			if (bloodContractVisual) {
+				float minKnockback = 2f;
+				if (hit.Knockback > minKnockback) minKnockback = hit.Knockback;
+				for (int i = 0; i < 4; i++) {
+					int dustIndex = Dust.NewDust(target.position, target.width, target.height, DustID.Blood);
+					Dust dust = Main.dust[dustIndex];
+					dust.velocity = new Vector2(Main.rand.NextFloat(1.5f, 3f)*hit.HitDirection*minKnockback, Main.rand.NextFloat(-2f, -6f));
+					dust.scale *= 3f + Main.rand.Next(-30, 31) * 0.01f;
+				}
+				bloodContractVisual = false;
+			}
 		}
 		public override void OnHitNPCWithProj(Projectile proj, NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			OnHitNPCGlobal(null, proj, target, damageDone, hit.Knockback, hit.Crit, target.type == NPCID.TargetDummy, false);
 			if (scaryText) { CombatText.NewText(target.getRect(), new Color(127, 127, 127), damageDone); scaryText = false; }
 			if (scaryText2) { CombatText.NewText(target.getRect(), new Color(0, 0, 0), damageDone); scaryText2 = false; }
+
+			if (bloodContractVisual) {
+				float minKnockback = 2f;
+				if (hit.Knockback > minKnockback) minKnockback = hit.Knockback;
+				for (int i = 0; i < 4; i++) {
+					int dustIndex = Dust.NewDust(target.position, target.width, target.height, DustID.Blood);
+					Dust dust = Main.dust[dustIndex];
+					dust.velocity = new Vector2(Main.rand.NextFloat(1.5f, 3f)*hit.HitDirection*minKnockback, Main.rand.NextFloat(-2f, -6f));
+					dust.scale *= 3f + Main.rand.Next(-30, 31) * 0.01f;
+				}
+				bloodContractVisual = false;
+			}
 		}
 		public void OnHitNPCGlobal(Item item, Projectile proj, NPC target, int damage, float knockback, bool crit, bool isDummy, bool TrueMelee) {
 			if (summonCritHappen) { //I have to do this for some reason
@@ -552,9 +607,6 @@ namespace Zylon
 					if (crit) {
 						if (glazedLens)
 							Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.GlazedLensProj>(), 20, 5f, Main.myPlayer, item.crit + Player.GetCritChance(item.DamageType));
-						if (bloodContract) for (int x = 0; x < Main.rand.Next(1, 4); x++)
-							if (item.crit + Player.GetCritChance(item.DamageType) < Main.rand.NextFloat(30f, 130f))
-								Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-9, -5)), ProjectileType<Projectiles.Accessories.BloodContractProj>(), 0, 0, Main.myPlayer);
 					}
 				} else {
 					// To encourage more true melee play, this only has a 75% chance of applying instead of 100
@@ -570,9 +622,6 @@ namespace Zylon
 					if (crit) {
 						if (glazedLens)
 							Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(), ProjectileType<Projectiles.Accessories.GlazedLensProj>(), 20, 5f, Main.myPlayer, proj.CritChance);
-						if (bloodContract) for (int x = 0; x < Main.rand.Next(1, 3); x++)
-							if (proj.CritChance < Main.rand.NextFloat(30f, 130f))
-								Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-9, -5)), ProjectileType<Projectiles.Accessories.BloodContractProj>(), 0, 0, Main.myPlayer);
 					}
 				}
 				if (crit) {
@@ -811,6 +860,7 @@ namespace Zylon
 			}*/
         }
         public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers) {
+			if (WorldGen.currentWorldSeed == null) return;
             if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
 				if (NPC.downedMoonlord) Player.AddBuff(BuffID.Blackout, Main.rand.Next(7, 15)*60);
 				else if (Main.hardMode) Player.AddBuff(BuffID.Blackout, Main.rand.Next(4, 10)*60);
@@ -821,6 +871,7 @@ namespace Zylon
             Zylon.noHitSabur = false;
         }
         public override void PostUpdateBuffs() {
+			if (WorldGen.currentWorldSeed == null) return;
 			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
 				//if (Player.ZoneDirtLayerHeight) Player.blind = true;
 				//if (Player.ZoneRockLayerHeight) Player.blackout = true;
@@ -838,14 +889,14 @@ namespace Zylon
         public override void HideDrawLayers(PlayerDrawSet drawInfo) {
             if (blackBox) {
 				drawInfo.hideEntirePlayer = true;
-				Texture2D boxTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Fantesseract_BlackBox");
+				Texture2D boxTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Clutter/Fantesseract_BlackBox");
 				Main.spriteBatch.Draw(boxTexture, drawInfo.Center, null, Color.White, 0f, new Vector2(boxTexture.Width, boxTexture.Height), 1f, SpriteEffects.None, 0f);
 			}
         }
         public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright) {
 			if (blackBox) {
 				//drawInfo.hideEntirePlayer = true;
-				Texture2D boxTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Fantesseract_BlackBox");
+				Texture2D boxTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Clutter/Fantesseract_BlackBox");
 				a = 0f; r = 0f; g = 0f; b = 0f;
 				Player.invis = true;
 				Main.spriteBatch.Draw(boxTexture, drawInfo.Center - Main.screenPosition - new Vector2(0, 4), null, Color.White, 0f, new Vector2(boxTexture.Width/2f, boxTexture.Height/2f), 1f, SpriteEffects.None, 0f);

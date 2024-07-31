@@ -4,9 +4,6 @@ using Terraria;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent;
-using System;
-using System.Drawing.Drawing2D;
-using System.Linq.Expressions;
 
 namespace Zylon.Items.Accessories
 {
@@ -25,10 +22,10 @@ namespace Zylon.Items.Accessories
 		}
 		public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale) {
             Texture2D texture = TextureAssets.Item[Item.type].Value;
-			Texture2D ring1 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Fantesseract_1");
-			Texture2D ring2 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Fantesseract_2");
-			Texture2D ring3 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Fantesseract_3");
-			Texture2D ring4 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Fantesseract_4");
+			Texture2D ring1 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Clutter/Fantesseract_1");
+			Texture2D ring2 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Clutter/Fantesseract_2");
+			Texture2D ring3 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Clutter/Fantesseract_3");
+			Texture2D ring4 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Clutter/Fantesseract_4");
 
 			//Main
 			//Rectangle frame = texture.Frame();
@@ -63,10 +60,10 @@ namespace Zylon.Items.Accessories
         }
         public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI) {
             Texture2D texture = TextureAssets.Item[Item.type].Value;
-			Texture2D ring1 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Fantesseract_1");
-			Texture2D ring2 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Fantesseract_2");
-			Texture2D ring3 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Fantesseract_3");
-			Texture2D ring4 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Fantesseract_4");
+			Texture2D ring1 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Clutter/Fantesseract_1");
+			Texture2D ring2 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Clutter/Fantesseract_2");
+			Texture2D ring3 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Clutter/Fantesseract_3");
+			Texture2D ring4 = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Clutter/Fantesseract_4");
 
 			//Colors - looks less ominous this way
 			/*float rg = (Main.DiscoR + Main.DiscoG)/255f;

@@ -8,9 +8,6 @@ namespace Zylon.Projectiles.Misc
 {
 	public class GildedShuriken : ModProjectile
 	{
-        public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Ball of Fire");
-        }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Shuriken);
 			AIType = ProjectileID.Shuriken;

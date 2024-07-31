@@ -1,7 +1,7 @@
 The best mod that starts with Z — we guarantee or your money back! Zylon has finally returned after an 11-month update that we call Cause to Clash — the biggest update the mod has ever seen, with over 150 new items, a boss rework, a new Post-Moon Lord boss, countless item reworks, new sprites, general bugfixes, and so much more! Warning: Mod does not work in multiplayer. At all.
 
 Stats:
-~482 Items
+~490 Items
 ~5 Bosses:
 ~~~4 Prehardmode Bosses [i:2][i:116][i:789][i:282]
 ~~~1 Post-Moon Lord Boss [i:5130]
@@ -13,42 +13,15 @@ Stats:
 ~Several new prefixes for weapons and accessories!
 ~New secret seeds: Abyssworld and Autumn.
 
-V0.0.3.2: Cause to Clash Addendum II
-~Fixed even more issues with Foxtrot and Arctic Vixen.
-~Eldritch Tentacles now deal flat damage instead of being based on damage dealt.
-~Buffed Crackle Staff and Wyvern's Call.
-~Nerfed Poltergeist.
-~Fixed even more issues with the Illusory Bullet Polish.
-~Nerfed Goocat Staff.
-~Fixed Ethereal Gasp not dropping.
-~Fixed Stardust Fragment Staff being crafted at the wrong station.
-~Fixed a bug that prevented Sabur Rex from working at all.
-~Mechanical Slime no longer drops Zinc bar.
-~Removed Zinc Bar tooltip.
-~Made Wink of Radias much harder to craft.
-~Fixed a bug that stopped Dirtball from despawning incorrectly.
-~Band of Regeneration variants now no longer stack with each other.
-~Illusory Bullet Polish now decreases damage of bullets after bouncing.
-~Fixed Vortex Blowpipe having the incorrect tooltip.
-~Nerfed Sightseer.
-~Fixed a minor visual issue with the Sightseer.
-~Moved Archangel's Wand's progression to pre-Mechs.
-~Fixed minor bug with Sparkly Slimecutter.
-~Giegue now drops less often.
-~Ultimate and Balanced prefixes now appear less often.
-~Fixed Sabur Rex not applying the Dishonored debuff correctly.
-~Dishonored debuff now completely prevents damage to Sabur Rex.
-~Buffed Gilded Shuriken.
-~Skeleton Archers now drop Bone Arrows.
-~Fixed issue where Floating Stadust Fragments would attack enemies at any distance.
-~Enchanted Dirt Clump now has gore on death.
-~Changed Giant Gel Cluster recipe.
-~Fixed banners not displaying properly when placed on platforms.
-~Removed Bamboo Sharpshooter and Kraken Blast.
-~Completely reworked Temple Equalizer.
-~Removed Spazmatic Scythe (for now?).
-~Added more vanilla recipes.
-~Reduced chances of Elem Slime spawning.
+V0.0.3.3: Cause to Clash Addendum III
+~Fixed several game-breaking issues in multiplayer. Still completely unplayable, though.
+~Changed Ultima Band tooltip slightly.
+~Completely reworked Jelly Staff.
+~Fixed issues with Risky prefix.
+~Added Sharp Key, Lottery Ticket (Tiers 1-3), Loaded Die, Snake Eye, Jack, and Cosmic Die.
+~Added Cosmic Die Variation config.
+~Changed recipe of Blood Contract.
+~Completely reworked Blood Contract.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:
