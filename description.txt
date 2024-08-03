@@ -13,15 +13,14 @@ Stats:
 ~Several new prefixes for weapons and accessories!
 ~New secret seeds: Abyssworld and Autumn.
 
-V0.0.3.3: Cause to Clash Addendum III
-~Fixed several game-breaking issues in multiplayer. Still completely unplayable, though.
-~Changed Ultima Band tooltip slightly.
-~Completely reworked Jelly Staff.
-~Fixed issues with Risky prefix.
-~Added Sharp Key, Lottery Ticket (Tiers 1-3), Loaded Die, Snake Eye, Jack, and Cosmic Die.
-~Added Cosmic Die Variation config.
-~Changed recipe of Blood Contract.
-~Completely reworked Blood Contract.
+V0.0.3.4: Update
+~Modified sprite of Cosmic Die.
+~Changed Cosmic Die recipe.
+~Modded banners now stack at 9999.
+~Fixed issue with banners and platforms.
+~Cosmic Die now displays one's current variation percentage in the tooltip.
+~Changed Cosmic Die tooltip slightly.
+~Resprited almost every single banner in the mod.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

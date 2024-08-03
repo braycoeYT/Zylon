@@ -27,7 +27,7 @@ namespace Zylon.Tiles.Banners
 			TileObjectData.newTile.DrawYOffset = -2;
 			TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
             TileObjectData.newAlternate.AnchorTop = new AnchorData(AnchorType.Platform, TileObjectData.newTile.Width, 0);
-            TileObjectData.newAlternate.DrawYOffset = -10;
+            TileObjectData.newAlternate.DrawYOffset = -8;
             TileObjectData.addAlternate(0);
 			TileObjectData.addTile(Type);
 			DustType = -1;
@@ -40,7 +40,7 @@ namespace Zylon.Tiles.Banners
 			for (int k = 1; k < 4; k++) {
 				Tile topTile = Main.tile[i, j-k];
 				if (TileID.Sets.Platforms[topTile.TileType] && tileFrameY == 18*(k-1))
-					offsetY = -10;
+					offsetY = -8;
 			}
         }
         public override void NearbyEffects(int i, int j, bool closer)

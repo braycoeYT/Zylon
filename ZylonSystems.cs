@@ -115,11 +115,13 @@ namespace Zylon
 			});
 			RecipeGroup.RegisterGroup("Zylon:AnyHMBar", group);
 
-			if (RecipeGroup.recipeGroupIDs.ContainsKey("IronBar")) {
-				int index = RecipeGroup.recipeGroupIDs["IronBar"];
-				group = RecipeGroup.recipeGroups[index];
-				group.ValidItems.Add(ModContent.ItemType<Items.Bars.ZincBar>());
-			}
+			group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Lottery Ticket", new int[]
+			{
+			ModContent.ItemType<Items.Bags.LotteryTicketTier1>(),
+			ModContent.ItemType<Items.Bags.LotteryTicketTier2>(),
+			ModContent.ItemType<Items.Bags.LotteryTicketTier3>()
+			});
+			RecipeGroup.RegisterGroup("Zylon:AnyLotteryTicket", group);
 		}
         public override void AddRecipes() {
             Recipe recipe = Recipe.Create(ItemID.MagicMirror);

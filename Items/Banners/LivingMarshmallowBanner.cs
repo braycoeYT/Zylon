@@ -9,7 +9,7 @@ namespace Zylon.Items.Banners
 		public override void SetDefaults() {
 			Item.width = 14;
             Item.height = 36;
-            Item.maxStack = 99;
+            Item.maxStack = 9999;
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.useAnimation = 15;

@@ -488,7 +488,7 @@ Mods: {
 					'''
 					'An eight-dimensional die with enough sides to make Graham's number blush'
 					Sets damage variation to the percentage specified in the mod config (default is 15%)
-					Overrides all other damage variation modifiers (conflicts with other mods)
+					Overrides all other Zylonian damage variation modifiers
 					Works from the player's inventory
 					'''
 			}
@@ -1378,6 +1378,11 @@ Mods: {
 					Increases your max number of minions by 1
 					Increases summon damage by 8%
 					'''
+			}
+
+			BloodstainedMask: {
+				DisplayName: Bloodstained Mask
+				Tooltip: Increases summoner critical strike chance by 3
 			}
 
 			CarnalliteBreastplate: {

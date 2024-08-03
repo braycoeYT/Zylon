@@ -5,11 +5,16 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent;
 using System;
+using System.Collections.Generic;
 
 namespace Zylon.Items.Accessories
 {
 	public class CosmicDie : ModItem
 	{
+		public override void ModifyTooltips(List<TooltipLine> list) {
+			TooltipLine xline = new TooltipLine(Mod, "Tooltip0", "Current variation: " + (ModContent.GetInstance<ZylonConfig>().cosmicDieVariation*100f).ToString("0.00") + "%");
+			list.Add(xline);
+        }
 		public override void SetDefaults() {
 			Item.width = 46;
 			Item.height = 46;
@@ -97,7 +102,7 @@ namespace Zylon.Items.Accessories
 			recipe.AddIngredient(ModContent.ItemType<LoadedDie>());
 			recipe.AddIngredient(ModContent.ItemType<SnakeEye>(), 2);
 			recipe.AddIngredient(ModContent.ItemType<SharpKey>());
-			recipe.AddIngredient(ModContent.ItemType<Misc.Jack>(), 10);
+			recipe.AddRecipeGroup("Zylon:AnyLotteryTicket");
 			recipe.AddIngredient(ItemID.WhitePearl);
 			recipe.AddIngredient(ItemID.LadyBug, 3);
 			recipe.AddIngredient(ModContent.ItemType<Materials.NeutronFragment>(), 13);
