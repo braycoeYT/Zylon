@@ -7,12 +7,7 @@ using System;
 using static Terraria.ModLoader.ModContent;
 using Terraria.GameInput;
 using Terraria.Audio;
-using Zylon.Items.Accessories;
-using Terraria.GameContent;
-using Terraria.Net;
-using Terraria.WorldBuilding;
 using Microsoft.Xna.Framework.Graphics;
-using Zylon.Buffs.Potions;
 
 namespace Zylon
 {
@@ -101,6 +96,7 @@ namespace Zylon
 		public bool bloodContractVisual;
 		public bool bloodrain;
 		public bool royalArgentumChestpiece;
+		public bool argentumSetBonus;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -135,6 +131,7 @@ namespace Zylon
 		public bool scaryText;
 		public bool scaryText2;
 		public bool summonCritHappen;
+		public bool argentumHeadgear;
 		public override void ResetEffects() {
 			Heartdaze = false;
 			outofBreath = false;
@@ -215,7 +212,9 @@ namespace Zylon
 			snakeEye = false;
 			cosmicDie = false;
 			bloodrain = false;
+			argentumSetBonus = false;
 			royalArgentumChestpiece = false;
+			argentumHeadgear = false;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeMult = 1f;
@@ -362,6 +361,7 @@ namespace Zylon
 			if (maraudersKit && Main.rand.NextFloat() < .1f) return false;
 			if (ammoSling && Main.rand.NextFloat() < .25f) return false;
 			if (roundmastersKit && Main.rand.NextFloat() < .4f) return false;
+			if (argentumHeadgear && argentumSetBonus && Main.rand.NextFloat() < .25f) return false;
 			for (int i = 0; i < numof10ammo; i++) {
 				if (Main.rand.NextFloat() < .1f) return false;
 			}
@@ -797,6 +797,10 @@ namespace Zylon
         {
 			if (stealthPotion && Main.rand.NextFloat() < .04f)
 			{
+				Player.NinjaDodge();
+				return true;
+			}
+			if (argentumHeadgear && Main.rand.NextFloat() < .08f) {
 				Player.NinjaDodge();
 				return true;
 			}

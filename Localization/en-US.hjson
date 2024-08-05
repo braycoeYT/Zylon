@@ -1585,6 +1585,36 @@ Mods: {
 					'''
 			}
 
+			RoyalArgentumHat: {
+				DisplayName: Royal Argentum Hat
+				Tooltip:
+					'''
+					Increases magic damage and critical strike chance by 21%
+					Reduces mana usage by 8%
+					When in critical condition, moderately increases mana regen
+					'''
+			}
+
+			RoyalArgentumHeadband: {
+				DisplayName: Royal Argentum Headband
+				Tooltip:
+					'''
+					Increases summon damage and critical strike chance by 12%
+					Increases summon knockback and whip range by 25%
+					Increases your max number of minions by 2
+					'''
+			}
+
+			RoyalArgentumHeadgear: {
+				DisplayName: Royal Argentum Headgear
+				Tooltip:
+					'''
+					Increases ranged damage and critical strike chance by 21%
+					Blowpipe charge speed is increased by 10/s
+					Gives an 8% chance to dodge an attack
+					'''
+			}
+
 			RoyalArgentumHelmet: {
 				DisplayName: Royal Argentum Helmet
 				Tooltip:
@@ -4854,6 +4884,8 @@ Mods: {
 			HolyCrux.DisplayName: Holy Crux
 			WinkofRadiasProj.DisplayName: Winkof Radias Proj
 			Jack.DisplayName: Jack
+			ArgentumOrb_Laser.DisplayName: Argentum Orb_ Laser
+			ArgentumOrb.DisplayName: Argentum Orb
 		}
 
 		NPCs: {
