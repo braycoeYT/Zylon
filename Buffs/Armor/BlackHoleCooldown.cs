@@ -10,6 +10,7 @@ namespace Zylon.Buffs.Armor
             Main.buffNoTimeDisplay[Type] = false;
             Main.debuff[Type] = true;
             BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
+            Main.buffNoSave[Type] = true;
         }
     }
 }

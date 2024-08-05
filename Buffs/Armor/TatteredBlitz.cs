@@ -6,10 +6,7 @@ namespace Zylon.Buffs.Armor
     public class TatteredBlitz : ModBuff
     {
         public override void SetStaticDefaults() {
-            // DisplayName.SetDefault("Tattered Blitz");
-            // Description.SetDefault("Mana usage is reduced by 33%");
             Main.buffNoTimeDisplay[Type] = false;
-            Main.debuff[Type] = true;
         }
         public override void Update(Player player, ref int buffIndex) {
             player.manaCost -= 0.33f;

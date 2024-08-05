@@ -4,16 +4,15 @@ using Terraria.ModLoader;
 
 namespace Zylon.Buffs.Armor
 {
-    public class ShadowstitchedBlitzCooldown : ModBuff
+    public class Bloodrain : ModBuff
     {
         public override void SetStaticDefaults() {
             Main.buffNoTimeDisplay[Type] = false;
-            Main.debuff[Type] = true;
-            BuffID.Sets.NurseCannotRemoveDebuff[Type] = true;
-            Main.buffNoSave[Type] = true;
         }
         public override void Update(Player player, ref int buffIndex) {
-            base.Update(player, ref buffIndex);
+            player.GetModPlayer<ZylonPlayer>().bloodrain = true;
+            if (player.buffTime[buffIndex] < 2)
+                player.AddBuff(ModContent.BuffType<BloodrainCooldown>(), 2700);
         }
     }
 }

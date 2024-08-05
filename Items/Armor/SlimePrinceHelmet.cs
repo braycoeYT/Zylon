@@ -13,7 +13,7 @@ namespace Zylon.Items.Armor
 			Item.height = 18;
 			Item.value = Item.sellPrice(0, 0, 10);
 			Item.rare = ItemRarityID.Blue;
-			Item.defense = 2;
+			Item.defense = 1;
 		}
 		public override bool IsArmorSet(Item head, Item body, Item legs) {
 			return body.type == ModContent.ItemType<SlimePrinceBreastplate>() && legs.type == ModContent.ItemType<SlimePrinceLeggings>();

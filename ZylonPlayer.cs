@@ -99,6 +99,8 @@ namespace Zylon
 		public bool snakeEye;
 		public bool cosmicDie;
 		public bool bloodContractVisual;
+		public bool bloodrain;
+		public bool royalArgentumChestpiece;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -212,6 +214,8 @@ namespace Zylon
 			loadedDie = false;
 			snakeEye = false;
 			cosmicDie = false;
+			bloodrain = false;
+			royalArgentumChestpiece = false;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeMult = 1f;
@@ -334,6 +338,12 @@ namespace Zylon
 				for (int i = 0; i < Player.MaxBuffs; i++) {
 					if (Player.buffType[i] == BuffID.ManaSickness && Player.buffTime[i] > 1)
 						Player.buffTime[i]--;
+				}
+			}
+
+			if (royalArgentumChestpiece) {
+				if (Player.lifeRegen < 0) {
+					Player.lifeRegen = (int)(Player.lifeRegen*0.8f);
 				}
 			}
 
@@ -528,6 +538,9 @@ namespace Zylon
 					dust.scale *= 3f + Main.rand.Next(-30, 31) * 0.01f;
 				}
 				bloodContractVisual = false;
+			}
+			if (bloodrain && proj.DamageType == DamageClass.Summon) {
+				Player.Heal(1);
 			}
 		}
 		public void OnHitNPCGlobal(Item item, Projectile proj, NPC target, int damage, float knockback, bool crit, bool isDummy, bool TrueMelee) {

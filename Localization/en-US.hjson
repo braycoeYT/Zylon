@@ -88,7 +88,7 @@ Mods: {
 			}
 
 			FlashPandemic: {
-				DisplayName: Mods.Zylon.BuffName.FlashPandemic
+				DisplayName: FlashPandemic
 				Description: The plague is upon you
 			}
 
@@ -404,7 +404,17 @@ Mods: {
 
 			Ectoburn: {
 				DisplayName: Ectoburn
-				Description: Mods.Zylon.Buffs.Ectoburn.Description
+				Description: A ghastly flame burns your soul
+			}
+
+			Bloodrain: {
+				DisplayName: Bloodrain
+				Description: Minions will steal life for you
+			}
+
+			BloodrainCooldown: {
+				DisplayName: Bloodrain Cooldown
+				Description: You cannot activate the Bloodrain right now!
 			}
 		}
 
@@ -1380,9 +1390,27 @@ Mods: {
 					'''
 			}
 
-			BloodstainedMask: {
-				DisplayName: Bloodstained Mask
-				Tooltip: Increases summoner critical strike chance by 3
+			BloodstainedHelmet: {
+				DisplayName: Bloodstained Helmet
+				Tooltip: Increases summon critical strike chance by 3
+			}
+
+			BloodstainedChestplate: {
+				DisplayName: Bloodstained Chestplate
+				Tooltip:
+					'''
+					Increases summon critical strike chance by 4
+					Increases your max number of minions
+					'''
+			}
+
+			BloodstainedLeggings: {
+				DisplayName: Bloodstained Leggings
+				Tooltip:
+					'''
+					Increases summon critical strike chance by 3
+					Increases whip range by 10%
+					'''
 			}
 
 			CarnalliteBreastplate: {
@@ -1532,6 +1560,38 @@ Mods: {
 					Increases ranged damage while not moving (20% boost)
 					Increases mana regeneration by 2
 					Increases whip range by 25%
+					'''
+			}
+
+			RoyalArgentumBoots: {
+				DisplayName: Royal Argentum Boots
+				Tooltip:
+					'''
+					Allows the ability to dash
+					Increases move speed by 17%
+					Heavily increases jump speed and height
+					Extremely increases fall speed and grants immunity to fall damage
+					'''
+			}
+
+			RoyalArgentumChestpiece: {
+				DisplayName: Royal Argentum Chestpiece
+				Tooltip:
+					'''
+					Grants immunity to knockback
+					Reduces debuff damage by 20%
+					Moderately increases life regeneration
+					Increases damage by 15%
+					'''
+			}
+
+			RoyalArgentumHelmet: {
+				DisplayName: Royal Argentum Helmet
+				Tooltip:
+					'''
+					Increases melee damage and critical strike chance by 17%
+					Enemies are much more likely to target you
+					Increases damage resistance by 10%, which doubles at low health
 					'''
 			}
 

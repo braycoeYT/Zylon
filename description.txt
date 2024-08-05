@@ -21,6 +21,11 @@ V0.0.3.4: Update
 ~Cosmic Die now displays one's current variation percentage in the tooltip.
 ~Changed Cosmic Die tooltip slightly.
 ~Resprited almost every single banner in the mod.
+~Nerfed Slime Prince armor.
+~Armor buffs no longer count as debuffs.
+~Added Bloodstained armor.
+~Armor cooldown debuffs no longer save after exiting the world.
+~Fixed bug that drew the Holy Crux with the wrong chain.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

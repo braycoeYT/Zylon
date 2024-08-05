@@ -7,7 +7,6 @@ namespace Zylon.Buffs.Armor
     {
         public override void SetStaticDefaults() {
             Main.buffNoTimeDisplay[Type] = true;
-            Main.debuff[Type] = true;
         }
         public override void Update(Player player, ref int buffIndex) {
             if (player.statLife > player.statLifeMax2 / 4)

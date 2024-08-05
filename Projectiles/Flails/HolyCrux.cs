@@ -13,7 +13,7 @@ namespace Zylon.Projectiles.Flails
 {
 	public class HolyCrux : ModProjectile
 	{
-		private const string ChainTexturePath = "Zylon/Projectiles/Flails/LihzahrdBoulderonaChainChain";
+		private const string ChainTexturePath = "Zylon/Projectiles/Flails/HolyCruxChain";
 		private enum AIState
 		{
 			Spinning,
