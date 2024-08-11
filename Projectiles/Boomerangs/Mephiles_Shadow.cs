@@ -4,11 +4,17 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Audio;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria.GameContent;
 
 namespace Zylon.Projectiles.Boomerangs
 {
 	public class Mephiles_Shadow : ModProjectile
 	{
+		public override void SetStaticDefaults() {
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 30;
+            ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
+        }
 		public override void SetDefaults() {
 			Projectile.width = 70;
 			Projectile.height = 70;
@@ -51,6 +57,23 @@ namespace Zylon.Projectiles.Boomerangs
 				Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 				SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
 			}
+            return false;
+        }
+		public override bool PreDraw(ref Color lightColor) {
+            SpriteEffects spriteEffects = SpriteEffects.None;
+
+            Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;
+            
+            Vector2 drawOrigin = new Vector2(projectileTexture.Width * 0.5f, Projectile.height * 0.5f);
+            Vector2 drawPos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
+            Color color = Projectile.GetAlpha(lightColor);
+
+            for (int k = 0; k < Projectile.oldPos.Length; k++) {
+				Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+                Color colorAfterEffect = color * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.3f;
+                Main.spriteBatch.Draw(projectileTexture, drawPosEffect, null, colorAfterEffect, Projectile.oldRot[k], drawOrigin, Projectile.scale, spriteEffects, 0);
+            }
+			Main.spriteBatch.Draw(projectileTexture, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, spriteEffects, 0f);
             return false;
         }
     }   

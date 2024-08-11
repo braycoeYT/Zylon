@@ -36,9 +36,9 @@ namespace Zylon.Projectiles.Boomerangs
 				if (Main.rand.NextBool()) for (int x = 0; x < 6; x++) {
 					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 0.8f).RotatedBy(MathHelper.ToRadians(rand+(x*60))), ModContent.ProjectileType<Solaris_Shot>(), Projectile.damage/3, Projectile.knockBack/3, Main.myPlayer);
 				}
-				if (Main.rand.NextFloat() < .15f) {
+				if (Main.rand.NextFloat() < .3f) {
 					crazy++;
-					if (crazy < 2) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<Solaris_Stick>(), Projectile.damage, Projectile.knockBack, Projectile.owner, target.whoAmI, Projectile.rotation, 0f);
+					if (crazy < 3) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<Solaris_Stick>(), Projectile.damage, Projectile.knockBack, Projectile.owner, target.whoAmI, Projectile.rotation, 0f);
 				}
 			}
             

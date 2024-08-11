@@ -89,10 +89,11 @@ namespace Zylon.Items
 					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Increases critical strike damage by 25%\nCritical strikes rain Lihzahrd Beams from above");
 					tooltips.Add(line);
 				}
-				/*if (item.type == ItemID.RestorationPotion) {
-					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "No mana sickness");
-					tooltips.Add(line);
-				}*/
+				if (item.type == ItemID.ReaverShark) {
+					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Pickaxe power increases to 100% after Eater of Worlds is defeated");
+					if (WorldGen.crimson) line = new TooltipLine(Mod, "Tooltip1", "Pickaxe power increases to 100% after Brain of Cthulhu is defeated");
+					if (!NPC.downedBoss2) tooltips.Add(line);
+				}
             }
 			/*if (item.type == ItemID.TungstenPickaxe) {
 				foreach (var line2 in tooltips) {
@@ -175,6 +176,11 @@ namespace Zylon.Items
                 }
             }
 		}
+        public override void UpdateInventory(Item item, Player player) {
+            if (GetInstance<ZylonConfig>().zylonianBalancing) {
+				if (item.type == ItemID.ReaverShark && NPC.downedBoss2) item.pick = 100;
+			}
+        }
         /* public override void UpdateInventory(Item item, Player player) {
              if (item.type == ItemID.Minishark) {
                  item.useTime = 12;

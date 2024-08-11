@@ -204,7 +204,6 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.WoodenBoomerang);
 			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 6);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.EnchantedIceCube>(), 12);
-			recipe.AddIngredient(ItemID.IceBlock, 25);
 			recipe.AddTile(TileID.IceMachine);
 			recipe.Register();
 
@@ -559,7 +558,6 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.WoodenSword);
 			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 6);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.EnchantedIceCube>(), 12);
-			recipe.AddIngredient(ItemID.IceBlock, 25);
 			recipe.AddTile(TileID.IceMachine);
 			recipe.Register();
 
@@ -880,6 +878,18 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.BlackDye);
 			recipe.AddRecipeGroup("IronBar", 9);
 			recipe.AddTile(TileID.Sawmill);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.Shroomerang);
+			recipe.AddRecipeGroup("Zylon:AnySilverBar", 10);
+			recipe.AddIngredient(ItemID.GlowingMushroom, 25);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.Bananarang);
+			recipe.AddIngredient(ItemID.Banana);
+			recipe.AddRecipeGroup("Zylon:AnyMythrilBar", 11);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
         }
         public override void PostAddRecipes() {

@@ -122,7 +122,7 @@ namespace Zylon.NPCs
 		Vector2 stay;
 		Color tColor;
 		bool checkColor; //DOESNT WORK DONT USE //find a way to only look for one frame instead of always?
-        /*public override void PostAI(NPC npc) { //Tome man gonna kill me for this if statement army
+        public override void PostAI(NPC npc) { //Tome man gonna kill me for this if statement army
 			checkColor = !npc.boss && npc.type != NPCID.GolemHead;
 			Timer++;
             if (safe) {
@@ -141,7 +141,7 @@ namespace Zylon.NPCs
 				tColor = Color.DarkBlue;
             }
 			if (zombieRot) {
-				tColor = Color.Emerald;
+				tColor = Color.ForestGreen;
 				for (int i = 0; i < Main.maxNPCs; i++) {
 					if (Vector2.Distance(npc.Center, Main.npc[i].Center) < 60 && !Main.npc[i].friendly && Main.npc[i].active && !Main.npc[i].HasBuff<Buffs.Debuffs.ZombieRot>() && Main.rand.NextFloat() < .03f)
 						Main.npc[i].AddBuff(BuffType<Buffs.Debuffs.ZombieRot>(), 180);
@@ -172,12 +172,12 @@ namespace Zylon.NPCs
 				if (checkColor) {
 					npc.velocity = Vector2.Zero;
 					if (!setup) {
-				        //stay = npc.position;
+				        stay = npc.position;
 						//stayRot = npc.rotation;
 						//stayDir = npc.spriteDirection;
 				        setup = true;
 					}
-					//npc.position = stay;
+					npc.position = stay;
 					//npc.rotation = stayRot;
 					//npc.spriteDirection = stayDir;
 					//npc.noGravity = true;
@@ -190,8 +190,8 @@ namespace Zylon.NPCs
 			if (checkColor) {
                 //npc.color = tColor;
 			}
-        }*/
-		/*private void ColorStuff(NPC npc, Color color) {
+        }
+        /*private void ColorStuff(NPC npc, Color color) {
 			if (!npc.boss && npc.type != NPCID.GolemHead) {
 				npc.color = color;
 			}

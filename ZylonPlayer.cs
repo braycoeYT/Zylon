@@ -422,10 +422,8 @@ namespace Zylon
             }
 			Player.statDefense += livingWhipNum; //The number of active living whip spirits.
 
-			/*if (WorldGen.currentWorldSeed.ToLower() == "autumn") {
-				if (Player.armor[0] == )
-				Player.ArmorSetDye;
-			}*/
+			if (Player.HeldItem.type == ItemType<Items.Accessories.EnchantedPocketwatch>()) Player.moveSpeed += 0.15f;
+			if (Player.HeldItem.type == ItemType<Items.Accessories.Timekeeper>()) { Player.moveSpeed += 0.33f; Player.wingTimeMax += 90; }
         }
 		float trueMeleeBoost;
 		public override void ModifyHitNPCWithItem(Item item, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Item, consider using ModifyHitNPC instead */

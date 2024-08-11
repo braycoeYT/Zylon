@@ -540,6 +540,11 @@ Mods: {
 					'''
 			}
 
+			EnchantedPocketwatch: {
+				DisplayName: Enchanted Pocketwatch
+				Tooltip: While held, increases movement speed by 15%
+			}
+
 			EtherealGasp: {
 				DisplayName: Ethereal Gasp
 				Tooltip:
@@ -1011,6 +1016,11 @@ Mods: {
 					Retains 12% of blowpipe charge after shooting
 					20% chance not to consume seeds/darts
 					'''
+			}
+
+			Timekeeper: {
+				DisplayName: Timekeeper
+				Tooltip: While held, increases movement speed by 33% and max wingtime by 1.5 seconds
 			}
 
 			TitanfistMedal: {
@@ -2158,6 +2168,27 @@ Mods: {
 					'''
 			}
 
+			CloudNine: {
+				DisplayName: Cloud Nine
+				Tooltip:
+					'''
+					Can be thrown extremely quickly, but has a short range
+					Every third throw will split into nine mini versions
+					Is able to be rethrown after velocity peak or splitting
+					'''
+			}
+
+			Cogwheel: {
+				DisplayName: Cogwheel
+				Tooltip:
+					'''
+					'You know what really grinds my gears?'
+					Thrown boomerangs fire short-range cogs
+					Has a low chance to inflict Timestop on enemies
+					Is able to be rethrown after velocity peak
+					'''
+			}
+
 			FireandIce: {
 				DisplayName: Fire and Ice
 				Tooltip:
@@ -2226,8 +2257,8 @@ Mods: {
 					'''
 					'Contains a fragment of the Sun God's power'
 					After striking a foe, sometimes spawns several shots to pierce enemies
-					Has a 15% chance to get stuck in enemies after hitting them
-					The original projectile is not destroyed after getting stuck, but can only get stuck twice in one throw
+					Has a 30% chance to get stuck in enemies after hitting them
+					The original projectile is not destroyed after getting stuck, but can only get stuck thrice in one throw
 					Explodes after getting stuck, releasing powerful Flames of Hope
 					Collect green Flames of Hope to recover a small amount of health
 					'''
@@ -4358,6 +4389,11 @@ Mods: {
 				DisplayName: Stratoslime Banner
 				Tooltip: ""
 			}
+
+			Plantainarang: {
+				DisplayName: Plantainarang
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -4886,6 +4922,10 @@ Mods: {
 			Jack.DisplayName: Jack
 			ArgentumOrb_Laser.DisplayName: Argentum Orb_ Laser
 			ArgentumOrb.DisplayName: Argentum Orb
+			CloudNineProj.DisplayName: Cloud Nine Proj
+			CloudNineProj_Mini.DisplayName: Cloud Nine Proj_ Mini
+			CogwheelProj.DisplayName: Cogwheel Proj
+			CogwheelProj_Cog.DisplayName: Cogwheel Proj_ Cog
 		}
 
 		NPCs: {

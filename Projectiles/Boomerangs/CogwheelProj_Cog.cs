@@ -1,57 +1,53 @@
-using Terraria.ModLoader;
-using Terraria.ID;
-using Terraria;
 using Microsoft.Xna.Framework;
-using System;
-using Terraria.DataStructures;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace Zylon.Projectiles.Boomerangs
 {
-	public class Iblis_Rock : ModProjectile
+	public class CogwheelProj_Cog : ModProjectile
 	{
-		public override void SetStaticDefaults() {
-            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 15;
+        public override void SetStaticDefaults() {
+			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
         }
 		public override void SetDefaults() {
-			Projectile.width = 30;
-			Projectile.height = 30;
+			Projectile.width = 24;
+			Projectile.height = 24;
 			Projectile.aiStyle = -1;
+			Projectile.hostile = false;
 			Projectile.friendly = true;
-			Projectile.timeLeft = 9999;
+			Projectile.timeLeft = 40;
+			Projectile.ignoreWater = true;
 			Projectile.penetrate = -1;
-			Projectile.usesIDStaticNPCImmunity = true;
-			Projectile.idStaticNPCHitCooldown = 10;
+			Projectile.usesLocalNPCImmunity = true;
+			Projectile.localNPCHitCooldown = 40;
+			Projectile.tileCollide = false;
+			Projectile.extraUpdates = 1;
 		}
-		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-            target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6)*60);
-        }
-
-        public override void OnHitPlayer(Player target, Player.HurtInfo info) {
-			if (info.PvP) {
-				target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 6)*60);
-			}
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+            if (Main.rand.NextBool(25) && !target.boss) target.AddBuff(ModContent.BuffType<Buffs.Debuffs.Timestop>(), 60);
         }
         public override void AI() {
-			if (Projectile.ai[0] == 0f) Projectile.rotation = MathHelper.TwoPi;
-			Projectile.ai[0]++;
-			if (Projectile.ai[0] % 2 == 0) Projectile.velocity.Y += 1;
-			Projectile.rotation += 0.04f*Projectile.velocity.X;
+			Projectile.velocity *= 0.93f;
+			Projectile.rotation += 0.05f;
+			if (Projectile.timeLeft < 5) Projectile.alpha += 51;
         }
         public override void PostAI() {
-            if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch);
+			//Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
+			if (Main.rand.NextBool()) {
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.SteampunkSteam);
 				dust.noGravity = true;
-				dust.scale = 0.75f;
+				dust.scale = 1f;
 			}
-        }
-        public override bool OnTileCollide(Vector2 oldVelocity) {
+		}
+        public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			if (oldVelocity.Y < 0) { Projectile.velocity.Y = oldVelocity.Y*-1.5f; return false; }
-			return true;
-        }
+		}
 		public override bool PreDraw(ref Color lightColor) {
             SpriteEffects spriteEffects = SpriteEffects.None;
 

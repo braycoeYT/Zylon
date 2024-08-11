@@ -11,7 +11,11 @@ namespace Zylon.Projectiles.Boomerangs
 {
 	public class Mephiles_ShadowStick : ModProjectile
 	{
-		public override void SetDefaults() {
+        public override void SetStaticDefaults() {
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 30;
+            ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
+        }
+        public override void SetDefaults() {
 			Projectile.width = 50;
 			Projectile.height = 50;
 			Projectile.aiStyle = -1;
@@ -42,22 +46,30 @@ namespace Zylon.Projectiles.Boomerangs
 		}
 		public override void PostAI() {
             if (Main.rand.NextBool()) {
-				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch);
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Shadowflame);
 				dust.noGravity = true;
 				dust.scale = 0.75f;
 			}
         }
 		public override bool PreDraw(ref Color lightColor) {
-			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-			Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
-			int frameHeight = texture.Height / Main.projFrames[Projectile.type];
-			int spriteSheetOffset = frameHeight * Projectile.frame;
-			Vector2 sheetInsertPosition = (Projectile.Center + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition).Floor();
-			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
-			return false;
-		}
+            SpriteEffects spriteEffects = SpriteEffects.None;
+
+            Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;
+            
+            Vector2 drawOrigin = new Vector2(projectileTexture.Width * 0.5f, Projectile.height * 0.5f);
+            Vector2 drawPos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
+            Color color = Projectile.GetAlpha(lightColor);
+
+            for (int k = 0; k < Projectile.oldPos.Length; k++) {
+				Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+                Color colorAfterEffect = color * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.3f;
+                Main.spriteBatch.Draw(projectileTexture, drawPosEffect, null, colorAfterEffect, Projectile.oldRot[k], drawOrigin, Projectile.scale, spriteEffects, 0);
+            }
+			Main.spriteBatch.Draw(projectileTexture, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, spriteEffects, 0f);
+            return false;
+        }
         public override void OnKill(int timeLeft) {
-            if (Main.myPlayer == Projectile.owner) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<Mephiles_ShadowExplosion>(), (int)(Projectile.damage*0.3f), 0.25f, Projectile.owner);
+            if (Main.myPlayer == Projectile.owner) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<Mephiles_ShadowExplosion>(), (int)(Projectile.damage*0.6f), 0.25f, Projectile.owner);
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 		}
     }   

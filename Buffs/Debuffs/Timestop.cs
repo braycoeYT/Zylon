@@ -36,6 +36,12 @@ namespace Zylon.Buffs.Debuffs
             }
 		}
         public override void Update(NPC npc, ref int buffIndex) {
+            /*npc.velocity = Vector2.Zero;
+            if (!setup) {
+                stay = npc.position;
+                setup = true;
+            }
+            npc.position = stay;*/
             npc.GetGlobalNPC<NPCs.ZylonGlobalNPCDebuff>().timestop = true;
             if (Main.rand.NextBool(3) && npc.boss == false && npc.type != NPCID.GolemHead) {
                 int dustType = ModContent.DustType<Dusts.MiniClockDust>();

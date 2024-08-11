@@ -13,20 +13,17 @@ Stats:
 ~Several new prefixes for weapons and accessories!
 ~New secret seeds: Abyssworld and Autumn.
 
-V0.0.3.4: Update
-~Modified sprite of Cosmic Die.
-~Changed Cosmic Die recipe.
-~Modded banners now stack at 9999.
-~Fixed issue with banners and platforms.
-~Cosmic Die now displays one's current variation percentage in the tooltip.
-~Changed Cosmic Die tooltip slightly.
-~Resprited almost every single banner in the mod.
-~Nerfed Slime Prince armor.
-~Armor buffs no longer count as debuffs.
-~Added Bloodstained armor.
-~Armor cooldown debuffs no longer save after exiting the world.
-~Fixed bug that drew the Holy Crux with the wrong chain.
-~Added Royal Argentum armor.
+V0.0.3.5: Update
+~Added Cloud Nine, Cogwheel, and Plantainarang.
+~Added Enchanted Pocketwatch and Timekeeper.
+~Added more vanilla recipes.
+~Reaver Shark now gains 100% pickaxe power after EoW/BoC is defeated.
+~Slightly reworked Iblis, Mephiles, and Solaris.
+~Fixed bug that caused several debuffs to not work.
+FOSSIL AXE AND HAMMER
+ATLANTIS
+PENTARANG - TRIMARANG + PENTAGRAM, has random offset after moving straight for too long
+PLANTAINARANG
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

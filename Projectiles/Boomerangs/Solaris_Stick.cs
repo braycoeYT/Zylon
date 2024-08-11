@@ -58,10 +58,10 @@ namespace Zylon.Projectiles.Boomerangs
 		}
         public override void OnKill(int timeLeft) {
 			float rand = Main.rand.NextFloat(0f, 45f);
-			int heal = Main.rand.Next(8);
+			//int heal = Main.rand.Next(8);
             if (Main.myPlayer == Projectile.owner) for (int x = 0; x < 8; x++) {
 				int proj = ModContent.ProjectileType<Solaris_FlameofHope>();
-				if (x == heal) proj = ModContent.ProjectileType<Solaris_FlameofHopeHeal>();
+				//if (x == heal) proj = ModContent.ProjectileType<Solaris_FlameofHopeHeal>();
 				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, proj, Projectile.damage/3, Projectile.knockBack/3, Main.myPlayer, x*45+rand);
 			}
 		}
