@@ -25,13 +25,12 @@ namespace Zylon.Items.Boomerangs
 			Item.noUseGraphic = true;
 			Item.autoReuse = true;
 			Item.UseSound = SoundID.Item1;
-			Item.shoot = 0;//ProjectileType<Projectiles.Boomerangs.PlantainarangProj>();
+			Item.shoot = ProjectileType<Projectiles.Boomerangs.Plantainarang>();
 		}
 		public override bool CanUseItem(Player player) {
 			int total = 0;
 			for (int i = 0; i < Main.maxProjectiles; i++) {
 				if (Main.projectile[i].type == Item.shoot && Main.projectile[i].active && Main.projectile[i].owner == Main.myPlayer) { 
-					if (Main.projectile[i].ai[0] == 0f) return false;
 					total++;
 				}
 			}

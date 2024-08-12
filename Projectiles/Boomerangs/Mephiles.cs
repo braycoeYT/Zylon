@@ -43,6 +43,8 @@ namespace Zylon.Projectiles.Boomerangs
 			else if (Projectile.ai[1] % 12 == 0 && Main.myPlayer == Projectile.owner) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedByRandom(MathHelper.ToRadians(Main.rand.NextFloat(-28f, 28f))), ModContent.ProjectileType<Mephiles_Shadow>(), (int)(Projectile.damage*0.75f), Projectile.knockBack*0.5f, Main.myPlayer);
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+			Projectile.damage = (int)(Projectile.damage*0.7f);
+			if (Projectile.damage < 1) Projectile.damage = 1;
 			target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(5, 8) * 60);
 		}
         public override bool OnTileCollide(Vector2 oldVelocity) {

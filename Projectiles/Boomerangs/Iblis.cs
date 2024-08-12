@@ -43,6 +43,8 @@ namespace Zylon.Projectiles.Boomerangs
 			if (Main.rand.NextBool(4)) target.AddBuff(BuffID.Confused, Main.rand.Next(10, 15) * 60);
 			if (Main.myPlayer == Projectile.owner) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<Iblis_Stick>(), Projectile.damage, Projectile.knockBack, Projectile.owner, target.whoAmI, Projectile.rotation, 0f);
 			Projectile.Kill();
+			Projectile.damage = (int)(Projectile.damage*0.8f);
+			if (Projectile.damage < 1) Projectile.damage = 1;
 		}
         public override void OnHitPlayer(Player target, Player.HurtInfo info) {
             if (info.PvP) {

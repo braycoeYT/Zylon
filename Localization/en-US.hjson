@@ -2241,6 +2241,16 @@ Mods: {
 					'''
 			}
 
+			Plantainarang: {
+				DisplayName: Plantainarang
+				Tooltip:
+					'''
+					'Might make some great chips'
+					Has an extremely low chance to heal you by 15% of damage dealt
+					Only the first hit is capable of healing
+					'''
+			}
+
 			Pukerang: {
 				DisplayName: Pukerang
 				Tooltip:
@@ -3648,6 +3658,11 @@ Mods: {
 					'''
 			}
 
+			SpectreScythe: {
+				DisplayName: Spectre Scythe
+				Tooltip: Fired scythes chase after enemies
+			}
+
 			Stalactite: {
 				DisplayName: Stalactite
 				Tooltip: At full health, shoots a sword beam
@@ -4389,11 +4404,6 @@ Mods: {
 				DisplayName: Stratoslime Banner
 				Tooltip: ""
 			}
-
-			Plantainarang: {
-				DisplayName: Plantainarang
-				Tooltip: ""
-			}
 		}
 
 		Projectiles: {
@@ -4918,14 +4928,16 @@ Mods: {
 			SaburRexStarofWrath.DisplayName: Star of Wrath
 			HolyCruxClone.DisplayName: Holy Crux
 			HolyCrux.DisplayName: Holy Crux
-			WinkofRadiasProj.DisplayName: Winkof Radias Proj
+			WinkofRadiasProj.DisplayName: Wink of Radias
 			Jack.DisplayName: Jack
-			ArgentumOrb_Laser.DisplayName: Argentum Orb_ Laser
+			ArgentumOrb_Laser.DisplayName: Argentum Orb
 			ArgentumOrb.DisplayName: Argentum Orb
-			CloudNineProj.DisplayName: Cloud Nine Proj
-			CloudNineProj_Mini.DisplayName: Cloud Nine Proj_ Mini
-			CogwheelProj.DisplayName: Cogwheel Proj
-			CogwheelProj_Cog.DisplayName: Cogwheel Proj_ Cog
+			CloudNineProj.DisplayName: Cloud Nine
+			CloudNineProj_Mini.DisplayName: Cloud Nine
+			CogwheelProj.DisplayName: Cogwheel
+			CogwheelProj_Cog.DisplayName: Cogwheel
+			Plantainarang.DisplayName: Plantainarang
+			SpectreScytheProj.DisplayName: Spectre Scythe Proj
 		}
 
 		NPCs: {
