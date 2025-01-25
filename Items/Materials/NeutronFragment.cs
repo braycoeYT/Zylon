@@ -30,7 +30,7 @@ namespace Zylon.Items.Materials
 			Color newColor = new (temp2, temp2, 255);
 
 			for (int i = 0; i < 9; i++)
-				spriteBatch.Draw(texture, position, frame, newColor*(0.125f*i), newRot+MathHelper.ToRadians(i*5), origin, 0.7f, SpriteEffects.None, 0);
+				spriteBatch.Draw(texture, position, frame, newColor*(0.125f*i), newRot+MathHelper.ToRadians(i*5), origin, scale, SpriteEffects.None, 0);
 			return false;
         }
         public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI) {
@@ -45,7 +45,7 @@ namespace Zylon.Items.Materials
 			Color newColor = new (temp2, temp2, 255);
 
 			for (int i = 0; i < 9; i++)
-				spriteBatch.Draw(texture, drawPos, null, newColor*(0.125f*i), newRot+MathHelper.ToRadians(i*5), frameOrigin, 1f, SpriteEffects.None, 0);
+				spriteBatch.Draw(texture, drawPos, null, newColor*(0.125f*i), newRot+MathHelper.ToRadians(i*5), frameOrigin, scale, SpriteEffects.None, 0);
 			return false;
         }
         public override void AddRecipes()  {

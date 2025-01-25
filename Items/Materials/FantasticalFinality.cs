@@ -24,7 +24,7 @@ namespace Zylon.Items.Materials
         public override bool PreDrawInInventory(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale) {
             Texture2D texture = TextureAssets.Item[Item.type].Value;
 			float newScale = (float)Math.Sin(Main.GameUpdateCount/10f)/4f + 0.5f;
-			spriteBatch.Draw(texture, position, frame, Main.DiscoColor, 0f, origin, newScale*0.7f, SpriteEffects.None, 0);
+			spriteBatch.Draw(texture, position, frame, Main.DiscoColor, 0f, origin, newScale*scale*1.6f, SpriteEffects.None, 0);
 			return false;
         }
         public override bool PreDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI) {

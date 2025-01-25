@@ -2199,6 +2199,15 @@ Mods: {
 					'''
 			}
 
+			FrostRing: {
+				DisplayName: Frost Ring
+				Tooltip:
+					'''
+					Thrown inaccurately, but locks onto cursor after a while
+					Up to three can be active at once
+					'''
+			}
+
 			Iblis: {
 				DisplayName: Iblis
 				Tooltip:
@@ -2404,6 +2413,11 @@ Mods: {
 			Cartilage: {
 				DisplayName: Cartilage
 				Tooltip: Has a 33% chance to convert arrows to bone arrows
+			}
+
+			Cryostring: {
+				DisplayName: Cryostring
+				Tooltip: Has a low chance to fire several ice shards with each shot
 			}
 
 			Crystalizer: {
@@ -2764,6 +2778,11 @@ Mods: {
 					'''
 			}
 
+			IcyHookItem: {
+				DisplayName: Icy Hook
+				Tooltip: Short range, but grapples very quickly
+			}
+
 			JadeHookItem: {
 				DisplayName: Jade Hook
 				Tooltip: ""
@@ -2830,11 +2849,7 @@ Mods: {
 
 			EnchantedIceCube: {
 				DisplayName: Enchanted Ice Cube
-				Tooltip:
-					'''
-					'Keeps your drinks nice and cool!'
-					Minor improvements to all stats
-					'''
+				Tooltip: "'Keeps your drinks nice and cool!'"
 			}
 
 			EnergizedStone: {
@@ -4965,7 +4980,10 @@ Mods: {
 			SpectreScytheProj.DisplayName: Spectre Scythe
 			CactusOrb.DisplayName: Cactus Orb
 			CactusOrb_Proj.DisplayName: Cactus Needle
-			ThousandDegreeKnife.DisplayName: Thousand Degree Knife
+			ThousandDegreeKnife.DisplayName: Thousand-Degree Knife
+			CryostringProj.DisplayName: Cryostring
+			IcyHookProj.DisplayName: Icy Hook
+			FrostRing.DisplayName: Frost Ring
 		}
 
 		NPCs: {

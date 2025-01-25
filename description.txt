@@ -1,7 +1,7 @@
 The best mod that starts with Z — we guarantee or your money back! Warning: Mod does not work in multiplayer.
 
 Stats:
-~505 Items
+~510 Items
 ~5 Bosses:
 ~~~4 Prehardmode Bosses [i:2][i:116][i:789][i:282]
 ~~~1 Post-Moon Lord Boss [i:5130]
@@ -25,6 +25,12 @@ V0.0.3.6: Update
 ~Added Saguaro.
 ~Reworded Warrior's Ribbon's tooltip to be less vague.
 ~Added Thousand-Degree Knife.
+~Fixed an issue with items with custom animations.
+~Added Cryostring, Icy Hook, and Frost Ring.
+~Nerfed Snowfall, and it is now crafted instead of dropped by enemies.
+~Enchanted Ice Cubes can no longer be eaten.
+~Nerfed Reaver Shark buff after EoW/BoC is defeated.
+~Fixed grammatical error in the config text.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

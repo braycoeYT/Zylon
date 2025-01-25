@@ -90,8 +90,8 @@ namespace Zylon.Items
 					tooltips.Add(line);
 				}
 				if (item.type == ItemID.ReaverShark) {
-					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Pickaxe power increases to 100% after Eater of Worlds is defeated");
-					if (WorldGen.crimson) line = new TooltipLine(Mod, "Tooltip1", "Pickaxe power increases to 100% after Brain of Cthulhu is defeated");
+					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Pickaxe power increases to 70% after Eater of Worlds is defeated");
+					if (WorldGen.crimson) line = new TooltipLine(Mod, "Tooltip1", "Pickaxe power increases to 70% after Brain of Cthulhu is defeated");
 					if (!NPC.downedBoss2) tooltips.Add(line);
 				}
             }
@@ -178,7 +178,7 @@ namespace Zylon.Items
 		}
         public override void UpdateInventory(Item item, Player player) {
             if (GetInstance<ZylonConfig>().zylonianBalancing) {
-				if (item.type == ItemID.ReaverShark && NPC.downedBoss2) item.pick = 100;
+				if (item.type == ItemID.ReaverShark && NPC.downedBoss2) item.pick = 70;
 			}
         }
         /* public override void UpdateInventory(Item item, Player player) {

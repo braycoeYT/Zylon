@@ -106,6 +106,7 @@ namespace Zylon.Projectiles.Boomerangs
 				canStick = false; //Can't stick twice.
 				Projectile.rotation = (Projectile.Center-target.Center).ToRotation() + MathHelper.Pi + MathHelper.PiOver4;
 				Projectile.tileCollide = false;
+				if (burn > 0.25f) SoundEngine.PlaySound(SoundID.Item69, Projectile.position);
 			}
 		}
         public override void OnHitPlayer(Player target, Player.HurtInfo info) {
