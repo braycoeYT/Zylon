@@ -13,14 +13,18 @@ Stats:
 ~Several new prefixes for weapons and accessories!
 ~New secret seeds: Abyssworld and Autumn.
 
-V0.0.3.5: Update
-~Added Cloud Nine, Cogwheel, and Plantainarang.
-~Added Enchanted Pocketwatch and Timekeeper.
-~Added more vanilla recipes.
-~Reaver Shark now gains 100% pickaxe power after EoW/BoC is defeated.
-~Gave multihit penalties to and slightly reworked Iblis, Mephiles, and Solaris.
-~Fixed bug that caused several debuffs to not work.
-~Readded Spectre Scythe.
+V0.0.3.6: Update
+~Fixed a minor issue with the Abyssworld seed (?).
+~Mini Meteoroid now sets enemies on fire.
+~Reworked Slimebender... yet again.
+~Fixed sprite issue with Royal Argentum Headband.
+~Argentum and Slime Prince armor set bonuses no longer counts as minions.
+~Unholy and Bloodied Arrow recipes now craft 10 instead of 5.
+~Needle Spitter now poisons enemies and is crafted at a workbench instead of an anvil.
+~Resprited Needle Spitter.
+~Added Saguaro.
+~Reworded Warrior's Ribbon's tooltip to be less vague.
+~Added Thousand-Degree Knife.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

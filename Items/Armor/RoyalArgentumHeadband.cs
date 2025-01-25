@@ -32,8 +32,8 @@ namespace Zylon.Items.Armor
 			p.argentumSetBonus = true;
 			player.GetDamage(DamageClass.Summon) += 0.5f;
 			player.maxMinions += 4;
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.ArgentumOrb>()] < 4 && player.whoAmI == Main.myPlayer) {
-				Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Minions.ArgentumOrb>(), 200, 4f, Main.myPlayer, player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.ArgentumOrb>()]);
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Armor.ArgentumOrb>()] < 4 && player.whoAmI == Main.myPlayer) {
+				Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Armor.ArgentumOrb>(), 200, 4f, Main.myPlayer, player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Armor.ArgentumOrb>()]);
 			}
 		}
 		public override void AddRecipes() {

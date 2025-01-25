@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.DataStructures;
 
-namespace Zylon.Projectiles.Minions
+namespace Zylon.Projectiles.Armor
 {
 	public class RoyalSlimeProj : ModProjectile
 	{

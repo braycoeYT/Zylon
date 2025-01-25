@@ -33,8 +33,8 @@ namespace Zylon.Items.Armor
 			player.setBonus = "Increases melee speed by 12%\nSummons four Argentum Orbs to defend you\nArgentum Orbs fire short beams at nearby enemies";
 			player.GetAttackSpeed(DamageClass.Melee) += 0.12f;
 			p.argentumSetBonus = true;
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.ArgentumOrb>()] < 4 && player.whoAmI == Main.myPlayer) {
-				Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Minions.ArgentumOrb>(), 200, 4f, Main.myPlayer, player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.ArgentumOrb>()]);
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Armor.ArgentumOrb>()] < 4 && player.whoAmI == Main.myPlayer) {
+				Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Armor.ArgentumOrb>(), 200, 4f, Main.myPlayer, player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Armor.ArgentumOrb>()]);
 			}
 		}
 		public override void AddRecipes() {

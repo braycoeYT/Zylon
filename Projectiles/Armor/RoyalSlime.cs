@@ -6,7 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace Zylon.Projectiles.Minions
+namespace Zylon.Projectiles.Armor
 {
 	public class RoyalSlime : ModProjectile
 	{
@@ -22,7 +22,7 @@ namespace Zylon.Projectiles.Minions
 			Projectile.height = 34;
 			Projectile.tileCollide = false;
 			Projectile.friendly = true;
-			Projectile.minion = true;
+			Projectile.minion = false;
 			Projectile.minionSlots = 0f;
 			Projectile.penetrate = -1;
 			Projectile.DamageType = DamageClass.Summon;

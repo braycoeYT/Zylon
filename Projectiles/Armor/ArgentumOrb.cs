@@ -6,7 +6,7 @@ using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 
-namespace Zylon.Projectiles.Minions
+namespace Zylon.Projectiles.Armor
 {
 	public class ArgentumOrb : ModProjectile
 	{
@@ -26,7 +26,7 @@ namespace Zylon.Projectiles.Minions
 			Projectile.penetrate = -1;
 			Projectile.tileCollide = false;
 			Projectile.DamageType = DamageClass.Generic;
-			Projectile.minion = true;
+			Projectile.minion = false;
 			Projectile.minionSlots = 0f;
 			Projectile.extraUpdates = 1;
 		}

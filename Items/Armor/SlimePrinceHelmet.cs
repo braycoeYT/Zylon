@@ -26,8 +26,8 @@ namespace Zylon.Items.Armor
 			p.slimePrinceArmor = true;
 			player.setBonus = "Summons a floating slime staff to volley slime at enemies";
 			player.AddBuff(ModContent.BuffType<Buffs.Minions.RoyalSlime>(), 60);
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Minions.RoyalSlime>()] < 1 && player.whoAmI == Main.myPlayer)
-				Projectile.NewProjectile(new EntitySource_TileBreak((int)player.position.X, (int)player.position.Y), player.Center, new Microsoft.Xna.Framework.Vector2(0, 0), ModContent.ProjectileType<Projectiles.Minions.RoyalSlime>(), 20, 1f, Main.myPlayer);
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Armor.RoyalSlime>()] < 1 && player.whoAmI == Main.myPlayer)
+				Projectile.NewProjectile(new EntitySource_TileBreak((int)player.position.X, (int)player.position.Y), player.Center, new Microsoft.Xna.Framework.Vector2(0, 0), ModContent.ProjectileType<Projectiles.Armor.RoyalSlime>(), 20, 1f, Main.myPlayer);
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

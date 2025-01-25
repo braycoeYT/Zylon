@@ -20,7 +20,13 @@ namespace Zylon.Projectiles.Yoyos
 			Projectile.timeLeft = 9999;
 			Projectile.DamageType = DamageClass.Melee;
 		}
-		int bounce = 3;
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+            target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 7)*60);
+        }
+        public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+            if (info.PvP) target.AddBuff(BuffID.OnFire, Main.rand.Next(3, 7)*60);
+        }
+        int bounce = 3;
         public override bool OnTileCollide(Vector2 oldVelocity) {
 			bounce--;
 			if (bounce <= 0) {

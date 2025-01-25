@@ -1089,8 +1089,8 @@ Mods: {
 				Tooltip:
 					'''
 					'The stars signify the importance of the holder'
-					Heavily increases critical strike chance and damage as health decreases
-					This maxes out at 15% increased chance and 25% increased damage
+					Heavily increases critical strike chance and crit damage as health decreases
+					This maxes out at 15% increased chance and 25% increased crit damage
 					'''
 			}
 
@@ -2277,6 +2277,18 @@ Mods: {
 			SolChakram: {
 				DisplayName: Sol Chakram
 				Tooltip: Splits into two mini chakrams after being thrown
+			}
+
+			ThousandDegreeKnife: {
+				DisplayName: Thousand-Degree Knife
+				Tooltip:
+					'''
+					'Made for cutting plastic bottles, apparently'
+					Burns when first thrown, but cools down very quickly
+					Sticks to enemies while still hot, dealing massive amounts of damage
+					The knife has much higher knockback while burning
+					Each knife can only stick one time
+					'''
 			}
 
 			WretchedWrench: {
@@ -3634,9 +3646,22 @@ Mods: {
 					'''
 			}
 
+			Saguaro: {
+				DisplayName: Saguaro
+				Tooltip:
+					'''
+					'Stand tall in times of famine and drought'
+					Fires cactus orbs which shoot bouncy needles at the nearest enemy
+					'''
+			}
+
 			Slimebender: {
 				DisplayName: Slimebender
-				Tooltip: Every third swing shoots a large slimeblast that explodes into smaller slimeblasts
+				Tooltip:
+					'''
+					Barrages enemmies with slimeblasts
+					Every third swing shoots a large slimeblast that explodes into smaller ones
+					'''
 			}
 
 			Slimecutter: {
@@ -4937,7 +4962,10 @@ Mods: {
 			CogwheelProj.DisplayName: Cogwheel
 			CogwheelProj_Cog.DisplayName: Cogwheel
 			Plantainarang.DisplayName: Plantainarang
-			SpectreScytheProj.DisplayName: Spectre Scythe Proj
+			SpectreScytheProj.DisplayName: Spectre Scythe
+			CactusOrb.DisplayName: Cactus Orb
+			CactusOrb_Proj.DisplayName: Cactus Needle
+			ThousandDegreeKnife.DisplayName: Thousand Degree Knife
 		}
 
 		NPCs: {

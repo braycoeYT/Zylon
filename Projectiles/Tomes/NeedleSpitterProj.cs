@@ -1,11 +1,7 @@
 using Terraria.ModLoader;
-using Terraria.ID;
 using Terraria;
 using Microsoft.Xna.Framework;
-using System;
-using Terraria.DataStructures;
-using Microsoft.Xna.Framework.Graphics;
-using Terraria.GameContent;
+using Terraria.ID;
 
 namespace Zylon.Projectiles.Tomes
 {
@@ -32,6 +28,7 @@ namespace Zylon.Projectiles.Tomes
 					Projectile.tileCollide = false;
 					safe = target.Center - Projectile.Center;
 					Projectile.timeLeft = 180;
+					if (Main.rand.NextBool()) target.AddBuff(BuffID.Poisoned, 180);
 				}
 				else Projectile.Kill(); //Otherwise, don't pierce and DIE
 			}

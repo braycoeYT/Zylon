@@ -891,6 +891,12 @@ namespace Zylon
 			recipe.AddRecipeGroup("Zylon:AnyMythrilBar", 11);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.UnholyArrow);
+			recipe.AddIngredient(ItemID.WoodenArrow, 10);
+			recipe.AddIngredient(ItemID.WormTooth);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
             if (ModContent.GetInstance<ZylonConfig>().zylonianBalancing) for (int i = 0; i < Recipe.numRecipes; i++) {

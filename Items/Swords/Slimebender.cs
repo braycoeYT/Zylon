@@ -11,7 +11,7 @@ namespace Zylon.Items.Swords
 	public class Slimebender : ModItem
 	{
 		public override void SetDefaults() {
-			Item.damage = 313; //797
+			Item.damage = 298; //797
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 33;
 			Item.height = 33;
@@ -30,6 +30,7 @@ namespace Zylon.Items.Swords
 		int shootCount;
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
             shootCount++;
+			for (int i = 0; i < 2; i++) Projectile.NewProjectile(source, position, velocity.RotatedByRandom(MathHelper.ToRadians(15))*Main.rand.NextFloat(0.25f, 0.4f), ModContent.ProjectileType<Projectiles.Swords.Slimeblast>(), damage/2, knockback*0.4f, Main.myPlayer);
 			return shootCount % 3 == 0;
         }
         public override void ModifyTooltips(List<TooltipLine> list) {

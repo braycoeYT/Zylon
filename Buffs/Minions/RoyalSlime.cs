@@ -13,7 +13,7 @@ namespace Zylon.Buffs.Minions
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 		public override void Update(Player player, ref int buffIndex) {
-			if (player.ownedProjectileCounts[ProjectileType<Projectiles.Minions.RoyalSlime>()] > 0 && player.head == ItemType<Items.Armor.SlimePrinceHelmet>() && player.body == ItemType<Items.Armor.SlimePrinceBreastplate>() && player.legs == ItemType<Items.Armor.SlimePrinceLeggings>()){
+			if (player.ownedProjectileCounts[ProjectileType<Projectiles.Armor.RoyalSlime>()] > 0 && player.head == ItemType<Items.Armor.SlimePrinceHelmet>() && player.body == ItemType<Items.Armor.SlimePrinceBreastplate>() && player.legs == ItemType<Items.Armor.SlimePrinceLeggings>()){
 				player.buffTime[buffIndex] = 18000;
 			}
 			else {

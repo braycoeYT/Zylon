@@ -6,7 +6,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Zylon.Projectiles.Minions
+namespace Zylon.Projectiles.Armor
 {
     public class ArgentumOrb_Laser : ModProjectile
     {
