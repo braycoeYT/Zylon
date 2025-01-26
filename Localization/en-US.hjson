@@ -416,6 +416,21 @@ Mods: {
 				DisplayName: Bloodrain Cooldown
 				Description: You cannot activate the Bloodrain right now!
 			}
+
+			GunballBlue: {
+				DisplayName: Gunball Blue
+				Description: Your defense has dropped!
+			}
+
+			GunballGreen: {
+				DisplayName: Gunball Green
+				Description: Your speed has dropped!
+			}
+
+			GunballRed: {
+				DisplayName: Gunball Red
+				Description: Your attack has dropped!
+			}
 		}
 
 		Items: {
@@ -2704,6 +2719,19 @@ Mods: {
 					'''
 			}
 
+			Gunball: {
+				DisplayName: Gunball
+				Tooltip:
+					'''
+					Replaces musket balls with multi-color gumballs
+					Gumballs debuff damage, defense, and (for non-bosses) speed respectively
+					Gumballs have a 50% chance to home in on enemies
+					Has a 10% chance to replace ammo with a jawbreaker
+					Jawbreakers explode into several gumballs after some time
+					50% chance not to consume ammo
+					'''
+			}
+
 			HeavyLobster: {
 				DisplayName: Heavy Lobster
 				Tooltip:
@@ -3725,6 +3753,7 @@ Mods: {
 					Every other swing creates tiny rings of orbs
 					Increases damage, knockback, and swing speed as health decreases
 					At max or under 25% health, fires powerful sword beams with massive orb rings
+					True melee hits decrease defense by 20
 					'''
 			}
 
@@ -4984,6 +5013,8 @@ Mods: {
 			CryostringProj.DisplayName: Cryostring
 			IcyHookProj.DisplayName: Icy Hook
 			FrostRing.DisplayName: Frost Ring
+			Gunball_Proj.DisplayName: Gumball
+			Gunball_Jawbreaker.DisplayName: Jawbreaker
 		}
 
 		NPCs: {

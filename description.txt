@@ -13,24 +13,9 @@ Stats:
 ~Several new prefixes for weapons and accessories!
 ~New secret seeds: Abyssworld and Autumn.
 
-V0.0.3.6: Update
-~Fixed a minor issue with the Abyssworld seed (?).
-~Mini Meteoroid now sets enemies on fire.
-~Reworked Slimebender... yet again.
-~Fixed sprite issue with Royal Argentum Headband.
-~Argentum and Slime Prince armor set bonuses no longer counts as minions.
-~Unholy and Bloodied Arrow recipes now craft 10 instead of 5.
-~Needle Spitter now poisons enemies and is crafted at a workbench instead of an anvil.
-~Resprited Needle Spitter.
-~Added Saguaro.
-~Reworded Warrior's Ribbon's tooltip to be less vague.
-~Added Thousand-Degree Knife.
-~Fixed an issue with items with custom animations.
-~Added Cryostring, Icy Hook, and Frost Ring.
-~Nerfed Snowfall, and it is now crafted instead of dropped by enemies.
-~Enchanted Ice Cubes can no longer be eaten.
-~Nerfed Reaver Shark buff after EoW/BoC is defeated.
-~Fixed grammatical error in the config text.
+V0.0.3.7: Update
+~Resprited Iblis.
+~Fixed bug with Lobera Soulslash debuff, and now decreases defense by a flat 20 instead of 50%.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

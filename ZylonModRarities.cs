@@ -22,6 +22,14 @@ namespace Zylon
 			_ => Type,
 		};
 	}
+	public class SkymanisbtmanDev : ModRarity
+	{
+		//For the Gunball.
+		public override Color RarityColor => new Color(0, 255, 0);
+		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
+			_ => Type,
+		};
+	}
 	public class ExcalipoorRarity : ModRarity
 	{
 		//Epic sword.

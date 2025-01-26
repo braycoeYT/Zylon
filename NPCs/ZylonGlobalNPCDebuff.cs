@@ -24,6 +24,9 @@ namespace Zylon.NPCs
 		public bool flashPandemic;
 		public bool foamDart;
 		public bool ectoburn;
+		public bool gunballRed;
+		public bool gunballBlue;
+		public bool gunballGreen;
 		public override void ResetEffects(NPC npc) {
 			heartdaze = false;
 			shroomed = false;
@@ -36,6 +39,9 @@ namespace Zylon.NPCs
 			flashPandemic = false;
 			foamDart = false;
 			ectoburn = false;
+			gunballRed = false;
+			gunballBlue = false;
+			gunballGreen = false;
 		}
 		public override void UpdateLifeRegen(NPC npc, ref int damage) {
 			if (heartdaze) {
@@ -107,10 +113,20 @@ namespace Zylon.NPCs
         public override void ModifyHitByItem(NPC npc, Player player, Item item, ref NPC.HitModifiers modifiers) {
             if (foamDart) modifiers.Defense.Flat -= 15;
 			if (elemDegen) modifiers.Defense *= 0.85f;
+			if (gunballBlue) modifiers.Defense *= 0.75f;
+			if (loberaSlash) modifiers.Defense.Flat -= 20;
         }
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers) {
             if (foamDart) modifiers.Defense.Flat -= 15;
 			if (elemDegen) modifiers.Defense *= 0.85f;
+			if (gunballBlue) modifiers.Defense *= 0.75f;
+			if (loberaSlash) modifiers.Defense.Flat -= 25;
+        }
+        public override void ModifyHitPlayer(NPC npc, Player target, ref Player.HurtModifiers modifiers) {
+            if (gunballRed) modifiers.FinalDamage *= 0.75f;
+        }
+        public override void ModifyHitNPC(NPC npc, NPC target, ref NPC.HitModifiers modifiers) {
+            if (gunballRed) modifiers.FinalDamage *= 0.75f;
         }
         int Timer;
 		bool safe = true;
@@ -186,6 +202,11 @@ namespace Zylon.NPCs
 			else {
 				setup = false;
 				//npc.noGravity = safeGrav;
+            }
+			if (gunballGreen) {
+				if (checkColor) {
+					npc.velocity *= 0.93f;
+				}
             }
 			if (checkColor) {
                 //npc.color = tColor;

@@ -26,7 +26,13 @@ namespace Zylon.Items.Swords
 			Item.shoot = ModContent.ProjectileType<Projectiles.Swords.TrueLoberaRing>();
 			Item.shootSpeed = 11f;
 		}
-		public override void UpdateInventory(Player player) {
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
+            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60*Main.rand.Next(7, 11));
+        }
+        public override void OnHitPvp(Player player, Player target, Player.HurtInfo hurtInfo) {
+            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 60*Main.rand.Next(7, 11));
+        }
+        public override void UpdateInventory(Player player) {
             float hp = (float)player.statLife/(float)player.statLifeMax2;
 			Item.damage = 126 - (int)(30*hp);
 			Item.knockBack = 10f - 4.5f*hp;

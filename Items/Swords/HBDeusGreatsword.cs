@@ -29,11 +29,6 @@ namespace Zylon.Items.Swords
 			Item.shootSpeed = 14f;
 		}
 		public override void ModifyTooltips(List<TooltipLine> list) {
-            foreach (TooltipLine tooltipLine in list) {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName") {
-                    tooltipLine.OverrideColor = new Color(224, 153, 0);
-                }
-            }
 			TooltipLine xline = new TooltipLine(Mod, "Tooltip0", "~Developer Item (HBDeus)~");
 			xline.OverrideColor = new Color(224, 153, 0);
 			list.Add(xline);

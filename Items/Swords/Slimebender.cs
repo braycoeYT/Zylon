@@ -34,11 +34,6 @@ namespace Zylon.Items.Swords
 			return shootCount % 3 == 0;
         }
         public override void ModifyTooltips(List<TooltipLine> list) {
-            foreach (TooltipLine tooltipLine in list) {
-                if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName") {
-                    tooltipLine.OverrideColor = new Color(116, 179, 237);
-                }
-            }
 			TooltipLine xline = new TooltipLine(Mod, "Tooltip0", "~Developer Item (Braycoe)~");
 			xline.OverrideColor = new Color(116, 179, 237);
 			list.Add(xline);
