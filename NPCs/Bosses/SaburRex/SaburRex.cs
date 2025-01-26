@@ -67,6 +67,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
             return !player.GetModPlayer<ZylonPlayer>().dishonored;
         }
         public override bool? CanBeHitByProjectile(Projectile projectile) {
+			if (!projectile.friendly || projectile.hostile) return false;
 			if (Main.player[projectile.owner] == null) return false;
             return !Main.player[projectile.owner].GetModPlayer<ZylonPlayer>().dishonored;
         }

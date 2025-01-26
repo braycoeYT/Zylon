@@ -11,15 +11,15 @@ namespace Zylon.Items.BossSummons
 			Item.ResearchUnlockCount = 3;
 		}
 		public override void SetDefaults() {
-			Item.width = 36;
-			Item.height = 58;
-			Item.maxStack = 999;
+			Item.width = 48;
+			Item.height = 72;
+			Item.maxStack = 1;
 			Item.value = 0;
-			Item.rare = 2;
+			Item.rare = ItemRarityID.Green;
 			Item.useAnimation = 45;
 			Item.useTime = 45;
 			Item.useStyle = ItemUseStyleID.HoldUp;
-			Item.consumable = true;
+			Item.consumable = false;
 		}
         public override bool CanUseItem(Player player) {
             return !Terraria.GameContent.Events.Sandstorm.Happening;
@@ -33,10 +33,10 @@ namespace Zylon.Items.BossSummons
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Sandstone, 8);
-			recipe.AddIngredient(ItemID.AntlionMandible, 2);
-			recipe.AddIngredient(ModContent.ItemType<Materials.AdeniteCrumbles>(), 5);
-			recipe.AddIngredient(ItemID.FallenStar);
+			recipe.AddIngredient(ItemID.Sandstone, 20);
+			recipe.AddIngredient(ItemID.AntlionMandible, 6);
+			recipe.AddIngredient(ModContent.ItemType<Materials.AdeniteCrumbles>(), 9);
+			recipe.AddIngredient(ModContent.ItemType<Materials.SearedStone>(), 15);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}

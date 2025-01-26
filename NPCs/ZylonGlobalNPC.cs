@@ -301,6 +301,7 @@ namespace Zylon.NPCs
 			if (shop.NpcType == NPCID.ArmsDealer) {
 				shop.Add<Items.Ammo.BloodiedArrow>(Condition.TimeNight, Condition.Hardmode);
 				shop.Add<Items.Ammo.BloodiedArrow>(Condition.TimeDay);
+				shop.Add<Items.Ammo.Gumball>(new Condition("Mods.Zylon.Conditions.HasGunballCondition", () => Main.player[Main.myPlayer].HasItem(ItemType<Items.Guns.Gunball>())));
 			}
 			if (shop.NpcType == NPCID.Merchant) {
 				shop.Add<Items.Tools.TreeWhacker>(new Condition("Mods.Zylon.Conditions.DownedDirtballCondition", () => ZylonWorldCheckSystem.downedDirtball));

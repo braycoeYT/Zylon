@@ -1236,6 +1236,16 @@ Mods: {
 				Tooltip: For use with blowpipes
 			}
 
+			Gumball: {
+				DisplayName: Gumball
+				Tooltip:
+					'''
+					Gumballs debuff damage, defense, and (for non-bosses) speed respectively
+					Gumballs have a 50% chance to home in on enemies
+					Sold by Arms Dealer while Gunball is in inventory
+					'''
+			}
+
 			HallowedSeed: {
 				DisplayName: Hallowed Seed
 				Tooltip:
@@ -2393,6 +2403,7 @@ Mods: {
 					'''
 					'The final flame of a long-forgotten civilization'
 					Summons a sandstorm in the desert
+					Not Consumable
 					'''
 			}
 
@@ -5299,6 +5310,9 @@ Mods: {
 			AutumnPaintPassMessage: Seasoning world
 		}
 
-		Conditions.DownedDirtballCondition: Mods.Zylon.Conditions.DownedDirtballCondition
+		Conditions: {
+			DownedDirtballCondition: Mods.Zylon.Conditions.DownedDirtballCondition
+			HasGunballCondition: Have the Gunball in your inventory.
+		}
 	}
 }

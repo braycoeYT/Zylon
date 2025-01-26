@@ -16,6 +16,9 @@ Stats:
 V0.0.3.7: Update
 ~Resprited Iblis.
 ~Fixed bug with Lobera Soulslash debuff, and now decreases defense by a flat 20 instead of 50%.
+~Added Gunball and Gumball.
+~Fixed new bug that causes Sabur Rex to fight himself. Thanks, TML.
+~Resprited Forgotten Flame, made it non-consumable, and moved it to post-ADD.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

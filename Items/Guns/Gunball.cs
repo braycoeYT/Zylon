@@ -45,7 +45,7 @@ namespace Zylon.Items.Guns
             return Main.rand.NextBool();
         }
         public override Vector2? HoldoutOffset() {
-			return new Vector2(-26, 0);
+			return new Vector2(-72, -4);
 		}
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
