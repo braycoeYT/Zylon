@@ -10,11 +10,11 @@ namespace Zylon.Items.Accessories
 			Item.width = 42;
 			Item.height = 42;
 			Item.accessory = true;
-			Item.value = Item.sellPrice(0, 0, 89);
+			Item.value = Item.sellPrice(0, 1, 21);
 			Item.rare = ItemRarityID.Blue;
 		}
 		public override void UpdateAccessory(Player player, bool hideVisual) {
-			if (player.velocity.Length() < 0.01f) player.GetCritChance(DamageClass.Generic) += 12;
+			if (player.velocity.Length() < 0.01f) player.GetAttackSpeed(DamageClass.Generic) += 0.2f;
 		}
 	}
 }

@@ -8,8 +8,8 @@ namespace Zylon.Items.Accessories
 	public class ManaBattery : ModItem
 	{
 		public override void SetDefaults() {
-			Item.width = 18;
-			Item.height = 36;
+			Item.width = 22;
+			Item.height = 34;
 			Item.accessory = true;
 			Item.value = Item.buyPrice(0, 1);
 			Item.rare = ItemRarityID.Blue;

@@ -680,7 +680,7 @@ Mods: {
 				Tooltip:
 					'''
 					'Stop standing there and fight me like a real man!'
-					Increases critical strike chance by 12 while standing still
+					Increases attack speed by 20% while standing still
 					'''
 			}
 
@@ -2402,9 +2402,11 @@ Mods: {
 				Tooltip:
 					'''
 					'The final flame of a long-forgotten civilization'
-					Summons a sandstorm in the desert
+					Summons or despawns a sandstorm in the desert
 					Not Consumable
 					'''
+				StartMessage: The desert winds stir once more...
+				StopMessage: The sandstorm falls asleep once again...
 			}
 
 			SlimyScepter: {
@@ -3547,11 +3549,7 @@ Mods: {
 
 			BloodyZombieArm: {
 				DisplayName: Bloody Zombie Arm
-				Tooltip:
-					'''
-					'Bloodier than ever!'
-					Inflicts Zombie Rot upon hitting enemies, which can be spread to other nearby enemies
-					'''
+				Tooltip: Inflicts Zombie Rot upon hitting enemies, which can be spread to other nearby enemies
 			}
 
 			CarnalliteCutlass: {

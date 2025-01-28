@@ -1,7 +1,9 @@
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
 
 namespace Zylon.Items.BossSummons
 {
@@ -21,13 +23,21 @@ namespace Zylon.Items.BossSummons
 			Item.useStyle = ItemUseStyleID.HoldUp;
 			Item.consumable = false;
 		}
-        public override bool CanUseItem(Player player) {
-            return !Terraria.GameContent.Events.Sandstorm.Happening;
-        }
+		/*public override Vector2? HoldoutOffset() {
+			return new Vector2(-24, -12);
+		}*/
         public override bool? UseItem(Player player) {
 			if (player.whoAmI == Main.myPlayer) {
-				SoundEngine.PlaySound(SoundID.Item29, player.position);
-				Terraria.GameContent.Events.Sandstorm.StartSandstorm();
+				if (Terraria.GameContent.Events.Sandstorm.Happening) {
+					SoundEngine.PlaySound(SoundID.Item29.WithPitchOffset(-1f), player.position);
+					Terraria.GameContent.Events.Sandstorm.StopSandstorm();
+					Main.NewText(Language.GetTextValue("Mods.Zylon.Items.ForgottenFlame.StopMessage"), 209, 185, 23);
+				}
+				else {
+					SoundEngine.PlaySound(SoundID.Item29, player.position);
+					Terraria.GameContent.Events.Sandstorm.StartSandstorm();
+					Main.NewText(Language.GetTextValue("Mods.Zylon.Items.ForgottenFlame.StartMessage"), 209, 185, 23);
+				}
 			}
 			return true;
 		}
