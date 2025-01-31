@@ -36,7 +36,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
             NPC.width = 58;
 			NPC.height = 64;
 			NPC.damage = 99;
-			NPC.defense = 110;
+			NPC.defense = 56;
 			NPC.lifeMax = (int)(350000*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.HitSound = SoundID.NPCHit6;
 			NPC.DeathSound = SoundID.NPCDeath8;

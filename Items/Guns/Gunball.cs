@@ -16,7 +16,7 @@ namespace Zylon.Items.Guns
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 8;
 			Item.useTime = 4;
-			Item.damage = 179;
+			Item.damage = 61;
 			Item.width = 86;
 			Item.height = 32;
 			Item.knockBack = 4f;
@@ -49,8 +49,9 @@ namespace Zylon.Items.Guns
 		}
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddRecipeGroup("IronBar", 8);
-			recipe.AddIngredient(ItemID.HellstoneBar, 4);
+			recipe.AddIngredient(ItemID.ChainGun);
+			recipe.AddRecipeGroup("Zylon:AnyAdamantiteBar", 10);
+			recipe.AddIngredient(ItemID.Glass, 20);
 			recipe.AddIngredient(ModContent.ItemType<FantasticalFinality>(), 13);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();

@@ -1810,12 +1810,12 @@ Mods: {
 			}
 
 			AdenebBag: {
-				DisplayName: Treasure Bag
+				DisplayName: Treasure Bag (Adeneb)
 				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 			}
 
 			DirtballBag: {
-				DisplayName: Treasure Bag
+				DisplayName: Treasure Bag (Dirtball)
 				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 			}
 
@@ -1850,17 +1850,17 @@ Mods: {
 			}
 
 			JellyBag: {
-				DisplayName: Treasure Bag
+				DisplayName: Treasure Bag (Eldritch Jellyfish)
 				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 			}
 
 			MetelordBag: {
-				DisplayName: Treasure Bag
+				DisplayName: Treasure Bag (Metelord)
 				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 			}
 
 			SaburBag: {
-				DisplayName: Treasure Bag
+				DisplayName: Treasure Bag (Sabur Rex)
 				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 			}
 
@@ -3711,8 +3711,14 @@ Mods: {
 				DisplayName: Slimebender
 				Tooltip:
 					'''
-					Barrages enemmies with slimeblasts
-					Every third swing shoots a large slimeblast that explodes into smaller ones
+					Each swing creates multiple slashes near the player
+					Dealing enough damage to enemies will spawn a Slime Core around the player
+					Up to 13 Slime Cores can be collected
+					Right click to unleash Slimageddon
+					Power is based on how many Slime Cores are active
+					Swapping items will reset the Slime Core counter
+					All attacks inflict Slimed
+					Striking Slimed enemies ignores 20 defense (WIP MAKE IT WORK)
 					'''
 			}
 
@@ -5024,6 +5030,7 @@ Mods: {
 			FrostRing.DisplayName: Frost Ring
 			Gunball_Proj.DisplayName: Gumball
 			Gunball_Jawbreaker.DisplayName: Jawbreaker
+			SlimebenderSlash.DisplayName: Slimebender Slash
 		}
 
 		NPCs: {

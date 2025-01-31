@@ -62,6 +62,7 @@ namespace Zylon.Projectiles.Boomerangs
 				Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 				SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
 			}*/
+			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			if (Main.myPlayer == Projectile.owner) for (int x = 0; x < 5; x++) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-20f, -12f)), ModContent.ProjectileType<Iblis_Rock>(), (int)(Projectile.damage*0.6f), Projectile.knockBack*0.4f, Projectile.owner);
 			SoundEngine.PlaySound(SoundID.Item69, Projectile.position);
 			Projectile.Kill();

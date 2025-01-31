@@ -48,11 +48,11 @@ namespace Zylon.Projectiles.Boomerangs
 			target.AddBuff(BuffID.ShadowFlame, Main.rand.Next(5, 8) * 60);
 		}
         public override bool OnTileCollide(Vector2 oldVelocity) {
+			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 			if (Projectile.ai[0] <= 48) {
 				hitCount++;
 				Projectile.velocity = -oldVelocity;
 				if (Projectile.ai[0] > 20 || hitCount >= 3) Projectile.ai[0] = 48;
-				Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 				SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
 			}
             return false;

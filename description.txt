@@ -13,17 +13,14 @@ Stats:
 ~Several new prefixes for weapons and accessories!
 ~New secret seeds: Abyssworld and Autumn.
 
-V0.0.3.7: Update
-~Resprited Iblis.
-~True Lobera's true melee hits now inflict Lobera Soulslash.
-~Added Gunball and Gumball.
-~Fixed a new bug that causes Sabur Rex to fight himself. Thanks, TML.
-~Resprited Forgotten Flame, made it non-consumable, and moved it to post-ADD.
-~Resprited Overcharged Mana Capsule, Mana Pod, Mana Battery, and Sparking Core.
-~Resprited Bloody Zombie Arm, and removed tooltip.
-~Removed Caeruleus, Lead Balloon, Flamecougher, Dreadclawtilus, and Slime Pendant.
-~Forgotten Flame now can disable sandstorms, and sends out a message when used.
-~Reworked Lazy Cap, and increased sell price.
+V0.0.3.8: Update
+~Changed recipes of developer weapons.
+~Removed Sparkly Slimecutter and Cogwheel.
+~Iblis and Mephiles now always create dust after hitting tiles.
+~Treasure bags now have boss names in their display names.
+~Nerfed Gunball.
+~Decreased Sabur Rex's defense significantly.
+REWORK HBDEUS, SLIMEBENDER, VAPOR, SOLARIS
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

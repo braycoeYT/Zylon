@@ -58,9 +58,13 @@ namespace Zylon.Items.Ammo
 			return false;
         }
 		public override void AddRecipes() {
-			Recipe recipe = CreateRecipe(100);
-			recipe.AddIngredient(ItemID.MusketBall, 100);
+			Recipe recipe = CreateRecipe(250);
+			recipe.AddIngredient(ItemID.MusketBall, 250);
+			recipe.AddIngredient(ItemType<Materials.SpeckledStardust>());
+			recipe.AddIngredient(ItemType<Materials.Oozeberry>());
+			recipe.AddIngredient(ItemType<Materials.EnchantedIceCube>());
 			recipe.AddIngredient(ItemType<Materials.FantasticalFinality>());
+			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}
 	}

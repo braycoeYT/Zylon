@@ -63,7 +63,10 @@ namespace Zylon.Items.Swords
 		}*/
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Marble, 75);
+			recipe.AddIngredient(ModContent.ItemType<Stalactite>());
+			recipe.AddIngredient(ItemID.Marble, 50);
+			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 8);
+			recipe.AddIngredient(ItemID.StoneBlock, 100);
 			recipe.AddIngredient(ModContent.ItemType<FantasticalFinality>(), 13);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
