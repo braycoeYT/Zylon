@@ -1,7 +1,7 @@
 The best mod that starts with Z — we guarantee or your money back! Warning: Mod does not work in multiplayer.
 
 Stats:
-~507 Items
+~503 Items
 ~5 Bosses:
 ~~~4 Prehardmode Bosses [i:2][i:116][i:789][i:282]
 ~~~1 Post-Moon Lord Boss [i:5130]
@@ -15,12 +15,15 @@ Stats:
 
 V0.0.3.8: Update
 ~Changed recipes of developer weapons.
-~Removed Sparkly Slimecutter and Cogwheel.
+~Removed Sparkly Slimecutter, Cogwheel, and Cloud Nine.
 ~Iblis and Mephiles now always create dust after hitting tiles.
 ~Treasure bags now have boss names in their display names.
 ~Nerfed Gunball.
 ~Decreased Sabur Rex's defense significantly.
-REWORK HBDEUS, SLIMEBENDER, VAPOR, SOLARIS
+~Unnerfed Zenith, but added Fantastical Finalities to the recipe.
+~Removed Vapor's Eon (for now).
+~Reworked Slimebender. This is the last time, I swear...
+~Homing bullets no longer bounce off of enemies when Illusory Bullet Polish is equipped.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

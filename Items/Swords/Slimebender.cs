@@ -2,17 +2,19 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Zylon.Items.Materials;
+using Zylon.Projectiles.Whips;
 
 namespace Zylon.Items.Swords
 {
 	public class Slimebender : ModItem
 	{
 		public override void SetDefaults() {
-			Item.damage = 298;
+			Item.damage = 248;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 92;
 			Item.height = 92;
@@ -28,7 +30,31 @@ namespace Zylon.Items.Swords
 			Item.shoot = ModContent.ProjectileType<Projectiles.Swords.SlimebenderSlash>();
 			Item.shootSpeed = 5f;
 		}
+		public override bool AltFunctionUse(Player player) {
+			return true;
+		}
+        public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers) {
+            if (target.HasBuff(BuffID.Slimed)) modifiers.Defense.Flat -= 20;
+        }
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+            p.slimebenderDamage += hit.Damage;
+			while (p.slimebenderDamage > 2500) {
+				p.slimebenderDamage -= 2500;
+				p.slimebenderCore++;
+				if (p.slimebenderCore > 13) p.slimebenderCore = 13;
+				if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Swords.SlimebenderCore>()] < 1 && Main.myPlayer == player.whoAmI)
+					Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Swords.SlimebenderCore>(), 0, 0f, Main.myPlayer);
+			}
+        }
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
+			if (player.altFunctionUse == 2) {
+				ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+				p.slimebenderCore = 0;
+				p.slimebenderDamage = 0;
+				return false;
+			}
+			
 			float slashRot = Main.rand.NextFloat(-180, 180f);
 
 			float dist = Vector2.Distance(player.Center, Main.MouseWorld);

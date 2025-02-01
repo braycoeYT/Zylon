@@ -911,6 +911,8 @@ namespace Zylon
 					recipe.AddIngredient(ItemID.ManaCrystal);
 					recipe.AddTile(TileID.Anvils);
 				}
+				if (recipe.HasResult(ItemID.Zenith))
+					recipe.AddIngredient(ModContent.ItemType<Items.Materials.FantasticalFinality>(), 13);
 				if (recipe.HasResult(ItemID.RestorationPotion) && recipe.HasIngredient(ItemID.Mushroom))
 					recipe.DisableRecipe();
 				if (recipe.HasResult(ItemID.UnholyArrow) && recipe.HasIngredient(ItemID.Vertebrae))

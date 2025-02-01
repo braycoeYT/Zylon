@@ -97,6 +97,7 @@ namespace Zylon
 		public bool bloodrain;
 		public bool royalArgentumChestpiece;
 		public bool argentumSetBonus;
+		public bool argentumHeadgear;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -125,13 +126,14 @@ namespace Zylon
 		public int livingWhipNum;
 		public int livingWhipTimer;
 		public int numof10ammo;
+		public int slimebenderDamage;
+		public int slimebenderCore;
 		public float summonCrit;
 		public float summonCritBoost;
 		public float damageVariation;
 		public bool scaryText;
 		public bool scaryText2;
 		public bool summonCritHappen;
-		public bool argentumHeadgear;
 		public override void ResetEffects() {
 			Heartdaze = false;
 			outofBreath = false;
@@ -249,6 +251,8 @@ namespace Zylon
 			harpysCrestCooldown = 0;
 			livingWhipNum = 0;
 			livingWhipTimer = 0;
+			slimebenderDamage = 0;
+			slimebenderCore = 0;
 		}
 		public override void UpdateBadLifeRegen() {
 			//Update timers here, I guess.
@@ -424,6 +428,8 @@ namespace Zylon
 
 			if (Player.HeldItem.type == ItemType<Items.Accessories.EnchantedPocketwatch>()) Player.moveSpeed += 0.15f;
 			if (Player.HeldItem.type == ItemType<Items.Accessories.Timekeeper>()) { Player.moveSpeed += 0.33f; Player.wingTimeMax += 90; }
+
+			if (Player.HeldItem.type != ItemType<Items.Swords.Slimebender>()) { slimebenderCore = 0; slimebenderDamage = 0; } //Resets Slimebender if not currently held.
         }
 		float trueMeleeBoost;
 		public override void ModifyHitNPCWithItem(Item item, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Item, consider using ModifyHitNPC instead */

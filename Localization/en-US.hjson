@@ -642,7 +642,7 @@ Mods: {
 					'''
 					'Screw you, ozone layer!'
 					Allows all bullets to bounce off of foes once and tiles twice
-					Rebounded Chlorophyte Bullets deal significantly less damage
+					Homing bullets can only bounce off of tiles
 					20% chance not to consume bullets
 					'''
 			}
@@ -759,7 +759,7 @@ Mods: {
 					'''
 					Increases arrow damage by 10% and greatly increases arrow speed
 					Allows all bullets to bounce off of foes once and tiles twice
-					Rebounded Chlorophyte Bullets deal significantly less damage
+					Homing bullets can only bounce off of tiles
 					Retains 12% of blowpipe charge after shooting
 					10% chance not to consume ammo
 					'''
@@ -772,7 +772,7 @@ Mods: {
 					12% increased ranged damage
 					Increases arrow damage by 10% and greatly increases arrow speed
 					Allows all bullets to bounce off of foes once and tiles twice
-					Rebounded Chlorophyte Bullets deal significantly less damage
+					Homing bullets can only bounce off of tiles
 					Retains 12% of blowpipe charge after shooting
 					10% chance not to consume ammo
 					'''
@@ -862,7 +862,7 @@ Mods: {
 					12% increased ranged damage
 					Increases arrow damage by 12% and greatly increases arrow speed
 					Allows all bullets to bounce off of foes twice and tiles thrice
-					Rebounded Chlorophyte Bullets deal significantly less damage
+					Homing bullets can only bounce off of tiles
 					Retains 15% of blowpipe charge after shooting
 					40% chance not to consume ammo
 					'''
@@ -3606,6 +3606,7 @@ Mods: {
 					Blossomed roses release spore clouds after stopping
 					Every third blossomed rose instead releases a ring of roses
 					True melee strikes summon more mini roses to attack foes
+					Right click to change use turn
 					'''
 			}
 
@@ -3713,12 +3714,12 @@ Mods: {
 					'''
 					Each swing creates multiple slashes near the player
 					Dealing enough damage to enemies will spawn a Slime Core around the player
-					Up to 13 Slime Cores can be collected
+					Up to 13 Slime Crystals can be collected
 					Right click to unleash Slimageddon
-					Power is based on how many Slime Cores are active
-					Swapping items will reset the Slime Core counter
+					Power is based on how many Slime Crystals are active
+					Swapping items will reset the Slime Crystal counter
 					All attacks inflict Slimed
-					Striking Slimed enemies ignores 20 defense (WIP MAKE IT WORK)
+					Striking Slimed enemies ignores 20 defense
 					'''
 			}
 
@@ -5031,6 +5032,9 @@ Mods: {
 			Gunball_Proj.DisplayName: Gumball
 			Gunball_Jawbreaker.DisplayName: Jawbreaker
 			SlimebenderSlash.DisplayName: Slimebender Slash
+			SlimebenderCore.DisplayName: Slimebender Core
+			SlimebenderRain.DisplayName: Slimebender Rain
+			SlimebenderRainProj.DisplayName: Slimebender Rain Proj
 		}
 
 		NPCs: {
