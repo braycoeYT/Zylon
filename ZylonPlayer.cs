@@ -426,8 +426,8 @@ namespace Zylon
             }
 			Player.statDefense += livingWhipNum; //The number of active living whip spirits.
 
-			if (Player.HeldItem.type == ItemType<Items.Accessories.EnchantedPocketwatch>()) Player.moveSpeed += 0.15f;
-			if (Player.HeldItem.type == ItemType<Items.Accessories.Timekeeper>()) { Player.moveSpeed += 0.33f; Player.wingTimeMax += 90; }
+			//if (Player.HeldItem.type == ItemType<Items.Accessories.EnchantedPocketwatch>()) Player.moveSpeed += 0.15f;
+			//if (Player.HeldItem.type == ItemType<Items.Accessories.Timekeeper>()) { Player.moveSpeed += 0.33f; Player.wingTimeMax += 90; }
 
 			if (Player.HeldItem.type != ItemType<Items.Swords.Slimebender>()) { slimebenderCore = 0; slimebenderDamage = 0; } //Resets Slimebender if not currently held.
         }

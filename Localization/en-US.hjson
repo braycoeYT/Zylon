@@ -21,7 +21,7 @@ Mods: {
 
 		DropConditions: {
 			DownedDirtballCondition: Defeat Dirtball
-			ElemGelCondition: Unleash the Elemental Goo
+			ElemGelCondition: Unleash the Elemental Ooze
 		}
 
 		Keybinds.DoublePluggedCord.DisplayName: Double-Plugged Cord Activation
@@ -1541,6 +1541,15 @@ Mods: {
 					'''
 			}
 
+			LihzahrdPlatingHelmet: {
+				DisplayName: Lihzahrd Plating Helmet
+				Tooltip:
+					'''
+					Increases summon critical strike chance and damage by 5%
+					Increases your max amount of minions by 1
+					'''
+			}
+
 			LivingWoodBreastplate: {
 				DisplayName: Living Wood Breastplate
 				Tooltip: Increases minion knockback by 8%
@@ -2754,18 +2763,23 @@ Mods: {
 					'''
 			}
 
-			KrakenBlast: {
-				DisplayName: Kraken Blast
-				Tooltip:
-					'''
-					Fires three rounds, the third of which contains a spread of bullets
-					All three rounds consume only one bullet together
-					'''
+			MandibleRailgun: {
+				DisplayName: Mandible Railgun
+				Tooltip: Replaces musket balls with splitting sand shots
 			}
 
 			OvergrownHandgunFragment: {
 				DisplayName: Overgrown Handgun Fragment
 				Tooltip: "'Only at 0.1% of its true power'"
+			}
+
+			PizazzCannon: {
+				DisplayName: Pizazz Cannon
+				Tooltip:
+					'''
+					Fires in groups of three
+					The third shot replaces ammo with a barrage of disco bullets and confetti
+					'''
 			}
 
 			PlutoMagnum: {
@@ -2788,7 +2802,7 @@ Mods: {
 
 			Sandstormgun: {
 				DisplayName: Sandstormgun
-				Tooltip: "'Spread the sand!'"
+				Tooltip: ""
 			}
 
 			ShrapnelGun: {
@@ -5031,10 +5045,13 @@ Mods: {
 			FrostRing.DisplayName: Frost Ring
 			Gunball_Proj.DisplayName: Gumball
 			Gunball_Jawbreaker.DisplayName: Jawbreaker
-			SlimebenderSlash.DisplayName: Slimebender Slash
-			SlimebenderCore.DisplayName: Slimebender Core
-			SlimebenderRain.DisplayName: Slimebender Rain
-			SlimebenderRainProj.DisplayName: Slimebender Rain Proj
+			SlimebenderSlash.DisplayName: Slimebender
+			SlimebenderCore.DisplayName: Slimebender
+			SlimebenderRain.DisplayName: Slimebender
+			SlimebenderRainProj.DisplayName: Slimebender
+			PizazzCannonProj.DisplayName: Pizazz Cannon
+			MandibleRailgunProj.DisplayName: Mandible Railgun Proj
+			MandibleRailgunProj_Split.DisplayName: Mandible Railgun Proj_ Split
 		}
 
 		NPCs: {

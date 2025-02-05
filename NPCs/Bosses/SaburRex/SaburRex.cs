@@ -146,7 +146,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 				}
 			}
 
-			Zylon.hasFoughtSabur = true; //REMOVE WHEN BOSS FINISHED - JUST TO SKIP DIALOGUE
+			Zylon.hasFoughtSabur = true; //Boss used to have dialogue.
 
 			NPC.TargetClosest();
 			target = Main.player[NPC.target];
@@ -179,11 +179,11 @@ namespace Zylon.NPCs.Bosses.SaburRex
 					Zylon.hasFoughtSabur = true;
                 }
 				
-				if (dialogue) {
+				/*if (dialogue) {
 					if (attackTimer == 150) Main.NewText("A challenger?", 75, 104, 113);
 					if (attackTimer == 310) Main.NewText("You are not who I am searching for...", 75, 104, 113);
 					if (attackTimer == 470) Main.NewText("But I shall end your life regardless.", 75, 104, 113);
-				}
+				}*/
 				
 				if (attackTimer == 500 || (attackTimer == 180 && !dialogue)) {
 

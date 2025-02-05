@@ -13,17 +13,13 @@ Stats:
 ~Several new prefixes for weapons and accessories!
 ~New secret seeds: Abyssworld and Autumn.
 
-V0.0.3.8: Update
-~Changed recipes of developer weapons.
-~Removed Sparkly Slimecutter, Cogwheel, and Cloud Nine.
-~Iblis and Mephiles now always create dust after hitting tiles.
-~Treasure bags now have boss names in their display names.
-~Nerfed Gunball.
-~Decreased Sabur Rex's defense significantly.
-~Unnerfed Zenith, but added Fantastical Finalities to the recipe.
-~Removed Vapor's Eon (for now).
-~Reworked Slimebender. This is the last time, I swear...
-~Homing bullets no longer bounce off of enemies when Illusory Bullet Polish is equipped.
+V0.0.3.9: Update
+~Removed Enchanted Pocketwatch and Timekeeper.
+~Reworded the Elemental Ooze drop condition.
+~Added Pizazz Cannon and Mandible Railgun.
+~Illusory Bullet Polish no longer affects Explosive Bullets.
+~Nerfed Pluto Magnum slightly.
+~Removed Sandstormgun's tooltip.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:
