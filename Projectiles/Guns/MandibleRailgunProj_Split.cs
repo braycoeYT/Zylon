@@ -24,10 +24,10 @@ namespace Zylon.Projectiles.Guns
 			Projectile.scale = 1.5f;
 			Projectile.tileCollide = false;
 		}
-        /*public override bool? CanHitNPC(NPC target) {
-			if (Projectile.timeLeft > 10) return false;
+        public override bool? CanHitNPC(NPC target) {
+			if (target.whoAmI == (int)Projectile.ai[0]) return false; //Stupid knockback fix.
             return null;
-        }*/
+        }
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             Projectile.damage = (int)(Projectile.damage*0.5f);
 			if (Projectile.damage < 1) Projectile.damage = 1;

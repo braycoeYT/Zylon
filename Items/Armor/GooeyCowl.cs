@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
@@ -20,7 +21,7 @@ namespace Zylon.Items.Armor
 		}
 		public override void UpdateArmorSet(Player player) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			player.setBonus = "Every third projectile releasing swing/shot/use also releases an explosive marshmallow (excluding certain weapons)";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.GooeyCowl.SetBonus");
 			p.gooeySetBonus = true;
 		}
 		public override void UpdateEquip(Player player) {

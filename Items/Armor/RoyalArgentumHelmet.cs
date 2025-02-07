@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
+using Terraria.Localization;
 
 namespace Zylon.Items.Armor
 {
@@ -30,7 +31,7 @@ namespace Zylon.Items.Armor
         }
         public override void UpdateArmorSet(Player player) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			player.setBonus = "Increases melee speed by 12%\nSummons four Argentum Orbs to defend you\nArgentum Orbs fire short beams at nearby enemies";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.RoyalArgentumHelmet.SetBonus");
 			player.GetAttackSpeed(DamageClass.Melee) += 0.12f;
 			p.argentumSetBonus = true;
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Armor.ArgentumOrb>()] < 4 && player.whoAmI == Main.myPlayer) {

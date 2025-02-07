@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace Zylon.Items.Armor
 {
@@ -22,7 +23,7 @@ namespace Zylon.Items.Armor
 			player.maxMinions += 1;
         }
         public override void UpdateArmorSet(Player player) {
-			player.setBonus = "Your max number of minions is increased by 1\nAttacking generates a defensive barrier of titanium shards";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.TitaniumCap.SetBonus");
 			player.onHitTitaniumStorm = true;
 			player.maxMinions += 1;
 		}

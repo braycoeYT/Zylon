@@ -11,9 +11,9 @@ namespace Zylon.Projectiles.Minions
 	{
 		public override void SetStaticDefaults() {
 			Main.projFrames[Projectile.type] = 3;
-			ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
+			//ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 			Main.projPet[Projectile.type] = true;
-			ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
+			//ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
 			//ProjectileID.Sets.Homing[Projectile.type] = true;
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
 			ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
@@ -24,11 +24,11 @@ namespace Zylon.Projectiles.Minions
 			Projectile.tileCollide = false;
 			Projectile.friendly = true;
 			Projectile.hostile = false;
-			Projectile.minionSlots = 0f;
+			//Projectile.minionSlots = 0f;
 			Projectile.penetrate = -1;
-			Projectile.DamageType = DamageClass.Summon;
-			Projectile.usesLocalNPCImmunity = true;
-			Projectile.localNPCHitCooldown = 20;
+			//Projectile.DamageType = DamageClass.Summon;
+			//Projectile.usesLocalNPCImmunity = true;
+			//Projectile.localNPCHitCooldown = 20;
 			Projectile.frame = Main.rand.Next(0, 3);
 		}
 		public override bool? CanCutTiles() { //almost forgot this

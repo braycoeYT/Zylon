@@ -94,7 +94,7 @@ namespace Zylon.Projectiles
 			Timer++;
 			Player player = Main.player[projectile.owner];
             ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			if (p.dirtRegalia && (projectile.minion || projectile.type == ProjectileType<Minions.DirtBlockExp>()) && Timer % 90 == 60) {
+			if (p.dirtRegalia && (projectile.minion || projectile.type == ProjectileType<Minions.DirtBlockExp>()) && projectile.owner == Main.myPlayer && Timer % 90 == 60) {
 				float distanceFromTarget = 160f;
 				Vector2 targetCenter = projectile.position;
 				bool foundTarget = false;

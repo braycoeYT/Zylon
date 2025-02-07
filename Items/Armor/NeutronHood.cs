@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
+using Terraria.Localization;
 
 namespace Zylon.Items.Armor
 {
@@ -27,7 +28,7 @@ namespace Zylon.Items.Armor
 			player.GetKnockback(DamageClass.Summon) += 0.35f;
         }
         public override void UpdateArmorSet(Player player) {
-			player.setBonus = "Increases all damage by 15%\nIncreases max life by 20%\nDouble tap down to create a powerful black hole at your cursor that sucks up enemies\nThis ability has a cooldown of 15 seconds";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.NeutronHood.SetBonus");
 			player.GetDamage(DamageClass.Generic) += 0.15f;
 			player.statLifeMax2 = (int)(player.statLifeMax2*1.2f);
 

@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
@@ -18,7 +19,7 @@ namespace Zylon.Items.Armor
 			return body.type == ItemType<ZincBreastplate>() && legs.type == ItemType<ZincLeggings>();
 		}
 		public override void UpdateArmorSet(Player player) {
-			player.setBonus = "Increases move speed by 10%";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.ZincHelmet.SetBonus");
 			//player.runAcceleration += 0.1f;
 			//player.maxRunSpeed += 0.1f;
 			player.moveSpeed += 0.1f;

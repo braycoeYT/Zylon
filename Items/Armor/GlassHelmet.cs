@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace Zylon.Items.Armor
 {
@@ -23,7 +24,7 @@ namespace Zylon.Items.Armor
         }
         public override void UpdateArmorSet(Player player) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			player.setBonus = "Decreases max life by 10%\nTaking damage releases shards of glass\nThe more damage taken, the more powerful the effect is";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.GlassHelmet.SetBonus");
 			player.statLifeMax2 = (int)(player.statLifeMax2 * 0.9f);
 			p.glassArmor = true;
 		}

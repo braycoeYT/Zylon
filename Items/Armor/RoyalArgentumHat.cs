@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
+using Terraria.Localization;
 
 namespace Zylon.Items.Armor
 {
@@ -29,7 +30,7 @@ namespace Zylon.Items.Armor
         }
         public override void UpdateArmorSet(Player player) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			player.setBonus = "Increases magic damage by 11%\nSummons four Argentum Orbs to defend you\nArgentum Orbs fire short beams at nearby enemies";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.RoyalArgentumHat.SetBonus");
 			player.GetDamage(DamageClass.Magic) += 0.11f;
 			p.argentumSetBonus = true;
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Armor.ArgentumOrb>()] < 4 && player.whoAmI == Main.myPlayer) {

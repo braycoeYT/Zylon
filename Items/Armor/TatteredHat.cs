@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
+using Terraria.Localization;
 
 namespace Zylon.Items.Armor
 {
@@ -25,7 +26,7 @@ namespace Zylon.Items.Armor
 			player.GetDamage(DamageClass.Magic) += 0.04f;
         }
         public override void UpdateArmorSet(Player player) {
-			player.setBonus = "Double tap down to activate a 10 second Tattered Blitz, decreasing mana usage by 33%\nThis has a cooldown of 30 seconds";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.TatteredHat.SetBonus");
 			if (player.controlDown && player.releaseDown && player.doubleTapCardinalTimer[0] < 15 && !player.HasBuff(ModContent.BuffType<Buffs.Armor.TatteredBlitz>()) && !player.HasBuff(ModContent.BuffType<Buffs.Armor.TatteredBlitzCooldown>()) && !player.HasBuff(ModContent.BuffType<Buffs.Armor.ShadowstitchedBlitz>()) && !player.HasBuff(ModContent.BuffType<Buffs.Armor.ShadowstitchedBlitzCooldown>())) { //D=0, U=1, R=2, L=3
 				player.AddBuff(ModContent.BuffType<Buffs.Armor.TatteredBlitz>(), 600);
 				for (int i = 0; i < 36; i++) {

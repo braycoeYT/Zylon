@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace Zylon.Items.Armor
 {
@@ -22,7 +23,7 @@ namespace Zylon.Items.Armor
 			player.statLifeMax2 += 20;
         }
         public override void UpdateArmorSet(Player player) {
-			player.setBonus = "When at max health, increases your defense by 10 and damage by 12%\nWhen below 25% health, increases your life regen by 3";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.CarnalliteHelmet.SetBonus");
 			if (player.statLife == player.statLifeMax2)
 				player.AddBuff(ModContent.BuffType<Buffs.Armor.LeafShield>(), 60);
 			if (player.statLife <= player.statLifeMax2 / 4)

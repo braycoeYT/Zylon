@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace Zylon.Items.Armor
 {
@@ -23,7 +24,7 @@ namespace Zylon.Items.Armor
         }
         public override void UpdateArmorSet(Player player) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			player.setBonus = "Summon damage inflicts a natural curse on foes";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.LivingWoodHelmet.SetBonus");
 			p.livingWoodSetBonus = true;
 		}
 		public override void AddRecipes() {

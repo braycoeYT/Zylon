@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace Zylon.Items.Armor
 {
@@ -20,7 +21,7 @@ namespace Zylon.Items.Armor
 			player.GetKnockback(DamageClass.Summon) += 0.05f;
         }
         public override void UpdateArmorSet(Player player) {
-			player.setBonus = "Increases max minions by 3, but decreases summon damage by 50%";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.LivingWoodMask.SetBonus");
 			player.maxMinions += 3;
 			player.GetDamage(DamageClass.Summon) -= 0.5f;
 		}

@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
+using Terraria.Localization;
 
 namespace Zylon.Items.Armor
 {
@@ -28,7 +29,7 @@ namespace Zylon.Items.Armor
         }
         public override void UpdateArmorSet(Player player) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			player.setBonus = "Increases summon damage by 50%\nIncreases your max number of minions by 4\nSummons four Argentum Orbs to defend you\nArgentum Orbs fire short beams at nearby enemies";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.RoyalArgentumHeadband.SetBonus");
 			p.argentumSetBonus = true;
 			player.GetDamage(DamageClass.Summon) += 0.5f;
 			player.maxMinions += 4;

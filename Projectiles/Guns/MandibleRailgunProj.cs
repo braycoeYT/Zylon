@@ -23,6 +23,10 @@ namespace Zylon.Projectiles.Guns
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.scale = 1.25f;
 		}
+		int dontHit = -1;
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+            dontHit = target.whoAmI;
+        }
         public override void AI() {
             Projectile.rotation += 0.07f;
         }
@@ -35,8 +39,9 @@ namespace Zylon.Projectiles.Guns
 				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
 				dust.scale *= 0.5f + Main.rand.Next(-30, 31) * 0.01f;
 			}
+			float rand = Main.rand.NextFloat(MathHelper.Pi);
 			if (Main.myPlayer == Projectile.owner) for (int i = 0; i < 3; i++) {
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 12).RotatedBy(Projectile.rotation+MathHelper.ToRadians(i*120)), ModContent.ProjectileType<MandibleRailgunProj_Split>(), Projectile.damage/5, Projectile.knockBack/4f, Projectile.owner);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 12).RotatedBy(rand+MathHelper.ToRadians(i*120)), ModContent.ProjectileType<MandibleRailgunProj_Split>(), Projectile.damage/5, Projectile.knockBack/4f, Projectile.owner, dontHit);
 			}
 		}
 		public override bool PreDraw(ref Color lightColor) {

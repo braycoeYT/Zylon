@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
+using Terraria.Localization;
 
 namespace Zylon.Items.Armor
 {
@@ -25,7 +26,7 @@ namespace Zylon.Items.Armor
 			player.GetDamage(DamageClass.Magic) += 0.07f;
         }
         public override void UpdateArmorSet(Player player) {
-			player.setBonus = "Double tap down to activate a 10 second Shadowstitched Blitz.\nThis decreases mana usage by 42%, makes all magic attacks inflict shadowflame, and increases magic critical strike chance by 10\nThe blitz has a cooldown of 40 seconds";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.ShadowstitchedHat.SetBonus");
 			if (player.controlDown && player.releaseDown && player.doubleTapCardinalTimer[0] < 15 && !player.HasBuff(ModContent.BuffType<Buffs.Armor.TatteredBlitz>()) && !player.HasBuff(ModContent.BuffType<Buffs.Armor.TatteredBlitzCooldown>()) && !player.HasBuff(ModContent.BuffType<Buffs.Armor.ShadowstitchedBlitz>()) && !player.HasBuff(ModContent.BuffType<Buffs.Armor.ShadowstitchedBlitzCooldown>())) { //D=0, U=1, R=2, L=3
 				player.AddBuff(ModContent.BuffType<Buffs.Armor.ShadowstitchedBlitz>(), 600);
 				for (int i = 0; i < 36; i++) {

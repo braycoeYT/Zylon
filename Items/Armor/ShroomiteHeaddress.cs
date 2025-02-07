@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.Localization;
 
 namespace Zylon.Items.Armor
 {
@@ -25,7 +26,7 @@ namespace Zylon.Items.Armor
 			p.blowpipeChargeInc = 1f;
         }
         public override void UpdateArmorSet(Player player) {
-			player.setBonus = "Not moving puts you in stealth, increasing ranged ability and reducing chance for enemies to target you";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.ShroomiteHeaddress.SetBonus");
 			player.shroomiteStealth = true;
 		}
 		public override void AddRecipes() {

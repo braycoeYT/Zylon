@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
+using Terraria.Localization;
 
 namespace Zylon.Items.Armor
 {
@@ -26,7 +27,7 @@ namespace Zylon.Items.Armor
         }
         public override void UpdateArmorSet(Player player) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			player.setBonus = "Double tap down to gain the 'Bloodrain' buff for 10 seconds\nWhile the buff is active, all minions gain lifesteal\n45 second cooldown";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.BloodstainedHelmet.SetBonus");
 			if (player.controlDown && player.releaseDown && player.doubleTapCardinalTimer[0] < 15 && !player.HasBuff(ModContent.BuffType<Buffs.Armor.Bloodrain>()) && !player.HasBuff(ModContent.BuffType<Buffs.Armor.BloodrainCooldown>())) { //D=0, U=1, R=2, L=3
 				player.AddBuff(ModContent.BuffType<Buffs.Armor.Bloodrain>(), 600);
 				for (int i = 0; i < 30; i++) {

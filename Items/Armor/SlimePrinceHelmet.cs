@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.DataStructures;
+using Terraria.Localization;
 
 namespace Zylon.Items.Armor
 {
@@ -24,7 +25,7 @@ namespace Zylon.Items.Armor
         public override void UpdateArmorSet(Player player) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			p.slimePrinceArmor = true;
-			player.setBonus = "Summons a floating slime staff to volley slime at enemies";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.SlimePriceHelmet.SetBonus");
 			player.AddBuff(ModContent.BuffType<Buffs.Minions.RoyalSlime>(), 60);
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Armor.RoyalSlime>()] < 1 && player.whoAmI == Main.myPlayer)
 				Projectile.NewProjectile(new EntitySource_TileBreak((int)player.position.X, (int)player.position.Y), player.Center, new Microsoft.Xna.Framework.Vector2(0, 0), ModContent.ProjectileType<Projectiles.Armor.RoyalSlime>(), 20, 1f, Main.myPlayer);

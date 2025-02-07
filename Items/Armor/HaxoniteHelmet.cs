@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using System;
+using Terraria.Localization;
 
 namespace Zylon.Items.Armor
 {
@@ -25,7 +26,7 @@ namespace Zylon.Items.Armor
         }
 		int Timer;
         public override void UpdateArmorSet(Player player) {
-			player.setBonus = "Gives the player a short flame orb trail when moving";
+			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.HaxoniteHelmet.SetBonus");
 			if (player.velocity.Length() > 0f && (Timer % 20 == 0) && player.whoAmI == Main.myPlayer)
 				Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, new Microsoft.Xna.Framework.Vector2(), ModContent.ProjectileType<Projectiles.HaxoniteTrail>(), 15, 0.1f, Main.myPlayer);
 		}

@@ -1423,11 +1423,22 @@ Mods: {
 					Increases your max number of minions by 1
 					Increases summon damage by 8%
 					'''
+				SetBonus:
+					'''
+					Your max number of minions is increased by 1
+					Summon knockback and damage are increased by 19%
+					'''
 			}
 
 			BloodstainedHelmet: {
 				DisplayName: Bloodstained Helmet
 				Tooltip: Increases summon critical strike chance by 3
+				SetBonus:
+					'''
+					Double tap down to gain the 'Bloodrain' buff for 10 seconds
+					While the buff is active, all minions gain lifesteal
+					45 second cooldown
+					'''
 			}
 
 			BloodstainedChestplate: {
@@ -1463,6 +1474,11 @@ Mods: {
 					'''
 					Increases max life by 20
 					Increases damage by 4%
+					'''
+				SetBonus:
+					'''
+					When at max health, increases your defense by 10 and damage by 12%
+					When below 25% health, increases your life regen by 3
 					'''
 			}
 
@@ -1506,6 +1522,7 @@ Mods: {
 					'Somehow just as strong as metal, but I wouldn't question it'
 					Increases damage by 3%
 					'''
+				SetBonus: Every third projectile releasing swing/shot/use also releases an explosive marshmallow (excluding certain weapons)
 			}
 
 			GooeyLeggings: {
@@ -1525,6 +1542,7 @@ Mods: {
 			HaxoniteHelmet: {
 				DisplayName: Haxonite Helmet
 				Tooltip: Increases armor penetration and critical strike chance by 2
+				SetBonus: Gives the player a short flame orb trail when moving
 			}
 
 			HaxoniteLeggings: {
@@ -1541,11 +1559,34 @@ Mods: {
 					'''
 			}
 
+			LihzahrdPlatingBreastplate: {
+				DisplayName: Lihzahrd Plating Breastplate
+				Tooltip:
+					'''
+					Increases summon damage by 11%
+					Increases your max amount of minions by 1
+					'''
+			}
+
 			LihzahrdPlatingHelmet: {
 				DisplayName: Lihzahrd Plating Helmet
 				Tooltip:
 					'''
-					Increases summon critical strike chance and damage by 5%
+					Increases summon critical strike chance and damage by 7%
+					Increases your max amount of minions by 1
+					'''
+				SetBonus:
+					'''
+					Increases whip speed as health decreases, up to 50%
+					Minions fire Lihzahrd Beams at foes while under 25% HP
+					'''
+			}
+
+			LihzahrdPlatingLeggings: {
+				DisplayName: Lihzahrd Plating Leggings
+				Tooltip:
+					'''
+					Increases summon critical strike chance and damage by 8%
 					Increases your max amount of minions by 1
 					'''
 			}
@@ -1562,6 +1603,7 @@ Mods: {
 					Increases max minions by 1
 					Increases minion damage by 6%
 					'''
+				SetBonus: Summon damage inflicts a natural curse on foes
 			}
 
 			LivingWoodLeggings: {
@@ -1572,6 +1614,7 @@ Mods: {
 			LivingWoodMask: {
 				DisplayName: Living Wood Mask
 				Tooltip: Increases minion knockback by 5%
+				SetBonus: Increases max minions by 3, but decreases summon damage by 50%
 			}
 
 			NeutronHood: {
@@ -1582,6 +1625,13 @@ Mods: {
 					Increases ranged critical strike chance by 12%
 					Decreases mana consumption by 11%
 					Increases minion knockback by 35%
+					'''
+				SetBonus:
+					'''
+					Increases all damage by 15%
+					Increases max life by 20%
+					Double tap down to create a powerful black hole at your cursor that sucks up enemies
+					This ability has a cooldown of 15 seconds
 					'''
 			}
 
@@ -1637,6 +1687,12 @@ Mods: {
 					Reduces mana usage by 8%
 					When in critical condition, moderately increases mana regen
 					'''
+				SetBonus:
+					'''
+					Increases magic damage by 11%
+					Summons four Argentum Orbs to defend you
+					Argentum Orbs fire short beams at nearby enemies
+					'''
 			}
 
 			RoyalArgentumHeadband: {
@@ -1646,6 +1702,13 @@ Mods: {
 					Increases summon damage and critical strike chance by 12%
 					Increases summon knockback and whip range by 25%
 					Increases your max number of minions by 2
+					'''
+				SetBonus:
+					'''
+					Increases summon damage by 50%
+					Increases your max number of minions by 4
+					Summons four Argentum Orbs to defend you
+					Argentum Orbs fire short beams at nearby enemies
 					'''
 			}
 
@@ -1657,6 +1720,12 @@ Mods: {
 					Blowpipe charge speed is increased by 10/s
 					Gives an 8% chance to dodge an attack
 					'''
+				SetBonus:
+					'''
+					25% chance not to consume ammo
+					Summons four Argentum Orbs to defend you
+					Argentum Orbs fire short beams at nearby enemies
+					'''
 			}
 
 			RoyalArgentumHelmet: {
@@ -1667,6 +1736,12 @@ Mods: {
 					Enemies are much more likely to target you
 					Increases damage resistance by 10%, which doubles at low health
 					'''
+				SetBonus:
+					'''
+					Increases melee speed by 12%
+					Summons four Argentum Orbs to defend you
+					Argentum Orbs fire short beams at nearby enemies
+					'''
 			}
 
 			ShadowstitchedHat: {
@@ -1676,6 +1751,12 @@ Mods: {
 					'Malevolent energy jumps from its folds'
 					Decreases mana usage by 6%
 					Increases magic critical strike chance and damage by 7%
+					'''
+				SetBonus:
+					'''
+					Double tap down to activate a 10 second Shadowstitched Blitz.
+					This decreases mana usage by 42%, makes all magic attacks inflict shadowflame, and increases magic critical strike chance by 10
+					The blitz has a cooldown of 40 seconds
 					'''
 			}
 
@@ -1706,6 +1787,7 @@ Mods: {
 					Increases max blowpipe charge by 50
 					Increases max blowpipe charge by 30/s
 					'''
+				SetBonus: Not moving puts you in stealth, increasing ranged ability and reducing chance for enemies to target you
 			}
 
 			SlimePrinceBreastplate: {
@@ -1725,6 +1807,7 @@ Mods: {
 					'Only second to the king himself'
 					Increases summoner damage by 3%
 					'''
+				SetBonus: Summons a floating slime staff to volley slime at enemies
 			}
 
 			SlimePrinceLeggings: {
@@ -1743,6 +1826,11 @@ Mods: {
 					'It seems to be decades due for a restitching'
 					Decreases mana usage by 5%
 					Increases magic critical strike chance and damage by 4%
+					'''
+				SetBonus:
+					'''
+					Double tap down to activate a 10 second Tattered Blitz, decreasing mana usage by 33%
+					This has a cooldown of 30 seconds
 					'''
 			}
 
@@ -1772,6 +1860,11 @@ Mods: {
 					'''
 					Increases your max number of minions by 1
 					Increases summon damage by 9%
+					'''
+				SetBonus:
+					'''
+					Your max number of minions is increased by 1
+					Attacking generates a defensive barrier of titanium shards
 					'''
 			}
 
@@ -1811,6 +1904,7 @@ Mods: {
 			ZincHelmet: {
 				DisplayName: Zinc Helmet
 				Tooltip: ""
+				SetBonus: Increases move speed by 10%
 			}
 
 			ZincLeggings: {
@@ -2328,7 +2422,7 @@ Mods: {
 					'''
 					'Made for cutting plastic bottles, apparently'
 					Burns when first thrown, but cools down very quickly
-					Sticks to enemies while still hot, dealing massive amounts of damage
+					Sticks to enemies while hot, dealing massive amounts of damage
 					The knife has much higher knockback while burning
 					Each knife can only stick one time
 					'''
@@ -4359,6 +4453,12 @@ Mods: {
 					'Make sure no one throws any stones at you'
 					Increases critical strike damage by 20%
 					'''
+				SetBonus:
+					'''
+					Decreases max life by 10%
+					Taking damage releases shards of glass
+					The more damage taken, the more powerful the effect is
+					'''
 			}
 
 			GlassLeggings: {
@@ -5050,8 +5150,9 @@ Mods: {
 			SlimebenderRain.DisplayName: Slimebender
 			SlimebenderRainProj.DisplayName: Slimebender
 			PizazzCannonProj.DisplayName: Pizazz Cannon
-			MandibleRailgunProj.DisplayName: Mandible Railgun Proj
-			MandibleRailgunProj_Split.DisplayName: Mandible Railgun Proj_ Split
+			MandibleRailgunProj.DisplayName: Mandible Railgun
+			MandibleRailgunProj_Split.DisplayName: Mandible Railgun
+			LihzahrdPlatingBeam.DisplayName: Lihzahrd Beam
 		}
 
 		NPCs: {
