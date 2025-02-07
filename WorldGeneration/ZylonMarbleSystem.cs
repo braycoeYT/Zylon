@@ -13,7 +13,7 @@ namespace Zylon.WorldGeneration
 			int HerbsIndex = tasks.FindIndex((GenPass genpass) => genpass.Name.Equals("Herbs"));
 			if (ShiniesIndex != -1)
 			{
-				tasks.Insert(ShiniesIndex + 1, new ZylonZincPass("Zinc Ore", 237.4298f));
+				//tasks.Insert(ShiniesIndex + 1, new ZylonZincPass("Zinc Ore", 237.4298f));
 				tasks.Insert(ShiniesIndex + 2, new ZylonBloodLeavesPass("Blood Leaves", 237.4298f));
 			}
 			if (HerbsIndex != -1)

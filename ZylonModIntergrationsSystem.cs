@@ -61,7 +61,7 @@ namespace Zylon
 			);
 
 
-			internalName = "MetelordHead";
+			/*internalName = "MetelordHead";
 			weight = 3.5f;
 			downed = () => ZylonWorldCheckSystem.downedMetelord;
 			bossType = ModContent.NPCType<NPCs.Bosses.Metelord.MetelordHead>();
@@ -91,7 +91,7 @@ namespace Zylon
 					["collectibles"] = collectibles,
 					["customPortrait"] = customPortrait
 				}
-			);
+			);*/
 
 
 			internalName = "Adeneb";

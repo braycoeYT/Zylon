@@ -38,7 +38,7 @@ namespace Zylon.Items.Wands
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Bars.HaxoniteBar>(), 10);
+			recipe.AddIngredient(ModContent.ItemType<Bars.HaxoniteBar>(), 8);
 			recipe.AddIngredient(ItemID.MeteoriteBar, 4);
 			recipe.AddIngredient(ItemID.FallenStar, 2);
 			recipe.AddTile(TileID.Anvils);

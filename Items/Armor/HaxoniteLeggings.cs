@@ -19,7 +19,7 @@ namespace Zylon.Items.Armor
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Bars.HaxoniteBar>(), 15);
+			recipe.AddIngredient(ModContent.ItemType<Bars.HaxoniteBar>(), 11);
 			recipe.AddIngredient(ItemID.MeteoriteBar, 5);
 			recipe.AddIngredient(ItemID.FallenStar, 4);
 			recipe.AddTile(TileID.Anvils);

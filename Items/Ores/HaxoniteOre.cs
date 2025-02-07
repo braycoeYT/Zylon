@@ -21,7 +21,7 @@ namespace Zylon.Items.Ores
 			Item.createTile = TileType<Tiles.Ores.HaxoniteOre>();
 			Item.width = 16;
 			Item.height = 16;
-			Item.value = Item.sellPrice(0, 0, 2);
+			Item.value = Item.sellPrice(0, 0, 0, 50);
 			Item.rare = ItemRarityID.Green;
 		}
 	}

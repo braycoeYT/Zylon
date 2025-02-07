@@ -31,7 +31,7 @@ namespace Zylon.Items.Wands
 		}
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Bars.ZincBar>(), 10);
+			recipe.AddRecipeGroup("IronBar", 10);
 			recipe.AddIngredient(ModContent.ItemType<Materials.Jade>(), 8);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();

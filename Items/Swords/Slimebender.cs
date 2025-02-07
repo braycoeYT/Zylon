@@ -31,7 +31,8 @@ namespace Zylon.Items.Swords
 			Item.shootSpeed = 5f;
 		}
 		public override bool AltFunctionUse(Player player) {
-			return true;
+			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+			return p.slimebenderCore > 0;
 		}
         public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers) {
             if (target.HasBuff(BuffID.Slimed)) modifiers.Defense.Flat -= 20;

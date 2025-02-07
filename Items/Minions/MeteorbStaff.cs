@@ -38,7 +38,7 @@ namespace Zylon.Items.Minions
 		}
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemType<Bars.HaxoniteBar>(), 10);
+			recipe.AddIngredient(ItemType<Bars.HaxoniteBar>(), 8);
 			recipe.AddIngredient(ItemID.MeteoriteBar, 4);
 			recipe.AddIngredient(ItemID.FallenStar, 2);
 			recipe.AddTile(TileID.Anvils);

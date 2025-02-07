@@ -97,7 +97,8 @@ namespace Zylon.NPCs.Meteorite
 			return SpawnCondition.Meteor.Chance * 0.5f;
         }
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
-			npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsPreHardmode(), ItemID.Meteorite, 50)); 
+			npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsPreHardmode(), ItemID.Meteorite, 50));
+			npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ModContent.ItemType<Items.Ores.HaxoniteOre>(), 1, 1, 4), new CommonDrop(ModContent.ItemType<Items.Ores.HaxoniteOre>(), 1, 2, 4)));
 		}
 	}
 }

@@ -1,12 +1,12 @@
 The best mod that starts with Z — we guarantee or your money back! Warning: Mod does not work in multiplayer.
 
 Stats:
-~506 Items
-~5 Bosses:
-~~~4 Prehardmode Bosses [i:2][i:116][i:789][i:282]
+~482 Items
+~4 Bosses:
+~~~3 Prehardmode Bosses [i:2][i:789][i:282]
 ~~~1 Post-Moon Lord Boss [i:5130]
 (plus a secret joke boss only fightable on getfixedboi worlds [i:43])
-~46 total NPCs
+~43 total NPCs
 ~Summons can deal critical strikes now!
 ~A complete reworking and expansion of blowpipes!
 ~LOTS of new vanilla recipes and changes to help balance the game out.
@@ -14,7 +14,26 @@ Stats:
 ~New secret seeds: Abyssworld and Autumn.
 
 V0.0.4: Content Nuke Update
+~Completely removed Metelord because no one liked him and his code was ATROCIOUS. Rest in pieces.
+~Changed Haxonite Ore tooltip.
+~Haxonite Ore is now dropped by Meteor Heads and Meteor Tails.
+~Haxonite items now require less Haxonite Bars to craft.
+~Metecore is now crafted instead of dropped.
+~Fixed error in Shroomite Headdress's tooltip.
+~Renamed The Sporophyte to just Sporophyte, and The Heartbreaker to just Heartbreaker.
+~Removed Sandstormgun, Dumbbell, Death Cleaver, Stalagmite, Stone Shortsword, Pluto Magnum, and Treewhacker.
+~Removed all items related to Zinc. It will return at a later date.
+^Fusion Band and Ultima Band no longer buff Swiftness Potions.
+^Jade Staff is now crafted with Any Iron Bar.
+~Slimebender's right click function no longer works if the player has no Slimy Crystals.
+~Made the thing that spawns afted Plantera is killed for the first time less flashy.
+GEL TRAIL + SMALLER
 
+ENCHANTED ICE CUBE PARTICLES
+CARNALLITE WAND COOL
+JOURNEY STARTER PENALTY
+FAHRENHEIT NEW RECIPE
+AMAGUQ CLONES SPIN
 
 FIX LANG FOR SET BONUS
 

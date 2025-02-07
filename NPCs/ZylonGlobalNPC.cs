@@ -14,8 +14,11 @@ namespace Zylon.NPCs
 		public override bool InstancePerEntity => true;
 		public static int adenebBoss = -1;
 		public static int dirtballBoss = -1;
-		public static int metelordBoss = -1;
+		public static int elemFluxBoss = -1;
 		public static int saburBoss = -1;
+
+		public static Color elemFluxMain;
+		public static Color elemFluxSecond;
         public override void SetDefaults(NPC entity) {
 			if (WorldGen.currentWorldSeed == null) return;
             if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
@@ -238,6 +241,8 @@ namespace Zylon.NPCs
 				npcLoot.Add(new CommonDrop(ItemID.BoneArrow, 50, 100, 250));
 			if (npc.type == NPCID.FlyingSnake)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SnakeEye>(), 30), new CommonDrop(ItemType<Items.Accessories.SnakeEye>(), 25)));
+			if (npc.type == NPCID.MeteorHead)
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Ores.HaxoniteOre>(), 1, 1, 4), new CommonDrop(ItemType<Items.Ores.HaxoniteOre>(), 1, 2, 4)));
 		}
         int Timer;
 		bool prevNoGrav;
@@ -302,9 +307,6 @@ namespace Zylon.NPCs
 				shop.Add<Items.Ammo.BloodiedArrow>(Condition.TimeNight, Condition.Hardmode);
 				shop.Add<Items.Ammo.BloodiedArrow>(Condition.TimeDay);
 				shop.Add<Items.Ammo.Gumball>(new Condition("Mods.Zylon.Conditions.HasGunballCondition", () => Main.player[Main.myPlayer].HasItem(ItemType<Items.Guns.Gunball>())));
-			}
-			if (shop.NpcType == NPCID.Merchant) {
-				shop.Add<Items.Tools.TreeWhacker>(new Condition("Mods.Zylon.Conditions.DownedDirtballCondition", () => ZylonWorldCheckSystem.downedDirtball));
 			}
 			if (shop.NpcType == NPCID.Cyborg) {
 				shop.Add(new Item(ItemType<Items.Accessories.ContinuumWarper>()));

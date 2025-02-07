@@ -597,7 +597,7 @@ Mods: {
 					'It's too big for anyone's arm, let alone yours'
 					Increases life and mana regeneration moderately
 					Increases max mana by 20
-					Increases the potency of regeneration, magic power, magic regeneration, ironskin, and swiftness potions
+					Increases the potency of regeneration, magic power, magic regeneration, and ironskin potions
 					Life regen does not stack with other bands
 					'''
 			}
@@ -1071,7 +1071,7 @@ Mods: {
 					'Does not come with magical transformation sequence'
 					Increases life regeneration extremely and mana regeneration moderately
 					Increases max mana by 20
-					Increases the potency of regeneration, magic power, magic regeneration, ironskin, and swiftness potions
+					Increases the potency of regeneration, magic power, magic regeneration, and ironskin potions
 					Grants two seconds of invincibility after using a healing potion
 					Increases invincibility time after taking damage
 					Reduces the cooldown of healing potions by 25%
@@ -1785,7 +1785,7 @@ Mods: {
 				Tooltip:
 					'''
 					Increases max blowpipe charge by 50
-					Increases max blowpipe charge by 30/s
+					Increases blowpipe charge speed by 30/s
 					'''
 				SetBonus: Not moving puts you in stealth, increasing ranged ability and reducing chance for enemies to target you
 			}
@@ -2662,7 +2662,7 @@ Mods: {
 			}
 
 			Sporophyte: {
-				DisplayName: The Sporophyte
+				DisplayName: Sporophyte
 				Tooltip: Shoots stingers upwards
 			}
 
@@ -3302,7 +3302,7 @@ Mods: {
 
 			HaxoniteOre: {
 				DisplayName: Haxonite Ore
-				Tooltip: "'A rare mineral found only in the most powerful meteorite creatures'"
+				Tooltip: "'A rare mineral found in the core of meteorite creatures'"
 			}
 
 			ZincOre: {
@@ -3729,7 +3729,7 @@ Mods: {
 			}
 
 			Heartbreaker: {
-				DisplayName: The Heartbreaker
+				DisplayName: Heartbreaker
 				Tooltip:
 					'''
 					'Don't go breaking my heart'
@@ -5277,6 +5277,7 @@ Mods: {
 			CerussiteBat.DisplayName: Cerussite Bat
 			PixieArchangel.DisplayName: Pixie Archangel
 			Stratoslime.DisplayName: Stratoslime
+			ElemFlux.DisplayName: Elem Flux
 		}
 
 		Prefixes: {

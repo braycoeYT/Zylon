@@ -44,7 +44,7 @@ namespace Zylon.WorldGeneration
 						}
 						if (badTiles <= 2 && WorldGen.genRand.NextBool(200))
 						{
-							WorldGenHelpers.ForcedTileCreation(i, j, (double)WorldGen.genRand.Next(4, 9), WorldGen.genRand.Next(6, 12), ModContent.TileType<ZincOre>(), true, WorldGen.genRand.NextFloat(-1f, 1f), WorldGen.genRand.NextFloat(-2.5f, -2f));
+							//WorldGenHelpers.ForcedTileCreation(i, j, (double)WorldGen.genRand.Next(4, 9), WorldGen.genRand.Next(6, 12), ModContent.TileType<ZincOre>(), true, WorldGen.genRand.NextFloat(-1f, 1f), WorldGen.genRand.NextFloat(-2.5f, -2f));
 						}
 					}
 				}

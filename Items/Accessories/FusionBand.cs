@@ -24,14 +24,13 @@ namespace Zylon.Items.Accessories
 			p.bandofStarpower = true;
 			p.bandofMagicRegen = true;
 			p.bandofMetal = true;
-			p.bandofZinc = true;
+			//p.bandofZinc = true;
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.BandofRegeneration);
 			recipe.AddIngredient(ItemID.BandofStarpower);
 			recipe.AddIngredient(ModContent.ItemType<IronBand>());
-			recipe.AddIngredient(ModContent.ItemType<ZincBand>());
 			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 8);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
@@ -40,7 +39,6 @@ namespace Zylon.Items.Accessories
 			recipe.AddIngredient(ItemID.BandofRegeneration);
 			recipe.AddIngredient(ItemID.BandofStarpower);
 			recipe.AddIngredient(ModContent.ItemType<LeadBand>());
-			recipe.AddIngredient(ModContent.ItemType<ZincBand>());
 			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 8);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
@@ -48,7 +46,6 @@ namespace Zylon.Items.Accessories
 			recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ManaRegenerationBand);
 			recipe.AddIngredient(ModContent.ItemType<IronBand>());
-			recipe.AddIngredient(ModContent.ItemType<ZincBand>());
 			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 8);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
@@ -56,7 +53,6 @@ namespace Zylon.Items.Accessories
 			recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ManaRegenerationBand);
 			recipe.AddIngredient(ModContent.ItemType<LeadBand>());
-			recipe.AddIngredient(ModContent.ItemType<ZincBand>());
 			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 8);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();

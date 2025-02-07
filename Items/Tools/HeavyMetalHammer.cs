@@ -37,14 +37,6 @@ namespace Zylon.Items.Tools
 			recipe.AddRecipeGroup("Zylon:AnyShadowScale", 5);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
-
-			recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<ZincHammer>());
-			recipe.AddRecipeGroup("IronBar", 8);
-			recipe.AddIngredient(ItemID.Chain, 10);
-			recipe.AddRecipeGroup("Zylon:AnyShadowScale", 5);
-			recipe.AddTile(TileID.Anvils);
-			recipe.Register();
 		}
 	}
 }

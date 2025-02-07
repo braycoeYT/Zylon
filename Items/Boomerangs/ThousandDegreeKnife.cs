@@ -67,7 +67,7 @@ namespace Zylon.Items.Boomerangs
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.BloodyMachete);
 			recipe.AddIngredient(ItemID.HellstoneBar, 8);
-			recipe.AddIngredient(ItemType<Bars.HaxoniteBar>(), 12);
+			recipe.AddIngredient(ItemType<Bars.HaxoniteBar>(), 8);
 			recipe.AddRecipeGroup("Zylon:AnyMythrilBar", 6);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

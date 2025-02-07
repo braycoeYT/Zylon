@@ -18,7 +18,7 @@ namespace Zylon.Items.Blowpipes //play cool sound when launch, double recharge t
 			Item.shootSpeed = 7.5f;
 			Item.useTime = 1;
 			Item.useAnimation = 1;
-			Item.value = Item.sellPrice(0, 3, 12);
+			Item.value = Item.sellPrice(0, 1, 52);
 			Item.rare = ItemRarityID.Green;
 			Item.autoReuse = true;
         }
@@ -46,7 +46,7 @@ namespace Zylon.Items.Blowpipes //play cool sound when launch, double recharge t
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Bars.HaxoniteBar>(), 10);
+			recipe.AddIngredient(ModContent.ItemType<Bars.HaxoniteBar>(), 8);
 			recipe.AddIngredient(ItemID.MeteoriteBar, 4);
 			recipe.AddIngredient(ItemID.FallenStar, 2);
 			recipe.AddTile(TileID.Anvils);

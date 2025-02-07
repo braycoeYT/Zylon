@@ -15,7 +15,6 @@ namespace Zylon
 			ItemID.TinBar,
 			ItemID.IronBar,
 			ItemID.LeadBar,
-			ModContent.ItemType<Items.Bars.ZincBar>(),
 			ItemID.SilverBar,
 			ItemID.TungstenBar,
 			ItemID.GoldBar,
@@ -219,12 +218,6 @@ namespace Zylon
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
-			recipe = Recipe.Create(ItemID.BandofRegeneration);
-			recipe.AddIngredient(ModContent.ItemType<Items.Accessories.ZincBand>());
-			recipe.AddIngredient(ItemID.LifeCrystal);
-			recipe.AddTile(TileID.Anvils);
-			recipe.Register();
-
 			recipe = Recipe.Create(ItemID.BandofStarpower);
 			recipe.AddIngredient(ModContent.ItemType<Items.Accessories.IronBand>());
 			recipe.AddIngredient(ItemID.ManaCrystal);
@@ -233,12 +226,6 @@ namespace Zylon
 
 			recipe = Recipe.Create(ItemID.BandofStarpower);
 			recipe.AddIngredient(ModContent.ItemType<Items.Accessories.LeadBand>());
-			recipe.AddIngredient(ItemID.ManaCrystal);
-			recipe.AddTile(TileID.Anvils);
-			recipe.Register();
-
-			recipe = Recipe.Create(ItemID.BandofStarpower);
-			recipe.AddIngredient(ModContent.ItemType<Items.Accessories.ZincBand>());
 			recipe.AddIngredient(ItemID.ManaCrystal);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
@@ -289,13 +276,6 @@ namespace Zylon
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.WindEssence>(), 8);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.SpeckledStardust>(), 5);
 			recipe.AddTile(TileID.SkyMill);
-			recipe.Register();
-
-			recipe = Recipe.Create(ItemID.IronskinPotion);
-			recipe.AddIngredient(ItemID.BottledWater);
-			recipe.AddIngredient(ItemID.Daybloom);
-			recipe.AddIngredient(ModContent.ItemType<Items.Ores.ZincOre>());
-			recipe.AddTile(TileID.Bottles);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.GreaterHealingPotion, 3);

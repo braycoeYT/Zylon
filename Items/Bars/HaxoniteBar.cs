@@ -15,7 +15,7 @@ namespace Zylon.Items.Bars
 			Item.width = 20;
 			Item.height = 20;
 			Item.maxStack = 9999;
-			Item.value = Item.sellPrice(0, 0, 8);
+			Item.value = Item.sellPrice(0, 0, 2);
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.useTurn = true;
 			Item.useAnimation = 15;

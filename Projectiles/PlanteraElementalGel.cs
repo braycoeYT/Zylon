@@ -22,12 +22,12 @@ namespace Zylon.Projectiles
         public override void AI() {
             Timer++;
 
-			if (Timer % 30 <= 9)
-				Lighting.AddLight(Projectile.Center, 5f, 0f, 0f);
-			else if (Timer % 30 <= 19)
-				Lighting.AddLight(Projectile.Center, 0f, 5f, 0f);
+			if (Timer % 120 <= 39)
+				Lighting.AddLight(Projectile.Center, 4f, 0f, 0f);
+			else if (Timer % 120 <= 79)
+				Lighting.AddLight(Projectile.Center, 0f, 4f, 0f);
 			else
-				Lighting.AddLight(Projectile.Center, 0f, 0f, 5f);
+				Lighting.AddLight(Projectile.Center, 0f, 0f, 4f);
 
 			Projectile.rotation += rot;
 			if (Timer >= 60)

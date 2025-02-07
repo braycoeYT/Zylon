@@ -10,7 +10,7 @@ namespace Zylon.Items.Bows
 	public class MeteorTrailer : ModItem
 	{
 		public override void SetDefaults() {
-			Item.value = Item.sellPrice(0, 3, 12);
+			Item.value = Item.sellPrice(0, 1, 52);
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 49;
 			Item.useTime = 49;
@@ -36,7 +36,7 @@ namespace Zylon.Items.Bows
         }
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<Bars.HaxoniteBar>(), 10);
+			recipe.AddIngredient(ItemType<Bars.HaxoniteBar>(), 8);
 			recipe.AddIngredient(ItemID.MeteoriteBar, 4);
 			recipe.AddIngredient(ItemID.FallenStar, 2);
 			recipe.AddTile(TileID.Anvils);
