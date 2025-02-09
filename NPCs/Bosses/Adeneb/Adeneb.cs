@@ -56,7 +56,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.lifeMax = (int)(5200*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 61;
-			NPC.value = 140000;
+			NPC.value = 0;
 			if (Main.masterMode) {
 				NPC.lifeMax = (int)(6400*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 94;

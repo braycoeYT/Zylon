@@ -17,8 +17,14 @@ namespace Zylon.NPCs
 		public static int elemFluxBoss = -1;
 		public static int saburBoss = -1;
 
+		//For the boss to manage.
 		public static Color elemFluxMain;
 		public static Color elemFluxSecond;
+		//For projectiles to match the boss.
+		public static Color elemFluxTransition;
+		public static Color elemFluxTransition2;
+		public static Color elemFluxRealMain;
+		public static Color elemFluxRealSecond;
         public override void SetDefaults(NPC entity) {
 			if (WorldGen.currentWorldSeed == null) return;
             if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
@@ -241,8 +247,10 @@ namespace Zylon.NPCs
 				npcLoot.Add(new CommonDrop(ItemID.BoneArrow, 50, 100, 250));
 			if (npc.type == NPCID.FlyingSnake)
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Accessories.SnakeEye>(), 30), new CommonDrop(ItemType<Items.Accessories.SnakeEye>(), 25)));
-			if (npc.type == NPCID.MeteorHead)
+			if (npc.type == NPCID.MeteorHead) {
 				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Ores.HaxoniteOre>(), 1, 1, 4), new CommonDrop(ItemType<Items.Ores.HaxoniteOre>(), 1, 2, 4)));
+				npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemType<Items.Pets.PlasticDinoFigurine>(), 2000), new CommonDrop(ItemType<Items.Pets.PlasticDinoFigurine>(), 1000)));
+			}
 		}
         int Timer;
 		bool prevNoGrav;

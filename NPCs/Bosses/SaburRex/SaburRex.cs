@@ -53,7 +53,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = (int)(500000*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 199;
-			NPC.value = Item.buyPrice(7, 50);
+			NPC.value = 0;
 			if (Main.masterMode) {
 				NPC.lifeMax = (int)(650000*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 299;

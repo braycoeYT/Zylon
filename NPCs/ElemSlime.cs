@@ -41,12 +41,16 @@ namespace Zylon.NPCs
 		public override void HitEffect(NPC.HitInfo hit) {
 			if (NPC.life > 0) {
 				for (int i = 0; i < 2; i++) {
-					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.ElemDust>(), Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
+					int dustType = ModContent.DustType<Dusts.ElemDustGreen>();
+					if (Main.rand.NextBool()) dustType = ModContent.DustType<Dusts.ElemDustGreen>();
+					Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, dustType, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
 					dust.noGravity = true;
 				}
 			}
 			else for (int i = 0; i < 12; i++) {
-				Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, ModContent.DustType<Dusts.ElemDust>(), Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
+				int dustType = ModContent.DustType<Dusts.ElemDustGreen>();
+				if (Main.rand.NextBool()) dustType = ModContent.DustType<Dusts.ElemDustGreen>();
+				Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, dustType, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
 				dust.noGravity = true;
 			}
 		}

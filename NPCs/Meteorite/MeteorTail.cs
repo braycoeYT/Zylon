@@ -38,11 +38,6 @@ namespace Zylon.NPCs.Meteorite
 			NPC.damage = 71;
 			NPC.knockBackResist = 0.05f;
 			NPC.value = Item.buyPrice(0, 0, 4);
-			if (ZylonWorldCheckSystem.downedMetelord) {
-				NPC.lifeMax = 72;
-				NPC.damage = 74;
-				NPC.value = Item.buyPrice(0, 0, 5);
-            }
 			if (Main.hardMode) {
 				NPC.lifeMax = 619;
 				NPC.damage = 110;
@@ -99,6 +94,7 @@ namespace Zylon.NPCs.Meteorite
 		public override void ModifyNPCLoot(NPCLoot npcLoot) {
 			npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsPreHardmode(), ItemID.Meteorite, 50));
 			npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ModContent.ItemType<Items.Ores.HaxoniteOre>(), 1, 1, 4), new CommonDrop(ModContent.ItemType<Items.Ores.HaxoniteOre>(), 1, 2, 4)));
+			npcLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ModContent.ItemType<Items.Pets.PlasticDinoFigurine>(), 2000), new CommonDrop(ModContent.ItemType<Items.Pets.PlasticDinoFigurine>(), 1000)));
 		}
 	}
 }

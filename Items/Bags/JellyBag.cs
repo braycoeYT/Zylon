@@ -38,7 +38,7 @@ namespace Zylon.Items.Bags
 			itemLoot.Add(ItemDropRule.Common(ItemType<Materials.OtherworldlyFang>(), 1, 45, 55));
 			itemLoot.Add(ItemDropRule.Common(ItemID.MagicConch, 3));
 			itemLoot.Add(ItemDropRule.Common(ItemType<Vanity.JellyMask>(), 7));
-			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(NPCType<NPCs.Bosses.Jelly.EldritchJellyfish>()));
+			itemLoot.Add(ItemDropRule.Coins(Item.buyPrice(0, 18), true));
 		}
 		public override Color? GetAlpha(Color lightColor) {
 			return Color.Lerp(lightColor, Color.White, 0.4f);

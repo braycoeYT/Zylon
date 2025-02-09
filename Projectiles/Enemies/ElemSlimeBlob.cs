@@ -35,11 +35,10 @@ namespace Zylon.Projectiles.Enemies
 		}
 		public override void PostAI() {
 			for (int i = 0; i < 1; i++) {
-				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.ElemDust>());
-				Dust dust = Main.dust[dustIndex];
-				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
-				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
-				dust.scale *= 0.75f + Main.rand.Next(-30, 31) * 0.01f;
+				int dustType = ModContent.DustType<Dusts.ElemDustGreen>();
+				if (Main.rand.NextBool()) dustType = ModContent.DustType<Dusts.ElemDustGreen>();
+				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, dustType, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
+				dust.noGravity = true;
 			}
 		}
 	}   

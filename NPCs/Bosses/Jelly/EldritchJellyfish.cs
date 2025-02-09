@@ -19,19 +19,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPCID.Sets.BossBestiaryPriority.Add(Type);
 			NPCID.Sets.MPAllowedEnemies[Type] = true;
 
-			// DisplayName.SetDefault("Eldritch Jellyfish");
 			Main.npcFrameCount[NPC.type] = 7;
-			NPCDebuffImmunityData debuffData = new NPCDebuffImmunityData {
-				SpecificallyImmuneTo = new int[] {
-					BuffID.Confused,
-					BuffID.Chilled,
-					BuffID.Frozen,
-					ModContent.BuffType<Buffs.Debuffs.BrainFreeze>(),
-					ModContent.BuffType<Buffs.Debuffs.FlashPandemic>(),
-					ModContent.BuffType<Buffs.Debuffs.Timestop>(),
-					ModContent.BuffType<Buffs.Debuffs.ZombieRot>()
-				}
-			};
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.BrainFreeze>()] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][ModContent.BuffType<Buffs.Debuffs.FlashPandemic>()] = true;
@@ -66,7 +54,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = (int)(11500*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
             NPC.damage = 80;
-			NPC.value = 13750;
+			NPC.value = 0;
 			if (Main.masterMode) {
 				NPC.lifeMax = (int)(15500*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 120;

@@ -50,7 +50,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = (int)(2100*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 46;
-			NPC.value = 20000;
+			NPC.value = 0;
 			if (Main.masterMode) {
 				NPC.lifeMax = (int)(2700*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 55;
@@ -548,6 +548,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Pets.CreepyBlob>(), 10));
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<BagofFruits>(), 7));
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Food.MudPie>(), 7));
+			notExpertRule.OnSuccess(new CommonDrop(ItemID.DirtiestBlock, 1000000));
 
 			LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.NotRemixSeed());
 			notExpertRule.OnSuccess(leadingConditionRule);

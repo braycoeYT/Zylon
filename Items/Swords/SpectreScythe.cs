@@ -7,12 +7,12 @@ namespace Zylon.Items.Swords
 	public class SpectreScythe : ModItem
 	{
 		public override void SetDefaults() {
-			Item.damage = 76;
+			Item.damage = 70;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 66;
 			Item.height = 62;
-			Item.useTime = 27;
-			Item.useAnimation = 27;
+			Item.useTime = 28;
+			Item.useAnimation = 28;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 6.5f;
 			Item.value = Item.sellPrice(0, 10);

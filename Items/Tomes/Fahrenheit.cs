@@ -30,8 +30,8 @@ namespace Zylon.Items.Tomes
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<Sunburn>());
-			recipe.AddIngredient(ItemID.LivingFireBlock, 50);
-			recipe.AddIngredient(ItemID.LunarBar, 5);
+			recipe.AddIngredient(ItemID.LunarBar, 10);
+			recipe.AddIngredient(ItemID.FragmentNebula, 15);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();
 		}

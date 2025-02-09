@@ -95,7 +95,7 @@ namespace Zylon.Tiles.Banners
 						npcType = ModContent.NPCType<NPCs.Desert.Adenite_Center>();
 						break;
 					case 14:
-						npcType = 0; //npcType = ModContent.NPCType<NPCs.Desert.DustbowlGigaslime>();
+						npcType = 0; npcType = ModContent.NPCType<NPCs.Meteorite.MeteorCrawler>();
 						break;
 					case 15:
 						npcType = ModContent.NPCType<NPCs.Jungle.LiveObelisk>();

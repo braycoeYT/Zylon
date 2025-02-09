@@ -30,7 +30,7 @@ namespace Zylon.Items.Bags
 			return true;
 		}
 		public override void ModifyItemLoot(ItemLoot itemLoot) {
-			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(NPCType<NPCs.Bosses.Dirtball.Dirtball>()));
+			itemLoot.Add(ItemDropRule.Coins(Item.buyPrice(0, 2), true));
 			itemLoot.Add(ItemDropRule.Common(ItemType<Accessories.EnchantedDirtClump>(), 1));
 			itemLoot.Add(new CommonDrop(ItemID.DirtBlock, 1, 30, 60));
 			itemLoot.Add(new CommonDrop(ItemID.MudBlock, 1, 20, 40));
@@ -47,6 +47,7 @@ namespace Zylon.Items.Bags
 			itemLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.CreepyBlob>(), 8));
 			itemLoot.Add(new CommonDrop(ModContent.ItemType<Bags.BagofFruits>(), 5));
 			itemLoot.Add(new CommonDrop(ModContent.ItemType<Food.MudPie>(), 5));
+			itemLoot.Add(new CommonDrop(ItemID.DirtiestBlock, 1000000));
 		}
 		public override Color? GetAlpha(Color lightColor) {
 			return Color.Lerp(lightColor, Color.White, 0.4f);

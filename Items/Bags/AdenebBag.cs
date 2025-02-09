@@ -34,6 +34,7 @@ namespace Zylon.Items.Bags
 			itemLoot.Add(ItemDropRule.Common(ItemType<Materials.AdeniteCrumbles>(), 1, 10, 15));
 			itemLoot.Add(ItemDropRule.Common(ItemType<Materials.SearedStone>(), 1, 55, 70));
 			itemLoot.Add(ItemDropRule.CoinsBasedOnNPCValue(NPCType<NPCs.Bosses.Adeneb.Adeneb>()));
+			itemLoot.Add(ItemDropRule.Coins(Item.buyPrice(0, 14), true));
 
 			//Only drop these weapons if in Remix or getfixedboi worlds
 			LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.RemixSeed());

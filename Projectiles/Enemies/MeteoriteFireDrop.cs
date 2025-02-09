@@ -2,17 +2,20 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace Zylon.Projectiles.Bosses.Metelord
+namespace Zylon.Projectiles.Enemies
 {
-	public class MetelordFireDrop1 : ModProjectile
+	public class MeteoriteFireDrop : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Fallen Fire");
+			Main.projFrames[Projectile.type] = 3;
         }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.GreekFire1);
 		}
+		int randFrame = Main.rand.Next(3);
         public override void PostAI() {
+			Projectile.frame = randFrame;
+			Projectile.velocity.X *= 0.98f;
             Projectile.rotation = 0f;
 			if (Main.rand.NextBool(3)) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch);

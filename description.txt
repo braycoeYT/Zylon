@@ -1,12 +1,12 @@
 The best mod that starts with Z — we guarantee or your money back! Warning: Mod does not work in multiplayer.
 
 Stats:
-~482 Items
+~484 Items
 ~4 Bosses:
 ~~~3 Prehardmode Bosses [i:2][i:789][i:282]
 ~~~1 Post-Moon Lord Boss [i:5130]
 (plus a secret joke boss only fightable on getfixedboi worlds [i:43])
-~43 total NPCs
+~44 total NPCs
 ~Summons can deal critical strikes now!
 ~A complete reworking and expansion of blowpipes!
 ~LOTS of new vanilla recipes and changes to help balance the game out.
@@ -15,47 +15,50 @@ Stats:
 
 V0.0.4: Content Nuke Update
 ~Completely removed Metelord because no one liked him and his code was ATROCIOUS. Rest in pieces.
-~Changed Haxonite Ore tooltip.
-~Haxonite Ore is now dropped by Meteor Heads and Meteor Tails.
-~Haxonite items now require less Haxonite Bars to craft.
-~Metecore is now crafted instead of dropped.
+^Changed Haxonite Ore tooltip.
+^Haxonite Ore is now dropped by meteorite biome enemies.
+^Haxonite items now require less Haxonite Bars to craft.
+^Metecore is now crafted instead of dropped.
+^Plastic Dino Figurine is now dropped by meteorite biome enemies.
 ~Fixed error in Shroomite Headdress's tooltip.
 ~Renamed The Sporophyte to just Sporophyte, and The Heartbreaker to just Heartbreaker.
 ~Removed Sandstormgun, Dumbbell, Death Cleaver, Stalagmite, Stone Shortsword, Pluto Magnum, and Treewhacker.
 ~Removed all items related to Zinc. It will return at a later date.
 ^Fusion Band and Ultima Band no longer buff Swiftness Potions.
 ^Jade Staff is now crafted with Any Iron Bar.
-~Slimebender's right click function no longer works if the player has no Slimy Crystals.
+~Slimebender's right click function no longer works if the player doesn't have Slimy Crystals.
 ~Made the thing that spawns afted Plantera is killed for the first time less flashy.
-GEL TRAIL + SMALLER
-
-ENCHANTED ICE CUBE PARTICLES
-CARNALLITE WAND COOL
-JOURNEY STARTER PENALTY
-FAHRENHEIT NEW RECIPE
-AMAGUQ CLONES SPIN
-
-FIX LANG FOR SET BONUS
+~Amaguq clones now spin.
+~Slightly nerfed Spectre Scythe.
+~Changed Fahrenheit recipe.
+~Added Bottled Lava and Apathy Potion.
+~Changed Neutron in a Bottle recipe.
+~Dirtball now has a 1/1000000 chance to drop The Dirtiest Block.
+~Increased amount of coins dropped by Eldritch Jellyfish in Expert mode.
+~Fixed bug that caused bosses to drop their coins twice.
+~Added a multihit penalty to Journey Starter's projectile.
+~Completely replaced Elem Dust with Elem Dust Green and Elem Dust Orange instead of all three existing in a weird limbo.
+~Revamped credits.
+~Added Meteor Crawler.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:
 BraycoeYT
 
 Ideas, Sprites, Music, and General Support:
-Skymanisbtman (Composer)
+Skymanisbtman (Composer, Spriter)
 Tome Man (Coder and Spriter)
 
-Azercadmium (1.3 version of Zylon) Major Devs:
+Azercadmium Major Devs (newer 1.3 version of Zylon):
 Mjoon (Spriter)
 HBDeus (Spriter and Composer)
 Astrum (Spriter and Ideas)
 Funk.It (Spriter)
 
-Quit:
+Zylon 1.3 Devs (older 1.3 version of Zylon):
 CrazySapling1
 Koolaidlemonade
 ULTIMATEDQVID
-Mafia_Cheezstick
 
 Minor Help:
 Ebon <-- Play Ebonian Mod!!
@@ -66,3 +69,4 @@ Juice/Slayer
 Pufferfisher77
 STiML
 Jeff the murderer
+Mafia_Cheezstick

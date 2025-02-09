@@ -227,6 +227,11 @@ Mods: {
 				Description: It flashes in and out of visibility, trying to scare something...
 			}
 
+			Apathy: {
+				DisplayName: Apathy
+				Description: Most buffs and debuffs are cancelled
+			}
+
 			BloodiedVial: {
 				DisplayName: Bloodied Vial
 				Description: Small chance to lifesteal from enemies
@@ -2478,6 +2483,16 @@ Mods: {
 					'''
 			}
 
+			ElementalEgg: {
+				DisplayName: Elemental Egg
+				Tooltip:
+					'''
+					'It melts in your hand...'
+					Summons Dirtball
+					Not Consumable
+					'''
+			}
+
 			EnchantedEye: {
 				DisplayName: Enchanted Eye
 				Tooltip:
@@ -3457,9 +3472,28 @@ Mods: {
 					'''
 			}
 
+			ApathyPotion: {
+				DisplayName: Apathy Potion
+				Tooltip:
+					'''
+					'Nothin' at all!'
+					Forcibly negates almost every buff and debuff
+					'''
+			}
+
 			BloodiedVial: {
 				DisplayName: Bloodied Vial
 				Tooltip: Gives a small chance to lifesteal from enemies
+			}
+
+			BottledLava: {
+				DisplayName: Bottled Lava
+				Tooltip:
+					'''
+					'This is a good idea!'
+					Restores -80 life
+					Grants the 'On Fire' debuff
+					'''
 			}
 
 			FeralChemicals: {
@@ -4603,6 +4637,11 @@ Mods: {
 				DisplayName: Stratoslime Banner
 				Tooltip: ""
 			}
+
+			MeteorCrawlerBanner: {
+				DisplayName: Meteor Crawler Banner
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -4731,9 +4770,9 @@ Mods: {
 			MetelordBallofFire.DisplayName: Ball of Fire
 			MetelordDMFireball.DisplayName: Giga Fire
 			MetelordFireBreath.DisplayName: Fire Breath
-			MetelordFireDrop1.DisplayName: Fallen Fire
-			MetelordFireDrop2.DisplayName: Fallen Fire
-			MetelordFireDrop3.DisplayName: Fallen Fire
+			MetelordFireDrop1.DisplayName: Meteor Fire
+			MetelordFireDrop2.DisplayName: Meteor Fire
+			MetelordFireDrop3.DisplayName: Meteor Fire
 			MetelordFireTrail.DisplayName: Flame Orb
 			MetelordMeteoriteAttack.DisplayName: Swarm Meteorite
 			MetelordMeteoriteAttack2.DisplayName: Swarm Meteorite
@@ -5153,6 +5192,8 @@ Mods: {
 			MandibleRailgunProj.DisplayName: Mandible Railgun
 			MandibleRailgunProj_Split.DisplayName: Mandible Railgun
 			LihzahrdPlatingBeam.DisplayName: Lihzahrd Beam
+			ElemFluxFist.DisplayName: Elem Flux Fist
+			MeteoriteFireDrop.DisplayName: Meteorite Fire Drop
 		}
 
 		NPCs: {
@@ -5278,6 +5319,7 @@ Mods: {
 			PixieArchangel.DisplayName: Pixie Archangel
 			Stratoslime.DisplayName: Stratoslime
 			ElemFlux.DisplayName: Elem Flux
+			MeteorCrawler.DisplayName: Meteor Crawler
 		}
 
 		Prefixes: {

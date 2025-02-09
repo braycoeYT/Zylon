@@ -23,6 +23,7 @@ namespace Zylon.Projectiles.Swords
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             if (Projectile.ai[0] % 3 == 0) target.AddBuff(BuffID.OnFire, Main.rand.Next(8, 16)*60);
+			Projectile.damage = (int)(Projectile.damage*0.5f);
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)

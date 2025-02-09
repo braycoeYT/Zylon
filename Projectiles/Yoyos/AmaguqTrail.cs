@@ -16,6 +16,7 @@ namespace Zylon.Projectiles.Yoyos
 			Projectile.ignoreWater = true;
 		}
         public override void AI() {
+			Projectile.rotation +=  0.08f;
             Projectile.alpha = (int)(255f-255f*((float)Projectile.timeLeft/30f));
         }
     }   
