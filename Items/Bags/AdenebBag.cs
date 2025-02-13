@@ -44,7 +44,10 @@ namespace Zylon.Items.Bags
 
 			itemLoot.Add(new CommonDrop(ItemType<Vanity.AdenebMask>(), 7)).OnFailedRoll(new CommonDrop(ItemType<Vanity.PolandballMask>(), 10));
 		}
-		public override Color? GetAlpha(Color lightColor) {
+        public override void RightClick(Player player) {
+            if (Main.rand.NextBool(20)) Zylon.ZylonVanity(player);
+        }
+        public override Color? GetAlpha(Color lightColor) {
 			return Color.Lerp(lightColor, Color.White, 0.4f);
 		}
 		public override void PostUpdate() {

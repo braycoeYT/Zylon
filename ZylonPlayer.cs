@@ -8,6 +8,8 @@ using static Terraria.ModLoader.ModContent;
 using Terraria.GameInput;
 using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Zylon
 {
@@ -357,6 +359,18 @@ namespace Zylon
 				}
 			}
 		}
+        public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath) {
+			String name = Player.name.ToLower();
+            if (name == "braycoe" || name == "zylontest" || name == "narcissism") {
+				return [
+					new Item(ItemType<Items.Vanity.Dev.BraycoeHead>()),
+					new Item(ItemType<Items.Vanity.Dev.BraycoeBody>()),
+					new Item(ItemType<Items.Vanity.Dev.BraycoeLegs>()),
+					new Item(ItemType<Items.LightPets.MysticFurball>())
+				];
+			}
+			return Enumerable.Empty<Item>();
+        }
         public override bool CanConsumeAmmo(Item weapon, Item ammo) {
 			if (neutronJacket && Main.rand.NextFloat() < .15f) return false;
 			if (continuumWarper && Main.rand.NextFloat() < .85f) return false;
@@ -410,8 +424,6 @@ namespace Zylon
 				Player.npcTypeNoAggro[NPCType<NPCs.Dungeon.BoneSlime>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Forest.DirtSlime>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Forest.MechanicalSlime>()] = true;
-				Player.npcTypeNoAggro[NPCType<NPCs.Forest.OrangeSlime>()] = true;
-				//Player.npcTypeNoAggro[NPCType<NPCs.Ocean.CyanSlime>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Sky.Stratoslime>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Snow.LivingMarshmallow>()] = true;
 				Player.npcTypeNoAggro[NPCType<NPCs.Snow.RoastedLivingMarshmallow>()] = true;

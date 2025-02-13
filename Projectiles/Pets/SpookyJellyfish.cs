@@ -41,6 +41,8 @@ namespace Zylon.Projectiles.Pets
             if (alph > 255) alph = 255;
             if (alph < 0) alph = 0;
             Projectile.alpha = alph;
+
+            if (Vector2.Distance(Projectile.Center, Main.player[Projectile.owner].Center) > 1900f) Projectile.Center = Main.player[Projectile.owner].Center;
         }
     }   
 }

@@ -40,6 +40,9 @@ namespace Zylon.Items.Bags
 			itemLoot.Add(ItemDropRule.Common(ItemType<Vanity.JellyMask>(), 7));
 			itemLoot.Add(ItemDropRule.Coins(Item.buyPrice(0, 18), true));
 		}
+		public override void RightClick(Player player) {
+            if (Main.rand.NextBool(20)) Zylon.ZylonVanity(player);
+        }
 		public override Color? GetAlpha(Color lightColor) {
 			return Color.Lerp(lightColor, Color.White, 0.4f);
 		}

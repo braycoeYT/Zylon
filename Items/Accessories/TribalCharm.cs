@@ -29,7 +29,7 @@ namespace Zylon.Items.Accessories
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<ConstructedCharm>());
 			recipe.AddIngredient(ItemID.PygmyNecklace);
-			recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 5);
+			//recipe.AddIngredient(ModContent.ItemType<Materials.ElementalGoop>(), 5);
 			recipe.AddTile(TileID.TinkerersWorkbench);
 			recipe.Register();
 		}

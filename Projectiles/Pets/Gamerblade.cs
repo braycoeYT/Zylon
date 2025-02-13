@@ -33,8 +33,10 @@ namespace Zylon.Projectiles.Pets
         public override void PostAI() {
             newRot += 0.02f*(Math.Abs(Projectile.velocity.X))*(Projectile.velocity.X/Math.Abs(Projectile.velocity.X)); //+Math.Abs(Projectile.velocity.Y)
             Projectile.rotation = newRot;
-            Lighting.AddLight(Projectile.Center, 0.5f, 0.5f, 0.5f);
+            //Lighting.AddLight(Projectile.Center, 0.5f, 0.5f, 0.5f);
             Projectile.spriteDirection = 0;
+
+            if (Vector2.Distance(Projectile.Center, Main.player[Projectile.owner].Center) > 1900f) Projectile.Center = Main.player[Projectile.owner].Center;
         }
         public override bool PreDraw(ref Color lightColor) {
             Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;

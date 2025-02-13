@@ -58,6 +58,8 @@ namespace Zylon.Projectiles.Pets
             if (!player.dead && player.HasBuff<Buffs.Pets.DirtboiBuff>())
                 Projectile.timeLeft = 4;
             else if (player.dead) cry = true;
+
+            if (Vector2.Distance(Projectile.Center, Main.player[Projectile.owner].Center) > 1900f) Projectile.Center = Main.player[Projectile.owner].Center;
         }
     }   
 }

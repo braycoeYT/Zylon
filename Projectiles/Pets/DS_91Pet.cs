@@ -42,6 +42,8 @@ namespace Zylon.Projectiles.Pets
             Projectile.spriteDirection = 0;
             if (Timer % 600 >= 420 || (Timer % 2 == 0 && Timer % 600 >= 360)) Projectile.frame = 1;
             else Projectile.frame = 0;
+
+            if (Vector2.Distance(Projectile.Center, Main.player[Projectile.owner].Center) > 1900f) Projectile.Center = Main.player[Projectile.owner].Center;
         }
         public override bool OnTileCollide(Vector2 oldVelocity) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);

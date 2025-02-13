@@ -35,6 +35,9 @@ namespace Zylon.Items.Bags
 			itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ItemType<Boomerangs.AussieDagger>(), ItemType<Blowpipes.HollowKnife>(), ItemType<Wands.BladeTorrentStaff>(), ItemType<Minions.SwordigamStaff>()));
 			itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ItemType<Yoyos.TheRetractor>(), ItemType<Bows.Dirkbow>(), ItemType<Tomes.TaleoftheEverlastingBlade>(), ItemType<Whips.Snakesabre>()));
 		}
+		public override void RightClick(Player player) {
+            if (Main.rand.NextBool(20)) Zylon.ZylonVanity(player, true, true);
+        }
 		public override Color? GetAlpha(Color lightColor) {
 			return Color.Lerp(lightColor, Color.White, 0.4f);
 		}

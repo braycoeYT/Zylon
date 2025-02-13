@@ -53,7 +53,7 @@ namespace Zylon.Tiles.Banners
 				switch (style)
 				{
 					case 0:
-						npcType = ModContent.NPCType<NPCs.Forest.OrangeSlime>();
+						npcType = ModContent.NPCType<NPCs.Forest.StarParasite>();
 						break;
 					case 1:
 						npcType = ModContent.NPCType<NPCs.Forest.SaplingWarrior>();

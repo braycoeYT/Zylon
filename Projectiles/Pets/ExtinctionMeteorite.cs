@@ -31,6 +31,8 @@ namespace Zylon.Projectiles.Pets
             Projectile.rotation = newRot;
             Lighting.AddLight(Projectile.Center, 0.1f, 0f, 0f);
             Projectile.spriteDirection = 0;
+
+            if (Vector2.Distance(Projectile.Center, Main.player[Projectile.owner].Center) > 1900f) Projectile.Center = Main.player[Projectile.owner].Center;
         }
     }   
 }

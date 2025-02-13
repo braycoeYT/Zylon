@@ -166,6 +166,18 @@ namespace Zylon.Projectiles
             return true;
         }
         public override void OnKill(Projectile projectile, int timeLeft) {
+			//How Star Parasites spawn.
+			if (projectile.type == ProjectileID.FallingStar && Main.rand.NextBool(7, 13)) {
+				NPC.NewNPC(projectile.GetSource_FromThis(), (int)projectile.Center.X,  (int)projectile.Center.Y, NPCType<NPCs.Forest.StarParasite>());
+				if (Main.rand.NextBool(50) || (Main.rand.NextFloat() < 0.045f && Main.getGoodWorld)) {
+					int max = 3;
+					if (Main.getGoodWorld) max = 12;
+					for (int i = 0; i < max; i++) {
+						NPC.NewNPC(projectile.GetSource_FromThis(), (int)projectile.Center.X,  (int)projectile.Center.Y, NPCType<NPCs.Forest.StarParasite>());
+					}
+				}
+			}
+
             if (GetInstance<ZylonConfig>().zylonianBalancing) {
 				if (projectile.type == ProjectileID.BoneArrowFromMerchant && Main.rand.NextBool(5) && Main.myPlayer == projectile.owner)
 					for (int i = 0; i < 3; i++) Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center - new Vector2(0, 4), new Vector2(Main.rand.NextFloat(-2f, 2f), Main.rand.NextFloat(-9f, -7f)), ProjectileType<Ammo.BoneArrowProj>(), projectile.damage/2, projectile.knockBack/2, projectile.owner);
@@ -197,7 +209,7 @@ namespace Zylon.Projectiles
 					if (foundTarget == false) return;
 
 					//Note: DO NOT include slimeling bc on death they will spawn more slimelings if they are big.
-					if (target.type == -25 || target.type == -24 || (target.type > -11 && target.type < 0) || target.type == NPCID.BlueSlime || target.type == NPCID.IceSlime || target.type == NPCID.SpikedIceSlime || target.type == NPCID.SandSlime || target.type == NPCID.SpikedJungleSlime || target.type == NPCID.BabySlime || target.type == NPCID.LavaSlime || target.type == NPCID.GoldenSlime || target.type == NPCID.SlimeSpiked || target.type == NPCID.ShimmerSlime || target.type == NPCID.SlimeMasked || (target.type > 332 && target.type < 337) || target.type == NPCID.Crimslime || target.type == NPCID.IlluminantSlime || target.type == NPCID.RainbowSlime || target.type == NPCID.QueenSlimeMinionBlue || target.type == NPCID.QueenSlimeMinionPink || target.type == NPCID.QueenSlimeMinionPurple || target.type == ModContent.NPCType<NPCs.Forest.DirtSlime>() || target.type == ModContent.NPCType<NPCs.Forest.OrangeSlime>() || target.type == ModContent.NPCType<ElemSlime>() || target.type == ModContent.NPCType<NPCs.Sky.Stratoslime>() || target.type == NPCID.Slimer2 || target.type == ModContent.NPCType<NPCs.Dungeon.BoneSlime>()) {
+					if (target.type == -25 || target.type == -24 || (target.type > -11 && target.type < 0) || target.type == NPCID.BlueSlime || target.type == NPCID.IceSlime || target.type == NPCID.SpikedIceSlime || target.type == NPCID.SandSlime || target.type == NPCID.SpikedJungleSlime || target.type == NPCID.BabySlime || target.type == NPCID.LavaSlime || target.type == NPCID.GoldenSlime || target.type == NPCID.SlimeSpiked || target.type == NPCID.ShimmerSlime || target.type == NPCID.SlimeMasked || (target.type > 332 && target.type < 337) || target.type == NPCID.Crimslime || target.type == NPCID.IlluminantSlime || target.type == NPCID.RainbowSlime || target.type == NPCID.QueenSlimeMinionBlue || target.type == NPCID.QueenSlimeMinionPink || target.type == NPCID.QueenSlimeMinionPurple || target.type == ModContent.NPCType<NPCs.Forest.DirtSlime>() || target.type == ModContent.NPCType<ElemSlime>() || target.type == ModContent.NPCType<NPCs.Sky.Stratoslime>() || target.type == NPCID.Slimer2 || target.type == ModContent.NPCType<NPCs.Dungeon.BoneSlime>()) {
 						/*int tempHeight = (int)(target.height/target.scale);
 						int tempWidth = (int)(target.width/target.scale);
 

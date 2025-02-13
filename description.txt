@@ -1,45 +1,22 @@
-The best mod that starts with Z — we guarantee or your money back! Warning: Mod does not work in multiplayer.
+The best mod that starts with Z — we guarantee or your money back! Some cool stuff we add includes summon critical strike support, blowpipes being reworked into their own unique subclass, and several new prefixes for weapons and accessories! Warning: Mod does not work in multiplayer.
 
 Stats:
-~484 Items
+~488 Items
 ~4 Bosses:
 ~~~3 Prehardmode Bosses [i:2][i:789][i:282]
 ~~~1 Post-Moon Lord Boss [i:5130]
-(plus a secret joke boss only fightable on getfixedboi worlds [i:43])
 ~44 total NPCs
-~Summons can deal critical strikes now!
-~A complete reworking and expansion of blowpipes!
-~LOTS of new vanilla recipes and changes to help balance the game out.
-~Several new prefixes for weapons and accessories!
-~New secret seeds: Abyssworld and Autumn.
+~Secret seeds: Abyssworld and Autumn.
 
-V0.0.4: Content Nuke Update
-~Completely removed Metelord because no one liked him and his code was ATROCIOUS. Rest in pieces.
-^Changed Haxonite Ore tooltip.
-^Haxonite Ore is now dropped by meteorite biome enemies.
-^Haxonite items now require less Haxonite Bars to craft.
-^Metecore is now crafted instead of dropped.
-^Plastic Dino Figurine is now dropped by meteorite biome enemies.
-~Fixed error in Shroomite Headdress's tooltip.
-~Renamed The Sporophyte to just Sporophyte, and The Heartbreaker to just Heartbreaker.
-~Removed Sandstormgun, Dumbbell, Death Cleaver, Stalagmite, Stone Shortsword, Pluto Magnum, and Treewhacker.
-~Removed all items related to Zinc. It will return at a later date.
-^Fusion Band and Ultima Band no longer buff Swiftness Potions.
-^Jade Staff is now crafted with Any Iron Bar.
-~Slimebender's right click function no longer works if the player doesn't have Slimy Crystals.
-~Made the thing that spawns afted Plantera is killed for the first time less flashy.
-~Amaguq clones now spin.
-~Slightly nerfed Spectre Scythe.
-~Changed Fahrenheit recipe.
-~Added Bottled Lava and Apathy Potion.
-~Changed Neutron in a Bottle recipe.
-~Dirtball now has a 1/1000000 chance to drop The Dirtiest Block.
-~Increased amount of coins dropped by Eldritch Jellyfish in Expert mode.
-~Fixed bug that caused bosses to drop their coins twice.
-~Added a multihit penalty to Journey Starter's projectile.
-~Completely replaced Elem Dust with Elem Dust Green and Elem Dust Orange instead of all three existing in a weird limbo.
-~Revamped credits.
-~Added Meteor Crawler.
+V0.0.4.1: The Update After
+~Gamerblade no longer glows in the dark.
+~Modded pets now teleport to the player instead of despawning if they get too far away.
+~Added Mystic Furball, the mod's first light pet!
+~Added Braycoe's vanity set.
+~Added Star Parasite.
+~Removed Orange Slime.
+~Tribal Charm no longer requires Elemental Goop to craft.
+~Reworked mod description to be shorter.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

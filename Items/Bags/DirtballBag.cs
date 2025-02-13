@@ -49,6 +49,9 @@ namespace Zylon.Items.Bags
 			itemLoot.Add(new CommonDrop(ModContent.ItemType<Food.MudPie>(), 5));
 			itemLoot.Add(new CommonDrop(ItemID.DirtiestBlock, 1000000));
 		}
+		public override void RightClick(Player player) {
+            if (Main.rand.NextBool(20)) Zylon.ZylonVanity(player);
+        }
 		public override Color? GetAlpha(Color lightColor) {
 			return Color.Lerp(lightColor, Color.White, 0.4f);
 		}

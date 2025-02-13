@@ -436,6 +436,11 @@ Mods: {
 				DisplayName: Gunball Red
 				Description: Your attack has dropped!
 			}
+
+			SoulCompanion: {
+				DisplayName: Soul Companion
+				Description: ":3"
+			}
 		}
 
 		Items: {
@@ -4130,6 +4135,21 @@ Mods: {
 				Tooltip: ""
 			}
 
+			BraycoeBody: {
+				DisplayName: Braycoe's Body
+				Tooltip: "'Great for impersonating some absent-minded furry.'"
+			}
+
+			BraycoeHead: {
+				DisplayName: Braycoe's Head
+				Tooltip: "'Great for impersonating some absent-minded furry.'"
+			}
+
+			BraycoeLegs: {
+				DisplayName: Braycoe's Legs
+				Tooltip: "'Great for impersonating some absent-minded furry.'"
+			}
+
 			AdenebMask: {
 				DisplayName: Adeneb Mask
 				Tooltip: ""
@@ -4640,6 +4660,20 @@ Mods: {
 
 			MeteorCrawlerBanner: {
 				DisplayName: Meteor Crawler Banner
+				Tooltip: ""
+			}
+
+			MysticFurball: {
+				DisplayName: Mystic Furball
+				Tooltip:
+					'''
+					'A kindred spirit to bring light in times of darkness'
+					Summons a Soul Companion to light your way
+					'''
+			}
+
+			StarParasiteBanner: {
+				DisplayName: Star Parasite Banner
 				Tooltip: ""
 			}
 		}
@@ -5192,8 +5226,9 @@ Mods: {
 			MandibleRailgunProj.DisplayName: Mandible Railgun
 			MandibleRailgunProj_Split.DisplayName: Mandible Railgun
 			LihzahrdPlatingBeam.DisplayName: Lihzahrd Beam
-			ElemFluxFist.DisplayName: Elem Flux Fist
+			ElemFluxFist.DisplayName: Elem Flux
 			MeteoriteFireDrop.DisplayName: Meteorite Fire Drop
+			SoulCompanion.DisplayName: Soul Companion
 		}
 
 		NPCs: {
@@ -5320,6 +5355,7 @@ Mods: {
 			Stratoslime.DisplayName: Stratoslime
 			ElemFlux.DisplayName: Elem Flux
 			MeteorCrawler.DisplayName: Meteor Crawler
+			StarParasite.DisplayName: Star Parasite
 		}
 
 		Prefixes: {

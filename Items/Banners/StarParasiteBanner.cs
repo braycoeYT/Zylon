@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace Zylon.Items.Banners
 {
-	public class OrangeSlimeBanner : ModItem
+	public class StarParasiteBanner : ModItem
 	{
 		public override void SetDefaults() {
 			Item.width = 14;

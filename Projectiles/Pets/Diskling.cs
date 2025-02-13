@@ -42,6 +42,8 @@ namespace Zylon.Projectiles.Pets
                 Projectile.timeLeft = 90;
                 death = true;
             }
+
+            if (Vector2.Distance(Projectile.Center, Main.player[Projectile.owner].Center) > 1900f) Projectile.Center = Main.player[Projectile.owner].Center;
         }
         public override void OnKill(int timeLeft) {
             SoundEngine.PlaySound(SoundID.NPCDeath14, Projectile.Center);
