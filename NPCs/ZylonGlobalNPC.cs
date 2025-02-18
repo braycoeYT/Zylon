@@ -16,6 +16,7 @@ namespace Zylon.NPCs
 		public static int dirtballBoss = -1;
 		public static int elemFluxBoss = -1;
 		public static int saburBoss = -1;
+		public static int scavengerBoss = -1;
 
 		//For the boss to manage.
 		public static Color elemFluxMain;

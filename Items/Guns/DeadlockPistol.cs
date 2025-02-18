@@ -48,16 +48,14 @@ namespace Zylon.Items.Guns
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.FlintlockPistol);
-			recipe.AddRecipeGroup("Zylon:AnyPHBar", 8);
-			recipe.AddIngredient(ItemID.WormTooth, 3);
+			recipe.AddIngredient(ItemID.WormTooth, 4);
 			recipe.AddRecipeGroup("Zylon:AnyGem", 2);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
 			recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.FlintlockPistol);
-			recipe.AddRecipeGroup("Zylon:AnyPHBar", 8);
-			recipe.AddIngredient(ModContent.ItemType<Materials.BloodySpiderLeg>(), 3);
+			recipe.AddIngredient(ModContent.ItemType<Materials.BloodySpiderLeg>(), 4);
 			recipe.AddRecipeGroup("Zylon:AnyGem", 2);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();

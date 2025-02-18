@@ -143,7 +143,7 @@ namespace Zylon.Projectiles
 				projectile.penetrate = 2;
 				projectile.velocity *= -1f;
 				projectile.damage = (int)(projectile.damage*0.7f);
-				if (projectile.type == ProjectileID.ChlorophyteBullet || (projectile.type == ProjectileType<Guns.Gunball_Proj>() && projectile.aiStyle == 1) || projectile.type == ProjectileID.ExplosiveBullet || projectile.type == ProjectileType<Guns.PizazzCannonProj>())
+				if (projectile.type == ProjectileID.ChlorophyteBullet || (projectile.type == ProjectileType<Guns.Gunball_Proj>() && projectile.aiStyle == 1) || projectile.type == ProjectileID.ExplosiveBullet || projectile.type == ProjectileType<Guns.PizazzCannonProj>() || projectile.type == ProjectileID.CrystalBullet || projectile.type == ProjectileID.PartyBullet)
 					projectile.Kill(); //projectile.damage = (int)(projectile.damage*0.3f);
 				if (projectile.damage < 1) projectile.damage = 1;
 			}

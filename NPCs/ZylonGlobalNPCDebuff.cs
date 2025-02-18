@@ -27,6 +27,7 @@ namespace Zylon.NPCs
 		public bool gunballRed;
 		public bool gunballBlue;
 		public bool gunballGreen;
+		public bool bleeding;
 		public override void ResetEffects(NPC npc) {
 			heartdaze = false;
 			shroomed = false;
@@ -42,6 +43,7 @@ namespace Zylon.NPCs
 			gunballRed = false;
 			gunballBlue = false;
 			gunballGreen = false;
+			bleeding = false;
 		}
 		public override void UpdateLifeRegen(NPC npc, ref int damage) {
 			if (heartdaze) {
@@ -107,6 +109,15 @@ namespace Zylon.NPCs
 				npc.lifeRegen -= 42;
 				if (damage < 7) {
 					damage = 7;
+				}
+			}
+			if (bleeding) {
+				if (npc.lifeRegen > 0) {
+					npc.lifeRegen = 0;
+				}
+				npc.lifeRegen -= 6;
+				if (damage < 3) {
+					damage = 3;
 				}
 			}
 		}

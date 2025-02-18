@@ -877,6 +877,13 @@ namespace Zylon
 			recipe.AddIngredient(ItemID.WormTooth);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.PanicNecklace);
+			recipe.AddIngredient(ItemID.Chain, 8);
+			recipe.AddIngredient(ItemID.LifeCrystal);
+			recipe.AddIngredient(ItemID.Ruby, 2);
+			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.Register();
         }
         public override void PostAddRecipes() {
             if (ModContent.GetInstance<ZylonConfig>().zylonianBalancing) for (int i = 0; i < Recipe.numRecipes; i++) {

@@ -441,6 +441,11 @@ Mods: {
 				DisplayName: Soul Companion
 				Description: ":3"
 			}
+
+			BleedingEnemy: {
+				DisplayName: Bleeding Enemy
+				Description: Mods.Zylon.Buffs.BleedingEnemy.Description
+			}
 		}
 
 		Items: {
@@ -514,6 +519,18 @@ Mods: {
 					'Might mutate your DNA on use, but I wouldn't worry about that'
 					85% chance not to consume ammo
 					Decreases damage by 15%
+					'''
+			}
+
+			CoreofMending: {
+				DisplayName: Core of Mending
+				Tooltip:
+					'''
+					As you damage enemies, lifeforce wisps gather around the player
+					Dealing higher amounts of damage summons wisps faster
+					Once the maximum amount of wisps are reached, they are all absorbed by the player
+					Absorbing wisps heals your health
+					Has a minimum 20 second total cooldown
 					'''
 			}
 
@@ -3909,6 +3926,18 @@ Mods: {
 				Tooltip: ""
 			}
 
+			SurgeonScissors: {
+				DisplayName: Surgeon's Scissors
+				Tooltip:
+					'''
+					'I am a surgeon!'
+					Striking foes grants the player five charges
+					Swinging the sword with charges stored will unleash forceful slashes
+					A maximum of twenty charges can be accrued at once
+					All attacks inflict bleeding
+					'''
+			}
+
 			TrueLobera: {
 				DisplayName: True Lobera
 				Tooltip:
@@ -5229,6 +5258,9 @@ Mods: {
 			ElemFluxFist.DisplayName: Elem Flux
 			MeteoriteFireDrop.DisplayName: Meteorite Fire Drop
 			SoulCompanion.DisplayName: Soul Companion
+			SurgeonScissorsProj.DisplayName: Surgeon Scissors Proj
+			CoreofMendingProj.DisplayName: Coreof Mending Proj
+			CoreofMendingProj2.DisplayName: Coreof Mending Proj2
 		}
 
 		NPCs: {

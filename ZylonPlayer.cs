@@ -100,6 +100,7 @@ namespace Zylon
 		public bool royalArgentumChestpiece;
 		public bool argentumSetBonus;
 		public bool argentumHeadgear;
+		public bool coreofMending;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -130,6 +131,7 @@ namespace Zylon
 		public int numof10ammo;
 		public int slimebenderDamage;
 		public int slimebenderCore;
+		public int coreofMendingCounter;
 		public float summonCrit;
 		public float summonCritBoost;
 		public float damageVariation;
@@ -219,6 +221,7 @@ namespace Zylon
 			argentumSetBonus = false;
 			royalArgentumChestpiece = false;
 			argentumHeadgear = false;
+			coreofMending = false;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeMult = 1f;
@@ -698,6 +701,13 @@ namespace Zylon
             }*/
 			if (slimePendant) target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11)*60);
 			if (livingWoodSetBonus) target.AddBuff(BuffID.DryadsWardDebuff, Main.rand.Next(2, 5)*60);
+			if (coreofMending) {
+				if (damage >= 40) coreofMendingCounter += 3;
+				else if (damage >= 16) coreofMendingCounter += 2;
+				else coreofMendingCounter++;
+
+				if (coreofMendingCounter > 60) coreofMendingCounter = 60;
+			}
 		}
 		public void OnHitPVPGlobal(Item item, Projectile proj, Player target, int damage, bool crit, bool TrueMelee) {
 			if (summonCritHappen) { //I have to do this for some reason
@@ -888,9 +898,7 @@ namespace Zylon
 					}
 				}
 			}
-			/*if (WorldGen.currentWorldSeed.ToLower() == "autumn" && (Player.armor[0].type == ItemType<Items.Armor.LivingWoodHelmet>() || Player.armor[0].type == ItemType<Items.Armor.LivingWoodMask>())) {
-				Player.dye[0] = ItemID.OrangeDye;
-			}*/
+			if (!coreofMending && Player.ownedProjectileCounts[ProjectileType<Projectiles.Accessories.CoreofMendingProj>()] < 1) coreofMendingCounter = 0; //Resets counter if not equipped and not despawning currently.
         }
         public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers) {
 			if (WorldGen.currentWorldSeed == null) return;
