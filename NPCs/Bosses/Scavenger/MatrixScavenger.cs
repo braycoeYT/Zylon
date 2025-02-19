@@ -103,11 +103,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 		}
 		private void IntroAttack() {
 			attackTimer++;
-			//if (attackTimer >= 60) attackDone = true;
-			if (attackTimer % 300 == 0 && Main.netMode != NetmodeID.MultiplayerClient) {
-				Vector2 speed = Vector2.Normalize(NPC.Center - target.Center);
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-0.25f, ModContent.ProjectileType<Projectiles.Bosses.Scavenger.BinaryBlast4x4>(), NPC.damage/3, 0f);
-			}
+			if (attackTimer >= 60) attackDone = true;
 		}
 		private void QuarterDash() {
 			NPC.Center = target.Center - new Vector2(0, 320).RotatedBy(MathHelper.ToRadians(attackTimer));

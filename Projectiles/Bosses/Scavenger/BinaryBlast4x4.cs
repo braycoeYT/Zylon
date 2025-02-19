@@ -22,7 +22,7 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 			Projectile.aiStyle = -1;
 			Projectile.hostile = true;
 			Projectile.friendly = false;
-			Projectile.timeLeft = 999;
+			Projectile.timeLeft = 120;
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = false;
 		}
@@ -36,6 +36,8 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 		static int arrayH = 4;
 		static int trailLength = 20;
 		byte[,] numArray = new byte[arrayW, arrayH]; //For visuals.
+		bool end;
+		int endTimer;
         public override bool PreAI() {
 			if (!init) {
 				if (Projectile.velocity != Vector2.Zero) realVel = Projectile.velocity;
@@ -43,14 +45,30 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 				for (int i = 0; i < arrayH; i++) for (int j = 0; j < arrayW; j++) {
 					numArray[i, j] = matrixNew();
 				}
+				
+				trail.Add([0, 0, 0, 0]);
 
 				init = true;
 			}
 			Projectile.velocity = Vector2.Zero;
 
-            return true;
+			if (end) {
+				if (endTimer == 0) {
+					for (int i = 0; i < arrayH; i++) for (int j = 0; j < arrayW; j++) {
+						int[] temp = {i, j, trailLength, numArray[i, j]}; //Creates a vanishing thing at each point.
+						numArray[i, j] = 2; //Makes the original invisible.
+					}
+				}
+				endTimer++;
+				Projectile.hostile = false;
+				realVel = Vector2.Zero;
+
+				if (endTimer > 20) Projectile.active = false;
+			}
+
+            return !end;
         }
-		List<int[,,,]> trail; //x, y, timeleft, type
+		List<int[]> trail = new List<int[]>(); //x, y, timeleft, type
         public override void AI() {
             realPos += realVel;
 			if (Math.Abs(realPos.X) > 16f) {
@@ -60,11 +78,8 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 				if (dir == -1) {
 					//Spawn trail
 					if (Main.netMode != NetmodeID.MultiplayerClient) for (int k = 0; k < arrayH; k++) {
-						Vector2 pos = Projectile.position + new Vector2(arrayW*16-16, 16*k);
-						//Projectile.NewProjectile(Projectile.GetSource_FromThis(), pos, Vector2.Zero, ModContent.ProjectileType<BinaryRemnant>(), 0, 0f, -1, numArray[arrayW-1, k], trailLength);
-						
-						//int[,,,] temp = new int[arrayW-1, k, numArray[arrayW-1, k], trailLength];
-						//trail.Add(temp);
+						int[] temp = { arrayW-1, k, trailLength, numArray[arrayW-1, k]};
+						trail.Add(temp);
 					}
 
 					//Determine new numbers
@@ -80,8 +95,8 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 				else {
 					//Spawn trail
 					if (Main.netMode != NetmodeID.MultiplayerClient) for (int k = 0; k < arrayH; k++) {
-						Vector2 pos = Projectile.position + new Vector2(0, 16*k);
-						//Projectile.NewProjectile(Projectile.GetSource_FromThis(), pos, Vector2.Zero, ModContent.ProjectileType<BinaryRemnant>(), 0, 0f, -1, numArray[0, k], trailLength);
+						int[] temp = { 0, k, trailLength, numArray[0, k]};
+						trail.Add(temp);
 					}
 
 					//Determine new numbers
@@ -97,11 +112,16 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 
 				Projectile.position.X += 16*dir;
 
-				/*foreach (int[,,,] i in trail) {
-					int[,,,] temp = new int[Convert.ToInt32(i.GetValue(0).ToString()) - (int)dir, Convert.ToInt32(i.GetValue(1).ToString()), Convert.ToInt32(i.GetValue(2).ToString()), Convert.ToInt32(i.GetValue(3).ToString())];
-					trail.Remove(i);
-					trail.Add(temp);
-				}*/
+				for (int i = 0; i < trail.Count; i++) {
+					int[] temp = trail[i];
+					int x = (int)temp.GetValue(0);
+					int y = (int)temp.GetValue(1);
+					int timeLeft = (int)temp.GetValue(2);
+					int offset = (int)temp.GetValue(3);
+
+					int[] tempNew = { x-(int)dir, y, timeLeft, offset };
+					trail[i] = tempNew;
+				}
 			}
 			if (Math.Abs(realPos.Y) > 16f) {
 				float dir = realPos.Y/Math.Abs(realPos.Y);
@@ -110,8 +130,8 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 				if (dir == -1) {
 					//Spawn trail
 					if (Main.netMode != NetmodeID.MultiplayerClient) for (int k = 0; k < arrayW; k++) {
-						Vector2 pos = Projectile.position + new Vector2(16*k, arrayH*16-16);
-						//Projectile.NewProjectile(Projectile.GetSource_FromThis(), pos, Vector2.Zero, ModContent.ProjectileType<BinaryRemnant>(), 0, 0f, -1, numArray[k, arrayH-1], trailLength);
+						int[] temp = { k, arrayH-1, trailLength, numArray[k, arrayH-1]};
+						trail.Add(temp);
 					}
 
 					//Determine new numbers
@@ -127,8 +147,8 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 				else {
 					//Spawn trail
 					if (Main.netMode != NetmodeID.MultiplayerClient) for (int k = 0; k < arrayW; k++) {
-						Vector2 pos = Projectile.position + new Vector2(16*k, 0);
-						//Projectile.NewProjectile(Projectile.GetSource_FromThis(), pos, Vector2.Zero, ModContent.ProjectileType<BinaryRemnant>(), 0, 0f, -1, numArray[k, 0], trailLength);
+						int[] temp = { k, 0, trailLength, numArray[k, 0]};
+						trail.Add(temp);
 					}
 
 					//Determine new numbers
@@ -144,30 +164,38 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 
 				Projectile.position.Y += 16*dir;
 
-				/*foreach (int[,,,] i in trail) {
-					int[,,,] temp = new int[Convert.ToInt32(i.GetValue(0).ToString()), Convert.ToInt32(i.GetValue(1).ToString()) - (int)dir, Convert.ToInt32(i.GetValue(2).ToString()), Convert.ToInt32(i.GetValue(3).ToString())];
-					trail.Remove(i);
-					trail.Add(temp);
-				}*/
+				for (int i = 0; i < trail.Count; i++) {
+					int[] temp = trail[i];
+					int x = (int)temp.GetValue(0);
+					int y = (int)temp.GetValue(1);
+					int timeLeft = (int)temp.GetValue(2);
+					int offset = (int)temp.GetValue(3);
+
+					int[] tempNew = { x, y-(int)dir, timeLeft, offset };
+					trail[i] = tempNew;
+				}
 			}
         }
         public override void PostAI() {
-            
+            //Main.NewText(trail.Capacity);
+
+			for (int i = 0; i < trail.Count; i++) {
+				int[] temp = trail[i];
+				int x = (int)temp.GetValue(0);
+				int y = (int)temp.GetValue(1);
+				int timeLeft = (int)temp.GetValue(2);
+				int offset = (int)temp.GetValue(3);
+				//Main.NewText(x + " | " + y + " | " + timeLeft + " | " + offset);
+			}
         }
         private byte matrixNew() {
 			byte num = (byte)Main.rand.Next(2);
 			if (Main.rand.NextBool(10)) num = 2;
 			return num;
 		}
-        public override void OnKill(int timeLeft) {
-            if (Main.netMode != NetmodeID.MultiplayerClient) for (int k = 0; k < arrayW; k++) for (int l = 0; l < arrayH; l++) {
-				Vector2 pos = Projectile.position + new Vector2(16*k, 16*l);
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), pos, Vector2.Zero, ModContent.ProjectileType<BinaryRemnant>(), 0, 0f, -1, numArray[k, l], 20);
-			}
-        }
         public override bool PreDraw(ref Color lightColor) {
 			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-			Texture2D texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Bosses/Scavenger/BinaryRemnant");
+			Texture2D texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Bosses/Scavenger/Binary");
 			int frameHeight = texture.Height / Main.projFrames[Projectile.type];
 			
 			for (int i = 0; i < arrayH; i++) for (int j = 0; j < arrayW; j++) { //numArray[i, j]
@@ -179,21 +207,21 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 				Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White, 0f, new Vector2(texture.Width / 2f, frameHeight / 2f), 1f, effects, 0);
 			}
 			
-			/*foreach (int[,,,] i in trail) {
-				int x = Convert.ToInt32(i.GetValue(0).ToString());
-				int y = Convert.ToInt32(i.GetValue(1).ToString());
-				int timeLeft = Convert.ToInt32(i.GetValue(2).ToString());
-				int offset = Convert.ToInt32(i.GetValue(3).ToString());
+			for (int i = 0; i < trail.Count; i++) {
+				int[] temp = trail[i];
+				int x = (int)temp.GetValue(0);
+				int y = (int)temp.GetValue(1);
+				int timeLeft = (int)temp.GetValue(2);
+				int offset = (int)temp.GetValue(3);
 
 				Vector2 sheetInsertPosition = (Projectile.position + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition).Floor() + new Vector2(x*16, y*16);
-				int spriteSheetOffset = frameHeight * timeLeft;
-
+				int spriteSheetOffset = frameHeight * offset;
 				Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White*((float)timeLeft/trailLength), 0f, new Vector2(texture.Width / 2f, frameHeight / 2f), 1f, effects, 0);
 				
-				int[,,,] temp = new int[x, y, timeLeft-1, offset];
-				trail.Remove(i);
-				if (timeLeft > 0) trail.Add(temp);
-			}*/
+				int[] temp2 = { x, y, timeLeft-1, offset };
+				if (timeLeft > 1) trail[i] = temp2;
+				else trail.RemoveAt(i);
+			}
 
 			return false;
 		}
