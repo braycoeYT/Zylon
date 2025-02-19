@@ -8,14 +8,8 @@ Stats:
 ~44 total NPCs
 ~Secret seeds: Abyssworld and Autumn.
 
-V0.0.4.2: The Update After Pt. 2
-~Slightly resprited Braycoe's Head.
-~The tail part of Braycoe's vanity set now displays from the body rather than the legs.
-~Added Surgeon's Scissors.
-~Added more vanilla recipes.
-~Changed Deadlock Pistol's recipe.
-~Readded Core of Mending.
-~Crystal and Party Bullets are no longer affected by the Illusory Bullet Polish.
+V0.0.4.3: The Update After Pt. 3
+~Fixed issue with Crystal Bullets and Illusory Bullet Polish.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:
