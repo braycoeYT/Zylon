@@ -10,6 +10,11 @@ Stats:
 
 V0.0.4.3: The Update After Pt. 3
 ~Fixed issue with Crystal Bullets and Illusory Bullet Polish.
+~Buffed Crackle Staff, and changed recipe.
+~Fixed bug that caused segments to despawn during the Suspicious Looking Eye fight.
+~Rebalanced stats of Suspicious Looking Eye.
+~Fixed bug that caused the Slimebender's right click attack to not work while too close to the top of the world.
+~Fixed minor visual bug with Slimebender's right click attack.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

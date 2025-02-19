@@ -19,13 +19,13 @@ namespace Zylon.Projectiles.Swords
 			Projectile.friendly = false;
 			Projectile.penetrate = -1;
 			Projectile.timeLeft = 300;
-			//Projectile.alpha = 255;
+			Projectile.alpha = 255;
 		}
 		int Timer;
         public override void AI() {
 			Player player = Main.player[Projectile.owner];
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			
+
 			Timer++;
 			if (Timer <= (int)(Projectile.ai[0]*10)+15 && Timer % 3 == 0 && Projectile.owner == Main.myPlayer) {
 				int offset = Main.rand.Next(25);

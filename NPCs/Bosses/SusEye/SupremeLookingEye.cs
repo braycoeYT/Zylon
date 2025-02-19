@@ -28,7 +28,7 @@ namespace Zylon.NPCs.Bosses.SusEye
 		public override void SetDefaults() {
 			NPC.CloneDefaults(NPCID.DiggerBody);
 			NPC.aiStyle = -1;
-			NPC.lifeMax = 500000;
+			NPC.lifeMax = (int)(350000*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 250;
 			NPC.defense = 40;
 			NPC.value = 69;
@@ -137,6 +137,8 @@ namespace Zylon.NPCs.Bosses.SusEye
 		int Timer;
 		int rand = Main.rand.Next(600);
         public override void AI() {
+			NPC.boss = true;
+			NPC.netAlways = true;
 			Timer++;
 			NPC.dontTakeDamage = Timer < 900;
 			if (Timer % 600 == rand) {
@@ -193,6 +195,8 @@ namespace Zylon.NPCs.Bosses.SusEye
 		int Timer;
 		int flee;
         public override void AI() {
+			NPC.boss = true;
+			NPC.netAlways = true;
 			Timer++;
         }
 		static int max = 18;

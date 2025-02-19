@@ -120,7 +120,7 @@ namespace Zylon.Projectiles.Minions
 
 			#region Movement
 
-			float speed = 15f;
+			float speed = 25f;
 			float inertia = 30f;
 
 			if (foundTarget)
@@ -134,12 +134,12 @@ namespace Zylon.Projectiles.Minions
 			}
 			else {
 				if (distanceToIdlePosition > 600f) {
-					speed = 20f;
-					inertia = 35f;
+					speed = 45f;
+					inertia = 45f;
 				}
 				else {
-					speed = 15f;
-					inertia = 30f;
+					speed = 25f;
+					inertia = 40f;
 				}
 				if (distanceToIdlePosition > 20f) {
 					vectorToIdlePosition.Normalize();
@@ -165,7 +165,7 @@ namespace Zylon.Projectiles.Minions
 				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ProjectileType<CrackleElectricity>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI, Timer+60+randOffset);
 			}
 			else if (mode == 1 && foundTarget && Timer % 15 == 0 && Main.myPlayer == Projectile.owner) {
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Vector2(Main.rand.Next(-10, 11)-Projectile.width/2, 0), new Vector2(0, 10), ProjectileType<CrackleRain>(), Projectile.damage, Projectile.knockBack/2f, Projectile.owner);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Vector2(Main.rand.Next(-10, 11)-Projectile.width/2, 0), new Vector2(0, 20), ProjectileType<CrackleRain>(), Projectile.damage, Projectile.knockBack/2f, Projectile.owner);
 			}
 			/*Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 40;
 			if (foundTarget && Vector2.Distance(targetCenter, Projectile.Center) < 80) {

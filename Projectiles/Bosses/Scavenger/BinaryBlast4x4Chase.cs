@@ -8,10 +8,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using System;
 using System.Collections.Generic;
+using Zylon.NPCs;
 
 namespace Zylon.Projectiles.Bosses.Scavenger
 {
-	public class BinaryBlast4x4 : ModProjectile
+	public class BinaryBlast4x4Chase : ModProjectile
 	{
         public override void SetStaticDefaults() {
 			Main.projFrames[Projectile.type] = 3;
@@ -38,7 +39,9 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 		byte[,] numArray = new byte[arrayW, arrayH]; //For visuals.
 		bool end;
 		int endTimer;
-        public override bool PreAI() {
+		int speedTimer;
+		int speedMax;
+        public override bool PreAI() { //ai0 = speed up percentage
 			if (!init) {
 				if (Projectile.velocity != Vector2.Zero) realVel = Projectile.velocity;
 
@@ -49,6 +52,8 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 				trail.Add([0, 0, 0, 0]);
 
 				init = true;
+
+				//realVel = Projectile.Center.DirectionTo(Main.player[Main.npc[ZylonGlobalNPC.scavengerBoss].target].Center)*Projectile.velocity.Length();
 			}
 			Projectile.velocity = Vector2.Zero;
 
@@ -73,7 +78,11 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 			if (Projectile.timeLeft == 21) end = true;
 
             realPos += realVel;
-			if (Math.Abs(realPos.X) > 16f) {
+			if (realVel.Length() < 32f) realVel *= Projectile.ai[0];
+
+			if (realVel.Length() < 3f) realVel = Projectile.Center.DirectionTo(Main.player[Main.npc[ZylonGlobalNPC.scavengerBoss].target].Center)*realVel.Length();
+
+			while (Math.Abs(realPos.X) > 16f) {
 				float dir = realPos.X/Math.Abs(realPos.X);
 				realPos.X -= 16f*dir;
 
@@ -125,7 +134,7 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 					trail[i] = tempNew;
 				}
 			}
-			if (Math.Abs(realPos.Y) > 16f) {
+			while (Math.Abs(realPos.Y) > 16f) {
 				float dir = realPos.Y/Math.Abs(realPos.Y);
 				realPos.Y -= 16f*dir;
 

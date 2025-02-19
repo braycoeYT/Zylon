@@ -26,7 +26,7 @@ namespace Zylon.NPCs.Bosses.SusEye
 		public override void SetDefaults() {
 			NPC.CloneDefaults(NPCID.TheDestroyerBody);
 			NPC.aiStyle = -1;
-			NPC.lifeMax = 250000;
+			NPC.lifeMax = (int)(99000*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 250;
 			NPC.defense = 0;
 			NPC.value = 69;
@@ -113,7 +113,12 @@ namespace Zylon.NPCs.Bosses.SusEye
 		public override void Init() {
 			GenericWormofEdginessHead.CommonWormInit(this);
 		}
-		public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) {
+
+        public override void AI() {
+            NPC.boss = true;
+			NPC.netAlways = true;
+        }
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) {
 			string a = "Zylon/NPCs/Bosses/SusEye/GenericWormofEdginessBody";
 			Texture2D me = (Texture2D)ModContent.Request<Texture2D>(a);
 			Vector2 drawOrigin = new Vector2(me.Width * 0.5f, me.Height * 0.5f);
@@ -147,6 +152,10 @@ namespace Zylon.NPCs.Bosses.SusEye
 			NPC.netAlways = true;
 			NPC.scale = 1f;
 		}
+		public override void AI() {
+            NPC.boss = true;
+			NPC.netAlways = true;
+        }
 		public override void Init() {
 			GenericWormofEdginessHead.CommonWormInit(this);
 		}

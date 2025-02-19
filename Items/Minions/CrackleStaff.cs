@@ -14,7 +14,7 @@ namespace Zylon.Items.Minions
 			ItemID.Sets.LockOnIgnoresCollision[Item.type] = true;
 		}
 		public override void SetDefaults() {
-			Item.damage = 24;
+			Item.damage = 28;
 			Item.knockBack = 4f;
 			Item.mana = 10;
 			Item.width = 42;
@@ -38,11 +38,11 @@ namespace Zylon.Items.Minions
 		}
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 8);
+			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 8);
 			recipe.AddIngredient(ItemID.Cloud, 20);
 			recipe.AddIngredient(ItemID.RainCloud, 10);
 			recipe.AddIngredient(ModContent.ItemType<Materials.SpectralFairyDust>());
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 		}
 	}

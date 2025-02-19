@@ -44,6 +44,7 @@ namespace Zylon.Projectiles.Swords
 				finalModeY -= 1f;
 				finalModeY *= 1.07f;
 				Projectile.Center = player.Center + new Vector2(0, finalModeY);
+				if (Projectile.position.Y < 16) Projectile.position.Y = 16;
 
 				Projectile.rotation += 0.03f;
 				rand += 1f/130f;
@@ -76,6 +77,7 @@ namespace Zylon.Projectiles.Swords
 		}
         public override void OnKill(int timeLeft) {
 			Vector2 newPos = new Vector2(Main.MouseWorld.X, Main.player[Projectile.owner].Center.Y-528);
+			if (newPos.Y < 16) newPos.Y = 16;
             if (Projectile.owner == Main.myPlayer && finalMode) Projectile.NewProjectile(Projectile.GetSource_FromThis(), newPos, Vector2.Zero, ProjectileType<SlimebenderRain>(), 200, 4f, Projectile.owner, lastKnownCore);
         }
         public override bool PreDraw(ref Color lightColor) {

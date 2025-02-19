@@ -27,7 +27,7 @@ namespace Zylon.NPCs.Bosses.SusEye
 			//NPC.value = 0f;
 			NPC.aiStyle = NPCID.EyeofCthulhu;
 			AnimationType = -1;
-			NPC.lifeMax = 20000;
+			NPC.lifeMax = (int)(15000*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 298;
 			NPC.defense = 80;
 			NPC.noTileCollide = true;

@@ -27,7 +27,7 @@ namespace Zylon.NPCs.Bosses.SusEye
 			//NPC.value = 0f;
 			NPC.aiStyle = NPCID.Spazmatism;
 			AnimationType = -1;
-			NPC.lifeMax = 21000;
+			NPC.lifeMax = (int)(13000*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 382;
 			NPC.defense = 40;
 			NPC.noTileCollide = true;

@@ -2484,6 +2484,17 @@ Mods: {
 					'''
 			}
 
+			CompromisedFlashDrive: {
+				DisplayName: Compromised Flash Drive
+				Tooltip:
+					'''
+					'Contains the unknowable...'
+					Summons Matrix Scavenger
+					Enrages during day time
+					Not Consumable
+					'''
+			}
+
 			CreepyMud: {
 				DisplayName: Creepy Mud
 				Tooltip:
@@ -5258,11 +5269,13 @@ Mods: {
 			ElemFluxFist.DisplayName: Elem Flux
 			MeteoriteFireDrop.DisplayName: Meteorite Fire Drop
 			SoulCompanion.DisplayName: Soul Companion
-			SurgeonScissorsProj.DisplayName: Surgeon Scissors Proj
-			CoreofMendingProj.DisplayName: Coreof Mending Proj
-			CoreofMendingProj2.DisplayName: Coreof Mending Proj2
-			BinaryBlast4x4.DisplayName: Binary Blast4x4
-			BinaryRemnant.DisplayName: Binary Remnant
+			SurgeonScissorsProj.DisplayName: Surgeon Scissors
+			CoreofMendingProj.DisplayName: Core of Mending
+			CoreofMendingProj2.DisplayName: Core of Mending
+			BinaryBlast4x4.DisplayName: Binary Blast
+			BinaryBlast4x4Chase.DisplayName: Binary Blast
+			ScavengerSpawn.DisplayName: Scavenger Spawn
+			ScavengerDespawn.DisplayName: Scavenger Despawn
 		}
 
 		NPCs: {
@@ -5300,14 +5313,13 @@ Mods: {
 			}
 
 			ExplosiveEerieJellyfish.DisplayName: Explosive Eerie Jellyfish
-			MetelordBody.DisplayName: Metelord
 
-			MetelordHead: {
-				DisplayName: Metelord
+			MatrixScavenger: {
+				DisplayName: Matrix Scavenger
 
 				BossChecklistIntegration: {
-					EntryName: Metelord
-					SpawnInfo: Use a [i:Zylon/StarstruckMeteorChunk] in the meteorite biome
+					EntryName: Matrix Scavenger
+					SpawnInfo: Use a [i:Zylon/CompromisedFlashDrive] in the meteorite biome
 				}
 			}
 
@@ -5390,7 +5402,6 @@ Mods: {
 			ElemFlux.DisplayName: Elem Flux
 			MeteorCrawler.DisplayName: Meteor Crawler
 			StarParasite.DisplayName: Star Parasite
-			MatrixScavenger.DisplayName: Matrix Scavenger
 		}
 
 		Prefixes: {

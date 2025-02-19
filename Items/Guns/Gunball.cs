@@ -16,7 +16,7 @@ namespace Zylon.Items.Guns
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 8;
 			Item.useTime = 4;
-			Item.damage = 68;
+			Item.damage = 268; //68
 			Item.width = 86;
 			Item.height = 32;
 			Item.knockBack = 4f;
