@@ -179,18 +179,6 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 				}
 			}
         }
-        public override void PostAI() {
-            //Main.NewText(trail.Capacity);
-
-			for (int i = 0; i < trail.Count; i++) {
-				int[] temp = trail[i];
-				int x = (int)temp.GetValue(0);
-				int y = (int)temp.GetValue(1);
-				int timeLeft = (int)temp.GetValue(2);
-				int offset = (int)temp.GetValue(3);
-				//Main.NewText(x + " | " + y + " | " + timeLeft + " | " + offset);
-			}
-        }
         private byte matrixNew() {
 			byte num = (byte)Main.rand.Next(2);
 			if (Main.rand.NextBool(10)) num = 2;

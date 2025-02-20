@@ -2495,7 +2495,7 @@ Mods: {
 					'''
 					'Contains the unknowable...'
 					Summons Matrix Scavenger
-					Enrages during day time
+					Enrages during daytime
 					Not Consumable
 					'''
 			}
@@ -5285,6 +5285,8 @@ Mods: {
 			BinarySnakeDirect.DisplayName: Binary Snake Direct
 			BigOne.DisplayName: Big One
 			BinaryBlast1x1.DisplayName: Binary Blast1x1
+			BinaryBlast8x4Slam.DisplayName: Binary Blast8x4 Slam
+			BinaryBlastSlam.DisplayName: Binary Blast Slam
 		}
 
 		NPCs: {

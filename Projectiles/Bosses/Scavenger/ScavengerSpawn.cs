@@ -35,10 +35,13 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 			offset = 1f-(float)(Math.Pow(2, (30f-Projectile.timeLeft)/11.61f)-1f)/5f; //(30f-Projectile.timeLeft)/30f;//(float)Math.Sin(MathHelper.Pi*(Projectile.timeLeft)/60f);
 
 			if (Projectile.ai[0] == 0f) { //Quarter step
-				Projectile.Center = Main.player[owner.target].Center - new Vector2(0, 360).RotatedBy(Projectile.ai[1]);
+				Projectile.Center = Main.player[owner.target].Center - new Vector2(0, 360).RotatedBy(Projectile.ai[1]) + Main.player[owner.target].velocity*10f;;
 			}
 			else if (Projectile.ai[0] == 1f) { //Big numbers
 				Projectile.Center = new Vector2(Projectile.ai[1], Projectile.ai[2]);
+			}
+			else if (Projectile.ai[0] == 2f) { //Direction slam
+				Projectile.Center = Main.player[owner.target].Center - new Vector2(0, 300).RotatedBy(MathHelper.ToRadians(Projectile.ai[1]*90));
 			}
 		}
 		public override bool PreDraw(ref Color lightColor) {

@@ -8,21 +8,22 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using System;
 using System.Collections.Generic;
+using Zylon.NPCs;
 
 namespace Zylon.Projectiles.Bosses.Scavenger
 {
-	public class BinaryBlast4x4 : ModProjectile
+	public class BinaryBlastSlam : ModProjectile
 	{
         public override void SetStaticDefaults() {
 			Main.projFrames[Projectile.type] = 3;
         }
 		public override void SetDefaults() {
-			Projectile.width = 64;
+			Projectile.width = 128;
 			Projectile.height = 64;
 			Projectile.aiStyle = -1;
 			Projectile.hostile = true;
 			Projectile.friendly = false;
-			Projectile.timeLeft = 200;
+			Projectile.timeLeft = 180;
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = false;
 		}
@@ -32,8 +33,8 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 		bool init;
 		Vector2 realVel;
 		Vector2 realPos;
-		static int arrayW = 4;
-		static int arrayH = 4;
+		static int arrayW = 8;
+		static int arrayH = 8;
 		static int trailLength = 20;
 		byte[,] numArray = new byte[arrayW, arrayH]; //For visuals.
 		bool end;
@@ -70,7 +71,14 @@ namespace Zylon.Projectiles.Bosses.Scavenger
             return !end;
         }
 		List<int[]> trail = new List<int[]>(); //x, y, timeleft, type
+		int Timer;
         public override void AI() {
+			Timer++;
+
+			if (Timer < 50) {
+				realVel = Main.npc[ZylonGlobalNPC.scavengerBoss].velocity;
+			}
+
 			if (Projectile.timeLeft == 21) end = true;
 
             realPos += realVel;

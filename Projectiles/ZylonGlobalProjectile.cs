@@ -168,11 +168,15 @@ namespace Zylon.Projectiles
         public override void OnKill(Projectile projectile, int timeLeft) {
 			//How Star Parasites spawn.
 			if (projectile.type == ProjectileID.FallingStar && Main.rand.NextBool(7, 13)) {
-				NPC.NewNPC(projectile.GetSource_FromThis(), (int)projectile.Center.X,  (int)projectile.Center.Y, NPCType<NPCs.Forest.StarParasite>());
+				bool canSpawn = true;
+				for (int i = 0; i < Main.maxNPCs; i++) if (Main.npc[i].boss) canSpawn = false;
+
+				if (canSpawn) NPC.NewNPC(projectile.GetSource_FromThis(), (int)projectile.Center.X,  (int)projectile.Center.Y, NPCType<NPCs.Forest.StarParasite>());
 				if (Main.rand.NextBool(50) || (Main.rand.NextFloat() < 0.045f && Main.getGoodWorld)) {
 					int max = 3;
 					if (Main.getGoodWorld) max = 12;
-					for (int i = 0; i < max; i++) {
+
+					if (canSpawn) for (int i = 0; i < max; i++) {
 						NPC.NewNPC(projectile.GetSource_FromThis(), (int)projectile.Center.X,  (int)projectile.Center.Y, NPCType<NPCs.Forest.StarParasite>());
 					}
 				}
