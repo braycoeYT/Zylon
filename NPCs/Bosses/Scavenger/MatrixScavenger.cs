@@ -42,7 +42,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 		}
         public override void SetDefaults() {
             NPC.width = 130;
-			NPC.height = 164;
+			NPC.height = 162;
 			NPC.damage = 58;
 			NPC.defense = 20;
 			NPC.lifeMax = (int)(35000*ModContent.GetInstance<ZylonConfig>().bossHpMult);
@@ -80,6 +80,8 @@ namespace Zylon.NPCs.Bosses.Scavenger
 
 		int warpTimer;
 		float warpFloat;
+		float warpFloat2;
+		bool specialWarp1;
 
 		float hpLeft;
 		bool init;
@@ -110,7 +112,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 				else NPC.ai[0] = nextAttack;
 
 				nextAttack = GetRandAttack();
-				//while ((int)NPC.ai[0] == nextAttack) nextAttack = GetRandAttack();
+				while ((int)NPC.ai[0] == nextAttack) nextAttack = GetRandAttack();
 
 				attackDone = false;
 				attackTimer = 0;
@@ -120,10 +122,6 @@ namespace Zylon.NPCs.Bosses.Scavenger
 				attackFloat2 = 0f;
 				attackDir = -1;
 				if (Main.rand.NextBool(2)) attackDir = 1;
-
-
-				NPC.ai[0] = 0f;
-				nextAttack = 0;
 
 				warpTimer = 0;
 				totalAttackTimer = -1;
@@ -143,13 +141,54 @@ namespace Zylon.NPCs.Bosses.Scavenger
 				case 0:
 					QuarterDash();
 					break;
+				case 1:
+					BigNumbers();
+					break;
 			}
 			if (warpTimer > 0) WarpSetup();
 		}
-		private void IntroAttack() {
+		public void BigNumbers() {
 			attackTimer++;
-			if (attackTimer >= 30) warpTimer++;
-			if (attackTimer >= 60) attackDone = true;
+			if (attackMode == 0) {
+				if (attackTimer == 1) { //Reset warp manually.
+					if (attackInt != 0) {
+						if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<ScavengerDespawn>(), 0, 0f);
+						warpTimer = 0;
+					}
+
+					int type = ModContent.ProjectileType<BigZero>();
+					if (Main.rand.NextBool(2, 3)) type = ModContent.ProjectileType<BigOne>();
+					if (Main.netMode != NetmodeID.MultiplayerClient && attackInt != 0) {
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, type, NPC.damage/3, 0f, -1, hpLeft);
+					}
+					if (attackInt != 0) SoundEngine.PlaySound(SoundID.Item9.WithPitchOffset(-1f));
+				}
+				NPC.Center = new Vector2(warpFloat, warpFloat2);
+				NPC.velocity = Vector2.Zero;
+
+				if (attackTimer > 25+25*hpLeft) {
+					attackTimer = 0;
+					attackMode = 1;
+					specialWarp1 = true;
+
+					if (attackInt >= 10-6*hpLeft) {
+						specialWarp1 = false;
+					}
+				}
+			}
+			else if (attackMode == 1) {
+				warpTimer++;
+				if (warpTimer >= 30) {
+					if (!specialWarp1) { //End the attack.
+						attackDone = true;
+					}
+					else { //Reset the attack.
+						attackMode = 0;
+						attackTimer = 0;
+						attackInt++;
+					}
+				}
+			}
 		}
 		private void QuarterDash() {
 			attackTimer++;
@@ -166,10 +205,10 @@ namespace Zylon.NPCs.Bosses.Scavenger
 				attackInt++;
 
 				NPC.Center = target.Center - new Vector2(0, 360).RotatedBy(warpFloat+MathHelper.ToRadians(attackTimer+attackFloat2)*attackDir);
-				if (attackInt > 15+(int)(15*hpLeft) && Main.netMode != NetmodeID.MultiplayerClient) {
+				if (attackInt > 15+(int)(15*hpLeft)) {
 					SoundEngine.PlaySound(SoundID.Item9.WithPitchOffset(-1f));
 					Vector2 speed = Vector2.Normalize(NPC.Center - target.Center);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-13f, ModContent.ProjectileType<BinaryBlast4x4>(), NPC.damage/4, 0f);
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, speed*-13f, ModContent.ProjectileType<BinaryBlast4x4>(), NPC.damage/4, 0f);
 					attackInt = 0;
 				}
 				if (attackTimer+attackFloat2 > 90f) {
@@ -182,9 +221,9 @@ namespace Zylon.NPCs.Bosses.Scavenger
 				if (attackTimer == 1) NPC.velocity = Vector2.Normalize(NPC.Center - target.Center)*(-30f+15f*hpLeft);
 				NPC.velocity *= 0.95f + 0.03f*hpLeft;
 				attackFloat2 += NPC.velocity.Length();
-				if (attackFloat2 > 90f && Main.netMode != NetmodeID.MultiplayerClient) {
+				if (attackFloat2 > 90f) {
 					SoundEngine.PlaySound(SoundID.Item9.WithPitchOffset(-1f));
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.Center - target.Center)*-0.05f, ModContent.ProjectileType<BinaryBlast4x4Chase>(), NPC.damage/3, 0f, -1, 1.1f);
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Normalize(NPC.Center - target.Center)*-0.05f, ModContent.ProjectileType<BinaryBlast4x4Chase>(), NPC.damage/3, 0f, -1, 1.1f);
 					attackFloat2 -= 90f;
 				}
 
@@ -192,16 +231,39 @@ namespace Zylon.NPCs.Bosses.Scavenger
 				if (attackTimer > 105+75*hpLeft) attackDone = true;
 			}
 		}
+		private void IntroAttack() {
+			attackTimer++;
+			if (attackTimer >= 30) warpTimer++;
+			if (attackTimer >= 60) attackDone = true;
+		}
 		private int GetRandAttack() {
-			return 0; //Main.rand.Next(2);
+			return Main.rand.Next(2);
 		}
 		private void WarpSetup() { //Increment warp to start the teleport animation and to determine the location of the spawn.
 			if (warpTimer == 1) {
 				float atk = nextAttack;
-				if (NPC.ai[0] <= 0f) 
-					warpFloat = Main.rand.NextFloat(MathHelper.TwoPi);
 
-				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Bosses.Scavenger.ScavengerSpawn>(), 0, 0f, -1, atk, warpFloat);
+				if (nextAttack == 1f || specialWarp1) {
+					int rand1 = 1;
+					int rand2 = 1;
+					if (Main.rand.NextBool()) rand1 = -1;
+					if (Main.rand.NextBool()) rand2 = -1;
+
+					//If player is running away, specifically get in their way
+					if (Math.Abs(target.velocity.X) > 3f) {
+						rand1 = (int)(target.velocity.X/Math.Abs(target.velocity.X));
+						if (Math.Abs(target.velocity.Y) < 0.1f) rand2 = 0; //Nice try.
+					}
+					if (Math.Abs(target.velocity.Y) > 3f) rand1 = (int)(target.velocity.Y/Math.Abs(target.velocity.Y));
+
+					Vector2 temp = target.Center + target.velocity*40f + new Vector2(Main.rand.Next(160, 321)*rand1, Main.rand.Next(160, 321)*rand2);
+					warpFloat = temp.X;
+					warpFloat2 = temp.Y;
+				}
+				else if (nextAttack <= 0f) 
+					warpFloat = Main.rand.NextFloat(MathHelper.TwoPi); 
+
+				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<ScavengerSpawn>(), 0, 0f, -1, atk, warpFloat, warpFloat2);
 			}
 		}
 		public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) {

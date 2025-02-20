@@ -11,18 +11,18 @@ using System.Collections.Generic;
 
 namespace Zylon.Projectiles.Bosses.Scavenger
 {
-	public class BinaryBlast4x4 : ModProjectile
+	public class BinaryBlast1x1 : ModProjectile
 	{
         public override void SetStaticDefaults() {
 			Main.projFrames[Projectile.type] = 3;
         }
 		public override void SetDefaults() {
-			Projectile.width = 64;
-			Projectile.height = 64;
+			Projectile.width = 16;
+			Projectile.height = 16;
 			Projectile.aiStyle = -1;
 			Projectile.hostile = true;
 			Projectile.friendly = false;
-			Projectile.timeLeft = 200;
+			Projectile.timeLeft = 120;
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = false;
 		}
@@ -32,9 +32,9 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 		bool init;
 		Vector2 realVel;
 		Vector2 realPos;
-		static int arrayW = 4;
-		static int arrayH = 4;
-		static int trailLength = 20;
+		static int arrayW = 1;
+		static int arrayH = 1;
+		static int trailLength = 40;
 		byte[,] numArray = new byte[arrayW, arrayH]; //For visuals.
 		bool end;
 		int endTimer;

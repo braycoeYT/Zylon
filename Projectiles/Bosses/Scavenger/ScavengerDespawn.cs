@@ -27,8 +27,13 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 			Projectile.tileCollide = false;
 			//Projectile.alpha = 255;
 		}
+		bool init;
 		float offset;
         public override void AI() { //ai0 = attack ID, ai1 = special data
+			if (!init) {
+				Projectile.position.Y += 12; //Not sure why I have to do this.
+				init = true;
+			}
 			NPC owner = Main.npc[ZylonGlobalNPC.scavengerBoss];
 			Projectile.frame = (int)owner.ai[1];
 

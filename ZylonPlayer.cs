@@ -899,7 +899,12 @@ namespace Zylon
 				}
 			}
 			if (!coreofMending && Player.ownedProjectileCounts[ProjectileType<Projectiles.Accessories.CoreofMendingProj>()] < 1) coreofMendingCounter = 0; //Resets counter if not equipped and not despawning currently.
-        }
+			if (Player.HasBuff(BuffType<Buffs.Debuffs.BrokenCode>())) {
+				float val = ((int)(Main.GameUpdateCount%5000/10)+1580+Player.whoAmI*35)*979.6719f; //Faux randomness every 10 frames
+
+				Player.statDefense -= (int)val % 31;
+			}
+		}
         public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers) {
 			if (WorldGen.currentWorldSeed == null) return;
             if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
@@ -932,6 +937,17 @@ namespace Zylon
 				drawInfo.hideEntirePlayer = true;
 				Texture2D boxTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Accessories/Clutter/Fantesseract_BlackBox");
 				Main.spriteBatch.Draw(boxTexture, drawInfo.Center, null, Color.White, 0f, new Vector2(boxTexture.Width, boxTexture.Height), 1f, SpriteEffects.None, 0f);
+			}
+			if (Player.HasBuff(BuffType<Buffs.Debuffs.BrokenCode>())) {
+				float val = ((int)(Main.GameUpdateCount%5000/10)+1580+Player.whoAmI*35)*1279.6719f; //Faux randomness every 10 frames
+
+				int headval = (int)val % 281;
+				int bodyval = (int)val % 106;
+				int legval = (int)val % 235;
+
+				Player.head = headval;
+				Player.body = bodyval;
+				Player.legs = legval;
 			}
         }
         public override void DrawEffects(PlayerDrawSet drawInfo, ref float r, ref float g, ref float b, ref float a, ref bool fullBright) {

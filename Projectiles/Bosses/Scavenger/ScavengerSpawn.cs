@@ -37,6 +37,9 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 			if (Projectile.ai[0] == 0f) { //Quarter step
 				Projectile.Center = Main.player[owner.target].Center - new Vector2(0, 360).RotatedBy(Projectile.ai[1]);
 			}
+			else if (Projectile.ai[0] == 1f) { //Big numbers
+				Projectile.Center = new Vector2(Projectile.ai[1], Projectile.ai[2]);
+			}
 		}
 		public override bool PreDraw(ref Color lightColor) {
 			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;

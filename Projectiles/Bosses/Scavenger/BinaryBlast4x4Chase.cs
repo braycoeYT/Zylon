@@ -28,7 +28,7 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 			Projectile.tileCollide = false;
 		}
 		public override void OnHitPlayer(Player target, Player.HurtInfo info) {
-            //target.AddBuff(BuffID.OnFire, Main.rand.Next(2, 5) * 60);
+            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrokenCode>(), Main.rand.Next(3, 7) * 60);
         }
 		bool init;
 		Vector2 realVel;
@@ -61,6 +61,7 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 				if (endTimer == 0) {
 					for (int i = 0; i < arrayH; i++) for (int j = 0; j < arrayW; j++) {
 						int[] temp = {i, j, trailLength, numArray[i, j]}; //Creates a vanishing thing at each point.
+						trail.Add(temp);
 						numArray[i, j] = 2; //Makes the original invisible.
 					}
 				}

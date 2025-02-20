@@ -444,7 +444,12 @@ Mods: {
 
 			BleedingEnemy: {
 				DisplayName: Bleeding Enemy
-				Description: Mods.Zylon.Buffs.BleedingEnemy.Description
+				Description: Slowly losing life
+			}
+
+			BrokenCode: {
+				DisplayName: Broken Code
+				Description: Description could not be found.
 			}
 		}
 
@@ -5276,6 +5281,10 @@ Mods: {
 			BinaryBlast4x4Chase.DisplayName: Binary Blast
 			ScavengerSpawn.DisplayName: Scavenger Spawn
 			ScavengerDespawn.DisplayName: Scavenger Despawn
+			BigZero.DisplayName: Big Zero
+			BinarySnakeDirect.DisplayName: Binary Snake Direct
+			BigOne.DisplayName: Big One
+			BinaryBlast1x1.DisplayName: Binary Blast1x1
 		}
 
 		NPCs: {
