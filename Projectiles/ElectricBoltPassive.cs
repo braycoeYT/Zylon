@@ -20,7 +20,10 @@ namespace Zylon.Projectiles
 			Projectile.timeLeft = 9999;
 			Projectile.ignoreWater = true;
 			AIType = ProjectileID.Bullet;
-			switch (Projectile.ai[0]) {
+		}
+		bool init;
+		public override void AI() {
+			if (!init) switch (Projectile.ai[0]) {
 				case 0f: Projectile.DamageType = DamageClass.Melee;
 					return;
 				case 1f: Projectile.DamageType = DamageClass.Ranged;
@@ -30,9 +33,7 @@ namespace Zylon.Projectiles
 				case 3f: Projectile.DamageType = DamageClass.Summon;
 					return;
             }
-			Projectile.ai[0] = 0f;
-		}
-		public override void AI() {
+			init = true;
 			if (++Projectile.frameCounter >= 4) {
 				Projectile.frameCounter = 0;
 				if (++Projectile.frame >= 4)

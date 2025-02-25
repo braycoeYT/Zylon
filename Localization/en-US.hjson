@@ -674,6 +674,8 @@ Mods: {
 					'''
 					'Screw you, ozone layer!'
 					Allows all bullets to bounce off of foes once and tiles twice
+					Enemy bounce can be disabled in the config
+					Chlorophyte, Explosive, and Party bullets cannot bounce off of enemies
 					Homing bullets can only bounce off of tiles
 					20% chance not to consume bullets
 					'''
@@ -1274,6 +1276,7 @@ Mods: {
 					'''
 					Gumballs debuff damage, defense, and (for non-bosses) speed respectively
 					Gumballs have a 50% chance to home in on enemies
+					Homing gumballs are not affected by the Illusory Bullet Polish's enemy bounce
 					Sold by Arms Dealer while Gunball is in inventory
 					'''
 			}
@@ -2895,6 +2898,7 @@ Mods: {
 					Replaces musket balls with multi-color gumballs
 					Gumballs debuff damage, defense, and (for non-bosses) speed respectively
 					Gumballs have a 50% chance to home in on enemies
+					Homing gumballs are not affected by the Illusory Bullet Polish's enemy bounce
 					Has a 10% chance to replace ammo with a jawbreaker
 					Jawbreakers explode into several gumballs after some time
 					50% chance not to consume ammo
@@ -2925,7 +2929,8 @@ Mods: {
 				Tooltip:
 					'''
 					Fires in groups of three
-					The third shot replaces ammo with a barrage of disco bullets and confetti
+					The third shot replaces ammo with a barrage of explosive disco bullets and confetti
+					Disco bullets are not affected by the Illusory Bullet Polish's enemy bounce
 					'''
 			}
 
@@ -3841,7 +3846,11 @@ Mods: {
 
 			MuddyGreatsword: {
 				DisplayName: Muddy Greatsword
-				Tooltip: "'The only 'great' this thing is is greatly dirty!'"
+				Tooltip:
+					'''
+					Fires a short-lived Dirt Glob
+					Dirt Globs rain dirt balls below
+					'''
 			}
 
 			Mudslinger: {
@@ -4452,7 +4461,11 @@ Mods: {
 
 			Dirtglob: {
 				DisplayName: Dirtglob
-				Tooltip: On use, surrounds itself with dirt blocks
+				Tooltip:
+					'''
+					On use, covers itself up in dirt balls
+					Dirt balls are launched haphazardly after some time
+					'''
 			}
 
 			EarthDay: {
@@ -5287,6 +5300,8 @@ Mods: {
 			BinaryBlast1x1.DisplayName: Binary Blast1x1
 			BinaryBlast8x4Slam.DisplayName: Binary Blast8x4 Slam
 			BinaryBlastSlam.DisplayName: Binary Blast Slam
+			DirtBlockYoyo2.DisplayName: Dirt Block Yoyo2
+			MuddyGreatswordProj.DisplayName: Muddy Greatsword Proj
 		}
 
 		NPCs: {
@@ -5561,8 +5576,13 @@ Mods: {
 				}
 
 				cosmicDieVariation: {
-					Label: Cosmic Die Variation
+					Label: "[i:Zylon/CosmicDie]  Cosmic Die - Damage Variation"
 					Tooltip: Controls the player's damage variation while holding the Cosmic Die.
+				}
+
+				illusoryPolishNoEnemy: {
+					Label: "[i:Zylon/IllusoryBulletPolish]Illusory Bullet Polish - No Enemy Bounce"
+					Tooltip: Prevents bullets from bouncing on enemies, which may be more optimal for some weapons.
 				}
 			}
 		}

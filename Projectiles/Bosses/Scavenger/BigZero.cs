@@ -52,6 +52,8 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 			NPC owner = Main.npc[ZylonGlobalNPC.scavengerBoss];
 			if (!owner.active || owner.life < 1) Projectile.Kill();
 
+			if (owner.ai[0] != 1f && Projectile.timeLeft > 45) Projectile.timeLeft = 45;
+
 			Projectile.velocity = Vector2.Normalize(Projectile.Center - Main.player[owner.target].Center)*(-5f);
 
 			Projectile.velocity.Y += (float)Math.Sin(MathHelper.Pi*Timer/120f)*5f;

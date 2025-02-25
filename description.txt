@@ -16,7 +16,13 @@ V0.0.4.3: The Update After Pt. 3
 ~Fixed bug that caused the Slimebender's right click attack to not work while too close to the top of the world.
 ~Fixed minor visual bug with Slimebender's right click attack.
 ~Star Parasites no longer spawn during boss fights.
-FIX GUNBALL
+~Reworked Dirtglob and Muddy Greatsword.
+~Fixed class issues with some dirt-related weapons.
+~Reworked and upgraded Mudslinger's code significantly.
+~Fixed minor visual bugs with Mudslinger.
+~Added Illusory Bullet Polish Enemy Bounce config.
+~Accessory config now show their respective item sprite in the menu.
+MATRIX SCAVENGER REWORKS: 20% complete
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

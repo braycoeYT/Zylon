@@ -41,6 +41,7 @@ namespace Zylon.Projectiles
 						npcBounceCount = 2;
 						tileBounceCount = 3;
 					}
+					if (GetInstance<ZylonConfig>().illusoryPolishNoEnemy) npcBounceCount = 0;
 				}
 				if (player.HeldItem.useAmmo == AmmoID.Arrow) {
 					if (p.roundmastersKit)

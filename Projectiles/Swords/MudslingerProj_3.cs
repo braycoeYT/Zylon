@@ -19,7 +19,7 @@ namespace Zylon.Projectiles.Swords
 			Projectile.height = 40;
 			Projectile.aiStyle = -1;
 			Projectile.friendly = true;
-			Projectile.timeLeft = 120;
+			Projectile.timeLeft = 40;
 			Projectile.DamageType = DamageClass.Melee;
 			Projectile.scale = 0.5f;
 		}
@@ -46,6 +46,24 @@ namespace Zylon.Projectiles.Swords
 			dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
 			dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
 			dust.scale *= 0.75f + Main.rand.Next(-30, 31) * 0.01f;
+		}
+        public override void OnKill(int timeLeft) {
+            for (int i = 0; i < 4; i++) {
+				int dustIndex = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch);
+				Dust dust = Main.dust[dustIndex];
+				dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
+				dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
+				dust.scale *= 1.25f + Main.rand.Next(-30, 31) * 0.01f;
+			}
+        }
+        public override bool PreDraw(ref Color lightColor) {
+			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+			Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
+			int frameHeight = texture.Height / Main.projFrames[Projectile.type];
+			int spriteSheetOffset = frameHeight * Projectile.frame;
+			Vector2 sheetInsertPosition = (Projectile.Center + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition).Floor();
+			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), Color.White, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
+			return false;
 		}
 	}   
 }

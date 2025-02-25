@@ -12,13 +12,17 @@ namespace Zylon.Projectiles
         }
 		public override void SetDefaults() {
 			AIType = ProjectileID.Bullet;
-			Projectile.width = 40;
-			Projectile.height = 40;
+			Projectile.width = 32;
+			Projectile.height = 32;
 			Projectile.aiStyle = 1;
 			Projectile.hostile = false;
 			Projectile.friendly = true;
 			Projectile.timeLeft = 9999;
-			switch (Projectile.ai[0]) {
+			Projectile.ai[0] = 0;
+		}
+		int Timer;
+		public override void AI() {
+			if (Timer == 0) switch (Projectile.ai[0]) {
 				case 0:
 					Projectile.DamageType = DamageClass.Melee;
 					return;
@@ -32,10 +36,6 @@ namespace Zylon.Projectiles
 					Projectile.DamageType = DamageClass.SummonMeleeSpeed;
 					return;
 			}
-			Projectile.ai[0] = 0;
-		}
-		int Timer;
-		public override void AI() {
 			Timer++;
 			if (++Projectile.frameCounter >= 6) {
 				Projectile.frameCounter = 0;

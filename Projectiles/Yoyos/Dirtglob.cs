@@ -26,10 +26,10 @@ namespace Zylon.Projectiles.Yoyos
 			Projectile.DamageType = DamageClass.Melee;
 			Projectile.scale = 1f;
 		}
-		int Timer;
+		int Timer = 240;
         public override void AI() {
-			Timer++;
-			if (Timer % 30 == 0) ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(), ModContent.ProjectileType<DirtBlockYoyo>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI);
+			Timer--;
+			if (Timer % 30 == 0 && Timer > 0) ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(), ModContent.ProjectileType<DirtBlockYoyo>(), Projectile.damage, Projectile.knockBack, Projectile.owner, Projectile.whoAmI, Timer);
 		}
     }
 }

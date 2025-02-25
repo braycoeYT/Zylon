@@ -6,9 +6,6 @@ namespace Zylon.Items.Swords
 {
 	public class MuddyGreatsword : ModItem
 	{
-		public override void SetStaticDefaults() {
-			// Tooltip.SetDefault("'The only 'great' this thing is is greatly dirty!'");
-		}
 		public override void SetDefaults() {
 			Item.damage = 16;
 			Item.DamageType = DamageClass.Melee;
@@ -23,8 +20,8 @@ namespace Zylon.Items.Swords
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = false;
 			Item.useTurn = true;
-			Item.shoot = ModContent.ProjectileType<Projectiles.DirtGlobFriendly>();
-			Item.shootSpeed = 6f;
+			Item.shoot = ModContent.ProjectileType<Projectiles.Swords.MuddyGreatswordProj>();
+			Item.shootSpeed = 9f;
 		}
 	}
 }

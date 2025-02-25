@@ -73,9 +73,13 @@ namespace Zylon
 		[Increment(0.025f)]
 		[DefaultValue(0.15f)]
 		[Slider]
-		[Label("Cosmic Die Variation")]
+		[Label("[i:Zylon/CosmicDie]Cosmic Die: Damage Variation")]
 		[Tooltip("Controls the player's damage variation while holding the Cosmic Die.")]
 		public float cosmicDieVariation;
+
+		[Label("[i:Zylon/IllusoryBulletPolish]Illusory Bullet Polish: Enemy Bounce")]
+		[Tooltip("Prevents bullets from bouncing on enemies, which may be more optimal for some weapons.")]
+		public bool illusoryPolishNoEnemy;
 
 		[Header("config.accessibility")]
 
