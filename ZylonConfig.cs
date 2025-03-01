@@ -64,7 +64,7 @@ namespace Zylon
 		public bool summonNaturalCrit;
 
 		[Label("Experimental World Gen")]
-		[Tooltip("You should probably leave this off.")]
+		[Tooltip("You probably should leave this off.")]
 		public bool experimentalWorldgen;
 
 		[Header("config.accessories")]

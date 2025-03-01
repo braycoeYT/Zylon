@@ -22,6 +22,7 @@ namespace Zylon
 		public static bool downedDirtball = false;
 		public static bool downedMetelord = false;
 		public static bool downedSabur = false;
+		public static bool downedBloodMoon = false;
 		public override void OnWorldLoad() {
 			carnalliteMessage = false;
 			downedJelly = false;
@@ -29,6 +30,7 @@ namespace Zylon
 			downedDirtball = false;
 			downedMetelord = false;
 			downedSabur = false;
+			downedBloodMoon = false;
 		}
 		public override void OnWorldUnload() {
 			carnalliteMessage = false;
@@ -37,6 +39,7 @@ namespace Zylon
 			downedDirtball = false;
 			downedMetelord = false;
 			downedSabur = false;
+			downedBloodMoon = false;
 		}
 		public override void SaveWorldData(TagCompound tag) {
 			if (carnalliteMessage) {
@@ -57,6 +60,9 @@ namespace Zylon
 			if (downedSabur) {
 				tag["downedSabur"] = true;
 			}
+			if (downedBloodMoon) {
+				tag["downedBloodMoon"] = true;
+			}
 		}
 		public override void LoadWorldData(TagCompound tag) {
 			carnalliteMessage = tag.ContainsKey("carnalliteMessage");
@@ -65,6 +71,7 @@ namespace Zylon
 			downedDirtball = tag.ContainsKey("downedDirtball");
 			downedMetelord = tag.ContainsKey("downedMetelord");
 			downedSabur = tag.ContainsKey("downedSabur");
+			downedBloodMoon = tag.ContainsKey("downedBloodMoon");
 		}
 		public override void NetSend(BinaryWriter writer) {
 			bool[] flags = new bool[] {
@@ -73,7 +80,8 @@ namespace Zylon
 				downedAdeneb,
 				downedDirtball,
 				downedMetelord,
-				downedSabur
+				downedSabur,
+				downedBloodMoon
 			};
 			BitArray bitArray = new BitArray(flags);
 			byte[] bytes = new byte[(bitArray.Length - 1) / 8 + 1];
@@ -91,6 +99,7 @@ namespace Zylon
 			downedDirtball = bitArray[3];
 			downedMetelord = bitArray[4];
 			downedSabur = bitArray[5];
+			downedBloodMoon = bitArray[6];
 		}
         public override void PostUpdateNPCs() {
             if (NPC.downedQueenBee && !carnalliteMessage) {
@@ -114,6 +123,7 @@ namespace Zylon
 						WorldGen.TileRunner(x, y, WorldGen.genRand.Next(7, 11), WorldGen.genRand.Next(3, 6), ModContent.TileType<Tiles.Ores.CarnalliteOre>());
 				}
             }
+			if (Main.time == 32399 && Main.bloodMoon) downedBloodMoon = true;
         }
 		public static LocalizedText AbyssworldSpikesPassMessage { get; private set; }
 		public static LocalizedText AbyssworldPaintPassMessage { get; private set; }

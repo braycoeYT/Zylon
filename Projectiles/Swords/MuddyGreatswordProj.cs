@@ -21,12 +21,13 @@ namespace Zylon.Projectiles.Swords
 			Projectile.friendly = true;
 			Projectile.timeLeft = 50;
 			Projectile.DamageType = DamageClass.Melee;
-			Projectile.scale = 1.5f;
+			Projectile.scale = 1f;
 		}
 		int Timer;
+		float scale = 1.5f;
 		public override void AI() {
 			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
-			Projectile.scale -= 0.02f;
+			scale -= 0.02f;
 			Timer++;
 			if (++Projectile.frameCounter >= 6) {
 				Projectile.frameCounter = 0;
@@ -51,7 +52,7 @@ namespace Zylon.Projectiles.Swords
 			int frameHeight = texture.Height / Main.projFrames[Projectile.type];
 			int spriteSheetOffset = frameHeight * Projectile.frame;
 			Vector2 sheetInsertPosition = (Projectile.Center + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition).Floor();
-			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), lightColor, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), Projectile.scale, effects, 0);
+			Main.EntitySpriteDraw(texture, sheetInsertPosition, new Rectangle?(new Rectangle(0, spriteSheetOffset, texture.Width, frameHeight)), lightColor, Projectile.rotation, new Vector2(texture.Width / 2f, frameHeight / 2f), scale, effects, 0);
 			return false;
 		}
 	}   

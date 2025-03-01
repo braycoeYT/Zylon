@@ -20,14 +20,14 @@ namespace Zylon.Items.Accessories
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.RottenChunk, 13);
+			recipe.AddIngredient(ItemID.RottenChunk, 9);
 			recipe.AddIngredient(ItemID.Bone, 20);
 			recipe.AddIngredient(ItemID.SoulofNight, 5);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 
 			recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.Vertebrae, 13);
+			recipe.AddIngredient(ItemID.Vertebrae, 9);
 			recipe.AddIngredient(ItemID.Bone, 20);
 			recipe.AddIngredient(ItemID.SoulofNight, 5);
 			recipe.AddTile(TileID.MythrilAnvil);

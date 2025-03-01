@@ -42,7 +42,7 @@ namespace Zylon.Projectiles.LightPets
             if (Projectile.frameCounter > 8) { Projectile.frame++; Projectile.frameCounter = 0; }
             if (Projectile.frame > 3) Projectile.frame = 0;
 
-            Projectile.Center = player.Center + new Vector2(offset, -40);
+            Projectile.Center = player.Center + new Vector2(offset, -40 + player.gfxOffY);
             Projectile.velocity = Vector2.Zero;
 
             Projectile.direction = player.direction;

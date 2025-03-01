@@ -24,6 +24,9 @@ namespace Zylon.Items.Bows
 			Item.UseSound = SoundID.Item5;
 			Item.rare = ItemRarityID.LightRed;
 		}
+		public override Vector2? HoldoutOffset() {
+			return new Vector2(-4, 0);
+		}
 		int shootCount;
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
             shootCount++;

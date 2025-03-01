@@ -1,6 +1,23 @@
 Mods: {
 	Zylon: {
 		TownNPCMood: {
+			Hitman: {
+				Content: I'm ready ta make some deals, bub.
+				NoHome: Not for nothin', I needa place ta settle down, and quick.
+				LoveSpace: I could hide a gazillion bodies inna place like dis!
+				FarFromHome: Ya have any idea where da metro is? I ain't know where I am right now.
+				DislikeCrowded: It's impossible ta shoot a fair one with so many people around.
+				HateCrowded: I can't do mah job with all dese eyes gunnin' me down at every corner.
+				LikeBiome: A murky place like {BiomeName} has so many places ta hide!
+				LoveBiome: Da gaps and crevices of {BiomeName} make mah job a cakewalk.
+				DislikeBiome: High key, {BiomeName} is too out in da open for uh person such as muhself.
+				HateBiome: We out, {BiomeName}'s happiness and sunshine is burnin' my eyes outta dere sockets.
+				LikeNPC: I can tell {NPCName}'s willin ta look da udda way.
+				LoveNPC: "{NPCName}'s got some serious dough, I tell ya."
+				DislikeNPC: I don't like da way {NPCName} looks at me.
+				HateNPC: I'd be more dan willin to take care uva snitch like {NPCName}.
+			}
+
 			WeaponsMaster: {
 				Content: I feel ready for the next quest and/or plot point!
 				NoHome: I am in need of a place of refuge! I'm sure you would understand.
@@ -676,7 +693,6 @@ Mods: {
 					Allows all bullets to bounce off of foes once and tiles twice
 					Enemy bounce can be disabled in the config
 					Chlorophyte, Explosive, and Party bullets cannot bounce off of enemies
-					Homing bullets can only bounce off of tiles
 					20% chance not to consume bullets
 					'''
 			}
@@ -2584,16 +2600,14 @@ Mods: {
 					'''
 			}
 
-			Caeruleus: {
-				DisplayName: Caeruleus
+			AssassinsGreatbow: {
+				DisplayName: Assassin's Greatbow
 				Tooltip:
 					'''
-					Fires four arrows in a row at a time
-					Has a 25% chance to convert ammo to Cerulean Arrows
-					Cerulean Arrows obliterate enemy immunity frames
-					They also inflict Frostburn, Shroomed, Slimed, and Wet
-					Cerulean Arrows split into three upon hitting an enemy
-					Splitting occurs once per arrow
+					'An entire firing squad packed into one bow'
+					Fires seven arrows for the cost of five
+					Shoots arrows in an arrow pattern
+					20% chance not to consume ammo
 					'''
 			}
 
@@ -2781,6 +2795,15 @@ Mods: {
 			GrahamCracker: {
 				DisplayName: Graham Cracker
 				Tooltip: Minor improvements to all stats
+			}
+
+			LemonadeTea: {
+				DisplayName: Lemonade Tea
+				Tooltip:
+					'''
+					Medium improvements to all stats, and grants the Happy buff
+					'The preferred drink of the gods...and some golfer'
+					'''
 			}
 
 			LobsterBisque: {
@@ -4734,6 +4757,11 @@ Mods: {
 				DisplayName: Star Parasite Banner
 				Tooltip: ""
 			}
+
+			DarkronBar: {
+				DisplayName: Darkron Bar
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -5392,6 +5420,29 @@ Mods: {
 			LivingMarshmallow.DisplayName: Living Marshmallow
 			RoastedLivingMarshmallow.DisplayName: Roasted Living Marshmallow
 
+			Hitman: {
+				DisplayName: Hitman
+
+				TownNPCMood: {
+					Princess_LovesNPC: I like {NPCName}.
+					LikeNPC_Princess: I like {NPCName}.
+					HateNPC: "{$Mods.Zylon.TownNPCMood.Hitman.HateNPC}"
+					DislikeNPC: "{$Mods.Zylon.TownNPCMood.Hitman.DislikeNPC}"
+					LikeNPC: "{$Mods.Zylon.TownNPCMood.Hitman.LikeNPC}"
+					LoveNPC: "{$Mods.Zylon.TownNPCMood.Hitman.LoveNPC}"
+					DislikeBiome: "{$Mods.Zylon.TownNPCMood.Hitman.DislikeBiome}"
+					LoveBiome: "{$Mods.Zylon.TownNPCMood.Hitman.LoveBiome}"
+					HateCrowded: "{$Mods.Zylon.TownNPCMood.Hitman.HateCrowded}"
+					DislikeCrowded: "{$Mods.Zylon.TownNPCMood.Hitman.DislikeCrowded}"
+					LoveSpace: "{$Mods.Zylon.TownNPCMood.Hitman.LoveSpace}"
+					FarFromHome: "{$Mods.Zylon.TownNPCMood.Hitman.FarFromHome}"
+					NoHome: "{$Mods.Zylon.TownNPCMood.Hitman.NoHome}"
+					Content: "{$Mods.Zylon.TownNPCMood.Hitman.Content}"
+					LikeBiome: "{$Mods.Zylon.TownNPCMood.Hitman.LikeBiome}"
+					HateBiome: "{$Mods.Zylon.TownNPCMood.Hitman.HateBiome}"
+				}
+			}
+
 			WeaponsMaster: {
 				DisplayName: Weapons Master
 
@@ -5572,7 +5623,7 @@ Mods: {
 
 				experimentalWorldgen: {
 					Label: Experimental World Gen
-					Tooltip: You probably should leave this off.
+					Tooltip: You should probably leave this off.
 				}
 
 				cosmicDieVariation: {

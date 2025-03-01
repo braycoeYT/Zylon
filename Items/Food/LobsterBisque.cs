@@ -20,7 +20,7 @@ namespace Zylon.Items.Food
 			Item.autoReuse = true;
 			Item.useTurn = true;
 			Item.noMelee = true;
-			Item.maxStack = 999;
+			Item.maxStack = 9999;
 			Item.UseSound = SoundID.Item2;
 			Item.noUseGraphic = true;
 			Item.consumable = true;
