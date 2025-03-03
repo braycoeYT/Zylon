@@ -51,8 +51,8 @@ namespace Zylon.Items.Guns
         }
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemID.StoneBlock, 50);
-			recipe.AddIngredient(ItemID.SpectreBar, 8);
+			recipe.AddIngredient(ItemID.StoneBlock, 65);
+			recipe.AddIngredient(ItemID.SpectreBar, 10);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

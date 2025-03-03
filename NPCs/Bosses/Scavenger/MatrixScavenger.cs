@@ -78,10 +78,10 @@ namespace Zylon.NPCs.Bosses.Scavenger
 		int nextAttack = -1;
 		float totalAttackTimer;
 
-		int warpTimer;
+		int warpTimer; //Start incrementing 30 ticks before the warp actually occurs.
 		float warpFloat;
 		float warpFloat2;
-		bool specialWarp;
+		bool specialWarp; //Use if you are warping again during an attack
 
 		float hpLeft;
 		bool init;
@@ -330,7 +330,8 @@ namespace Zylon.NPCs.Bosses.Scavenger
 				float atk = nextAttack;
 
 				if ((nextAttack == 3f && !specialWarp) || specialWarp && NPC.ai[0] == 3f) {
-
+					warpFloat = Main.rand.Next(100, 251); //Offset from center of player
+					warpFloat2 = Main.rand.NextFloat(MathHelper.TwoPi); //Angle from player
 				}
 				else if ((nextAttack == 2f && !specialWarp) || specialWarp && NPC.ai[0] == 2f) {
 					int check = 0;

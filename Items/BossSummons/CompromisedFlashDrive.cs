@@ -41,13 +41,13 @@ namespace Zylon.Items.BossSummons
 			}
 			return true;
 		}
-		public override void AddRecipes() {
+		/*public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 8);
 			recipe.AddIngredient(ItemID.Cog, 20);
 			recipe.AddIngredient(ItemID.SoulofFlight, 10);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
-		}
+		}*/
 	}
 }

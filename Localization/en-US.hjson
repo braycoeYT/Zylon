@@ -471,6 +471,16 @@ Mods: {
 		}
 
 		Items: {
+			AccursedHand: {
+				DisplayName: Accursed Hand
+				Tooltip:
+					'''
+					'Stolen from one of the Hitman's recent quarries'
+					Striking an enemy with under 25% HP has a 1% chance to instakill it
+					This does not apply to bosses
+					'''
+			}
+
 			AirTank: {
 				DisplayName: Air Tank
 				Tooltip:
@@ -511,6 +521,15 @@ Mods: {
 					'Signed in blood...'
 					Attacks have a 5% chance to draw blood
 					Bloody attacks deal 50% more damage
+					'''
+			}
+
+			BrassRing: {
+				DisplayName: Brass Ring
+				Tooltip:
+					'''
+					Increases movement speed by 15%
+					Increases the potency of Swiftness Potions
 					'''
 			}
 
@@ -646,7 +665,7 @@ Mods: {
 					'It's too big for anyone's arm, let alone yours'
 					Increases life and mana regeneration moderately
 					Increases max mana by 20
-					Increases the potency of regeneration, magic power, magic regeneration, and ironskin potions
+					Increases the potency of regeneration, magic power, magic regeneration, ironskin, and swiftness potions
 					Life regen does not stack with other bands
 					'''
 			}
@@ -1121,9 +1140,8 @@ Mods: {
 					'Does not come with magical transformation sequence'
 					Increases life regeneration extremely and mana regeneration moderately
 					Increases max mana by 20
-					Increases the potency of regeneration, magic power, magic regeneration, and ironskin potions
+					Increases the potency of regeneration, magic power, magic regeneration, ironskin, and swiftness potions
 					Grants two seconds of invincibility after using a healing potion
-					Increases invincibility time after taking damage
 					Reduces the cooldown of healing potions by 25%
 					Effects of Friendship Bracelet at a range of 150 tiles
 					Life regen does not stack with other bands
@@ -2606,7 +2624,7 @@ Mods: {
 					'''
 					'An entire firing squad packed into one bow'
 					Fires seven arrows for the cost of five
-					Shoots arrows in an arrow pattern
+					Shoots arrows in an arrow formation
 					20% chance not to consume ammo
 					'''
 			}
@@ -2838,6 +2856,25 @@ Mods: {
 					'''
 			}
 
+			AdeniteSecurityHandgun: {
+				DisplayName: Adenite Security Handgun
+				Tooltip: Every third shot is converted to an electric bolt that deals extra damage
+			}
+
+			AmethystPistol: {
+				DisplayName: Amethyst Pistol
+				Tooltip: Has a 25% chance to replace ammo with a high damage and velocity amethyst
+			}
+
+			ArcticVixen: {
+				DisplayName: Arctic Vixen
+				Tooltip:
+					'''
+					Alternates between slow shots and a barrage of snowballs
+					Only one snowball consumes ammo
+					'''
+			}
+
 			BambooSharpshooter: {
 				DisplayName: Bamboo Sharpshooter
 				Tooltip: Fires a spread of bullets and poisonous bamboo spikes
@@ -2862,33 +2899,14 @@ Mods: {
 				Tooltip: Fires a spread of leaves with every shot
 			}
 
-			Crumblegun: {
-				DisplayName: Crumblegun
-				Tooltip: Fires bullets at high velocity
+			DarkronRifle: {
+				DisplayName: Darkron Rifle
+				Tooltip: Fires a ring of eight bullets for the cost of one
 			}
 
 			DeadlockPistol: {
 				DisplayName: Deadlock Pistol
 				Tooltip: Fires a spread of bullets
-			}
-
-			AdeniteSecurityHandgun: {
-				DisplayName: Adenite Security Handgun
-				Tooltip: Every third shot is converted to an electric bolt that deals extra damage
-			}
-
-			AmethystPistol: {
-				DisplayName: Amethyst Pistol
-				Tooltip: Has a 25% chance to replace ammo with a high damage and velocity amethyst
-			}
-
-			ArcticVixen: {
-				DisplayName: Arctic Vixen
-				Tooltip:
-					'''
-					Alternates between slow shots and a barrage of snowballs
-					Only one snowball consumes ammo
-					'''
 			}
 
 			EerieStakeLauncher: {
@@ -3161,6 +3179,11 @@ Mods: {
 				Tooltip: "'Part of a slime nucleus'"
 			}
 
+			SoulofByte: {
+				DisplayName: Soul of Byte
+				Tooltip: "'The essence of those who don't belong in this world'"
+			}
+
 			SpeckledStardust: {
 				DisplayName: Speckled Stardust
 				Tooltip: "'It looks as if it fell from heaven (not to be confused with glitter, which rose from hell)'"
@@ -3285,6 +3308,15 @@ Mods: {
 					'You feel as if you can hear a hundred spirits cry around you'
 					A medium explosion that will not destroy tiles
 					Explosions can damage players
+					'''
+			}
+
+			CannonofRuin: {
+				DisplayName: Cannon of Ruin
+				Tooltip:
+					'''
+					'And then there was nothing but dirt'
+					Uses dirt blocks as ammo
 					'''
 			}
 
@@ -4089,6 +4121,16 @@ Mods: {
 				Tooltip: Erratically fires short-range sapphire blasts
 			}
 
+			ShadowsUtterance: {
+				DisplayName: Shadow's Utterance
+				Tooltip:
+					'''
+					Fires an orb of dark energy
+					Smaller energies are released from the main orb after stopping
+					After some time, smaller energies chase after the cursor
+					'''
+			}
+
 			Snowfall: {
 				DisplayName: Snowfall
 				Tooltip:
@@ -4554,7 +4596,6 @@ Mods: {
 				Tooltip:
 					'''
 					Grants two seconds of invincibility after using a healing potion
-					Increases invincibility time after taking damage
 					Reduces the cooldown of healing potions by 25%
 					Increases life regen slightly
 					Life regen does not stack with other bands
@@ -5330,6 +5371,8 @@ Mods: {
 			BinaryBlastSlam.DisplayName: Binary Blast Slam
 			DirtBlockYoyo2.DisplayName: Dirt Block Yoyo2
 			MuddyGreatswordProj.DisplayName: Muddy Greatsword Proj
+			ShadowsUtteranceProj.DisplayName: Shadows Utterance Proj
+			ShadowsUtteranceProj_Mini.DisplayName: Shadows Utterance Proj_ Mini
 		}
 
 		NPCs: {

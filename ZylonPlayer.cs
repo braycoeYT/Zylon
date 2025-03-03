@@ -27,7 +27,7 @@ namespace Zylon
 		public bool bloodVial;
 		public bool stealthPotion;
 		public bool gooeySetBonus;
-		public bool bandofZinc;
+		public bool brassRing;
 		public bool jellyExpert;
 		public bool diskbringerSet;
 		public bool glazedLens;
@@ -101,6 +101,7 @@ namespace Zylon
 		public bool argentumSetBonus;
 		public bool argentumHeadgear;
 		public bool coreofMending;
+		public bool accursedHand;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -151,7 +152,7 @@ namespace Zylon
 			bloodVial = false;
 			stealthPotion = false;
 			gooeySetBonus = false;
-			bandofZinc = false;
+			brassRing = false;
 			jellyExpert = false;
 			diskbringerSet = false;
 			glazedLens = false;
@@ -222,6 +223,7 @@ namespace Zylon
 			royalArgentumChestpiece = false;
 			argentumHeadgear = false;
 			coreofMending = false;
+			accursedHand = false;
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeMult = 1f;
@@ -398,7 +400,7 @@ namespace Zylon
 					Player.manaRegen += 1;
 				if (bandofMetal && Player.HasBuff(BuffID.Ironskin))
 					Player.statDefense += 4;
-				if (bandofZinc && Player.HasBuff(BuffID.Swiftness)) {
+				if (brassRing && Player.HasBuff(BuffID.Swiftness)) {
 					if (Player.accRunSpeed > 0)
 						Player.accRunSpeed += 0.75f;
 					Player.moveSpeed += 0.15f;
@@ -707,6 +709,19 @@ namespace Zylon
 				else coreofMendingCounter++;
 
 				if (coreofMendingCounter > 60) coreofMendingCounter = 60;
+			}
+			if (accursedHand && target.life < target.lifeMax/4) { // && Main.rand.NextBool(100)
+				if (!target.dontTakeDamage && !target.immortal && !target.boss) {
+					target.StrikeInstantKill();
+					CombatText.NewText(target.getRect(), new Color(180, 180, 160), "INSTAKILL!");
+
+					for (int i = 0; i < 15; i++) {
+						Dust dust = Dust.NewDustDirect(target.position, target.width, target.height, DustID.WhiteTorch);
+						dust.noGravity = true;
+						dust.scale = 2f;
+						dust.velocity = new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(24*i));
+					}
+				}
 			}
 		}
 		public void OnHitPVPGlobal(Item item, Projectile proj, Player target, int damage, bool crit, bool TrueMelee) {

@@ -43,6 +43,9 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 			else if (Projectile.ai[0] == 2f) { //Direction slam
 				Projectile.Center = Main.player[owner.target].Center - new Vector2(0, 300).RotatedBy(MathHelper.ToRadians(Projectile.ai[1]*90));
 			}
+			else if (Projectile.ai[0] == 3f) { //Warp blitz
+				Projectile.Center = Main.player[owner.target].Center - new Vector2(0, Projectile.ai[1]).RotatedBy(MathHelper.ToRadians(Projectile.ai[2]));
+			}
 		}
 		public override bool PreDraw(ref Color lightColor) {
 			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;

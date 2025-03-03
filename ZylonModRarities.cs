@@ -8,7 +8,7 @@ namespace Zylon
 {
 	public class BraycoeDev : ModRarity
 	{
-		//For my dev items and eventually vanity when I learn how to sprite.
+		//For my dev items and eventually vanity when I learn how to sprite. <-- lol
 		public override Color RarityColor => new Color(116, 179, 237);
 		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
 			_ => Type,
@@ -16,7 +16,7 @@ namespace Zylon
 	}
 	public class HBDeusDev : ModRarity
 	{
-		//For HBDeus's sword and the other swords I haven't added yet.
+		//For HBDeus's sword and the other sword I haven't added yet.
 		public override Color RarityColor => new Color(224, 153, 0);
 		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
 			_ => Type,
@@ -79,7 +79,7 @@ namespace Zylon
 	public class Emerald : ModRarity
 	{
 		//Tier 13 - All items post ToC, Quet, Loc, and ???. All items obtained in the Cellspawn after ToC has been defeated.
-		//Materals from the AB are this rarity despite being obtainable before ZME.
+		//Materials from the AB are this rarity despite being obtainable before ZME.
 		//Color used to be based on ToC, but is now based on Loc and Quet.
 		public override Color RarityColor => new Color(19-(3*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt()), 191-(30*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt()), 64-(10*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt())); //16, 145, 50
 		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {

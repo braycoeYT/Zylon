@@ -20,7 +20,6 @@ namespace Zylon.Items.Accessories
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			if (!player.buffImmune[BuffID.PotionSickness]) p.leafBracer = true; //POINTLESS BUT JUST IN CASE
 			player.pStone = true;
-			player.longInvince = true;
 			if (!p.CHECK_BandofRegen) player.lifeRegen += 1;
 			p.CHECK_BandofRegen = true;
 		}
@@ -42,9 +41,8 @@ namespace Zylon.Items.Accessories
         }
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ModContent.ItemType<LeafBracer>());
 			recipe.AddIngredient(ItemID.CharmofMyths);
-			recipe.AddIngredient(ItemID.CrossNecklace);
+			recipe.AddIngredient(ModContent.ItemType<LeafBracer>());
 			recipe.AddIngredient(ItemID.LunarBar, 8);
 			recipe.AddTile(TileID.LunarCraftingStation);
 			recipe.Register();

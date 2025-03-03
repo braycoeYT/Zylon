@@ -27,12 +27,11 @@ namespace Zylon.Items.Accessories
 			p.bandofStarpower = true;
 			p.bandofMagicRegen = true;
 			p.bandofMetal = true;
-			//p.bandofZinc = true;
+			p.brassRing = true;
 
 			//Leaf Bracelet
 			if (!player.buffImmune[BuffID.PotionSickness]) p.leafBracer = true;
 			player.pStone = true;
-			player.longInvince = true;
 
 			//Friendship Bracelet
 			p.friendshipBracelet = true;

@@ -1,24 +1,15 @@
 The best mod that starts with Z — we guarantee or your money back! Some cool stuff we add includes summon critical strike support, blowpipes being reworked into their own unique subclass, and several new prefixes for weapons and accessories! Warning: Mod does not work in multiplayer.
 
 Stats:
-~490 Items
+~500 Items
 ~4 Bosses:
 ~~~3 Prehardmode Bosses [i:2][i:789][i:282]
 ~~~1 Post-Moon Lord Boss [i:5130]
-~44 total NPCs
+~46 total NPCs
 ~Secret seeds: Abyssworld and Autumn.
 
-V0.0.4.4: Assassin Update
-~Readded the Hitman, a Town NPC who is willing to take care of any NPC getting on your nerves.
-~Added Assassin's Greatbow, 
-~Blood Contract is now sold by Hitman instead of crafted.
-~Made Mystic Furball a lot smoother when going up slopes.
-~Fixed redundancy in Illusory Bullet Polish tooltip.
-~Reduced recipe cost of The Regurgitator.
-~Added some unobtainable items (for now).
-~Readded Lemonade Tea. Finally.
-~Modded foods now stack to 9999 instead of 999.
-MATRIX SCAVENGER REWORKS: 20% complete
+V0.0.4.5: Assassin Update pt. 2
+MATRIX SCAVENGER REWORKS: 25% complete
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

@@ -18,13 +18,13 @@ namespace Zylon.Items.Misc
 			Item.useAnimation = 20;
 			Item.useTime = 20;
 			Item.damage = 12;
-			Item.width = 52;
-			Item.height = 18;
+			Item.width = 46;
+			Item.height = 24;
 			Item.knockBack = 7f;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Misc.DirtPlaceBlocks>();
 			Item.shootSpeed = 15f;
 			Item.noMelee = true;
-			Item.DamageType = DamageClass.Generic;
+			Item.DamageType = DamageClass.Ranged;
 			Item.useAmmo = Item.type;
 			Item.UseSound = SoundID.Item98;
 			Item.autoReuse = true;
