@@ -40,7 +40,7 @@ namespace Zylon.Items.Minions
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemType<MushtopStaff>());
-			recipe.AddRecipeGroup("Zylon:AnyGoldBar");
+			recipe.AddRecipeGroup("Zylon:AnyDemoniteBar");
 			recipe.AddIngredient(ItemID.GlowingMushroom, 12);
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();

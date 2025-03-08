@@ -8,7 +8,7 @@ namespace Zylon
 {
 	public class BraycoeDev : ModRarity
 	{
-		//For my dev items and eventually vanity when I learn how to sprite. <-- lol
+		//For my dev items.
 		public override Color RarityColor => new Color(116, 179, 237);
 		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
 			_ => Type,
@@ -38,6 +38,14 @@ namespace Zylon
 			_ => Type,
 		};
 	}
+	public class AmberFix : ModRarity
+	{
+		//Same as Amber rarity, but fixes the modifier issue.
+		public override Color RarityColor => new Color(0, 0, 0);
+		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
+			_ => ItemRarityID.Quest,
+		};
+	}
 	public class RedModded : ModRarity
 	{
 		//Modified version of vanilla's red rarity so that it goes into modded pml rarities.
@@ -64,7 +72,7 @@ namespace Zylon
 	}
 	public class Magenta : ModRarity
 	{
-		//Tier 12 - All PML banners, masks, and trophies. All items that are post PML miniboss, Sabur, and Mineral.
+		//Tier 12 - All PML banners, masks, and trophies. All items that are post PML miniboss, ZME, and Sabur.
 		//Powerful/tedious items obtained after Moonlord but before any PML bosses. Summons for tier 13 bosses.
 		//Color is based on ZME.
 		public override Color RarityColor => new Color(255, 200*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt(), 255-(55*ModContent.GetInstance<ZylonConfig>().nightLightRarities.ToInt()));

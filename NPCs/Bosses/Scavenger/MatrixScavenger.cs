@@ -165,7 +165,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 		public void WarpBlitz() {
 			attackTimer++;
 			if (attackTimer == 1) {
-
+				NPC.Center = target.Center - new Vector2(0, warpFloat).RotatedBy(MathHelper.ToRadians(warpFloat2));
 			}
 		}
 		public void DirectionSlam() {

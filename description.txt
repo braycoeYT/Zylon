@@ -9,6 +9,20 @@ Stats:
 ~Secret seeds: Abyssworld and Autumn.
 
 V0.0.4.5: Assassin Update pt. 2
+~Fixed issue with Accursed Hand activating too often.
+~Nerfed Daedalus Stormbow slightly (sorry).
+~Added Shade Apprentice, Big One
+~Added Potion Fatigue, a new mechanic that adds actual strategy to using potions instead of encouraging you to spam all of them.
+~Added Vanilla Boss HP Multiplier config, and renamed Boss HP Multiplier to Modded Boss HP Multiplier.
+~Reworded boss checklist entries slightly.
+~Added Override Vanilla Rarities config.
+~Changed Sticky Hand's tooltip slightly.
+~Fixed weird bug with Sticky Hand.
+~Sticky Hand now deals knockback.
+~Changed recipe of Glowing Mushtop Staff.
+~Added Assassin's Arrow, Bullet, and Dart.
+~Modded bullets now have the appearance effect that vanilla bullets do.
+~Bloody Machete is now sold by Hitman instead of crafted.
 MATRIX SCAVENGER REWORKS: 25% complete
 
 Credits (from the previous mod versions and now):

@@ -94,6 +94,21 @@ namespace Zylon.Items
 					if (WorldGen.crimson) line = new TooltipLine(Mod, "Tooltip1", "Pickaxe power increases to 70% after Brain of Cthulhu is defeated");
 					if (!NPC.downedBoss2) tooltips.Add(line);
 				}
+				if (item.type == ItemID.AmmoReservationPotion || item.type == ItemID.ArcheryPotion || item.type == ItemID.EndurancePotion || item.type == ItemID.FeatherfallPotion || item.type == ItemID.GravitationPotion || item.type == ItemID.LuckPotionLesser || item.type == ItemID.LuckPotion || item.type == ItemID.LuckPotionGreater || item.type == ItemID.HeartreachPotion || item.type == ItemID.InfernoPotion || item.type == ItemID.InvisibilityPotion || item.type == ItemID.IronskinPotion || item.type == ItemID.LifeforcePotion || item.type == ItemID.MagicPowerPotion || item.type == ItemID.ManaRegenerationPotion || item.type == ItemID.RagePotion || item.type == ItemID.RegenerationPotion || item.type == ItemID.SummoningPotion || item.type == ItemID.SwiftnessPotion || item.type == ItemID.ThornsPotion || item.type == ItemID.TitanPotion || item.type == ItemID.WarmthPotion || item.type == ItemID.WrathPotion || item.buffType == BuffID.WellFed || item.buffType == BuffID.WellFed2 || item.buffType == BuffID.WellFed3 || item.type == ItemID.FlaskofCursedFlames || item.type == ItemID.FlaskofFire || item.type == ItemID.FlaskofGold || item.type == ItemID.FlaskofIchor || item.type == ItemID.FlaskofNanites || item.type == ItemID.FlaskofPoison || item.type == ItemID.FlaskofVenom || item.type == ItemType<Potions.BloodiedVial>() || item.type == ItemType<Potions.FeralChemicals>() || item.type == ItemType<Potions.FloaterPotion>() || item.type == ItemType<Potions.GalePotion>() || item.type == ItemType<Potions.HeavyHitterPotion>() || item.type == ItemType<Potions.ManareachPotion>() || item.type == ItemType<Potions.NeutroninaBottle>() || item.type == ItemType<Potions.StealthPotion>()) {
+					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Increments potion fatigue by 1\nThe player becomes fatigued if the number flows over 5\nFor each overflow, the player loses 10% damage and 10% damage reduction");
+					line.OverrideColor = new Color(255, 0, 0);
+					tooltips.Add(line);
+				}
+				if (item.type == ItemID.BattlePotion || item.type == ItemID.BiomeSightPotion || item.type == ItemID.BuilderPotion || item.type == ItemID.CalmingPotion || item.type == ItemID.CratePotion || item.type == ItemID.TrapsightPotion || item.type == ItemID.FishingPotion || item.type == ItemID.FlipperPotion || item.type == ItemID.GillsPotion || item.type == ItemID.HunterPotion || item.type == ItemID.MiningPotion || item.type == ItemID.NightOwlPotion || item.type == ItemID.ObsidianSkinPotion || item.type == ItemID.ShinePotion || item.type == ItemID.SonarPotion || item.type == ItemID.SpelunkerPotion || item.type == ItemID.WaterWalkingPotion) {
+					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Does not contribute to potion fatigue");
+					line.OverrideColor = new Color(255, 0, 0);
+					tooltips.Add(line);
+				}
+				if (item.type == ItemID.LovePotion || item.type == ItemID.StinkPotion || item.type == ItemID.FlaskofParty || item.type == ItemType<Potions.ApathyPotion>() || item.type == ItemID.GenderChangePotion || item.type == ItemID.WormholePotion || item.type == ItemID.RecallPotion || item.type == ItemID.PotionOfReturn) {
+					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Does not contribute to potion fatigue (obviously)");
+					line.OverrideColor = new Color(255, 0, 0);
+					tooltips.Add(line);
+				}
             }
 			/*if (item.type == ItemID.TungstenPickaxe) {
 				foreach (var line2 in tooltips) {
@@ -160,6 +175,11 @@ namespace Zylon.Items
 					item.useTime = 7;
 					item.useAnimation = 7;
 				}
+				if (item.type == ItemID.DaedalusStormbow) {
+					item.damage = 30;
+					item.useTime = 24;
+					item.useAnimation = 24;
+				}
 				if (item.type == ItemID.AcornAxe) {
 					item.axe = 20;
 					item.useTime = 25;
@@ -174,6 +194,19 @@ namespace Zylon.Items
 					item.ammo = ItemType<Misc.Dirtthrower>();
 					item.notAmmo = true;
                 }
+            }
+			if (GetInstance<ZylonConfig>().infiniteBossSummons) {
+				if (item.type == ItemID.SlimeCrown || item.type == ItemID.SuspiciousLookingEye || item.type == ItemID.WormFood || item.type == ItemID.BloodySpine || item.type == ItemID.Abeemination || item.type == ItemID.DeerThing || item.type == ItemID.MechanicalEye || item.type == ItemID.MechanicalWorm || item.type == ItemID.MechanicalSkull || item.type == ItemID.QueenSlimeCrystal ||  item.type == ItemID.MechdusaSummon || item.type == ItemID.CelestialSigil) {
+					item.consumable = false;
+                }
+            }
+			if (GetInstance<ZylonConfig>().overrideVanillaRarities) {
+				if (item.rare == ItemRarityID.Quest)
+					item.rare = RarityType<AmberFix>();
+				if (item.rare == ItemRarityID.Red)
+					item.rare = RarityType<RedModded>();
+				if (item.rare == ItemRarityID.Purple)
+					item.rare = RarityType<PurpleModded>();
             }
 		}
         public override void UpdateInventory(Item item, Player player) {

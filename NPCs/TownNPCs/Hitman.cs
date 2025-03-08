@@ -171,6 +171,10 @@ namespace Zylon.NPCs.TownNPCs
         public override void AddShops() {
             var npcShop = new NPCShop(Type, ShopName)
 				.Add<Items.Accessories.BrassRing>()
+				.Add(ItemID.BloodyMachete)
+				.Add<Items.Ammo.AssassinsArrow>()
+				.Add<Items.Ammo.AssassinsBullet>()
+				.Add<Items.Ammo.AssassinsDart>()
 				.Add<Items.Accessories.BloodContract>(Condition.DownedEyeOfCthulhu)
 				.Add<Items.Accessories.AccursedHand>(Condition.DownedSkeletron)
 				.Add(ItemID.PsychoKnife, Condition.DownedCultist)

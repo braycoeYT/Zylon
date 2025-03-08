@@ -35,6 +35,9 @@ namespace Zylon.NPCs
 					entity.life = entity.lifeMax;
 				}
 			}
+			if (entity.boss && entity.type < 688) {
+				entity.lifeMax = (int)(entity.lifeMax*GetInstance<ZylonConfig>().vanillaBossHpMult);
+			}
         }
         public override void PostAI(NPC npc) {
 			if (Main.netMode != NetmodeID.MultiplayerClient) {

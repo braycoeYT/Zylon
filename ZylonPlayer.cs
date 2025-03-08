@@ -10,6 +10,7 @@ using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using System.Linq;
+using Terraria.WorldBuilding;
 
 namespace Zylon
 {
@@ -132,6 +133,7 @@ namespace Zylon
 		public int numof10ammo;
 		public int slimebenderDamage;
 		public int slimebenderCore;
+		public int potionFatigue;
 		public int coreofMendingCounter;
 		public float summonCrit;
 		public float summonCritBoost;
@@ -224,6 +226,7 @@ namespace Zylon
 			argentumHeadgear = false;
 			coreofMending = false;
 			accursedHand = false;
+
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
 			blowpipeChargeMult = 1f;
@@ -242,6 +245,7 @@ namespace Zylon
 			summonCritBoost = 0f;
 			numof10ammo = 0;
 			damageVariation = 1f;
+			potionFatigue = 0;
 		}
 		public override void UpdateDead() {
 			Heartdaze = false;
@@ -489,6 +493,13 @@ namespace Zylon
 				modifiers.FinalDamage *= 1.5f;
 				bloodContractVisual = true;
 			}
+
+			if (potionFatigue > 5) {
+				float loss = 1f - (potionFatigue-5)/10f;
+				if (loss < 0f) loss = 0f;
+
+				modifiers.FinalDamage *= loss;
+			}
 		}
 		public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Projectile, consider using ModifyHitNPC instead */
 		{
@@ -523,6 +534,13 @@ namespace Zylon
 			if (bloodContract && Main.rand.NextBool(20)) {
 				modifiers.FinalDamage *= 1.5f;
 				bloodContractVisual = true;
+			}
+
+			if (potionFatigue > 5) {
+				float loss = 1f - (potionFatigue-5)/10f;
+				if (loss < 0f) loss = 0f;
+
+				modifiers.FinalDamage *= loss;
 			}
 		}
 		public override void OnHitNPCWithItem(Item item, NPC target, NPC.HitInfo hit, int damageDone)
@@ -710,7 +728,7 @@ namespace Zylon
 
 				if (coreofMendingCounter > 60) coreofMendingCounter = 60;
 			}
-			if (accursedHand && target.life < target.lifeMax/4) { // && Main.rand.NextBool(100)
+			if (accursedHand && target.life < target.lifeMax/4 && Main.rand.NextBool(100)) {
 				if (!target.dontTakeDamage && !target.immortal && !target.boss) {
 					target.StrikeInstantKill();
 					CombatText.NewText(target.getRect(), new Color(180, 180, 160), "INSTAKILL!");
@@ -784,7 +802,7 @@ namespace Zylon
 			}
 			if (slimePendant) target.AddBuff(BuffID.Slimed, Main.rand.Next(5, 11)*60);
 		}
-		/*public void DiskiteBuffs(int Bufftime, Player player) {
+        /*public void DiskiteBuffs(int Bufftime, Player player) {
 			switch (Main.rand.Next(3)) {
 				case 0:
 					player.AddBuff(BuffType<Buffs.Armor.AdenebOffense>(), Bufftime);
@@ -797,11 +815,17 @@ namespace Zylon
 					return;
             }
 		}*/
-		/*public void DiskiteBuffs(int Bufftime, Player player, int PercentChance) {
+        /*public void DiskiteBuffs(int Bufftime, Player player, int PercentChance) {
 			if (Main.rand.Next(1, 100) <= PercentChance)
 				DiskiteBuffs(Bufftime, player);
         }*/
-		public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo) {
+        public override void ModifyHurt(ref Player.HurtModifiers modifiers) {
+            if (potionFatigue > 5) {
+				float loss = 1f + (potionFatigue-5)/10f;
+                modifiers.FinalDamage *= loss;
+			}
+        }
+        public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo) {
 			if (rootGuard && Player.whoAmI == Main.myPlayer) for (int x = 0; x < 3; x++) {
 				int pos = Main.rand.Next(32, 65);
 				if (Main.rand.NextBool()) pos *= -1;
@@ -945,7 +969,14 @@ namespace Zylon
 					if (Main.dayTime) Main.time++;
 				}
 			}
-			//Main.NewText(WorldGen.currentWorldSeed.ToLower());
+			
+			if (GetInstance<ZylonConfig>().zylonianBalancing) {
+				for (int i = 0; i < 44; i++) {
+					if (Player.buffType[i] == BuffID.AmmoReservation || Player.buffType[i] == BuffID.Archery || Player.buffType[i] == BuffID.Endurance || Player.buffType[i] == BuffID.Featherfall || Player.buffType[i] == BuffID.Gravitation || Player.buffType[i] == BuffID.Lucky || Player.buffType[i] == BuffID.Heartreach || Player.buffType[i] == BuffID.Inferno || Player.buffType[i] == BuffID.Invisibility || Player.buffType[i] == BuffID.Ironskin || Player.buffType[i] == BuffID.Lifeforce || Player.buffType[i] == BuffID.MagicPower || Player.buffType[i] == BuffID.ManaRegeneration || Player.buffType[i] == BuffID.Rage || Player.buffType[i] == BuffID.Regeneration || Player.buffType[i] == BuffID.Summoning || Player.buffType[i] == BuffID.Swiftness || Player.buffType[i] == BuffID.Thorns || Player.buffType[i] == BuffID.Titan || Player.buffType[i] == BuffID.Warmth || Player.buffType[i] == BuffID.Wrath || Player.buffType[i] == BuffID.WellFed || Player.buffType[i] == BuffID.WellFed2 || Player.buffType[i] == BuffID.WellFed3 || Player.buffType[i] == BuffID.WeaponImbueCursedFlames || Player.buffType[i] == BuffID.WeaponImbueFire || Player.buffType[i] == BuffID.WeaponImbueGold || Player.buffType[i] == BuffID.WeaponImbueIchor || Player.buffType[i] == BuffID.WeaponImbueNanites || Player.buffType[i] == BuffID.WeaponImbuePoison || Player.buffType[i] == BuffID.WeaponImbueVenom || Player.buffType[i] == BuffType<Buffs.Potions.BloodiedVial>() || Player.buffType[i] == BuffType<Buffs.Potions.Feral>() || Player.buffType[i] == BuffType<Buffs.Potions.Floater>() || Player.buffType[i] == BuffType<Buffs.Potions.Gale>() || Player.buffType[i] == BuffType<Buffs.Potions.HeavyHitter>() || Player.buffType[i] == BuffType<Buffs.Potions.Manareach>() || Player.buffType[i] == BuffType<Buffs.Potions.Neutronic>() || Player.buffType[i] == BuffType<Buffs.Potions.Stealthy>())
+						potionFatigue++;
+				}
+				if (potionFatigue > 5) Player.AddBuff(BuffType<Buffs.Debuffs.PotionFatigue>(), 1);
+			}
         }
         public override void HideDrawLayers(PlayerDrawSet drawInfo) {
             if (blackBox) {

@@ -15,7 +15,7 @@ namespace Zylon.Items.Flails
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 45;
 			Item.useTime = 45;
-			Item.knockBack = 0f;
+			Item.knockBack = 0.05f;
 			Item.damage = 87;
 			Item.noUseGraphic = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Flails.StickyHand>();

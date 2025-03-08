@@ -35,7 +35,14 @@ namespace Zylon
 		[Range(1f, 10f)]
 		[DefaultValue(1f)]
 		[Slider]
-		[Label("Boss HP Multiplier")]
+		[Label("Vanilla Boss HP Multiplier")]
+		[Tooltip("Allows you to multiply the health of vanilla's bosses for increased difficulty.")]
+		public float vanillaBossHpMult;
+
+		[Range(1f, 10f)]
+		[DefaultValue(1f)]
+		[Slider]
+		[Label("Modded Boss HP Multiplier")]
 		[Tooltip("Allows you to multiply the health of the mod's bosses for increased difficulty. To be used with the similar config from Calamity.")]
 		public float bossHpMult;
 
@@ -62,6 +69,16 @@ namespace Zylon
 		[Label("Summon Natural Crits")]
 		[Tooltip("Summons now have a 4% default crit chance, and are affected by generic crit boosts.")]
 		public bool summonNaturalCrit;
+
+		[DefaultValue(true)]
+		[Label("Infinite Vanilla Summons")]
+		[Tooltip("Most boss summons can now be infinitely reused.")]
+		public bool infiniteBossSummons;
+
+		[DefaultValue(true)]
+		[Label("Override Vanilla Rarities")]
+		[Tooltip("High-quality Red and Purple tier vanilla items now use Zylonian PML rarities.")]
+		public bool overrideVanillaRarities;
 
 		[Label("Experimental World Gen")]
 		[Tooltip("You probably should leave this off.")]

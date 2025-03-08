@@ -468,6 +468,11 @@ Mods: {
 				DisplayName: Broken Code
 				Description: Description could not be found.
 			}
+
+			PotionFatigue: {
+				DisplayName: Potion Fatigue
+				Description: You have drank too many potions!
+			}
 		}
 
 		Items: {
@@ -1193,9 +1198,32 @@ Mods: {
 					'''
 			}
 
-			ZincBand: {
-				DisplayName: Zinc Band
-				Tooltip: Increases the potency of Swiftness Potions
+			AssassinsArrow: {
+				DisplayName: Assassin's Arrow
+				Tooltip:
+					'''
+					Accelerates faster over time
+					Deals 25% more damage while you are standing still
+					'''
+			}
+
+			AssassinsBullet: {
+				DisplayName: Assassin's Bullet
+				Tooltip:
+					'''
+					Accelerates faster over time
+					Deals 25% more damage while you are standing still
+					'''
+			}
+
+			AssassinsDart: {
+				DisplayName: Assassin's Dart
+				Tooltip:
+					'''
+					For use with blowpipes
+					Accelerates faster over time
+					Deals 25% more damage while you are standing still
+					'''
 			}
 
 			BlinkrootSeed: {
@@ -2682,6 +2710,11 @@ Mods: {
 				Tooltip: Has a 25% chance to replace ammo with a splitting Ruby Arrow
 			}
 
+			ShadeApprentice: {
+				DisplayName: Shade Apprentice
+				Tooltip: Fires two arrows from a distance towards the player
+			}
+
 			Sightseer: {
 				DisplayName: Sightseer
 				Tooltip: The eyes will alternate firing cursed flames and lasers with you
@@ -2758,7 +2791,7 @@ Mods: {
 				DisplayName: Sticky Hand
 				Tooltip:
 					'''
-					'Does not get dirty after 20 minutes of use, somehow'
+					'Does not get dirty after 10 minutes of use, somehow'
 					Sticks to enemies when thrown, dealing loads of extra damage
 					'''
 			}
@@ -3724,6 +3757,11 @@ Mods: {
 					'''
 			}
 
+			BigOne: {
+				DisplayName: Big One
+				Tooltip: ""
+			}
+
 			CarnalliteTrident: {
 				DisplayName: Carnallite Trident
 				Tooltip: "'Enchanted with Loyalty I'"
@@ -4125,8 +4163,8 @@ Mods: {
 				DisplayName: Shadow's Utterance
 				Tooltip:
 					'''
-					Fires an orb of dark energy
-					Smaller energies are released from the main orb after stopping
+					Fires a crystal of dark energy
+					Smaller energies are released from the crystal after stopping
 					After some time, smaller energies chase after the cursor
 					'''
 			}
@@ -5361,18 +5399,24 @@ Mods: {
 			CoreofMendingProj2.DisplayName: Core of Mending
 			BinaryBlast4x4.DisplayName: Binary Blast
 			BinaryBlast4x4Chase.DisplayName: Binary Blast
-			ScavengerSpawn.DisplayName: Scavenger Spawn
-			ScavengerDespawn.DisplayName: Scavenger Despawn
+			ScavengerSpawn.DisplayName: Matrix Scavenger
+			ScavengerDespawn.DisplayName: Matrix Scavenger
 			BigZero.DisplayName: Big Zero
-			BinarySnakeDirect.DisplayName: Binary Snake Direct
+			BinarySnakeDirect.DisplayName: Binary Blast
 			BigOne.DisplayName: Big One
-			BinaryBlast1x1.DisplayName: Binary Blast1x1
-			BinaryBlast8x4Slam.DisplayName: Binary Blast8x4 Slam
-			BinaryBlastSlam.DisplayName: Binary Blast Slam
-			DirtBlockYoyo2.DisplayName: Dirt Block Yoyo2
-			MuddyGreatswordProj.DisplayName: Muddy Greatsword Proj
-			ShadowsUtteranceProj.DisplayName: Shadows Utterance Proj
-			ShadowsUtteranceProj_Mini.DisplayName: Shadows Utterance Proj_ Mini
+			BinaryBlast1x1.DisplayName: Binary Blast
+			BinaryBlast8x4Slam.DisplayName: Binary Blast
+			BinaryBlastSlam.DisplayName: Binary Blast
+			DirtBlockYoyo2.DisplayName: Dirtglob
+			MuddyGreatswordProj.DisplayName: Muddy Greatsword
+			ShadowsUtteranceProj.DisplayName: Shadow's Utterance
+			ShadowsUtteranceProj_Mini.DisplayName: Shadow's Utterance
+			BigOneSpear.DisplayName: Big One
+			BigOneSpear_1x1.DisplayName: Big One
+			BigOneSpear_Throw.DisplayName: Big One
+			AssassinsArrow.DisplayName: Assassins Arrow
+			AssassinsBullet.DisplayName: Assassins Bullet
+			AssassinsDart.DisplayName: Assassins Dart
 		}
 
 		NPCs: {
@@ -5381,7 +5425,7 @@ Mods: {
 
 				BossChecklistIntegration: {
 					EntryName: Adeneb
-					SpawnInfo: Use an [i:Zylon/EnchantedEye] in the desert
+					SpawnInfo: Use [i:Zylon/EnchantedEye] in the desert
 				}
 			}
 
@@ -5390,7 +5434,7 @@ Mods: {
 
 				BossChecklistIntegration: {
 					EntryName: Dirtball
-					SpawnInfo: Use a [i:Zylon/CreepyMud] anywhere
+					SpawnInfo: Use [i:Zylon/CreepyMud] anywhere
 				}
 			}
 
@@ -5405,7 +5449,7 @@ Mods: {
 
 				BossChecklistIntegration: {
 					EntryName: Eldritch Jellyfish
-					SpawnInfo: Use an [i:Zylon/EldritchBell] in the ocean
+					SpawnInfo: Use [i:Zylon/EldritchBell] in the ocean
 				}
 			}
 
@@ -5416,7 +5460,7 @@ Mods: {
 
 				BossChecklistIntegration: {
 					EntryName: Matrix Scavenger
-					SpawnInfo: Use a [i:Zylon/CompromisedFlashDrive] in the meteorite biome
+					SpawnInfo: Use [i:Zylon/CompromisedFlashDrive] at night
 				}
 			}
 
@@ -5425,7 +5469,7 @@ Mods: {
 
 				BossChecklistIntegration: {
 					EntryName: Sabur Rex
-					SpawnInfo: Use an [i:Zylon/AwakenedRiftCalibrator] anywhere...
+					SpawnInfo: Use [i:Zylon/AwakenedRiftCalibrator] anywhere...
 				}
 			}
 
@@ -5623,7 +5667,7 @@ Mods: {
 				}
 
 				zylonianBalancing: {
-					Tooltip: Rebalances a lot of the vanilla content.
+					Tooltip: Rebalances a lot of the vanilla content. Includes mechanics like Potion Fatigue.
 					Label: Zylonian Balancing
 				}
 
@@ -5677,6 +5721,21 @@ Mods: {
 				illusoryPolishNoEnemy: {
 					Label: "[i:Zylon/IllusoryBulletPolish]Illusory Bullet Polish - No Enemy Bounce"
 					Tooltip: Prevents bullets from bouncing on enemies, which may be more optimal for some weapons.
+				}
+
+				vanillaBossHpMult: {
+					Label: Vanilla Boss HP Multiplier
+					Tooltip: Allows you to multiply the health of vanilla's bosses for increased difficulty.
+				}
+
+				infiniteBossSummons: {
+					Label: Infinite Vanilla Summons
+					Tooltip: Most boss summons can now be infinitely reused.
+				}
+
+				overrideVanillaRarities: {
+					Label: Override Vanilla Rarities
+					Tooltip: High-quality Red and Purple tier vanilla items now use Zylonian PML rarities.
 				}
 			}
 		}
