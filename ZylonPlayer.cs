@@ -10,7 +10,6 @@ using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using System.Linq;
-using Terraria.WorldBuilding;
 
 namespace Zylon
 {
@@ -103,6 +102,8 @@ namespace Zylon
 		public bool argentumHeadgear;
 		public bool coreofMending;
 		public bool accursedHand;
+		public bool hitmansCharm;
+		public bool aimBot;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -135,6 +136,7 @@ namespace Zylon
 		public int slimebenderCore;
 		public int potionFatigue;
 		public int coreofMendingCounter;
+		public int nonCritCounter;
 		public float summonCrit;
 		public float summonCritBoost;
 		public float damageVariation;
@@ -226,6 +228,8 @@ namespace Zylon
 			argentumHeadgear = false;
 			coreofMending = false;
 			accursedHand = false;
+			hitmansCharm = false;
+			aimBot = false;
 
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -264,6 +268,7 @@ namespace Zylon
 			livingWhipTimer = 0;
 			slimebenderDamage = 0;
 			slimebenderCore = 0;
+			nonCritCounter = 0;
 		}
 		public override void UpdateBadLifeRegen() {
 			//Update timers here, I guess.
@@ -500,6 +505,8 @@ namespace Zylon
 
 				modifiers.FinalDamage *= loss;
 			}
+
+			if (nonCritCounter > 5 && hitmansCharm) modifiers.SetCrit();
 		}
 		public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Projectile, consider using ModifyHitNPC instead */
 		{
@@ -542,6 +549,8 @@ namespace Zylon
 
 				modifiers.FinalDamage *= loss;
 			}
+
+			if (nonCritCounter > 5 && hitmansCharm) modifiers.SetCrit();
 		}
 		public override void OnHitNPCWithItem(Item item, NPC target, NPC.HitInfo hit, int damageDone)
 		{
@@ -644,6 +653,10 @@ namespace Zylon
 
 			if (crit) {
 				critCount++;
+				nonCritCounter = 0;
+			}
+			else {
+				nonCritCounter++;
 			}
 			if (!isDummy && Main.myPlayer == Player.whoAmI) {
 				if (TrueMelee) {

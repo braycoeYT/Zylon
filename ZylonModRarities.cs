@@ -41,9 +41,9 @@ namespace Zylon
 	public class AmberFix : ModRarity
 	{
 		//Same as Amber rarity, but fixes the modifier issue.
-		public override Color RarityColor => new Color(0, 0, 0);
+		public override Color RarityColor => new Color(255, 175, 0);
 		public override int GetPrefixedRarity(int offset, float valueMult) => offset switch {
-			_ => ItemRarityID.Quest,
+			_ => Type,
 		};
 	}
 	public class RedModded : ModRarity

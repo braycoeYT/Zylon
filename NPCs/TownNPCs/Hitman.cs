@@ -177,7 +177,9 @@ namespace Zylon.NPCs.TownNPCs
 				.Add<Items.Ammo.AssassinsDart>()
 				.Add<Items.Accessories.BloodContract>(Condition.DownedEyeOfCthulhu)
 				.Add<Items.Accessories.AccursedHand>(Condition.DownedSkeletron)
-				.Add(ItemID.PsychoKnife, Condition.DownedCultist)
+				.Add<Items.Accessories.HitmansCharm>(Condition.Hardmode)
+				.Add<Items.Accessories.AimBot>(Condition.DownedMechBossAny)
+				.Add(ItemID.PsychoKnife, Condition.DownedGolem)
 				.Add(ItemID.RifleScope, Condition.DownedCultist)
 				.Add<Items.Bows.AssassinsGreatbow>(Condition.DownedMoonLord);
 			npcShop.Register();

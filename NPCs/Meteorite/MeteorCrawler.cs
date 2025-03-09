@@ -185,8 +185,7 @@ namespace Zylon.NPCs.Meteorite
 		}
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Times.DayTime,
-				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
+				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Meteor,
 				new FlavorTextBestiaryInfoElement("A crawling, bug-like fragment of a fallen meteorite. Has the ability to roll into a gravity-defying ball in moments of danger.")
 			});
 		}

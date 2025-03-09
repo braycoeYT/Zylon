@@ -129,6 +129,35 @@ namespace Zylon.Projectiles
 				damageCooldown--;
 				if (damageCooldown == 0) projectile.friendly = true;
             }
+			if (p.aimBot && player.HeldItem.DamageType == DamageClass.Ranged && projectile.type == player.ChooseAmmo(player.HeldItem).shoot) {
+				float projSpeed = projectile.velocity.Length();
+
+				float origDist = 300f;
+				float distanceFromTarget = origDist;
+				Vector2 targetCenter = projectile.position;
+				bool foundTarget = false;
+
+				if (!foundTarget) {
+					for (int i = 0; i < Main.maxNPCs; i++) {
+						NPC npc = Main.npc[i];
+
+						if (npc.CanBeChasedBy()) {
+							float between = Vector2.Distance(npc.Center, projectile.Center);
+							bool closest = Vector2.Distance(projectile.Center, targetCenter) > between;
+							bool inRange = between < distanceFromTarget;
+							bool lineOfSight = Collision.CanHitLine(projectile.position, projectile.width, projectile.height, npc.position, npc.width, npc.height);
+							bool closeThroughWall = false;
+	
+							if (((closest && inRange) || !foundTarget) && (lineOfSight || closeThroughWall)) {
+								distanceFromTarget = between;
+								targetCenter = npc.Center;
+								foundTarget = true;
+							}
+						}
+					}
+				}
+				if (foundTarget && distanceFromTarget < origDist) projectile.velocity = Vector2.Normalize(targetCenter - projectile.Center) * projSpeed;
+			}
         }
         public override void OnHitNPC(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone) {
 			if (target.type == NPCType<NPCs.Bosses.Dirtball.DirtBlock>()) { //target.type == NPCType<NPCs.Bosses.Metelord.MetelordHead>() || target.type == NPCType<NPCs.Bosses.Metelord.MetelordBody>() || target.type == NPCType<NPCs.Bosses.Metelord.MetelordTail>() || 

@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace Zylon.Items.Guns
 {
-	public class DarkronRifle : ModItem
+	public class DarkenedRifle : ModItem
 	{
 		public override void SetDefaults() {
 			Item.value = Item.sellPrice(0, 4, 60);

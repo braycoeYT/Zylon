@@ -145,6 +145,12 @@ namespace Zylon.Items
 				TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Slightly weakened until Eater of Worlds or Brain of Cthulhu is defeated");
 				tooltips.Add(line);
 			}*/
+			if (GetInstance<ZylonConfig>().infiniteBossSummons) {
+				if (item.type == ItemID.SlimeCrown || item.type == ItemID.SuspiciousLookingEye || item.type == ItemID.WormFood || item.type == ItemID.BloodySpine || item.type == ItemID.Abeemination || item.type == ItemID.DeerThing || item.type == ItemID.MechanicalEye || item.type == ItemID.MechanicalWorm || item.type == ItemID.MechanicalSkull || item.type == ItemID.QueenSlimeCrystal ||  item.type == ItemID.MechdusaSummon || item.type == ItemID.CelestialSigil) {
+					TooltipLine line = new TooltipLine(Mod, "Tooltip1", "Not Consumable");
+					tooltips.Add(line);
+                }
+            }
         }
         public override void SetDefaults(Item item) {
 			if (GetInstance<ZylonConfig>().zylonianBalancing) {

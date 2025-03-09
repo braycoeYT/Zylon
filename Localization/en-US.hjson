@@ -486,6 +486,16 @@ Mods: {
 					'''
 			}
 
+			AimBot: {
+				DisplayName: Aim Bot
+				Tooltip:
+					'''
+					'Script kiddie'
+					Allows most ammo to chase after nearby enemies
+					Decreases ranged damage by 15%
+					'''
+			}
+
 			AirTank: {
 				DisplayName: Air Tank
 				Tooltip:
@@ -707,6 +717,11 @@ Mods: {
 			HexNecklace: {
 				DisplayName: Hex Necklace
 				Tooltip: Hexes the Wand of Sparking and Ore Staves with shadowy magicks
+			}
+
+			HitmansCharm: {
+				DisplayName: Hitman's Charm
+				Tooltip: After not critting six times, the seventh hit is guarenteed to be a crit
 			}
 
 			IllusoryBulletPolish: {
@@ -2712,7 +2727,7 @@ Mods: {
 
 			ShadeApprentice: {
 				DisplayName: Shade Apprentice
-				Tooltip: Fires two arrows from a distance towards the player
+				Tooltip: On arrow collision, spawns dark energies that chase the player
 			}
 
 			Sightseer: {
@@ -2932,8 +2947,8 @@ Mods: {
 				Tooltip: Fires a spread of leaves with every shot
 			}
 
-			DarkronRifle: {
-				DisplayName: Darkron Rifle
+			DarkenedRifle: {
+				DisplayName: Darkened Rifle
 				Tooltip: Fires a ring of eight bullets for the cost of one
 			}
 
@@ -5417,6 +5432,7 @@ Mods: {
 			AssassinsArrow.DisplayName: Assassins Arrow
 			AssassinsBullet.DisplayName: Assassins Bullet
 			AssassinsDart.DisplayName: Assassins Dart
+			ShadeApprenticeProj.DisplayName: Shade Apprentice Proj
 		}
 
 		NPCs: {
