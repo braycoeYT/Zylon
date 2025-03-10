@@ -8,25 +8,8 @@ Stats:
 ~46 total NPCs
 ~Secret seeds: Abyssworld and Autumn.
 
-V0.0.4.5: Assassin Update Pt. 2
-~Fixed issue with Accursed Hand activating too often.
-~Added Shade Apprentice and Big One (unobtainable for now).
-~Added Potion Fatigue, a new mechanic that adds actual strategy to using potions instead of encouraging you to spam all of them.
-~Added Vanilla Boss HP Multiplier config, and renamed Boss HP Multiplier to Modded Boss HP Multiplier.
-~Reworded boss checklist entries slightly.
-~Added Override Vanilla Rarities config.
-~Changed Sticky Hand's tooltip slightly.
-~Fixed weird bug with Sticky Hand.
-~Sticky Hand now deals knockback.
-~Changed recipe of Glowing Mushtop Staff.
-~Nerfed Daedalus Stormbow slightly (sorry).
-~Added Assassin's Arrow, Bullet, and Dart.
-~Modded bullets now have the appearance effect that vanilla bullets do.
-~Bloody Machete is now sold by Hitman instead of crafted.
-~Fixed issues with Meteor Crawler's bestiary entry.
-~Added Hitman's Charm and Aim Bot.
-~Reverted Tribal Charm's recipe.
-~Added Infinite Vanilla Summons Config.
+V0.0.4.6: Update
+~Nerfed Aim Bot slightly.
 MATRIX SCAVENGER REWORKS: 35% complete
 
 Credits (from the previous mod versions and now):

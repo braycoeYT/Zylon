@@ -492,7 +492,7 @@ Mods: {
 					'''
 					'Script kiddie'
 					Allows most ammo to chase after nearby enemies
-					Decreases ranged damage by 15%
+					Decreases ranged damage by 20%
 					'''
 			}
 
@@ -5433,6 +5433,7 @@ Mods: {
 			AssassinsBullet.DisplayName: Assassins Bullet
 			AssassinsDart.DisplayName: Assassins Dart
 			ShadeApprenticeProj.DisplayName: Shade Apprentice Proj
+			BigZero2.DisplayName: Big Zero2
 		}
 
 		NPCs: {

@@ -77,6 +77,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 		int attackDir; //Has a random chance to be -1 or 1, for determining attack directions
 		int nextAttack = -1;
 		float totalAttackTimer;
+		float warpBlitzDir; //Ignore this, it's for one specific attack with special rules.
 
 		int warpTimer; //Start incrementing 30 ticks before the warp actually occurs.
 		float warpFloat;
@@ -117,7 +118,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 				else NPC.ai[0] = nextAttack;
 
 				nextAttack = GetRandAttack();
-				//while ((int)NPC.ai[0] == nextAttack) nextAttack = GetRandAttack();
+				while ((int)NPC.ai[0] == nextAttack) nextAttack = GetRandAttack();
 
 				attackDone = false;
 				attackTimer = 0;
@@ -165,7 +166,30 @@ namespace Zylon.NPCs.Bosses.Scavenger
 		public void WarpBlitz() {
 			attackTimer++;
 			if (attackTimer == 1) {
-				NPC.Center = target.Center - new Vector2(0, warpFloat).RotatedBy(MathHelper.ToRadians(warpFloat2));
+				if (attackMode != 0) {
+					if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<ScavengerDespawn>(), 0, 0f);
+					warpTimer = 0;
+					totalAttackTimer = 0;
+				}
+				else specialWarp = true;
+
+				attackFloat = target.Center.X;
+				attackFloat2 = target.Center.Y;
+
+				NPC.Center = target.Center - new Vector2(0, warpFloat).RotatedBy(warpFloat2);
+				NPC.velocity = new Vector2(0, 8).RotatedBy(warpFloat2+MathHelper.PiOver2*warpBlitzDir);
+			}
+			if (attackTimer % 5 == 0 && Main.netMode != NetmodeID.MultiplayerClient && attackTimer >= 15*hpLeft-3 && attackTimer <= 45-15*hpLeft+3) {
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<BigZero2>(), NPC.damage/3, 0f, -1, attackFloat, attackFloat2);
+			}
+			if (attackTimer >= 15) {
+				specialWarp = attackMode < 11;
+				warpTimer++;
+				if (attackTimer == 45) {
+					attackMode++;
+					attackTimer = 0;
+					if (!specialWarp) attackDone = true;
+				}
 			}
 		}
 		public void DirectionSlam() {
@@ -323,15 +347,21 @@ namespace Zylon.NPCs.Bosses.Scavenger
 			if (attackTimer >= 60) attackDone = true;
 		}
 		private int GetRandAttack() {
-			return 3; //Main.rand.Next(3);
+			return Main.rand.Next(4);
 		}
 		private void WarpSetup() { //Increment warp to start the teleport animation and to determine the location of the spawn.
 			if (warpTimer == 1) {
 				float atk = nextAttack;
 
 				if ((nextAttack == 3f && !specialWarp) || specialWarp && NPC.ai[0] == 3f) {
-					warpFloat = Main.rand.Next(100, 251); //Offset from center of player
+					warpFloat = Main.rand.Next(400, 451); //Offset from center of player
 					warpFloat2 = Main.rand.NextFloat(MathHelper.TwoPi); //Angle from player
+
+					warpBlitzDir = 1;
+					if (Main.rand.NextBool()) warpBlitzDir = -1;
+
+					//Stop running away...
+					if (target.velocity.Length() > 2f) warpFloat2 = target.velocity.ToRotation() + MathHelper.PiOver2 + MathHelper.PiOver4*warpBlitzDir + Main.rand.NextFloat(-MathHelper.PiOver4/2f, MathHelper.PiOver4/2f); //Main.rand.NextFloat(-MathHelper.PiOver4, MathHelper.PiOver4);
 				}
 				else if ((nextAttack == 2f && !specialWarp) || specialWarp && NPC.ai[0] == 2f) {
 					int check = 0;
