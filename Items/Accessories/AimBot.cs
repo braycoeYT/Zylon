@@ -16,7 +16,7 @@ namespace Zylon.Items.Accessories
 		public override void UpdateAccessory(Player player, bool hideVisual) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			p.aimBot = true;
-			player.GetDamage(DamageClass.Ranged) -= 0.20f;
+			player.GetDamage(DamageClass.Ranged) -= 0.2f;
 		}
 	}
 }

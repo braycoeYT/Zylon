@@ -48,7 +48,7 @@ namespace Zylon.Items.Spears
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
-			recipe.AddIngredient(ItemType<Bars.DarkronBar>(), 9);
+			recipe.AddIngredient(ItemType<Bars.DarkronBar>(), 12);
 			recipe.AddIngredient(ItemType<Materials.SoulofByte>(), 20);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

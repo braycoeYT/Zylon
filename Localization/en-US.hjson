@@ -473,6 +473,11 @@ Mods: {
 				DisplayName: Potion Fatigue
 				Description: You have drank too many potions!
 			}
+
+			DarkAbsolution: {
+				DisplayName: Dark Absolution
+				Description: The darkness is slowing your life loss
+			}
 		}
 
 		Items: {
@@ -492,6 +497,7 @@ Mods: {
 					'''
 					'Script kiddie'
 					Allows most ammo to chase after nearby enemies
+					Ammo loses tracking abilties after striking a foe
 					Decreases ranged damage by 20%
 					'''
 			}
@@ -689,7 +695,7 @@ Mods: {
 				DisplayName: Gelatin Comet
 				Tooltip:
 					'''
-					When under 25% mana, rains giant damaging mana stars from the sky
+					When under 25% mana, occasionally rains giant damaging mana stars from the sky
 					Giant mana stars have a 20% chance to become collectable versions worth 20 mana
 					Allows mana to overflow to up to 40 extra
 					'''
@@ -894,7 +900,7 @@ Mods: {
 				Tooltip:
 					'''
 					'Make a wish!'
-					Having under 25% max mana causes giant mana stars to rain from the sky
+					Having under 25% max mana causes giant mana stars to occasionally rain from the sky
 					Mana stars can damage enemies and have a 20% chance to explode into collectable versions
 					Collectable versions are worth 20 mana
 					'''
@@ -1603,19 +1609,53 @@ Mods: {
 					'''
 			}
 
-			DiskbringerHeadpiece: {
-				DisplayName: Diskbringer Headpiece
-				Tooltip: Increases mining speed by 12%
+			DarkronBoots: {
+				DisplayName: Darkron Boots
+				Tooltip: Increases movement and attack speed by 9%
 			}
 
-			DiskbringerLegpieces: {
-				DisplayName: Diskbringer Legpieces
-				Tooltip: Grants immunity to desert winds
+			DarkronBreastplate: {
+				DisplayName: Darkron Breastplate
+				Tooltip:
+					'''
+					Increases your max number of minions by 1
+					Increases critical strike damage by 10%
+					'''
 			}
 
-			DiskbringerTorso: {
-				DisplayName: Diskbringer Torso
-				Tooltip: Increases max life by 10%
+			DarkronCrown: {
+				DisplayName: Darkron Crown
+				Tooltip:
+					'''
+					Increases your max number of minions by 1
+					Increases summon damage and crit chance by 4%
+					'''
+			}
+
+			DarkronHeadgear: {
+				DisplayName: Darkron Headgear
+				Tooltip:
+					'''
+					Increases maximum mana by 60
+					Increases mana regeneration by 1
+					Increases magic damage and crit chance by 8%
+					'''
+			}
+
+			DarkronHelmet: {
+				DisplayName: Darkron Helmet
+				Tooltip: Increases ranged damage by 15%
+			}
+
+			DarkronMask: {
+				DisplayName: Darkron Mask
+				Tooltip: Increases melee damage and critical strike chance by 7%
+				SetBonus:
+					'''
+					Damage taken is converted into debuff damage over time
+					Taking damage while the debuff is active will hurt the player normally
+					The debuff halves all additional damage taken while active
+					'''
 			}
 
 			GooeyCover: {

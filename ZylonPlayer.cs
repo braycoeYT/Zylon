@@ -10,6 +10,7 @@ using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using System.Linq;
+using Terraria.WorldBuilding;
 
 namespace Zylon
 {
@@ -104,6 +105,8 @@ namespace Zylon
 		public bool accursedHand;
 		public bool hitmansCharm;
 		public bool aimBot;
+		public bool darkAbsolution;
+		public bool darkronSetBonus;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -230,6 +233,8 @@ namespace Zylon
 			accursedHand = false;
 			hitmansCharm = false;
 			aimBot = false;
+			darkAbsolution = false;
+			darkronSetBonus = false;
 
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -257,6 +262,9 @@ namespace Zylon
 			shroomed = false;
 			deadlyToxins = false;
 			elemDegen = false;
+			searedFlame = false;
+			ectoburn = false;
+			darkAbsolution = false;
 			fixCooldownIgnore = false;
 			hitTimer30 = 0;
 			sojDamageCount = 0;
@@ -350,6 +358,12 @@ namespace Zylon
 				Player.lifeRegenTime = 0;
 				Player.lifeRegen -= 28;
 			}
+			if (darkAbsolution) {
+				if (Player.lifeRegen > 0)
+					Player.lifeRegen = 0;
+				Player.lifeRegenTime = 0;
+				Player.lifeRegen -= 30;
+			}
 			hitTimer30 -= 1;
 			sojCooldown -= 1;
 
@@ -363,6 +377,9 @@ namespace Zylon
 			if (royalArgentumChestpiece) {
 				if (Player.lifeRegen < 0) {
 					Player.lifeRegen = (int)(Player.lifeRegen*0.8f);
+
+					//Do not modify Darkron armor set bonus.
+					if (Player.HasBuff(BuffType<Buffs.Armor.DarkAbsolution>())) Player.lifeRegen -= 6;
 				}
 			}
 
@@ -370,6 +387,9 @@ namespace Zylon
 			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") { //Double debuff power in Abyssworld seed
 				if (Player.lifeRegen < 0) {
 					Player.lifeRegen *= 2;
+
+					//Do not modify Darkron armor set bonus.
+					if (Player.HasBuff(BuffType<Buffs.Armor.DarkAbsolution>())) Player.lifeRegen += 30;
 				}
 			}
 		}
@@ -837,6 +857,19 @@ namespace Zylon
 				float loss = 1f + (potionFatigue-5)/10f;
                 modifiers.FinalDamage *= loss;
 			}
+
+			if (darkronSetBonus && Player.HasBuff(BuffType<Buffs.Armor.DarkAbsolution>())) {
+				modifiers.FinalDamage *= 0.5f;
+
+				SoundEngine.PlaySound(SoundID.NPCHit5.WithPitchOffset(-1f), Player.Center);
+
+				for (int i = 0; i < 10; i++) {
+					Dust dust = Dust.NewDustDirect(Player.position, Player.width, Player.height, DustType<Dusts.BlackDust>());
+					dust.noGravity = true;
+					dust.scale = 1.5f;
+					dust.velocity = new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(36*i));
+				}
+			}
         }
         public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo) {
 			if (rootGuard && Player.whoAmI == Main.myPlayer) for (int x = 0; x < 3; x++) {
@@ -873,6 +906,29 @@ namespace Zylon
 
 		public override bool FreeDodge(Player.HurtInfo info)
         {
+			if (darkronSetBonus && !Player.HasBuff(BuffType<Buffs.Armor.DarkAbsolution>())) {
+				Player.AddBuff(BuffType<Buffs.Armor.DarkAbsolution>(), info.Damage*4);
+
+				SoundEngine.PlaySound(SoundID.NPCHit5.WithPitchOffset(-1f), Player.Center);
+
+				for (int i = 0; i < 15; i++) {
+					Dust dust = Dust.NewDustDirect(Player.position, Player.width, Player.height, DustType<Dusts.BlackDust>());
+					dust.noGravity = true;
+					dust.scale = 2f;
+					dust.velocity = new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(24*i));
+				}
+
+				//Manually dodge the attack.
+				Player.immune = true;
+				Player.immuneTime = 80;
+				if (Player.longInvince) Player.immuneTime += 40;
+				for (int i = 0; i < Player.hurtCooldowns.Length; i++) {
+					Player.hurtCooldowns[i] = Player.immuneTime;
+				}
+
+				return true;
+			}
+
 			if (stealthPotion && Main.rand.NextFloat() < .04f)
 			{
 				Player.NinjaDodge();

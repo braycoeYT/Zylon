@@ -24,6 +24,7 @@ namespace Zylon.Projectiles
 				if (projectile.type == ProjectileID.BoneArrowFromMerchant) projectile.penetrate = 1;
 			}
 		}
+		bool hasHit;
 		bool init;
         public override bool PreAI(Projectile projectile) {
             Player player = Main.player[Main.myPlayer];
@@ -129,7 +130,7 @@ namespace Zylon.Projectiles
 				damageCooldown--;
 				if (damageCooldown == 0) projectile.friendly = true;
             }
-			if (p.aimBot && player.HeldItem.DamageType == DamageClass.Ranged && projectile.type == player.ChooseAmmo(player.HeldItem).shoot) {
+			if (p.aimBot && !hasHit && player.HeldItem.DamageType == DamageClass.Ranged && projectile.type == player.ChooseAmmo(player.HeldItem).shoot) {
 				float projSpeed = projectile.velocity.Length();
 
 				float origDist = 300f;
@@ -177,6 +178,8 @@ namespace Zylon.Projectiles
 					projectile.Kill(); //projectile.damage = (int)(projectile.damage*0.3f);
 				if (projectile.damage < 1) projectile.damage = 1;
 			}
+
+			hasHit = true;
         }
         public override bool OnTileCollide(Projectile projectile, Vector2 oldVelocity) {
 			if (tileBounceCount > 0) {
