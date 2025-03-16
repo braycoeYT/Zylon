@@ -10,7 +10,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace Zylon.Items.Bags
 {
-	public class DirtballBag : ModItem
+	public class ScavengerBag : ModItem
 	{
 		public override void SetStaticDefaults() {
 			ItemID.Sets.BossBag[Type] = true;
@@ -30,29 +30,17 @@ namespace Zylon.Items.Bags
 			return true;
 		}
 		public override void ModifyItemLoot(ItemLoot itemLoot) {
-			itemLoot.Add(ItemDropRule.Coins(Item.buyPrice(0, 2), true));
-			itemLoot.Add(ItemDropRule.Common(ItemType<Accessories.EnchantedDirtClump>(), 1));
-			itemLoot.Add(new CommonDrop(ItemID.DirtBlock, 1, 30, 60));
-			itemLoot.Add(new CommonDrop(ItemID.MudBlock, 1, 20, 40));
-			itemLoot.Add(new CommonDrop(ItemID.DirtRod, 4));
-			itemLoot.Add(new CommonDrop(ModContent.ItemType<Items.Misc.Dirtthrower>(), 20));
-			itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.MuddyGreatsword>(), ModContent.ItemType<Items.Yoyos.Dirtglob>(), ModContent.ItemType<Items.Bows.Dirty3String>(), ModContent.ItemType<Items.Blowpipes.DirtFunnel>(), ModContent.ItemType<Items.Wands.ScepterofDirt>(), ModContent.ItemType<Items.Accessories.DirtRegalia>()));
-			
-			//Remix and getfixedboi change item progression, so don't drop on those
-			LeadingConditionRule leadingConditionRule = new LeadingConditionRule(new Conditions.NotRemixSeed());
-			leadingConditionRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.OvergrownHilt>(), ModContent.ItemType<Items.Guns.OvergrownHandgunFragment>(), ModContent.ItemType<Items.MagicGuns.OvergrownElectricalComponent>()));
-			itemLoot.Add(leadingConditionRule);
+			itemLoot.Add(ItemDropRule.Common(ItemType<Accessories.Codebreaker>(), 1));
+			itemLoot.Add(ItemDropRule.Common(ItemType<Bars.DarkronBar>(), 1, 15, 30));
+			itemLoot.Add(ItemDropRule.Common(ItemType<Materials.SoulofByte>(), 1, 25, 40));
+			itemLoot.Add(ItemDropRule.Coins(Item.buyPrice(0, 35), true));
 
-			itemLoot.Add(new CommonDrop(ItemType<Vanity.DirtballMask>(), 7));
-			itemLoot.Add(new CommonDrop(ModContent.ItemType<Items.Pets.CreepyBlob>(), 8));
-			itemLoot.Add(new CommonDrop(ModContent.ItemType<Bags.BagofFruits>(), 5));
-			itemLoot.Add(new CommonDrop(ModContent.ItemType<Food.MudPie>(), 5));
-			itemLoot.Add(new CommonDrop(ItemID.DirtiestBlock, 1000000));
+			//itemLoot.Add(new CommonDrop(ItemType<Vanity.AdenebMask>(), 7)).OnFailedRoll(new CommonDrop(ItemType<Vanity.PolandballMask>(), 10));
 		}
-		public override void RightClick(Player player) {
+        public override void RightClick(Player player) {
             if (Main.rand.NextBool(20)) Zylon.ZylonVanity(player);
         }
-		public override Color? GetAlpha(Color lightColor) {
+        public override Color? GetAlpha(Color lightColor) {
 			return Color.Lerp(lightColor, Color.White, 0.4f);
 		}
 		public override void PostUpdate() {

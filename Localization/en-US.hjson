@@ -478,6 +478,21 @@ Mods: {
 				DisplayName: Dark Absolution
 				Description: The darkness is slowing your life loss
 			}
+
+			DarkstrandAdvancedDebuff: {
+				DisplayName: Darkstrand Advanced Debuff
+				Description: Mods.Zylon.Buffs.DarkstrandAdvancedDebuff.Description
+			}
+
+			DarkstrandDebuff: {
+				DisplayName: Darkstrand Debuff
+				Description: Mods.Zylon.Buffs.DarkstrandDebuff.Description
+			}
+
+			CodebreakerCooldown: {
+				DisplayName: Codebreaker Cooldown
+				Description: Recalibrating...
+			}
 		}
 
 		Items: {
@@ -560,6 +575,17 @@ Mods: {
 					'''
 					Increases whip speed by 10% and range by 15%
 					Gives whips a chance to inflict a low-tier debuff on enemy hits
+					'''
+			}
+
+			Codebreaker: {
+				DisplayName: Codebreaker
+				Tooltip:
+					'''
+					Increases movement speed by 15% and wingtime by 0.5 seconds
+					Grants the player a dodge with a 45 second cooldown
+					After the dodge, the player has a much longer invincibility time
+					The player begins to glitch out shortly after a dodge
 					'''
 			}
 
@@ -1628,7 +1654,7 @@ Mods: {
 				Tooltip:
 					'''
 					Increases your max number of minions by 1
-					Increases summon damage and crit chance by 4%
+					Increases summon damage and crit chance by 6%
 					'''
 			}
 
@@ -3910,6 +3936,11 @@ Mods: {
 				Tooltip: Releases claws on use
 			}
 
+			DuskCleaver: {
+				DisplayName: Dusk Cleaver
+				Tooltip: Striking foes releases homing dark energies over time
+			}
+
 			Eternia2000: {
 				DisplayName: Eternia 2000
 				Tooltip:
@@ -4235,7 +4266,11 @@ Mods: {
 
 			StairwaytoHeaven: {
 				DisplayName: Stairway to Heaven
-				Tooltip: Fires a barrage of light beams
+				Tooltip:
+					'''
+					Fires a barrage of erratic light beams
+					Light beams split at random or on contact
+					'''
 			}
 
 			Sunburn: {
@@ -4412,6 +4447,11 @@ Mods: {
 				Tooltip: Smothers your enemies in swords
 			}
 
+			Blackout: {
+				DisplayName: Blackout
+				Tooltip: Barrages enemies with returning dark orbs
+			}
+
 			CarnalliteWand: {
 				DisplayName: Carnallite Wand
 				Tooltip: Creates a line of leaves near the player
@@ -4522,15 +4562,26 @@ Mods: {
 					'''
 			}
 
+			Darkstrand: {
+				DisplayName: Darkstrand
+				Tooltip:
+					'''
+					{$CommonItemTooltip.SummonTagDamage}
+					{$CommonItemTooltip.Whips}
+					After striking a foe, spawns several dark energies from above to chase foes
+					Dark energies only spawn during the whip's first hit
+					'''
+			}
+
 			EmeraldWhip: {
 				DisplayName: Emerald Whip
 				Tooltip:
 					'''
+					{$CommonItemTooltip.SummonTagDamage}
+					{$CommonItemTooltip.Whips}
 					After striking a foe, creates a giant emerald above the player
 					The emerald shoots emerald bolts at nearby enemies
 					The emerald disappears after you stop hitting enemies
-					{$CommonItemTooltip.SummonTagDamage}
-					{$CommonItemTooltip.Whips}
 					'''
 			}
 
@@ -4538,10 +4589,10 @@ Mods: {
 				DisplayName: Eye Lash
 				Tooltip:
 					'''
-					'Gross, but useful!'
-					Summons servants of cthulhu upon striking foes
 					{$CommonItemTooltip.SummonTagDamage}
 					{$CommonItemTooltip.Whips}
+					'Gross, but useful!'
+					Summons servants of cthulhu upon striking foes
 					'''
 			}
 
@@ -4549,11 +4600,11 @@ Mods: {
 				DisplayName: Living Whip
 				Tooltip:
 					'''
+					{$CommonItemTooltip.SummonTagDamage}
+					{$CommonItemTooltip.Whips}
 					Striking enemies will create temporary spirits of protection around the player
 					The player gains a point of defense for each active spirit
 					This effect caps at 10 spirits
-					{$CommonItemTooltip.SummonTagDamage}
-					{$CommonItemTooltip.Whips}
 					'''
 			}
 
@@ -4561,11 +4612,11 @@ Mods: {
 				DisplayName: Giegue
 				Tooltip:
 					'''
+					{$CommonItemTooltip.SummonTagDamage}
+					{$CommonItemTooltip.Whips}
 					'Go home now! Perish with the rest of the ugly Earth People.'
 					Striking foes will steal mana from enemies
 					If the player has at least 40 mana, will use mana to cast a psychokinetic attack
-					{$CommonItemTooltip.SummonTagDamage}
-					{$CommonItemTooltip.Whips}
 					'''
 			}
 
@@ -4583,9 +4634,9 @@ Mods: {
 				DisplayName: Starweaver
 				Tooltip:
 					'''
-					Creates a powerful trail of stardust fragments behind the whip
 					{$CommonItemTooltip.SummonTagDamage}
 					{$CommonItemTooltip.Whips}
+					Creates a powerful trail of stardust fragments behind the whip
 					'''
 			}
 
@@ -4894,6 +4945,11 @@ Mods: {
 
 			DarkronBar: {
 				DisplayName: Darkron Bar
+				Tooltip: ""
+			}
+
+			ScavengerBag: {
+				DisplayName: Treasure Bag (Matrix Scavenger)
 				Tooltip: ""
 			}
 		}
@@ -5472,8 +5528,14 @@ Mods: {
 			AssassinsArrow.DisplayName: Assassins Arrow
 			AssassinsBullet.DisplayName: Assassins Bullet
 			AssassinsDart.DisplayName: Assassins Dart
-			ShadeApprenticeProj.DisplayName: Shade Apprentice Proj
-			BigZero2.DisplayName: Big Zero2
+			ShadeApprenticeProj.DisplayName: Shade Apprentice
+			BigZero2.DisplayName: Big Zero
+			DuskCleaverProj.DisplayName: Dusk Cleaver
+			DuskCleaverProj_Mini.DisplayName: Dusk Cleaver
+			Darkstrand.DisplayName: Darkstrand
+			Darkstrand_Mini.DisplayName: Darkstrand
+			StairwaytoHeavenProj_2.DisplayName: Stairway to Heaven
+			BlackoutProj.DisplayName: Blackout
 		}
 
 		NPCs: {

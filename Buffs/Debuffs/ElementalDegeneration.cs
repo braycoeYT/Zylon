@@ -21,7 +21,7 @@ namespace Zylon.Buffs.Debuffs
             player.statDefense *= 0.8f;
             if (Main.rand.NextBool(3)) {
 				int dustType = ModContent.DustType<Dusts.ElemDustGreen>();
-				if (Main.rand.NextBool()) dustType = ModContent.DustType<Dusts.ElemDustGreen>();
+				if (Main.rand.NextBool()) dustType = ModContent.DustType<Dusts.ElemDustOrange>();
 				Dust dust = Dust.NewDustDirect(player.position, player.width, player.height, dustType, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
 				dust.noGravity = true;
 			}
@@ -32,7 +32,7 @@ namespace Zylon.Buffs.Debuffs
             //    npc.confused = true;
             if (Main.rand.NextBool(3)) {
 				int dustType = ModContent.DustType<Dusts.ElemDustGreen>();
-				if (Main.rand.NextBool()) dustType = ModContent.DustType<Dusts.ElemDustGreen>();
+				if (Main.rand.NextBool()) dustType = ModContent.DustType<Dusts.ElemDustOrange>();
 				Dust dust = Dust.NewDustDirect(npc.position, npc.width, npc.height, dustType, Main.rand.NextFloat(-2, 2), Main.rand.NextFloat(-2, 2));
 				dust.noGravity = true;
 			}

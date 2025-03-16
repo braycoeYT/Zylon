@@ -158,6 +158,9 @@ namespace Zylon.NPCs.Bosses.Scavenger
 				case 3:
 					WarpBlitz();
 					break;
+				case 4:
+
+					break;
 			}
 			if (warpTimer > 0) WarpSetup();
 
@@ -430,6 +433,24 @@ namespace Zylon.NPCs.Bosses.Scavenger
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Times.NightTime,
 				new FlavorTextBestiaryInfoElement("???")
 			});
+		}
+        public override void BossLoot(ref string name, ref int potionType) {
+            potionType = ItemID.GreaterHealingPotion;
+        }
+        public override void ModifyNPCLoot(NPCLoot npcLoot) {
+			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
+			//npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.AdenebTrophy>(), 10));
+
+			//notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.AdenebMask>(), 7)).OnFailedRoll(new CommonDrop(ModContent.ItemType<Items.Vanity.PolandballMask>(), 10));
+			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Bars.DarkronBar>(), 1, 15, 30));
+			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Materials.SoulofByte>(), 1, 25, 40));
+
+			npcLoot.Add(notExpertRule);
+
+			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<Items.Bags.ScavengerBag>()));
+
+			//npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeables.Relics.AdenebRelic>()));
+			//npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<Items.Pets.DiskDrive>(), 4));
 		}
     }
 }

@@ -107,6 +107,7 @@ namespace Zylon
 		public bool aimBot;
 		public bool darkAbsolution;
 		public bool darkronSetBonus;
+		public bool codebreaker;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -140,6 +141,7 @@ namespace Zylon
 		public int potionFatigue;
 		public int coreofMendingCounter;
 		public int nonCritCounter;
+		public int codebreakerGlitch;
 		public float summonCrit;
 		public float summonCritBoost;
 		public float damageVariation;
@@ -235,6 +237,7 @@ namespace Zylon
 			aimBot = false;
 			darkAbsolution = false;
 			darkronSetBonus = false;
+			codebreaker = false;
 
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -277,6 +280,7 @@ namespace Zylon
 			slimebenderDamage = 0;
 			slimebenderCore = 0;
 			nonCritCounter = 0;
+			codebreakerGlitch = 0;
 		}
 		public override void UpdateBadLifeRegen() {
 			//Update timers here, I guess.
@@ -906,6 +910,41 @@ namespace Zylon
 
 		public override bool FreeDodge(Player.HurtInfo info)
         {
+			if (stealthPotion && Main.rand.NextFloat() < .04f)
+			{
+				Player.NinjaDodge();
+				return true;
+			}
+			if (argentumHeadgear && Main.rand.NextFloat() < .08f) {
+				Player.NinjaDodge();
+				return true;
+			}
+
+			if (codebreaker && !Player.HasBuff(BuffType<Buffs.Accessories.CodebreakerCooldown>())) {
+				Player.immune = true;
+				Player.immuneTime = 180;
+				if (Player.longInvince) Player.immuneTime += 40;
+				for (int i = 0; i < Player.hurtCooldowns.Length; i++) {
+					Player.hurtCooldowns[i] = Player.immuneTime;
+				}
+				codebreakerGlitch = 120;
+				Player.AddBuff(BuffType<Buffs.Accessories.CodebreakerCooldown>(), 2700);
+				return true;
+			}
+
+			if (glassArmor && Player.whoAmI == Main.myPlayer)
+			{
+				int temp = info.Damage / 10;
+				if (temp < 3) temp = 3;
+				if (temp > 15) temp = 15;
+				int temp2 = (info.Damage + 20) / 20;
+				if (temp2 < 4) temp2 = 4;
+				if (temp2 > 8) temp2 = 8;
+				int z = 0;
+				for (int y = 0; y < Main.maxProjectiles; y++) if (Main.projectile[y].type == ProjectileType<Projectiles.GlassShard>() && Main.projectile[y].active == true) z++;
+				if (z < 40) for (int x = 0; x < temp; x++) Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(0, temp2).RotatedByRandom(Math.PI * 2), ModContent.ProjectileType<Projectiles.GlassShard>(), info.Damage, 2.5f, Main.myPlayer);
+			}
+
 			if (darkronSetBonus && !Player.HasBuff(BuffType<Buffs.Armor.DarkAbsolution>())) {
 				Player.AddBuff(BuffType<Buffs.Armor.DarkAbsolution>(), info.Damage*4);
 
@@ -929,27 +968,6 @@ namespace Zylon
 				return true;
 			}
 
-			if (stealthPotion && Main.rand.NextFloat() < .04f)
-			{
-				Player.NinjaDodge();
-				return true;
-			}
-			if (argentumHeadgear && Main.rand.NextFloat() < .08f) {
-				Player.NinjaDodge();
-				return true;
-			}
-			if (glassArmor && Player.whoAmI == Main.myPlayer)
-			{
-				int temp = info.Damage / 10;
-				if (temp < 3) temp = 3;
-				if (temp > 15) temp = 15;
-				int temp2 = (info.Damage + 20) / 20;
-				if (temp2 < 4) temp2 = 4;
-				if (temp2 > 8) temp2 = 8;
-				int z = 0;
-				for (int y = 0; y < Main.maxProjectiles; y++) if (Main.projectile[y].type == ProjectileType<Projectiles.GlassShard>() && Main.projectile[y].active == true) z++;
-				if (z < 40) for (int x = 0; x < temp; x++) Projectile.NewProjectile(Player.GetSource_FromThis(), Player.Center, new Vector2(0, temp2).RotatedByRandom(Math.PI * 2), ModContent.ProjectileType<Projectiles.GlassShard>(), info.Damage, 2.5f, Main.myPlayer);
-			}
 			return false;
         }
 
@@ -1045,6 +1063,17 @@ namespace Zylon
 						potionFatigue++;
 				}
 				if (potionFatigue > 5) Player.AddBuff(BuffType<Buffs.Debuffs.PotionFatigue>(), 1);
+			}
+
+			if (codebreakerGlitch > 0) {
+				codebreakerGlitch--;
+				if (Main.rand.NextBool(5)) Player.velocity = new Vector2(Main.rand.NextFloat(-9, 9), Main.rand.NextFloat(-9, 9));
+
+				if (Main.rand.NextBool(3)) {
+					int dustType = DustType<Dusts.BinaryDust>();
+					Dust dust = Dust.NewDustDirect(Player.position, Player.width, Player.height, dustType, Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-3, 3));
+					dust.noGravity = true;
+				}
 			}
         }
         public override void HideDrawLayers(PlayerDrawSet drawInfo) {

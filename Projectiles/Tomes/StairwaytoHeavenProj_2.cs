@@ -6,54 +6,41 @@ using System;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
-using Terraria.Audio;
 
 namespace Zylon.Projectiles.Tomes
 {
-	public class StairwaytoHeavenProj : ModProjectile
+	public class StairwaytoHeavenProj_2 : ModProjectile
 	{
 		public override void SetDefaults() {
 			Projectile.width = 16;
 			Projectile.height = 16;
 			Projectile.aiStyle = -1;
-			Projectile.friendly = true;
-			Projectile.timeLeft = Main.rand.Next(60, 181);
+			Projectile.friendly = false;
+			Projectile.timeLeft = 9999;
 			Projectile.penetrate = 1;
 			Projectile.extraUpdates = 2;
 			Projectile.DamageType = DamageClass.Magic;
+			Projectile.scale = 0.6f;
 		}
         public override void AI() {
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;
-			Lighting.AddLight(Projectile.Center, Color.Yellow.ToVector3() * 0.4f);
+			Lighting.AddLight(Projectile.Center, Color.Yellow.ToVector3() * 0.2f);
+
+			if (Projectile.timeLeft <= 9969 || Projectile.ai[0] == 0f) Projectile.friendly = true;
         }
         public override void PostAI() {
-            for (int i = 0; i < 1; i++) {
+            if (Main.rand.NextBool(3)) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.YellowStarDust);
 				dust.noGravity = true;
 				dust.scale = 1.2f;
 			}
         }
-		public override bool OnTileCollide(Vector2 oldVelocity) {
-			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-			SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
-			if (Projectile.velocity.X != oldVelocity.X) {
-				Projectile.velocity.X = -oldVelocity.X;
-			}
-			if (Projectile.velocity.Y != oldVelocity.Y) {
-				Projectile.velocity.Y = -oldVelocity.Y;
-			}
-			return true;
-		}
         public override void OnKill(int timeLeft) {
-			for (int i = 0; i < 3; i++) {
+			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
+			for (int i = 0; i < 2; i++) {
 				Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.YellowStarDust);
 				dust.noGravity = true;
 				dust.scale = 2f;
-			}
-			float ignoreThis = 0f;
-			if (Projectile.penetrate == 0) ignoreThis = 1f;
-			if (Main.myPlayer == Projectile.owner) for (int i = 0; i < 2; i++) {
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.ToRadians(-15 + i*30)), ModContent.ProjectileType<StairwaytoHeavenProj_2>(), (int)(Projectile.damage*0.75f), Projectile.knockBack/2f, Projectile.owner, ignoreThis);
 			}
 		}
 		public override bool PreDraw(ref Color lightColor) {

@@ -1,4 +1,4 @@
-The best mod that starts with Z — we guarantee or your money back! Some cool stuff we add includes summon critical strike support, blowpipes being reworked into their own unique subclass, and several new prefixes for weapons and accessories! Warning: Mod does not work in multiplayer.
+A content mod I've been developing on and off since January 2020. Some cool stuff the mod adds includes summon critical strike support and blowpipes being reworked into their own unique subclass! Warning: Mod does not work in multiplayer.
 
 Mod Discord (spoilers, updates, and whatnot): https://discord.gg/x6G8rKduWc
 
@@ -11,10 +11,16 @@ Stats:
 ~Secret seeds: Abyssworld and Autumn.
 
 V0.0.4.6: Update
+~Added Darkron armor, Dusk Cleaver, Darkstrand, and Codebreaker.
+~Readded Blackout.
 ~Increased damage penalty of Aim Bot slightly, and no longer affects ammo that has already struck an enemy.
 ~Resprited Supernatural Comet.
-~Added Darkron armor (unobtainable for now).
-MATRIX SCAVENGER REWORKS: 35% complete
+~Resprited Seared Stone, and it no longer adheres to gravity.
+~Fixed ordering issue with whip tooltips.
+~Fixed issue with Elemental Degeneration debuff.
+~Modded bags now stack to 9999 instead of 999.
+~Made Stairway to Heaven more interesting.
+MATRIX SCAVENGER REWORKS: 65% complete
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

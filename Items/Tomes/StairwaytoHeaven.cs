@@ -9,7 +9,7 @@ namespace Zylon.Items.Tomes
 	public class StairwaytoHeaven : ModItem
 	{
 		public override void SetDefaults() {
-			Item.damage = 53;
+			Item.damage = 47;
 			Item.DamageType = DamageClass.Magic;
 			Item.width = 28;
 			Item.height = 30;
@@ -24,7 +24,7 @@ namespace Zylon.Items.Tomes
 			Item.shoot = ModContent.ProjectileType<Projectiles.Tomes.StairwaytoHeavenProj>();
 			Item.shootSpeed = 6f;
 			Item.noMelee = true;
-			Item.mana = 6;
+			Item.mana = 8;
 			Item.UseSound = SoundID.Item20;
 		}
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {

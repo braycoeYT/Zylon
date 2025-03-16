@@ -40,14 +40,14 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 
 			Projectile.rotation = MathHelper.TwoPi*Projectile.scale;
 
-			if (Timer <= 20) {
-				Projectile.scale = Timer/20f;
+			if (Timer <= 15) { //20
+				Projectile.scale = Timer/15f;
 				
 
 				if (Timer == 1) targetVel = Projectile.Center.DirectionTo(new Vector2(Projectile.ai[0], Projectile.ai[1])); //Main.player[Main.npc[ZylonGlobalNPC.scavengerBoss].target].Center);
 			}
-			else if (Timer >= 35) {
-				speed = (Timer-35)/15f;
+			else if (Timer >= 25) { //35
+				speed = (Timer-25)/15f;
 				if (speed > 1f) speed = 1f;
 				Projectile.velocity = targetVel*15f*speed;
 

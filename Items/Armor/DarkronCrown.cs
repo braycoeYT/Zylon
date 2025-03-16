@@ -21,8 +21,8 @@ namespace Zylon.Items.Armor
         public override void UpdateEquip(Player player) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			player.maxMinions += 1;
-			player.GetDamage(DamageClass.Summon) += 0.04f;
-			p.summonCritBoost += 4;
+			player.GetDamage(DamageClass.Summon) += 0.06f;
+			p.summonCritBoost += 0.06f;
         }
         public override void UpdateArmorSet(Player player) {
 			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.DarkronMask.SetBonus");
@@ -33,7 +33,7 @@ namespace Zylon.Items.Armor
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ModContent.ItemType<Bars.DarkronBar>(), 12);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}
 	}
