@@ -777,7 +777,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.AdenebTrophy>(), 10));
 
-			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.AdenebMask>(), 7)).OnFailedRoll(new CommonDrop(ModContent.ItemType<Items.Vanity.PolandballMask>(), 10));
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.BossMask.AdenebMask>(), 7)).OnFailedRoll(new CommonDrop(ModContent.ItemType<Items.Vanity.PolandballMask>(), 10));
 			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Materials.AdeniteCrumbles>(), 1, 8, 12));
 			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Materials.SearedStone>(), 1, 40, 60));
 

@@ -3,13 +3,11 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
-using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Zylon.Items.Bags;
 using Zylon.Projectiles.Bosses.Scavenger;
 
 namespace Zylon.NPCs.Bosses.Scavenger
@@ -441,7 +439,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
 			//npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.AdenebTrophy>(), 10));
 
-			//notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.AdenebMask>(), 7)).OnFailedRoll(new CommonDrop(ModContent.ItemType<Items.Vanity.PolandballMask>(), 10));
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.BossMask.ScavengerMask>(), 7));
 			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Bars.DarkronBar>(), 1, 15, 30));
 			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Materials.SoulofByte>(), 1, 25, 40));
 
@@ -450,7 +448,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<Items.Bags.ScavengerBag>()));
 
 			//npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeables.Relics.AdenebRelic>()));
-			//npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<Items.Pets.DiskDrive>(), 4));
+			//npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<Items.Pets.OldFashionedComputer>(), 4));
 		}
     }
 }

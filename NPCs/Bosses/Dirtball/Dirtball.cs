@@ -539,7 +539,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.DirtballTrophy>(), 10));
 
-			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.DirtballMask>(), 7));
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.BossMask.DirtballMask>(), 7));
 			notExpertRule.OnSuccess(new CommonDrop(ItemID.DirtBlock, 1, 25, 50));
 			notExpertRule.OnSuccess(new CommonDrop(ItemID.MudBlock, 1, 15, 30));
 			notExpertRule.OnSuccess(new CommonDrop(ItemID.DirtRod, 5));

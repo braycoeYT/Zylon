@@ -42,7 +42,7 @@ namespace Zylon.Items.Bags
 			leadingConditionRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Swords.AdeniteSecurityBlade>(), ModContent.ItemType<Items.Guns.AdeniteSecurityHandgun>(), ModContent.ItemType<Items.MagicGuns.AdeniteSecurityElectrifier>()));
 			itemLoot.Add(leadingConditionRule);
 
-			itemLoot.Add(new CommonDrop(ItemType<Vanity.AdenebMask>(), 7)).OnFailedRoll(new CommonDrop(ItemType<Vanity.PolandballMask>(), 10));
+			itemLoot.Add(new CommonDrop(ItemType<Vanity.BossMask.AdenebMask>(), 7)).OnFailedRoll(new CommonDrop(ItemType<Vanity.PolandballMask>(), 10));
 		}
         public override void RightClick(Player player) {
             if (Main.rand.NextBool(20)) Zylon.ZylonVanity(player);

@@ -34,8 +34,7 @@ namespace Zylon.Items.Bags
 			itemLoot.Add(ItemDropRule.Common(ItemType<Bars.DarkronBar>(), 1, 15, 30));
 			itemLoot.Add(ItemDropRule.Common(ItemType<Materials.SoulofByte>(), 1, 25, 40));
 			itemLoot.Add(ItemDropRule.Coins(Item.buyPrice(0, 35), true));
-
-			//itemLoot.Add(new CommonDrop(ItemType<Vanity.AdenebMask>(), 7)).OnFailedRoll(new CommonDrop(ItemType<Vanity.PolandballMask>(), 10));
+			itemLoot.Add(ItemDropRule.Common(ItemType<Vanity.BossMask.ScavengerMask>(), 7));
 		}
         public override void RightClick(Player player) {
             if (Main.rand.NextBool(20)) Zylon.ZylonVanity(player);

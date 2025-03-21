@@ -41,7 +41,10 @@ Mods: {
 			ElemGelCondition: Unleash the Elemental Ooze
 		}
 
-		Keybinds.DoublePluggedCord.DisplayName: Double-Plugged Cord Activation
+		Keybinds: {
+			DoublePluggedCord.DisplayName: Double-Plugged Cord Activation
+			Codebreaker.DisplayName: Codebreaker
+		}
 
 		Buffs: {
 			AdenebSpikeRing: {
@@ -493,6 +496,11 @@ Mods: {
 				DisplayName: Codebreaker Cooldown
 				Description: Recalibrating...
 			}
+
+			CeroandUni: {
+				DisplayName: Ceroand Uni
+				Description: Mods.Zylon.Buffs.CeroandUni.Description
+			}
 		}
 
 		Items: {
@@ -582,10 +590,11 @@ Mods: {
 				DisplayName: Codebreaker
 				Tooltip:
 					'''
-					Increases movement speed by 15% and wingtime by 0.5 seconds
 					Grants the player a dodge with a 45 second cooldown
 					After the dodge, the player has a much longer invincibility time
 					The player begins to glitch out shortly after a dodge
+					Alternatively, press (Codebreaker Keybind) to warp to the cursor
+					Warping will also activate the 45 second cooldown
 					'''
 			}
 
@@ -3574,6 +3583,15 @@ Mods: {
 					'''
 			}
 
+			OldFashionedComputer: {
+				DisplayName: Old-Fashioned Computer
+				Tooltip:
+					'''
+					'Back in tosh'
+					Summons Cero and Uni to follow you
+					'''
+			}
+
 			PlasticDinoFigurine: {
 				DisplayName: Plastic Dino Figurine
 				Tooltip:
@@ -4952,6 +4970,11 @@ Mods: {
 				DisplayName: Treasure Bag (Matrix Scavenger)
 				Tooltip: ""
 			}
+
+			ScavengerMask: {
+				DisplayName: Matrix Scavenger Mask
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -5536,6 +5559,7 @@ Mods: {
 			Darkstrand_Mini.DisplayName: Darkstrand
 			StairwaytoHeavenProj_2.DisplayName: Stairway to Heaven
 			BlackoutProj.DisplayName: Blackout
+			CeroPet.DisplayName: Cero
 		}
 
 		NPCs: {

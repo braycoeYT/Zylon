@@ -3,7 +3,7 @@ A content mod I've been developing on and off since January 2020. Some cool stuf
 Mod Discord (spoilers, updates, and whatnot): https://discord.gg/x6G8rKduWc
 
 Stats:
-~507 Items
+~516 Items
 ~4 Bosses:
 ~~~3 Prehardmode Bosses [i:2][i:789][i:282]
 ~~~1 Post-Moon Lord Boss [i:5130]
@@ -11,8 +11,8 @@ Stats:
 ~Secret seeds: Abyssworld and Autumn.
 
 V0.0.4.6: Update
-~Added Darkron armor, Dusk Cleaver, Darkstrand, and Codebreaker.
-~Readded Blackout.
+~Added Darkron armor, Dusk Cleaver, Darkstrand, and Codebreaker (unobtainable for now).
+~Readded Blackout (unobtainable for now).
 ~Increased damage penalty of Aim Bot slightly, and no longer affects ammo that has already struck an enemy.
 ~Resprited Supernatural Comet.
 ~Resprited Seared Stone, and it no longer adheres to gravity.
@@ -20,7 +20,9 @@ V0.0.4.6: Update
 ~Fixed issue with Elemental Degeneration debuff.
 ~Modded bags now stack to 9999 instead of 999.
 ~Made Stairway to Heaven more interesting.
-MATRIX SCAVENGER REWORKS: 65% complete
+~Removed Archangel's Wings, Plantainarang, and Timewarp Assault Rifle.
+~Fixed a bug that prevented the Toy Claw from being obtainable.
+MATRIX SCAVENGER REWORKS: 75% complete
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

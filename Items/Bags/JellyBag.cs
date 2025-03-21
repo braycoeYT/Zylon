@@ -37,7 +37,7 @@ namespace Zylon.Items.Bags
 			itemLoot.Add(ItemDropRule.Common(ItemType<Materials.EerieBell>(), 1, 40, 50));
 			itemLoot.Add(ItemDropRule.Common(ItemType<Materials.OtherworldlyFang>(), 1, 45, 55));
 			itemLoot.Add(ItemDropRule.Common(ItemID.MagicConch, 3));
-			itemLoot.Add(ItemDropRule.Common(ItemType<Vanity.JellyMask>(), 7));
+			itemLoot.Add(ItemDropRule.Common(ItemType<Vanity.BossMask.JellyMask>(), 7));
 			itemLoot.Add(ItemDropRule.Coins(Item.buyPrice(0, 18), true));
 		}
 		public override void RightClick(Player player) {

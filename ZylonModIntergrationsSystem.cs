@@ -39,7 +39,7 @@ namespace Zylon
 				ModContent.ItemType<Items.Pets.DS_91Controller>(),
 				ModContent.ItemType<Items.Accessories.EnchantedDirtClump>(),
 				ModContent.ItemType<Items.Placeables.Trophies.DirtballTrophy>(),
-				ModContent.ItemType<Items.Vanity.DirtballMask>()
+				ModContent.ItemType<Items.Vanity.BossMask.DirtballMask>()
 			};
 			var customPortrait = (SpriteBatch sb, Rectangle rect, Color color) => { //ignore
 				Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Dirtball/Dirtball").Value;
@@ -105,7 +105,7 @@ namespace Zylon
 				//ModContent.ItemType<Items.Pets.DiskiteDrive>(),
 				//ModContent.ItemType<Items.Accessories.>(),
 				//ModContent.ItemType<Items.Placeables.Trophies.AdenebTrophy>(),
-				ModContent.ItemType<Items.Vanity.AdenebMask>(),
+				ModContent.ItemType<Items.Vanity.BossMask.AdenebMask>(),
 				ModContent.ItemType<Items.Vanity.PolandballMask>()
 			};
 			customPortrait = (SpriteBatch sb, Rectangle rect, Color color) => {
@@ -139,7 +139,7 @@ namespace Zylon
 				ModContent.ItemType<Items.Pets.EldritchGland>(),
 				ModContent.ItemType<Items.Accessories.Wings.EldritchTentacles>(),
 				ModContent.ItemType<Items.Placeables.Trophies.JellyTrophy>(),
-				ModContent.ItemType<Items.Vanity.JellyMask>()
+				ModContent.ItemType<Items.Vanity.BossMask.JellyMask>()
 			};
 			customPortrait = (SpriteBatch sb, Rectangle rect, Color color) => {
 				Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Jelly/EldritchJellyfish").Value;
@@ -172,7 +172,7 @@ namespace Zylon
 				ModContent.ItemType<Items.Pets.AncientGameController>(),
 				ModContent.ItemType<Items.Accessories.Fantesseract>(),
 				ModContent.ItemType<Items.Placeables.Trophies.SaburTrophy>(),
-				ModContent.ItemType<Items.Vanity.SaburMask>()
+				ModContent.ItemType<Items.Vanity.BossMask.SaburMask>()
 			};
 			customPortrait = (SpriteBatch sb, Rectangle rect, Color color) => {
 				Texture2D texture = ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/SaburRex/SaburRex_Bestiary").Value;

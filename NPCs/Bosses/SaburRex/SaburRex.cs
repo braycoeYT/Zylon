@@ -920,7 +920,7 @@ namespace Zylon.NPCs.Bosses.SaburRex
 			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.SaburTrophy>(), 10));
 
-			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.SaburMask>(), 7));
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.BossMask.SaburMask>(), 7));
 			notExpertRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Boomerangs.AussieDagger>(), ModContent.ItemType<Items.Blowpipes.HollowKnife>(), ModContent.ItemType<Items.Wands.BladeTorrentStaff>(), ModContent.ItemType<Items.Minions.SwordigamStaff>()));
 			notExpertRule.OnSuccess(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ModContent.ItemType<Items.Yoyos.TheRetractor>(), ModContent.ItemType<Items.Bows.Dirkbow>(), ModContent.ItemType<Items.Tomes.TaleoftheEverlastingBlade>(), ModContent.ItemType<Items.Whips.Snakesabre>()));
 			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Materials.FantasticalFinality>(), 1, 10, 10));

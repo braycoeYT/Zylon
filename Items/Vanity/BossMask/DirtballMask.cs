@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace Zylon.Items.Vanity
+namespace Zylon.Items.Vanity.BossMask
 {
 	[AutoloadEquip(EquipType.Head)]
 	public class DirtballMask : ModItem

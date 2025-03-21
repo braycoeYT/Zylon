@@ -929,6 +929,8 @@ namespace Zylon
 				}
 				codebreakerGlitch = 120;
 				Player.AddBuff(BuffType<Buffs.Accessories.CodebreakerCooldown>(), 2700);
+
+				SoundEngine.PlaySound(SoundID.Item93.WithPitchOffset(-1f), Player.Center);
 				return true;
 			}
 
@@ -1131,6 +1133,16 @@ namespace Zylon
 					if (Main.rand.NextBool(4) && (Player.HasItem(ItemID.CellPhone) || Player.HasItem(ItemID.Shellphone) || Player.HasItem(ItemID.ShellphoneDummy) || Player.HasItem(ItemID.ShellphoneHell) || Player.HasItem(ItemID.ShellphoneOcean) || Player.HasItem(ItemID.ShellphoneSpawn) || Player.HasItem(ItemID.PDA)))
 						deathMessage = "'s phone reached 200% charge.";
 					Player.KillMe(PlayerDeathReason.ByCustomReason(Player.name + deathMessage), 1, 0);
+				}
+			}
+			if (ZylonKeybindSystem.CodebreakerKeybind.JustPressed && codebreaker && !Player.HasBuff(BuffType<Buffs.Accessories.CodebreakerCooldown>()) && Player.active && Player.statLife > 0) {
+				Player.Center = Main.MouseWorld;
+				Player.AddBuff(BuffType<Buffs.Accessories.CodebreakerCooldown>(), 2700);
+				SoundEngine.PlaySound(SoundID.Item93.WithPitchOffset(-1f), Player.Center);
+				for (int i = 0; i < 10; i++) {
+					int dustType = DustType<Dusts.BinaryDust>();
+					Dust dust = Dust.NewDustDirect(Player.position, Player.width, Player.height, dustType, Main.rand.NextFloat(-3, 3), Main.rand.NextFloat(-3, 3));
+					dust.noGravity = true;
 				}
 			}
 		}

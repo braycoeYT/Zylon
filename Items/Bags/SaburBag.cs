@@ -29,7 +29,7 @@ namespace Zylon.Items.Bags
 		}
 		public override void ModifyItemLoot(ItemLoot itemLoot) {
 			itemLoot.Add(ItemDropRule.Coins(Item.buyPrice(7, 50), true));
-			itemLoot.Add(new CommonDrop(ItemType<Vanity.SaburMask>(), 7));
+			itemLoot.Add(new CommonDrop(ItemType<Vanity.BossMask.SaburMask>(), 7));
 			itemLoot.Add(ItemDropRule.Common(ItemType<Accessories.Fantesseract>()));
 			itemLoot.Add(ItemDropRule.Common(ItemType<Materials.FantasticalFinality>(), 1, 13, 13));
 			itemLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(1, ItemType<Boomerangs.AussieDagger>(), ItemType<Blowpipes.HollowKnife>(), ItemType<Wands.BladeTorrentStaff>(), ItemType<Minions.SwordigamStaff>()));

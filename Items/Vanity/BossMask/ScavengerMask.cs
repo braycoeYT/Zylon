@@ -1,13 +1,11 @@
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace Zylon.Items.Vanity
+namespace Zylon.Items.Vanity.BossMask
 {
 	[AutoloadEquip(EquipType.Head)]
-	public class AdenebMask : ModItem
+	public class ScavengerMask : ModItem
 	{
 		public override void SetDefaults() {
 			Item.width = 22;

@@ -370,7 +370,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
 			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.JellyTrophy>(), 10));
 
-			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.JellyMask>(), 7));
+			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.BossMask.JellyMask>(), 7));
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Materials.EerieBell>(), 1, 30, 45));
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Materials.OtherworldlyFang>(), 1, 35, 50));
 			notExpertRule.OnSuccess(new CommonDrop(ItemID.MagicConch, 4));

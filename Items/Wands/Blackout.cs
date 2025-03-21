@@ -23,7 +23,7 @@ namespace Zylon.Items.Wands
 			Item.knockBack = 4.5f;
 			Item.value = Item.sellPrice(0, 4, 60);
 			Item.rare = ItemRarityID.Pink;
-			Item.UseSound = SoundID.Item43;
+			Item.UseSound = SoundID.Item20;
 			Item.autoReuse = true;
 			Item.useTurn = false;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Wands.BlackoutProj>();

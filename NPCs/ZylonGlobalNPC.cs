@@ -326,7 +326,7 @@ namespace Zylon.NPCs
         }
         public override void SetupTravelShop(int[] shop, ref int nextSlot) {
             if (Main.rand.NextFloat() < .75f || !Main.hardMode) {
-				switch (Main.rand.Next(3)) {
+				switch (Main.rand.Next(4)) {
 					case 0:
 						shop[nextSlot] = ItemType<Items.Accessories.IronfistMedal>();
 						break;
