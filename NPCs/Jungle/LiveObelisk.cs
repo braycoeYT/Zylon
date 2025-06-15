@@ -89,6 +89,7 @@ namespace Zylon.NPCs.Jungle
 		public override void ModifyNPCLoot(NPCLoot NPCLoot) {
 			NPCLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ModContent.ItemType<Items.Materials.ObeliskShard>(), 1, 1, 4), new CommonDrop(ModContent.ItemType<Items.Materials.ObeliskShard>(), 1, 2, 5)));
 			NPCLoot.Add(new DropBasedOnExpertMode(new CommonDrop(ItemID.Vine, 3), new CommonDrop(ItemID.Vine, 2)));
+			NPCLoot.Add(ItemDropRule.OneFromOptionsNotScalingWithLuck(150, ItemID.AncientCobaltHelmet, ItemID.AncientCobaltBreastplate, ItemID.AncientCobaltLeggings));
 		}
     }
 }

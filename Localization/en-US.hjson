@@ -4460,14 +4460,24 @@ Mods: {
 				Tooltip: Blasts an accelerating Archangel Shot
 			}
 
-			BladeTorrentStaff: {
-				DisplayName: Blade Torrent Staff
-				Tooltip: Smothers your enemies in swords
+			BlackSwan: {
+				DisplayName: Black Swan
+				Tooltip:
+					'''
+					Blasts a barrage of swan feathers everywhere
+					After some time, the feathers will target your cursor
+					Feather speed depends on distance from the cursor
+					'''
 			}
 
 			Blackout: {
 				DisplayName: Blackout
 				Tooltip: Barrages enemies with returning dark orbs
+			}
+
+			BladeTorrentStaff: {
+				DisplayName: Blade Torrent Staff
+				Tooltip: Smothers your enemies in swords
 			}
 
 			CarnalliteWand: {
@@ -4498,6 +4508,15 @@ Mods: {
 					'Is this what Conspiracy Joe was blabbering on about?'
 					Fires multi-colored shots of an unknown substance
 					Different colors inflict different debuffs
+					'''
+			}
+
+			HideousDuckling: {
+				DisplayName: Hideous Duckling
+				Tooltip:
+					'''
+					Rapidly fires hideous feathers at foes
+					The feathers reverse movement in sync every two seconds
 					'''
 			}
 
@@ -4557,6 +4576,15 @@ Mods: {
 					Fires high-gravity logs of wood
 					Has a 20% chance to replace logs with acorns
 					Acorns create damaging saplings upon tile collision
+					'''
+			}
+
+			UglyDuckling: {
+				DisplayName: Ugly Duckling
+				Tooltip:
+					'''
+					Rapidly fires ugly feathers at foes
+					The feathers retrack towards your cursor in sync every two seconds
 					'''
 			}
 
@@ -5560,6 +5588,10 @@ Mods: {
 			StairwaytoHeavenProj_2.DisplayName: Stairway to Heaven
 			BlackoutProj.DisplayName: Blackout
 			CeroPet.DisplayName: Cero
+			UglyDucklingProj.DisplayName: Ugly Duckling Proj
+			HideousDucklingProj.DisplayName: Hideous Duckling Proj
+			BlackSwanProj.DisplayName: Black Swan Proj
+			BlackSwanProj2.DisplayName: Black Swan Proj2
 		}
 
 		NPCs: {

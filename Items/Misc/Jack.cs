@@ -16,7 +16,7 @@ namespace Zylon.Items.Misc
 			Item.useTime = 15;
 			Item.knockBack = 1f;
 			Item.rare = ItemRarityID.White;
-			Item.value = Item.sellPrice(0, 20);
+			Item.value = Item.sellPrice(0, 0, 0, 19);
 			Item.DamageType = DamageClass.Ranged;
 			Item.noMelee = true;
 			Item.noUseGraphic = true;

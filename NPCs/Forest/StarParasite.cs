@@ -28,7 +28,7 @@ namespace Zylon.NPCs.Forest
 			NPC.defense = 0;
 			NPC.lifeMax = 70;
 			NPC.HitSound = SoundID.NPCHit5;
-			NPC.DeathSound = SoundID.NPCDeath3;
+			NPC.DeathSound = SoundID.NPCDeath7;
 			NPC.value = Item.buyPrice(0, 0, 0, 75);
 			NPC.aiStyle = 2;
 			NPC.knockBackResist = 0.8f;
