@@ -1,23 +1,32 @@
 A content mod I've been developing on and off since January 2020. Some cool stuff the mod adds includes summon critical strike support and blowpipes being reworked into their own unique subclass! Warning: Mod does not work in multiplayer.
 
-Mod is basically dead due to lack of interest and motivation. I simply can't keep up with how high modding standards are nowadays. However, if there's any bugs, tell me and I'll try to fix them as quickly as I can.
-
 Mod Discord (spoilers, updates, and whatnot): https://discord.gg/x6G8rKduWc
 
 Stats:
-~519 Items
+~520 Items
 ~4 Bosses:
 ~~~3 Prehardmode Bosses [i:2][i:789][i:282]
 ~~~1 Post-Moon Lord Boss [i:5130]
 ~46 total NPCs
-~Secret seeds: Abyssworld and Autumn.
+~Secret seeds: Abyssworld, Autumn, and Turf War.
 
-V0.0.4.8: Update
+Secret Seed System:
+While waiting for 1.4.5, I've added a workaround to allow for mixing and matching secret seeds. You can add any of the following codes to your world's NAME (not seed) and it will force that secret seed to occur.
+Abyssworld - "/b"
+Autumn - "/a"
+Turf War - "/t"
+
+V0.0.4.8: Quick Update
 ~Buffed Blood Contract.
-BLOOD MOON EYE
-CROCUS
-ICE CUTLASS
-DIRTBALL DRONE SWARM
+~Updated mod to work on the latest version.
+~Removed items changing textures on the Autumn seed because it wasn't consistent at all. The Sapling Warrior will still retain its color change.
+~Autumn seed now automatically makes all plants growing after world generation turn orange as well once again.
+~Added a way to combine secret seeds.
+~Added a cap to Dirtball's DS-17 swarm.
+~Added a new secret seed, Turf War! Most tiles now have the abilities of Chlorophyte (being able to spread to nearby blocks), but can also place new blocks if an empty tile is available!
+~Added Crocus.
+~Fixed grammatical error in tooltip of Wink of Radias, and spelling error in tooltip of Hitman's Charm.
+~Resprited Royal Argentum Headband.
 
 MATRIX SCAVENGER REWORKS: 75% complete
 

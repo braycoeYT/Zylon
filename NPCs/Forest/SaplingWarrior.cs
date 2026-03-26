@@ -71,7 +71,7 @@ namespace Zylon.NPCs.Forest
         }
 		public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor) {
 			Texture2D texture = TextureAssets.Npc[Type].Value;
-			if (WorldGen.currentWorldSeed.ToLower() == "autumn") texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Forest/SaplingWarrior_Autumn");
+			if (WorldGen.currentWorldSeed.ToLower() == "autumn" || Main.worldName.ToLower().Contains("/a")) texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Forest/SaplingWarrior_Autumn");
 
 			Vector2 drawPos = NPC.Center - screenPos + new Vector2(0f, NPC.gfxOffY);
 			Color color = NPC.GetAlpha(drawColor);

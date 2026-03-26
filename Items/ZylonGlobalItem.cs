@@ -374,29 +374,5 @@ namespace Zylon.Items
 				Projectile.NewProjectile(source, position, velocity, ProjectileType<Projectiles.ExplosiveMarshmallow>(), (int)(item.damage * 1.25f), 2f, Main.myPlayer);
             return true;
         }
-        public override bool PreDrawInInventory(Item item, SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale) {
-            if (WorldGen.currentWorldSeed == null) return true;
-			if (item.type == ItemID.LivingLoom) {
-				Texture2D texture = TextureAssets.Item[item.type].Value;
-				if (WorldGen.currentWorldSeed.ToLower() == "autumn") texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Placeables/LivingLoom_Autumn");
-				spriteBatch.Draw(texture, position, frame, drawColor, 0f, origin, scale, SpriteEffects.None, 0);
-				return false;
-			}
-			return true;
-        }
-        public override bool PreDrawInWorld(Item item, SpriteBatch spriteBatch, Color lightColor, Color alphaColor, ref float rotation, ref float scale, int whoAmI) {
-            if (WorldGen.currentWorldSeed == null) return true;
-			if (item.type == ItemID.LivingLoom) {
-				Texture2D texture = TextureAssets.Item[item.type].Value;
-				if (WorldGen.currentWorldSeed.ToLower() == "autumn") texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Items/Placeables/LivingLoom_Autumn");
-				Rectangle frame = texture.Frame();
-				Vector2 frameOrigin = frame.Size() / 2f;
-				Vector2 offset = new Vector2(item.width / 2 - frameOrigin.X, item.height - frame.Height);
-				Vector2 drawPos = item.position - Main.screenPosition + frameOrigin + offset;
-				spriteBatch.Draw(texture, drawPos, null, lightColor, rotation, frameOrigin, scale, SpriteEffects.None, 0);
-				return false;
-			}
-			return true;
-        }
     }
 }

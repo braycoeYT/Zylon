@@ -74,8 +74,7 @@ namespace Zylon.Projectiles.Whips
 
 			Main.instance.LoadProjectile(Type);
 			Texture2D texture = TextureAssets.Projectile[Type].Value;
-			if (WorldGen.currentWorldSeed.ToLower() == "autumn") texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Whips/LivingWhip_Autumn");
-
+			
 			Vector2 pos = list[0];
 
 			for (int i = 0; i < list.Count - 1; i++) {

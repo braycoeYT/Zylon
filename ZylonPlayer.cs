@@ -388,7 +388,7 @@ namespace Zylon
 			}
 
 			if (WorldGen.currentWorldSeed == null) return;
-			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") { //Double debuff power in Abyssworld seed
+			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit" || Main.worldName.ToLower().Contains("/b")) { //Double debuff power in Abyssworld seed
 				if (Player.lifeRegen < 0) {
 					Player.lifeRegen *= 2;
 
@@ -1035,7 +1035,7 @@ namespace Zylon
 		}
         public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers) {
 			if (WorldGen.currentWorldSeed == null) return;
-            if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
+            if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit" || Main.worldName.ToLower().Contains("/b")) {
 				if (NPC.downedMoonlord) Player.AddBuff(BuffID.Blackout, Main.rand.Next(7, 15)*60);
 				else if (Main.hardMode) Player.AddBuff(BuffID.Blackout, Main.rand.Next(4, 10)*60);
 				else Player.AddBuff(BuffID.Darkness, Main.rand.Next(4, 10)*60);
@@ -1046,7 +1046,7 @@ namespace Zylon
         }
         public override void PostUpdateBuffs() {
 			if (WorldGen.currentWorldSeed == null) return;
-			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") {
+			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit" || Main.worldName.ToLower().Contains("/b")) {
 				//if (Player.ZoneDirtLayerHeight) Player.blind = true;
 				//if (Player.ZoneRockLayerHeight) Player.blackout = true;
 				//if (Player.ZoneUnderworldHeight) { Player.blind = true; Player.blackout = true; }

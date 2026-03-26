@@ -99,7 +99,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 			hpLeft = (float)NPC.life/NPC.lifeMax;
 
 			if (Main.dayTime) {
-				NPC.damage = (int)(NPC.defDamage * 1.5f);
+				NPC.damage = (int)(NPC.defDamage * 2f);
 				hpLeft = 0f;
 			}
 

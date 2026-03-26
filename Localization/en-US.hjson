@@ -762,7 +762,7 @@ Mods: {
 
 			HitmansCharm: {
 				DisplayName: Hitman's Charm
-				Tooltip: After not critting six times, the seventh hit is guarenteed to be a crit
+				Tooltip: After not critting six times, the seventh hit is guaranteed to be a crit
 			}
 
 			IllusoryBulletPolish: {
@@ -3524,7 +3524,7 @@ Mods: {
 				DisplayName: Wink of Radias
 				Tooltip:
 					'''
-					'Radias casteth her pity upon those who receive bad RNG'
+					'Radias casteth her pity upon those who receiveth bad RNG'
 					Converts the nearby and below area to Hallow
 					Must be used on the surface
 					Use with caution
@@ -4197,6 +4197,17 @@ Mods: {
 					'''
 			}
 
+			Crocus: {
+				DisplayName: Crocus
+				Tooltip:
+					'''
+					Summons rose scythes to rotate around the player at various speeds
+					After a full rotation, lunges at the cursor
+					If it strikes a foe while lunging, the player is healed after it returns
+					'This world is made for beauty!'
+					'''
+			}
+
 			CrystalTsunami: {
 				DisplayName: Crystal Tsunami
 				Tooltip:
@@ -4402,17 +4413,17 @@ Mods: {
 
 			BraycoeBody: {
 				DisplayName: Braycoe's Body
-				Tooltip: "'Great for impersonating some absent-minded furry.'"
+				Tooltip: "'Great for impersonating some absent-minded fool.'"
 			}
 
 			BraycoeHead: {
 				DisplayName: Braycoe's Head
-				Tooltip: "'Great for impersonating some absent-minded furry.'"
+				Tooltip: "'Great for impersonating some absent-minded fool.'"
 			}
 
 			BraycoeLegs: {
 				DisplayName: Braycoe's Legs
-				Tooltip: "'Great for impersonating some absent-minded furry.'"
+				Tooltip: "'Great for impersonating some absent-minded fool.'"
 			}
 
 			AdenebMask: {
@@ -5588,10 +5599,11 @@ Mods: {
 			StairwaytoHeavenProj_2.DisplayName: Stairway to Heaven
 			BlackoutProj.DisplayName: Blackout
 			CeroPet.DisplayName: Cero
-			UglyDucklingProj.DisplayName: Ugly Duckling Proj
-			HideousDucklingProj.DisplayName: Hideous Duckling Proj
-			BlackSwanProj.DisplayName: Black Swan Proj
-			BlackSwanProj2.DisplayName: Black Swan Proj2
+			UglyDucklingProj.DisplayName: Ugly Duckling
+			HideousDucklingProj.DisplayName: Hideous Duckling
+			BlackSwanProj.DisplayName: Black Swan
+			BlackSwanProj2.DisplayName: Black Swan
+			CrocusProj.DisplayName: Crocus
 		}
 
 		NPCs: {

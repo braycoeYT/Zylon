@@ -374,7 +374,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 						if (dust.velocity.Y > 0) dust.velocity.Y *= -1;
 						dust.scale *= 1.25f + Main.rand.Next(-30, 31) * 0.01f;
 					}
-					if (attackTimer % 40 == 1) {
+					if (attackTimer % 40 == 1 && NPC.CountNPCS(ModContent.NPCType<DS_17>()) < 6 + Main.expertMode.ToInt()*2) {
 						if (Main.netMode != NetmodeID.MultiplayerClient) NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<DS_17>());
 						SoundEngine.PlaySound(SoundID.Item93, NPC.Center);
 					}

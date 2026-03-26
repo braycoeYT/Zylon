@@ -44,7 +44,7 @@ namespace Zylon.NPCs
 			return Description.Value;
 		}
 	}
-	public class AutumnCondition : IItemDropRuleCondition
+	/*public class AutumnCondition : IItemDropRuleCondition
 	{
 		private static LocalizedText Description;
 
@@ -63,5 +63,5 @@ namespace Zylon.NPCs
 		public string GetConditionDescription() {
 			return Description.Value;
 		}
-	}
+	}*/
 }

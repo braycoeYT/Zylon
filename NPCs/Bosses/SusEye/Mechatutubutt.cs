@@ -25,7 +25,7 @@ namespace Zylon.NPCs.Bosses.SusEye
         public override void SetDefaults() {
 			NPC.CloneDefaults(NPCID.DemonEye);
 			//NPC.value = 0f;
-			NPC.aiStyle = NPCID.EyeofCthulhu;
+			NPC.aiStyle = NPCAIStyleID.EyeOfCthulhu;
 			AnimationType = -1;
 			NPC.lifeMax = (int)(15000*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 298;

@@ -136,15 +136,15 @@ namespace Zylon
 
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight) {
 			int RandomGemsIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Random Gems"));
-			if (RandomGemsIndex != -1 && (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit")) {
+			if (RandomGemsIndex != -1 && (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") || Main.worldName.ToLower().Contains("/b")) {
 				tasks.Insert(RandomGemsIndex + 1, new AbyssworldSpikesPass("AbyssworldSpikes", 100f));
 			}
 
 			int FinalCleanupIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Final Cleanup"));
-			if (FinalCleanupIndex != -1 && (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit")) {
+			if (FinalCleanupIndex != -1 && (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") || Main.worldName.ToLower().Contains("/b")) {
 				tasks.Insert(FinalCleanupIndex + 1, new AbyssworldPaintPass("AbyssworldPaint", 100f));
 			}
-			if (FinalCleanupIndex != -1 && WorldGen.currentWorldSeed.ToLower() == "autumn") {
+			if (FinalCleanupIndex != -1 && WorldGen.currentWorldSeed.ToLower() == "autumn" || Main.worldName.ToLower().Contains("/a")) {
 				tasks.Insert(FinalCleanupIndex + 1, new AutumnPaintPass("AutumnPaint", 100f));
 			}
 		}
@@ -177,7 +177,7 @@ namespace Zylon
 				int x = WorldGen.genRand.Next(0, Main.maxTilesX);
 				int y = WorldGen.genRand.Next((int)Main.rockLayer, (int)(Main.rockLayer*1.5f));
 
-				if (Main.tile[x, y].TileType == TileID.LihzahrdBrick || Main.tile[x, y].TileType == WallID.LihzahrdBrick || Main.tile[x, y].TileType == WallID.LihzahrdBrickUnsafe) break;
+				if (Main.tile[x, y].TileType == TileID.LihzahrdBrick || Main.tile[x, y].WallType == WallID.LihzahrdBrick || Main.tile[x, y].WallType == WallID.LihzahrdBrickUnsafe) break;
 
 				WorldGen.TileRunner(x, y, WorldGen.genRand.Next(1, 10), WorldGen.genRand.Next(1, 5), TileID.Spikes, true);
 			}
@@ -185,7 +185,7 @@ namespace Zylon
 				int x = WorldGen.genRand.Next(0, Main.maxTilesX);
 				int y = WorldGen.genRand.Next((int)(Main.rockLayer*1.5f), (int)(Main.rockLayer*2));
 
-				if (Main.tile[x, y].TileType == TileID.LihzahrdBrick || Main.tile[x, y].TileType == WallID.LihzahrdBrick || Main.tile[x, y].TileType == WallID.LihzahrdBrickUnsafe) break;
+				if (Main.tile[x, y].TileType == TileID.LihzahrdBrick || Main.tile[x, y].WallType == WallID.LihzahrdBrick || Main.tile[x, y].WallType == WallID.LihzahrdBrickUnsafe) break;
 
 				WorldGen.TileRunner(x, y, WorldGen.genRand.Next(3, 13), WorldGen.genRand.Next(1, 5), TileID.Spikes, true);
 			}
@@ -193,7 +193,7 @@ namespace Zylon
 				int x = WorldGen.genRand.Next(0, Main.maxTilesX);
 				int y = WorldGen.genRand.Next((int)(Main.rockLayer*2), Main.maxTilesY-200);
 
-				if (Main.tile[x, y].TileType == TileID.LihzahrdBrick || Main.tile[x, y].TileType == WallID.LihzahrdBrick || Main.tile[x, y].TileType == WallID.LihzahrdBrickUnsafe) break;
+				if (Main.tile[x, y].TileType == TileID.LihzahrdBrick || Main.tile[x, y].WallType == WallID.LihzahrdBrick || Main.tile[x, y].WallType == WallID.LihzahrdBrickUnsafe) break;
 
 				WorldGen.TileRunner(x, y, WorldGen.genRand.Next(7, 15), WorldGen.genRand.Next(1, 5), TileID.Spikes, true);
 			}
