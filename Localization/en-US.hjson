@@ -563,7 +563,7 @@ Mods: {
 				Tooltip:
 					'''
 					'Signed in blood...'
-					Attacks have a 5% chance to draw blood
+					Attacks have a 10% chance to draw blood
 					Bloody attacks deal 50% more damage
 					'''
 			}

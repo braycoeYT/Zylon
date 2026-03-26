@@ -518,7 +518,7 @@ namespace Zylon
 
 			if (cosmicDie) modifiers.DamageVariationScale *= GetInstance<ZylonConfig>().cosmicDieVariation/15f*100f;
 
-			if (bloodContract && Main.rand.NextBool(20)) {
+			if (bloodContract && Main.rand.NextFloat() < .1f) {
 				modifiers.FinalDamage *= 1.5f;
 				bloodContractVisual = true;
 			}

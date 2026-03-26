@@ -1,5 +1,7 @@
 A content mod I've been developing on and off since January 2020. Some cool stuff the mod adds includes summon critical strike support and blowpipes being reworked into their own unique subclass! Warning: Mod does not work in multiplayer.
 
+Mod is basically dead due to lack of interest and motivation. I simply can't keep up with how high modding standards are nowadays. However, if there's any bugs, tell me and I'll try to fix them as quickly as I can.
+
 Mod Discord (spoilers, updates, and whatnot): https://discord.gg/x6G8rKduWc
 
 Stats:
@@ -10,11 +12,13 @@ Stats:
 ~46 total NPCs
 ~Secret seeds: Abyssworld and Autumn.
 
-V0.0.4.7: Quick Bugfix
-~Fixed Jack sell price.
-~Live Obelisks now have a 1/150 chance to drop an Ancient Cobalt armor set piece.
-~Changed Star Parasite death sound.
-~Added Ugly Duckling, Hideous Duckling, and Black Swan.
+V0.0.4.8: Update
+~Buffed Blood Contract.
+BLOOD MOON EYE
+CROCUS
+ICE CUTLASS
+DIRTBALL DRONE SWARM
+
 MATRIX SCAVENGER REWORKS: 75% complete
 
 Credits (from the previous mod versions and now):
