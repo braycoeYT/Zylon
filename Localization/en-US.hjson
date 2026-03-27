@@ -1911,7 +1911,7 @@ Mods: {
 					'''
 					25% chance not to consume ammo
 					Summons four Argentum Orbs to defend you
-					Argentum Orbs fire short beams at nearby enemies
+					Argentum Orbs fire various ranged ammo at nearby enemies
 					'''
 			}
 
@@ -1927,7 +1927,7 @@ Mods: {
 					'''
 					Increases melee speed by 12%
 					Summons four Argentum Orbs to defend you
-					Argentum Orbs fire short beams at nearby enemies
+					Argentum Orbs swing blades at nearby enemies
 					'''
 			}
 
@@ -2309,11 +2309,11 @@ Mods: {
 				Tooltip: Converts ammo to up to four dirt balls (depending on charge), of which only the first consumes ammo
 			}
 
-			FamiliarFoamDartPistol: {
-				DisplayName: Familiar Foam Dart Pistol
+			FoamDartPistol: {
+				DisplayName: Foam Dart Pistol
 				Tooltip:
 					'''
-					'It's this or nothing, they said...'
+					'It was this or nothing, they said...'
 					Replaces every fourth shot with a powerful Tactical Foam Dart that breaks the defense of enemies
 					Uses seeds as ammo
 					'''
@@ -5604,6 +5604,12 @@ Mods: {
 			BlackSwanProj.DisplayName: Black Swan
 			BlackSwanProj2.DisplayName: Black Swan
 			CrocusProj.DisplayName: Crocus
+			ArgentumOrb_MeleeSword.DisplayName: Argentum Orb_ Melee Sword
+			ArgentumOrb_MeleeSwordProj.DisplayName: Argentum Orb_ Melee Sword Proj
+			ArgentumOrb_RangedArrow.DisplayName: Argentum Orb_ Ranged Arrow
+			ArgentumOrb_RangedBullet.DisplayName: Argentum Orb_ Ranged Bullet
+			ArgentumOrb_RangedDart.DisplayName: Argentum Orb_ Ranged Dart
+			ArgentumOrb_RangedRocket.DisplayName: Argentum Orb_ Ranged Rocket
 		}
 
 		NPCs: {

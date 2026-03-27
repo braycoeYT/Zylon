@@ -7,9 +7,6 @@ namespace Zylon.Projectiles.Guns
 {
 	public class BambooSpike : ModProjectile
 	{
-        public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Bamboo Spike");
-        }
 		public override void SetDefaults() {
 			Projectile.width = 14;
 			Projectile.height = 14;

@@ -20,7 +20,6 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 10;
-			Projectile.scale = 0.33f;
 			Projectile.alpha = 255;
 			Projectile.friendly = true;
 			Projectile.tileCollide = false;
@@ -51,6 +50,9 @@ namespace Zylon.Projectiles.Blowpipes
 				Projectile.velocity *= 1.01f;
 				Projectile.tileCollide = Timer > 60;
             }
+		}
+		public override void OnKill(int timeLeft) {
+			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}
 	}   
 }

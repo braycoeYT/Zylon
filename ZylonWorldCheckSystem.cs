@@ -136,15 +136,15 @@ namespace Zylon
 
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight) {
 			int RandomGemsIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Random Gems"));
-			if (RandomGemsIndex != -1 && (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") || Main.worldName.ToLower().Contains("/b")) {
+			if (RandomGemsIndex != -1 && (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") || Main.worldName.ToLower().Contains(":b:")) {
 				tasks.Insert(RandomGemsIndex + 1, new AbyssworldSpikesPass("AbyssworldSpikes", 100f));
 			}
 
 			int FinalCleanupIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Final Cleanup"));
-			if (FinalCleanupIndex != -1 && (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") || Main.worldName.ToLower().Contains("/b")) {
+			if (FinalCleanupIndex != -1 && (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit") || Main.worldName.ToLower().Contains(":b:")) {
 				tasks.Insert(FinalCleanupIndex + 1, new AbyssworldPaintPass("AbyssworldPaint", 100f));
 			}
-			if (FinalCleanupIndex != -1 && WorldGen.currentWorldSeed.ToLower() == "autumn" || Main.worldName.ToLower().Contains("/a")) {
+			if (FinalCleanupIndex != -1 && WorldGen.currentWorldSeed.ToLower() == "autumn" || Main.worldName.ToLower().Contains(":a:")) {
 				tasks.Insert(FinalCleanupIndex + 1, new AutumnPaintPass("AutumnPaint", 100f));
 			}
 		}

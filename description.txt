@@ -12,21 +12,19 @@ Stats:
 
 Secret Seed System:
 While waiting for 1.4.5, I've added a workaround to allow for mixing and matching secret seeds. You can add any of the following codes to your world's NAME (not seed) and it will force that secret seed to occur.
-Abyssworld - "/b"
-Autumn - "/a"
-Turf War - "/t"
+Abyssworld - ":b:"
+Autumn - ":a:"
+Turf War - ":t:"
 
-V0.0.4.8: Quick Update
-~Buffed Blood Contract.
-~Updated mod to work on the latest version.
-~Removed items changing textures on the Autumn seed because it wasn't consistent at all. The Sapling Warrior will still retain its color change.
-~Autumn seed now automatically makes all plants growing after world generation turn orange as well once again.
-~Added a way to combine secret seeds.
-~Added a cap to Dirtball's DS-17 swarm.
-~Added a new secret seed, Turf War! Most tiles now have the abilities of Chlorophyte (being able to spread to nearby blocks), but can also place new blocks if an empty tile is available!
-~Added Crocus.
-~Fixed grammatical error in tooltip of Wink of Radias, and spelling error in tooltip of Hitman's Charm.
-~Resprited Royal Argentum Headband.
+V0.0.4.9: Quick Update
+~Changed the Secret Seed System codes to make them less likely to be accidentally used. If you are currently playing through any secret seeds, just change your world name to match.
+~Fixed a minor bug with armor that modifies blowpipe charge speed.
+~Resprited Tent.
+~Resprited Unholy Spitter's projectile.
+~Made Foam Dart Pistol obtainable once more, and resprited its projectile.
+~Fixed some mistakes with vanilla recipes.
+~Changed various ammo recipes.
+NEW RANGED SUPER ACCESSORY THING
 
 MATRIX SCAVENGER REWORKS: 75% complete
 

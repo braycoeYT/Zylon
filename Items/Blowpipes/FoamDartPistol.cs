@@ -7,7 +7,7 @@ using Terraria.Audio;
 
 namespace Zylon.Items.Blowpipes
 {
-	public class FamiliarFoamDartPistol : ModItem
+	public class FoamDartPistol : ModItem
 	{
 		public override void SetDefaults() {
 			Item.CloneDefaults(ItemID.Blowpipe);
@@ -30,5 +30,20 @@ namespace Zylon.Items.Blowpipes
 			}
 			return !(shootCount % 4 == 0);
         }
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 12);
+			recipe.AddIngredient(ItemID.WormTooth, 10);
+			recipe.AddIngredient(ItemID.Chain, 8);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+
+			recipe = CreateRecipe();
+			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 12);
+			recipe.AddIngredient(ModContent.ItemType<Materials.BloodySpiderLeg>(), 10);
+			recipe.AddIngredient(ItemID.Chain, 8);
+			recipe.AddTile(TileID.Anvils);
+			recipe.Register();
+		}
     }
 }

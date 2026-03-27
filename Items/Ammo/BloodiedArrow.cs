@@ -25,8 +25,8 @@ namespace Zylon.Items.Ammo
 			Item.ammo = AmmoID.Arrow;
 		}
 		public override void AddRecipes() {
-			Recipe recipe = CreateRecipe(10);
-			recipe.AddIngredient(ItemID.WoodenArrow, 5);
+			Recipe recipe = CreateRecipe(20);
+			recipe.AddIngredient(ItemID.WoodenArrow, 20);
 			recipe.AddIngredient(ItemType<Materials.BloodySpiderLeg>());
 			recipe.AddTile(TileID.Anvils);
 			recipe.Register();

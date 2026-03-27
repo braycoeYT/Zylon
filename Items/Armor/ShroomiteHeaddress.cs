@@ -23,7 +23,7 @@ namespace Zylon.Items.Armor
 			//player.GetDamage(DamageClass.Ranged) += 0.08f;
 			//player.GetCritChance(DamageClass.Ranged) += 5;
 			p.blowpipeMaxInc += 50;
-			p.blowpipeChargeInc = 1f;
+			p.blowpipeChargeInc += 1f;
         }
         public override void UpdateArmorSet(Player player) {
 			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.ShroomiteHeaddress.SetBonus");

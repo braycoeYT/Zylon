@@ -33,7 +33,7 @@ namespace Zylon.Projectiles
 			if (projectile.owner != Main.myPlayer) return true;
 
 			if (!init && p != null) {
-				if ((player.HeldItem.useAmmo == AmmoID.Bullet || player.HeldItem.useAmmo == ItemType<Items.Ammo.AdeniteShrapnel>()) && !projectile.hostile && projectile.DamageType == DamageClass.Ranged) {
+				if (((player.HeldItem.useAmmo == AmmoID.Bullet || player.HeldItem.useAmmo == ItemType<Items.Ammo.AdeniteShrapnel>()) && !projectile.hostile && projectile.DamageType == DamageClass.Ranged) || projectile.type == ProjectileType<Armor.ArgentumOrb_RangedBullet>()) {
 					if (p.illusoryBulletPolish || p.maraudersKit) {
 						npcBounceCount = 1;
 						tileBounceCount = 2;

@@ -872,17 +872,18 @@ namespace Zylon
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 
-			recipe = Recipe.Create(ItemID.UnholyArrow);
-			recipe.AddIngredient(ItemID.WoodenArrow, 10);
+			recipe = Recipe.Create(ItemID.UnholyArrow, 20);
+			recipe.AddIngredient(ItemID.WoodenArrow, 20);
 			recipe.AddIngredient(ItemID.WormTooth);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddIngredient(ItemID.Gel); //Dummied ingredient, see below
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.PanicNecklace);
 			recipe.AddIngredient(ItemID.Chain, 8);
 			recipe.AddIngredient(ItemID.LifeCrystal);
 			recipe.AddIngredient(ItemID.Ruby, 2);
-			recipe.AddTile(TileID.MythrilAnvil);
+			recipe.AddTile(TileID.Anvils);
 			recipe.Register();
         }
         public override void PostAddRecipes() {
@@ -902,8 +903,12 @@ namespace Zylon
 					recipe.AddIngredient(ModContent.ItemType<Items.Materials.FantasticalFinality>(), 13);
 				if (recipe.HasResult(ItemID.RestorationPotion) && recipe.HasIngredient(ItemID.Mushroom))
 					recipe.DisableRecipe();
-				if (recipe.HasResult(ItemID.UnholyArrow) && recipe.HasIngredient(ItemID.Vertebrae))
+
+				//Wanted to remove both vanilla recipes, but not remove my own in the process.
+				if (recipe.HasResult(ItemID.UnholyArrow) && !recipe.HasIngredient(ItemID.Gel))
 					recipe.DisableRecipe();
+				if (recipe.HasResult(ItemID.UnholyArrow) && recipe.HasIngredient(ItemID.Gel))
+					recipe.RemoveIngredient(ItemID.Gel);
 			}
         }
     }

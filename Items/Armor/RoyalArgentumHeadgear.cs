@@ -25,13 +25,14 @@ namespace Zylon.Items.Armor
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			player.GetDamage(DamageClass.Ranged) += 0.21f;
 			player.GetCritChance(DamageClass.Ranged) += 21;
-			p.blowpipeChargeInc = 1/3f;
+			p.blowpipeChargeInc += 1/3f;
 			p.argentumHeadgear = true;
         }
         public override void UpdateArmorSet(Player player) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.RoyalArgentumHeadgear.SetBonus");
 			p.argentumSetBonus = true;
+			p.argentumType = 1;
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Armor.ArgentumOrb>()] < 4 && player.whoAmI == Main.myPlayer) {
 				Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Armor.ArgentumOrb>(), 200, 4f, Main.myPlayer, player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Armor.ArgentumOrb>()]);
 			}

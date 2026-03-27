@@ -12,7 +12,7 @@ namespace Zylon.Items.Potions
 		}
 		public override void SetDefaults() {
 			Item.width = 34;
-			Item.height = 24;
+			Item.height = 36;
 			Item.useTime = 17;
 			Item.useAnimation = 17;
 			Item.useStyle = ItemUseStyleID.EatFood;

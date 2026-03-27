@@ -142,6 +142,7 @@ namespace Zylon
 		public int coreofMendingCounter;
 		public int nonCritCounter;
 		public int codebreakerGlitch;
+		public int argentumType; //For changing AI of Argentum armor set bonus. Doesn't need to be reset.
 		public float summonCrit;
 		public float summonCritBoost;
 		public float damageVariation;
@@ -388,7 +389,7 @@ namespace Zylon
 			}
 
 			if (WorldGen.currentWorldSeed == null) return;
-			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit" || Main.worldName.ToLower().Contains("/b")) { //Double debuff power in Abyssworld seed
+			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit" || Main.worldName.ToLower().Contains(":b:")) { //Double debuff power in Abyssworld seed
 				if (Player.lifeRegen < 0) {
 					Player.lifeRegen *= 2;
 
@@ -399,7 +400,7 @@ namespace Zylon
 		}
         public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath) {
 			String name = Player.name.ToLower();
-            if (name == "braycoe" || name == "zylontest" || name == "narcissism") {
+            if (name.ToLower() == "braycoe" || name.ToLower() == "zylontest" || name.ToLower() == "narcissism") {
 				return [
 					new Item(ItemType<Items.Vanity.Dev.BraycoeHead>()),
 					new Item(ItemType<Items.Vanity.Dev.BraycoeBody>()),
@@ -1035,7 +1036,7 @@ namespace Zylon
 		}
         public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers) {
 			if (WorldGen.currentWorldSeed == null) return;
-            if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit" || Main.worldName.ToLower().Contains("/b")) {
+            if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit" || Main.worldName.ToLower().Contains(":b:")) {
 				if (NPC.downedMoonlord) Player.AddBuff(BuffID.Blackout, Main.rand.Next(7, 15)*60);
 				else if (Main.hardMode) Player.AddBuff(BuffID.Blackout, Main.rand.Next(4, 10)*60);
 				else Player.AddBuff(BuffID.Darkness, Main.rand.Next(4, 10)*60);
@@ -1046,7 +1047,7 @@ namespace Zylon
         }
         public override void PostUpdateBuffs() {
 			if (WorldGen.currentWorldSeed == null) return;
-			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit" || Main.worldName.ToLower().Contains("/b")) {
+			if (WorldGen.currentWorldSeed.ToLower() == "abyssworld" || WorldGen.currentWorldSeed.ToLower() == "flopside pit" || Main.worldName.ToLower().Contains(":b:")) {
 				//if (Player.ZoneDirtLayerHeight) Player.blind = true;
 				//if (Player.ZoneRockLayerHeight) Player.blackout = true;
 				//if (Player.ZoneUnderworldHeight) { Player.blind = true; Player.blackout = true; }

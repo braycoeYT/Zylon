@@ -34,6 +34,7 @@ namespace Zylon.Items.Armor
 			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.RoyalArgentumHelmet.SetBonus");
 			player.GetAttackSpeed(DamageClass.Melee) += 0.12f;
 			p.argentumSetBonus = true;
+			p.argentumType = 0;
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Armor.ArgentumOrb>()] < 4 && player.whoAmI == Main.myPlayer) {
 				Projectile.NewProjectile(Item.GetSource_FromThis(), player.Center, Vector2.Zero, ModContent.ProjectileType<Projectiles.Armor.ArgentumOrb>(), 200, 4f, Main.myPlayer, player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Armor.ArgentumOrb>()]);
 			}
