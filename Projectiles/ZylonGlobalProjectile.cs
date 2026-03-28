@@ -29,7 +29,7 @@ namespace Zylon.Projectiles
 				zBullet = true; //TUNGSTEN BULLETS ARE JUST MUSKET BALLS, MY LIFE IS A LIE
 			if (projectile.type == ProjectileID.Seed || projectile.type == ProjectileID.CrystalDart || projectile.type == ProjectileID.CursedDart || projectile.type == ProjectileID.IchorDart)
 				zDart = true;
-			if (projectile.type == ProjectileID.RocketI || projectile.type == ProjectileID.RocketII || projectile.type == ProjectileID.RocketIII || projectile.type == ProjectileID.RocketIV || projectile.type == ProjectileID.ClusterRocketI || projectile.type == ProjectileID.ClusterRocketII || projectile.type == ProjectileID.DryRocket || projectile.type == ProjectileID.WetRocket || projectile.type == ProjectileID.LavaRocket || projectile.type == ProjectileID.HoneyRocket || projectile.type == ProjectileID.MiniNukeRocketI || projectile.type == ProjectileID.MiniNukeRocketII || projectile.type == ProjectileID.GrenadeI || projectile.type == ProjectileID.GrenadeII || projectile.type == ProjectileID.GrenadeIII || projectile.type == ProjectileID.GrenadeIV || projectile.type == ProjectileID.ClusterGrenadeI || projectile.type == ProjectileID.ClusterGrenadeII || projectile.type == ProjectileID.DryGrenade || projectile.type == ProjectileID.WetGrenade || projectile.type == ProjectileID.LavaGrenade || projectile.type == ProjectileID.HoneyGrenade || projectile.type == ProjectileID.MiniNukeGrenadeI || projectile.type == ProjectileID.MiniNukeGrenadeII || projectile.type == ProjectileID.ProximityMineI || projectile.type == ProjectileID.ProximityMineII || projectile.type == ProjectileID.ProximityMineIII || projectile.type == ProjectileID.ProximityMineIV || projectile.type == ProjectileID.ClusterMineI || projectile.type == ProjectileID.ClusterMineII || projectile.type == ProjectileID.DryMine || projectile.type == ProjectileID.WetMine || projectile.type == ProjectileID.LavaMine || projectile.type == ProjectileID.HoneyMine || projectile.type == ProjectileID.MiniNukeMineI || projectile.type == ProjectileID.MiniNukeMineII || projectile.type == ProjectileID.RocketSnowmanI || projectile.type == ProjectileID.RocketSnowmanII || projectile.type == ProjectileID.RocketSnowmanIII || projectile.type == ProjectileID.RocketSnowmanIV || projectile.type == ProjectileID.DrySnowmanRocket || projectile.type == ProjectileID.WetSnowmanRocket || projectile.type == ProjectileID.LavaSnowmanRocket || projectile.type == ProjectileID.HoneySnowmanRocket || projectile.type == ProjectileID.ClusterSnowmanRocketI || projectile.type == ProjectileID.ClusterSnowmanRocketII || projectile.type == ProjectileID.MiniNukeSnowmanRocketI || projectile.type == ProjectileID.MiniNukeSnowmanRocketII)
+			if (projectile.type == ProjectileID.RocketI || projectile.type == ProjectileID.RocketII || projectile.type == ProjectileID.RocketIII || projectile.type == ProjectileID.RocketIV || projectile.type == ProjectileID.ClusterRocketI || projectile.type == ProjectileID.ClusterRocketII || projectile.type == ProjectileID.DryRocket || projectile.type == ProjectileID.WetRocket || projectile.type == ProjectileID.LavaRocket || projectile.type == ProjectileID.HoneyRocket || projectile.type == ProjectileID.MiniNukeRocketI || projectile.type == ProjectileID.MiniNukeRocketII || projectile.type == ProjectileID.GrenadeI || projectile.type == ProjectileID.GrenadeII || projectile.type == ProjectileID.GrenadeIII || projectile.type == ProjectileID.GrenadeIV || projectile.type == ProjectileID.ClusterGrenadeI || projectile.type == ProjectileID.ClusterGrenadeII || projectile.type == ProjectileID.DryGrenade || projectile.type == ProjectileID.WetGrenade || projectile.type == ProjectileID.LavaGrenade || projectile.type == ProjectileID.HoneyGrenade || projectile.type == ProjectileID.MiniNukeGrenadeI || projectile.type == ProjectileID.MiniNukeGrenadeII || projectile.type == ProjectileID.ProximityMineI || projectile.type == ProjectileID.ProximityMineII || projectile.type == ProjectileID.ProximityMineIII || projectile.type == ProjectileID.ProximityMineIV || projectile.type == ProjectileID.ClusterMineI || projectile.type == ProjectileID.ClusterMineII || projectile.type == ProjectileID.DryMine || projectile.type == ProjectileID.WetMine || projectile.type == ProjectileID.LavaMine || projectile.type == ProjectileID.HoneyMine || projectile.type == ProjectileID.MiniNukeMineI || projectile.type == ProjectileID.MiniNukeMineII || projectile.type == ProjectileID.RocketSnowmanI || projectile.type == ProjectileID.RocketSnowmanII || projectile.type == ProjectileID.RocketSnowmanIII || projectile.type == ProjectileID.RocketSnowmanIV || projectile.type == ProjectileID.DrySnowmanRocket || projectile.type == ProjectileID.WetSnowmanRocket || projectile.type == ProjectileID.LavaSnowmanRocket || projectile.type == ProjectileID.HoneySnowmanRocket || projectile.type == ProjectileID.ClusterSnowmanRocketI || projectile.type == ProjectileID.ClusterSnowmanRocketII || projectile.type == ProjectileID.MiniNukeSnowmanRocketI || projectile.type == ProjectileID.MiniNukeSnowmanRocketII || projectile.type == ProjectileID.Celeb2Rocket || projectile.type == ProjectileID.Celeb2RocketExplosive || projectile.type == ProjectileID.Celeb2RocketExplosiveLarge || projectile.type == ProjectileID.Celeb2RocketLarge || projectile.type == ProjectileID.RocketFireworkBlue || projectile.type == ProjectileID.RocketFireworkGreen || projectile.type == ProjectileID.RocketFireworkRed || projectile.type == ProjectileID.RocketFireworkYellow || projectile.type == ProjectileID.ElectrosphereMissile)
 				zRocket = true; //There's so many specific use cases of these, I think some of these might never have any real use; yet, I typed them anyway, a slave to the keyboard.
 		}
 		bool hasHit;
@@ -42,19 +42,11 @@ namespace Zylon.Projectiles
 
 			if (!init && p != null) {
 				if (zBullet) {
-					if (p.illusoryBulletPolish || p.maraudersKit) {
+					if (p.illusoryBulletPolish || p.maraudersKit || p.roundmastersKit) {
 						npcBounceCount = 1;
 						tileBounceCount = 2;
 					}
-					if (p.roundmastersKit) {
-						npcBounceCount = 2;
-						tileBounceCount = 3;
-					}
 					if (GetInstance<ZylonConfig>().illusoryPolishNoEnemy) npcBounceCount = 0;
-				}
-				if (player.HeldItem.useAmmo == AmmoID.Arrow) {
-					if (p.roundmastersKit)
-						projectile.damage = (int)(projectile.damage*1.0181818f);
 				}
 				init = true;
 			}
@@ -138,7 +130,8 @@ namespace Zylon.Projectiles
 				damageCooldown--;
 				if (damageCooldown == 0) projectile.friendly = true;
             }
-			if (p.aimBot && !hasHit && player.HeldItem.DamageType == DamageClass.Ranged && projectile.type == player.ChooseAmmo(player.HeldItem).shoot) {
+			
+			if (player.HasAmmo(player.HeldItem)) if (p.aimBot && !hasHit && player.HeldItem.DamageType == DamageClass.Ranged && projectile.type == player.ChooseAmmo(player.HeldItem).shoot) {
 				float projSpeed = projectile.velocity.Length();
 
 				float origDist = 300f;
@@ -223,11 +216,12 @@ namespace Zylon.Projectiles
 				}
 			}
 
-			if (projectile.friendly && projectile.owner != -1) {
+			if (projectile.friendly && projectile.owner == Main.myPlayer) {
 				Player player = Main.player[projectile.owner];
 				ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-				if (p.continuumWarper && zRocket) { // && Main.rand.NextBool(3)
-					Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, Vector2.Normalize(projectile.velocity)*3f, ProjectileType<Accessories.ContinuumMine>(), projectile.damage, projectile.knockBack, projectile.owner);
+				if ((p.continuumWarper || p.roundmastersKit) && zRocket && Main.rand.NextBool(3)) {
+					Vector2 dir = new Vector2(3, 0).RotatedBy(projectile.velocity.ToRotation()); //This took a stupid amount of time for me to figure out.
+					Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, dir, ProjectileType<Accessories.ContinuumMine>(), projectile.damage, projectile.knockBack, projectile.owner);
 				}
 			}
 

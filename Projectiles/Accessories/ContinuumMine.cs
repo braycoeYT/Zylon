@@ -1,3 +1,4 @@
+using Humanizer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -37,11 +38,17 @@ namespace Zylon.Projectiles.Accessories
         public override void AI() {
             Projectile.velocity *= 0.9f;
             if (Projectile.timeLeft == 1) {
-                Projectile.width = 88;
-                Projectile.height = 88;
+                Projectile.width = 100;
+                Projectile.height = 100;
                 Projectile.friendly = true;
+
+                Projectile.position += new Vector2(-28, -28); //Subtract by half of the gain
             }
             Projectile.rotation += MathHelper.ToRadians(5);
+
+            if (Projectile.timeLeft % 60 < 30 && Projectile.timeLeft > 60 || Projectile.timeLeft % 15 < 7 && Projectile.timeLeft <= 60)
+                Projectile.frame = 1;
+            else Projectile.frame = 0;
         }
         public override bool PreDraw(ref Color lightColor) {
 			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;

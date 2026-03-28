@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.DataStructures;
 using Microsoft.Xna.Framework;
 using Terraria.Audio;
+using Zylon.Items.Swords;
 
 namespace Zylon.Projectiles.Armor
 {
@@ -18,32 +19,40 @@ namespace Zylon.Projectiles.Armor
 			Projectile.timeLeft = 9999;
 			Projectile.DamageType = DamageClass.Ranged;
 			AIType = ProjectileID.RocketI;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zRocket = true;
 		}
         public override bool OnTileCollide(Vector2 oldVelocity) {
 			if (Projectile.timeLeft > 2) Projectile.timeLeft = 2;
             return false;
         }
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) {
-            if (Projectile.width == 10) {
-				//Projectile.width *= 4;
-				//Projectile.height *= 4;
-				Projectile.position -= new Vector2(15, 15);
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+            if (Projectile.timeLeft > 2) Projectile.timeLeft = 2;
+			if (Projectile.width == 16) {
+				Projectile.width = 64;
+				Projectile.height = 64;
+				Projectile.position -= new Vector2(24, 24);
             }
         }
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-            Projectile.timeLeft = 2;
-        }
 
-        public override void OnHitPlayer(Player target, Player.HurtInfo info)
-        {
-            if (info.PvP)
-            {
-				if (Projectile.width == 10)
-				{
-					Projectile.position -= new Vector2(15, 15);
+        public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+            if (info.PvP) {
+				if (Projectile.width == 16) {
+					Projectile.width = 64;
+					Projectile.height = 64;
+					Projectile.position -= new Vector2(24, 24);
 				}
-				Projectile.timeLeft = 2;
+				if (Projectile.timeLeft > 2) Projectile.timeLeft = 2;
 			}
+        }
+        public override bool PreAI() {
+            if (Projectile.timeLeft == 2 && Projectile.width == 16) {
+				Projectile.width = 64;
+				Projectile.height = 64;
+				Projectile.position -= new Vector2(24, 24);
+			}
+			return true;
         }
 
         public override void OnKill(int timeLeft) {

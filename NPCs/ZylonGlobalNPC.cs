@@ -263,7 +263,7 @@ namespace Zylon.NPCs
 				prevNoGrav = npc.noGravity; //Trusting my 1.3 self here... bad idea?
 			int projectileCount;
 			for (projectileCount = 0; projectileCount < Main.maxProjectiles; projectileCount++) {
-				if (Main.projectile[projectileCount].active && Main.projectile[projectileCount].type == ProjectileType<Projectiles.BlackHole>()) {
+				if (Main.projectile[projectileCount].active && Main.projectile[projectileCount].type == ProjectileType<Projectiles.Armor.BlackHole>()) {
 					if (Vector2.Distance(npc.Center, Main.projectile[projectileCount].Center) < 400 && !npc.boss && npc.type != NPCID.TargetDummy) {
 						npc.noGravity = true;
 						if (npc.Center.X > Main.projectile[projectileCount].Center.X && npc.velocity.X > -15)

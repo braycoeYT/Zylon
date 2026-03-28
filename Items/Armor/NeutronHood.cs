@@ -33,7 +33,7 @@ namespace Zylon.Items.Armor
 			player.statLifeMax2 = (int)(player.statLifeMax2*1.2f);
 
 			if (player.controlDown && player.releaseDown && player.doubleTapCardinalTimer[0] < 15 && !player.HasBuff(ModContent.BuffType<Buffs.Armor.BlackHoleCooldown>())) {
-				if (Main.myPlayer == player.whoAmI) Projectile.NewProjectile(player.GetSource_FromThis(), Main.MouseWorld, Vector2.Zero, ModContent.ProjectileType<Projectiles.BlackHole>(), 60, 2f, Main.myPlayer);
+				if (Main.myPlayer == player.whoAmI) Projectile.NewProjectile(player.GetSource_FromThis(), Main.MouseWorld, Vector2.Zero, ModContent.ProjectileType<Projectiles.Armor.BlackHole>(), 60, 2f, Main.myPlayer);
 				player.AddBuff(ModContent.BuffType<Buffs.Armor.BlackHoleCooldown>(), 900);
 				for (int i = 0; i < 36; i++) {
 					Dust dust = Dust.NewDustDirect(player.position, player.width, player.height, DustID.RedTorch);

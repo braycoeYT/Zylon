@@ -16,10 +16,8 @@ namespace Zylon.Projectiles.Armor
 			Projectile.timeLeft = 9999;
 			Projectile.DamageType = DamageClass.Ranged;
 			AIType = ProjectileID.WoodenArrowFriendly;
+			Projectile.arrow = true;
 		}
-        public override void AI() {
-            if (Main.player[Projectile.owner].magicQuiver) Projectile.extraUpdates = 1;
-        }
         public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}

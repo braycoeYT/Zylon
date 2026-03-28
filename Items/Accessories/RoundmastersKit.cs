@@ -23,7 +23,7 @@ namespace Zylon.Items.Accessories
 			player.GetDamage(DamageClass.Ranged) += 0.12f;
 			player.magicQuiver = true;
 			p.roundmastersKit = true;
-			p.blowpipeChargeRetain = 0.15f;
+			p.blowpipeChargeRetain = 0.12f;
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

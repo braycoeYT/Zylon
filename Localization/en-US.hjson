@@ -990,11 +990,12 @@ Mods: {
 				Tooltip:
 					'''
 					12% increased ranged damage
-					Increases arrow damage by 12% and greatly increases arrow speed
-					Allows all bullets to bounce off of foes twice and tiles thrice
+					Increases arrow damage by 10% and greatly increases arrow speed
+					Allows all bullets to bounce off of foes once and tiles twice
 					Homing bullets can only bounce off of tiles
-					Retains 15% of blowpipe charge after shooting
-					40% chance not to consume ammo
+					Retains 12% of blowpipe charge after shooting
+					Rockets have a chance to leave behind a mine after exploding
+					20% chance not to consume ammo
 					'''
 			}
 
@@ -4413,7 +4414,7 @@ Mods: {
 
 			BraycoeBody: {
 				DisplayName: Braycoe's Body
-				Tooltip: "'Great for impersonating some absent-minded fool.'"
+				Tooltip: "'Dorsal fin not included.'"
 			}
 
 			BraycoeHead: {
@@ -5604,14 +5605,14 @@ Mods: {
 			BlackSwanProj.DisplayName: Black Swan
 			BlackSwanProj2.DisplayName: Black Swan
 			CrocusProj.DisplayName: Crocus
-			ArgentumOrb_MeleeSword.DisplayName: Argentum Orb_ Melee Sword
-			ArgentumOrb_MeleeSwordProj.DisplayName: Argentum Orb_ Melee Sword Proj
-			ArgentumOrb_RangedArrow.DisplayName: Argentum Orb_ Ranged Arrow
-			ArgentumOrb_RangedBullet.DisplayName: Argentum Orb_ Ranged Bullet
-			ArgentumOrb_RangedDart.DisplayName: Argentum Orb_ Ranged Dart
-			ArgentumOrb_RangedRocket.DisplayName: Argentum Orb_ Ranged Rocket
-			ArgentumOrb_MagicAttack.DisplayName: Argentum Orb_ Magic Attack
-			ArgentumOrb_SummonLaser.DisplayName: Argentum Orb_ Summon Laser
+			ArgentumOrb_MeleeSword.DisplayName: Argentum Orb
+			ArgentumOrb_MeleeSwordProj.DisplayName: Argentum Orb
+			ArgentumOrb_RangedArrow.DisplayName: Argentum Orb
+			ArgentumOrb_RangedBullet.DisplayName: Argentum Orb
+			ArgentumOrb_RangedDart.DisplayName: Argentum Orb
+			ArgentumOrb_RangedRocket.DisplayName: Argentum Orb
+			ArgentumOrb_MagicAttack.DisplayName: Argentum Orb
+			ArgentumOrb_SummonLaser.DisplayName: Argentum Orb
 			ContinuumMine.DisplayName: Continuum Mine
 		}
 

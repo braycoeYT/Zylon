@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using System.Collections.Generic;
 
-namespace Zylon.Projectiles
+namespace Zylon.Projectiles.Armor
 {
 	public class BlackHole : ModProjectile
 	{

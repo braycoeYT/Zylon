@@ -29,8 +29,10 @@ V0.0.4.9: Preparation Update
 ~Renamed Continuum Warper to Continuum Detonator, and changed function.
 ~Extremely painfully fixed issues related to Archery Potion and Magic Quiver-esque modded items.
 ~Overclock Arrow now has a higher increase in damage if it is fired from a bow with extremely high damage.
-RESPRITE DEV ARMOR
-FIX ARGENTUM ROCKET + POCKET GRENADES
+~Fixed bug that caused all projectiles to disappear if you ran out of ammo for a weapon.
+~Fire Gauntlet now requires Beetle Husks to craft.
+~Fixed issues with modded explosives.
+~Resprited Braycoe's vanity set. Colon three.
 
 MATRIX SCAVENGER REWORKS: 75% complete
 

@@ -15,8 +15,8 @@ namespace Zylon.Projectiles.Ammo
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.StickyGrenade);
 			AIType = ProjectileID.StickyGrenade;
-			Projectile.width = 16;
-			Projectile.height = 16;
+			Projectile.width = 10;
+			Projectile.height = 10;
 			Projectile.penetrate = -1;
 			//Projectile.extraUpdates = 1;
 			Projectile.timeLeft = 180;
@@ -24,32 +24,33 @@ namespace Zylon.Projectiles.Ammo
 			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
 			p.zDart = true;
 		}
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) {
-            if (Projectile.width == 10) {
-				//Projectile.width *= 4;
-				//Projectile.height *= 4;
-				Projectile.position -= new Vector2(15, 15);
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+            if (Projectile.timeLeft > 2) Projectile.timeLeft = 2;
+			if (Projectile.width == 10) {
+				Projectile.width = 64;
+				Projectile.height = 64;
+				Projectile.position -= new Vector2(27, 27);
             }
         }
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-            Projectile.timeLeft = 2;
-        }
 
-        public override void OnHitPlayer(Player target, Player.HurtInfo info)
-        {
-            if (info.PvP)
-            {
-				if (Projectile.width == 10)
-				{
-					Projectile.width *= 4;
-					Projectile.height *= 4;
-					Projectile.position -= new Vector2(15, 15);
+        public override void OnHitPlayer(Player target, Player.HurtInfo info) {
+            if (info.PvP) {
+				if (Projectile.width == 10) {
+					Projectile.width = 64;
+					Projectile.height = 64;
+					Projectile.position -= new Vector2(27, 27);
 				}
-				Projectile.timeLeft = 2;
+				if (Projectile.timeLeft > 2) Projectile.timeLeft = 2;
 			}
         }
-
-
+		public override bool PreAI() {
+            if (Projectile.timeLeft == 2 && Projectile.width == 10) {
+				Projectile.width = 64;
+				Projectile.height = 64;
+				Projectile.position -= new Vector2(27, 27);
+			}
+			return true;
+        }
         public override void OnKill(int timeLeft) {
 			SoundEngine.PlaySound(SoundID.Item14, Projectile.position);
 			for (int i = 0; i < 10; i++) {

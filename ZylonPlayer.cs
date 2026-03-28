@@ -416,7 +416,7 @@ namespace Zylon
 			if (theRegurgitator && Main.rand.NextFloat() < .2f && weapon.useAmmo == AmmoID.Dart) return false;
 			if (maraudersKit && Main.rand.NextFloat() < .1f) return false;
 			if (ammoSling && Main.rand.NextFloat() < .25f) return false;
-			if (roundmastersKit && Main.rand.NextFloat() < .4f) return false;
+			if (roundmastersKit && Main.rand.NextFloat() < .2f) return false;
 			if (argentumHeadgear && argentumSetBonus && Main.rand.NextFloat() < .25f) return false;
 			for (int i = 0; i < numof10ammo; i++) {
 				if (Main.rand.NextFloat() < .1f) return false;
