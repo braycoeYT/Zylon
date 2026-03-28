@@ -15,6 +15,9 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.penetrate = 1;
 			Projectile.timeLeft = 9999;
 			Projectile.DamageType = DamageClass.Ranged;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(ModContent.BuffType<Buffs.Debuffs.DeadlyToxins>(), Main.rand.Next(8, 16)*60);

@@ -16,6 +16,9 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.height = 16;
 			Projectile.scale = 1f;
 			Projectile.timeLeft = 400;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             Projectile.damage /= 2;

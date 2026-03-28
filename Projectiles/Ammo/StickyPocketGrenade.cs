@@ -20,6 +20,9 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.penetrate = -1;
 			//Projectile.extraUpdates = 1;
 			Projectile.timeLeft = 180;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) {
             if (Projectile.width == 10) {

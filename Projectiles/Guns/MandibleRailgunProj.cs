@@ -22,6 +22,9 @@ namespace Zylon.Projectiles.Guns
 			Projectile.timeLeft = 9999;
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.scale = 1.25f;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zBullet = true;
 		}
 		int dontHit = -1;
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {

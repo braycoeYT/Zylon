@@ -23,6 +23,9 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.tileCollide = false;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 15;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 		    target.AddBuff(BuffID.Slimed, 60*Main.rand.Next(3, 6));

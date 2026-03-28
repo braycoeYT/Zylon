@@ -13,17 +13,16 @@ namespace Zylon.Projectiles.Ammo
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.WoodenArrowFriendly);
 			AIType = ProjectileID.WoodenArrowFriendly;
+			Projectile.arrow = true;
 		}
-		bool init;
 		int Timer;
         public override void AI() {
-			if (!init) {
-				if (Main.player[Projectile.owner].magicQuiver) Projectile.extraUpdates = 1;
-				init = true;
-			}
             Timer++;
-			if (Timer % 30 == 29)
-				Projectile.damage += 1;
+			if (Timer % 30 == 29) {
+				int damageInc = 1;
+				if (Projectile.damage*0.03f > 1f) damageInc = (int)(Projectile.damage*0.03f);
+				Projectile.damage += damageInc;
+			}
 			if (Timer > 450)
 				Timer = 451;
         }

@@ -19,6 +19,9 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.height = 10;
 			Projectile.penetrate = -1;
 			Projectile.timeLeft = 180;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
 		int Timer;
         public override void AI() {

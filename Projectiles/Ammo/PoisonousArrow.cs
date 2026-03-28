@@ -20,6 +20,7 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.timeLeft = 3000;
 			Projectile.ignoreWater = true;
 			AIType = 1;
+			Projectile.arrow = true;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 		    target.AddBuff(BuffID.Poisoned, 60 * Main.rand.Next(4, 11));
@@ -29,13 +30,6 @@ namespace Zylon.Projectiles.Ammo
             if (info.PvP)
             {
 				target.AddBuff(BuffID.Poisoned, 60 * Main.rand.Next(4, 11));
-			}
-        }
-		bool init;
-        public override void AI() {
-			if (!init) {
-				if (Main.player[Projectile.owner].magicQuiver) Projectile.extraUpdates = 1;
-				init = true;
 			}
         }
         public override void OnKill(int timeLeft) {

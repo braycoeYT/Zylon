@@ -23,6 +23,7 @@ namespace Zylon.Projectiles.Bows
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.timeLeft = 9999;
             Projectile.ignoreWater = true;
+            Projectile.arrow = true;
         }
         int counter;
         public override void PostAI() {

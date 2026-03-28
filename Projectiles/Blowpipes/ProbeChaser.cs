@@ -26,6 +26,9 @@ namespace Zylon.Projectiles.Blowpipes
 			AIType = ProjectileID.Bullet;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 10;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			if (Main.rand.NextFloat() <= .1f && target.type != NPCID.TargetDummy)

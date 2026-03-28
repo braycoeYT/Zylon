@@ -6,7 +6,6 @@ using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
 using System;
-using System.Security.Cryptography.Xml;
 
 namespace Zylon.Projectiles.Armor
 {
@@ -40,6 +39,7 @@ namespace Zylon.Projectiles.Armor
 		int targetNum;
 		int animTimer;
 		int attackCounter;
+		int soundCooldown;
 		bool init;
 		float pointer;
 		Player own;
@@ -135,6 +135,38 @@ namespace Zylon.Projectiles.Armor
 						if (Main.myPlayer == Projectile.owner) Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, projDir, type, (int)(Projectile.damage*0.75f), Projectile.knockBack, Projectile.owner);
 					}
 				}
+				else if (p.argentumType == 2) {
+					soundCooldown--;
+					if (Timer % 28 == minionID*7 && Main.myPlayer == Projectile.owner) {
+						if (distanceFromTarget < 250) {
+							if (soundCooldown < 1) {
+								SoundEngine.PlaySound(new SoundStyle("Zylon/Sounds/Items/ArgentumOrbSFX").WithPitchOffset(Main.rand.NextFloat(1f)).WithVolumeScale(0.25f), Projectile.position);
+								soundCooldown = 90;
+							}
+							Projectile.NewProjectile(Projectile.GetSource_FromThis(), targetCenter, Vector2.Zero, ModContent.ProjectileType<ArgentumOrb_MagicAttack>(), Projectile.damage/4, 0f, Projectile.owner, Projectile.whoAmI);
+						}
+						else if (distanceFromTarget < 400 && Timer % 56 == minionID*14) {
+							if (soundCooldown < 1) {
+								SoundEngine.PlaySound(new SoundStyle("Zylon/Sounds/Items/ArgentumOrbSFX").WithPitchOffset(Main.rand.NextFloat(1f)).WithVolumeScale(0.25f), Projectile.position);
+								soundCooldown = 90;
+							}
+							Projectile.NewProjectile(Projectile.GetSource_FromThis(), targetCenter, Vector2.Zero, ModContent.ProjectileType<ArgentumOrb_MagicAttack>(), Projectile.damage/5, 0f, Projectile.owner, Projectile.whoAmI);
+						}
+					}
+				}
+				else if (p.argentumType == 3) {
+					soundCooldown--;
+					if (Timer % 20 == 0) {
+						attackCounter++;
+						if (Timer % 80 == minionID*20) SoundEngine.PlaySound(new SoundStyle("Zylon/Sounds/Items/ArgentumOrbSFX").WithPitchOffset(Main.rand.NextFloat(1f)).WithVolumeScale(0.25f), Projectile.position);
+
+						float babyRot = MathHelper.ToRadians(animTimer*1.5f);
+						Vector2 pos = new Vector2(0, 30).RotatedBy(babyRot+MathHelper.ToRadians(attackCounter%4*90));
+
+						Vector2 projDir = Vector2.Normalize(targetCenter - (Projectile.Center + pos)) * 4f;
+						Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + pos, projDir, ModContent.ProjectileType<ArgentumOrb_SummonLaser>(), (int)(Projectile.damage*0.3f), Projectile.knockBack, Projectile.owner, targetNum);
+					}
+				}
 				/*if (Timer % 120 == 0) { //Old AI
 					SoundEngine.PlaySound(new SoundStyle("Zylon/Sounds/Items/ArgentumOrbSFX").WithPitchOffset(Main.rand.NextFloat(3f)).WithVolumeScale(0.35f), Projectile.position);
 					Vector2 projDir = Vector2.Normalize(targetCenter - Projectile.Center) * 4f;
@@ -176,6 +208,18 @@ namespace Zylon.Projectiles.Armor
 				//if (temp == minionID*20) cannonScale = new Vector2(1f, 0.5f);
 
 				Main.spriteBatch.Draw(cannonTexture, cannonPos, null, color, pointer + MathHelper.PiOver2, new Vector2(8, 11), cannonScale, SpriteEffects.None, 0f);
+			}
+			else if (p.argentumType == 2 && Projectile.friendly) {
+				Texture2D spinTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Armor/ArgentumOrb_MagicOverlay");
+				float spinRot = MathHelper.ToRadians(animTimer*5);
+
+				Main.spriteBatch.Draw(spinTexture, drawPos, null, color, spinRot, new Vector2(36, 36), 1f, SpriteEffects.None, 0f);
+			}
+			else if (p.argentumType == 3) {
+				Texture2D babyTexture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Armor/ArgentumOrb_SummonBaby");
+				float babyRot = MathHelper.ToRadians(animTimer*1.5f);
+
+				for (int i = 0; i < 4; i++) Main.spriteBatch.Draw(babyTexture, drawPos + new Vector2(0, 30).RotatedBy(babyRot+MathHelper.ToRadians(i*90)), null, color, 0f, new Vector2(10, 10), 1f, SpriteEffects.None, 0f);
 			}
 
             return false;

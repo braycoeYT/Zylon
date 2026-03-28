@@ -15,6 +15,9 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.width = 16;
 			Projectile.height = 16;
 			Projectile.timeLeft = 400;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             Projectile.damage /= 2;

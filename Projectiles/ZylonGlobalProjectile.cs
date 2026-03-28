@@ -1,6 +1,4 @@
-using Microsoft.Build.Execution;
 using Microsoft.Xna.Framework;
-using Steamworks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -16,6 +14,9 @@ namespace Zylon.Projectiles
 		int npcBounceCount;
 		int tileBounceCount;
 		Projectile[] ownedProj = new Projectile[3];
+		public bool zBullet;
+		public bool zDart;
+		public bool zRocket;
 		public override bool InstancePerEntity => true;
 		public override void SetDefaults(Projectile projectile) {
 			if (GetInstance<ZylonConfig>().zylonianBalancing) {
@@ -23,6 +24,13 @@ namespace Zylon.Projectiles
 					projectile.timeLeft = 3600;
 				if (projectile.type == ProjectileID.BoneArrowFromMerchant) projectile.penetrate = 1;
 			}
+
+			if (projectile.type == ProjectileID.Bullet || projectile.type == ProjectileID.MeteorShot || projectile.type == ProjectileID.SilverBullet || projectile.type == ProjectileID.CrystalBullet || projectile.type == ProjectileID.CursedBullet || projectile.type == ProjectileID.ChlorophyteBullet || projectile.type == ProjectileID.BulletHighVelocity || projectile.type == ProjectileID.IchorBullet || projectile.type == ProjectileID.VenomBullet || projectile.type == ProjectileID.PartyBullet || projectile.type == ProjectileID.NanoBullet || projectile.type == ProjectileID.ExplosiveBullet || projectile.type == ProjectileID.GoldenBullet || projectile.type == ProjectileID.MoonlordBullet)
+				zBullet = true; //TUNGSTEN BULLETS ARE JUST MUSKET BALLS, MY LIFE IS A LIE
+			if (projectile.type == ProjectileID.Seed || projectile.type == ProjectileID.CrystalDart || projectile.type == ProjectileID.CursedDart || projectile.type == ProjectileID.IchorDart)
+				zDart = true;
+			if (projectile.type == ProjectileID.RocketI || projectile.type == ProjectileID.RocketII || projectile.type == ProjectileID.RocketIII || projectile.type == ProjectileID.RocketIV || projectile.type == ProjectileID.ClusterRocketI || projectile.type == ProjectileID.ClusterRocketII || projectile.type == ProjectileID.DryRocket || projectile.type == ProjectileID.WetRocket || projectile.type == ProjectileID.LavaRocket || projectile.type == ProjectileID.HoneyRocket || projectile.type == ProjectileID.MiniNukeRocketI || projectile.type == ProjectileID.MiniNukeRocketII || projectile.type == ProjectileID.GrenadeI || projectile.type == ProjectileID.GrenadeII || projectile.type == ProjectileID.GrenadeIII || projectile.type == ProjectileID.GrenadeIV || projectile.type == ProjectileID.ClusterGrenadeI || projectile.type == ProjectileID.ClusterGrenadeII || projectile.type == ProjectileID.DryGrenade || projectile.type == ProjectileID.WetGrenade || projectile.type == ProjectileID.LavaGrenade || projectile.type == ProjectileID.HoneyGrenade || projectile.type == ProjectileID.MiniNukeGrenadeI || projectile.type == ProjectileID.MiniNukeGrenadeII || projectile.type == ProjectileID.ProximityMineI || projectile.type == ProjectileID.ProximityMineII || projectile.type == ProjectileID.ProximityMineIII || projectile.type == ProjectileID.ProximityMineIV || projectile.type == ProjectileID.ClusterMineI || projectile.type == ProjectileID.ClusterMineII || projectile.type == ProjectileID.DryMine || projectile.type == ProjectileID.WetMine || projectile.type == ProjectileID.LavaMine || projectile.type == ProjectileID.HoneyMine || projectile.type == ProjectileID.MiniNukeMineI || projectile.type == ProjectileID.MiniNukeMineII || projectile.type == ProjectileID.RocketSnowmanI || projectile.type == ProjectileID.RocketSnowmanII || projectile.type == ProjectileID.RocketSnowmanIII || projectile.type == ProjectileID.RocketSnowmanIV || projectile.type == ProjectileID.DrySnowmanRocket || projectile.type == ProjectileID.WetSnowmanRocket || projectile.type == ProjectileID.LavaSnowmanRocket || projectile.type == ProjectileID.HoneySnowmanRocket || projectile.type == ProjectileID.ClusterSnowmanRocketI || projectile.type == ProjectileID.ClusterSnowmanRocketII || projectile.type == ProjectileID.MiniNukeSnowmanRocketI || projectile.type == ProjectileID.MiniNukeSnowmanRocketII)
+				zRocket = true; //There's so many specific use cases of these, I think some of these might never have any real use; yet, I typed them anyway, a slave to the keyboard.
 		}
 		bool hasHit;
 		bool init;
@@ -33,7 +41,7 @@ namespace Zylon.Projectiles
 			if (projectile.owner != Main.myPlayer) return true;
 
 			if (!init && p != null) {
-				if (((player.HeldItem.useAmmo == AmmoID.Bullet || player.HeldItem.useAmmo == ItemType<Items.Ammo.AdeniteShrapnel>()) && !projectile.hostile && projectile.DamageType == DamageClass.Ranged) || projectile.type == ProjectileType<Armor.ArgentumOrb_RangedBullet>()) {
+				if (zBullet) {
 					if (p.illusoryBulletPolish || p.maraudersKit) {
 						npcBounceCount = 1;
 						tileBounceCount = 2;
@@ -174,7 +182,7 @@ namespace Zylon.Projectiles
 				projectile.penetrate = 2;
 				projectile.velocity *= -1f;
 				projectile.damage = (int)(projectile.damage*0.7f);
-				if (projectile.type == ProjectileID.ChlorophyteBullet || (projectile.type == ProjectileType<Guns.Gunball_Proj>() && projectile.aiStyle == 1) || projectile.type == ProjectileID.ExplosiveBullet || projectile.type == ProjectileType<Guns.PizazzCannonProj>() || projectile.type == ProjectileID.CrystalBullet || projectile.type == 90 || projectile.type == ProjectileID.PartyBullet)
+				if (projectile.type == ProjectileID.ChlorophyteBullet || (projectile.type == ProjectileType<Guns.Gunball_Proj>() && projectile.aiStyle == 1) || projectile.type == ProjectileID.ExplosiveBullet || projectile.type == ProjectileType<Guns.PizazzCannonProj>() || projectile.type == ProjectileID.CrystalBullet || projectile.type == 90 || projectile.type == ProjectileID.PartyBullet || projectile.type == ProjectileType<Guns.SilverFauxBlast>())
 					projectile.Kill(); //projectile.damage = (int)(projectile.damage*0.3f);
 				if (projectile.damage < 1) projectile.damage = 1;
 			}
@@ -212,6 +220,14 @@ namespace Zylon.Projectiles
 					if (canSpawn) for (int i = 0; i < max; i++) {
 						NPC.NewNPC(projectile.GetSource_FromThis(), (int)projectile.Center.X,  (int)projectile.Center.Y, NPCType<NPCs.Forest.StarParasite>());
 					}
+				}
+			}
+
+			if (projectile.friendly && projectile.owner != -1) {
+				Player player = Main.player[projectile.owner];
+				ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
+				if (p.continuumWarper && zRocket) { // && Main.rand.NextBool(3)
+					Projectile.NewProjectile(projectile.GetSource_FromThis(), projectile.Center, Vector2.Normalize(projectile.velocity)*3f, ProjectileType<Accessories.ContinuumMine>(), projectile.damage, projectile.knockBack, projectile.owner);
 				}
 			}
 

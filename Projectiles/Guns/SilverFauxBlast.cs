@@ -26,6 +26,9 @@ namespace Zylon.Projectiles.Guns
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.extraUpdates = 1;
             Projectile.penetrate = -1;
+
+            ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zBullet = true;
         }
 
         public override void AI()

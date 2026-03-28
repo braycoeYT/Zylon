@@ -21,6 +21,9 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.extraUpdates = 1;
 			AIType = ProjectileID.Bullet;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.Poisoned, 69);

@@ -51,7 +51,7 @@ namespace Zylon.NPCs.Bosses.Adeneb
 			NPC.boss = true;
 			NPC.netAlways = true;
 			NPC.lavaImmune = true;
-			//Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
+			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/AdenebTheme");
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
 			NPC.lifeMax = (int)(5200*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);

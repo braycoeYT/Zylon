@@ -22,7 +22,6 @@ namespace Zylon.Items.Accessories
 		}
         public override void UpdateAccessory(Player player, bool hideVisual) {
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
-			player.GetDamage(DamageClass.Generic) -= 0.15f;
             p.continuumWarper = true;
         }
 	}

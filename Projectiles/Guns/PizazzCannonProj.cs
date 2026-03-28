@@ -21,6 +21,9 @@ namespace Zylon.Projectiles.Guns
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 30;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zBullet = true;
 		}
         public override bool OnTileCollide(Vector2 oldVelocity) {
             Projectile.timeLeft = 2;

@@ -20,6 +20,9 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.localNPCHitCooldown = 10;
 			Projectile.aiStyle = -1;
 			Projectile.alpha = 255;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
 		int Timer;
         public override void AI() {

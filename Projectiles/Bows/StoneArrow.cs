@@ -25,6 +25,7 @@ namespace Zylon.Projectiles.Bows
             Projectile.timeLeft = 600;
             Projectile.ignoreWater = false;
             Projectile.tileCollide = true;
+            Projectile.arrow = true;
         }
         readonly float GravityWait = 16f;
         public override void AI() {

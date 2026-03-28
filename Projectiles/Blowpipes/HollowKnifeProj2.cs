@@ -26,6 +26,9 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.localNPCHitCooldown = 10;
 			Projectile.tileCollide = false;
 			Projectile.alpha = 255;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             kill = true;

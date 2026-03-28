@@ -412,7 +412,6 @@ namespace Zylon
         }
         public override bool CanConsumeAmmo(Item weapon, Item ammo) {
 			if (neutronJacket && Main.rand.NextFloat() < .15f) return false;
-			if (continuumWarper && Main.rand.NextFloat() < .85f) return false;
 			if (illusoryBulletPolish && Main.rand.NextFloat() < .2f && (weapon.useAmmo == AmmoID.Bullet || weapon.useAmmo == ItemType<Items.Ammo.AdeniteShrapnel>())) return false;
 			if (theRegurgitator && Main.rand.NextFloat() < .2f && weapon.useAmmo == AmmoID.Dart) return false;
 			if (maraudersKit && Main.rand.NextFloat() < .1f) return false;

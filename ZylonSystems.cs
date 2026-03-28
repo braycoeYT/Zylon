@@ -335,6 +335,12 @@ namespace Zylon
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.Register();
 
+			recipe = Recipe.Create(ItemID.BonePickaxe);
+			recipe.AddIngredient(ItemID.Bone, 55);
+			recipe.AddIngredient(ItemID.Cobweb, 60);
+			recipe.AddTile(TileID.WorkBenches);
+			recipe.Register();
+
 			recipe = Recipe.Create(ItemID.ThunderStaff);
 			recipe.AddRecipeGroup("Zylon:AnyCopperBar", 8);
 			recipe.AddIngredient(ItemID.FossilOre, 6);

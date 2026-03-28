@@ -22,6 +22,7 @@ namespace Zylon.Projectiles.Bows
             Projectile.DamageType = DamageClass.Ranged;
             Projectile.timeLeft = 600;
             Projectile.ignoreWater = false;
+            Projectile.arrow = true;
         }
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             target.AddBuff(BuffID.Frostburn, Main.rand.Next(3, 6)*60);

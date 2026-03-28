@@ -15,6 +15,7 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.penetrate = 1;
 			Projectile.timeLeft = 9999;
 			Projectile.DamageType = DamageClass.Ranged;
+			Projectile.arrow = true;
 		}
 		int Timer;
 		bool init;

@@ -20,6 +20,7 @@ namespace Zylon.Projectiles.Bows
 			Projectile.timeLeft = 9999;
 			Projectile.alpha = 60*((int)Projectile.ai[0]+1);
 			Projectile.tileCollide = false;
+			Projectile.arrow = true;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			target.AddBuff(BuffID.OnFire, 60*Main.rand.Next(2, 5));

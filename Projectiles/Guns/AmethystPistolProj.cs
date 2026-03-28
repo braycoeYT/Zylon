@@ -17,6 +17,9 @@ namespace Zylon.Projectiles.Guns
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.extraUpdates = 1;
 			AIType = ProjectileID.Bullet;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zBullet = true;
 		}
         public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);

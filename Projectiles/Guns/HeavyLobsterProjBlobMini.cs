@@ -18,6 +18,9 @@ namespace Zylon.Projectiles.Guns
 			Projectile.penetrate = 3;
 			Projectile.timeLeft = 240;
 			Projectile.DamageType = DamageClass.Ranged;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zBullet = true;
 		}
 		int Timer;
         public override void AI() {

@@ -24,6 +24,9 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.ignoreWater = true;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 10;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 			if (targetNum < 0) targetNum = target.whoAmI;

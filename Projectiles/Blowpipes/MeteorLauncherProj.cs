@@ -21,6 +21,9 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.timeLeft = 9999;
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.scale = 1f + Projectile.ai[0]*0.1f;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
         public override void AI() {
             Projectile.velocity *= 1.008f;

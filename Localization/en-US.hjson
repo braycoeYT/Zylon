@@ -610,12 +610,12 @@ Mods: {
 			}
 
 			ContinuumWarper: {
-				DisplayName: Continuum Warper
+				DisplayName: Continuum Detonator
 				Tooltip:
 					'''
 					'Might mutate your DNA on use, but I wouldn't worry about that'
-					85% chance not to consume ammo
-					Decreases damage by 15%
+					Rockets have a chance to leave behind a mine after exploding
+					Mines detonate after three seconds and do not destroy tiles
 					'''
 			}
 
@@ -1876,9 +1876,9 @@ Mods: {
 					'''
 				SetBonus:
 					'''
-					Increases magic damage by 11%
+					Increases magic damage by 11% and max mana by 40
 					Summons four Argentum Orbs to defend you
-					Argentum Orbs fire short beams at nearby enemies
+					Argentum Orbs suck mana out of nearby enemies
 					'''
 			}
 
@@ -1895,7 +1895,7 @@ Mods: {
 					Increases summon damage by 50%
 					Increases your max number of minions by 4
 					Summons four Argentum Orbs to defend you
-					Argentum Orbs fire short beams at nearby enemies
+					Argentum Orbs have four orbs each that fire at enemies
 					'''
 			}
 
@@ -5610,6 +5610,9 @@ Mods: {
 			ArgentumOrb_RangedBullet.DisplayName: Argentum Orb_ Ranged Bullet
 			ArgentumOrb_RangedDart.DisplayName: Argentum Orb_ Ranged Dart
 			ArgentumOrb_RangedRocket.DisplayName: Argentum Orb_ Ranged Rocket
+			ArgentumOrb_MagicAttack.DisplayName: Argentum Orb_ Magic Attack
+			ArgentumOrb_SummonLaser.DisplayName: Argentum Orb_ Summon Laser
+			ContinuumMine.DisplayName: Continuum Mine
 		}
 
 		NPCs: {

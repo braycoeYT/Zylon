@@ -17,6 +17,9 @@ namespace Zylon.Projectiles.Guns
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.extraUpdates = 1;
 			AIType = ProjectileID.Bullet;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zBullet = true;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             if (Main.rand.NextFloat() < .5f) target.AddBuff(BuffID.Poisoned, Main.rand.Next(10, 21)*60);

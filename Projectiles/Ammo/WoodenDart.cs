@@ -9,6 +9,9 @@ namespace Zylon.Projectiles.Ammo
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);
 			AIType = ProjectileID.Seed;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
         public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);

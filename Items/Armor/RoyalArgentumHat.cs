@@ -32,6 +32,7 @@ namespace Zylon.Items.Armor
 			ZylonPlayer p = player.GetModPlayer<ZylonPlayer>();
 			player.setBonus = Language.GetTextValue("Mods.Zylon.Items.RoyalArgentumHat.SetBonus");
 			player.GetDamage(DamageClass.Magic) += 0.11f;
+			player.statManaMax2 += 40;
 			p.argentumSetBonus = true;
 			p.argentumType = 2;
 			if (player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.Armor.ArgentumOrb>()] < 4 && player.whoAmI == Main.myPlayer) {

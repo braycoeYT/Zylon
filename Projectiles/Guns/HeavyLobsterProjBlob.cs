@@ -18,6 +18,9 @@ namespace Zylon.Projectiles.Guns
 			Projectile.penetrate = 1;
 			Projectile.timeLeft = 35;
 			Projectile.DamageType = DamageClass.Ranged;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zBullet = true;
 		}
         public override void AI() {
             Projectile.rotation += 0.12f;

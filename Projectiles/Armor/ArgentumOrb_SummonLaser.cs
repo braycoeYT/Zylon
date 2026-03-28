@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 
 namespace Zylon.Projectiles.Armor
 {
-    public class ArgentumOrb_Laser : ModProjectile
+    public class ArgentumOrb_SummonLaser : ModProjectile
     {
         public override void SetStaticDefaults() {
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 40;
@@ -19,7 +19,7 @@ namespace Zylon.Projectiles.Armor
             Projectile.height = 6;
             Projectile.aiStyle = -1;
             Projectile.friendly = true;
-            Projectile.DamageType = DamageClass.Generic;
+            Projectile.DamageType = DamageClass.Summon;
             Projectile.timeLeft = 900;
             Projectile.ignoreWater = true;
             Projectile.penetrate = 1;
@@ -30,12 +30,12 @@ namespace Zylon.Projectiles.Armor
         int Timer;
         public override void AI() {
             Timer++;
-            Projectile.tileCollide = Timer > 300;
+            Projectile.tileCollide = Timer > 60;
             if (Projectile.timeLeft < 15) Projectile.alpha += 17;
-            /*if (!Main.npc[(int)Projectile.ai[0]].active) {
+            bool foundTarget = false;
+            if (!Main.npc[(int)Projectile.ai[0]].active) {
 				float distanceFromTarget = 800f;
 				Vector2 targetCenter = Projectile.position;
-				bool foundTarget = false;
 
 				for (int i = 0; i < Main.maxNPCs; i++) {
 					NPC npc = Main.npc[i];
@@ -56,7 +56,8 @@ namespace Zylon.Projectiles.Armor
 					}
 				}
 			}
-            if (Timer % 90 == 0 && Main.npc[(int)Projectile.ai[0]].active && Main.npc[(int)Projectile.ai[0]].life > 0) Projectile.velocity = Projectile.Center.DirectionTo(Main.npc[(int)Projectile.ai[1]].Center)*4f;*/
+            else foundTarget = true;
+            if (Timer < 30 && foundTarget && Main.npc[(int)Projectile.ai[0]].active && Main.npc[(int)Projectile.ai[0]].life > 0) Projectile.velocity = Projectile.Center.DirectionTo(Main.npc[(int)Projectile.ai[0]].Center)*4f;
         }
         public override bool PreDraw(ref Color lightColor) {
             Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;

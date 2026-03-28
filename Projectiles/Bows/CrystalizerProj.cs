@@ -22,6 +22,7 @@ namespace Zylon.Projectiles.Bows
 			Projectile.ignoreWater = true;
 			Projectile.light = 0.3f;
 			AIType = ProjectileID.Bullet;
+			Projectile.arrow = true;
 		}
         public override bool OnTileCollide(Vector2 oldVelocity) {
 			if (Projectile.friendly) { Projectile.Kill(); }

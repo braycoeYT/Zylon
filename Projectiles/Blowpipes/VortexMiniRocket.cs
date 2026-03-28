@@ -20,6 +20,9 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.penetrate = -1;
 			Projectile.timeLeft = 600;
 			Projectile.DamageType = DamageClass.Ranged;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             Projectile.timeLeft = 3;

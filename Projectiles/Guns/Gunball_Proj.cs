@@ -25,6 +25,9 @@ namespace Zylon.Projectiles.Guns
 			Projectile.DamageType = DamageClass.Ranged;
 			Projectile.extraUpdates = 1;
 			Projectile.scale = 0.75f;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zBullet = true;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             if (!target.boss && target.type != NPCID.GolemHead && target.type != NPCID.SkeletronHand) {

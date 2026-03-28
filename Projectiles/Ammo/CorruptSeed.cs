@@ -14,6 +14,9 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.CloneDefaults(ProjectileID.Seed);
 			AIType = ProjectileID.Seed;
 			Projectile.penetrate = 3;
+
+            ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             Projectile.damage += 4;

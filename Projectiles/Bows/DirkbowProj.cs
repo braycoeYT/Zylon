@@ -23,6 +23,7 @@ namespace Zylon.Projectiles.Bows
 			Projectile.timeLeft = 360;
 			Projectile.ignoreWater = true;
 			Projectile.alpha = 255;
+			Projectile.arrow = true;
 		}
         public override void AI() {
             Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.PiOver2;

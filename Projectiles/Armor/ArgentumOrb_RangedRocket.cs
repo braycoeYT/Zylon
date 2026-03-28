@@ -53,8 +53,6 @@ namespace Zylon.Projectiles.Armor
 				float rand1 = Main.rand.NextFloat(-1.5f, 1.5f);
 				float rand2 = Main.rand.NextFloat(-1.5f, 1.5f);
 				Gore.NewGore(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(rand1, rand2), Main.rand.Next(61, 64));
-				//int dustIndex = Dust.NewDust(new Vector2(Projectile.position.X+60, Projectile.position.Y+30), Projectile.width/4, Projectile.height/4, DustID.Smoke, 0f, 0f, 100, default(Color), 2f);
-				//Main.dust[dustIndex].velocity *= 1.4f;
 			}
 		}
 	}   

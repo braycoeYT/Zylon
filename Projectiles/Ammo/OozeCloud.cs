@@ -21,6 +21,7 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.penetrate = -1;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 15;
+			Projectile.DamageType = DamageClass.Ranged;
 		}
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
 		    target.AddBuff(BuffID.Poisoned, Main.rand.Next(3, 8)*60);

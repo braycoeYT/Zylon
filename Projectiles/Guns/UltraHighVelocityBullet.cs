@@ -11,6 +11,9 @@ namespace Zylon.Projectiles.Guns
 			Projectile.CloneDefaults(ProjectileID.BulletHighVelocity);
 			AIType = ProjectileID.BulletHighVelocity;
 			Projectile.extraUpdates = 12;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zBullet = true;
 		}
         public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);

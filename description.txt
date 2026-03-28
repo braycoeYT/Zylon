@@ -16,7 +16,7 @@ Abyssworld - ":b:"
 Autumn - ":a:"
 Turf War - ":t:"
 
-V0.0.4.9: Quick Update
+V0.0.4.9: Preparation Update
 ~Changed the Secret Seed System codes to make them less likely to be accidentally used. If you are currently playing through any secret seeds, just change your world name to match.
 ~Fixed a minor bug with armor that modifies blowpipe charge speed.
 ~Resprited Tent.
@@ -24,7 +24,13 @@ V0.0.4.9: Quick Update
 ~Made Foam Dart Pistol obtainable once more, and resprited its projectile.
 ~Fixed some mistakes with vanilla recipes.
 ~Changed various ammo recipes.
-NEW RANGED SUPER ACCESSORY THING
+~Royal Argentum Armor now has unique armor bonuses instead of just one.
+~Added a boss theme for Adeneb.
+~Renamed Continuum Warper to Continuum Detonator, and changed function.
+~Extremely painfully fixed issues related to Archery Potion and Magic Quiver-esque modded items.
+~Overclock Arrow now has a higher increase in damage if it is fired from a bow with extremely high damage.
+RESPRITE DEV ARMOR
+FIX ARGENTUM ROCKET + POCKET GRENADES
 
 MATRIX SCAVENGER REWORKS: 75% complete
 
@@ -33,7 +39,7 @@ Ex-Ex-Owner:
 BraycoeYT
 
 Ideas, Sprites, Music, and General Support:
-Skymanisbtman (Composer, Spriter)
+Skymanisbtman (Composer and Spriter)
 Tome Man (Coder and Spriter)
 
 Azercadmium Devs (newer 1.3 version of Zylon):

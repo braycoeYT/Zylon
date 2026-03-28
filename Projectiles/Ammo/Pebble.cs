@@ -13,6 +13,9 @@ namespace Zylon.Projectiles.Ammo
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.Seed);
 			AIType = ProjectileID.Seed;
+
+            ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
             if (Main.rand.NextFloat() < .15f) target.AddBuff(BuffID.Confused, Main.rand.Next(5, 11) * 60, false);

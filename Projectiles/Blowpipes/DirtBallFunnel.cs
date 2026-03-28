@@ -16,6 +16,9 @@ namespace Zylon.Projectiles.Blowpipes
 			Projectile.penetrate = 1;
 			Projectile.timeLeft = 9999;
 			Projectile.DamageType = DamageClass.Ranged;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
         public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);

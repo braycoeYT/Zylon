@@ -8,9 +8,6 @@ namespace Zylon.Projectiles.Blowpipes
 {
 	public class ChlorophyteBlowspitterProj : ModProjectile
 	{
-        public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Slimeblast");
-        }
 		public override void SetDefaults() {
 			Projectile.CloneDefaults(ProjectileID.ChlorophyteBullet);
 			Projectile.width = 8;
@@ -22,6 +19,9 @@ namespace Zylon.Projectiles.Blowpipes
 			AIType = ProjectileID.ChlorophyteBullet;
 			Projectile.usesLocalNPCImmunity = true;
 			Projectile.localNPCHitCooldown = 10;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zDart = true;
 		}
     }   
 }

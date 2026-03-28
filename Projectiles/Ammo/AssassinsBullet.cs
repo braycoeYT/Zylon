@@ -18,6 +18,9 @@ namespace Zylon.Projectiles.Ammo
 			Projectile.extraUpdates = 1;
 			AIType = ProjectileID.Bullet;
 			Projectile.alpha = 400;
+
+			ZylonGlobalProjectile p = Projectile.GetGlobalProjectile<ZylonGlobalProjectile>();
+			p.zBullet = true;
 		}
 		bool init;
         public override void AI() {
