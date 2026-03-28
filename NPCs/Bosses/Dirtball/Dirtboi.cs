@@ -45,14 +45,10 @@ namespace Zylon.NPCs.Bosses.Dirtball
         }
         public override void PostAI() {
             if (NPC.life > 0) NPC.life = NPC.lifeMax;
-			if (NPC.CountNPCS(ModContent.NPCType<Dirtball>()) > 0) 
-                for (int i = 0; i < 1; i++) {
-			    	int dustIndex = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Dirt);
-			    	Dust dust = Main.dust[dustIndex];
-			    	dust.velocity.X = dust.velocity.X + Main.rand.Next(-50, 51) * 0.01f;
-			    	dust.velocity.Y = dust.velocity.Y + Main.rand.Next(-50, 51) * 0.01f;
-			    	dust.scale *= 1f + Main.rand.Next(-30, 31) * 0.01f;
-			    }
+			Dust dust = Dust.NewDustDirect(NPC.position, NPC.width, NPC.height, DustID.Dirt);
+			dust.noGravity = false;
+			dust.scale = Main.rand.NextFloat(0.5f, 1f);
+            dust.velocity.Y = 3;
 		}
         int val;
         public override void FindFrame(int frameHeight) {

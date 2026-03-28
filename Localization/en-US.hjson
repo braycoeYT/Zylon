@@ -498,8 +498,8 @@ Mods: {
 			}
 
 			CeroandUni: {
-				DisplayName: Ceroand Uni
-				Description: Mods.Zylon.Buffs.CeroandUni.Description
+				DisplayName: Cero and Uni
+				Description: Their code was left unfinished...
 			}
 		}
 
@@ -5614,6 +5614,7 @@ Mods: {
 			ArgentumOrb_MagicAttack.DisplayName: Argentum Orb
 			ArgentumOrb_SummonLaser.DisplayName: Argentum Orb
 			ContinuumMine.DisplayName: Continuum Mine
+			UniPet.DisplayName: Uni Pet
 		}
 
 		NPCs: {
