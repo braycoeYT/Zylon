@@ -50,16 +50,17 @@ namespace Zylon.Projectiles.Pets
 
             #region Movement
 
-			float speed = 16f;
-			float inertia = 60f;
-			/*if (distanceToIdlePosition > 600f) {
-				//speed = 12f;
-				//inertia = 60f;
+			float speed = 13f;
+			float inertia = 25f;
+			if (distanceToIdlePosition > 330f) {
+				speed = 33f;
+				inertia = 5f;
 			}
-			else {
-				//speed = 4f;
-				//inertia = 80f;
-			}*/
+            else if (distanceToIdlePosition <= 20f) {
+                speed = 13f;
+                inertia = 45f;
+            }
+
 			if (distanceToIdlePosition > 20f) {
 				vectorToIdlePosition.Normalize();
 				vectorToIdlePosition *= speed;
@@ -79,7 +80,7 @@ namespace Zylon.Projectiles.Pets
                 blinkTimer = 5; //Turns red for how long?
                 Timer = 0;
                 rand = Main.rand.Next(120, 181);
-                Projectile.velocity += new Vector2(0, Main.rand.NextFloat(4, 7)).RotatedByRandom(MathHelper.TwoPi);
+                Projectile.velocity += new Vector2(0, Main.rand.NextFloat(6, 10)).RotatedByRandom(MathHelper.TwoPi);
                 counter++;
 
                 if (counter % 5 == 4) glitchTimer = 20; 

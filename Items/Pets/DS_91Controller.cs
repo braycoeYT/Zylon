@@ -27,5 +27,13 @@ namespace Zylon.Items.Pets
 			player.AddBuff(Item.buffType, 2);
 			return false;
 		}
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemType<Materials.CompanionStone>());
+			recipe.AddIngredient(ItemType<Placeables.Trophies.DirtballTrophy>());
+			recipe.AddRecipeGroup("Zylon:AnyPHBar", 8);
+			recipe.AddIngredient(ItemID.DirtBlock, 99);
+			recipe.Register();
+		}
 	}
 }

@@ -323,6 +323,9 @@ namespace Zylon.NPCs
 			if (shop.NpcType == NPCID.Cyborg) {
 				shop.Add(new Item(ItemType<Items.Accessories.ContinuumWarper>()));
 			}
+			if (shop.NpcType == 633) { //Zoologist
+				shop.Add(new Item(ItemType<Items.Materials.CompanionStone>()));
+			}
         }
         public override void SetupTravelShop(int[] shop, ref int nextSlot) {
             if (Main.rand.NextFloat() < .75f || !Main.hardMode) {

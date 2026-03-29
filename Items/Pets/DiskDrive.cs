@@ -21,5 +21,13 @@ namespace Zylon.Items.Pets
 			player.AddBuff(Item.buffType, 2);
 			return false;
 		}
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemType<Materials.CompanionStone>());
+			recipe.AddIngredient(ItemType<Placeables.Trophies.AdenebTrophy>());
+			recipe.AddIngredient(ItemType<Materials.AdeniteCrumbles>(), 20);
+			recipe.AddIngredient(ItemID.Obsidian, 15);
+			recipe.Register();
+		}
 	}
 } 

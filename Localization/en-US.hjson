@@ -3194,6 +3194,11 @@ Mods: {
 					'''
 			}
 
+			AdeniteCrumbles: {
+				DisplayName: Adenite Crumbles
+				Tooltip: ""
+			}
+
 			BloodDroplet: {
 				DisplayName: Blood Droplet
 				Tooltip: "'I don't think you should hold this with your bare hands...'"
@@ -3204,9 +3209,13 @@ Mods: {
 				Tooltip: "'Crunchy!'"
 			}
 
-			AdeniteCrumbles: {
-				DisplayName: Adenite Crumbles
-				Tooltip: ""
+			CompanionStone: {
+				DisplayName: Companion Stone
+				Tooltip:
+					'''
+					'Because everybody deserves a friend.'
+					Allows for crafting Master Mode pets outside of Master Mode
+					'''
 			}
 
 			EerieBell: {

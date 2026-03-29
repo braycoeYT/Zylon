@@ -19,6 +19,9 @@ Turf War - ":t:"
 V0.0.5: Matrix Update
 ~Changed rarity of Forgotten Rose Saber from Lime to Yellow.
 ~Made slight sprite changes to Braycoe's vanity set.
+~Added Old-Fashioned Computer.
+~Reworked all modded pets to have MUCH better AI.
+SCAVENGER COMPANION RECIPE
 
 MATRIX SCAVENGER REWORKS: 75% complete
 

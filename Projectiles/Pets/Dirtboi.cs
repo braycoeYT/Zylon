@@ -16,7 +16,7 @@ namespace Zylon.Projectiles.Pets
         }
         public override void SetDefaults() {
             Projectile.CloneDefaults(ProjectileID.ZephyrFish);
-            AIType = ProjectileID.ZephyrFish;
+            Projectile.aiStyle = -1;
             Projectile.width = 38;
             Projectile.height = 20;
 
@@ -75,11 +75,17 @@ namespace Zylon.Projectiles.Pets
             #region Movement
 
 			float speed = 12f;
-			float inertia = 20f;
+			float inertia = 30f;
 			if (distanceToIdlePosition > 600f) {
 				speed = 24f;
-				inertia = 30f;
+				inertia = 25f;
 			}
+            else if (distanceToIdlePosition <= 20f) {
+                speed = 12f;
+                inertia = 50f;
+            }
+            if (Main.hardMode && distanceToIdlePosition > 80f) speed *= 2; //Those darn wings.
+
 			if (distanceToIdlePosition > 20f) {
 				vectorToIdlePosition.Normalize();
 				vectorToIdlePosition *= speed;
