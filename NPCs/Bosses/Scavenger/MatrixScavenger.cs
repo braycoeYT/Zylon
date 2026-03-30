@@ -119,11 +119,11 @@ namespace Zylon.NPCs.Bosses.Scavenger
 
 			if (attackDone) {
 				//Set up the nextAttack system.
-				if (nextAttack == -1) NPC.ai[0] = GetRandAttack();
+				if (nextAttack == -1) NPC.ai[0] = Main.rand.Next(4); //I saw a bug once that MIGHT be related to the last attack so we're skipping that bc who cares.
 				else NPC.ai[0] = nextAttack;
 
-				nextAttack = 4;//GetRandAttack();
-				//while ((int)NPC.ai[0] == nextAttack) nextAttack = GetRandAttack();
+				nextAttack = GetRandAttack();
+				while ((int)NPC.ai[0] == nextAttack) nextAttack = GetRandAttack();
 
 				attackDone = false;
 				attackTimer = 0;
@@ -216,11 +216,39 @@ namespace Zylon.NPCs.Bosses.Scavenger
 		}
 		public void OnesFromAbove() {
 			attackTimer++;
+			Vector2 noMoreVars = target.Center - new Vector2(0, 360) + new Vector2(target.velocity.X*30, target.velocity.Y*-10);
 
-			NPC.Center = target.Center - new Vector2(0, 360) + new Vector2(target.velocity.X*10, target.velocity.Y*4);
+			if (totalAttackTimer == 1) NPC.Center = noMoreVars;
+			else {
+				/*if (Math.Abs(NPC.Center.X - noMoreVars.X) < 16*8) NPC.velocity *= 0.92f;
+				else if (NPC.Center.X < noMoreVars.X) NPC.velocity.X += 1.5f - 0.5f*hpLeft;
+				else NPC.velocity.X -= 1.5f - 0.5f*hpLeft;
 
-			if (attackTimer > 30) {
-				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -13), ModContent.ProjectileType<BigOneFlip>(), (int)(NPC.damage*0.3f), 0f, -1, hpLeft);
+				if (Vector2.Distance(NPC.Center, noMoreVars) < 300) {
+					if (Math.Abs(NPC.velocity.X) > 13) NPC.velocity.X = NPC.velocity.X/Math.Abs(NPC.velocity.X)*13f;
+					if (Math.Abs(NPC.velocity.Y) > 13) NPC.velocity.Y = NPC.velocity.Y/Math.Abs(NPC.velocity.Y)*13f;
+				}
+
+				if (Math.Abs(NPC.Center.Y - noMoreVars.Y) < 16*8) NPC.velocity *= 0.92f;
+				else if (NPC.Center.Y < noMoreVars.Y) NPC.velocity.Y += 1.5f - 0.5f*hpLeft;
+				else NPC.velocity.Y -= 1.5f - 0.5f*hpLeft;*/
+
+				NPC.velocity = NPC.Center.DirectionTo(noMoreVars)*10f;
+
+				if (Vector2.Distance(NPC.Center, noMoreVars) < 10f) {
+					NPC.velocity = Vector2.Zero;
+					NPC.Center = noMoreVars;
+				}
+				else if (Vector2.Distance(NPC.Center, noMoreVars) > 300) {
+					NPC.velocity = NPC.Center.DirectionTo(noMoreVars)*20f;
+				}
+
+				if (NPC.Center == noMoreVars) NPC.velocity = Vector2.Zero;
+			}
+
+			if (attackTimer > 24 + (int)(16*hpLeft)) {
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -13), ModContent.ProjectileType<BigOneFlip>(), (int)(NPC.damage*0.25f), 0f, -1, hpLeft);
+				attackTimer = 0;
 			}
 
 			if (totalAttackTimer >= 450) {
@@ -416,15 +444,24 @@ namespace Zylon.NPCs.Bosses.Scavenger
 		}
 		bool forceDM;
 		private int GetRandAttack() {
-			/*if (!forceDM) {
-				forceDM = true;
-				return 5;
-			}*/
+			if (hpLeft <= 0.25f) {
+				if (!forceDM) {
+					forceDM = true;
+					return 5;
+				}
+				if (hpLeft < 0.1f && Main.rand.NextBool(3)) return 5;
+				return Main.rand.Next(6);
+			} 
 			return Main.rand.Next(5);
 		}
 		private void WarpSetup() { //Increment warp to start the teleport animation and to determine the location of the spawn.
 			if (warpTimer == 1) {
-				if ((nextAttack == 3f && !specialWarp) || specialWarp && NPC.ai[0] == 3f) {
+				if (nextAttack == 4f && !specialWarp) {
+					Vector2 noMoreVars = target.Center - new Vector2(0, 360) + new Vector2(target.velocity.X*30, target.velocity.Y*-10);
+					warpFloat = noMoreVars.X;
+					warpFloat2 = noMoreVars.Y;
+				}
+				else if ((nextAttack == 3f && !specialWarp) || specialWarp && NPC.ai[0] == 3f) {
 					warpFloat = Main.rand.Next(400, 451); //Offset from center of player
 					warpFloat2 = Main.rand.NextFloat(MathHelper.TwoPi); //Angle from player
 

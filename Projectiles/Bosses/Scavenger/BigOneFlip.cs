@@ -32,13 +32,21 @@ namespace Zylon.Projectiles.Bosses.Scavenger
         }
 		int Timer;
 		int mode;
-		float visibility;
-        public override void AI() {
+		int xOffset = Main.rand.Next(-120, 121);
+        public override void AI() { //ai0 = hp of boss left as a decimal
 			NPC owner = Main.npc[ZylonGlobalNPC.scavengerBoss];
 			if (!owner.active || owner.life < 1) Projectile.Kill();
 
+			if (Projectile.timeLeft < 20) {
+				Projectile.scale = Projectile.timeLeft/20f;
+				Projectile.hostile = false;
+				return;
+			}
+			Vector2 targetCenter = Main.player[Main.npc[ZylonGlobalNPC.scavengerBoss].target].Center + new Vector2(xOffset + Main.player[Main.npc[ZylonGlobalNPC.scavengerBoss].target].velocity.X*10, 0);
+
 			Timer++;
-			if (Timer < 15) {
+			if (Timer < 15 && mode == 0) {
+				Projectile.rotation = MathHelper.Pi;
 				Projectile.scale = Timer/15f;
 				if (Projectile.scale > 1f) Projectile.scale = 1f;
 				Projectile.velocity *= 0.95f;
@@ -46,25 +54,33 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 			else if (mode == 0) {
 				Projectile.velocity.Y += 0.25f + 0.25f*Projectile.ai[0];
 				if (Projectile.velocity.Y > 13f) Projectile.velocity.Y = 13f;
-				if (Projectile.Center.Y + 100 > Main.player[Main.npc[ZylonGlobalNPC.scavengerBoss].target].Center.Y) {
+				if (Projectile.Center.Y > targetCenter.Y + 460) {
 					mode = 1;
+					Timer = 0;
 				}
 			}
 			else if (mode == 1) {
+				Projectile.position.Y = targetCenter.Y + 460 - Projectile.height/2;
+				Projectile.rotation += MathHelper.ToRadians(15); //Do a barrel roll.
 
+				if (Math.Abs(Projectile.Center.X - targetCenter.X) < 16*8) Projectile.velocity *= 0.92f;
+				else if (Projectile.Center.X < targetCenter.X) Projectile.velocity.X += 1.5f - 0.5f*Projectile.ai[0];
+				else Projectile.velocity.X -= 1.5f - 0.5f*Projectile.ai[0];
+
+				if (Timer >= 60) {
+					mode = 2;
+					Projectile.timeLeft = 180;
+				}
+			}
+			else if (mode == 2) {
+				Projectile.velocity = new Vector2(0, -9);
 			}
 
-			if (Projectile.timeLeft < 30) {
-				visibility = Projectile.timeLeft/30f;
-				Projectile.hostile = false;
-			}
-
-			if (owner.ai[0] != 4f && Projectile.timeLeft > 30) Projectile.timeLeft = 30;
+			if (owner.ai[0] != 4f && Projectile.timeLeft > 20) Projectile.timeLeft = 20;
         }
         public override bool PreDraw(ref Color lightColor) {
             Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;
-            //Texture2D overlay = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Bosses/Adeneb/AdenebMiniSunChase");
-
+            
             Vector2 drawOrigin = new Vector2(projectileTexture.Width * 0.5f, Projectile.height * 0.5f);
             Vector2 drawPos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
 
