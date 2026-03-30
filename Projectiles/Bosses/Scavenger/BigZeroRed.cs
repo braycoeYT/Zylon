@@ -7,7 +7,7 @@ using Terraria.GameContent;
 
 namespace Zylon.Projectiles.Bosses.Scavenger
 {
-	public class BigZero2 : ModProjectile
+	public class BigZeroRed : ModProjectile
 	{
 		public override void SetStaticDefaults() {
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 15;
@@ -19,7 +19,7 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 			Projectile.aiStyle = -1;
 			Projectile.hostile = true;
 			Projectile.friendly = false;
-			Projectile.timeLeft = 120;
+			Projectile.timeLeft = 100;
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = false;
 		}
@@ -65,19 +65,36 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 			}
         }
         public override bool PreDraw(ref Color lightColor) {
-            Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;
-            //Texture2D overlay = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Bosses/Adeneb/AdenebMiniSunChase");
+            Texture2D red = TextureAssets.Projectile[Projectile.type].Value;
+            Texture2D green = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Bosses/Scavenger/BigZero");
 
-            Vector2 drawOrigin = new Vector2(projectileTexture.Width * 0.5f, Projectile.height * 0.5f);
+            Vector2 drawOrigin = new Vector2(red.Width * 0.5f, Projectile.height * 0.5f);
             Vector2 drawPos = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
 
+			Projectile.ai[0]++; if (Projectile.ai[0] > 60f) Projectile.ai[0] = 60f;
+			Color overlayColor = Color.White; //*(Projectile.ai[0]/60f);
+
+
+			//SCRAPPED IDEA - ONLY RED IS IN GAME
+
+			/*//Green (default)
             for (int k = 0; k < Projectile.oldPos.Length; k++)
             {
                 Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
                 Color colorAfterEffect = Color.White * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.3f;
-                Main.spriteBatch.Draw(projectileTexture, drawPosEffect, null, colorAfterEffect, Projectile.oldRot[k]+extraRot, drawOrigin, Projectile.rotation/MathHelper.TwoPi, SpriteEffects.None, 0);
+                Main.spriteBatch.Draw(green, drawPosEffect, null, colorAfterEffect, Projectile.oldRot[k]+extraRot, drawOrigin, Projectile.rotation/MathHelper.TwoPi, SpriteEffects.None, 0);
             }
-            Main.spriteBatch.Draw(projectileTexture, drawPos, null, Color.White, Projectile.rotation+extraRot, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(green, drawPos, null, Color.White, Projectile.rotation+extraRot, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
+
+			//Red (ooh evil scary aah)*/
+
+			for (int k = 0; k < Projectile.oldPos.Length; k++)
+            {
+                Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
+                Color colorAfterEffect = overlayColor * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.3f;
+                Main.spriteBatch.Draw(red, drawPosEffect, null, colorAfterEffect, Projectile.oldRot[k]+extraRot, drawOrigin, Projectile.rotation/MathHelper.TwoPi, SpriteEffects.None, 0);
+            }
+            Main.spriteBatch.Draw(red, drawPos, null, overlayColor, Projectile.rotation+extraRot, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
 
             return false;
         }

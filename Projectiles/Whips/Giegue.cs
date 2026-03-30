@@ -28,26 +28,38 @@ namespace Zylon.Projectiles.Whips
 			get => Projectile.ai[1];
 			set => Projectile.ai[1] = value;
 		}
+		int hitCounter;
 		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+			hitCounter++;
 			Main.player[Projectile.owner].MinionAttackTargetNPC = target.whoAmI;
 			Projectile.damage = (int)(Projectile.damage * 0.75f);
+			if (hitCounter > 3) return;
 			if (Main.myPlayer == Projectile.owner) {
 				if (target.type != NPCID.TargetDummy) {
-					int rand = Main.rand.Next(3, 7);
+					int rand = Main.rand.Next(1, 7);
 					Main.player[Projectile.owner].statMana += rand;
 					Main.player[Projectile.owner].ManaEffect(rand);
 				}
+				/*if (Main.player[Projectile.owner].statMana > 20) {
+					Main.player[Projectile.owner].statMana -= 4;
+					Projectile.NewProjectile();
+				}*/
 			}
 		}
 		int atkTimer;
         public override void AI() {
             atkTimer++;
-			if (atkTimer == 28 && Main.player[Projectile.owner].statMana >= 40) {
-				Main.player[Projectile.owner].statMana -= 40;
+			if (atkTimer % 7 == 0 && Main.player[Projectile.owner].statMana >= 20 && !Main.player[Projectile.owner].HasBuff(BuffID.ManaSickness)) {
+				Main.player[Projectile.owner].statMana -= 7;
 				SoundEngine.PlaySound(SoundID.Item8, Projectile.Center);
-				for (int i = 0; i < 12; i++) {
+
+				float rand = Main.rand.NextFloat(MathHelper.TwoPi);
+
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + new Vector2(0, -Main.rand.Next(400, 501)).RotatedBy(rand), new Vector2(0, 10).RotatedBy(rand), ModContent.ProjectileType<GiegueSpark>(), (int)(Projectile.damage*0.5f), Projectile.knockBack/2f, Projectile.owner);
+
+				/*for (int i = 0; i < 12; i++) {
 					Projectile.NewProjectile(Projectile.GetSource_FromThis(), headPos, new Vector2(0, 6).RotatedBy(MathHelper.ToRadians(i*30)), ModContent.ProjectileType<GiegueBrainCyclone>(), (int)(Projectile.damage*0.6f), Projectile.knockBack*0.5f, Projectile.owner);
-				}
+				}*/
 			}
         }
         private void DrawLine(List<Vector2> list)

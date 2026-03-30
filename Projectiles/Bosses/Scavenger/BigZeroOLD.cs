@@ -1,13 +1,17 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.DataStructures;
+using Terraria.Audio;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.GameContent;
+using System;
+using Zylon.NPCs;
 
 namespace Zylon.Projectiles.Bosses.Scavenger
 {
-	public class BigZero2 : ModProjectile
+	public class BigZeroOLD : ModProjectile
 	{
 		public override void SetStaticDefaults() {
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 15;
@@ -19,7 +23,7 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 			Projectile.aiStyle = -1;
 			Projectile.hostile = true;
 			Projectile.friendly = false;
-			Projectile.timeLeft = 120;
+			Projectile.timeLeft = 360;
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = false;
 		}
@@ -28,40 +32,38 @@ namespace Zylon.Projectiles.Bosses.Scavenger
         }
 		int Timer;
 		int shootTimer;
-		float speed;
-		float extraRot;
-		Vector2 targetVel;
-        public override void AI() {
-			Timer++;
-
-			Projectile.rotation = MathHelper.TwoPi*Projectile.scale;
-
-			if (Timer <= 15) { //20
-				Projectile.scale = Timer/15f;
-				
-
-				if (Timer == 1) targetVel = Projectile.Center.DirectionTo(new Vector2(Projectile.ai[0], Projectile.ai[1])); //Main.player[Main.npc[ZylonGlobalNPC.scavengerBoss].target].Center);
+        public override void AI() { //ai0 = hpLeft
+			Timer++; shootTimer++;
+			if (Timer < 20) {
+				Projectile.scale = Timer/20f;
+				Projectile.rotation = MathHelper.TwoPi*Projectile.scale;
 			}
-			else if (Timer >= 25) { //35
-				speed = (Timer-25)/15f;
-				if (speed > 1f) speed = 1f;
-				Projectile.velocity = targetVel*15f*speed;
-
-				extraRot += MathHelper.TwoPi*0.05f;
-			}
-			
 			if (Projectile.timeLeft < 40) {
 				Projectile.scale = (Projectile.timeLeft-20f)/20f;
 				if (Projectile.scale < 0f) Projectile.scale = 0f;
-				extraRot += MathHelper.TwoPi*0.05f;
-
-				//Projectile.rotation = MathHelper.TwoPi*Projectile.scale;
+				Projectile.rotation = MathHelper.TwoPi*Projectile.scale;
 
 				if (Projectile.timeLeft < 20) {
 					Projectile.velocity = Vector2.Zero;
 					Projectile.hostile = false;
 					return;
 				}
+			}
+			NPC owner = Main.npc[ZylonGlobalNPC.scavengerBoss];
+			if (!owner.active || owner.life < 1) Projectile.Kill();
+
+			if (owner.ai[0] != 1f && Projectile.timeLeft > 45) Projectile.timeLeft = 45;
+
+			Projectile.velocity = Vector2.Normalize(Projectile.Center - Main.player[owner.target].Center)*(-5f);
+
+			Projectile.velocity.Y += (float)Math.Sin(MathHelper.Pi*Timer/120f)*5f;
+
+			//if (Math.Abs(Main.player[owner.target].Center.X - Projectile.Center.X) > 900) Projectile.velocity = Vector2.Normalize(Projectile.Center - Main.player[owner.target].Center)*-20f;
+
+			float rand = Main.rand.NextFloat(MathHelper.TwoPi);
+			if (shootTimer > 110+50*Projectile.ai[0] && Main.netMode != NetmodeID.MultiplayerClient) for (int i = 0; i < 4; i++) {
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(i*90) + rand), ModContent.ProjectileType<BinaryBlast1x1>(), Projectile.damage*3/4, 0f);
+				shootTimer = 0;
 			}
         }
         public override bool PreDraw(ref Color lightColor) {
@@ -75,9 +77,9 @@ namespace Zylon.Projectiles.Bosses.Scavenger
             {
                 Vector2 drawPosEffect = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
                 Color colorAfterEffect = Color.White * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length) * 0.3f;
-                Main.spriteBatch.Draw(projectileTexture, drawPosEffect, null, colorAfterEffect, Projectile.oldRot[k]+extraRot, drawOrigin, Projectile.rotation/MathHelper.TwoPi, SpriteEffects.None, 0);
+                Main.spriteBatch.Draw(projectileTexture, drawPosEffect, null, colorAfterEffect, Projectile.oldRot[k], drawOrigin, Projectile.rotation/MathHelper.TwoPi, SpriteEffects.None, 0);
             }
-            Main.spriteBatch.Draw(projectileTexture, drawPos, null, Color.White, Projectile.rotation+extraRot, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(projectileTexture, drawPos, null, Color.White, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0f);
 
             return false;
         }

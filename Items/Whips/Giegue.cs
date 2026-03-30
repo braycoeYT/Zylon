@@ -10,7 +10,7 @@ namespace Zylon.Items.Whips
 	{
 		public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(GiegueDebuff.TagDamage);
 		public override void SetDefaults() {
-			Item.DefaultToWhip(ModContent.ProjectileType<Projectiles.Whips.Giegue>(), 129, 2.5f, 10f);
+			Item.DefaultToWhip(ModContent.ProjectileType<Projectiles.Whips.Giegue>(), 137, 2.5f, 10f);
 			Item.rare = ItemRarityID.Yellow;
 			Item.useTime = 20;
 			Item.useAnimation = 20;

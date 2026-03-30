@@ -28,14 +28,14 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 			//Projectile.alpha = 255;
 		}
 		float offset;
-        public override void AI() { //ai0 = attack ID, ai1 = special data
+        public override void AI() { //ai0 = attack ID, ai1 + ai2 = special data
 			NPC owner = Main.npc[ZylonGlobalNPC.scavengerBoss];
 			Projectile.frame = (int)owner.ai[1];
 
 			offset = 1f-(float)(Math.Pow(2, (30f-Projectile.timeLeft)/11.61f)-1f)/5f; //(30f-Projectile.timeLeft)/30f;//(float)Math.Sin(MathHelper.Pi*(Projectile.timeLeft)/60f);
 
-			if (Projectile.ai[0] == 0f) { //Quarter step
-				Projectile.Center = Main.player[owner.target].Center - new Vector2(0, 360).RotatedBy(Projectile.ai[1]) + Main.player[owner.target].velocity*10f;;
+			if (Projectile.ai[0] == 0f || Projectile.ai[0] == 5f) { //Quarter step or DM attack
+				Projectile.Center = Main.player[owner.target].Center - new Vector2(0, 360).RotatedBy(Projectile.ai[1]); //not sure why --> is here. //+ Main.player[owner.target].velocity*10f;
 			}
 			else if (Projectile.ai[0] == 1f) { //Big numbers
 				Projectile.Center = new Vector2(Projectile.ai[1], Projectile.ai[2]);
@@ -50,6 +50,8 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 		public override bool PreDraw(ref Color lightColor) {
 			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 			Texture2D texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Bosses/Scavenger/Scavenger");
+			if (Main.npc[ZylonGlobalNPC.scavengerBoss].ai[3] == 1f) texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Bosses/Scavenger/ScavengerAngy");
+
 			int frameHeight = texture.Height / Main.projFrames[Projectile.type];
 			int spriteSheetOffset = frameHeight * Projectile.frame;
 			Vector2 sheetInsertPosition = (Projectile.Center + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition).Floor();

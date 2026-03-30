@@ -42,6 +42,8 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 		public override bool PreDraw(ref Color lightColor) {
 			SpriteEffects effects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
 			Texture2D texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Bosses/Scavenger/Scavenger");
+			if (Main.npc[ZylonGlobalNPC.scavengerBoss].ai[3] == 1f) texture = (Texture2D)ModContent.Request<Texture2D>("Zylon/Projectiles/Bosses/Scavenger/ScavengerAngy");
+
 			int frameHeight = texture.Height / Main.projFrames[Projectile.type];
 			int spriteSheetOffset = frameHeight * Projectile.frame;
 			Vector2 sheetInsertPosition = (Projectile.Center + Vector2.UnitY * Projectile.gfxOffY - Main.screenPosition).Floor();

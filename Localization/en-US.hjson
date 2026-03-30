@@ -367,11 +367,6 @@ Mods: {
 				Description: Mods.Zylon.Buffs.GiegueDebuff.Description
 			}
 
-			GieguePsiBoost: {
-				DisplayName: PSI Boost
-				Description: The psychic power of an advanced alien race flows through you
-			}
-
 			PossessedDiamond: {
 				DisplayName: Possessed Diamond
 				Description: The Possessed Diamond will fight for you
@@ -772,7 +767,7 @@ Mods: {
 					'Screw you, ozone layer!'
 					Allows all bullets to bounce off of foes once and tiles twice
 					Enemy bounce can be disabled in the config
-					Chlorophyte, Explosive, and Party bullets cannot bounce off of enemies
+					Certain bullet types cannot bounce off of enemies
 					20% chance not to consume bullets
 					'''
 			}
@@ -4682,8 +4677,9 @@ Mods: {
 					{$CommonItemTooltip.SummonTagDamage}
 					{$CommonItemTooltip.Whips}
 					'Go home now! Perish with the rest of the ugly Earth People.'
-					Striking foes will steal mana from enemies
-					If the player has at least 40 mana, will use mana to cast a psychokinetic attack
+					Striking foes will steal mana from enemies (limited to three hits)
+					If the player has at least 20 mana, consumes 7 mana to cast a psychic attack on foes
+					Psychic attacks don't trigger if the player has Mana Sickness
 					'''
 			}
 
@@ -5624,6 +5620,9 @@ Mods: {
 			ArgentumOrb_SummonLaser.DisplayName: Argentum Orb
 			ContinuumMine.DisplayName: Continuum Mine
 			UniPet.DisplayName: Uni Pet
+			GiegueSpark.DisplayName: Giegue Spark
+			BigZeroOLD.DisplayName: Big Zero O L D
+			BigZeroRed.DisplayName: Big Zero Red
 		}
 
 		NPCs: {

@@ -11,7 +11,7 @@ using Zylon.NPCs;
 
 namespace Zylon.Projectiles.Bosses.Scavenger
 {
-	public class BigZero : ModProjectile
+	public class BigOneFlip : ModProjectile
 	{
 		public override void SetStaticDefaults() {
 			ProjectileID.Sets.TrailCacheLength[Projectile.type] = 15;
@@ -23,7 +23,7 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 			Projectile.aiStyle = -1;
 			Projectile.hostile = true;
 			Projectile.friendly = false;
-			Projectile.timeLeft = 480;
+			Projectile.timeLeft = 9999;
 			Projectile.ignoreWater = true;
 			Projectile.tileCollide = false;
 		}
@@ -31,55 +31,35 @@ namespace Zylon.Projectiles.Bosses.Scavenger
             target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrokenCode>(), Main.rand.Next(3, 7) * 60);
         }
 		int Timer;
+		int mode;
 		float visibility;
-		Vector2 targetCenter;
-		int deathTimer;
         public override void AI() {
 			NPC owner = Main.npc[ZylonGlobalNPC.scavengerBoss];
 			if (!owner.active || owner.life < 1) Projectile.Kill();
 
 			Timer++;
-			if (Timer < 60) { //Prep time
-				Projectile.scale = Timer/20f;
+			if (Timer < 15) {
+				Projectile.scale = Timer/15f;
 				if (Projectile.scale > 1f) Projectile.scale = 1f;
-				Projectile.rotation += MathHelper.ToRadians(16)*Timer/60;
+				Projectile.velocity *= 0.95f;
 			}
-			else if (Timer == 60) { //Launch
-				targetCenter = Main.player[owner.target].Center;
-				Projectile.velocity = Vector2.Normalize(Projectile.Center - targetCenter)*-(17f+Main.expertMode.ToInt()*3f);
-			}
-			else if (Projectile.Center.X > targetCenter.X && Projectile.velocity.X > 0 || Projectile.Center.X < targetCenter.X && Projectile.velocity.X < 0 || Projectile.Center.Y > targetCenter.Y && Projectile.velocity.Y > 0 || Projectile.Center.Y < targetCenter.Y && Projectile.velocity.Y < 0) {
-				//Checking if it went past the player's position at this point, then it self-destructs.
-				int num = 3 + (5+Main.expertMode.ToInt()*2) - (int)((5+Main.expertMode.ToInt()*2)*Projectile.ai[0]);
-				if (num == 3) num = 4;
-				if (Main.netMode != NetmodeID.MultiplayerClient) for (int i = 0; i < num; i++) // && Timer % 5 == 0
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, -6.5f).RotatedBy(MathHelper.ToRadians(i*360/num + MathHelper.ToRadians(Projectile.velocity.ToRotation()))), ModContent.ProjectileType<BinaryBlast1x1>(), Projectile.damage*3/4, 0f);
-				Projectile.Kill(); //If you leave this out, it look really cool.
-			}
-
-			//Transition away.
-			if (Timer > 60) {
-				Vector2 futurePos = Projectile.Center + Projectile.velocity*12;
-				if (futurePos.X > targetCenter.X && Projectile.velocity.X > 0 || futurePos.X < targetCenter.X && Projectile.velocity.X < 0 || futurePos.Y > targetCenter.Y && Projectile.velocity.Y > 0 || futurePos.Y < targetCenter.Y && Projectile.velocity.Y < 0) {
-					Projectile.hostile = false;
-					deathTimer++;
-					Projectile.scale = 1f-(deathTimer/12f);
+			else if (mode == 0) {
+				Projectile.velocity.Y += 0.25f + 0.25f*Projectile.ai[0];
+				if (Projectile.velocity.Y > 13f) Projectile.velocity.Y = 13f;
+				if (Projectile.Center.Y + 100 > Main.player[Main.npc[ZylonGlobalNPC.scavengerBoss].target].Center.Y) {
+					mode = 1;
 				}
 			}
+			else if (mode == 1) {
 
-			if (Timer >= 60) Projectile.rotation += MathHelper.ToRadians(16)*Timer/60; //Couldn't fit it in the statement above w/o being redundant.
-
+			}
 
 			if (Projectile.timeLeft < 30) {
 				visibility = Projectile.timeLeft/30f;
 				Projectile.hostile = false;
 			}
 
-			//Projectile.velocity.Y += (float)Math.Sin(MathHelper.Pi*Timer/120f)*5f;
-
-			/*if (Timer % 15 == 14 && Timer > 60 && Main.netMode != NetmodeID.MultiplayerClient) {
-				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity*-0.5f, ModContent.ProjectileType<BinaryBlast1x1>(), Projectile.damage*3/4, 0f);
-			}*/
+			if (owner.ai[0] != 4f && Projectile.timeLeft > 30) Projectile.timeLeft = 30;
         }
         public override bool PreDraw(ref Color lightColor) {
             Texture2D projectileTexture = TextureAssets.Projectile[Projectile.type].Value;
