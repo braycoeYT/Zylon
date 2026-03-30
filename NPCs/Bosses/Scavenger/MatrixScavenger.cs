@@ -43,7 +43,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 			NPC.height = 162;
 			NPC.damage = 53;
 			NPC.defense = 20;
-			NPC.lifeMax = (int)(25000*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+			NPC.lifeMax = (int)(31000*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.HitSound = SoundID.NPCHit4;
 			NPC.DeathSound = SoundID.NPCDeath14;
 			NPC.value = Item.buyPrice(0, 13);
@@ -57,11 +57,11 @@ namespace Zylon.NPCs.Bosses.Scavenger
 			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/MatrixOverload");
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
-            NPC.lifeMax = (int)(37500*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+            NPC.lifeMax = (int)(46500*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 			NPC.damage = 89;
 			NPC.value = 0;
 			if (Main.masterMode) {
-				NPC.lifeMax = (int)(50000*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
+				NPC.lifeMax = (int)(62000*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
 				NPC.damage = 125;
             }
         }
@@ -104,6 +104,8 @@ namespace Zylon.NPCs.Bosses.Scavenger
 		bool init;
 		bool finale;
 
+		int flee;
+
 		//All for glitch visuals during DM and finale, do not modify
 		int glitchType;
 		int glitchCounter;
@@ -133,6 +135,17 @@ namespace Zylon.NPCs.Bosses.Scavenger
 			if (NPC.ai[1] > 3f)
 				NPC.ai[1] = 0f;
 			NPC.frame.Y = (int)NPC.ai[1] * 162;
+
+			//flee code
+			if (Main.player[NPC.target].statLife < 1 && !finale) {
+				NPC.TargetClosest(true);
+				if (Main.player[NPC.target].statLife < 1) {
+					flee++;
+				}
+				else flee = 0;
+
+				if (flee > 300) NPC.active = false;
+			}
 
 			if (finale) {
 				totalAttackTimer++;
@@ -223,7 +236,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 			}
 			if (warpTimer > 0) WarpSetup();
 
-			Main.NewText((int)NPC.ai[0] + " | " + nextAttack + " | " + specialWarp + " | " + warpTimer + " | (" + warpFloat + ", " + warpFloat2  + ")");
+			//Main.NewText((int)NPC.ai[0] + " | " + nextAttack + " | " + specialWarp + " | " + warpTimer + " | (" + warpFloat + ", " + warpFloat2  + ")");
 		}
 		public void ZeroMegaSpinDM() {
 			attackTimer++;
@@ -501,7 +514,8 @@ namespace Zylon.NPCs.Bosses.Scavenger
 					forceDM = true;
 					return 5;
 				}
-				if (hpLeft < 0.1f && Main.rand.NextBool(3)) return 5;
+				if (hpLeft < 0.125f && Main.rand.NextBool(3)) return 5;
+				if (hpLeft < 0.05f && Main.rand.NextBool(2)) return 5;
 				return Main.rand.Next(6);
 			} 
 			return Main.rand.Next(5);

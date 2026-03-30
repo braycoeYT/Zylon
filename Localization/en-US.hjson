@@ -3671,6 +3671,11 @@ Mods: {
 				Tooltip: ""
 			}
 
+			ScavengerTrophy: {
+				DisplayName: Matrix Scavenger Trophy
+				Tooltip: ""
+			}
+
 			BloodLeaves: {
 				DisplayName: Blood Leaves
 				Tooltip:
@@ -5019,6 +5024,11 @@ Mods: {
 			ScavengerMask: {
 				DisplayName: Matrix Scavenger Mask
 				Tooltip: ""
+			}
+
+			ScavengerRelic: {
+				Tooltip: ""
+				DisplayName: Matrix Scavenger Relic
 			}
 		}
 

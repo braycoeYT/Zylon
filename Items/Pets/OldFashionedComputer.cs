@@ -25,5 +25,13 @@ namespace Zylon.Items.Pets
 			player.AddBuff(Item.buffType, 2);
 			return false;
 		}
+		public override void AddRecipes() {
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(ItemType<Materials.CompanionStone>());
+			recipe.AddIngredient(ItemType<Placeables.Trophies.ScavengerTrophy>());
+			recipe.AddIngredient(ItemID.HallowedBar, 15);
+			recipe.AddIngredient(ItemType<Bars.DarkronBar>(), 12);
+			recipe.Register();
+		}
 	}
 }
