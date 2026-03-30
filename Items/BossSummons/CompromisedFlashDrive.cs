@@ -45,6 +45,7 @@ namespace Zylon.Items.BossSummons
 			Recipe recipe = CreateRecipe();
 			recipe.AddRecipeGroup("Zylon:AnyCobaltBar", 8);
 			recipe.AddIngredient(ItemID.Cog, 20);
+			recipe.AddIngredient(ItemID.SoulofNight, 3);
 			recipe.AddIngredient(ItemID.SoulofFlight, 10);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();

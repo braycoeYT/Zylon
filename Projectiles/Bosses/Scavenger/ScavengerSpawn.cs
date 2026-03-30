@@ -34,7 +34,12 @@ namespace Zylon.Projectiles.Bosses.Scavenger
 
 			offset = 1f-(float)(Math.Pow(2, (30f-Projectile.timeLeft)/11.61f)-1f)/5f; //(30f-Projectile.timeLeft)/30f;//(float)Math.Sin(MathHelper.Pi*(Projectile.timeLeft)/60f);
 
-			if (Projectile.ai[0] == 0f || Projectile.ai[0] == 5f) { //Quarter step or DM attack
+			if (Projectile.ai[0] != 7f && owner.ai[0] == 7) Projectile.Kill();
+			
+			if (Projectile.ai[0] == 7f) {
+				Projectile.Center = Main.player[owner.target].Center - new Vector2(0, 360);
+			}
+			else if (Projectile.ai[0] == 0f || Projectile.ai[0] == 5f) { //Quarter step or DM attack
 				Projectile.Center = Main.player[owner.target].Center - new Vector2(0, 360).RotatedBy(Projectile.ai[1]); //not sure why --> is here. //+ Main.player[owner.target].velocity*10f;
 			}
 			else if (Projectile.ai[0] == 1f) { //Big numbers

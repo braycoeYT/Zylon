@@ -65,6 +65,23 @@ namespace Zylon.NPCs.Bosses.Scavenger
 				NPC.damage = 125;
             }
         }
+		public override void HitEffect(NPC.HitInfo hit) {
+            if (NPC.life < 1 && !finale) {
+				NPC.life = 1;
+				NPC.dontTakeDamage = true;
+				finale = true;
+				
+				attackTimer = 0;
+				attackMode = 0;
+				attackInt = 0;
+				attackInt2 = 0;
+				attackFloat = 0f;
+				attackFloat2 = 0f;
+				totalAttackTimer = 0;
+				warpTimer = 0;
+				NPC.ai[0] = 7;
+            }
+        }
 		Player target;
 		bool attackDone;
 		int attackTimer; //Increments, but resets each phase change.
@@ -85,23 +102,23 @@ namespace Zylon.NPCs.Bosses.Scavenger
 
 		float hpLeft;
 		bool init;
+		bool finale;
 
-		//All for glitch visuals during DMs, do not modify
+		//All for glitch visuals during DM and finale, do not modify
 		int glitchType;
 		int glitchCounter;
-		Vector2 glitch1Offset;
-		Vector2 glitch2Offset;
-        public override void AI() { //ai0 = attack | ai1 = frame of animation | ai2 = teleport fixer <-- is this actually used? | ai3 = glitch fixer (w/ projectile effects)
-			if (!init) {
-				NPC.ai[0] = -1f;
-				nextAttack = GetRandAttack();
-				init = true;
-			}
-			
+		float glitchScale = 1f;
+        public override void AI() { //ai0 = attack | ai1 = frame of animation | ai2 = teleport fixer <-- is this actually used? I forgor | ai3 = glitch fixer (w/ projectile effects)
 			NPC.netUpdate = true;
 			NPC.TargetClosest(true);
 			ZylonGlobalNPC.scavengerBoss = NPC.whoAmI;
 			target = Main.player[NPC.target];
+			
+			if (!init) {
+				NPC.ai[0] = -1f;
+				//nextAttack = GetRandAttack(); //I have a long story about this line of code. Short version: DONT USE.
+				init = true;
+			}
 
 			hpLeft = (float)NPC.life/NPC.lifeMax;
 
@@ -117,9 +134,42 @@ namespace Zylon.NPCs.Bosses.Scavenger
 				NPC.ai[1] = 0f;
 			NPC.frame.Y = (int)NPC.ai[1] * 162;
 
+			if (finale) {
+				totalAttackTimer++;
+				if (totalAttackTimer < 30) warpTimer++;
+				if (warpTimer > 0) WarpSetup();
+
+				if (totalAttackTimer >= 92) {
+					glitchScale += 0.3f;
+					NPC.velocity.Y += 1f;
+					if (NPC.velocity.Y > 20f) NPC.velocity.Y = 20f;
+
+					if (totalAttackTimer == 138) {
+						NPC.dontTakeDamage = false;
+						if (Main.netMode != NetmodeID.MultiplayerClient) NPC.StrikeInstantKill();
+
+						SoundEngine.PlaySound(SoundID.Zombie102.WithPitchOffset(-1f));
+						//SoundEngine.PlaySound(SoundID.NPCDeath39.WithPitchOffset(-1f));
+					}
+				}
+				else if (totalAttackTimer == 91) {
+					NPC.velocity = new Vector2(0, -18);
+					glitchScale += 0.5f;
+				}
+				else if (totalAttackTimer >= 90) {
+					NPC.Center = target.Center - new Vector2(0, 360);
+					glitchScale += 0.05f;
+				}
+				else if (totalAttackTimer >= 30) {
+					NPC.Center = target.Center - new Vector2(0, 360);
+					NPC.ai[3] = 1;
+				}
+				return;
+			}
+
 			if (attackDone) {
 				//Set up the nextAttack system.
-				if (nextAttack == -1) NPC.ai[0] = Main.rand.Next(4); //I saw a bug once that MIGHT be related to the last attack so we're skipping that bc who cares.
+				if (nextAttack == -1) NPC.ai[0] = 0;
 				else NPC.ai[0] = nextAttack;
 
 				nextAttack = GetRandAttack();
@@ -173,7 +223,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 			}
 			if (warpTimer > 0) WarpSetup();
 
-			//Main.NewText((int)NPC.ai[0] + " | " + nextAttack + " | " + specialWarp + " | " + warpTimer + " | (" + warpFloat + ", " + warpFloat2  + ")");
+			Main.NewText((int)NPC.ai[0] + " | " + nextAttack + " | " + specialWarp + " | " + warpTimer + " | (" + warpFloat + ", " + warpFloat2  + ")");
 		}
 		public void ZeroMegaSpinDM() {
 			attackTimer++;
@@ -247,6 +297,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 			}
 
 			if (attackTimer > 24 + (int)(16*hpLeft)) {
+				SoundEngine.PlaySound(SoundID.Item9.WithPitchOffset(-1f));
 				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, new Vector2(0, -13), ModContent.ProjectileType<BigOneFlip>(), (int)(NPC.damage*0.25f), 0f, -1, hpLeft);
 				attackTimer = 0;
 			}
@@ -439,6 +490,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 		}
 		private void IntroAttack() {
 			attackTimer++;
+			nextAttack = 0;
 			if (attackTimer >= 30) warpTimer++;
 			if (attackTimer >= 60) attackDone = true;
 		}
@@ -456,7 +508,12 @@ namespace Zylon.NPCs.Bosses.Scavenger
 		}
 		private void WarpSetup() { //Increment warp to start the teleport animation and to determine the location of the spawn.
 			if (warpTimer == 1) {
-				if (nextAttack == 4f && !specialWarp) {
+				if (finale) {
+					Vector2 noMoreVars = target.Center - new Vector2(0, 360);
+					warpFloat = noMoreVars.X;
+					warpFloat2 = noMoreVars.Y;
+				}
+				else if (nextAttack == 4f && !specialWarp) {
 					Vector2 noMoreVars = target.Center - new Vector2(0, 360) + new Vector2(target.velocity.X*30, target.velocity.Y*-10);
 					warpFloat = noMoreVars.X;
 					warpFloat2 = noMoreVars.Y;
@@ -509,6 +566,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 
 				int attackID = nextAttack;
 				if (specialWarp) attackID = (int)NPC.ai[0];
+				if (finale) attackID = 7;
 				if (Main.netMode != NetmodeID.MultiplayerClient) Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, Vector2.Zero, ModContent.ProjectileType<ScavengerSpawn>(), 0, 0f, -1, attackID, warpFloat, warpFloat2);
 			}
 		}
@@ -539,21 +597,21 @@ namespace Zylon.NPCs.Bosses.Scavenger
 			if (NPC.ai[3] == 1f) {
 				scale = Vector2.One;
 
-				if (glitchCounter % 3 == 0) { //Don't flash every frame.
+				if (glitchCounter % 3 == 0 || (glitchCounter % 2 == 0 && glitchScale > 1.5f) || glitchScale > 2.25f) { //Don't flash every frame.
 					glitchType = Main.rand.Next(2);
 
-					allOffset = new Vector2(Main.rand.Next(-4, 5), Main.rand.Next(-4, 5));
+					allOffset = new Vector2(Main.rand.Next(-4, 5)*glitchScale, Main.rand.Next(-4, 5)*glitchScale);
 
 					ouch1 = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Scavenger/MatrixScavenger_OuchUp");
 					ouch2 = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Scavenger/MatrixScavenger_OuchDown");
-					ouch1Offset = new Vector2(Main.rand.Next(-8, 9), 0);
-					ouch2Offset = new Vector2(Main.rand.Next(-8, 9), 0);
+					ouch1Offset = new Vector2(Main.rand.Next(-8, 9)*glitchScale, 0);
+					ouch2Offset = new Vector2(Main.rand.Next(-8, 9)*glitchScale, 0);
 
 					if (glitchType == 1) {
 						ouch1 = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Scavenger/MatrixScavenger_OuchLeft");
 						ouch2 = (Texture2D)ModContent.Request<Texture2D>("Zylon/NPCs/Bosses/Scavenger/MatrixScavenger_OuchRight");
-						ouch1Offset = new Vector2(0, Main.rand.Next(-8, 9));
-						ouch2Offset = new Vector2(0, Main.rand.Next(-8, 9));
+						ouch1Offset = new Vector2(0, Main.rand.Next(-8, 9)*glitchScale);
+						ouch2Offset = new Vector2(0, Main.rand.Next(-8, 9)*glitchScale);
 					}
 				}
 				glitchCounter++;
