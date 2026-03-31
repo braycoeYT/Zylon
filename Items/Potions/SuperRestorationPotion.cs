@@ -25,8 +25,8 @@ namespace Zylon.Items.Potions
 			Item.UseSound = SoundID.Item3;
 			Item.noUseGraphic = true;
 			Item.consumable = true;
-			Item.healLife = 180;
-			Item.healMana = 180;
+			Item.healLife = 160;
+			Item.healMana = 160;
 			Item.potion = true;
 		}
         public override bool CanUseItem(Player player) {

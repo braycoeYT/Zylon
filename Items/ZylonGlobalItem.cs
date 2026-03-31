@@ -191,7 +191,8 @@ namespace Zylon.Items
 					item.useTime = 25;
 				}
 				if (item.type == ItemID.RestorationPotion) {
-					item.healMana = 90;
+					item.healLife = 80;
+					item.healMana = 80;
                 }
 			}
 			if (!GetInstance<ZylonConfig>().dirtAmmoFix) {

@@ -45,7 +45,7 @@ namespace Zylon.NPCs.Bosses.Dirtball
 			NPC.boss = true;
 			NPC.netAlways = true;
 			NPC.lavaImmune = true;
-			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
+			if (!Main.dedServ) Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = (int)(2100*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);

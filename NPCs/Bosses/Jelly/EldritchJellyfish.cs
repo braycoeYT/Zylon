@@ -49,7 +49,7 @@ namespace Zylon.NPCs.Bosses.Jelly
 			NPC.netAlways = true;
 			NPC.noTileCollide = true;
 			NPC.lavaImmune = true;
-			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/JellyTheme");
+			if (!Main.dedServ) Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/JellyTheme");
         }
 		public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = (int)(11500*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);

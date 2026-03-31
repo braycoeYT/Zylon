@@ -19,6 +19,11 @@ namespace Zylon.NPCs.Bosses.Scavenger
 			NPCID.Sets.BossBestiaryPriority.Add(Type);
 			NPCID.Sets.MPAllowedEnemies[Type] = true;
 
+			var drawModifier = new NPCID.Sets.NPCBestiaryDrawModifiers() {
+				CustomTexturePath = "Zylon/NPCs/Bosses/Scavenger/MatrixScavenger_Bestiary",
+			};
+			NPCID.Sets.NPCBestiaryDrawOffset.Add(NPC.type, drawModifier);
+
 			Main.npcFrameCount[NPC.type] = 4;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Poisoned] = true;
 			NPCID.Sets.SpecificDebuffImmunity[Type][BuffID.Confused] = true;
@@ -54,7 +59,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 			NPC.boss = true;
 			NPC.netAlways = true;
 			NPC.lavaImmune = true;
-			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/MatrixOverload");
+			if (!Main.dedServ) Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/MatrixOverload");
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */ {
             NPC.lifeMax = (int)(46500*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
@@ -186,7 +191,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
 				else NPC.ai[0] = nextAttack;
 
 				nextAttack = GetRandAttack();
-				while ((int)NPC.ai[0] == nextAttack) nextAttack = GetRandAttack();
+				while ((int)NPC.ai[0] == nextAttack || (NPC.ai[0] == 5 && nextAttack == 2)) nextAttack = GetRandAttack(); //IDK why but those two specific attacks never flow well together.
 
 				attackDone = false;
 				attackTimer = 0;
@@ -642,7 +647,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
 			bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
 				BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Times.NightTime,
-				new FlavorTextBestiaryInfoElement("???")
+				new FlavorTextBestiaryInfoElement("An interdimensional vagrant who travels across time and space at unbelieveable speeds by bending the laws of the universe.")
 			});
 		}
         public override void BossLoot(ref string name, ref int potionType) {
@@ -650,7 +655,7 @@ namespace Zylon.NPCs.Bosses.Scavenger
         }
         public override void ModifyNPCLoot(NPCLoot npcLoot) {
 			LeadingConditionRule notExpertRule = new LeadingConditionRule(new Conditions.NotExpert());
-			//npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.AdenebTrophy>(), 10));
+			npcLoot.Add(new CommonDrop(ModContent.ItemType<Items.Placeables.Trophies.ScavengerTrophy>(), 10));
 
 			notExpertRule.OnSuccess(new CommonDrop(ModContent.ItemType<Items.Vanity.BossMask.ScavengerMask>(), 7));
 			notExpertRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<Items.Bars.DarkronBar>(), 1, 15, 30));
@@ -660,8 +665,8 @@ namespace Zylon.NPCs.Bosses.Scavenger
 
 			npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<Items.Bags.ScavengerBag>()));
 
-			//npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeables.Relics.AdenebRelic>()));
-			//npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<Items.Pets.OldFashionedComputer>(), 4));
+			npcLoot.Add(ItemDropRule.MasterModeCommonDrop(ModContent.ItemType<Items.Placeables.Relics.ScavengerRelic>()));
+			npcLoot.Add(ItemDropRule.MasterModeDropOnAllPlayers(ModContent.ItemType<Items.Pets.OldFashionedComputer>(), 4));
 		}
     }
 }

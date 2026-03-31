@@ -24,9 +24,9 @@ V0.0.5: Matrix Update
 ~Added Companion Stone.
 ~Reworked Giegue.
 ~Changed Illusory Bullet Polish description slightly.
-~Fixed sprite error of the mod's trophies being held up by nothing.
-SCAVENGER COMPANION RECIPE
-NERF RESTORATION POTIONS
+~Fixed sprite error of the mod's trophies being held up by nothing. Oops.
+~Nerfed the entire family of Restoration Potions.
+~Resprited all the bad-looking relics.
 SLAM ATTACK CANT FOLLOW DM
 
 MATRIX SCAVENGER REWORKS: 75% complete

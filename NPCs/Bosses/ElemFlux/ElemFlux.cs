@@ -51,7 +51,7 @@ namespace Zylon.NPCs.Bosses.ElemFlux
 			NPC.boss = true;
 			NPC.netAlways = true;
 			NPC.lavaImmune = true;
-			//Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
+			//if (!Main.dedServ) Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DirtStep");
         }
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment) {
             NPC.lifeMax = (int)(49000*balance*bossAdjustment*ModContent.GetInstance<ZylonConfig>().bossHpMult);
