@@ -25,8 +25,7 @@ namespace Zylon.Items.Pets
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemType<Materials.CompanionStone>());
 			recipe.AddIngredient(ItemType<Placeables.Trophies.AdenebTrophy>());
-			recipe.AddIngredient(ItemType<Materials.AdeniteCrumbles>(), 20);
-			recipe.AddIngredient(ItemID.Obsidian, 15);
+			recipe.AddIngredient(ItemType<Vanity.BossMask.AdenebMask>());
 			recipe.Register();
 		}
 	}

@@ -5642,7 +5642,7 @@ Mods: {
 
 				BossChecklistIntegration: {
 					EntryName: Adeneb
-					SpawnInfo: Use [i:Zylon/EnchantedEye] in the desert
+					SpawnInfo: Use [i:Zylon/EnchantedEye] in the desert.
 				}
 			}
 
@@ -5651,7 +5651,7 @@ Mods: {
 
 				BossChecklistIntegration: {
 					EntryName: Dirtball
-					SpawnInfo: Use [i:Zylon/CreepyMud] anywhere
+					SpawnInfo: Use [i:Zylon/CreepyMud] anywhere.
 				}
 			}
 
@@ -5666,7 +5666,7 @@ Mods: {
 
 				BossChecklistIntegration: {
 					EntryName: Eldritch Jellyfish
-					SpawnInfo: Use [i:Zylon/EldritchBell] in the ocean
+					SpawnInfo: Use [i:Zylon/EldritchBell] in the ocean.
 				}
 			}
 
@@ -5677,7 +5677,7 @@ Mods: {
 
 				BossChecklistIntegration: {
 					EntryName: Matrix Scavenger
-					SpawnInfo: Use [i:Zylon/CompromisedFlashDrive] at night
+					SpawnInfo: Use [i:Zylon/CompromisedFlashDrive] at night.
 				}
 			}
 

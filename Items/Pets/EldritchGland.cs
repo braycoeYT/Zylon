@@ -29,9 +29,8 @@ namespace Zylon.Items.Pets
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemType<Materials.CompanionStone>());
-			recipe.AddIngredient(ItemType<Placeables.Trophies.DirtballTrophy>());
-			recipe.AddIngredient(ItemType<Materials.EerieBell>(), 12);
-			recipe.AddIngredient(ItemID.Glowstick, 30);
+			recipe.AddIngredient(ItemType<Placeables.Trophies.JellyTrophy>());
+			recipe.AddIngredient(ItemType<Vanity.BossMask.JellyMask>());
 			recipe.Register();
 		}
 	}

@@ -27,9 +27,14 @@ V0.0.5: Matrix Update
 ~Fixed sprite error of the mod's trophies being held up by nothing. Oops.
 ~Nerfed the entire family of Restoration Potions.
 ~Resprited all the bad-looking relics.
-SLAM ATTACK CANT FOLLOW DM
-
-MATRIX SCAVENGER REWORKS: 75% complete
+~Fixed Dartshark hold offset.
+~Made the sound effects of the Dartshark's April Fools effects even more annoying. Too late?
+~Fixed issue with Adeneb boss checklist entry.
+~Changed some boss checklist boss values slightly.
+~Added punctuation to the end of every boss checklist entry.
+~Fixed issue with Eldritch Jellyfish boss checklist entry not displaying correctly.
+~Expert drops no longer count as collectables on boss checklist.
+~Added Excalipoor as a collectible on Sabur Rex's boss checklist page.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

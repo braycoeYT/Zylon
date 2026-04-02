@@ -56,9 +56,9 @@ namespace Zylon.Projectiles.Blowpipes
 				target.AddBuff(ModContent.BuffType<Buffs.Debuffs.LoberaSoulslash>(), 69);
 			}
         }
-		public override void OnSpawn(IEntitySource source) {
+		/*public override void OnSpawn(IEntitySource source) {
             if (Main.rand.NextBool(4)) SoundEngine.PlaySound(new SoundStyle("Zylon/Sounds/Projectiles/ZylonLoreBasically"));
-        }
+        }*/
         public override void OnKill(int timeLeft) {
 			Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
 		}

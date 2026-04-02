@@ -26,15 +26,7 @@ namespace Zylon.Items.Pets
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemType<Materials.CompanionStone>());
 			recipe.AddIngredient(ItemType<Placeables.Trophies.SaburTrophy>());
-			recipe.AddIngredient(ItemID.IronBroadsword);
-			recipe.AddIngredient(ItemType<Materials.FantasticalFinality>(), 13);
-			recipe.Register();
-
-			recipe = CreateRecipe();
-			recipe.AddIngredient(ItemType<Materials.CompanionStone>());
-			recipe.AddIngredient(ItemType<Placeables.Trophies.SaburTrophy>());
-			recipe.AddIngredient(ItemID.LeadBroadsword);
-			recipe.AddIngredient(ItemType<Materials.FantasticalFinality>(), 13);
+			recipe.AddIngredient(ItemType<Vanity.BossMask.SaburMask>());
 			recipe.Register();
 		}
 	}

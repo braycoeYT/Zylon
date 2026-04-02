@@ -2,6 +2,6 @@ displayName = [c/0000FF:Zy][c/00C6FF:lo][c/00FFA6:n]
 author = Braycoe and Co.
 version = 0.0.4.9
 hideCode = true
-hideResources = true
+hideResources = false
 includeSource = false
 homepage = https://discord.gg/x6G8rKduWc

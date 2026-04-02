@@ -74,10 +74,10 @@ namespace Zylon.Items.Bags
 			Vector2 frameOrigin = frame.Size() / 2f;
 
 			if (glitch) {
-				spriteBatch.Draw(ouch1, position+allOffset+ouch1Offset, null, drawColor, 0f, frameOrigin, 1f, SpriteEffects.None, 0);
-				spriteBatch.Draw(ouch2, position+allOffset+ouch2Offset, null, drawColor, 0f, frameOrigin, 1f, SpriteEffects.None, 0);
+				spriteBatch.Draw(ouch1, position+allOffset+ouch1Offset, null, drawColor, 0f, frameOrigin, 0.8f, SpriteEffects.None, 0);
+				spriteBatch.Draw(ouch2, position+allOffset+ouch2Offset, null, drawColor, 0f, frameOrigin, 0.8f, SpriteEffects.None, 0);
 			}
-			else spriteBatch.Draw(texture, position, null, drawColor, 0f, frameOrigin, 1f, SpriteEffects.None, 0);
+			else spriteBatch.Draw(texture, position, null, drawColor, 0f, frameOrigin, 0.8f, SpriteEffects.None, 0);
 			return false;
         }
         public override void RightClick(Player player) {

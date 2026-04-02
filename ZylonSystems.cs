@@ -895,146 +895,124 @@ namespace Zylon
 			recipe = Recipe.Create(ItemID.MartianPetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.MartianSaucerTrophy);
-			recipe.AddIngredient(ItemID.Ruby, 2);
-			recipe.AddIngredient(ItemID.AsphaltBlock, 20);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.DD2OgrePetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.BossTrophyOgre);
-			recipe.AddRecipeGroup(RecipeGroupID.Wood, 35);
-			recipe.AddIngredient(ItemID.Leather, 4);
+			recipe.AddIngredient(ItemID.BossMaskOgre);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.DestroyerPetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.DestroyerTrophy);
-			recipe.AddRecipeGroup(RecipeGroupID.IronBar, 6);
-			recipe.AddIngredient(ItemID.RottenChunk, 10);
-			recipe.Register();
-
-			recipe = Recipe.Create(ItemID.DestroyerPetItem);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
-			recipe.AddIngredient(ItemID.DestroyerTrophy);
-			recipe.AddRecipeGroup(RecipeGroupID.IronBar, 6);
-			recipe.AddIngredient(ItemID.Vertebrae, 10);
+			recipe.AddIngredient(ItemID.DestroyerMask);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.EaterOfWorldsPetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.EaterofWorldsTrophy);
-			recipe.AddIngredient(ItemID.WormTooth, 12);
-			recipe.AddIngredient(ItemID.RottenChunk, 6);
+			recipe.AddIngredient(ItemID.EaterMask);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.EverscreamPetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.EverscreamTrophy);
-			recipe.AddIngredient(ItemID.PineTreeBlock, 50);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.QueenBeePetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.QueenBeeTrophy);
-			recipe.AddIngredient(ItemID.HoneyBlock, 30);
-			recipe.AddIngredient(ItemID.Stinger, 10);
+			recipe.AddIngredient(ItemID.BeeMask);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.IceQueenPetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.IceQueenTrophy);
-			recipe.AddIngredient(ItemID.IceBlock, 50);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.EnchantedIceCube>(), 20);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.DD2BetsyPetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.BossTrophyBetsy);
-			recipe.AddIngredient(ModContent.ItemType<Items.Bars.HaxoniteBar>(), 10);
-			recipe.AddIngredient(ItemID.LivingFireBlock, 50);
+			recipe.AddIngredient(ItemID.BossMaskBetsy);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.SkeletronPrimePetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.SkeletronPrimeTrophy);
-			recipe.AddRecipeGroup(RecipeGroupID.IronBar, 6);
-			recipe.AddIngredient(ItemID.Bone, 50);
+			recipe.AddIngredient(ItemID.SkeletronMask);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.MoonLordPetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.MoonLordTrophy);
-			recipe.AddIngredient(ItemID.LunarBar, 15);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.NeutronFragment>(), 10);
+			recipe.AddIngredient(ItemID.BossMaskMoonlord);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.LunaticCultistPetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.AncientCultistTrophy);
-			recipe.AddIngredient(ItemID.LunarTabletFragment, 20);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.NeutronFragment>(), 5);
+			recipe.AddIngredient(ItemID.BossMaskCultist);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.PlanteraPetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.PlanteraTrophy);
-			recipe.AddIngredient(ItemID.Vine, 8);
-			recipe.AddIngredient(ItemID.ChlorophyteBar, 10);
+			recipe.AddIngredient(ItemID.PlanteraMask);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.TwinsPetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.RetinazerTrophy);
+			recipe.AddIngredient(ItemID.TwinMask);
+			recipe.Register();
+
+			recipe = Recipe.Create(ItemID.TwinsPetItem);
+			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.SpazmatismTrophy);
-			recipe.AddIngredient(ItemID.Lens, 10);
+			recipe.AddIngredient(ItemID.TwinMask);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.SkeletronPetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.SkeletronTrophy);
-			recipe.AddIngredient(ItemID.Bone, 100);
+			recipe.AddIngredient(ItemID.SkeletronMask);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.KingSlimePetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.KingSlimeTrophy);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.SlimyCore>(), 4);
-			recipe.AddRecipeGroup("Zylon:AnyGoldBar", 3);
+			recipe.AddIngredient(ItemID.KingSlimeMask);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.QueenSlimePetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.QueenSlimeTrophy);
-			recipe.AddIngredient(ItemID.GelBalloon, 100);
-			recipe.AddIngredient(ItemID.CrystalShard, 15);
+			recipe.AddIngredient(ItemID.QueenSlimeMask);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.BrainOfCthulhuPetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.BrainofCthulhuTrophy);
-			recipe.AddIngredient(ModContent.ItemType<Items.Materials.BloodySpiderLeg>(), 12);
-			recipe.AddIngredient(ItemID.Vertebrae, 6);
+			recipe.AddIngredient(ItemID.BrainMask);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.EyeOfCthulhuPetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.EyeofCthulhuTrophy);
-			recipe.AddIngredient(ItemID.DemoniteBar, 5);
-			recipe.AddIngredient(ItemID.Lens, 13);
+			recipe.AddIngredient(ItemID.EyeMask);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.DeerclopsPetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.DeerclopsTrophy);
-			recipe.AddIngredient(ItemID.FlinxFur, 10);
-			recipe.AddIngredient(ItemID.SnowBlock, 20);
+			recipe.AddIngredient(ItemID.DeerclopsMask);
 			recipe.Register();
 
 			recipe = Recipe.Create(ItemID.DukeFishronPetItem);
 			recipe.AddIngredient(ModContent.ItemType<Items.Materials.CompanionStone>());
 			recipe.AddIngredient(ItemID.DukeFishronTrophy);
-			recipe.AddIngredient(ItemID.SharkFin, 8);
-			recipe.AddIngredient(ItemID.Bacon, 2);
+			recipe.AddIngredient(ItemID.DukeFishronMask);
 			recipe.Register();
         }
         public override void PostAddRecipes() {

@@ -31,8 +31,7 @@ namespace Zylon.Items.Pets
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemType<Materials.CompanionStone>());
 			recipe.AddIngredient(ItemType<Placeables.Trophies.DirtballTrophy>());
-			recipe.AddRecipeGroup("Zylon:AnyPHBar", 8);
-			recipe.AddIngredient(ItemID.DirtBlock, 99);
+			recipe.AddIngredient(ItemType<Vanity.BossMask.DirtballMask>());
 			recipe.Register();
 		}
 	}

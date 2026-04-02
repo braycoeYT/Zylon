@@ -39,8 +39,12 @@ namespace Zylon.Items.Blowpipes
 			}
 			Item.rare = ItemRarityID.Orange;
 		}
+		int shootCount;
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback) {
-            if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges) {
+            shootCount++;
+			if (shootCount % 3 == 1) SoundEngine.PlaySound(new SoundStyle("Zylon/Sounds/Projectiles/ZylonLoreBasically"));
+			
+			if (DateTime.Now.Month == 4 && DateTime.Now.Day == 1 && ModContent.GetInstance<ZylonConfig>().aprilFoolsChanges) {
 				Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<Projectiles.Blowpipes.PoopFriendly>(), damage, knockback, Main.myPlayer);
 				return false;
 			}
@@ -50,7 +54,7 @@ namespace Zylon.Items.Blowpipes
             return Main.rand.NextBool(3);
         }
         public override Vector2? HoldoutOffset() {
-			return new Vector2(4, -4);
+			return new Vector2(-12, -4);
 		}
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();

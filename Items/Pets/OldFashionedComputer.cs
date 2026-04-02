@@ -29,8 +29,7 @@ namespace Zylon.Items.Pets
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemType<Materials.CompanionStone>());
 			recipe.AddIngredient(ItemType<Placeables.Trophies.ScavengerTrophy>());
-			recipe.AddIngredient(ItemID.HallowedBar, 15);
-			recipe.AddIngredient(ItemType<Bars.DarkronBar>(), 12);
+			recipe.AddIngredient(ItemType<Vanity.BossMask.ScavengerMask>());
 			recipe.Register();
 		}
 	}
