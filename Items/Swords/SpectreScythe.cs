@@ -26,7 +26,7 @@ namespace Zylon.Items.Swords
 		public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.DeathSickle);
-			recipe.AddIngredient(ItemID.SpectreBar, 12);
+			recipe.AddIngredient(ItemID.Ectoplasm, 15);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

@@ -3925,6 +3925,22 @@ Mods: {
 				Tooltip: ""
 			}
 
+			AdeniteSecurityBlade: {
+				DisplayName: Adenite Security Blade
+				Tooltip: Every third swing releases an electric bolt
+			}
+
+			AlbinoMandiblade: {
+				DisplayName: Albino Mandiblade
+				Tooltip:
+					'''
+					'It reminds you of a time long forgotten'
+					Releases an albino knife after striking a foe
+					The albino knife will aim at a nearby enemy
+					If the albino knife hits an enemy, three shadow knives will also be released
+					'''
+			}
+
 			Bloodshed: {
 				DisplayName: Bloodshed
 				Tooltip:
@@ -3952,11 +3968,6 @@ Mods: {
 			DesertRose: {
 				DisplayName: Desert Rose
 				Tooltip: Rains desert sigils down from the sky
-			}
-
-			AdeniteSecurityBlade: {
-				DisplayName: Adenite Security Blade
-				Tooltip: Every third swing releases an electric bolt
 			}
 
 			Dreadclawtilus: {
@@ -4478,7 +4489,7 @@ Mods: {
 
 			ArchangelsWand: {
 				DisplayName: Archangel's Wand
-				Tooltip: Blasts an accelerating Archangel Shot
+				Tooltip: Blasts an accelerating Archangel Shot that repeatedly splits
 			}
 
 			BlackSwan: {
@@ -5634,6 +5645,9 @@ Mods: {
 			BigZeroOLD.DisplayName: Big Zero O L D
 			BigZeroRed.DisplayName: Big Zero Red
 			BigOneFlip.DisplayName: Big One Flip
+			AlbinoMandibladeProj.DisplayName: Albino Mandiblade Proj
+			AlbinoMandibladeProjInvis.DisplayName: Albino Mandiblade Proj Invis
+			AlbinoMandibladeProj2.DisplayName: Albino Mandiblade Proj2
 		}
 
 		NPCs: {

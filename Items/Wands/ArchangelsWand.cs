@@ -12,7 +12,7 @@ namespace Zylon.Items.Wands
 			Item.staff[Item.type] = true;
 		}
 		public override void SetDefaults() {
-			Item.damage = 51;
+			Item.damage = 63;
 			Item.width = 56;
 			Item.height = 58;
 			Item.DamageType = DamageClass.Magic;
@@ -25,9 +25,9 @@ namespace Zylon.Items.Wands
 			Item.autoReuse = true;
 			Item.useTurn = true;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Wands.ArchangelsWandProj>();
-			Item.shootSpeed = 6f;
+			Item.shootSpeed = 13f;
 			Item.noMelee = true;
-			Item.mana = 10;
+			Item.mana = 11;
 			Item.stack = 1;
 			Item.UseSound = SoundID.NPCHit5;
 		}

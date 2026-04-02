@@ -52,7 +52,7 @@ namespace Zylon.Items.Guns
         public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.StoneBlock, 65);
-			recipe.AddIngredient(ItemID.SpectreBar, 10);
+			recipe.AddIngredient(ItemID.Ectoplasm, 13);
 			recipe.AddTile(TileID.MythrilAnvil);
 			recipe.Register();
 		}

@@ -35,6 +35,11 @@ V0.0.5: Matrix Update
 ~Fixed issue with Eldritch Jellyfish boss checklist entry not displaying correctly.
 ~Expert drops no longer count as collectables on boss checklist.
 ~Added Excalipoor as a collectible on Sabur Rex's boss checklist page.
+~Poltergeist and Spectre Scythe now require Ectoplasm to craft instead of Spectre Bars.
+~Added Albino Mandiblade.
+~Reworked Archangel's Wand.
+
+REWORK ARCHANGEL - SPLITS THREE TIMES, 2 3 4
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:
