@@ -4,8 +4,9 @@ Mod Discord (spoilers, updates, and whatnot): https://discord.gg/x6G8rKduWc
 
 Stats:
 ~520 Items
-~4 Bosses:
+~5 Bosses:
 ~~~3 Prehardmode Bosses [i:2][i:789][i:282]
+~~~1 Hardmode Boss [i:1344]
 ~~~1 Post-Moon Lord Boss [i:5130]
 ~46 total NPCs
 ~Secret seeds: Abyssworld, Autumn, and Turf War.
@@ -32,20 +33,25 @@ V0.0.5: Matrix Update
 ~Fixed issue with Adeneb boss checklist entry.
 ~Changed some boss checklist boss values slightly.
 ~Added punctuation to the end of every boss checklist entry.
-~Fixed issue with Eldritch Jellyfish boss checklist entry not displaying correctly.
+~Fixed issue with the Eldritch Jellyfish boss checklist entry not displaying correctly.
 ~Expert drops no longer count as collectables on boss checklist.
 ~Added Excalipoor as a collectible on Sabur Rex's boss checklist page.
 ~Poltergeist and Spectre Scythe now require Ectoplasm to craft instead of Spectre Bars.
 ~Added Albino Mandiblade.
 ~Reworked Archangel's Wand.
+~Renamed Fabled prefix to Fanciful due to 1.4.5. Why do I always predict something from every new vanilla update?
+~Added Soul of Byte in a Bottle and Grammer.
+~Made all previously unobtainable Matrix Scavenger-related items obtainable now that the boss is finally finished.
 
-REWORK ARCHANGEL - SPLITS THREE TIMES, 2 3 4
+FATAL ERROR
+CODEBREAKER
+GLITCH DEBUFF
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:
 BraycoeYT
 
-Ideas, Sprites, Music, and General Support:
+Zylon 1.4 Devs:
 Skymanisbtman (Composer and Spriter)
 Tome Man (Coder and Spriter)
 

@@ -102,7 +102,7 @@ namespace Zylon
 
 		[Range(0, 100)]
 		[Increment(1)]
-		[DefaultValue(100)]
+		[DefaultValue(50)]
 		[Slider]
 		[Label("Screenshake Amount")]
 		[Tooltip("Changes the amount of all screenshake in the mod. Reccomended for people who have trouble with it.")]

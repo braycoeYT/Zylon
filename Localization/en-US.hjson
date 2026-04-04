@@ -4378,6 +4378,16 @@ Mods: {
 				Tooltip: ""
 			}
 
+			Grammer: {
+				DisplayName: Grammer
+				Tooltip:
+					'''
+					'Well duh, it's obviously short for Great Hammer.'
+					Struck enemies take three extra staggered hits
+					Critical strikes deal two additional staggered hits
+					'''
+			}
+
 			HeavyMetalHammer: {
 				DisplayName: Heavy Metal Hammer
 				Tooltip: ""
@@ -5041,6 +5051,11 @@ Mods: {
 				Tooltip: ""
 				DisplayName: Matrix Scavenger Relic
 			}
+
+			SoulofByteinaBottle: {
+				DisplayName: Soul of Byte in a Bottle
+				Tooltip: ""
+			}
 		}
 
 		Projectiles: {
@@ -5648,6 +5663,7 @@ Mods: {
 			AlbinoMandibladeProj.DisplayName: Albino Mandiblade Proj
 			AlbinoMandibladeProjInvis.DisplayName: Albino Mandiblade Proj Invis
 			AlbinoMandibladeProj2.DisplayName: Albino Mandiblade Proj2
+			GrammerStagger.DisplayName: Grammer Stagger
 		}
 
 		NPCs: {
@@ -5816,7 +5832,7 @@ Mods: {
 			Ultimate.DisplayName: Ultimate
 			Exalted.DisplayName: Exalted
 			Unhesitating.DisplayName: Unhesitating
-			Fabled.DisplayName: Fabled
+			Fanciful.DisplayName: Fanciful
 			Pushy.DisplayName: Pushy
 			Relaxed.DisplayName: Relaxed
 			Aerobic.DisplayName: Aerobic
@@ -5850,6 +5866,7 @@ Mods: {
 			Cerussite.MapEntry: Cerussite
 			HaxoniteOre.MapEntry: Haxonite Ore
 			ZincOre.MapEntry: Zinc Ore
+			SoulofByteinaBottle.MapEntry: Soul of Byte in a Bottle
 		}
 
 		Configs: {

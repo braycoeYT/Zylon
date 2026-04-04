@@ -168,7 +168,7 @@ namespace Zylon.Prefixes
 			
 		}
 	}
-	public class Fabled : ModPrefix //Legendary prefix but for weapons unable to get size modifier
+	public class Fanciful : ModPrefix //Legendary prefix but for weapons unable to get size modifier
 	{
 		public override PrefixCategory Category => PrefixCategory.AnyWeapon;
 		public override float RollChance(Item item) {
