@@ -25,7 +25,7 @@ namespace Zylon.Items.Swords
 			Item.useTurn = true;
 		}
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<AlbinoMandibladeProj>()] < 10 && player.whoAmI == Main.myPlayer)
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<AlbinoMandibladeProj>()] < 10 && player.whoAmI == Main.myPlayer && target.type != NPCID.TargetDummy)
 				Projectile.NewProjectile(player.GetSource_FromThis(), player.Center, Vector2.Zero, ModContent.ProjectileType<AlbinoMandibladeProj>(), (int)(damageDone*0.67f), Item.knockBack, player.whoAmI, target.Center.X, target.Center.Y, target.whoAmI);
 		}
 		public override void AddRecipes() {

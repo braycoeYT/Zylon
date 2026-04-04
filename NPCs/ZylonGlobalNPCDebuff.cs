@@ -28,6 +28,7 @@ namespace Zylon.NPCs
 		public bool gunballBlue;
 		public bool gunballGreen;
 		public bool bleeding;
+		public bool brokenCode;
 		public override void ResetEffects(NPC npc) {
 			heartdaze = false;
 			shroomed = false;
@@ -44,6 +45,7 @@ namespace Zylon.NPCs
 			gunballBlue = false;
 			gunballGreen = false;
 			bleeding = false;
+			brokenCode = false;
 		}
 		public override void UpdateLifeRegen(NPC npc, ref int damage) {
 			if (heartdaze) {
@@ -126,12 +128,20 @@ namespace Zylon.NPCs
 			if (elemDegen) modifiers.Defense *= 0.85f;
 			if (gunballBlue) modifiers.Defense *= 0.75f;
 			if (loberaSlash) modifiers.Defense.Flat -= 20;
+			if (brokenCode) {
+				float val = ((int)(Main.GameUpdateCount%5000/10)+1580+npc.whoAmI*35)*979.6719f; //Faux randomness every 10 frames
+				modifiers.Defense.Flat -= (int)val % 31;
+			}
         }
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers) {
             if (foamDart) modifiers.Defense.Flat -= 15;
 			if (elemDegen) modifiers.Defense *= 0.85f;
 			if (gunballBlue) modifiers.Defense *= 0.75f;
-			if (loberaSlash) modifiers.Defense.Flat -= 25;
+			if (loberaSlash) modifiers.Defense.Flat -= 20;
+			if (brokenCode) {
+				float val = ((int)(Main.GameUpdateCount%5000/10)+1580+npc.whoAmI*35)*979.6719f; //Faux randomness every 10 frames
+				modifiers.Defense.Flat -= (int)val % 31;
+			}
         }
         public override void ModifyHitPlayer(NPC npc, Player target, ref Player.HurtModifiers modifiers) {
             if (gunballRed) modifiers.FinalDamage *= 0.75f;

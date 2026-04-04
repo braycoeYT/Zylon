@@ -21,7 +21,35 @@ namespace Zylon.Items.Tools
 			Item.autoReuse = true;
 			Item.hammer = 59;
 		}
-		public override void AddRecipes() {
+		int boostNum;
+        public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone) {
+			if (target.type != NPCID.TargetDummy) {
+				boostCheck = 0;
+				boostNum = 7;
+				Item.useTime = 6;
+				Item.useAnimation = 20;
+			}
+        }
+        public override void UseAnimation(Player player) {
+            boostNum--;
+			if (boostNum <= 0) {
+				Item.useTime = 16;
+				Item.useAnimation = 40;
+			}
+        }
+		int boostCheck;
+        public override void UpdateInventory(Player player) {
+            if (boostNum > 0) {
+				boostCheck++;
+				if (boostCheck > 120) {
+					boostCheck = 0;
+					boostNum = 0;
+					Item.useTime = 16;
+					Item.useAnimation = 40;
+				}
+			}
+        }
+        public override void AddRecipes() {
 			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.IronHammer);
 			recipe.AddRecipeGroup("IronBar", 8);

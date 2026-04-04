@@ -42,10 +42,11 @@ V0.0.5: Matrix Update
 ~Renamed Fabled prefix to Fanciful due to 1.4.5. Why do I always predict something from every new vanilla update?
 ~Added Soul of Byte in a Bottle and Grammer.
 ~Made all previously unobtainable Matrix Scavenger-related items obtainable now that the boss is finally finished.
-
-FATAL ERROR
-CODEBREAKER
-GLITCH DEBUFF
+~Buffed Wand of Kindling.
+~Reworked Heavy Metal Hammer.
+~Fixed a small bug with Matilda, and it now requires Shadow Scales to craft.
+~Reworked Adenite Security weapons.
+~Readded Fatal Error.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

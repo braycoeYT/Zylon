@@ -21,7 +21,12 @@ namespace Zylon.Projectiles
 			Projectile.ignoreWater = true;
 			AIType = ProjectileID.Bullet;
 		}
-		bool init;
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+            if (Main.myPlayer == Projectile.owner)
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, Vector2.Zero, ModContent.ProjectileType<ElectricBoltEffect>(), 1, 0f, Projectile.owner, target.whoAmI, type, hit.HitDirection);
+        }
+		int type;
+        bool init;
 		public override void AI() {
 			if (!init) switch (Projectile.ai[0]) {
 				case 0f: Projectile.DamageType = DamageClass.Melee;
@@ -32,7 +37,9 @@ namespace Zylon.Projectiles
 					return;
 				case 3f: Projectile.DamageType = DamageClass.Summon;
 					return;
+				
             }
+			if (!init) type = (int)Projectile.ai[0];
 			init = true;
 			if (++Projectile.frameCounter >= 4) {
 				Projectile.frameCounter = 0;

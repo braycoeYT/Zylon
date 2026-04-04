@@ -13,8 +13,9 @@ namespace Zylon.Buffs.Debuffs
 			Main.buffNoSave[Type] = true;
 			BuffID.Sets.LongerExpertDebuff[Type] = true;
         }
-        public override void Update(Player player, ref int buffIndex) {
-            //player.GetModPlayer<ZylonPlayer>().brokenCode = true;
-		}
+        public override void Update(NPC npc, ref int buffIndex) {
+            if (!npc.boss) npc.Center += new Vector2(Main.rand.Next(-2, 3), Main.rand.Next(-2, 3));
+            npc.GetGlobalNPC<NPCs.ZylonGlobalNPCDebuff>().brokenCode = true;
+        }
     }
 }

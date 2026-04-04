@@ -24,7 +24,7 @@ namespace Zylon.Items.MagicGuns
 			Item.shoot = ModContent.ProjectileType<Projectiles.ElectricBoltPassive>();
 			Item.shootSpeed = 10f;
 			Item.noMelee = true;
-			Item.mana = 6;
+			Item.mana = 9;
 			Item.UseSound = SoundID.Item91;
 		}
         public override void UpdateInventory(Player player) {

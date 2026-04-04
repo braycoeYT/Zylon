@@ -2977,7 +2977,11 @@ Mods: {
 
 			AdeniteSecurityHandgun: {
 				DisplayName: Adenite Security Handgun
-				Tooltip: Every third shot is converted to an electric bolt that deals extra damage
+				Tooltip:
+					'''
+					Every third shot is converted to an electric bolt that deals extra damage
+					On contact, electric bolts electricute enemies for a short period
+					'''
 			}
 
 			AmethystPistol: {
@@ -3157,7 +3161,11 @@ Mods: {
 
 			AdeniteSecurityElectrifier: {
 				DisplayName: Adenite Security Electrifier
-				Tooltip: Every third shot fires a bolt that explodes into electricity
+				Tooltip:
+					'''
+					Every third shot fires a bolt that explodes into electricity
+					On contact, electric bolts electricute enemies for a short period
+					'''
 			}
 
 			EerieGlove: {
@@ -3868,7 +3876,7 @@ Mods: {
 
 			BigOne: {
 				DisplayName: Big One
-				Tooltip: ""
+				Tooltip: Direct hits cause an enemy to glitch out and lose defense
 			}
 
 			CarnalliteTrident: {
@@ -3927,7 +3935,11 @@ Mods: {
 
 			AdeniteSecurityBlade: {
 				DisplayName: Adenite Security Blade
-				Tooltip: Every third swing releases an electric bolt
+				Tooltip:
+					'''
+					Every third swing releases an electric bolt
+					On contact, electric bolts electricute enemies for a short period
+					'''
 			}
 
 			AlbinoMandiblade: {
@@ -4281,6 +4293,15 @@ Mods: {
 					'''
 			}
 
+			FatalError: {
+				DisplayName: Fatal Error
+				Tooltip:
+					'''
+					'You're missing a semicolon.'
+					Fires massive zeroes that decompose into erratic pixels after some time
+					'''
+			}
+
 			NeedleSpitter: {
 				DisplayName: Needle Spitter
 				Tooltip:
@@ -4390,7 +4411,7 @@ Mods: {
 
 			HeavyMetalHammer: {
 				DisplayName: Heavy Metal Hammer
-				Tooltip: ""
+				Tooltip: Temporarily swings and hammers faster after striking an enemy
 			}
 
 			Matilda: {
@@ -5664,6 +5685,9 @@ Mods: {
 			AlbinoMandibladeProjInvis.DisplayName: Albino Mandiblade Proj Invis
 			AlbinoMandibladeProj2.DisplayName: Albino Mandiblade Proj2
 			GrammerStagger.DisplayName: Grammer Stagger
+			ElectricBoltEffect.DisplayName: Electric Bolt Effect
+			FatalErrorProj2.DisplayName: Fatal Error Proj2
+			FatalErrorProj.DisplayName: Fatal Error Proj
 		}
 
 		NPCs: {

@@ -9,7 +9,6 @@ namespace Zylon.Projectiles.MagicGuns
 	public class ElectricBoltPassiveExplode : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Electric Bolt");
 			Main.projFrames[Projectile.type] = 4;
         }
 		public override void SetDefaults() {
@@ -34,6 +33,10 @@ namespace Zylon.Projectiles.MagicGuns
             }
 			Projectile.ai[0] = 0f;
 		}
+		public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
+            if (Main.myPlayer == Projectile.owner) //Damage class here is hard coded bc this is not being used for anything else.
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center, Vector2.Zero, ModContent.ProjectileType<ElectricBoltEffect>(), 1, 0f, Projectile.owner, target.whoAmI, 2f, hit.HitDirection);
+        }
 		public override void AI() {
 			if (++Projectile.frameCounter >= 4) {
 				Projectile.frameCounter = 0;

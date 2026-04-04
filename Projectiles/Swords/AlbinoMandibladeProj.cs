@@ -26,7 +26,7 @@ namespace Zylon.Projectiles.Swords
 			Projectile.localNPCHitCooldown = 10;
 		}
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-            if (!hitEnemy && Projectile.owner == Main.myPlayer && Main.player[Projectile.owner].ownedProjectileCounts[ModContent.ProjectileType<AlbinoMandibladeProjInvis>()] < 5) {
+            if (!hitEnemy && Projectile.owner == Main.myPlayer && target.type != NPCID.TargetDummy && Main.player[Projectile.owner].ownedProjectileCounts[ModContent.ProjectileType<AlbinoMandibladeProjInvis>()] < 5) {
 				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, ModContent.ProjectileType<AlbinoMandibladeProjInvis>(), Projectile.damage/2, Projectile.knockBack/2, Projectile.owner, Projectile.Center.X, Projectile.Center.Y, Projectile.ai[2]);
 				hitEnemy = true;
 			}

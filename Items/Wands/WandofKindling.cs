@@ -12,7 +12,7 @@ namespace Zylon.Items.Wands
             Item.staff[Item.type] = true;
         }
         public override void SetDefaults() {
-			Item.damage = 18;
+			Item.damage = 21;
 			Item.DamageType = DamageClass.Magic;
 			Item.width = 42;
 			Item.height = 46;
