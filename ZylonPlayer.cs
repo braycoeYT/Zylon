@@ -108,6 +108,7 @@ namespace Zylon
 		public bool darkAbsolution;
 		public bool darkronSetBonus;
 		public bool codebreaker;
+		public bool openWounds;
 
 		public float critExtraDmg;
 		public int critCount;
@@ -239,6 +240,7 @@ namespace Zylon
 			darkAbsolution = false;
 			darkronSetBonus = false;
 			codebreaker = false;
+			openWounds = false;
 
 			blowpipeMaxInc = 0;
 			blowpipeChargeInc = 0;
@@ -873,6 +875,10 @@ namespace Zylon
 					dust.scale = 1.5f;
 					dust.velocity = new Vector2(0, -10).RotatedBy(MathHelper.ToRadians(36*i));
 				}
+			}
+
+			if (openWounds) {
+				modifiers.FinalDamage *= 1.2f;
 			}
         }
         public override void OnHitByNPC(NPC npc, Player.HurtInfo hurtInfo) {

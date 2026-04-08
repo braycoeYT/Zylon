@@ -3,7 +3,7 @@ A content mod I've been developing on and off since January 2020. Some cool stuf
 Mod Discord (spoilers, updates, and whatnot): https://discord.gg/x6G8rKduWc
 
 Stats:
-~520 Items
+~525 Items
 ~5 Bosses:
 ~~~3 Prehardmode Bosses [i:2][i:789][i:282]
 ~~~1 Hardmode Boss [i:1344]
@@ -47,6 +47,15 @@ V0.0.5: Matrix Update
 ~Fixed a small bug with Matilda, and it now requires Shadow Scales to craft.
 ~Reworked Adenite Security weapons.
 ~Readded Fatal Error.
+~Resprited and reworked Heartbreaker.
+~Reworked Bloodshed.
+~Ore Tour no longer has Zinc in its projectile cycle.
+~Removed Stone tools.
+~Replaced HBDeus's Greatsword with Calcite Supreme. I'm so sorry reworking this weapon took me this long to do.
+~Fixed issue with Shadow Moon shooting the wrong projectile. How long has this been in the mod code?
+~Resprited Blood Butler.
+~Rebalanced all of the dev weapons to be approximately the same level of power(?). It's tougher than it sounds.
+~All dev weapons now have the same sell price.
 
 Credits (from the previous mod versions and now):
 Ex-Ex-Owner:

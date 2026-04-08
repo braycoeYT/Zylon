@@ -141,9 +141,6 @@ namespace Zylon.Projectiles.Flails
 							Projectile.netUpdate = true;
 							Projectile.velocity *= 0.2f;
 							float rand = MathHelper.ToRadians(Main.rand.NextFloat(24f));
-							if (Main.myPlayer == Projectile.owner) for (int x = 0; x < 15; x++) {
-								Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 3).RotatedBy(MathHelper.ToRadians(x*24)+rand), ModContent.ProjectileType<TheArchangelProj>(), Projectile.damage/4, Projectile.knockBack/2, Projectile.owner);
-                            }
 							break;
 						}
 						if (shouldSwitchToRetracting)
@@ -153,9 +150,6 @@ namespace Zylon.Projectiles.Flails
 							Projectile.netUpdate = true;
 							Projectile.velocity *= 0.3f;
 							float rand = MathHelper.ToRadians(Main.rand.NextFloat(24f));
-							if (Main.myPlayer == Projectile.owner) for (int x = 0; x < 15; x++) {
-								Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(0, 3).RotatedBy(MathHelper.ToRadians(x*24)+rand), ModContent.ProjectileType<TheArchangelProj>(), Projectile.damage/4, Projectile.knockBack/2, Projectile.owner);
-                            }
 						}
 						player.ChangeDir((player.Center.X < Projectile.Center.X) ? 1 : (-1));
 						Projectile.localNPCHitCooldown = movingHitCooldown;

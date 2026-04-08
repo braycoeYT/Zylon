@@ -496,6 +496,11 @@ Mods: {
 				DisplayName: Cero and Uni
 				Description: Their code was left unfinished...
 			}
+
+			OpenWounds: {
+				Description: Mods.Zylon.Buffs.OpenWounds.Description
+				DisplayName: Open Wounds
+			}
 		}
 
 		Items: {
@@ -3958,13 +3963,26 @@ Mods: {
 				Tooltip:
 					'''
 					'There will be'
-					Spawns four blood orbs after striking a foe
+					Striking enemies opens wounds for a short time
+					Enemies with open wounds take 20% more damage and double knockback from all damage sources
+					Critical strikes from this weapon on enemies with open wounds releases damaging blood
 					'''
 			}
 
 			BloodyZombieArm: {
 				DisplayName: Bloody Zombie Arm
 				Tooltip: Inflicts Zombie Rot upon hitting enemies, which can be spread to other nearby enemies
+			}
+
+			CalciteSupreme: {
+				DisplayName: Calcite Supreme
+				Tooltip:
+					'''
+					Every enemy strike summons Calcite Greatblades to track down enemies
+					On collision, the Calcite Greatblades release friendly bouncy boulders
+					Killing an enemy with a true melee strike releases a motherload of friendly bouncy boulders
+					Bouncy boulders and true melee strikes have a chance to confuse struck enemies
+					'''
 			}
 
 			CarnalliteCutlass: {
@@ -4030,18 +4048,14 @@ Mods: {
 				Tooltip: Every other swing fires a splitting short range snowflake bolt
 			}
 
-			HBDeusGreatsword: {
-				DisplayName: HBDeus's Greatsword
-				Tooltip: Surrounds the cursor with shattered swords
-			}
-
 			Heartbreaker: {
 				DisplayName: Heartbreaker
 				Tooltip:
 					'''
 					'Don't go breaking my heart'
 					All true melee attacks leech life
-					Shoots life crystals
+					Has a 1% chance to steal an extreme amount of HP from an enemy
+					Every 10 HP healed summons a life crystal to attack enemies
 					'''
 			}
 
@@ -5688,6 +5702,9 @@ Mods: {
 			ElectricBoltEffect.DisplayName: Electric Bolt Effect
 			FatalErrorProj2.DisplayName: Fatal Error Proj2
 			FatalErrorProj.DisplayName: Fatal Error Proj
+			BloodshedProj.DisplayName: Bloodshed Proj
+			CalciteSupremeBoulder.DisplayName: Calcite Supreme Boulder
+			CalciteSupremeProj.DisplayName: Calcite Supreme Proj
 		}
 
 		NPCs: {

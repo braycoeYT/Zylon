@@ -16,7 +16,7 @@ namespace Zylon.Items.Guns
 			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.useAnimation = 8;
 			Item.useTime = 4;
-			Item.damage = 68; //68
+			Item.damage = 76;
 			Item.width = 86;
 			Item.height = 32;
 			Item.knockBack = 4f;
@@ -28,6 +28,7 @@ namespace Zylon.Items.Guns
 			Item.UseSound = SoundID.Item36;
 			Item.autoReuse = true;
 			Item.rare = ModContent.RarityType<SkymanisbtmanDev>();
+			Item.value = Item.sellPrice(1);
 		}
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
             Vector2 temp = Vector2.Normalize(velocity.RotatedBy(MathHelper.PiOver2));

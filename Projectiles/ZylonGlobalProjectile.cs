@@ -161,6 +161,14 @@ namespace Zylon.Projectiles
 				if (foundTarget && distanceFromTarget < origDist) projectile.velocity = Vector2.Normalize(targetCenter - projectile.Center) * projSpeed;
 			}
         }
+        public override void ModifyHitNPC(Projectile projectile, NPC target, ref NPC.HitModifiers modifiers) {
+            if (target.HasBuff(BuffType<Buffs.Debuffs.OpenWounds>()))
+				modifiers.Knockback *= 2f;
+        }
+        public override void ModifyHitPlayer(Projectile projectile, Player target, ref Player.HurtModifiers modifiers) {
+            if (target.HasBuff(BuffType<Buffs.Debuffs.OpenWounds>()))
+				modifiers.Knockback *= 2f;
+        }
         public override void OnHitNPC(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone) {
 			if (target.type == NPCType<NPCs.Bosses.Dirtball.DirtBlock>()) { //target.type == NPCType<NPCs.Bosses.Metelord.MetelordHead>() || target.type == NPCType<NPCs.Bosses.Metelord.MetelordBody>() || target.type == NPCType<NPCs.Bosses.Metelord.MetelordTail>() || 
 				if ((projectile.DamageType != DamageClass.Summon && projectile.DamageType != DamageClass.MagicSummonHybrid && projectile.aiStyle != 19) || projectile.type == ProjectileType<Minions.DirtBlockExp>())

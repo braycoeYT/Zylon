@@ -22,7 +22,7 @@ namespace Zylon.Projectiles.Swords
 		bool init;
         public override void AI() {
 			if (!init) {
-				for (int i = 0; i < 9; i++)
+				for (int i = 0; i < 8; i++)
 					ProjectileHelpers.NewNetProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(), ModContent.ProjectileType<OreTourProjRotate>(), (int)(Projectile.damage*0.75f), Projectile.knockBack/3, Projectile.owner, Projectile.whoAmI, i);
 				init = true; //remove this for absolute chaos
 			}

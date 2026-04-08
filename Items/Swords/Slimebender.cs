@@ -14,7 +14,7 @@ namespace Zylon.Items.Swords
 	public class Slimebender : ModItem
 	{
 		public override void SetDefaults() {
-			Item.damage = 248;
+			Item.damage = 202;
 			Item.DamageType = DamageClass.Melee;
 			Item.width = 92;
 			Item.height = 92;
@@ -22,7 +22,7 @@ namespace Zylon.Items.Swords
 			Item.useAnimation = 28;
 			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 5.5f;
-			Item.value = Item.sellPrice(0, 35);
+			Item.value = Item.sellPrice(1);
 			Item.rare = ModContent.RarityType<BraycoeDev>();
 			Item.UseSound = SoundID.Item1;
 			Item.autoReuse = true;

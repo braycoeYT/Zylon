@@ -19,12 +19,6 @@ namespace Zylon.Projectiles.Spears
 			Projectile.width = 70;
 			Projectile.height = 70;
 		}
-        public override void OnHitPlayer(Player target, Player.HurtInfo info) {
-            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrokenCode>(), Main.rand.Next(8, 12)*60);
-        }
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
-            target.AddBuff(ModContent.BuffType<Buffs.Debuffs.BrokenCode>(), Main.rand.Next(8, 12)*60);
-        }
         public override void SpearInThrustSwing() {
 			if (Duration == (ThrustFrames/2)) {
 				Vector2 speed = Vector2.Normalize(Projectile.velocity);

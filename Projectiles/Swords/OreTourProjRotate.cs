@@ -9,8 +9,7 @@ namespace Zylon.Projectiles.Swords
 	public class OreTourProjRotate : ModProjectile
 	{
         public override void SetStaticDefaults() {
-			// DisplayName.SetDefault("Ore Tour");
-			Main.projFrames[Projectile.type] = 9;
+			Main.projFrames[Projectile.type] = 8;
         }
 		public override void SetDefaults() {
 			Projectile.width = 16;
@@ -36,14 +35,14 @@ namespace Zylon.Projectiles.Swords
 				Projectile.penetrate = 1;
 				Projectile.rotation += 0.04f;
 				if (Timer > 20) Projectile.tileCollide = true;
-				Projectile.velocity = new Vector2(0, -8).RotatedBy(MathHelper.ToRadians((360/9*Projectile.ai[1])+rot));
+				Projectile.velocity = new Vector2(0, -8).RotatedBy(MathHelper.ToRadians((360/8*Projectile.ai[1])+rot));
 				return;
             }
 			Projectile.frame = (int)Projectile.ai[1];
 			rot += 2;
 			Projectile main = Main.projectile[(int)Projectile.ai[0]];
 			Projectile.rotation += 0.02f;
-			Projectile.Center = main.Center - new Vector2(0, 32).RotatedBy(MathHelper.ToRadians((360/9*Projectile.ai[1])+rot));
+			Projectile.Center = main.Center - new Vector2(0, 32).RotatedBy(MathHelper.ToRadians((360/8*Projectile.ai[1])+rot));
 			if (main.active == false) dead = true;
         }
 		public override void OnKill(int timeLeft) {

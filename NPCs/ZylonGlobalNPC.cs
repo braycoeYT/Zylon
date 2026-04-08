@@ -324,7 +324,7 @@ namespace Zylon.NPCs
 				shop.Add(new Item(ItemType<Items.Accessories.ContinuumWarper>()));
 			}
 			if (shop.NpcType == 633) { //Zoologist
-				shop.Add(new Item(ItemType<Items.Materials.CompanionStone>()));
+				shop.Add<Items.Materials.CompanionStone>(Condition.BestiaryFilledPercent(13));
 			}
         }
         public override void SetupTravelShop(int[] shop, ref int nextSlot) {

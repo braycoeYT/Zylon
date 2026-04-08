@@ -307,6 +307,14 @@ namespace Zylon.Items
 				p.CHECK_BandofRegen = true;
 			}
 		}
+        public override void ModifyHitNPC(Item item, Player player, NPC target, ref NPC.HitModifiers modifiers) {
+            if (target.HasBuff(BuffType<Buffs.Debuffs.OpenWounds>()))
+				modifiers.Knockback *= 2f;
+        }
+        public override void ModifyHitPvp(Item item, Player player, Player target, ref Player.HurtModifiers modifiers) {
+            if (target.HasBuff(BuffType<Buffs.Debuffs.OpenWounds>()))
+				modifiers.Knockback *= 2f;
+        }
         public override void RightClick(Item item, Player player) {
             if (item.type == ItemID.KingSlimeBossBag) {
 				if (Main.rand.NextBool(3)) player.QuickSpawnItem(item.GetSource_FromThis(), ItemID.GoldCrown);

@@ -29,6 +29,7 @@ namespace Zylon.NPCs
 		public bool gunballGreen;
 		public bool bleeding;
 		public bool brokenCode;
+		public bool openWounds;
 		public override void ResetEffects(NPC npc) {
 			heartdaze = false;
 			shroomed = false;
@@ -46,6 +47,7 @@ namespace Zylon.NPCs
 			gunballGreen = false;
 			bleeding = false;
 			brokenCode = false;
+			openWounds = false;
 		}
 		public override void UpdateLifeRegen(NPC npc, ref int damage) {
 			if (heartdaze) {
@@ -132,6 +134,9 @@ namespace Zylon.NPCs
 				float val = ((int)(Main.GameUpdateCount%5000/10)+1580+npc.whoAmI*35)*979.6719f; //Faux randomness every 10 frames
 				modifiers.Defense.Flat -= (int)val % 31;
 			}
+			if (openWounds) { //Knockback is done in other places.
+				modifiers.ScalingBonusDamage += 0.2f;
+			}
         }
         public override void ModifyHitByProjectile(NPC npc, Projectile projectile, ref NPC.HitModifiers modifiers) {
             if (foamDart) modifiers.Defense.Flat -= 15;
@@ -141,6 +146,9 @@ namespace Zylon.NPCs
 			if (brokenCode) {
 				float val = ((int)(Main.GameUpdateCount%5000/10)+1580+npc.whoAmI*35)*979.6719f; //Faux randomness every 10 frames
 				modifiers.Defense.Flat -= (int)val % 31;
+			}
+			if (openWounds) { //Knockback is done in other places.
+				modifiers.ScalingBonusDamage += 0.2f;
 			}
         }
         public override void ModifyHitPlayer(NPC npc, Player target, ref Player.HurtModifiers modifiers) {
